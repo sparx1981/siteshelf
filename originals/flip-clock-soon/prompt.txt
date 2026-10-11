@@ -1,0 +1,11 @@
+Canvas & base: A full-height page on #efe9dc (paper) with ink #231f1a, secondary #6e665a, accent orange #f26a1b. A midnight theme swaps to #121316 with ink #f1ede4 and accent #ffb347. Flip cards are #2a2723 with #fff8e8 digits and a 2px centre seam. Invented brand "Hourglass & Hearth" opening a candle shop.
+
+Typography: "Bebas Neue" for digits (clamp(64px,13vw,150px)) and headline; "Work Sans" (400,500,600) for body at 17px.
+
+Layout: Centred composition: small logo, eyebrow "Opening 14 November", big headline "The shop opens in", a row of four flip units (Days, Hours, Minutes, Seconds) each made of two digit cards with a label beneath, a launch progress bar with percentage, a notify form (email input and button), social links row and a theme toggle in the top-right corner.
+
+Interaction: Countdown targets a fixed future date computed relative to today so the demo always has time left (e.g. 37 days ahead at 09:00). Each digit flips with a 3D rotateX animation (top half folds down, bottom half unfolds) only when its value changes; seconds flip every second. Pauses updates when the tab is hidden and resyncs on return. When time hits zero it shows "We're open!" The progress bar fills based on elapsed time since a start date 90 days before target. The form validates the email, shows a confirmation with a "Notify another" link and stores nothing. The theme toggle is a switch with aria-checked and respects prefers-color-scheme initially. Reduced motion replaces flips with an instant change and fade.
+
+Responsive: Units shrink with clamp; the form stacks under 480px; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Announce the countdown only on request (aria-live off for the ticking digits; give a visually hidden summary updated every minute). Visible focus, invented names only.

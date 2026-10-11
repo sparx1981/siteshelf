@@ -1,0 +1,11 @@
+Canvas & base: A tinted section on #eef2ff with a large decorative quotation mark in #c7d2fe, white quote card (24px radius, shadow 0 20px 50px rgba(67,56,202,.12)), ink #1e1b4b, secondary #6366a0, accent indigo #4f46e5. Invented product "Beacon CRM".
+
+Typography: "Newsreader" (400,500, italic) for quotes at clamp(22px,3.2vw,34px); "Plus Jakarta Sans" (500,700) for names and UI.
+
+Layout: Centred heading "Teams that grew with Beacon". A carousel region containing one visible quote slide at a time with: five-star row, quote text, avatar, name, role and company, and a result chip ("+38% pipeline"). Under the card a row of five avatar buttons (the active one enlarged with a progress ring), previous and next arrow buttons, a play/pause button and a "2 / 5" counter. Beneath, a strip of six invented company wordmarks.
+
+Interaction: Auto-advance every 6s with a progress ring around the active avatar; pause on hover, focus-within, when the tab is hidden, via the pause button, and always when reduced motion is on. Arrow keys on the avatar tablist, buttons and swipe left/right change slides with a horizontal slide + fade transition. The region is aria-roledescription="carousel" with slides labelled "1 of 5"; changing slides announces via aria-live only when paused or manually navigated (off while auto-playing). Clicking an avatar jumps and stops auto-play.
+
+Responsive: Avatars shrink and wrap; card padding reduces; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, invented names only.

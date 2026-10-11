@@ -1,0 +1,11 @@
+Canvas & base: A dark developer tool on #0f1115 with panels #171a21 (1px #272c36 border, 12px radius), ink #e6e9ef, secondary #8b93a3, accent cyan #38bdf8, string green #86efac, number amber #fbbf24, boolean violet #c4b5fd, null grey #9ca3af, key #7dd3fc, error red #fb7185. Invented tool "Bracewell".
+
+Typography: "JetBrains Mono" (400,500) for editor and tree at 13.5px; "Inter" (500,600,700) for UI at 14px.
+
+Layout: Top bar with logo, sample select (User, Order, Config, Broken), and buttons Format, Minify, Sort keys, Copy, Clear. Two panels side by side: an input textarea with line numbers (gutter synced to scroll) and a result panel with tabs Tree / Pretty / Stats. Below the result a status bar showing validity (green tick or red error with line and column), size in bytes, key count and depth, and a breadcrumb path for the hovered or focused node.
+
+Interaction: Input is parsed live (debounced 200ms). Invalid JSON shows the error message and highlights the line in the gutter, with a "Jump to error" button that moves the caret. Tree nodes are expandable via buttons with aria-expanded, show item counts for objects and arrays, and a "Expand all / Collapse all" control; arrow keys move between nodes with Left/Right to collapse/expand (treeview pattern). Clicking a key copies its JSONPath ($.user.address[0].city) and shows a toast. Search filters and highlights keys and values and auto-expands matches. Format uses 2-space indent, Minify removes whitespace, Sort keys sorts recursively. Large inputs are limited to 200 KB with a warning.
+
+Responsive: Panels stack below 900px; toolbar wraps; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented data only.

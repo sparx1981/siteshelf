@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Accordion Variants — Components</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#101828;--mut:#667085;--ac:#0e9384;--tint:#ecfdf9;--bd:#e4e7ec}
+*{box-sizing:border-box}
+body{margin:0;background:#f8f9fb;color:var(--ink);font:400 15px/1.55 Inter,system-ui,sans-serif;padding:34px 16px 70px}
+:focus-visible{outline:3px solid #5eead4;outline-offset:2px;border-radius:8px}
+.w{max-width:820px;margin:0 auto}
+h1{font:700 28px/1.2 Inter;margin:0 0 4px}.lead{color:var(--mut);margin:0 0 20px}
+.demo{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:20px;margin-bottom:18px}
+.demo>h2{font:700 12px Inter;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:0 0 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.tg{border:1px solid var(--bd);background:#fff;border-radius:8px;padding:6px 12px;font:600 13px Inter;cursor:pointer;min-height:36px;text-transform:none;letter-spacing:0;color:var(--ink)}
+.tg:hover{background:var(--tint)}
+.acc h3{margin:0;font:inherit}
+.hd{width:100%;display:flex;align-items:center;gap:12px;text-align:left;background:none;border:0;cursor:pointer;font:600 16px Inter;color:var(--ink);padding:16px 0;min-height:52px}
+.hd .t{flex:1;min-width:0}
+.hd small{display:block;font-weight:400;color:var(--mut);font-size:13.5px;margin-top:2px}
+.pn{overflow:hidden;height:0;transition:height .3s ease}
+.pn>div{padding:0 0 18px;color:#475467}
+.pn p{margin:0 0 8px}
+/* classic */
+.c1 .it{border-bottom:1px solid var(--bd)}.c1 .it:first-child{border-top:1px solid var(--bd)}
+.pm{width:22px;height:22px;position:relative;flex:none}
+.pm::before,.pm::after{content:"";position:absolute;left:4px;right:4px;top:10px;height:2px;background:var(--ac);border-radius:2px;transition:transform .25s}
+.pm::after{transform:rotate(90deg)}
+.hd[aria-expanded=true] .pm::after{transform:rotate(0)}
+/* cards */
+.c2 .it{border:1px solid var(--bd);border-radius:14px;margin-bottom:10px;padding:0 16px;transition:border-color .2s,box-shadow .2s}
+.c2 .it:has([aria-expanded=true]){border-color:#99e0d6;box-shadow:0 6px 18px rgba(14,147,132,.08);background:#fcfffe}
+.ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:18px;flex:none}
+.ch{width:10px;height:10px;border-right:2px solid var(--mut);border-bottom:2px solid var(--mut);transform:rotate(45deg);transition:transform .25s;flex:none;margin:0 6px 4px}
+.hd[aria-expanded=true] .ch{transform:rotate(225deg);margin-bottom:-4px}
+/* nested */
+.c3 .it{border-bottom:1px solid var(--bd)}
+.c3 .inner{background:#f8f9fb;border-radius:12px;padding:4px 14px;margin-bottom:14px}
+.c3 .inner .hd{font-size:14.5px;padding:12px 0;min-height:44px}
+.c3 .inner .it{border-bottom:1px solid var(--bd)}.c3 .inner .it:last-child{border:0}
+/* exclusive */
+.c4 .it{border-radius:12px;background:#f8f9fb;margin-bottom:8px;padding:0 16px}
+.c4 .hd[aria-expanded=true]{color:var(--ac)}
+.bd{background:var(--tint);color:#0b6e63;border-radius:99px;font:700 12px Inter;padding:2px 10px}
+/* settings */
+.c5 .it{border:1px solid var(--bd);border-radius:14px;margin-bottom:10px;padding:0 16px;transition:opacity .25s}
+.c5 .it.off{opacity:.6;background:#f8f9fb}
+.c5 .row{display:flex;align-items:center;gap:8px}
+.c5 .row h3{flex:1;min-width:0}
+.sw{width:44px;height:26px;border-radius:99px;border:0;background:#d0d5dd;position:relative;cursor:pointer;flex:none;transition:background .2s}
+.sw::after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s}
+.sw[aria-checked=true]{background:var(--ac)}.sw[aria-checked=true]::after{transform:translateX(18px)}
+.opt{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px dashed var(--bd);font-size:14.5px;align-items:center}
+.opt select{border:1px solid var(--bd);border-radius:8px;padding:6px 8px;font:500 14px Inter;min-height:36px}
+.status{margin-top:10px;color:var(--mut);font-size:13.5px;min-height:20px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="w">
+<h1>Accordions</h1><p class="lead">Quartz UI · five patterns, one keyboard model.</p>
+<section class="demo"><h2>1 · Classic <button class="tg" id="ea" aria-pressed="false">Expand all</button></h2><div class="acc c1" id="a1"></div></section>
+<section class="demo"><h2>2 · Card style</h2><div class="acc c2" id="a2"></div></section>
+<section class="demo"><h2>3 · Nested</h2><div class="acc c3" id="a3"></div></section>
+<section class="demo"><h2>4 · Exclusive group <span class="bd" id="cb">0 open</span></h2><div class="acc c4" id="a4"></div></section>
+<section class="demo"><h2>5 · Settings</h2><div class="acc c5" id="a5"></div><div class="status" id="st" role="status"></div></section>
+</div>
+<script>
+const $=s=>document.querySelector(s),mk=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+let uid=0;const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function item(title,sub,body,o={}){ // returns {el,hd,pn,set}
+ const id='ac'+(++uid),it=mk('div','it');const h=mk('h3');const b=mk('button','hd');b.id=id+'h';b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls',id+'p');
+ if(o.icon){const ic=mk('span','ic',o.icon[0]);ic.style.background=o.icon[1];ic.setAttribute('aria-hidden','true');b.append(ic)}
+ const t=mk('span','t');t.append(document.createTextNode(title));if(sub)t.append(mk('small',null,sub));b.append(t);
+ if(o.badge)b.append(mk('span','bd',o.badge));
+ b.append(mk('span',o.plus?'pm':'ch'));if(o.plus||true)b.lastChild.setAttribute('aria-hidden','true');
+ h.append(b);const pn=mk('div','pn');pn.id=id+'p';pn.setAttribute('role','region');pn.setAttribute('aria-labelledby',b.id);const inn=mk('div');if(typeof body==='string')inn.append(mk('p',null,body));else body.forEach(x=>inn.append(typeof x==='string'?mk('p',null,x):x));pn.append(inn);
+ const set=(v,anim=true)=>{b.setAttribute('aria-expanded',v);if(rm||!anim){pn.style.transition='none';pn.style.height=v?'auto':'0';void pn.offsetHeight;pn.style.transition=''}else{if(v){pn.style.height=pn.scrollHeight+'px';const f=()=>{if(b.getAttribute('aria-expanded')==='true')pn.style.height='auto';pn.removeEventListener('transitionend',f)};pn.addEventListener('transitionend',f)}else{pn.style.height=pn.scrollHeight+'px';void pn.offsetHeight;pn.style.height='0'}}pn.inert=!v};pn.inert=true;
+ it.append(h,pn);return{el:it,hd:b,pn,set,get open(){return b.getAttribute('aria-expanded')==='true'}}}
+function group(root,items,excl,onChange){root.append(...items.map(i=>i.el));
+ items.forEach((i,k)=>{i.hd.addEventListener('click',()=>{const v=!i.open;if(excl&&v)items.forEach(o=>{if(o!==i&&o.open)o.set(false)});i.set(v);onChange&&setTimeout(onChange,0)});
+  i.hd.addEventListener('keydown',e=>{const hs=items.map(x=>x.hd);let n=-1;if(e.key==='ArrowDown')n=(k+1)%hs.length;else if(e.key==='ArrowUp')n=(k+hs.length-1)%hs.length;else if(e.key==='Home')n=0;else if(e.key==='End')n=hs.length-1;if(n>=0){e.preventDefault();hs[n].focus()}})})}
+/* 1 */
+const A1=[['What is Quartz UI?','A small, accessible component kit for product teams. Every component ships with keyboard and screen-reader behaviour built in.'],['Can I theme it?','Yes. Colour, radius and spacing are CSS custom properties, so a theme is one stylesheet.'],['Does it need a framework?','No. Components are plain HTML, CSS and a tiny script. Wrappers for popular frameworks are optional.'],['Is it free?','The core kit is free for personal and commercial use. Premium templates are sold separately.']].map(([t,b])=>item(t,null,b,{plus:true}));
+group($('#a1'),A1);let all=false;$('#ea').onclick=e=>{all=!all;A1.forEach(i=>i.set(all));e.currentTarget.setAttribute('aria-pressed',all);e.currentTarget.textContent=all?'Collapse all':'Expand all'};
+/* 2 */
+group($('#a2'),[['⚡','#fef3c7','Fast by default','No runtime dependencies, under 6 KB of script.','Components render instantly and never block the main thread.'],['♿','#dbeafe','Accessible','Tested with VoiceOver, NVDA and keyboard-only.','Focus order, labels and live regions are included and documented.'],['🎨','#fce7f3','Themeable','Tokens for colour, type and space.','Swap a handful of variables to match any brand.']].map(([ic,c,t,s,b])=>item(t,s,b,{icon:[ic,c]})));
+/* 3 */
+const inner=(arr)=>{const d=mk('div','inner'),g=arr.map(([t,b])=>item(t,null,b));group(d,g);return d};
+group($('#a3'),[['Getting started',[inner([['Install','Run the package manager command, or paste the CDN snippet into your page.'],['Configure','Set your tokens in one :root block and import the base stylesheet.']])]],['Components',[inner([['Buttons','Primary, secondary, ghost and destructive in three sizes.'],['Dialogs','Native dialog with focus trapping and scroll lock.'],['Tabs','Roving tabindex, manual or automatic activation.']])]],['Guides',['Short, task-focused walkthroughs for common patterns.']]].map(([t,b])=>item(t,null,b)));
+$('#a3').addEventListener('click',e=>{const b=e.target.closest('.hd');if(!b)return;const pn=b.closest('.it').querySelector('.pn');if(pn.style.height!=='0px'&&pn.style.height!=='0')requestAnimationFrame(()=>{const ps=[...document.querySelectorAll('#a3 .pn')];ps.forEach(p=>{if(p.style.height&&p.style.height!=='auto'&&p.style.height!=='0px'&&p.style.height!=='0')p.style.height='auto'})})});
+/* 4 */
+const A4=['Billing','Security','Notifications','Integrations'].map((t,i)=>item(t,null,['Manage your '+t.toLowerCase()+' preferences. Opening this section closes the others so your place on the page never jumps.'],{badge:String(i+2)+' settings'}));
+const cnt=()=>{$('#cb').textContent=A4.filter(i=>i.open).length+' open'};group($('#a4'),A4,true,cnt);
+/* 5 */
+const F=[['Two-factor sign-in','Require a code from your authenticator app.',['Method','App','SMS']],['Weekly digest','A Monday summary of what changed.',['Day','Monday','Friday']],['Beta features','Try new things before everyone else.',['Channel','Stable','Early']]];
+const A5=F.map(([t,s,o],k)=>{const i=item(t,s,[(()=>{const d=mk('div','opt');d.append(mk('label',null,o[0]));const sel=mk('select');[o[1],o[2]].forEach(v=>sel.append(Object.assign(mk('option',null,v),{value:v})));sel.setAttribute('aria-label',t+' '+o[0]);d.append(sel);return d})()]);
+ const row=mk('div','row'),h=i.el.querySelector('h3');row.append(h);const sw=mk('button','sw');sw.setAttribute('role','switch');sw.setAttribute('aria-checked','true');sw.setAttribute('aria-label','Enable '+t);row.append(sw);i.el.insertBefore(row,i.pn);
+ sw.onclick=()=>{const on=sw.getAttribute('aria-checked')!=='true';sw.setAttribute('aria-checked',on);i.el.classList.toggle('off',!on);i.hd.disabled=!on;if(!on)i.set(false);$('#st').textContent=t+' '+(on?'enabled':'disabled')+'.'};return i});
+group($('#a5'),A5);
+</script></body></html>

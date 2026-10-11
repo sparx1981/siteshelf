@@ -1,0 +1,11 @@
+Canvas & base: A neutral tool page on #f5f4f1 with a white control panel (1px #e3e0d8 border, 16px radius) and a white preview sheet. Ink #1b1b1b, secondary #6b6963, accent plum #7b2d8b, tint #f5e8f8, code background #1b1b1b with #f1e6f5 text. Invented tool "Scalewise".
+
+Typography: Preview headings and body use the chosen font family (a select with five Google Fonts: Fraunces, Inter, Lora, Space Grotesk, Source Serif 4, all loaded in one link). UI uses "Inter" at 14px; code uses "JetBrains Mono".
+
+Layout: Two columns. Left, a sticky control panel: base size slider (14–22px), ratio select (Minor second 1.067 … Perfect fifth 1.5, Golden 1.618) plus custom number input, line-height slider (1.2–1.9), measure slider (45–85ch), font family select, weight select, and a "Reset" button. Right, a preview sheet showing an article: H1–H6, a paragraph, a blockquote, a list and a caption; beside each element a small badge with its computed size in px and rem. Below, a step table (−2 … +6) with size, line-height and a sample "Aa", and a code block with generated CSS custom properties and a Copy button.
+
+Interaction: All controls update the preview live using CSS custom properties; sizes are computed as base × ratio^n and rounded to 0.01rem. Table rows highlight the element used. Line height decreases automatically for larger steps (a clamped formula) when "Auto line-height" is checked. Copy writes CSS with try/catch and announces success. Shareable state is stored in the URL hash and restored on load. Keyboard accessible, with output values announced by sliders' aria-valuetext.
+
+Responsive: Columns stack below 900px with controls first; the table scrolls inside its container; no overflow at 390px.
+
+Rules: Single HTML file with one Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented names only.

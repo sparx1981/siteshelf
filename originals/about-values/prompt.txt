@@ -1,0 +1,11 @@
+Canvas & base: A warm, optimistic page on #fff7ec with ink #2a1f14, secondary #7a6a58, accent leaf #2f7d4f, sun #ffb938, clay #d96b3b and tint #f3e6d0. Invented company "Tessel & Thrive — community-owned solar for apartment blocks".
+
+Typography: "Young Serif" for headings at clamp(36px,6vw,80px); "Figtree" (400,500,600,700) for body at 17px.
+
+Layout: Nav, then a hero with a big mission statement where three words have coloured highlight underlines, a short paragraph and a floating row of four stat chips. A "What we believe" grid of six value cards (icon in a coloured circle, title, one line) that flip or expand on hover/focus to show a longer description. A "Our journey" timeline with year buttons (2019–2026) in a horizontal scrollable row and a detail panel below showing the story for the selected year plus a small progress graphic (installed megawatts bar). A "People" marquee of invented teammates with role pills pausing on hover. An "Where we work" tabbed panel with three offices (Leeds, Rotterdam, Porto), address, a stylised SVG map dot and local team size. A closing strip "Join us" with three open roles as links.
+
+Interaction: Value cards are buttons toggling aria-expanded and showing details; only one expands at a time. Year buttons use a tablist with arrow keys; changing year animates the megawatt bar. Marquee duplicates content for seamless loop and pauses on hover, focus-within and via a visible pause button. Office tabs swap content. Reveal-on-scroll with IntersectionObserver unless reduced motion.
+
+Responsive: Values grid 3 → 2 → 1 columns; timeline year buttons scroll horizontally inside their row only; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented names only.

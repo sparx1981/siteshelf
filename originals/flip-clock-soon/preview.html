@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flip-Clock Coming Soon — Coming Soon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#efe9dc;--ink:#231f1a;--mut:#6e665a;--ac:#f26a1b;--card:#2a2723;--dg:#fff8e8;--bd:#d9d0bd}
+[data-theme=dark]{--bg:#121316;--ink:#f1ede4;--mut:#9b958a;--ac:#ffb347;--card:#24262c;--dg:#fdf6e6;--bd:#2c2e35}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 'Work Sans',system-ui,sans-serif;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 16px;text-align:center;transition:background .3s,color .3s}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px;border-radius:8px}
+.th{position:absolute;right:16px;top:16px;display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mut)}
+.th button{width:50px;height:28px;border-radius:99px;border:1px solid var(--bd);background:var(--card);position:relative;cursor:pointer}
+.th button::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--ac);transition:transform .25s}
+.th button[aria-checked=true]::after{transform:translateX(22px)}
+.lg{font:400 28px 'Bebas Neue';letter-spacing:.1em;display:flex;gap:10px;align-items:center}
+.lg i{width:14px;height:22px;background:var(--ac);border-radius:50% 50% 50% 50%/70% 70% 30% 30%}
+.ey{color:var(--ac);font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:13px;margin:22px 0 4px}
+h1{font:400 clamp(44px,8vw,92px)/.95 'Bebas Neue';margin:0 0 26px;letter-spacing:.02em}
+.units{display:flex;gap:clamp(8px,2.5vw,28px);justify-content:center;max-width:100%}
+.u{display:flex;flex-direction:column;align-items:center;gap:12px;min-width:0}
+.pair{display:flex;gap:clamp(3px,.8vw,8px)}
+.fl{position:relative;width:clamp(34px,8.6vw,100px);height:clamp(54px,13.5vw,152px);perspective:600px;font:400 clamp(48px,12vw,140px)/1 'Bebas Neue';color:var(--dg)}
+.fl div{position:absolute;left:0;right:0;height:50%;overflow:hidden;background:var(--card);display:flex;justify-content:center}
+.fl .t{top:0;border-radius:8px 8px 0 0;align-items:flex-start;border-bottom:1px solid #000}
+.fl .b{bottom:0;border-radius:0 0 8px 8px;align-items:flex-end}
+.fl .t span,.fl .b span{display:block;height:200%;line-height:clamp(54px,13.5vw,152px)}
+.fl .b span{margin-top:-100%;position:absolute;bottom:0;height:200%;line-height:clamp(54px,13.5vw,152px);top:auto}
+.fl .t span{position:absolute;top:0}
+.fl .b span{transform:none}
+.fl .f{transform-origin:bottom;backface-visibility:hidden;z-index:2}
+.fl .fb{transform-origin:top;transform:rotateX(90deg);backface-visibility:hidden;z-index:2}
+.fl.go .f{animation:ft .3s ease-in forwards}
+.fl.go .fb{animation:fb .3s .3s ease-out forwards}
+@keyframes ft{to{transform:rotateX(-90deg)}}
+@keyframes fb{to{transform:rotateX(0)}}
+.lab{font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:var(--mut)}
+.pg{width:min(560px,100%);margin:34px auto 0}
+.pgb{height:8px;border-radius:9px;background:var(--bd);overflow:hidden}
+.pgb span{display:block;height:100%;background:var(--ac);width:0;transition:width .6s}
+.pgt{display:flex;justify-content:space-between;font-size:13.5px;color:var(--mut);margin-top:8px}
+form{display:flex;gap:10px;margin:34px auto 0;width:min(520px,100%)}
+form input{flex:1;min-width:0;min-height:50px;border-radius:12px;border:1.5px solid var(--bd);background:transparent;color:var(--ink);padding:0 16px;font:500 16px 'Work Sans'}
+form button,.again{min-height:50px;border-radius:12px;border:0;background:var(--ac);color:#1c0f04;padding:0 24px;font:600 16px 'Work Sans';cursor:pointer}
+.msg{min-height:26px;margin-top:10px;font-size:15px}
+.msg.er{color:#e5484d}.msg.ok{color:#2f9e5b;font-weight:600}
+.again{background:none;border:0;color:var(--ac);text-decoration:underline;min-height:44px}
+.so{display:flex;gap:18px;margin-top:22px;color:var(--mut);font-size:14px}.so a{color:inherit}
+.sr{position:absolute;left:-9999px}
+@media(max-width:480px){form{flex-direction:column}.th span{display:none}}
+@media(prefers-reduced-motion:reduce){.fl.go .f,.fl.go .fb{animation:none}*{transition:none!important}}
+</style></head><body>
+<div class="th"><span id="tl">Midnight mode</span><button id="tb" role="switch" aria-checked="false" aria-labelledby="tl"></button></div>
+<div class="lg"><i></i>Hourglass &amp; Hearth</div>
+<div class="ey" id="ey">Opening soon</div><h1 id="hd">The shop opens in</h1>
+<div class="units" role="timer" aria-label="Countdown to opening" id="un"></div>
+<p class="sr" id="sr" aria-live="polite"></p>
+<div class="pg"><div class="pgb"><span id="pb"></span></div><div class="pgt"><span>Workshop fit-out</span><span id="pt">0%</span></div></div>
+<form id="fm" novalidate><label class="sr" for="em">Email</label><input id="em" type="email" placeholder="your@email.com" autocomplete="email"><button type="submit">Notify me</button></form>
+<div class="msg" id="mg" role="status"></div><button class="again" id="ag" hidden>Notify another address</button>
+<div class="so"><a href="#">Instagram</a><a href="#">Journal</a><a href="#">Find us</a></div>
+<script>
+const $=s=>document.querySelector(s),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const T=new Date();T.setDate(T.getDate()+37);T.setHours(9,0,0,0);const S=T.getTime()-90*864e5;
+$('#ey').textContent='Opening '+T.toLocaleDateString('en-GB',{day:'numeric',month:'long'});
+const U=['Days','Hours','Minutes','Seconds'],fl={};
+U.forEach(n=>{const u=document.createElement('div');u.className='u';const p=document.createElement('div');p.className='pair';
+ [0,1].forEach(k=>{const f=document.createElement('div');f.className='fl';f.innerHTML='<div class="t"><span>0</span></div><div class="b"><span>0</span></div><div class="t f"><span>0</span></div><div class="b fb"><span>0</span></div>';f.dataset.v='0';p.append(f);(fl[n]=fl[n]||[]).push(f)});
+ const l=document.createElement('div');l.className='lab';l.textContent=n;u.append(p,l);$('#un').append(u)});
+function setD(f,v){if(f.dataset.v===v)return;const old=f.dataset.v;f.dataset.v=v;const[a,b,c,d]=[...f.children].map(e=>e.firstChild);
+ if(rm){a.textContent=b.textContent=c.textContent=d.textContent=v;return}
+ a.textContent=v;c.textContent=old;d.textContent=v;f.classList.remove('go');void f.offsetWidth;f.classList.add('go');
+ setTimeout(()=>{b.textContent=v;c.textContent=v;f.classList.remove('go')},620)}
+function tick(first){const now=Date.now();let ms=T.getTime()-now;
+ if(ms<=0){ms=0;$('#hd').textContent='We’re open!';$('#un').style.opacity='.4'}
+ const s=Math.floor(ms/1000),v={Days:Math.floor(s/86400),Hours:Math.floor(s%86400/3600),Minutes:Math.floor(s%3600/60),Seconds:s%60};
+ U.forEach(n=>{const t=String(v[n]).padStart(2,'0');t.split('').forEach((ch,i)=>{if(first){[...fl[n][i].children].forEach(e=>e.firstChild.textContent=ch);fl[n][i].dataset.v=ch}else setD(fl[n][i],ch)})});
+ const p=Math.min(100,Math.max(0,(now-S)/(T.getTime()-S)*100));$('#pb').style.width=p+'%';$('#pt').textContent=Math.round(p)+'% complete';
+ if(first||v.Seconds===0)$('#sr').textContent=v.Days+' days, '+v.Hours+' hours and '+v.Minutes+' minutes until opening.'}
+tick(true);let iv=setInterval(()=>tick(),1000);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInterval(iv);else{tick(true);iv=setInterval(()=>tick(),1000)}});
+const th=$('#tb');function theme(d){document.documentElement.dataset.theme=d?'dark':'light';th.setAttribute('aria-checked',d)}
+theme(matchMedia('(prefers-color-scheme:dark)').matches);th.onclick=()=>theme(th.getAttribute('aria-checked')!=='true');
+$('#fm').onsubmit=e=>{e.preventDefault();const v=$('#em').value.trim(),m=$('#mg');
+ if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v)){m.className='msg er';m.textContent='Please enter a valid email address.';$('#em').focus();return}
+ m.className='msg ok';m.textContent='Lovely — we’ll email you the morning we open.';$('#fm').hidden=true;$('#ag').hidden=false};
+$('#ag').onclick=()=>{$('#fm').hidden=false;$('#ag').hidden=true;$('#mg').textContent='';$('#em').value='';$('#em').focus()};
+</script></body></html>

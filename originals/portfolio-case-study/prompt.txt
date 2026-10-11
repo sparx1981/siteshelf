@@ -1,0 +1,11 @@
+Canvas & base: A refined editorial page on #fbfaf7 with ink #16161a, secondary #6b6b73, accent cobalt #2240e8, soft tint #e9edff, and alternating full-bleed sections in #16161a with light text. Invented designer "Odile Raskin" and invented project "Meridian — redesigning a regional bus app".
+
+Typography: "Instrument Serif" for the title and pull quotes (clamp(44px,8vw,110px)); "Inter" (400,500,600) for body at 17px with 68ch measure.
+
+Layout: A fixed 3px reading-progress bar at the top and a left section rail (dots with labels on hover) on desktop. Hero with project title, one-line summary, and a four-item meta row (Role, Timeline, Team, Platform). A generated visual (CSS/SVG phone screens on a gradient) fills a wide frame. Then sections: Overview (large pull quote + two paragraphs), Metrics (three big animated numbers), Challenge, Approach with a 3-step process timeline, Design decisions as an accordion with four items, a before/after comparison slider of the old and new app screen (built from divs), Results, and a "Next project" banner.
+
+Interaction: Progress bar tracks scroll; the rail highlights the section in view via IntersectionObserver and links smooth-scroll. Metrics count up when visible. The comparison slider is a range input with a draggable handle and keyboard control, with clip-path revealing the "after" panel. Accordion uses buttons with aria-expanded and animates height. Images generated in CSS fade in on reveal. Next project link has an arrow that slides on hover.
+
+Responsive: Rail hides below 1100px; metrics and process stack at 720px; no horizontal overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented names only.

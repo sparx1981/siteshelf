@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Modular Type Scale Explorer — Typography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Lora:wght@400;600;700&family=Source+Serif+4:wght@400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#1b1b1b;--mut:#6b6963;--ac:#7b2d8b;--tint:#f5e8f8;--bd:#e3e0d8;--bs:18px;--ratio:1.25;--lh:1.55;--ms:65ch;--ff:Fraunces,serif;--fw:400}
+*{box-sizing:border-box}
+body{margin:0;background:#f5f4f1;color:var(--ink);font:400 14px/1.5 Inter,system-ui,sans-serif}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px;border-radius:6px}
+header{padding:20px clamp(14px,3vw,36px) 6px}
+header h1{font:700 22px Inter;margin:0}header p{margin:2px 0 0;color:var(--mut)}
+.lay{display:grid;grid-template-columns:300px minmax(0,1fr);gap:20px;padding:14px clamp(14px,3vw,36px) 50px;align-items:start}
+.ctl{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:18px;position:sticky;top:14px;display:grid;gap:16px}
+.ctl label{display:block;font-weight:600;margin-bottom:6px;display:flex;justify-content:space-between}
+.ctl label output{color:var(--ac);font-variant-numeric:tabular-nums}
+.ctl input[type=range]{width:100%;accent-color:var(--ac)}
+.ctl select,.ctl input[type=number]{width:100%;min-height:42px;border:1.5px solid var(--bd);border-radius:10px;padding:0 10px;font:500 14px Inter;background:#fff}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.6fr);gap:8px}
+.chk{display:flex;gap:10px;align-items:center;font-weight:500}.chk input{width:18px;height:18px;accent-color:var(--ac)}
+.btn{min-height:42px;border:1.5px solid var(--bd);background:#fff;border-radius:10px;font:600 14px Inter;cursor:pointer}
+.btn:hover{background:var(--tint)}
+.btn.p{background:var(--ac);border-color:var(--ac);color:#fff}
+.sheet{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:clamp(18px,3.5vw,44px)}
+.art{font-family:var(--ff);font-weight:var(--fw);line-height:var(--lh);max-width:var(--ms);font-size:var(--bs)}
+.art>*{position:relative;margin:0}
+.art [data-s]{margin-bottom:.6em}
+.art h1,.art h2,.art h3,.art h4,.art h5,.art h6{line-height:1.12;margin-top:.9em;font-weight:inherit;font-variation-settings:'wght' 700;font-weight:700}
+.art h1{font-size:calc(var(--bs)*var(--s6));margin-top:0}
+.art h2{font-size:calc(var(--bs)*var(--s5))}.art h3{font-size:calc(var(--bs)*var(--s4))}.art h4{font-size:calc(var(--bs)*var(--s3))}.art h5{font-size:calc(var(--bs)*var(--s2))}.art h6{font-size:calc(var(--bs)*var(--s1))}
+.art p,.art li{font-size:var(--bs)}
+.art blockquote{font-size:calc(var(--bs)*var(--s2));font-style:italic;border-left:3px solid var(--ac);padding-left:1em;margin:1em 0}
+.art .cap{font-size:calc(var(--bs)/var(--ratio));color:var(--mut);font-family:Inter,sans-serif}
+.art ul{padding-left:1.2em}
+.bd{position:absolute;right:calc(100% + 8px);top:.2em;transform:translateX(0);font:600 11px Inter,sans-serif;color:var(--ac);background:var(--tint);border-radius:6px;padding:2px 7px;white-space:nowrap;line-height:1.4;display:none}
+.badges .bd{display:block}
+.bdtog{margin-bottom:14px}
+.tw{overflow-x:auto;margin-top:22px;border:1px solid var(--bd);border-radius:14px;background:#fff}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--bd);font-variant-numeric:tabular-nums}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);background:#faf9f6}
+tr:last-child td{border:0}
+tr.hl td{background:var(--tint)}
+td .aa{font-family:var(--ff);font-weight:var(--fw);line-height:1}
+.cd{background:#1b1b1b;color:#f1e6f5;border-radius:14px;padding:18px;margin-top:22px;position:relative}
+.cd pre{margin:0;font:500 13px/1.6 'JetBrains Mono',monospace;overflow-x:auto}
+.cd .btn{position:absolute;right:12px;top:12px;min-height:36px;padding:0 14px;background:#2d2a33;color:#f1e6f5;border-color:#403c48}
+.cd .btn.ok{color:#8be9a8}
+.sr{position:absolute;left:-9999px}
+@media(max-width:1200px){.badges .bd{position:static;display:inline-block;margin-right:8px;transform:none}}
+@media(max-width:900px){.lay{grid-template-columns:minmax(0,1fr)}.ctl{position:static}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header><h1>Scalewise</h1><p>Pick a ratio, see the whole hierarchy, copy the CSS.</p></header>
+<div class="lay"><section class="ctl" aria-label="Scale controls">
+ <div><label for="bs">Base size <output id="bso">18px</output></label><input id="bs" type="range" min="14" max="22" step="1" value="18"></div>
+ <div><label for="rt">Ratio</label><div class="two"><select id="rt"></select><input id="rn" type="number" step="0.001" min="1.01" max="2.5" value="1.25" aria-label="Custom ratio"></div></div>
+ <div><label for="lh">Line height <output id="lho">1.55</output></label><input id="lh" type="range" min="1.2" max="1.9" step="0.05" value="1.55"></div>
+ <div><label for="ms">Measure <output id="mso">65ch</output></label><input id="ms" type="range" min="45" max="85" step="1" value="65"></div>
+ <div><label for="ff">Font family</label><select id="ff"><option>Fraunces</option><option>Inter</option><option>Lora</option><option>Space Grotesk</option><option>Source Serif 4</option></select></div>
+ <div class="two" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr)"><div><label for="fw">Weight</label><select id="fw"><option value="400">Regular</option><option value="500">Medium</option><option value="600">Semibold</option></select></div><div><label>&nbsp;</label><button class="btn" id="rs" style="width:100%">Reset</button></div></div>
+ <label class="chk"><input type="checkbox" id="al" checked>Tighten headings automatically</label>
+ <label class="chk"><input type="checkbox" id="bg">Show size badges</label></section>
+<div><div class="sheet" id="sh"><div class="art" id="art">
+ <h1 data-s="6">Reading is a design decision</h1>
+ <p data-s="0">Type scales give a page rhythm. Every size is a multiple of the last, so headings feel related to body text rather than arbitrary.</p>
+ <h2 data-s="5">Choose a ratio, then trust it</h2>
+ <p data-s="0">A small ratio feels calm and editorial. A large one feels loud and poster-like. Most interfaces live between 1.2 and 1.333.</p>
+ <h3 data-s="4">Heading level three</h3>
+ <blockquote data-s="2">“Design is the art of deciding what not to emphasise.”</blockquote>
+ <h4 data-s="3">Heading level four</h4>
+ <ul data-s="0"><li>Pick a base around 16–20px.</li><li>Use no more than six steps.</li><li>Keep the measure near 65 characters.</li></ul>
+ <h5 data-s="2">Heading level five</h5><h6 data-s="1">Heading level six</h6>
+ <p class="cap" data-s="-1">Figure note: caption text sits one step below the body size.</p></div></div>
+<div class="tw"><table><thead><tr><th>Step</th><th>Used for</th><th>Size</th><th>Line-height</th><th>Sample</th></tr></thead><tbody id="tbd"></tbody></table></div>
+<div class="cd"><button class="btn" id="cp">Copy CSS</button><pre id="cs" tabindex="0" aria-label="Generated CSS"></pre></div>
+<div class="sr" id="lv" aria-live="polite"></div></div></div>
+<script>
+const $=s=>document.querySelector(s);
+const R=[['Minor second',1.067],['Major second',1.125],['Minor third',1.2],['Major third',1.25],['Perfect fourth',1.333],['Augmented fourth',1.414],['Perfect fifth',1.5],['Golden ratio',1.618]];
+R.forEach(([n,v])=>{const o=document.createElement('option');o.value=v;o.textContent=n+' · '+v;$('#rt').append(o)});$('#rt').value='1.25';
+const D={bs:18,rt:1.25,lh:1.55,ms:65,ff:'Fraunces',fw:'400',al:1,bg:0},S=Object.assign({},D);
+const fams={Fraunces:'Fraunces,serif',Inter:'Inter,sans-serif',Lora:'Lora,serif','Space Grotesk':"'Space Grotesk',sans-serif",'Source Serif 4':"'Source Serif 4',serif"};
+const names={'-1':'Caption',0:'Body',1:'H6',2:'H5 / Quote',3:'H4',4:'H3',5:'H2',6:'H1'};
+const px=n=>S.bs*Math.pow(S.rt,n),rem=n=>Math.round(Math.pow(S.rt,n)*100)/100;
+const lhFor=n=>S.al?Math.max(1.08,+(S.lh-0.08*Math.max(0,n)).toFixed(2)):S.lh;
+function apply(){const r=document.documentElement.style;r.setProperty('--bs',S.bs+'px');r.setProperty('--ratio',S.rt);r.setProperty('--lh',S.lh);r.setProperty('--ms',S.ms+'ch');r.setProperty('--ff',fams[S.ff]);r.setProperty('--fw',S.fw);
+ for(let n=1;n<=6;n++)r.setProperty('--s'+n,Math.round(Math.pow(S.rt,n)*1000)/1000);
+ $('#bso').textContent=S.bs+'px';$('#lho').textContent=S.lh;$('#mso').textContent=S.ms+'ch';$('#bs').setAttribute('aria-valuetext',S.bs+' pixels');
+ $('#art').classList.toggle('badges',!!S.bg);
+ document.querySelectorAll('#art [data-s]').forEach(e=>{const n=+e.dataset.s;let b=e.querySelector(':scope>.bd');if(!b){b=document.createElement('span');b.className='bd';e.prepend(b)}b.textContent=Math.round(px(n)*10)/10+'px · '+rem(n)+'rem';if(/^H/.test(e.tagName))e.style.lineHeight=S.al?lhFor(n)/1.0*1.0*0+lhFor(n):'';});
+ document.querySelectorAll('#art h1,#art h2,#art h3,#art h4,#art h5,#art h6').forEach(h=>h.style.lineHeight=S.al?Math.max(1.05,+(S.lh-0.1*(+h.dataset.s)).toFixed(2)):S.lh);
+ const tb=$('#tbd');tb.textContent='';for(let n=-2;n<=6;n++){const tr=document.createElement('tr');tr.dataset.n=n;const s=Math.round(px(n)*10)/10;
+  [(n>0?'+'+n:n),names[n]||'—',s+'px / '+rem(n)+'rem',n<=0?S.lh:Math.max(1.05,+(S.lh-0.1*n).toFixed(2))].forEach(t=>{const td=document.createElement('td');td.textContent=t;tr.append(td)});
+  const td=document.createElement('td');const a=document.createElement('span');a.className='aa';a.textContent='Aa';a.style.fontSize=Math.min(s,96)+'px';td.append(a);tr.append(td);tb.append(tr)}
+ let css=':root {\n  --font: '+fams[S.ff]+';\n  --ratio: '+S.rt+';\n  --step-0: '+S.bs/16+'rem;\n';for(let n=-2;n<=6;n++){if(n!==0)css+='  --step-'+n+': '+(Math.round(S.bs/16*Math.pow(S.rt,n)*1000)/1000)+'rem;\n'}css+='  --measure: '+S.ms+'ch;\n  --leading: '+S.lh+';\n}';$('#cs').textContent=css;
+ location.replace('#'+new URLSearchParams({b:S.bs,r:S.rt,l:S.lh,m:S.ms,f:S.ff,w:S.fw,a:S.al}).toString())}
+document.querySelectorAll('#art [data-s]').forEach(e=>{e.addEventListener('mouseenter',()=>hl(+e.dataset.s));e.addEventListener('mouseleave',()=>hl(null))});
+function hl(n){document.querySelectorAll('#tbd tr').forEach(t=>t.classList.toggle('hl',n!==null&&+t.dataset.n===n))}
+const sync=()=>{$('#bs').value=S.bs;$('#rn').value=S.rt;const m=R.find(r=>r[1]===+S.rt);$('#rt').value=m?String(m[1]):'';$('#lh').value=S.lh;$('#ms').value=S.ms;$('#ff').value=S.ff;$('#fw').value=S.fw;$('#al').checked=!!S.al;$('#bg').checked=!!S.bg};
+$('#bs').oninput=e=>{S.bs=+e.target.value;apply()};$('#lh').oninput=e=>{S.lh=+e.target.value;apply()};$('#ms').oninput=e=>{S.ms=+e.target.value;apply()};
+$('#rt').onchange=e=>{S.rt=+e.target.value;$('#rn').value=S.rt;apply()};$('#rn').oninput=e=>{const v=+e.target.value;if(v>=1.01&&v<=2.5){S.rt=v;const m=R.find(r=>r[1]===v);$('#rt').value=m?String(v):'';apply()}};
+$('#ff').onchange=e=>{S.ff=e.target.value;apply()};$('#fw').onchange=e=>{S.fw=e.target.value;apply()};$('#al').onchange=e=>{S.al=e.target.checked?1:0;apply()};$('#bg').onchange=e=>{S.bg=e.target.checked?1:0;apply()};
+$('#rs').onclick=()=>{Object.assign(S,D);sync();apply();$('#lv').textContent='Reset to defaults'};
+$('#cp').onclick=async()=>{let ok=false;try{await navigator.clipboard.writeText($('#cs').textContent);ok=true}catch(e){try{const t=document.createElement('textarea');t.value=$('#cs').textContent;document.body.append(t);t.select();ok=document.execCommand('copy');t.remove()}catch(e2){}}
+ const b=$('#cp');b.textContent=ok?'Copied ✓':'Select & copy';b.classList.toggle('ok',ok);$('#lv').textContent=ok?'CSS copied':'Copy failed';setTimeout(()=>{b.textContent='Copy CSS';b.classList.remove('ok')},1600)};
+try{const h=new URLSearchParams(location.hash.slice(1));if(h.has('b')){const g=(k,d)=>h.has(k)?h.get(k):d;S.bs=Math.min(22,Math.max(14,+g('b',18)));S.rt=Math.min(2.5,Math.max(1.01,+g('r',1.25)));S.lh=+g('l',1.55);S.ms=+g('m',65);S.ff=fams[g('f','Fraunces')]?g('f','Fraunces'):'Fraunces';S.fw=g('w','400');S.al=+g('a',1)}}catch(e){}
+sync();apply();
+</script></body></html>

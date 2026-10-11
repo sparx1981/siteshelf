@@ -1,0 +1,11 @@
+Canvas & base: A bright, friendly storefront on #ffffff with a #f6f4ef section background, ink #1d1b19, secondary #6f6a62, accent coral #ef5b3f, soft accent #fde9e3, success #1f8a5b. Product images are CSS/SVG generated (shapes on colour backgrounds). Invented shop "Hearthstone Home".
+
+Typography: "Epilogue" (500,700,800) for headings and prices; "Inter" (400,500,600) for body at 15px.
+
+Layout: Header with logo, search input and a cart button with a count badge. A page title with result count and a sort select. Two columns: a 260px filter sidebar (Category checkboxes, Price range with two number inputs, Colour swatch toggles, Minimum rating radio, "Clear all") and a grid of product cards (auto-fill minmax(220px,1fr)). Each card has art, a wishlist heart toggle, name, rating stars with count, price (with optional sale price) and an "Add to cart" button. A "Quick view" button appears on hover/focus. Below 900px the sidebar becomes a "Filters" button that opens a bottom sheet.
+
+Interaction: Filters, search and sort combine instantly with a live-region result count and an empty state. Active filters appear as removable chips above the grid. Quick view opens a dialog with larger art, description, colour choice and add button. Wishlist hearts toggle with a pop. Adding to cart opens a right slide-over with line items, quantity steppers (min 1, remove at 0 via a trash button), subtotal, a free-delivery progress bar toward £50 and a checkout button that shows a confirmation toast. Cart contents persist in memory only.
+
+Responsive: Sidebar collapses to a sheet; cart panel is full width on phones; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Use native dialog elements, visible focus, respect prefers-reduced-motion, invented names only.

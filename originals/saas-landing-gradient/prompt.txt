@@ -1,0 +1,11 @@
+Canvas & base: A dark landing page on #07070d with an animated aurora in the hero (three blurred radial blobs in #6d5dfc, #22d3ee and #f472b6 drifting slowly over 18s, mix-blend-mode screen, opacity .55). Surface #11111b (1px #23233a border, 18px radius), ink #f4f4fb, secondary #9a9ab8. Invented product "Driftwave — async standups for remote teams".
+
+Typography: "Manrope" (400,500,700,800); hero headline clamp(40px,7vw,84px) at 800 with a gradient-clipped word; body 17px.
+
+Layout: Sticky glass nav (logo, links, Sign in, Start free). Hero with eyebrow pill, headline, subtext, email capture form and trust line, then a large product mock card with a tab switcher (Digest, Threads, Insights) that cross-fades inner UI built from divs. Logo strip of six invented wordmarks. Feature section with three tabs on the left and a changing illustration on the right. A four-number metrics band. A three-step "How it works" with connecting line. A pricing teaser with two cards. Final CTA banner and footer.
+
+Interaction: Aurora blobs animate with CSS keyframes only. Mock tabs are a tablist with arrow keys and auto-rotate every 6s until the user interacts. Feature tabs switch panels with a fade. Metrics count up once when scrolled into view (IntersectionObserver). Email form validates and swaps to "You're on the list" without reload. Nav gains a border after scrolling 8px. Sections reveal with a short upward fade unless reduced motion is set.
+
+Responsive: Nav links collapse to a menu button below 800px; feature layout and pricing stack; no horizontal overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, aria for tabs, respect prefers-reduced-motion, invented names only.

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About — Values &amp; Journey — About Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#fff7ec;--ink:#2a1f14;--mut:#7a6a58;--lf:#2f7d4f;--sun:#ffb938;--cl:#d96b3b;--tint:#f3e6d0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Figtree,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid var(--lf);outline-offset:3px;border-radius:8px}
+.w{max-width:1100px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;gap:14px}
+.lg{font:400 22px 'Young Serif';display:flex;gap:10px;align-items:center}
+.lg i{width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--sun),var(--cl))}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-weight:600;font-size:15px}
+nav a{text-decoration:none;color:inherit}
+.cta{background:var(--lf);color:#fff;border-radius:99px;padding:11px 22px;font-weight:700;text-decoration:none;font-size:15px;min-height:44px;display:inline-flex;align-items:center}
+.hero{padding:40px 0 60px}
+h1{font:400 clamp(36px,6vw,80px)/1.04 'Young Serif';margin:0 0 22px;letter-spacing:-.01em;max-width:18ch}
+h1 mark{background:none;background-image:linear-gradient(var(--sun),var(--sun));background-repeat:no-repeat;background-position:0 92%;background-size:100% .22em;color:inherit}
+h1 mark.g{background-image:linear-gradient(#9fd7b4,#9fd7b4)}h1 mark.c{background-image:linear-gradient(#f4b194,#f4b194)}
+.lead{max-width:56ch;color:#4d3f30;font-size:20px;margin:0 0 30px}
+.chips{display:flex;gap:12px;flex-wrap:wrap}
+.chip{background:#fff;border:1px solid #ecdcc4;border-radius:18px;padding:14px 20px}
+.chip b{display:block;font:400 30px 'Young Serif';color:var(--lf)}.chip span{font-size:14px;color:var(--mut)}
+section{padding:60px 0}
+h2{font:400 clamp(30px,4.5vw,50px)/1.1 'Young Serif';margin:0 0 10px}
+.sub{color:var(--mut);margin:0 0 28px;max-width:56ch}
+.vg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.vc{text-align:left;background:#fff;border:1px solid #ecdcc4;border-radius:22px;padding:22px;cursor:pointer;font:inherit;color:inherit;display:flex;flex-direction:column;gap:8px;min-height:170px;transition:transform .2s,box-shadow .2s}
+.vc:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(122,106,88,.15)}
+.vc .ic{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:21px}
+.vc b{font:400 21px 'Young Serif'}
+.vc p{margin:0;color:var(--mut);font-size:15.5px}
+.vc .more{display:none;color:#4d3f30;font-size:15px;border-top:1px dashed #e0cfb4;padding-top:8px}
+.vc[aria-expanded=true]{background:var(--tint);border-color:#dcc6a3}
+.vc[aria-expanded=true] .more{display:block}
+.yrs{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;scrollbar-width:thin}
+.yrs button{flex:none;border:1px solid #e0cfb4;background:#fff;border-radius:99px;padding:9px 20px;font:700 16px Figtree;cursor:pointer;color:var(--mut);min-height:44px}
+.yrs button[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.jp{background:#fff;border:1px solid #ecdcc4;border-radius:24px;padding:28px;margin-top:14px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;align-items:center}
+.jp h3{font:400 28px 'Young Serif';margin:0 0 8px}
+.jp p{margin:0;color:#4d3f30}
+.mw{text-align:center}
+.mw b{font:400 54px/1 'Young Serif';color:var(--lf)}
+.mw small{display:block;color:var(--mut);margin-bottom:10px}
+.mb{height:12px;border-radius:9px;background:var(--tint);overflow:hidden}
+.mb span{display:block;height:100%;background:linear-gradient(90deg,var(--sun),var(--lf));border-radius:9px;transition:width .7s}
+.mq{overflow:hidden;position:relative;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mt{display:flex;gap:14px;width:max-content;animation:mq 40s linear infinite}
+.mq:hover .mt,.mq:focus-within .mt,.mq.p .mt{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.pp{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid #ecdcc4;border-radius:99px;padding:8px 20px 8px 8px;flex:none}
+.pp i{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;color:#fff}
+.pp b{display:block;line-height:1.2}.pp span{font-size:13px;color:var(--mut)}
+.pb{margin-top:14px;background:none;border:1px solid #e0cfb4;border-radius:99px;padding:8px 18px;font:700 14px Figtree;cursor:pointer;min-height:40px}
+.of{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:20px}
+.ot{display:flex;flex-direction:column;gap:8px}
+.ot button{text-align:left;border:1px solid #e0cfb4;background:#fff;border-radius:14px;padding:14px 16px;font:700 17px Figtree;cursor:pointer;min-height:48px}
+.ot button[aria-selected=true]{background:var(--lf);color:#fff;border-color:var(--lf)}
+.op{background:#fff;border:1px solid #ecdcc4;border-radius:22px;padding:24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:center}
+.op h3{font:400 26px 'Young Serif';margin:0 0 6px}
+.map{background:var(--tint);border-radius:16px;aspect-ratio:4/3;position:relative;overflow:hidden}
+.map svg{width:100%;height:100%;display:block}
+.pin{position:absolute;width:18px;height:18px;border-radius:50%;background:var(--cl);box-shadow:0 0 0 0 rgba(217,107,59,.5);animation:pu 2s infinite;margin:-9px;transition:left .5s,top .5s}
+@keyframes pu{70%{box-shadow:0 0 0 18px transparent}}
+.jn{background:var(--ink);color:#fff7ec;border-radius:28px;padding:40px;margin-bottom:60px}
+.jn h2{margin-bottom:18px}
+.rl{display:grid;gap:10px}
+.rl a{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:16px 20px;border-radius:16px;background:#3a2c1e;color:inherit;text-decoration:none;font-weight:600;min-height:52px}
+.rl a:hover{background:#4a3926}.rl a span{color:var(--sun);font-weight:700;white-space:nowrap}
+.rv{opacity:0;transform:translateY(16px);transition:.6s}.rv.in{opacity:1;transform:none}
+@media(max-width:900px){.vg{grid-template-columns:repeat(2,minmax(0,1fr))}nav ul{display:none}.jp,.op{grid-template-columns:minmax(0,1fr)}.of{grid-template-columns:minmax(0,1fr)}.ot{flex-direction:row;overflow-x:auto}.ot button{flex:none}}
+@media(max-width:560px){.vg{grid-template-columns:minmax(0,1fr)}.jn{padding:26px 20px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}}
+</style></head><body>
+<div class="w"><nav><div class="lg"><i></i>Tessel &amp; Thrive</div><ul><li><a href="#">Projects</a></li><li><a href="#">About</a></li><li><a href="#">Join</a></li></ul><a class="cta" href="#jn">We're hiring</a></nav></div>
+<header class="hero"><div class="w"><h1>Every <mark>rooftop</mark> should <mark class="g">work</mark> for the <mark class="c">people</mark> under it.</h1><p class="lead">We help apartment blocks own their solar together — one shared roof, one shared bill, one community that benefits.</p><div class="chips"><div class="chip"><b>312</b><span>buildings powered</span></div><div class="chip"><b>41 MW</b><span>installed together</span></div><div class="chip"><b>9,800</b><span>households</span></div><div class="chip"><b>0</b><span>shareholders to please</span></div></div></div></header>
+<section><div class="w"><h2>What we believe</h2><p class="sub">Six ideas we argue about, keep, and build the company around. Tap one to read more.</p><div class="vg" id="vg"></div></div></section>
+<section style="background:#fffdf8"><div class="w"><h2>Our journey</h2><p class="sub">From one borrowed roof to forty-one megawatts.</p><div class="yrs" role="tablist" aria-label="Years" id="yr"></div><div class="jp" role="tabpanel" id="jp" aria-live="polite"><div><h3 id="jh"></h3><p id="jt"></p></div><div class="mw"><b id="jm">0</b><small>MW installed by year-end</small><div class="mb"><span id="jb"></span></div></div></div></div></section>
+<section><div class="w"><h2>The people</h2><p class="sub">Eighty-six of us, a few of whom you'll meet.</p></div><div class="mq" id="mq"><div class="mt" id="mt"></div></div><div class="w"><button class="pb" id="pb" aria-pressed="false">Pause scrolling</button></div></section>
+<section style="background:#fffdf8"><div class="w"><h2>Where we work</h2><p class="sub">Three offices, one time-zone-friendly team.</p><div class="of"><div class="ot" role="tablist" aria-label="Offices" aria-orientation="vertical" id="ot"></div><div class="op" id="op" role="tabpanel"><div><h3 id="oh"></h3><p id="oa" style="margin:0 0 10px;color:var(--mut)"></p><p id="ot2" style="margin:0"></p></div><div class="map"><svg viewBox="0 0 200 150" aria-hidden="true"><path d="M20 90q20-50 60-40t50-20q30-10 40 30t-20 50q-30 20-70 10t-60-30z" fill="#e3d0ac"/><path d="M36 100q30-20 60-10" stroke="#fff" stroke-width="2" fill="none" opacity=".7"/><path d="M110 40q25 20 40 50" stroke="#fff" stroke-width="2" fill="none" opacity=".7"/></svg><div class="pin" id="pin"></div></div></div></div></div></section>
+<div class="w"><div class="jn" id="jn"><h2>Come build with us.</h2><div class="rl"><a href="#">Roof surveyor, Leeds <span>Full-time →</span></a><a href="#">Community organiser, Porto <span>Full-time →</span></a><a href="#">Frontend engineer, remote EU <span>Full-time →</span></a></div></div></div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],mk=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const V=[['☀️','Own it together','#fde7b0','Shared ownership means the bill, the benefit and the say are shared too. Every block votes on how surplus is spent.'],['🤝','Neighbours first','#cfe9d8','We start with the people in the building — a roof is just the excuse for a community.'],['🔍','Show the maths','#f9d3c2','Every quote, saving and assumption is public to the residents who pay for it.'],['🧱','Build slowly, well','#ead9bd','We would rather install two roofs properly than ten quickly. Warranty is a promise, not a clause.'],['🌱','Leave it better','#cfe9d8','Every project funds a local skills placement and a small community pot.'],['🗣️','Plain language','#fde7b0','No jargon, no fine print. If we cannot explain it at a stairwell meeting, we rewrite it.']];
+const vg=$('#vg');V.forEach(([ic,t,col,d],i)=>{const b=mk('button','vc');b.setAttribute('aria-expanded','false');const c=mk('span','ic',ic);c.style.background=col;c.setAttribute('aria-hidden','true');b.append(c,mk('b',null,t),mk('p',null,['Decisions belong to the people they affect.','Community comes before kilowatts.','Transparency is the product.','Quality over speed.','Leave places better.','Clarity is kindness.'][i]),mk('p','more',d));
+ b.onclick=()=>{const o=b.getAttribute('aria-expanded')==='true';$$('.vc').forEach(x=>x.setAttribute('aria-expanded','false'));b.setAttribute('aria-expanded',!o)};vg.append(b)});
+const J={2019:['One borrowed roof','Two founders, a leaky community hall and a very patient caretaker. We install 18 kW and learn everything the hard way.',.02],2020:['The first co-op','Residents at Alder Court form our first ownership co-op. Surplus power funds a new lift.',.3],2021:['Going regional','A pilot with three housing associations proves the model works at scale.',1.8],2022:['Fifty buildings','Our install crews triple and we open the Rotterdam office.',6.4],2023:['Open books','We publish every project’s costs and savings. Waiting lists double.',13],2024:['Porto and beyond','A third office, and our first 100 buildings powered.',22],2025:['Storage joins in','Shared batteries let blocks use evening sun at night.',33],2026:['Forty-one megawatts','312 buildings, and still no shareholders.',41]};
+const yr=$('#yr'),ys=Object.keys(J);ys.forEach((y,i)=>{const b=mk('button',null,y);b.setAttribute('role','tab');b.setAttribute('aria-selected',i===ys.length-1);b.tabIndex=i===ys.length-1?0:-1;b.onclick=()=>sy(i);b.onkeydown=e=>{let n=-1;if(e.key==='ArrowRight')n=(i+1)%ys.length;else if(e.key==='ArrowLeft')n=(i+ys.length-1)%ys.length;else if(e.key==='Home')n=0;else if(e.key==='End')n=ys.length-1;if(n>=0){e.preventDefault();sy(n);yr.children[n].focus()}};yr.append(b)});
+let jmv=0;function sy(i){[...yr.children].forEach((b,k)=>{b.setAttribute('aria-selected',k===i);b.tabIndex=k===i?0:-1});const y=ys[i],[h,t,m]=J[y];$('#jh').textContent=y+' — '+h;$('#jt').textContent=t;$('#jb').style.width=Math.max(2,m/41*100)+'%';
+ const from=jmv,to=m;jmv=to;if(rm){$('#jm').textContent=to}else{let t0;const f=n=>{t0=t0||n;const p=Math.min(1,(n-t0)/600);$('#jm').textContent=(from+(to-from)*p).toFixed(to<10?1:0);if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}}
+sy(ys.length-1);
+const P=[['Amara Whitcombe','Surveyor','#2f7d4f'],['Joost Verhagen','Engineer','#d96b3b'],['Inês Carvalho','Organiser','#c28a1c'],['Tobias Marr','Finance','#5b6fb8'],['Nell Ashby','Design','#b04a7a'],['Kwame Boateng','Installer','#2f7d4f'],['Sanne de Vries','Support','#d96b3b'],['Rui Teixeira','Data','#5b6fb8'],['Fern Holloway','Legal','#c28a1c'],['Miguel Duarte','Installer','#b04a7a']];
+const mt=$('#mt');[...P,...P].forEach(([n,r,c],i)=>{const d=mk('div','pp');d.setAttribute('tabindex','0');const a=mk('i',null,n.split(' ').map(w=>w[0]).join(''));a.style.background=c;const t=mk('div');t.append(mk('b',null,n),mk('span',null,r));d.append(a,t);if(i>=P.length)d.setAttribute('aria-hidden','true'),d.tabIndex=-1;mt.append(d)});
+$('#pb').onclick=e=>{const p=$('#mq').classList.toggle('p');e.currentTarget.setAttribute('aria-pressed',p);e.currentTarget.textContent=p?'Resume scrolling':'Pause scrolling'};
+const O=[['Leeds','14 Tanner Row, Leeds LS1 4QT','38 people · surveys, installs and the UK team. Bring a coat.',30,50],['Rotterdam','Wijnhaven 22, 3011 WP Rotterdam','31 people · engineering, finance and Benelux projects.',52,38],['Porto','Rua das Flores 80, 4050-262 Porto','17 people · community organising and southern Europe.',34,74]];
+const ot=$('#ot');O.forEach((o,i)=>{const b=mk('button',null,o[0]);b.setAttribute('role','tab');b.setAttribute('aria-selected',i===0);b.tabIndex=i?-1:0;b.onclick=()=>so(i);b.onkeydown=e=>{let n=-1;if(e.key==='ArrowDown'||e.key==='ArrowRight')n=(i+1)%3;else if(e.key==='ArrowUp'||e.key==='ArrowLeft')n=(i+2)%3;if(n>=0){e.preventDefault();so(n);ot.children[n].focus()}};ot.append(b)});
+function so(i){[...ot.children].forEach((b,k)=>{b.setAttribute('aria-selected',k===i);b.tabIndex=k===i?0:-1});const o=O[i];$('#oh').textContent=o[0];$('#oa').textContent=o[1];$('#ot2').textContent=o[2];$('#pin').style.left=o[3]+'%';$('#pin').style.top=o[4]+'%'}so(0);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});$$('section .w>h2,.hero .chips,.jn').forEach(e=>{e.classList.add('rv');io.observe(e)});
+</script></body></html>

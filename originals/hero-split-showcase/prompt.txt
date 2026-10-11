@@ -1,0 +1,11 @@
+Canvas & base: A bright hero on #f6f3ee with a large soft circle of #ffd9c2 behind the showcase. Ink #1a1a1f, secondary #62626d, accent tomato #f2542d, deep navy #14213d for the device bezel. Invented product "Pantry Pilot — meal planning that shops for you".
+
+Typography: "Bricolage Grotesque" (600,800) for the headline at clamp(40px,6.5vw,78px); "Outfit" (400,500,600) for body at 18px.
+
+Layout: Top nav row (logo, three links, a "Get the app" pill). Two columns: left has an eyebrow, headline "Dinner, decided. Groceries, done." where the last word rotates through three alternatives, a paragraph, a vertical list of three benefits with check icons, two buttons (primary and ghost) and a rating line with five stars. Right has a phone mock (navy bezel, 300×600) showing one of three app screens built from divs (Plan, Cart, Cook), a smaller floating card (Today's menu) overlapping the left edge and two floating chips ("£18 saved this week", "12 min prep").
+
+Interaction: Three pill tabs under the phone (Plan, Cart, Cook) switch the screen with a slide transition; auto-advances every 5s until the user interacts. The rotating word cycles every 2.6s with a vertical roll animation and is announced once only via aria-hidden on the cycling copy plus a static sr-only sentence. Pointer movement over the hero tilts the phone by up to 6° and shifts chips for parallax (disabled for coarse pointers and reduced motion). Cart screen items can be ticked, updating a live total. Primary button shows a small "App Store link would open" toast.
+
+Responsive: Columns stack below 900px with the showcase below the copy; the floating card hides below 520px; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented names only.

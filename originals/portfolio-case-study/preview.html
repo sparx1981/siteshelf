@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Case Study Portfolio Page — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#fbfaf7;--ink:#16161a;--mut:#6b6b73;--ac:#2240e8;--tint:#e9edff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px;border-radius:6px}
+#pg{position:fixed;left:0;top:0;height:3px;background:var(--ac);width:0;z-index:100}
+.rail{position:fixed;left:22px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:14px}
+.rail a{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--mut);font-size:13px;font-weight:600}
+.rail i{width:9px;height:9px;border-radius:50%;background:#c4c4cc;flex:none;transition:.25s}
+.rail span{opacity:0;transform:translateX(-6px);transition:.25s;white-space:nowrap;background:var(--bg);padding:2px 8px;border-radius:6px}
+.rail a:hover span,.rail a:focus-visible span,.rail a[aria-current=true] span{opacity:1;transform:none}
+.rail a[aria-current=true] i{background:var(--ac);transform:scale(1.5)}
+.dk .rail{}
+.w{max-width:1040px;margin:0 auto;padding:0 24px}
+.n{display:flex;justify-content:space-between;padding:22px 0;font-weight:600;font-size:15px}
+.n a{text-decoration:none;color:inherit}
+.hero{padding:30px 0 60px}
+.tag{color:var(--ac);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+h1{font:400 clamp(44px,8vw,110px)/.95 'Instrument Serif',serif;letter-spacing:-.02em;margin:14px 0 18px}
+h1 em{color:var(--ac)}
+.sum{font-size:21px;max-width:44ch;color:#3b3b43;margin:0 0 30px}
+.meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;border-top:1px solid #dcdad3;padding-top:20px}
+.meta small{display:block;color:var(--mut);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.meta b{font-weight:600}
+.vis{margin-top:40px;border-radius:24px;background:linear-gradient(135deg,#2240e8,#7a5cff 55%,#ff9a62);aspect-ratio:16/8;position:relative;overflow:hidden;display:flex;justify-content:center;align-items:flex-end;gap:5%;padding-top:7%}
+.ph{width:22%;max-width:210px;background:#fff;border-radius:26px 26px 0 0;padding:14px 12px;box-shadow:0 20px 50px rgba(0,0,0,.25);aspect-ratio:9/16;font-size:11px;position:relative;overflow:hidden;transform:translateY(40px);opacity:0;transition:transform .9s,opacity .9s}
+.ph:nth-child(2){margin-bottom:-4%;transition-delay:.15s}
+.ph:nth-child(3){transition-delay:.3s}
+.vis.in .ph{transform:none;opacity:1}
+.ph b{display:block;font-size:12px;margin-bottom:8px}
+.ph .r{height:20px;border-radius:6px;background:#eef0f6;margin-bottom:6px}
+.ph .r.a{background:#dfe5ff}
+.ph .mp{height:90px;border-radius:10px;background:linear-gradient(135deg,#dfe5ff,#fde6d8);margin-bottom:8px;position:relative}
+.ph .mp::after{content:"";position:absolute;left:30%;top:40%;width:34%;height:3px;background:var(--ac);transform:rotate(-24deg);border-radius:3px}
+section{padding:70px 0}
+.dk{background:var(--ink);color:#f2f0ea}
+.dk .tag{color:#9db0ff}
+h2{font:400 clamp(34px,5vw,60px)/1.05 'Instrument Serif',serif;margin:8px 0 22px;letter-spacing:-.01em}
+.col{max-width:68ch}
+.pq{font:italic 400 clamp(28px,4vw,46px)/1.2 'Instrument Serif',serif;margin:0 0 30px;border-left:3px solid var(--ac);padding-left:22px}
+.mt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:20px}
+.mt b{display:block;font:400 clamp(54px,8vw,100px)/1 'Instrument Serif'}
+.mt span{color:#b5b3ac}
+.pr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:20px;position:relative}
+.pr div{background:#fff;border:1px solid #e4e1d8;border-radius:18px;padding:22px}
+.pr b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ac);color:#fff;margin-bottom:12px}
+.pr h3{margin:0 0 4px;font-size:19px}.pr p{margin:0;font-size:15.5px;color:var(--mut)}
+.acc{border-top:1px solid #dcdad3;max-width:760px}
+.acc h3{margin:0;border-bottom:1px solid #dcdad3}
+.acc button{width:100%;display:flex;justify-content:space-between;align-items:center;background:none;border:0;padding:20px 0;font:600 19px Inter;cursor:pointer;text-align:left;color:var(--ink);min-height:44px}
+.acc button::after{content:"+";font-size:24px;color:var(--ac);transition:transform .25s}
+.acc button[aria-expanded=true]::after{transform:rotate(45deg)}
+.acc .pn{overflow:hidden;height:0;transition:height .3s}
+.acc .pn p{margin:0;padding:0 0 20px;color:#44444c}
+.cmp{position:relative;max-width:760px;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:1px solid #e4e1d8;user-select:none;margin-top:20px}
+.cmp .side{position:absolute;inset:0;padding:6%;display:flex;gap:6%}
+.cmp .old{background:#e8e6e0;color:#555}
+.cmp .new{background:linear-gradient(135deg,#eef1ff,#fff);clip-path:inset(0 0 0 var(--x,50%))}
+.cmp .scr{flex:1;background:#fff;border-radius:14px;padding:14px;box-shadow:0 4px 18px rgba(0,0,0,.08);font-size:12px}
+.cmp .old .scr{font-family:Georgia,serif;background:#f6f2e8}
+.cmp .row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #eee}
+.cmp .lab{position:absolute;top:12px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.85);padding:3px 10px;border-radius:99px}
+.cmp .lab.l{left:12px}.cmp .lab.r{right:12px;background:var(--ac);color:#fff}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.cmp .hd{position:absolute;top:0;bottom:0;left:var(--x,50%);width:3px;background:var(--ac);transform:translateX(-50%);pointer-events:none}
+.cmp .hd::after{content:"↔";position:absolute;top:50%;left:50%;width:40px;height:40px;margin:-20px;border-radius:50%;background:var(--ac);color:#fff;display:grid;place-items:center;font-weight:700}
+.cmp:focus-within{outline:3px solid var(--ac);outline-offset:3px}
+.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:2px solid #3a3a42;max-width:640px}
+.tl li{margin-bottom:22px;position:relative}
+.tl li::before{content:"";position:absolute;left:-30px;top:8px;width:12px;height:12px;border-radius:50%;background:#9db0ff}
+.tl b{display:block}.tl span{color:#b5b3ac}
+.nx{display:block;text-decoration:none;color:inherit;background:var(--tint);padding:70px 0}
+.nx small{color:var(--ac);font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.nx strong{display:flex;gap:18px;align-items:center;font:400 clamp(40px,7vw,90px)/1 'Instrument Serif'}
+.nx strong i{font-style:normal;transition:transform .3s}
+.nx:hover strong i,.nx:focus-visible strong i{transform:translateX(14px)}
+.rv{opacity:0;transform:translateY(16px);transition:.7s}.rv.in{opacity:1;transform:none}
+@media(max-width:1100px){.rail{display:none}}
+@media(max-width:720px){.meta{grid-template-columns:repeat(2,minmax(0,1fr))}.mt,.pr{grid-template-columns:minmax(0,1fr)}.vis{aspect-ratio:4/3}.ph{width:30%}.ph:nth-child(3){display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.rv,.ph{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style></head><body>
+<div id="pg" aria-hidden="true"></div>
+<nav class="rail" aria-label="Sections"><a href="#top"><i></i><span>Intro</span></a><a href="#over"><i></i><span>Overview</span></a><a href="#res"><i></i><span>Impact</span></a><a href="#appr"><i></i><span>Approach</span></a><a href="#dec"><i></i><span>Decisions</span></a><a href="#ba"><i></i><span>Before / after</span></a></nav>
+<div class="w"><div class="n"><a href="#">Odile Raskin</a><a href="#">← All work</a></div></div>
+<header class="hero" id="top"><div class="w"><div class="tag">Case study · 2026</div><h1>Meridian: a bus app that <em>respects your morning.</em></h1><p class="sum">Redesigning a regional transit app so commuters can plan, pay and trust the clock.</p>
+<div class="meta"><div><small>Role</small><b>Lead product designer</b></div><div><small>Timeline</small><b>9 months</b></div><div><small>Team</small><b>2 eng, 1 PM, 1 researcher</b></div><div><small>Platform</small><b>iOS, Android</b></div></div>
+<div class="vis rv" id="vs" aria-label="Illustration of three redesigned app screens"><div class="ph"><b>Next departures</b><div class="mp"></div><div class="r a"></div><div class="r"></div><div class="r"></div></div><div class="ph"><b>Route 41</b><div class="r a"></div><div class="mp"></div><div class="r"></div><div class="r"></div></div><div class="ph"><b>Tickets</b><div class="r"></div><div class="r a"></div><div class="r"></div></div></div></div></header>
+<section id="over"><div class="w"><div class="tag">Overview</div><p class="pq rv">“I stopped checking three apps. I just check Meridian, and it’s right.”</p><div class="col rv"><p>Meridian serves 140,000 weekly riders across four counties. The old app answered the wrong question: where is the bus <em>on a map</em>, not whether I will make my connection.</p><p>I led the redesign from research through launch, reframing the product around a single promise — a departure time you can plan your morning around.</p></div></div></section>
+<section class="dk" id="res"><div class="w"><div class="tag">Impact</div><h2>What changed after launch.</h2><div class="mt" id="mm"><div><b data-n="34" data-s="%">0</b><span>fewer support tickets</span></div><div><b data-n="4.7" data-d="1">0</b><span>store rating, up from 3.1</span></div><div><b data-n="2.3" data-d="1" data-s="×">0</b><span>mobile ticket purchases</span></div></div></div></section>
+<section id="appr"><div class="w"><div class="tag">Approach</div><h2>Listen, rebuild, prove.</h2><div class="pr"><div class="rv"><b>1</b><h3>Ride along</h3><p>Forty commuter interviews, twelve ride-alongs and a diary study of missed connections.</p></div><div class="rv"><b>2</b><h3>Rebuild the core</h3><p>One departures list, honest confidence indicators and offline-first tickets.</p></div><div class="rv"><b>3</b><h3>Pilot and measure</h3><p>Two-week pilots on three routes before a staged county rollout.</p></div></div></div></section>
+<section id="dec" style="background:#f2efe8"><div class="w"><div class="tag">Design decisions</div><h2>Four calls that mattered.</h2><div class="acc" id="ac"></div></div></section>
+<section id="ba"><div class="w"><div class="tag">Before / after</div><h2>The departures screen.</h2><p class="col" style="margin:0">Drag, or use the arrow keys, to compare.</p>
+<div class="cmp" id="cm"><div class="side old"><span class="lab l">Before</span><div class="scr"><b>Stop 4411</b><div class="row"><span>41</span><span>~ 8 min?</span></div><div class="row"><span>18</span><span>Due</span></div><div class="row"><span>7X</span><span>–</span></div></div></div><div class="side new"><span class="lab r">After</span><div class="scr"><b>Oak Street · Stop 4411</b><div class="row"><span><b>41</b> to Harbour</span><span style="color:var(--ac)"><b>6 min</b> · live</span></div><div class="row"><span><b>18</b> to Mill Rd</span><span><b>11 min</b> · live</span></div><div class="row"><span><b>7X</b> to Airport</span><span><b>09:42</b> · scheduled</span></div></div></div><div class="hd"></div><input type="range" min="0" max="100" value="50" aria-label="Comparison position: before and after"></div></div></section>
+<section class="dk"><div class="w"><div class="tag">Timeline</div><h2>Nine months, in brief.</h2><ul class="tl"><li><b>Discovery</b><span>Months 1–2 · research, audit, service blueprint</span></li><li><b>Prototype</b><span>Months 3–5 · interactive prototypes, usability rounds</span></li><li><b>Pilot</b><span>Months 6–7 · three routes, weekly releases</span></li><li><b>Rollout</b><span>Months 8–9 · county-by-county launch</span></li></ul></div></section>
+<a class="nx" href="#"><div class="w"><small>Next project</small><strong>Lumen Library <i>→</i></strong></div></a>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const pg=$('#pg');const upd=()=>{const h=document.documentElement.scrollHeight-innerHeight;pg.style.width=(h>0?scrollY/h*100:0)+'%'};addEventListener('scroll',upd,{passive:true});upd();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll&&e.target.querySelectorAll('[data-n]').forEach(count);if(e.target.id==='mm')$$('#mm [data-n]').forEach(count);io.unobserve(e.target)}}),{threshold:.2});
+$$('.rv,#mm').forEach(e=>io.observe(e));
+function count(el){if(el._d)return;el._d=1;const n=+el.dataset.n,d=+(el.dataset.d||0),s=el.dataset.s||'';const fmt=v=>v.toFixed(d)+s;if(rm){el.textContent=fmt(n);return}let t0;const f=t=>{t0=t0||t;const p=Math.min(1,(t-t0)/1500),e=1-Math.pow(1-p,3);el.textContent=fmt(n*e);if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
+/* rail */
+const links=$$('.rail a');const secs=['top','over','res','appr','dec','ba'].map(i=>document.getElementById(i));
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=secs.indexOf(e.target);links.forEach((a,k)=>a.setAttribute('aria-current',k===i))}}),{rootMargin:'-40% 0px -55% 0px'});secs.forEach(s=>so.observe(s));
+/* accordion */
+const D=[['Show confidence, not just time','Every prediction carries a live or scheduled marker. Riders told us a wrong “3 min” cost more trust than an honest “about 10”.'],['Tickets work offline','The ticket is cached on purchase and validated by a rotating code, so a dead zone never strands a rider at the door.'],['One list, not a map','The map is one tap away, but the default is a calm list of departures sorted by what you can actually catch.'],['Accessibility first','Large targets, high-contrast status colours that never rely on colour alone, and full screen-reader parity.']];
+const ac=$('#ac');D.forEach(([h,p],i)=>{const hh=document.createElement('h3'),b=document.createElement('button');b.textContent=h;b.setAttribute('aria-expanded','false');b.id='ab'+i;b.setAttribute('aria-controls','ap'+i);hh.append(b);const pn=document.createElement('div');pn.className='pn';pn.id='ap'+i;pn.setAttribute('role','region');pn.setAttribute('aria-labelledby',b.id);const pp=document.createElement('p');pp.textContent=p;pn.append(pp);pn.style.height='0';pn.hidden=false;
+ b.onclick=()=>{const open=b.getAttribute('aria-expanded')==='true';$$('#ac button').forEach((x,k)=>{const o=x===b&&!open;x.setAttribute('aria-expanded',o);const q=document.getElementById('ap'+k);q.style.height=o?q.scrollHeight+'px':'0'})};ac.append(hh,pn)});
+/* compare */
+const cm=$('#cm'),rg=cm.querySelector('input');rg.oninput=()=>cm.style.setProperty('--x',rg.value+'%');
+</script></body></html>

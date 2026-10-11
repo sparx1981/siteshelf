@@ -1,0 +1,11 @@
+Canvas & base: A tidy component-library page on #f8f9fb with white demo cards (1px #e4e7ec border, 16px radius), ink #101828, secondary #667085, accent teal #0e9384, tint #ecfdf9, borders #e4e7ec. Invented design system "Quartz UI".
+
+Typography: "Inter" (400,500,600,700) at 15px; page title 28px; demo headings 13px uppercase letter-spaced.
+
+Layout: A centred 820px column. Intro with title and an "Expand all / Collapse all" control applying to the first demo. Five demo cards: 1) Classic: bordered list with plus/minus icons. 2) Card style: separate rounded cards each with a leading icon circle, title, subtitle and chevron. 3) Nested: an outer accordion whose panels contain inner accordions. 4) Exclusive: opening one closes others, with smooth height animation and a count badge. 5) Settings: each header has a switch (enable/disable a feature) and expanding reveals options; disabling collapses and dims the panel.
+
+Interaction: Each header is a button inside a heading with aria-expanded and aria-controls; panels use role="region" and aria-labelledby. Height animates via measured scrollHeight and respects reduced motion. Keyboard: Up/Down move focus between headers within a group, Home/End jump, Enter/Space toggle. Expand all/Collapse all updates a label and aria-pressed. The settings switch is a separate control that does not toggle the accordion, uses role="switch", and updates a status line. State announced where needed.
+
+Responsive: Single column; header text wraps; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, invented names only.

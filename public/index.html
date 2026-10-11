@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>SiteShelf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400..700&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <a class="brand" href="#/" aria-label="SiteShelf home"><span class="brand-icon">s.</span>SiteShelf</a>
+  <nav>
+    <a class="nav" id="nav-library" href="#/">Library</a>
+    <a class="nav" id="nav-discover" href="#/discover">Discover</a>
+  </nav>
+  <div class="header-end">
+    <button class="button ghost" id="sync-btn" type="button">Sync now</button>
+  </div>
+</header>
+<main id="app" aria-live="polite"></main>
+
+<dialog id="gate">
+  <form method="dialog" id="gate-form">
+    <h2>Enter your site key</h2>
+    <p class="muted">This keeps the library and the AI features private. It is saved in this browser only.</p>
+    <label class="field">Site key<input id="gate-key" type="password" autocomplete="current-password" required></label>
+    <p class="error" id="gate-error" hidden></p>
+    <button class="button primary" type="submit">Unlock</button>
+  </form>
+</dialog>
+<div id="toast" role="status" hidden></div>
+<script src="/app.js" type="module"></script>
+</body>
+</html>

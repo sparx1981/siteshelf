@@ -156,7 +156,7 @@ async function viewDetail(id) {
   const stage = h('div', { class: 'stage' });
   const stageNote = h('div');
   const toolsRow = h('div', { class: 'row' });
-  let leftTab = 'source';
+  let leftTab = 'generated';
   let preview = null;
 
   const editor = h('textarea', { id: 'prompt-text', rows: 22, spellcheck: 'false', 'aria-label': 'Prompt text' });
@@ -172,19 +172,12 @@ async function viewDetail(id) {
   };
   editor.addEventListener('input', updateCounter);
 
-  /* left: source preview / generated page */
+  /* left: generated page / code */
   function drawLeft() {
     stageNote.replaceChildren();
-    if (leftTab === 'source') {
-      const src = p.animated_thumbnail;
-      const img = p.thumbnail ? h('img', { src: p.thumbnail, alt: `${p.title} preview image` }) : h('div', { class: 'empty', text: 'No source preview.' });
-      if (src && /\.(mp4|webm|mov)(\?|$)/i.test(src)) {
-        const v = h('video', { src, poster: p.thumbnail || '', autoplay: true, muted: true, loop: true, playsinline: true, controls: true });
-        v.muted = true;
-        v.addEventListener('error', () => stage.replaceChildren(img));
-        stage.replaceChildren(v);
-      } else stage.replaceChildren(img);
-      stageNote.append(h('p', { class: 'muted', text: 'This is the source site’s own preview. Use the Generated tab to see what your current text produces.' }));
+    if (leftTab === 'code' && preview) {
+      stage.replaceChildren(h('pre', { class: 'code', tabindex: '0', 'aria-label': 'Page code', text: preview.html }));
+      stageNote.append(h('p', { class: 'muted', text: 'This is the exact code of the Generated tab. Download it with the prompt, then ask any chat to adapt it into something of your own.' }));
     } else {
       if (preview) {
         stage.replaceChildren(h('iframe', { sandbox: 'allow-scripts', title: 'Generated preview', srcdoc: preview.html }));
@@ -210,8 +203,34 @@ async function viewDetail(id) {
     const gen = leftTab === 'generated';
     const fs = h('button', { class: 'button', type: 'button', text: 'Full screen', onclick: () => fullscreen(stage) });
     const tab = h('button', { class: 'button', type: 'button', text: 'Open in new tab', onclick: () => { const u = URL.createObjectURL(new Blob([preview.html], { type: 'text/html' })); window.open(u, '_blank'); setTimeout(() => URL.revokeObjectURL(u), 60000); } });
-    toolsRow.replaceChildren(...(gen && preview ? [fs, tab] : []));
-    toolsRow.hidden = !(gen && preview);
+    const code = leftTab === 'code' && preview;
+    const copyCode = h('button', { class: 'button', type: 'button', text: 'Copy code', onclick: () => copyText(preview.html, 'Code copied.') });
+    const zip = h('button', { class: 'button primary', type: 'button', text: 'Download zip', onclick: () => downloadZip() });
+    toolsRow.replaceChildren(...(gen && preview ? [fs, tab] : code ? [zip, copyCode] : []));
+    toolsRow.hidden = !((gen || code) && preview);
+  }
+  function crc32(b) { let c, crc = -1; for (let n = 0; n < b.length; n++) { c = (crc ^ b[n]) & 0xff; for (let k = 0; k < 8; k++) c = c & 1 ? (c >>> 1) ^ 0xedb88320 : c >>> 1; crc = (crc >>> 8) ^ c; } return (crc ^ -1) >>> 0; }
+  function makeZip(files) {
+    const te = new TextEncoder(), parts = [], cen = []; let off = 0;
+    const d = new Date(), time = (d.getHours() << 11) | (d.getMinutes() << 5) | (d.getSeconds() >> 1), date = ((d.getFullYear() - 1980) << 9) | ((d.getMonth() + 1) << 5) | d.getDate();
+    for (const [name, text] of files) {
+      const nb = te.encode(name), data = te.encode(text), crc = crc32(data);
+      const lh = new DataView(new ArrayBuffer(30)); lh.setUint32(0, 0x04034b50, true); lh.setUint16(4, 20, true); lh.setUint16(6, 0x0800, true); lh.setUint16(8, 0, true); lh.setUint16(10, time, true); lh.setUint16(12, date, true); lh.setUint32(14, crc, true); lh.setUint32(18, data.length, true); lh.setUint32(22, data.length, true); lh.setUint16(26, nb.length, true); lh.setUint16(28, 0, true);
+      parts.push(new Uint8Array(lh.buffer), nb, data);
+      const ch = new DataView(new ArrayBuffer(46)); ch.setUint32(0, 0x02014b50, true); ch.setUint16(4, 20, true); ch.setUint16(6, 20, true); ch.setUint16(8, 0x0800, true); ch.setUint16(10, 0, true); ch.setUint16(12, time, true); ch.setUint16(14, date, true); ch.setUint32(16, crc, true); ch.setUint32(20, data.length, true); ch.setUint32(24, data.length, true); ch.setUint16(28, nb.length, true); ch.setUint32(42, off, true);
+      cen.push(new Uint8Array(ch.buffer), nb); off += 30 + nb.length + data.length;
+    }
+    const csize = cen.reduce((n, a) => n + a.length, 0), end = new DataView(new ArrayBuffer(22));
+    end.setUint32(0, 0x06054b50, true); end.setUint16(8, files.length, true); end.setUint16(10, files.length, true); end.setUint32(12, csize, true); end.setUint32(16, off, true);
+    return new Blob([...parts, ...cen, new Uint8Array(end.buffer)], { type: 'application/zip' });
+  }
+  function downloadZip() {
+    if (!preview) return;
+    const slug = (p.title || 'page').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'page';
+    const readme = `${p.title}\n${'='.repeat(String(p.title).length)}\n\nindex.html  The finished page (one file: HTML, CSS and JavaScript). Open it in any browser.\nprompt.txt  The prompt this page was built from.\n\nMake your own version\n---------------------\n1. Open index.html to see how it looks and behaves.\n2. Start a chat in Claude, ChatGPT or any other assistant. Paste prompt.txt, then attach or paste index.html.\n3. Ask for what you want changed, for example: "Keep this structure but rebrand it for my bakery, with a warm palette."\n4. Ask it to reply with one complete HTML page, then save the reply as your own index.html.\n\nTip: change the prompt first (colours, fonts, copy, sections) and the result follows.\n\nDownloaded from SiteShelf.\n`;
+    const blob = makeZip([['index.html', preview.html], ['prompt.txt', p.prompt], ['README.txt', readme]]);
+    const u = URL.createObjectURL(blob), a = h('a', { href: u, download: `${slug}.zip` });
+    document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 4000); toast('Zip downloaded.');
   }
   function fullscreen(el) {
     if (el.requestFullscreen) el.requestFullscreen().catch(() => el.classList.add('fs'));
@@ -232,7 +251,7 @@ async function viewDetail(id) {
   }
   const leftTabs = h('div', { class: 'tabs', role: 'tablist' });
   function drawLeftTabs() {
-    leftTabs.replaceChildren(...[['source', 'Source'], ['generated', 'Generated']].map(([k, t]) =>
+    leftTabs.replaceChildren(...(preview ? [['generated', 'Generated'], ['code', 'Code']] : [['generated', 'Generated']]).map(([k, t]) =>
       h('button', { class: `tab${leftTab === k ? ' active' : ''}`, type: 'button', role: 'tab', 'aria-selected': String(leftTab === k), text: t, onclick: () => { leftTab = k; drawLeftTabs(); drawLeft(); } })));
   }
 

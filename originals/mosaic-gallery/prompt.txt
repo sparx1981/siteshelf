@@ -1,0 +1,13 @@
+Canvas & base: Section min-height 100svh, background #faf8f5, text #1c1a17, muted #7b756c. Tiles are generated artworks made entirely with CSS gradients, no images. Accent #1c1a17 for the active filter chip. Body margin 0. Radius 14px on tiles.
+
+Typography: Bricolage Grotesque (500, 700) for the heading and tile titles, Albert Sans (400, 500, 600) for UI. Heading clamp(40px, 5.5vw, 80px), weight 700, line-height 1, letter-spacing -0.04em. Tile caption title 18px 600, category label 12px uppercase letter-spacing 0.1em.
+
+Layout: container max-width 1240px, padding 64px 32px. Header row: heading "Selected work, 2024 to now." left, a short paragraph right. Under it filter chips: All, Posters, Patterns, Abstract (36px tall pills, 1px border, active filled dark with white text). Then a CSS columns masonry (column-count 4, gap 16px) of 16 tiles, each break-inside avoid, with varied aspect ratios (1/1, 4/5, 3/4, 5/4, 2/3) assigned in a repeating sequence. Each tile is a button. Artwork variety: twelve distinct designs (conic-gradient pinwheels, concentric rings, stripes, dot fields, overlapping blobs, a split-sun poster, waves, a dusk gradient poster, checkerboard, terrazzo speckle). The last four tiles reuse earlier designs with a hue-rotate filter and a "II" suffix on the title. Use warm and cool palettes.
+
+Hover: a caption slides up from the bottom over a gradient scrim (rgba(0,0,0,0.5) to transparent) showing the title and category; the tile scales 1.02. Filtering animates tiles out and in: non-matching tiles fade to 0 and are removed from layout after 200ms, matching tiles fade in; the grid reflows.
+
+Lightbox: clicking a tile opens a fixed overlay with a dark scrim rgba(10,10,10,0.88), the artwork enlarged to fit 80vh keeping its aspect ratio with the title, category and index "03 / 16" beneath, close button top right (X), previous and next arrow buttons. Escape closes, arrow keys navigate within the currently filtered set, focus is trapped in the dialog (role dialog, aria-modal), returns to the tile on close.
+
+Responsive: columns 3 below 1100px, 2 below 700px; lightbox arrows move below the image on mobile.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Bricolage Grotesque and Albert Sans, no external images, no libraries. prefers-reduced-motion: no scale, slide or fade timings.

@@ -1,0 +1,13 @@
+Canvas & base: Full-viewport app screen, min-height 100svh, background #f3f4f6, text #111827, muted #6b7280, card background #ffffff with 1px #e5e7eb border and radius 16px, padding 24px. Accent #2563eb (blue) for the main chart line and active tab; positive deltas #059669, negative #dc2626. Body margin 0.
+
+Typography: Inter (400, 500, 600, 700) throughout with tabular-nums on every figure. Page title 28px 700 letter-spacing -0.02em. KPI value 32px 700. Labels 13px 500 muted. Chart axis text 12px.
+
+Layout: a 240px sidebar on the left (white, 1px right border) with the logo "Ledger" (a blue 28px rounded square with an L) and five nav items (Overview active, Orders, Customers, Products, Settings) each 40px tall with a 18px simple SVG icon, the active one with a #eff4ff background and blue text. Main area padding 32px: header row with the title "Overview" and a subtitle "Revenue and orders for your store", right aligned a segmented range control with three tabs 7D, 30D, 90D (30D selected by default). Under it a 4-column KPI grid (Revenue £48,210, Orders 1,284, Average order £37.55, Conversion 3.4 percent), each with a delta pill (up or down arrow plus percentage) and a tiny 80px sparkline. Under that a two-column row: left (2fr) a large chart card "Revenue" with an SVG line and area chart (blue line 2.5px, area gradient blue 18 percent to 0), y-axis gridlines every quarter, x-axis date labels; right (1fr) a "Top products" card with five horizontal bars and their values.
+
+Data: generated deterministically with a seeded pseudo-random function so the numbers are the same on each load; 7D has 7 points, 30D has 30, 90D has 90. KPI values and deltas recompute from the range (sum of revenue, orders from revenue / avg order with small variation).
+
+Interaction: switching a range redraws the chart with a 400ms path morph or fade; hovering the chart shows a vertical crosshair, a dot on the line and a tooltip with the date and revenue formatted as £ with thousands separators, following the nearest point. Keyboard: left and right arrows move the crosshair when the chart is focused.
+
+Responsive: below 1000px the sidebar collapses to a 64px icon rail; below 700px the sidebar hides, KPI grid 2 columns, right card stacks below the chart.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Inter, no external images, no libraries. prefers-reduced-motion: no morph, no fade.

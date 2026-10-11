@@ -1,0 +1,11 @@
+Canvas & base: A page with a short spacer block (min-height 60svh with the headline "Scroll to the footer" centred in muted ink on #f4f1ea) followed by the footer. Footer background #1f2a1d (orchard green), text #eef0e4, muted rgba(238,240,228,0.6), accent #f2b84b (apple-gold). 1px rgba(238,240,228,0.16) rules. Body margin 0.
+
+Typography: Gloock for the giant wordmark and the newsletter heading, DM Sans (400, 500, 600) for everything else. Newsletter heading clamp(32px, 4vw, 56px), line-height 1.05. Column headings 12px uppercase letter-spacing 0.12em muted. Links 16px. Wordmark "ORCHARD" font-size clamp(80px, 22vw, 360px), line-height 0.8, letter-spacing -0.02em, colour #2c3b29 (a subtle tone on tone), cropped by overflow hidden so the bottom 18 percent is cut off.
+
+Layout: footer padding 80px 40px 0, max-width 1280px inner. Top block two columns: left newsletter heading "Good things, once a month." with a paragraph "Seasonal recipes, new arrivals and the occasional apple fact. No spam, ever." and an email form (pill input 56px with the button "Subscribe" inside the right end in gold with dark text); right a 4-column link grid: Shop (Boxes, Gifts, Cider, Gift cards), Visit (Farm shop, Cafe, Pick your own, Directions), Company (About, Journal, Careers, Press), Help (Delivery, Returns, FAQ, Contact). Middle row, 1px rule above: left "© 2026 Orchard Farm Ltd", centre social links (Instagram, TikTok, YouTube) as 44px circle icon buttons with simple SVG glyphs, right the live line "Kent, UK · 14:32" updating each minute using Europe/London time. Wordmark below, full width, bleeding off the bottom.
+
+Behaviour: the wordmark letters (each in its own span) rise from translateY(30%) to 0 with a 40ms stagger once the footer enters the viewport (IntersectionObserver, threshold 0.2), 600ms ease-out. Newsletter validation: invalid shows "Check that email" in gold under the field; valid replaces the form with "Thank you, see you in the post." Links get a gold underline on hover that grows from the left (300ms).
+
+Responsive: below 900px top block is one column, link grid 2 columns, middle row stacks centred, wordmark clamp keeps it within the width.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Gloock and DM Sans, no external images, no libraries. prefers-reduced-motion: wordmark shown immediately, no underline animation.

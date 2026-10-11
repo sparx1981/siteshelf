@@ -1,0 +1,13 @@
+Canvas & base: Section min-height 100svh, background #14201c (deep pine), text #f1f4ee, muted rgba(241,244,238,0.62), accent #c9f27a (spring lime). Avatars are 56px circles with initials on distinct muted fills (#3d6b5a, #b5724a, #5a62a8, #a8566f, #7b8f3d). Body margin 0. 1px rgba(241,244,238,0.16) rules.
+
+Typography: Instrument Serif (regular and italic) for the quote, Instrument Sans (400, 500, 600) for names and UI. Quote clamp(30px, 4.2vw, 60px), line-height 1.15, letter-spacing -0.01em, max-width 22ch per line feel (container 960px). Name 18px 600, role 14px muted. Counter "01 / 05" in 14px tabular-nums.
+
+Layout: container max-width 1100px, padding 96px 40px, centred vertically. Top row: eyebrow "Loved by teams" with a lime dot on the left, counter and two circular arrow buttons (48px, 1px border) on the right. Middle: a giant opening quote glyph in lime (120px Instrument Serif, line-height 0.5), then the quote text, then the person row (avatar, name, role, company logo as styled text in a pill). Bottom: a row of five tabs, one per person, each showing avatar and first name with a 3px progress bar along its top edge: the active tab's bar fills over 7 seconds, past tabs show full bar at 30 percent opacity, future tabs empty.
+
+Content: 1 "We shipped our redesign in half the time and nobody had to learn a new tool." Priya Raman, Head of Design, Foldaway. 2 "It is the first dashboard my whole team actually opens before stand-up." Tomas Weber, Engineering Lead, Brightline. 3 "Support replied in four minutes on a Sunday. I did not know software could do that." Aisha Bello, Founder, Tidewell. 4 "We cut our reporting from two days to ten minutes. The CFO bought us coffee." Daniel Kim, Finance Director, Northgate. 5 "Plain, fast, and kind to look at. Everything I wanted and nothing I did not." Lucia Moretti, Product Manager, Olivetta.
+
+Behaviour: auto-advance every 7 seconds with a crossfade plus 12px upward slide of the quote (350ms). Hover or focus within the section pauses the timer and progress bar; leaving resumes from where it was. Clicking a tab or arrow jumps and restarts the timer. Left and right arrow keys change slide when the section has focus. The quote region has aria-live polite and role region with label "Testimonials".
+
+Responsive: below 700px quote clamp(24px, 6.4vw, 32px), tabs show avatars only in a horizontally scrollable row, padding 56px 20px.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Instrument Serif and Instrument Sans, no external images, no libraries. prefers-reduced-motion: no auto-advance, no slide, instant swaps.

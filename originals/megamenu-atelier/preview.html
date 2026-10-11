@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atelier Navigation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ac:#b4452b;--mut:#77726b;--ln:#e6e2da}
+*{box-sizing:border-box}
+html,body{margin:0;background:#f7f5f0;color:#1d1b19;font:400 16px/1.5 'Public Sans',system-ui,sans-serif}
+.hd{position:sticky;top:0;z-index:20;height:72px;background:#fff;border-bottom:1px solid var(--ln);display:flex;align-items:center;padding:0 40px}
+.lg{font:500 26px Newsreader,serif;margin-right:48px;color:inherit;text-decoration:none}
+.nv{display:flex;gap:4px;margin:0 auto 0 0}
+.nv button,.nv a{height:44px;padding:0 16px;border:0;background:none;color:inherit;font:500 15px 'Public Sans';cursor:pointer;border-radius:10px;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.nv button:hover,.nv button[aria-expanded=true],.nv a:hover{background:#f3f0e9}
+.nv button:focus-visible,.nv a:focus-visible,.rt button:focus-visible{outline:2px solid var(--ac)}
+.nv svg{transition:transform .2s}
+.nv button[aria-expanded=true] svg{transform:rotate(180deg)}
+.rt{display:flex;gap:8px}
+.rt button{height:44px;padding:0 14px;border:0;background:none;font:500 15px 'Public Sans';cursor:pointer;border-radius:10px;color:inherit}
+.mb{display:none}
+.pn{position:fixed;left:50%;top:72px;width:min(1100px,100%);transform:translateX(-50%);background:#fff;border:1px solid var(--ln);border-top:0;border-radius:0 0 20px 20px;box-shadow:0 24px 48px rgba(29,27,25,.12);overflow:hidden;z-index:19;height:0;visibility:hidden;transition:height .25s,visibility 0s .25s}
+.pn.on{visibility:visible;transition:height .25s,visibility 0s}
+.pi{padding:32px 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;transition:opacity .2s}
+.pi.fd{opacity:0}
+.cl h3{font:600 12px 'Public Sans';text-transform:uppercase;letter-spacing:.1em;color:var(--mut);margin:0 0 14px}
+.cl a{display:block;padding:6px 0;color:inherit;text-decoration:none}
+.cl a:hover,.cl a:focus-visible{color:var(--ac);outline:none;text-decoration:underline}
+.ft .ar{height:150px;border-radius:14px;margin-bottom:12px}
+.ft b{font:500 20px Newsreader;display:block}
+.ft a{color:var(--ac);font-weight:600;text-decoration:none}
+.sc{position:fixed;inset:72px 0 0;background:rgba(0,0,0,.15);opacity:0;visibility:hidden;transition:opacity .25s,visibility 0s .25s;z-index:18}
+.sc.on{opacity:1;visibility:visible;transition:opacity .25s}
+.hero{max-width:1100px;margin:0 auto;padding:96px 40px 160px}
+.lab{font:600 12px 'Public Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--ac)}
+h1{font:400 clamp(44px,6vw,96px)/1 Newsreader,serif;letter-spacing:-.02em;margin:16px 0 20px}
+.hero p{max-width:480px;color:var(--mut);margin:0 0 28px}
+.btn{display:inline-block;height:52px;line-height:52px;padding:0 30px;background:#1d1b19;color:#fff;text-decoration:none;border-radius:26px;font-weight:600}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(86vw,380px);background:#fff;z-index:40;transform:translateX(100%);visibility:hidden;transition:transform .3s,visibility 0s .3s;padding:20px;overflow:auto}
+.dr.on{transform:none;visibility:visible;transition:transform .3s,visibility 0s}
+.ds{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:30;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
+.ds.on{opacity:1;visibility:visible;transition:opacity .3s}
+.dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font:500 24px Newsreader}
+.dh button{width:44px;height:44px;border:0;background:#f3f0e9;border-radius:50%;font-size:18px;cursor:pointer}
+.ac button{width:100%;display:flex;justify-content:space-between;align-items:center;height:56px;border:0;border-top:1px solid var(--ln);background:none;font:500 18px 'Public Sans';cursor:pointer;color:inherit}
+.ac .b{display:none;padding:0 0 14px}
+.ac .b.on{display:block}
+.ac .b a{display:block;padding:8px 0 8px 8px;color:var(--mut);text-decoration:none}
+.dr>a{display:block;border-top:1px solid var(--ln);padding:16px 0;font:500 18px 'Public Sans';color:inherit;text-decoration:none}
+@media(max-width:900px){.hd{padding:0 20px}.nv,.rt .hide{display:none}.mb{display:inline-flex}.lg{margin-right:auto}.pn,.sc{display:none}.hero{padding:56px 20px 100px}}
+@media(prefers-reduced-motion:reduce){.pn,.pi,.sc,.dr,.ds,.nv svg{transition:none!important}}
+</style></head><body>
+<header class="hd" id="hd"><a class="lg" href="#">Atelier</a>
+<nav class="nv" id="nv" aria-label="Main"></nav>
+<div class="rt"><button class="hide" aria-label="Search">Search</button><button class="hide">Bag (2)</button><button class="mb" id="mb" aria-label="Open menu">Menu</button></div></header>
+<div class="pn" id="pn" role="region" aria-label="Menu panel"><div class="pi" id="pi"></div></div><div class="sc" id="sc"></div>
+<main class="hero"><div class="lab">New season</div><h1>Objects for slower rooms.</h1><p>Hand-finished furniture, textiles and everyday objects, made in small runs by studios we know by name.</p><a class="btn" href="#">Shop the collection</a></main>
+<div class="ds" id="ds"></div>
+<aside class="dr" id="dr" role="dialog" aria-modal="true" aria-label="Menu"><div class="dh"><span>Menu</span><button id="dx" aria-label="Close menu">✕</button></div><div class="ac" id="ac"></div><a href="#">Support</a></aside>
+<script>
+const M=[
+{k:'Shop',c:[['Furniture','Chairs Tables Shelving Lighting'],['Textiles','Rugs Throws Cushions Curtains'],['Objects','Vases Bowls Candles Mirrors']],f:['New: the Orla chair','linear-gradient(135deg,#d99a6c,#b4452b)']},
+{k:'Studio',c:[['Studio','Our story|Makers|Process|Sustainability'],['Visit','Showroom|Events|Workshops|Book a visit'],['Trade','Interior designers|Hospitality|Bulk orders|Samples']],f:['Meet the makers','linear-gradient(135deg,#7a8f6f,#2f4a3d)']},
+{k:'Journal',c:[['Read','Interviews|Guides|Behind the scenes|Care'],['Series','Slow rooms|Material notes|Studio diaries|Small spaces'],['Subscribe','Newsletter|RSS|Instagram|Pinterest']],f:['Material notes: oak','linear-gradient(135deg,#e6c98a,#8a6a3a)']}];
+M[0].c=M[0].c.map(x=>[x[0],x[1].split(' ').join('|')]);
+const nv=document.getElementById('nv'),pn=document.getElementById('pn'),pi=document.getElementById('pi'),sc=document.getElementById('sc');
+const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const chev='<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4l4 4 4-4"/></svg>';
+let cur=-1,tOpen,tClose;
+const btn=M.map((m,i)=>{const b=document.createElement('button');b.innerHTML=m.k+chev;b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls','pn');
+ b.addEventListener('mouseenter',()=>{clearTimeout(tClose);clearTimeout(tOpen);tOpen=setTimeout(()=>open(i),cur<0?120:0)});
+ b.addEventListener('click',()=>cur===i?close():open(i));
+ b.addEventListener('keydown',e=>{if(e.key==='ArrowDown'){e.preventDefault();open(i);pi.querySelector('a').focus()}});nv.appendChild(b);return b});
+const sp=document.createElement('a');sp.href='#';sp.textContent='Support';nv.appendChild(sp);
+sp.addEventListener('mouseenter',()=>{clearTimeout(tOpen);tClose=setTimeout(close,150)});
+function html(i){const m=M[i];return m.c.map(c=>'<div class="cl"><h3>'+c[0]+'</h3>'+c[1].split('|').map(l=>'<a href="#">'+l+'</a>').join('')+'</div>').join('')+'<div class="ft"><div class="ar" style="background:'+m.f[1]+'"></div><b>'+m.f[0]+'</b><a href="#">Explore →</a></div>'}
+function open(i){if(cur===i)return;const first=cur<0;cur=i;btn.forEach((b,j)=>b.setAttribute('aria-expanded',j===i));
+ const set=()=>{pi.innerHTML=html(i);pn.style.height=pi.offsetHeight+'px';pi.classList.remove('fd')};
+ pn.classList.add('on');sc.classList.add('on');
+ if(first||calm){set()}else{pi.classList.add('fd');setTimeout(set,200)}}
+function close(){clearTimeout(tOpen);if(cur<0)return;cur=-1;btn.forEach(b=>b.setAttribute('aria-expanded','false'));pn.style.height='0';pn.classList.remove('on');sc.classList.remove('on')}
+[document.getElementById('hd'),pn].forEach(el=>{el.addEventListener('mouseleave',()=>{clearTimeout(tOpen);tClose=setTimeout(close,150)});el.addEventListener('mouseenter',()=>clearTimeout(tClose))});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){const i=cur;close();if(i>=0)btn[i].focus();closeDr()}});
+document.addEventListener('click',e=>{if(!e.target.closest('#hd,#pn'))close()});
+// drawer
+const dr=document.getElementById('dr'),ds=document.getElementById('ds'),ac=document.getElementById('ac');let lastF;
+ac.innerHTML=M.map((m,i)=>'<button aria-expanded="false" aria-controls="b'+i+'"><span>'+m.k+'</span>'+chev+'</button><div class="b" id="b'+i+'">'+m.c.flatMap(c=>c[1].split('|')).map(l=>'<a href="#">'+l+'</a>').join('')+'</div>').join('');
+ac.querySelectorAll('button').forEach(b=>b.onclick=()=>{const o=b.getAttribute('aria-expanded')!='true';b.setAttribute('aria-expanded',o);b.nextElementSibling.classList.toggle('on',o)});
+function openDr(){lastF=document.activeElement;dr.classList.add('on');ds.classList.add('on');document.getElementById('dx').focus()}
+function closeDr(){if(!dr.classList.contains('on'))return;dr.classList.remove('on');ds.classList.remove('on');lastF&&lastF.focus()}
+document.getElementById('mb').onclick=openDr;document.getElementById('dx').onclick=closeDr;ds.onclick=closeDr;
+dr.addEventListener('keydown',e=>{if(e.key!=='Tab')return;const f=[...dr.querySelectorAll('button:not([hidden]),a')].filter(x=>x.offsetParent),k=f.indexOf(document.activeElement);
+ if(e.shiftKey&&k<=0){e.preventDefault();f[f.length-1].focus()}else if(!e.shiftKey&&k===f.length-1){e.preventDefault();f[0].focus()}});
+</script></body></html>

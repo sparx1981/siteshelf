@@ -1,0 +1,13 @@
+Canvas & base: Section min-height 100svh, background #f6f5f1, text #17171a, muted #6b6b73, accent #5b4bff (indigo) with tint #ecebff, success #1f9d6b. Cards white with 1px #e4e3dc border, radius 18px. The featured plan has a 2px accent border and a small accent label "Most popular". Body margin 0.
+
+Typography: Plus Jakarta Sans (400, 500, 600, 800) throughout. Section heading clamp(36px, 4.6vw, 64px), weight 800, line-height 1.05, letter-spacing -0.035em, centred. Prices 56px weight 800 tabular-nums with "/mo" in 16px muted. Body 16px / 1.5. Feature rows 15px.
+
+Layout: centred container max-width 1080px, padding 96px 24px. Eyebrow "Pricing", heading "Simple plans that grow with you.", subcopy 18px muted, then a billing toggle: a pill track 248px by 48px with two options "Monthly" and "Yearly" and a sliding white thumb; next to Yearly a small success-coloured badge "Save 20%". Below, a 3-column grid, gap 20px: Starter, Studio (featured), Scale.
+
+Plans: Starter, monthly price 0 (shows "Free"), tagline "For trying things out", features: 1 project, 500 MB storage, Community support. Studio, monthly 24, yearly 19 per month billed annually (rounded), tagline "For small teams", features: 10 projects, 50 GB storage, Priority support, Custom domains. Scale, monthly 79, yearly 63, tagline "For growing companies", features: Unlimited projects, 1 TB storage, 24/7 support, SSO and audit log. Each card has a CTA button full width 48px: Starter ghost "Start free", Studio accent filled "Start 14-day trial", Scale ghost "Talk to sales". Each feature has a 18px tick icon in success colour.
+
+Interaction: the toggle slides its thumb over 250ms and the price numbers tween over 300ms. Under the price show "Billed yearly, £{n} a year" for paid yearly plans. Keyboard accessible, role=radiogroup for the toggle; arrow keys switch.
+
+Responsive: below 900px grid becomes a single column with the featured plan first, container padding 56px 16px.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Plus Jakarta Sans, no external images, no libraries. prefers-reduced-motion: no tween, no thumb slide.

@@ -1,0 +1,13 @@
+Canvas & base: Full-viewport split screen, min-height 100svh, two halves 1fr and 1fr. Left panel (form side): background #fbfaf7, text #1d1b18, muted #78726a. Right panel (brand side): background #1f3a34 (deep green) with a repeating woven pattern made from two layered repeating-linear-gradients (45deg and -45deg, 1px rgba(255,255,255,0.06) lines every 14px) and a large cream quote. Accent #d9622b (rust) for the primary button and focus rings. Error #c62f2f, success #1f8a5b. Body margin 0.
+
+Typography: Fraunces (500, 600) for the heading and the quote, Hanken Grotesk (400, 500, 600) for everything else. Heading clamp(32px, 3.4vw, 48px), weight 600, line-height 1.1, letter-spacing -0.02em. Labels 14px 600. Inputs 16px. Quote clamp(26px, 2.6vw, 38px) Fraunces 500 italic, cream #f6ecd9.
+
+Left panel layout: padding 40px 56px, flex column, wordmark "Loomwork" top left in Fraunces 600 22px, the form vertically centred with max-width 400px: heading "Create your workspace", subcopy muted, fields Full name, Work email, Password (with a 44px show/hide button inside the field), then a strength meter below the password (four 6px segments that fill from red to amber to green), a hint text under it, a checkbox "I agree to the terms" and a full-width 52px button "Create account" in rust. Under it a divider "or" and a ghost button "Continue with Google" (with a simple four-colour G drawn in SVG). Footer line: "Already have an account? Log in".
+
+Right panel: the woven background, a 56px quote glyph, the quote "We replaced six tools with one calm place for the whole team." and the attribution "Marta Alvarez, Head of Ops at Foldaway" with a 44px circle avatar made from initials MA.
+
+Validation (all client-side): name required; email must match a basic email pattern; password at least 8 characters. Strength score 0 to 4 from length >= 8, has a lowercase and uppercase letter, has a digit, has a symbol; label "Weak", "Fair", "Good", "Strong". Errors show below the field in error colour with the input border turned red, on blur and on submit. Submit is blocked until valid and the checkbox ticked. On success the form is replaced by a green tick circle, heading "You are in, {first name}." and a line "We have sent a confirmation to {email}."
+
+Responsive: below 900px the brand panel moves above the form as a 180px tall strip with the quote hidden, padding 24px 20px.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Fraunces and Hanken Grotesk, no external images, no libraries. prefers-reduced-motion: no transitions.

@@ -1,0 +1,15 @@
+Canvas & base: Full-viewport page, min-height 100svh, background #0a0d24 (deep space) with a radial glow of #2a1f63 at 70 percent 30 percent. Text #eef0ff, muted #9aa1d6, accent #ffb84d (amber). Body margin 0, overflow hidden.
+
+Typography: Unbounded (600, 800) for the big 404 and headline, Outfit (300, 400, 500) for everything else. The giant "404" clamp(120px, 24vw, 360px), weight 800, line-height 0.85, colour transparent with a 2px #eef0ff text-stroke, letter-spacing -0.04em. Headline clamp(24px, 3vw, 40px) Unbounded 600. Body 18px Outfit 300.
+
+Layout: two columns on desktop (text left, scene right), padding 40px 64px, vertically centred. Top bar with "Nebula" wordmark left and a "Home" link right. Left column: the 404 with a small label above it "Error", headline "Houston, this page drifted away.", paragraph "The link you followed is broken or the page has moved. Try one of these instead.", a search input (52px tall pill, 1px border rgba(238,240,255,0.3), placeholder "Search the site") and three suggestion links as pills ("Pricing", "Docs", "Contact").
+
+Scene (right): a 420px square area. A starfield behind (60 small dots in 3 layers). A planet: a 140px circle with a banded gradient (amber and rust bands) and a thin ring ellipse, bottom left of the scene. An astronaut made from pure CSS or SVG shapes (rounded white helmet with a dark visor reflecting a small amber highlight, white body, small backpack, two arms, two legs) floating at centre, with a curved tether line drawn in SVG from the backpack to the planet. The astronaut bobs up and down (translateY -14px to 14px) and rotates slowly (-8 to 8 degrees) on an 8 second ease-in-out alternating loop; the tether follows via an SVG path whose endpoint is updated in JS each frame.
+
+Parallax: the three star layers shift by 4, 10 and 20 px with the pointer, eased; the astronaut shifts by 14px in the opposite direction.
+
+Interaction: submitting the search shows a message line "No results for {query}. Did you mean Pricing?" with an amber link. Clicking the astronaut makes it spin once (360 degrees over 800ms).
+
+Responsive: below 900px one column, scene above the text at 260px, 404 clamps, padding 24px 20px.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Unbounded and Outfit, no external images, no libraries. prefers-reduced-motion: no bobbing, no parallax, no spin.

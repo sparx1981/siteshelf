@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stack FAQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Geist:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--lime:#b8f36b;--mut:#8d9a92;--ln:rgba(233,239,233,.14)}
+*{box-sizing:border-box}
+html,body{margin:0;background:#101312;color:#e9efe9;font:400 17px/1.6 Geist,system-ui,sans-serif}
+.sec{min-height:100svh;display:flex;align-items:center}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:96px 40px;display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:start}
+.l{position:sticky;top:96px}
+.eb{font:600 13px 'Familjen Grotesk';letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}
+h1{font:600 clamp(40px,5vw,72px)/1 'Familjen Grotesk';letter-spacing:-.03em;margin:14px 0 18px}
+.l p{color:var(--mut);margin:0 0 6px;max-width:360px}
+.l a{color:#e9efe9;text-decoration:none;border-bottom:2px solid var(--lime);font-weight:500}
+.s{position:relative;margin-top:28px}
+.s svg{position:absolute;left:14px;top:14px;color:var(--mut)}
+.s input{width:100%;height:48px;background:none;border:1px solid var(--ln);border-radius:12px;padding:0 14px 0 44px;color:#e9efe9;font:400 16px Geist}
+.s input:focus{outline:2px solid var(--lime);outline-offset:2px;border-color:transparent}
+.s input::placeholder{color:var(--mut)}
+.it{border-top:1px solid var(--ln)}
+.it:last-child{border-bottom:1px solid var(--ln)}
+.q{display:flex;align-items:center;gap:20px;width:100%;background:none;border:0;color:#e9efe9;text-align:left;padding:24px 0;cursor:pointer;font:500 22px/1.3 'Familjen Grotesk'}
+.q:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+.n{font:500 13px Geist;color:var(--mut);font-variant-numeric:tabular-nums;width:24px;flex:none}
+.q[aria-expanded=true] .n{color:var(--lime)}
+.q span.t{flex:1}
+.pl{position:relative;width:14px;height:14px;flex:none;transition:transform .3s}
+.pl::before,.pl::after{content:'';position:absolute;background:#e9efe9;left:0;top:6px;width:14px;height:2px}
+.pl::after{transform:rotate(90deg)}
+.q[aria-expanded=true] .pl{transform:rotate(45deg)}
+.a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+.a.o{grid-template-rows:1fr}
+.a>div{overflow:hidden}
+.a p{margin:0;padding:0 34px 26px 44px;color:#c3cdc6}
+.no{display:none;color:var(--mut);padding:24px 0}
+@media(max-width:900px){.wrap{grid-template-columns:1fr;gap:36px;padding:56px 20px}.l{position:static}.q{font-size:19px}.a p{padding-left:44px}}
+@media(prefers-reduced-motion:reduce){.a,.pl{transition:none}.q[aria-expanded=true] .pl{transform:none}}
+</style></head><body>
+<main class="sec"><div class="wrap">
+<div class="l"><div class="eb">Support</div><h1>Questions, answered.</h1><p>Cannot find it? Our team replies within a working day.</p><a href="#">Email support</a>
+<div class="s"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg><input id="se" type="search" placeholder="Search questions" aria-label="Search questions"></div></div>
+<div id="li" role="list"></div></div></main>
+<script>
+const D=[['Can I change plans later?','Yes, upgrade or downgrade from Settings at any time. Changes apply at the next billing date.'],
+['Do you offer refunds?','Full refund within 30 days of any first purchase, no forms.'],
+['Where is my data stored?','EU and UK regions by default, with encryption at rest and in transit.'],
+['Can I invite my whole team?','Every plan includes unlimited viewers. Editors are billed per seat.'],
+['Is there an API?','Yes, a REST API and webhooks on every paid plan, with 1,000 requests a minute.'],
+['How do I export my work?','Export everything as JSON, CSV or a ZIP of originals from the Account page.'],
+['Do you support SSO?','SAML SSO is available on the Scale plan, with SCIM provisioning.'],
+['What happens if I cancel?','You keep read-only access for 60 days, then your workspace is deleted.']];
+const li=document.getElementById('li');
+li.innerHTML=D.map((d,i)=>'<div class="it" role="listitem"><button class="q" id="q'+i+'" aria-expanded="false" aria-controls="a'+i+'"><span class="n">0'+(i+1)+'</span><span class="t">'+d[0]+'</span><i class="pl"></i></button><div class="a" id="a'+i+'" role="region" aria-labelledby="q'+i+'"><div><p>'+d[1]+'</p></div></div></div>').join('')+'<div class="no" id="no">No questions match</div>';
+const Q=[...li.querySelectorAll('.q')],A=[...li.querySelectorAll('.a')],IT=[...li.querySelectorAll('.it')];
+function open(i){Q.forEach((q,j)=>{const o=i==j&&q.getAttribute('aria-expanded')!='true';q.setAttribute('aria-expanded',o);A[j].classList.toggle('o',o)})}
+Q.forEach((q,i)=>{q.onclick=()=>open(i);q.addEventListener('keydown',e=>{const v=Q.filter((_,j)=>IT[j].style.display!='none'),k=v.indexOf(q);
+ if(e.key=='ArrowDown'){e.preventDefault();v[(k+1)%v.length].focus()}if(e.key=='ArrowUp'){e.preventDefault();v[(k+v.length-1)%v.length].focus()}})});
+open(0);
+document.getElementById('se').addEventListener('input',e=>{const s=e.target.value.trim().toLowerCase();let n=0;
+ D.forEach((d,i)=>{const m=!s||(d[0]+' '+d[1]).toLowerCase().includes(s);IT[i].style.display=m?'':'none';if(m)n++});
+ document.getElementById('no').style.display=n?'none':'block'});
+</script></body></html>

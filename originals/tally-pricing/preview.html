@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tally Pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--ac:#5b4bff;--ok:#1f9d6b;--mut:#6b6b73}
+*{box-sizing:border-box}
+html,body{margin:0;background:#f6f5f1;color:#17171a;font:400 16px/1.5 'Plus Jakarta Sans',system-ui,sans-serif}
+.sec{min-height:100svh;display:flex;align-items:center;justify-content:center}
+.wrap{width:100%;max-width:1080px;padding:72px 24px;text-align:center}
+.eb{font-weight:600;font-size:14px;color:var(--ac);letter-spacing:.04em}
+h1{font:800 clamp(36px,4.6vw,64px)/1.05 'Plus Jakarta Sans';letter-spacing:-.035em;margin:10px 0 14px}
+.sub{font-size:18px;color:var(--mut);margin:0 auto 32px;max-width:520px}
+.tg{display:inline-flex;align-items:center;gap:12px;margin-bottom:40px}
+.track{position:relative;display:grid;grid-template-columns:1fr 1fr;width:248px;height:48px;background:#e9e8e1;border-radius:24px;padding:4px}
+.thumb{position:absolute;top:4px;left:4px;width:120px;height:40px;background:#fff;border-radius:20px;box-shadow:0 1px 3px rgba(0,0,0,.12);transition:transform .25s}
+.track button{position:relative;z-index:1;background:none;border:0;font:600 15px 'Plus Jakarta Sans';color:var(--mut);cursor:pointer;border-radius:20px}
+.track button[aria-checked=true]{color:#17171a}
+.bd{font-size:13px;font-weight:600;color:var(--ok);background:#dff5ea;padding:4px 10px;border-radius:999px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left;align-items:stretch}
+.card{position:relative;background:#fff;border:1px solid #e4e3dc;border-radius:18px;padding:32px;display:flex;flex-direction:column}
+.card.f{border:2px solid var(--ac);padding:31px}
+.tag{position:absolute;top:-13px;left:32px;background:var(--ac);color:#fff;font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px}
+.card h2{margin:0;font:800 22px 'Plus Jakarta Sans';letter-spacing:-.02em}
+.tl{color:var(--mut);margin:4px 0 22px;font-size:15px}
+.pr{font:800 56px/1 'Plus Jakarta Sans';letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.pr small{font:400 16px 'Plus Jakarta Sans';color:var(--mut);letter-spacing:0}
+.bl{height:22px;font-size:13px;color:var(--mut);margin:6px 0 22px}
+.btn{height:48px;border-radius:12px;border:1px solid #d8d7cf;background:#fff;font:600 15px 'Plus Jakarta Sans';cursor:pointer;color:#17171a;margin-bottom:24px}
+.f .btn{background:var(--ac);border-color:var(--ac);color:#fff}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:12px;font-size:15px}
+li{display:flex;gap:10px;align-items:center}
+li svg{flex:none}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.f{order:-1}.wrap{padding:56px 16px}}
+@media(prefers-reduced-motion:reduce){.thumb{transition:none}}
+</style></head><body>
+<main class="sec"><div class="wrap">
+<div class="eb">Pricing</div><h1>Simple plans that grow with you.</h1><p class="sub">Start free, upgrade when your team does. Cancel any time, no questions.</p>
+<div class="tg"><div class="track" role="radiogroup" aria-label="Billing period"><span class="thumb" id="th"></span><button role="radio" aria-checked="true" id="bm">Monthly</button><button role="radio" aria-checked="false" id="by">Yearly</button></div><span class="bd">Save 20%</span></div>
+<div class="grid" id="gr"></div>
+</div></main>
+<script>
+const PL=[{n:'Starter',t:'For trying things out',m:0,y:0,b:'Start free',f:['1 project','500 MB storage','Community support']},
+{n:'Studio',t:'For small teams',m:24,y:19,b:'Start 14-day trial',feat:1,f:['10 projects','50 GB storage','Priority support','Custom domains']},
+{n:'Scale',t:'For growing companies',m:79,y:63,b:'Talk to sales',f:['Unlimited projects','1 TB storage','24/7 support','SSO and audit log']}];
+const tick='<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#dff5ea"/><path d="M5 9.2l2.6 2.6L13 6.4" fill="none" stroke="#1f9d6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const gr=document.getElementById('gr');let yr=false,vals=PL.map(p=>p.m);
+gr.innerHTML=PL.map((p,i)=>'<div class="card'+(p.feat?' f':'')+'">'+(p.feat?'<span class="tag">Most popular</span>':'')+'<h2>'+p.n+'</h2><div class="tl">'+p.t+'</div><div class="pr" id="p'+i+'">'+(p.m?'£'+p.m+'<small>/mo</small>':'Free')+'</div><div class="bl" id="b'+i+'"></div><button class="btn">'+p.b+'</button><ul>'+p.f.map(f=>'<li>'+tick+f+'</li>').join('')+'</ul></div>').join('');
+const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function paint(i,v){const e=document.getElementById('p'+i);e.innerHTML=PL[i].m?'£'+Math.round(v)+'<small>/mo</small>':'Free'}
+function set(y){yr=y;document.getElementById('th').style.transform='translateX('+(y?124:0)+'px)';
+ document.getElementById('bm').setAttribute('aria-checked',!y);document.getElementById('by').setAttribute('aria-checked',y);
+ PL.forEach((p,i)=>{const to=y?p.y:p.m,from=vals[i],t0=performance.now();document.getElementById('b'+i).textContent=p.m&&y?'Billed yearly, £'+(p.y*12)+' a year':(p.m?'Billed monthly':'No card needed');
+  if(calm||from===to){vals[i]=to;paint(i,to);return}
+  (function s(t){const k=Math.min(1,(t-t0)/300);vals[i]=from+(to-from)*(1-Math.pow(1-k,3));paint(i,vals[i]);if(k<1)requestAnimationFrame(s)})(t0)})}
+document.getElementById('bm').onclick=()=>set(false);document.getElementById('by').onclick=()=>set(true);
+document.querySelector('.track').addEventListener('keydown',e=>{if(e.key=='ArrowRight'){set(true);document.getElementById('by').focus()}if(e.key=='ArrowLeft'){set(false);document.getElementById('bm').focus()}});
+set(false);
+</script></body></html>

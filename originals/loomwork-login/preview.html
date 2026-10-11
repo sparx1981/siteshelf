@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Loomwork Sign-up</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ac:#d9622b;--er:#c62f2f;--ok:#1f8a5b;--mut:#78726a}
+*{box-sizing:border-box}
+html,body{margin:0;font:400 16px/1.5 'Hanken Grotesk',system-ui,sans-serif;color:#1d1b18}
+.pg{min-height:100svh;display:grid;grid-template-columns:1fr 1fr}
+.fs{background:#fbfaf7;padding:40px 56px;display:flex;flex-direction:column}
+.wm{font:600 22px Fraunces,serif}
+.fm{margin:auto 0;width:100%;max-width:400px;align-self:center;padding:24px 0}
+h1{font:600 clamp(32px,3.4vw,48px)/1.1 Fraunces,serif;letter-spacing:-.02em;margin:0 0 8px}
+.sc{color:var(--mut);margin:0 0 24px}
+.fd{margin-bottom:16px;position:relative}
+label.l{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+input[type=text],input[type=email],input[type=password]{width:100%;height:48px;border:1px solid #d9d4ca;border-radius:10px;padding:0 14px;font:400 16px 'Hanken Grotesk';background:#fff;color:#1d1b18;transition:border-color .15s}
+input:focus{outline:2px solid var(--ac);outline-offset:1px;border-color:transparent}
+.fd.bad input{border-color:var(--er)}
+.er{color:var(--er);font-size:13px;margin-top:4px;min-height:0;display:none}
+.fd.bad .er{display:block}
+.eye{position:absolute;right:4px;top:30px;height:40px;width:44px;border:0;background:none;color:var(--mut);cursor:pointer;font:600 12px 'Hanken Grotesk'}
+.mt{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
+.mt i{height:6px;border-radius:3px;background:#e7e2d8;transition:background .2s}
+.hn{font-size:13px;color:var(--mut);margin-top:6px}
+.ck{display:flex;gap:10px;align-items:flex-start;font-size:14px;margin:6px 0 18px}
+.ck input{margin-top:3px;accent-color:var(--ac);width:16px;height:16px}
+.go{width:100%;height:52px;border:0;border-radius:12px;background:var(--ac);color:#fff;font:600 16px 'Hanken Grotesk';cursor:pointer}
+.go:focus-visible,.gg:focus-visible{outline:2px solid #1d1b18;outline-offset:2px}
+.or{display:flex;align-items:center;gap:12px;color:var(--mut);font-size:13px;margin:16px 0}
+.or::before,.or::after{content:'';flex:1;height:1px;background:#e1dcd1}
+.gg{width:100%;height:48px;border:1px solid #d9d4ca;border-radius:12px;background:#fff;font:600 15px 'Hanken Grotesk';display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;color:#1d1b18}
+.ft{text-align:center;margin-top:18px;font-size:14px;color:var(--mut)}
+.ft a{color:#1d1b18;font-weight:600}
+.ok{display:none;text-align:center}
+.ok.on{display:block}
+.ok .c{width:72px;height:72px;border-radius:50%;background:var(--ok);margin:0 auto 20px;display:grid;place-items:center}
+.bs{position:relative;background:#1f3a34;color:#f6ecd9;padding:56px;display:flex;flex-direction:column;justify-content:center;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.06) 0 1px,transparent 1px 14px),repeating-linear-gradient(-45deg,rgba(255,255,255,.06) 0 1px,transparent 1px 14px)}
+.qg{font:600 96px/.6 Fraunces;color:var(--ac);height:48px}
+blockquote{font:italic 500 clamp(26px,2.6vw,38px)/1.25 Fraunces,serif;margin:12px 0 28px;max-width:520px}
+.at{display:flex;align-items:center;gap:14px;font-size:15px}
+.av{width:44px;height:44px;border-radius:50%;background:#f6ecd9;color:#1f3a34;display:grid;place-items:center;font-weight:600}
+@media(max-width:900px){.pg{grid-template-columns:1fr}.bs{order:-1;height:180px;padding:24px 20px}.bs *{display:none}.fs{padding:24px 20px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<main class="pg">
+<section class="fs"><div class="wm">Loomwork</div>
+<div class="fm"><form id="f" novalidate>
+<h1>Create your workspace</h1><p class="sc">Free for 14 days. No card required.</p>
+<div class="fd"><label class="l" for="nm">Full name</label><input id="nm" type="text" autocomplete="name"><div class="er">Please enter your name.</div></div>
+<div class="fd"><label class="l" for="em">Work email</label><input id="em" type="email" autocomplete="email"><div class="er">Enter a valid email address.</div></div>
+<div class="fd"><label class="l" for="pw">Password</label><input id="pw" type="password" autocomplete="new-password"><button type="button" class="eye" id="ey" aria-label="Show password">Show</button>
+<div class="mt" id="mt"><i></i><i></i><i></i><i></i></div><div class="hn" id="hn">Use 8 or more characters.</div><div class="er" id="pe">Password must be at least 8 characters.</div></div>
+<label class="ck"><input id="tc" type="checkbox"><span>I agree to the terms and privacy policy</span></label>
+<button class="go" type="submit">Create account</button>
+<div class="or">or</div>
+<button class="gg" type="button"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path fill="#4285F4" d="M17.6 9.2c0-.6-.1-1.2-.2-1.8H9v3.4h4.8a4.1 4.1 0 0 1-1.8 2.7v2.2h2.9c1.7-1.6 2.7-3.9 2.7-6.5z"/><path fill="#34A853" d="M9 18c2.4 0 4.5-.8 6-2.2l-2.9-2.2c-.8.5-1.8.9-3.1.9-2.4 0-4.4-1.6-5.1-3.8H.9v2.300A9 9 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.900 10.700a5.400 5.400 0 0 1 0-3.400V5H.9a9 9 0 0 0 0 8z"/><path fill="#EA4335" d="M9 3.600c1.300 0 2.500.5 3.400 1.300L15 2.300A9 9 0 0 0 .9 5l3 2.300C4.600 5.200 6.600 3.600 9 3.600z"/></svg>Continue with Google</button>
+<div class="ft">Already have an account? <a href="#">Log in</a></div></form>
+<div class="ok" id="ok" aria-live="polite"><div class="c"><svg width="36" height="36" viewBox="0 0 36 36"><path d="M9 18.500l6 6L27 12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h1 id="oh"></h1><p class="sc" id="op"></p></div></div></section>
+<section class="bs"><div class="qg">“</div><blockquote>We replaced six tools with one calm place for the whole team.</blockquote><div class="at"><span class="av">MA</span><span>Marta Alvarez, Head of Ops at Foldaway</span></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id),f=$('f');
+const rule={nm:v=>v.trim().length>0,em:v=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()),pw:v=>v.length>=8};
+function chk(id,show){const ok=rule[id]($(id).value),fd=$(id).closest('.fd');if(show)fd.classList.toggle('bad',!ok);else if(ok)fd.classList.remove('bad');return ok}
+['nm','em','pw'].forEach(id=>{$(id).addEventListener('blur',()=>chk(id,true));$(id).addEventListener('input',()=>chk(id,false))});
+const COL=['#c62f2f','#e8962b','#c9b82a','#1f8a5b'],LB=['Weak','Fair','Good','Strong'];
+$('pw').addEventListener('input',e=>{const v=e.target.value;let s=0;if(v.length>=8)s++;if(/[a-z]/.test(v)&&/[A-Z]/.test(v))s++;if(/\d/.test(v))s++;if(/[^A-Za-z0-9]/.test(v))s++;
+ [...$('mt').children].forEach((b,i)=>b.style.background=v&&i<s?COL[s-1]:'');
+ $('hn').textContent=v?LB[Math.max(0,s-1)]+(s<4?' · try mixing cases, digits and symbols':''):'Use 8 or more characters.'});
+$('ey').onclick=()=>{const t=$('pw').type=='password';$('pw').type=t?'text':'password';$('ey').textContent=t?'Hide':'Show';$('ey').setAttribute('aria-label',t?'Hide password':'Show password')};
+f.addEventListener('submit',e=>{e.preventDefault();const a=['nm','em','pw'].map(id=>chk(id,true)).every(Boolean);
+ if(!$('tc').checked){$('tc').focus();return}if(!a)return;
+ f.style.display='none';$('ok').classList.add('on');$('oh').textContent='You are in, '+$('nm').value.trim().split(/\s+/)[0]+'.';$('op').textContent='We have sent a confirmation to '+$('em').value.trim()+'.'});
+</script></body></html>

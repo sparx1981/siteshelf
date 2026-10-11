@@ -1,0 +1,13 @@
+Canvas & base: Full-viewport page, min-height 100svh, background #ece8ff (lilac) with a giant offset circle of #d9d1ff (70vmin, bottom right, partly off-screen) and text #1a1432. Accent #ff4f81 for the button and a pulsing live dot. Digit tiles #1a1432 with #fff text. Body margin 0, overflow hidden.
+
+Typography: Space Grotesk (500, 700) for the countdown digits and headline, Karla (400, 700) for body. Headline clamp(40px, 6vw, 88px), weight 700, line-height 1, letter-spacing -0.035em. Digits 72px (desktop) Space Grotesk 700 tabular-nums. Labels 12px uppercase letter-spacing 0.16em Karla 700.
+
+Layout: centred column, max-width 880px, padding 40px 24px. Top: wordmark "Kite" with a 22px diamond mark. Eyebrow chip with the pulsing dot "Launching soon". Headline "Something light is about to take off." Paragraph "Kite is a calendar that plans your week around your energy, not your inbox. Join the waitlist for early access." The countdown: four tiles (Days, Hours, Minutes, Seconds), each tile 120px by 140px, radius 16px, dark with a 2px horizontal split line across the middle (a subtle 1px lighter line) and the number above its label. Between tiles no separators. Under the countdown, a form row: email input (56px tall pill, white, 1px border) and a button "Join the waitlist" (56px, #ff4f81, white text, pill). Under the form a line "{n} people are already on the list" where n starts at 2,418 and increments by one on a successful signup.
+
+Countdown logic: target is a fixed UTC timestamp 2026-12-01T09:00:00Z. Compute remaining time each second. If the target has passed show 00 in all tiles and the headline stays. A digit change triggers a flip animation: the tile's top half rotates down over 300ms (rotateX 0 to -90deg) revealing the new number. Seconds flip each second.
+
+Validation: invalid email shows "Please enter a valid email" under the field in #c0173f, shake animation 300ms. Success replaces the form with "You are on the list. We will email you when Kite opens." and increments the counter with a quick count-up.
+
+Responsive: below 700px tiles are 72px by 92px, digits 40px, gap 8px, form stacks.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Space Grotesk and Karla, no external images, no libraries. prefers-reduced-motion: no flip or shake.

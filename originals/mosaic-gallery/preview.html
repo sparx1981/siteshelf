@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mosaic Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Albert+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#faf8f5;color:#1c1a17;font:400 16px/1.5 'Albert Sans',system-ui,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:64px 32px;min-height:100svh}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:28px;flex-wrap:wrap}
+h1{font:700 clamp(40px,5.5vw,80px)/1 'Bricolage Grotesque';letter-spacing:-.04em;margin:0;max-width:720px}
+.hd p{margin:0;max-width:300px;color:#7b756c}
+.ch{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.ch button{height:36px;padding:0 18px;border:1px solid #cfc9bf;border-radius:999px;background:none;font:500 14px 'Albert Sans';cursor:pointer;color:#1c1a17}
+.ch button[aria-pressed=true]{background:#1c1a17;color:#fff;border-color:#1c1a17}
+.gr{column-count:4;column-gap:16px}
+.tl{display:block;width:100%;margin:0 0 16px;border:0;padding:0;border-radius:14px;overflow:hidden;position:relative;break-inside:avoid;cursor:pointer;transition:opacity .2s,transform .25s;background:#ddd}
+.tl:hover,.tl:focus-visible{transform:scale(1.02)}
+.tl:focus-visible{outline:3px solid #1c1a17;outline-offset:3px}
+.tl.out{opacity:0}
+.tl.gone{display:none}
+.cap{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 14px;background:linear-gradient(to top,rgba(0,0,0,.5),transparent);color:#fff;text-align:left;transform:translateY(100%);transition:transform .25s}
+.tl:hover .cap,.tl:focus-visible .cap{transform:none}
+.cap b{display:block;font:600 18px 'Bricolage Grotesque'}
+.cap span{font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+.lb{position:fixed;inset:0;background:rgba(10,10,10,.88);display:none;align-items:center;justify-content:center;flex-direction:column;z-index:10;padding:24px}
+.lb.on{display:flex}
+.art{max-height:72vh;max-width:min(82vw,720px);width:auto;border-radius:14px}
+.lc{color:#fff;text-align:center;margin-top:16px}
+.lc b{font:600 22px 'Bricolage Grotesque';display:block}
+.lc span{font-size:13px;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.lb button{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer}
+.lb button:focus-visible{outline:2px solid #fff}
+#cl{top:20px;right:20px}#pv{left:20px;top:50%}#nx{right:20px;top:50%}
+@media(max-width:1100px){.gr{column-count:3}}
+@media(max-width:700px){.gr{column-count:2;column-gap:12px}.tl{margin-bottom:12px}.wrap{padding:40px 16px}#pv,#nx{top:auto;bottom:24px}#pv{left:calc(50% - 64px)}#nx{right:calc(50% - 64px)}.lc{margin-bottom:64px}.cap{transform:none;padding-top:30px}.cap b{font-size:14px}.cap span{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.tl,.cap{transition:none}.tl:hover{transform:none}}
+</style></head><body>
+<main class="wrap">
+<div class="hd"><h1>Selected work, 2024 to now.</h1><p>Posters, patterns and experiments drawn in code and printed on paper.</p></div>
+<div class="ch" id="ch" role="group" aria-label="Filter by category"></div>
+<div class="gr" id="gr"></div></main>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork viewer"><button id="cl" aria-label="Close">✕</button><button id="pv" aria-label="Previous">←</button><button id="nx" aria-label="Next">→</button><div class="art" id="art"></div><div class="lc"><b id="lt"></b><span id="ls"></span></div></div>
+<script>
+const A=[["Pinwheel", "Abstract", "conic-gradient(from 0deg,#ff6b4a,#ffd24a,#4ac8ff,#7a5cff,#ff6b4a)", "4/5"], ["Concentric", "Patterns", "repeating-radial-gradient(circle at 50% 50%,#1f3a5f 0 14px,#f2e8d5 14px 28px)", "1/1"], ["Stripes No. 4", "Patterns", "repeating-linear-gradient(90deg,#e8553d 0 24px,#f7e7c9 24px 48px,#2b5d6b 48px 72px)", "3/4"], ["Dotfield", "Patterns", "radial-gradient(circle,#1c1a17 4px,transparent 5px) 0 0/22px 22px,#ffd9b8", "5/4"], ["Blob Garden", "Abstract", "radial-gradient(circle at 25% 30%,#ff7ca3 0 28%,transparent 29%),radial-gradient(circle at 70% 60%,#7be0c3 0 32%,transparent 33%),radial-gradient(circle at 40% 85%,#ffd24a 0 24%,transparent 25%),#2a2a6b", "2/3"], ["Split Sun", "Posters", "radial-gradient(circle at 50% 56%,#ff5a36 0 30%,transparent 31%),linear-gradient(180deg,#f7e7c9 0 50%,#2b3a67 50%)", "4/5"], ["Waves", "Patterns", "repeating-linear-gradient(45deg,#19756b 0 12px,#e6f3ee 12px 24px),#19756b", "1/1"], ["Dusk Poster", "Posters", "linear-gradient(180deg,#2a1f63,#c4527a 60%,#ffb86b)", "3/4"], ["Checker", "Patterns", "conic-gradient(#1c1a17 25%,#f2f0e6 0 50%,#1c1a17 0 75%,#f2f0e6 0) 0 0/48px 48px", "5/4"], ["Marigold", "Abstract", "conic-gradient(from 30deg at 50% 50%,#ffb703,#fb8500,#ffb703,#fb8500,#ffb703)", "2/3"], ["Ink Rings", "Abstract", "repeating-radial-gradient(circle at 30% 70%,#111 0 6px,#f6f1e6 6px 18px)", "1/1"], ["Terrazzo", "Patterns", "radial-gradient(circle at 20% 25%,#e76f51 0 6%,transparent 7%),radial-gradient(circle at 60% 40%,#2a9d8f 0 8%,transparent 9%),radial-gradient(circle at 80% 75%,#e9c46a 0 7%,transparent 8%),radial-gradient(circle at 35% 80%,#264653 0 6%,transparent 7%),#f4ece1", "4/5"]];
+const $=id=>document.getElementById(id);
+const items=[];for(let i=0;i<16;i++){const a=A[i%A.length];const hueRot=i>=A.length?(i-A.length+1)*37:0;items.push({t:a[0]+(i>=A.length?' II':''),c:a[1],bg:a[2],r:a[3],h:hueRot})}
+const gr=$('gr');
+items.forEach((it,i)=>{const b=document.createElement('button');b.className='tl';b.dataset.i=i;b.dataset.c=it.c;b.style.aspectRatio=it.r.replace('/',' / ');
+ b.innerHTML='<div style="position:absolute;inset:0;background:'+it.bg+';filter:hue-rotate('+it.h+'deg)"></div><div class="cap"><b>'+it.t+'</b><span>'+it.c+'</span></div>';
+ b.setAttribute('aria-label',it.t+', '+it.c);b.addEventListener('click',()=>openLb(i));gr.appendChild(b)});
+const cats=['All','Posters','Patterns','Abstract'];let cur='All';
+const ch=$('ch');cats.forEach(c=>{const b=document.createElement('button');b.textContent=c;b.onclick=()=>filt(c);ch.appendChild(b)});
+const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function filt(c){cur=c;[...ch.children].forEach((b,i)=>b.setAttribute('aria-pressed',cats[i]==c));
+ [...gr.children].forEach(t=>{const m=c=='All'||t.dataset.c==c;
+  if(m){t.classList.remove('gone');void t.offsetWidth;t.classList.remove('out')}
+  else{t.classList.add('out');setTimeout(()=>{if(t.classList.contains('out'))t.classList.add('gone')},calm?0:200)}})}
+filt('All');
+let vis=[],pos=0,last=null;
+function visible(){return items.map((_,i)=>i).filter(i=>cur=='All'||items[i].c==cur)}
+function show(){const it=items[vis[pos]];$('art').style.cssText='background:'+it.bg+';filter:hue-rotate('+it.h+'deg);aspect-ratio:'+it.r.replace('/',' / ')+';height:min(72vh,calc(82vw / ('+it.r.split('/').reduce((a,b)=>a/b)+')));max-width:82vw';
+ $('lt').textContent=it.t;$('ls').textContent=it.c+' · '+String(pos+1).padStart(2,'0')+' / '+String(vis.length).padStart(2,'0')}
+function openLb(i){last=document.activeElement;vis=visible();pos=vis.indexOf(i);$('lb').classList.add('on');show();$('cl').focus()}
+function close(){$('lb').classList.remove('on');last&&last.focus()}
+function go(d){pos=(pos+d+vis.length)%vis.length;show()}
+$('cl').onclick=close;$('pv').onclick=()=>go(-1);$('nx').onclick=()=>go(1);$('lb').addEventListener('click',e=>{if(e.target===$('lb'))close()});
+document.addEventListener('keydown',e=>{if(!$('lb').classList.contains('on'))return;
+ if(e.key=='Escape')close();if(e.key=='ArrowRight')go(1);if(e.key=='ArrowLeft')go(-1);
+ if(e.key=='Tab'){const f=[$('cl'),$('pv'),$('nx')],k=f.indexOf(document.activeElement);e.preventDefault();f[(k+(e.shiftKey?-1:1)+3)%3].focus()}});
+</script></body></html>

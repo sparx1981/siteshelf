@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nebula 404</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#0a0d24;color:#eef0ff;font:300 18px/1.6 Outfit,system-ui,sans-serif}
+.pg{position:relative;min-height:100svh;overflow:hidden;background:radial-gradient(circle at 70% 30%,#2a1f63,#0a0d24 60%);display:flex;flex-direction:column}
+.top{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:28px 64px}
+.top b{font:800 18px Unbounded;letter-spacing:.02em}
+.top a{color:#eef0ff;text-decoration:none;font-weight:500;font-size:15px}
+.mn{position:relative;z-index:2;flex:1;display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:0 64px 48px;align-items:center}
+.lb{font:600 12px Unbounded;letter-spacing:.2em;text-transform:uppercase;color:#ffb84d}
+.n4{font:800 clamp(120px,24vw,360px)/.85 Unbounded;color:transparent;-webkit-text-stroke:2px #eef0ff;letter-spacing:-.04em;margin:10px 0 20px}
+h1{font:600 clamp(24px,3vw,40px)/1.2 Unbounded;margin:0 0 12px}
+.l p{color:#9aa1d6;margin:0 0 24px;max-width:480px}
+.sf{display:flex;max-width:440px}
+.sf input{flex:1;height:52px;border-radius:26px;border:1px solid rgba(238,240,255,.3);background:rgba(255,255,255,.04);color:#eef0ff;padding:0 22px;font:400 16px Outfit}
+.sf input:focus{outline:2px solid #ffb84d;outline-offset:2px;border-color:transparent}
+.sf input::placeholder{color:#9aa1d6}
+.sg{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.sg a{border:1px solid rgba(238,240,255,.25);border-radius:999px;padding:6px 16px;color:#eef0ff;text-decoration:none;font-size:15px}
+.sg a:hover{border-color:#ffb84d;color:#ffb84d}
+#msg{margin-top:16px;color:#9aa1d6;min-height:28px}
+#msg a{color:#ffb84d}
+.sc{position:relative;width:min(420px,100%);aspect-ratio:1;justify-self:center}
+.ly{position:absolute;inset:-60px;will-change:transform}
+.ly i{position:absolute;border-radius:50%;background:#fff}
+.pl{position:absolute;left:4%;bottom:6%;width:140px;height:140px;border-radius:50%;background:repeating-linear-gradient(170deg,#ffb84d 0 14px,#e0782f 14px 26px,#ffd28a 26px 34px,#b8501f 34px 46px);box-shadow:inset -22px -18px 40px rgba(0,0,0,.45)}
+.rg{position:absolute;left:-14%;top:38%;width:128%;height:24%;border:3px solid rgba(255,214,150,.55);border-radius:50%;transform:rotate(-16deg);clip-path:inset(0 0 50% 0)}
+.as{position:absolute;left:50%;top:38%;width:130px;height:190px;margin:-95px 0 0 -65px;cursor:pointer}
+.as svg{width:100%;height:100%;overflow:visible}
+#ab{animation:bob 8s ease-in-out infinite alternate}
+@keyframes bob{from{transform:translateY(-14px) rotate(-8deg)}to{transform:translateY(14px) rotate(8deg)}}
+.tt{position:absolute;inset:0;pointer-events:none;width:100%;height:100%;overflow:visible}
+@media(max-width:900px){.top{padding:20px}.mn{grid-template-columns:1fr;padding:0 20px 40px;gap:8px}.sc{order:-1;width:260px}.pl{width:90px;height:90px}.as{transform:scale(.7)}}
+@media(prefers-reduced-motion:reduce){#ab{animation:none}}
+</style></head><body>
+<main class="pg">
+<div class="top"><b>Nebula</b><a href="#">Home</a></div>
+<div class="mn"><section class="l"><div class="lb">Error</div><div class="n4" aria-hidden="true">404</div><h1>Houston, this page drifted away.</h1><p>The link you followed is broken or the page has moved. Try one of these instead.</p>
+<form class="sf" id="sf"><input id="q" type="search" placeholder="Search the site" aria-label="Search the site"></form>
+<div class="sg"><a href="#">Pricing</a><a href="#">Docs</a><a href="#">Contact</a></div><div id="msg" aria-live="polite"></div></section>
+<section class="sc" id="sc"><div class="ly" id="l1"></div><div class="ly" id="l2"></div><div class="ly" id="l3"></div>
+<div class="pl" id="pl"><div class="rg"></div></div>
+<svg class="tt" id="tt"><path id="tp" fill="none" stroke="#eef0ff" stroke-opacity=".6" stroke-width="2" stroke-dasharray="1 0"/></svg>
+<div class="as" id="as" role="button" aria-label="Astronaut, click to spin" tabindex="0"><div id="ab"><svg viewBox="0 0 130 190" id="asv"><g id="sp"><rect x="14" y="68" width="30" height="64" rx="10" fill="#cfd4f0"/><rect x="30" y="64" width="70" height="86" rx="26" fill="#fff"/><rect x="48" y="102" width="34" height="22" rx="6" fill="#dfe3fb"/><circle cx="58" cy="113" r="3" fill="#ffb84d"/><circle cx="72" cy="113" r="3" fill="#7bd9ff"/><path d="M34 80C14 84 6 108 18 126" stroke="#fff" stroke-width="16" fill="none" stroke-linecap="round"/><path d="M96 80C116 84 124 108 112 126" stroke="#fff" stroke-width="16" fill="none" stroke-linecap="round"/><rect x="38" y="140" width="22" height="42" rx="10" fill="#fff"/><rect x="70" y="140" width="22" height="42" rx="10" fill="#fff"/><rect x="38" y="172" width="22" height="14" rx="6" fill="#ffb84d"/><rect x="70" y="172" width="22" height="14" rx="6" fill="#ffb84d"/><circle cx="65" cy="42" r="38" fill="#fff"/><rect x="38" y="26" width="54" height="34" rx="17" fill="#1b2150"/><ellipse cx="54" cy="36" rx="8" ry="4" fill="#ffb84d" opacity=".8" transform="rotate(-20 54 36)"/></g></svg></div></div>
+</section></div></main>
+<script>
+const $=id=>document.getElementById(id),calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+[[$('l1'),30,1.2,.5],[$('l2'),22,2,.75],[$('l3'),12,3,1]].forEach(([el,n,s,o])=>{for(let i=0;i<n;i++){const d=document.createElement('i');d.style.left=Math.random()*100+'%';d.style.top=Math.random()*100+'%';d.style.width=d.style.height=(s*(.6+Math.random()*.6))+'px';d.style.opacity=o*(.5+Math.random()*.5);el.appendChild(d)}});
+let tx=0,ty=0,cx=0,cy=0;
+if(!calm)addEventListener('pointermove',e=>{tx=(e.clientX/innerWidth-.5)*2;ty=(e.clientY/innerHeight-.5)*2});
+const as=$('as'),sc=$('sc'),pl=$('pl'),tp=$('tp');
+function frame(){cx+=(tx-cx)*.07;cy+=(ty-cy)*.07;
+ [['l1',4],['l2',10],['l3',20]].forEach(([id,d])=>$(id).style.transform='translate('+cx*d+'px,'+cy*d+'px)');
+ as.style.transform=(innerWidth<=900?'scale(.7) ':'')+'translate('+(-cx*14)+'px,'+(-cy*14)+'px)';
+ const s=sc.getBoundingClientRect(),a=$('ab').getBoundingClientRect(),p=pl.getBoundingClientRect();
+ const ax=a.left+a.width*.3-s.left,ay=a.top+a.height*.55-s.top,px=p.left+p.width*.7-s.left,py=p.top+p.height*.25-s.top;
+ tp.setAttribute('d','M'+ax+' '+ay+' Q '+((ax+px)/2-30)+' '+((ay+py)/2+50)+' '+px+' '+py);
+ requestAnimationFrame(frame)}
+frame();
+function spin(){if(calm)return;const g=$('sp');g.style.transformOrigin='65px 95px';g.animate([{transform:'rotate(0)'},{transform:'rotate(360deg)'}],{duration:800,easing:'ease-in-out'})}
+as.addEventListener('click',spin);as.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();spin()}});
+$('sf').addEventListener('submit',e=>{e.preventDefault();const q=$('q').value.trim();if(!q)return;const m=$('msg');m.textContent='';m.append('No results for “'+q+'”. Did you mean ');const a=document.createElement('a');a.href='#';a.textContent='Pricing';m.append(a,'?')});
+</script></body></html>

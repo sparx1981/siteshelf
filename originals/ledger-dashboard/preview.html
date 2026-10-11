@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ledger Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ac:#2563eb;--up:#059669;--dn:#dc2626;--mut:#6b7280;--ln:#e5e7eb}
+*{box-sizing:border-box}
+html,body{margin:0;background:#f3f4f6;color:#111827;font:400 15px/1.45 Inter,system-ui,sans-serif;font-variant-numeric:tabular-nums}
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100svh}
+.sb{background:#fff;border-right:1px solid var(--ln);padding:20px 16px}
+.lg{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;margin:4px 8px 24px}
+.lg i{width:28px;height:28px;border-radius:8px;background:var(--ac);color:#fff;display:grid;place-items:center;font-style:normal;font-size:15px}
+.nv{display:flex;align-items:center;gap:12px;height:40px;padding:0 12px;border-radius:10px;color:#374151;font-weight:500;text-decoration:none;margin-bottom:2px}
+.nv.on{background:#eff4ff;color:var(--ac)}
+.nv svg{flex:none}
+.mn{padding:32px;min-width:0}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+h1{font:700 28px 'Inter';letter-spacing:-.02em;margin:0}
+.hd p{margin:2px 0 0;color:var(--mut)}
+.sg{display:flex;background:#e5e7eb;border-radius:10px;padding:3px}
+.sg button{border:0;background:none;height:34px;padding:0 16px;border-radius:8px;font:600 13px Inter;color:var(--mut);cursor:pointer}
+.sg button[aria-pressed=true]{background:#fff;color:var(--ac);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.card{background:#fff;border:1px solid var(--ln);border-radius:16px;padding:24px}
+.kp{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:16px}
+.kp .l{font-size:13px;font-weight:500;color:var(--mut)}
+.kp .v{font:700 32px/1.2 Inter;letter-spacing:-.02em;margin:6px 0 8px}
+.dl{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px}
+.up{color:var(--up);background:#d1fae5}.dn{color:var(--dn);background:#fee2e2}
+.kp svg{display:block;margin-top:12px}
+.row{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+.ch h2,.tp h2{font:600 16px Inter;margin:0 0 4px}
+.ch .s{color:var(--mut);font-size:13px;margin-bottom:12px}
+#chart{width:100%;height:300px;display:block;outline:none;position:relative}
+.cw{position:relative}
+.tt{position:absolute;pointer-events:none;background:#111827;color:#fff;font-size:12px;padding:6px 10px;border-radius:8px;white-space:nowrap;opacity:0;transform:translate(-50%,-120%);transition:opacity .1s}
+.pr{display:grid;gap:16px;margin-top:16px}
+.pr .t{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
+.pr .b{height:8px;border-radius:4px;background:#eef0f3}
+.pr .b i{display:block;height:100%;border-radius:4px;background:var(--ac)}
+@media(max-width:1000px){.app{grid-template-columns:64px 1fr}.sb{padding:16px 10px}.lg span,.nv span{display:none}.nv{justify-content:center;padding:0}.lg{justify-content:center;margin:4px 0 20px}}
+@media(max-width:700px){.app{grid-template-columns:1fr}.sb{display:none}.mn{padding:20px 16px}.kp{grid-template-columns:1fr 1fr}.kp .v{font-size:24px}.row{grid-template-columns:1fr}.card{padding:18px}}
+@media(prefers-reduced-motion:reduce){.tt{transition:none}}
+</style></head><body>
+<div class="app">
+<aside class="sb"><div class="lg"><i>L</i><span>Ledger</span></div><div id="nv"></div></aside>
+<main class="mn">
+<div class="hd"><div><h1>Overview</h1><p>Revenue and orders for your store</p></div><div class="sg" id="sg" role="group" aria-label="Date range"></div></div>
+<div class="kp" id="kp"></div>
+<div class="row"><section class="card ch"><h2>Revenue</h2><div class="s" id="sub"></div><div class="cw"><svg id="chart" tabindex="0" role="img" aria-label="Revenue line chart"></svg><div class="tt" id="tt"></div></div></section>
+<section class="card tp"><h2>Top products</h2><div class="s" style="color:#6b7280;font-size:13px">Share of revenue</div><div class="pr" id="pr"></div></section></div>
+</main></div>
+<script>
+const $=id=>document.getElementById(id);
+const IC={Overview:'<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',Orders:'<path d="M6 6h15l-2 9H8zM6 6L5 3H2M9 20a1 1 0 1 0 0 .01M18 20a1 1 0 1 0 0 .01"/>',Customers:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>',Products:'<path d="M21 8l-9-5-9 5v8l9 5 9-5zM3 8l9 5 9-5M12 13v8"/>',Settings:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>'};
+$('nv').innerHTML=Object.keys(IC).map((k,i)=>'<a class="nv'+(i?'':' on')+'" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+IC[k]+'</svg><span>'+k+'</span></a>').join('');
+function rng(seed){let s=seed;return()=>(s=(s*1664525+1013904223)%4294967296)/4294967296}
+function series(n){const r=rng(n*97+11),a=[];let b=1500;for(let i=0;i<n;i++){b+=(r()-.46)*220;b=Math.max(700,b);a.push(Math.round(b+Math.sin(i/3)*260+r()*180))}return a}
+const R={7:7,30:30,90:90};let cur=30;const data={};[7,30,90].forEach(n=>data[n]=series(n));
+const gbp=n=>'£'+Math.round(n).toLocaleString('en-GB');
+const sg=$('sg');[7,30,90].forEach(n=>{const b=document.createElement('button');b.textContent=n+'D';b.onclick=()=>{cur=n;render()};sg.appendChild(b)});
+function spark(a,c){const w=80,h=24,mx=Math.max(...a),mn=Math.min(...a);const p=a.map((v,i)=>(i/(a.length-1)*w).toFixed(1)+','+(h-2-(v-mn)/(mx-mn||1)*(h-4)).toFixed(1)).join(' ');return'<svg width="80" height="24" viewBox="0 0 80 24"><polyline points="'+p+'" fill="none" stroke="'+c+'" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg>'}
+const prods=[['Linen shirt',.28],['Wool throw',.22],['Ceramic mug set',.19],['Canvas tote',.17],['Candle trio',.14]];
+function render(){[...sg.children].forEach((b,i)=>b.setAttribute('aria-pressed',[7,30,90][i]==cur));
+ const a=data[cur],sum=a.reduce((x,y)=>x+y,0),ord=Math.round(sum/(36+cur%7*.4)),aov=sum/ord;
+ const half=Math.floor(a.length/2),d1=a.slice(0,half).reduce((x,y)=>x+y,0),d2=a.slice(half).reduce((x,y)=>x+y,0),dr=(d2/d1-1)*100;
+ const K=[['Revenue',gbp(sum),dr,a],['Orders',ord.toLocaleString('en-GB'),dr*.8+1.2,a.map(v=>v/36)],['Average order','£'+aov.toFixed(2),-1.4+cur%3*.9,a.map((v,i)=>36+Math.sin(i)*2)],['Conversion',(3.1+cur%5*.1).toFixed(1)+'%',.6+cur%4*.3,a.map((v,i)=>3+Math.cos(i/2)*.4)]];
+ $('kp').innerHTML=K.map(k=>{const up=k[2]>=0;return'<div class="card"><div class="l">'+k[0]+'</div><div class="v">'+k[1]+'</div><span class="dl '+(up?'up':'dn')+'">'+(up?'▲':'▼')+' '+Math.abs(k[2]).toFixed(1)+'%</span>'+spark(k[3],up?'#059669':'#dc2626')+'</div>'}).join('');
+ $('sub').textContent='Last '+cur+' days · '+gbp(sum)+' total';
+ $('pr').innerHTML=prods.map(p=>'<div><div class="t"><span>'+p[0]+'</span><b>'+gbp(sum*p[1])+'</b></div><div class="b"><i style="width:'+(p[1]*100/.28*.92)+'%"></i></div></div>').join('');
+ draw()}
+let pts=[],idx=-1;
+function draw(){const svg=$('chart'),W=svg.clientWidth||640,H=300,m={l:52,r:12,t:12,b:28},a=data[cur],mx=Math.ceil(Math.max(...a)/500)*500;
+ svg.setAttribute('viewBox','0 0 '+W+' '+H);
+ const X=i=>m.l+i/(a.length-1)*(W-m.l-m.r),Y=v=>m.t+(1-v/mx)*(H-m.t-m.b);
+ pts=a.map((v,i)=>[X(i),Y(v),v]);
+ let g='';for(let i=0;i<=4;i++){const v=mx*i/4,y=Y(v);g+='<line x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+y+'" y2="'+y+'" stroke="#eceef1"/><text x="'+(m.l-10)+'" y="'+(y+4)+'" text-anchor="end" font-size="12" fill="#6b7280">£'+(v/1000).toFixed(v%1000?1:0)+'k</text>'}
+ const step=Math.ceil(a.length/6);let xl='';const base=new Date(2026,9,11);
+ for(let i=0;i<a.length;i+=step){const d=new Date(base);d.setDate(base.getDate()-(a.length-1-i));xl+='<text x="'+X(i)+'" y="'+(H-6)+'" text-anchor="middle" font-size="12" fill="#6b7280">'+d.toLocaleDateString('en-GB',{day:'numeric',month:'short'})+'</text>'}
+ const line=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' '),area=line+' L'+X(a.length-1)+' '+(H-m.b)+' L'+m.l+' '+(H-m.b)+'Z';
+ svg.innerHTML='<defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2563eb" stop-opacity=".18"/><stop offset="1" stop-color="#2563eb" stop-opacity="0"/></linearGradient></defs>'+g+xl+'<path d="'+area+'" fill="url(#ga)"/><path id="ln" d="'+line+'" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><g id="hv" style="display:none"><line id="hl" y1="'+m.t+'" y2="'+(H-m.b)+'" stroke="#9ca3af" stroke-dasharray="4 4"/><circle id="hd" r="5" fill="#fff" stroke="#2563eb" stroke-width="2.5"/></g>';
+ if(!matchMedia('(prefers-reduced-motion:reduce)').matches){const l=$('ln'),L=l.getTotalLength();l.style.strokeDasharray=L;l.style.strokeDashoffset=L;l.getBoundingClientRect();l.style.transition='stroke-dashoffset .4s ease';l.style.strokeDashoffset=0}
+ idx=-1;$('tt').style.opacity=0}
+function show(i){i=Math.max(0,Math.min(pts.length-1,i));idx=i;const p=pts[i];$('hv').style.display='';$('hl').setAttribute('x1',p[0]);$('hl').setAttribute('x2',p[0]);$('hd').setAttribute('cx',p[0]);$('hd').setAttribute('cy',p[1]);
+ const t=$('tt'),d=new Date(2026,9,11);d.setDate(d.getDate()-(pts.length-1-i));t.textContent=d.toLocaleDateString('en-GB',{day:'numeric',month:'short'})+' · '+gbp(p[2]);t.style.left=p[0]+'px';t.style.top=p[1]+'px';t.style.opacity=1}
+const sv=$('chart');
+sv.addEventListener('pointermove',e=>{const r=sv.getBoundingClientRect(),x=e.clientX-r.left;let b=0,bd=1e9;pts.forEach((p,i)=>{const d=Math.abs(p[0]-x);if(d<bd){bd=d;b=i}});show(b)});
+sv.addEventListener('pointerleave',()=>{$('hv').style.display='none';$('tt').style.opacity=0});
+sv.addEventListener('keydown',e=>{if(e.key=='ArrowRight'){e.preventDefault();show(idx<0?0:idx+1)}if(e.key=='ArrowLeft'){e.preventDefault();show(idx<0?pts.length-1:idx-1)}});
+addEventListener('resize',draw);render();
+</script></body></html>

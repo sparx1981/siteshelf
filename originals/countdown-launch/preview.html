@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kite Launch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#ece8ff;color:#1a1432;font:400 18px/1.55 Karla,system-ui,sans-serif}
+.pg{position:relative;min-height:100svh;overflow:hidden;display:flex;flex-direction:column;align-items:center}
+.pg::before{content:'';position:absolute;width:70vmin;height:70vmin;border-radius:50%;background:#d9d1ff;right:-18vmin;bottom:-22vmin}
+.col{position:relative;z-index:1;margin:auto;width:100%;max-width:880px;padding:40px 24px;text-align:center}
+.wm{display:flex;align-items:center;justify-content:center;gap:10px;font:700 22px 'Space Grotesk';margin-bottom:26px}
+.wm i{width:22px;height:22px;background:#ff4f81;transform:rotate(45deg);border-radius:4px}
+.ch{display:inline-flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:6px 16px;font-weight:700;font-size:14px;margin-bottom:18px}
+.ch i{width:9px;height:9px;border-radius:50%;background:#ff4f81;animation:pu 1.4s infinite}
+@keyframes pu{50%{box-shadow:0 0 0 7px rgba(255,79,129,.2)}}
+h1{font:700 clamp(40px,6vw,88px)/1 'Space Grotesk';letter-spacing:-.035em;margin:0 0 16px}
+.col>p{margin:0 auto 32px;max-width:560px}
+.cd{display:flex;justify-content:center;gap:16px;margin-bottom:36px}
+.tl{width:120px}
+.t{position:relative;height:140px;border-radius:16px;background:#1a1432;color:#fff;font:700 72px/140px 'Space Grotesk';font-variant-numeric:tabular-nums;perspective:400px;overflow:hidden}
+.t::after{content:'';position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(255,255,255,.12);z-index:3}
+.t .a,.t .b{position:absolute;inset:0;backface-visibility:hidden}
+.t .top{position:absolute;left:0;right:0;top:0;height:50%;overflow:hidden;background:#1a1432;z-index:2;transform-origin:bottom}
+.t .top span{position:absolute;left:0;right:0;top:0;height:140px}
+.t.flip .top{animation:fl .3s ease-in forwards}
+@keyframes fl{to{transform:rotateX(-90deg)}}
+.lb{font:700 12px Karla;letter-spacing:.16em;text-transform:uppercase;margin-top:12px}
+.fm{display:flex;gap:12px;justify-content:center;max-width:620px;margin:0 auto}
+.fm input{flex:1;min-width:0;height:56px;border-radius:28px;border:1px solid #cfc7f5;background:#fff;padding:0 24px;font:400 17px Karla;color:#1a1432}
+.fm input:focus{outline:2px solid #1a1432;outline-offset:2px}
+.fm button{height:56px;border:0;border-radius:28px;background:#ff4f81;color:#fff;padding:0 30px;font:700 17px Karla;cursor:pointer;white-space:nowrap}
+.er{color:#c0173f;font-size:14px;height:22px;margin-top:8px}
+.shake{animation:sh .3s}
+@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.cn{margin-top:6px;font-weight:700}
+.ok{font:700 22px 'Space Grotesk';padding:14px 0}
+@media(max-width:700px){.cd{gap:8px}.tl{width:72px}.t{height:92px;font-size:40px;line-height:92px;border-radius:12px}.fm{flex-direction:column}.fm input{flex:none;width:100%}.fm button{width:100%}}
+@media(prefers-reduced-motion:reduce){.t.flip .top{animation:none}.shake{animation:none}.ch i{animation:none}}
+</style></head><body>
+<main class="pg"><div class="col">
+<div class="wm"><i></i>Kite</div>
+<div class="ch"><i></i>Launching soon</div>
+<h1>Something light is about to take off.</h1>
+<p>Kite is a calendar that plans your week around your energy, not your inbox. Join the waitlist for early access.</p>
+<div class="cd" id="cd" role="timer" aria-label="Time until launch"></div>
+<div id="fw"><form class="fm" id="fm" novalidate><input id="em" type="email" placeholder="you@company.com" aria-label="Email address"><button type="submit">Join the waitlist</button></form><div class="er" id="er" role="alert"></div></div>
+<div class="cn"><span id="n">2,418</span> people are already on the list</div>
+</div></main>
+<script>
+const TARGET=Date.UTC(2026,11,1,9,0,0),$=id=>document.getElementById(id),calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const U=['Days','Hours','Minutes','Seconds'],tiles=U.map(u=>{const d=document.createElement('div');d.className='tl';d.innerHTML='<div class="t"><div class="top"><span>00</span></div><b>00</b></div><div class="lb">'+u+'</div>';$('cd').appendChild(d);return d.querySelector('.t')});
+const prev=[null,null,null,null];
+function parts(){let s=Math.max(0,Math.floor((TARGET-Date.now())/1000));return[Math.floor(s/86400),Math.floor(s%86400/3600),Math.floor(s%3600/60),s%60].map(v=>String(v).padStart(2,'0'))}
+function tick(first){const p=parts();p.forEach((v,i)=>{if(prev[i]===v)return;const t=tiles[i],top=t.querySelector('.top span'),b=t.querySelector('b');
+ if(first||calm||prev[i]===null){top.textContent=v;b.textContent=v}
+ else{top.textContent=prev[i];t.classList.remove('flip');void t.offsetWidth;b.textContent=v;t.classList.add('flip');setTimeout(()=>{top.textContent=v;t.classList.remove('flip')},300)}
+ prev[i]=v})}
+tick(true);setInterval(tick,1000);
+let n=2418;const fm=$('fm'),em=$('em'),er=$('er');
+fm.addEventListener('submit',e=>{e.preventDefault();const v=em.value.trim();
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){er.textContent='Please enter a valid email';fm.classList.remove('shake');void fm.offsetWidth;fm.classList.add('shake');em.focus();return}
+ er.textContent='';$('fw').innerHTML='<div class="ok" role="status">You are on the list. We will email you when Kite opens.</div>';
+ const from=n;n++;const t0=performance.now();(function s(t){const k=Math.min(1,(t-t0)/500);$('n').textContent=Math.round(from+(n-from)*k).toLocaleString('en-GB');if(k<1&&!calm)requestAnimationFrame(s)})(t0);$('n').textContent=n.toLocaleString('en-GB')});
+</script></body></html>

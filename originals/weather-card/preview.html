@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Weather</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;font:500 16px/1.4 Urbanist,system-ui,sans-serif;color:#fff;font-variant-numeric:tabular-nums}
+.bgs{position:fixed;inset:0;z-index:0}
+.bgs i{position:absolute;inset:0;opacity:0;transition:opacity .6s}.bgs i.on{opacity:1}
+canvas{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.pg{position:relative;z-index:2;min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr);place-items:center;padding:24px 16px}
+.cd{width:min(420px,100%);border-radius:32px;padding:28px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 30px 60px rgba(0,0,0,.18)}
+.tp{display:flex;justify-content:space-between;gap:10px;margin-bottom:22px}
+.tb{display:flex;gap:0;flex-wrap:nowrap;background:rgba(255,255,255,.14);border-radius:999px;padding:3px}
+.tb button,.un button{height:34px;padding:0 9px;border:0;border-radius:999px;background:none;color:rgba(255,255,255,.8);font:600 13px Urbanist;cursor:pointer}
+.tb button[aria-selected=true],.un button[aria-pressed=true]{background:#fff;color:#1d2a3c}
+.un{display:flex;background:rgba(255,255,255,.14);border-radius:999px;padding:3px;height:40px;align-self:flex-start}
+button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+#bd{transition:opacity .3s}#bd.f{opacity:0}
+.nm{font:700 22px Urbanist}.dt{color:rgba(255,255,255,.75);font-size:14px}
+.mn{display:flex;align-items:center;justify-content:space-between;margin:10px 0 4px}
+.tm{font:700 96px/1 Urbanist;letter-spacing:-.04em}.tm sup{font-size:40px;vertical-align:top;position:relative;top:10px;letter-spacing:0}
+.cn{font:600 18px Urbanist}.hl{color:rgba(255,255,255,.75);font-size:14px}
+.ic{width:88px;height:88px}
+.rays{transform-origin:50px 50px;animation:rot 24s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.st{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:22px 0}
+.st div{background:rgba(255,255,255,.14);border-radius:16px;padding:10px 12px}
+.st small{display:block;font-size:12px;color:rgba(255,255,255,.75)}.st b{font:700 17px Urbanist}
+.sec{margin-top:4px!important;padding-bottom:18px;font:700 12px Urbanist;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.75);margin:0 0 6px}
+svg.hr{width:100%;height:auto;overflow:visible}
+.dy{display:grid;gap:4px;margin-top:18px}
+.dr{display:grid;grid-template-columns:52px 32px 36px 1fr 36px;align-items:center;gap:8px;height:40px;font-weight:600}
+.dr .mi{color:rgba(255,255,255,.7);text-align:right}.dr .ma{text-align:right}
+.rg{position:relative;height:6px;background:rgba(255,255,255,.2);border-radius:3px}
+.rg i{position:absolute;top:0;bottom:0;border-radius:3px;background:linear-gradient(90deg,#9be3ff,#ffd37a)}
+@media(max-width:420px){.cd{padding:22px 18px}.tb button{padding:0 6px;font-size:12px}.un button{padding:0 8px}.tp{gap:6px}}
+@media(prefers-reduced-motion:reduce){.rays{animation:none}#bd{transition:none}.bgs i{transition:none}}
+</style></head><body>
+<div class="bgs" id="bgs"></div><canvas id="cv" aria-hidden="true"></canvas>
+<main class="pg"><section class="cd" aria-label="Weather"><div class="tp"><div class="tb" role="tablist" id="tb" aria-label="City"></div><div class="un" role="group" aria-label="Units"><button id="uc" aria-pressed="true">°C</button><button id="uf" aria-pressed="false">°F</button></div></div>
+<div id="bd" aria-live="polite"></div></section></main>
+<script>
+const $=id=>document.getElementById(id),calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const BG={Sunny:['#4facfe','#00c6fb'],Rain:['#4b5d78','#1f2a3d'],Snow:['#9fb4cf','#e6eef8'],Cloudy:['#7d8fa6','#bcc8d6']};
+const C=[
+{n:'London',c:'Cloudy',t:12,h:14,l:8,w:14,hu:71,uv:2,hr:[12,12,13,14,14,13,12,11,10,10,9,9],d:[['Mon','Cloudy',8,14],['Tue','Rain',7,11],['Wed','Rain',6,10],['Thu','Cloudy',7,13],['Fri','Sunny',8,16]]},
+{n:'Cairo',c:'Sunny',t:29,h:32,l:21,w:9,hu:34,uv:8,hr:[29,30,31,32,32,31,29,27,25,24,23,22],d:[['Mon','Sunny',21,32],['Tue','Sunny',22,33],['Wed','Sunny',21,31],['Thu','Cloudy',20,29],['Fri','Sunny',21,30]]},
+{n:'Reykjavik',c:'Snow',t:-2,h:0,l:-5,w:26,hu:82,uv:1,hr:[-2,-2,-1,0,0,-1,-2,-3,-4,-4,-5,-5],d:[['Mon','Snow',-5,0],['Tue','Snow',-6,-1],['Wed','Cloudy',-4,2],['Thu','Rain',0,4],['Fri','Cloudy',-2,3]]},
+{n:'Mumbai',c:'Rain',t:27,h:29,l:25,w:18,hu:88,uv:3,hr:[27,27,28,29,29,28,28,27,27,26,26,25],d:[['Mon','Rain',25,29],['Tue','Rain',25,28],['Wed','Cloudy',26,30],['Thu','Rain',25,29],['Fri','Sunny',26,31]]}];
+let cur=0,F=false;
+const T=v=>Math.round(F?v*9/5+32:v);
+const ICON=(k,s)=>{const p={Sunny:'<g class="rays"><g stroke="#ffd45c" stroke-width="5" stroke-linecap="round"><path d="M50 8v10M50 82v10M8 50h10M82 50h10M20 20l7 7M73 73l7 7M80 20l-7 7M27 73l-7 7"/></g></g><circle cx="50" cy="50" r="19" fill="#ffd45c"/>',
+Cloudy:'<path d="M28 68a14 14 0 0 1 1-28 20 20 0 0 1 38 4 12 12 0 0 1 1 24z" fill="#fff"/><path d="M22 70a11 11 0 0 1 2-22 15 15 0 0 1 29 3" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="3"/>',
+Rain:'<path d="M28 56a14 14 0 0 1 1-28 20 20 0 0 1 38 4 12 12 0 0 1 1 24z" fill="#dfe8f5"/><g stroke="#7cc4ff" stroke-width="4" stroke-linecap="round"><path d="M34 66l-4 12M50 66l-4 12M66 66l-4 12"/></g>',
+Snow:'<path d="M28 52a14 14 0 0 1 1-28 20 20 0 0 1 38 4 12 12 0 0 1 1 24z" fill="#fff"/><g fill="#fff"><circle cx="34" cy="68" r="4"/><circle cx="50" cy="76" r="4"/><circle cx="66" cy="68" r="4"/><circle cx="42" cy="84" r="3"/><circle cx="58" cy="86" r="3"/></g>'};
+return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 100 100" class="ic" style="width:'+s+'px;height:'+s+'px" aria-hidden="true">'+p[k]+'</svg>'};
+function curve(v){const W=372,H=110,pad=14,mn=Math.min(...v),mx=Math.max(...v),X=i=>pad+i/(v.length-1)*(W-2*pad),Y=x=>14+(1-(x-mn)/(mx-mn||1))*(H-44);
+ const pts=v.map((x,i)=>[X(i),Y(x)]);let d='M'+pts[0][0]+' '+pts[0][1];
+ for(let i=1;i<pts.length;i++){const a=pts[i-1],b=pts[i],cx=(a[0]+b[0])/2;d+=' C'+cx+' '+a[1]+' '+cx+' '+b[1]+' '+b[0]+' '+b[1]}
+ let s='<svg class="hr" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Hourly temperatures"><defs><linearGradient id="ar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><path d="'+d+' L'+X(v.length-1)+' '+(H-26)+' L'+X(0)+' '+(H-26)+'Z" fill="url(#ar)"/><path d="'+d+'" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>';
+ pts.forEach((p,i)=>{if(i%3==0||i==0){const now=i==0;s+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+(now?6:4)+'" fill="'+(now?'#fff':'rgba(255,255,255,.9)')+'" '+(now?'stroke="rgba(255,255,255,.4)" stroke-width="6"':'')+'/><text x="'+p[0]+'" y="'+(p[1]-12)+'" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">'+T(v[i])+'°</text><text x="'+p[0]+'" y="'+(H-6)+'" text-anchor="middle" font-size="12" fill="rgba(255,255,255,.75)">'+(i==0?'Now':String((new Date().getHours()+i)%24).padStart(2,'0'))+'</text>'}});
+ return s+'</svg>'}
+function body(){const c=C[cur],all=c.d.flatMap(x=>[x[2],x[3]]),mn=Math.min(...all),mx=Math.max(...all);
+ const dt=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+ return '<div class="nm">'+c.n+'</div><div class="dt">'+dt+'</div><div class="mn"><div><div class="tm">'+T(c.t)+'<sup>°</sup></div><div class="cn">'+c.c+'</div><div class="hl">H '+T(c.h)+'°  L '+T(c.l)+'°</div></div>'+ICON(c.c,88)+'</div>'+
+ '<div class="st"><div><small>Wind</small><b>'+c.w+' km/h</b></div><div><small>Humidity</small><b>'+c.hu+'%</b></div><div><small>UV index</small><b>'+c.uv+'</b></div></div><div class="sec">Next 12 hours</div>'+curve(c.hr)+
+ '<div class="dy">'+c.d.map(d=>'<div class="dr"><span>'+d[0]+'</span>'+ICON(d[1],28)+'<span class="mi">'+T(d[2])+'°</span><div class="rg"><i style="left:'+((d[2]-mn)/(mx-mn||1)*100)+'%;right:'+(100-(d[3]-mn)/(mx-mn||1)*100)+'%"></i></div><span class="ma">'+T(d[3])+'°</span></div>').join('')+'</div>'}
+Object.keys(BG).forEach(k=>{const i=document.createElement('i');i.dataset.k=k;i.style.background='linear-gradient(160deg,'+BG[k][0]+','+BG[k][1]+')';$('bgs').appendChild(i)});
+const tb=$('tb');C.forEach((c,i)=>{const b=document.createElement('button');b.role='tab';b.textContent=c.n;b.onclick=()=>pick(i);b.addEventListener('keydown',e=>{if(e.key=='ArrowRight')pick((i+1)%C.length,1);if(e.key=='ArrowLeft')pick((i+C.length-1)%C.length,1)});tb.appendChild(b)});
+function paint(){[...tb.children].forEach((b,i)=>{b.setAttribute('aria-selected',i==cur);b.tabIndex=i==cur?0:-1});$('bd').innerHTML=body();
+ [...$('bgs').children].forEach(i=>i.classList.toggle('on',i.dataset.k==C[cur].c));mode=C[cur].c;seed()}
+function pick(i,f){if(i==cur&&!f)return;cur=i;if(calm){paint()}else{$('bd').classList.add('f');setTimeout(()=>{paint();$('bd').classList.remove('f')},300)}if(f)tb.children[i].focus()}
+$('uc').onclick=()=>{F=false;$('uc').setAttribute('aria-pressed',true);$('uf').setAttribute('aria-pressed',false);paint()};
+$('uf').onclick=()=>{F=true;$('uf').setAttribute('aria-pressed',true);$('uc').setAttribute('aria-pressed',false);paint()};
+// particles
+const cv=$('cv'),x=cv.getContext('2d');let W,H,mode='Cloudy',P=[];
+function size(){W=cv.width=innerWidth;H=cv.height=innerHeight}size();addEventListener('resize',()=>{size();seed()});
+function seed(){P=[];const n=mode=='Rain'?160:mode=='Snow'?110:mode=='Cloudy'?7:5;for(let i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,v:mode=='Rain'?9+Math.random()*7:mode=='Snow'?.6+Math.random()*1.2:.15+Math.random()*.3,r:mode=='Snow'?1.5+Math.random()*2.5:mode=='Cloudy'?90+Math.random()*120:40+i*40,p:Math.random()*6.28});if(calm)draw(0,true)}
+function draw(t,once){x.clearRect(0,0,W,H);
+ P.forEach(p=>{if(mode=='Rain'){x.strokeStyle='rgba(190,220,255,.55)';x.lineWidth=1.4;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(p.x-3,p.y+16);x.stroke();if(!once){p.y+=p.v;p.x-=.4;if(p.y>H){p.y=-20;p.x=Math.random()*W}}}
+  else if(mode=='Snow'){x.fillStyle='rgba(255,255,255,.9)';x.beginPath();x.arc(p.x+Math.sin(t/900+p.p)*12,p.y,p.r,0,6.28);x.fill();if(!once){p.y+=p.v;if(p.y>H+5){p.y=-5;p.x=Math.random()*W}}}
+  else if(mode=='Cloudy'){const g=x.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);g.addColorStop(0,'rgba(255,255,255,.28)');g.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=g;x.fillRect(p.x-p.r,p.y-p.r,p.r*2,p.r*2);if(!once){p.x+=p.v;if(p.x-p.r>W)p.x=-p.r}}
+  else{const g=x.createRadialGradient(W*.8,H*.15,0,W*.8,H*.15,p.r*6);g.addColorStop(0,'rgba(255,240,170,.16)');g.addColorStop(1,'rgba(255,240,170,0)');x.fillStyle=g;x.fillRect(0,0,W,H)}});
+ if(!once&&!calm)requestAnimationFrame(draw)}
+paint();if(!calm)requestAnimationFrame(draw);
+</script></body></html>

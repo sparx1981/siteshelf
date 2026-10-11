@@ -1,0 +1,19 @@
+Canvas & base: Full-viewport app, height 100svh, background #f4f1ec, text #231f1b, muted #7b756d, panels white, 1px #e6e1d9 dividers, accent #0f766e (teal), own-bubble #0f766e with white text, other-bubble #ffffff with 1px border. Body margin 0, overflow hidden.
+
+Typography: Albert Sans (400, 500, 600, 700) throughout. Conversation name 15px 600, preview 13px muted, message text 15px / 1.45, timestamps 11px muted.
+
+Layout: three regions in a CSS grid: 76px icon rail (logo, chats, calls, settings icons, avatar at bottom), 340px conversation list (header "Messages" 22px 700, search input 44px, list of 6 conversations each 72px tall with 44px initials avatar, name, last message preview, time, unread badge), and the active thread (header with avatar, name, status "online" with a green dot, and call and info icon buttons; scrolling message area; composer at the bottom).
+
+Conversations (seeded): Design Crew (group), Amelia Park, Marco Silva, Priya Nair, Studio Updates, Dad. Each has a short seeded history of 4 to 8 messages with times, some from the other person and some from "me", day separators ("Yesterday", "Today"). Unread badges on two. Selecting a conversation loads its thread, clears its badge and scrolls to the bottom.
+
+Messages: bubbles max-width 68 percent, radius 18px with the tail corner 4px, consecutive messages from the same sender are grouped (tight 2px gap, only the last shows a timestamp and, in groups, the sender avatar for others). Message hover shows a small reaction bar (5 emoji: thumbs up, heart, laugh, wow, party); clicking one attaches a pill under the bubble ("❤️ 1"), clicking it again removes it.
+
+Composer: auto-growing textarea (1 to 5 lines), Enter sends, Shift+Enter newline, send button disabled when empty. Sending appends an own bubble with a small "Sent" tick, then after 600ms shows the typing indicator (three bouncing dots in an other-bubble) for 1.2 seconds, then a scripted reply from the active contact picked from a short list per contact. The list preview and time update, and the conversation moves to the top.
+
+Search: filters the conversation list live by name or last message.
+
+Responsive: below 900px the rail hides and the list and thread behave as two screens: the list full width, tapping a conversation opens the thread full width with a back arrow button in its header.
+
+Accessibility: list items are buttons with aria-current for the active one; the message log has role log and aria-live polite; reaction buttons have labels.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Albert Sans, no external images, no libraries. prefers-reduced-motion: no bouncing, no scroll smoothing.

@@ -1,0 +1,15 @@
+Canvas & base: Full-viewport page, min-height 100svh, background a gradient that changes with the selected city condition: Sunny (#4facfe to #00c6fb), Rain (#4b5d78 to #1f2a3d), Snow (#9fb4cf to #e6eef8), Cloudy (#7d8fa6 to #bcc8d6), crossfading over 600ms. A glass card 420px wide, radius 32px, padding 28px, background rgba(255,255,255,0.18), 1px rgba(255,255,255,0.35) border, backdrop-filter blur(20px). Text #ffffff, muted rgba(255,255,255,0.75). Body margin 0.
+
+Typography: Urbanist (400, 500, 600, 700, 800) throughout, tabular-nums for temperatures. City name 22px 700, big temperature 96px weight 700 letter-spacing -0.04em, condition 18px 500, labels 13px.
+
+Layout: centred card. Top row: a city switcher as four pill tabs (London, Cairo, Reykjavik, Mumbai) and a unit toggle °C / °F (36px tall pills). Then the city name with the date and time-of-day label, a large temperature with the weather icon (80px, drawn as SVG: sun with rotating rays, cloud, rain drops, snowflake), condition text, and "H 14° L 8°". A three-stat row (Wind, Humidity, UV) in glass chips. An hourly section: SVG smooth curve of temperature for the next 12 hours with dots and labels every 3 hours and the current hour highlighted. Below it a 5-day list: day name, small icon, a temperature range bar (min to max placed on a shared scale), min and max numbers.
+
+Data (hard-coded): London: Cloudy, 12°C, H 14 L 8, wind 14 km/h, humidity 71 percent, UV 2; Cairo: Sunny, 29°C, H 32 L 21, wind 9, humidity 34, UV 8; Reykjavik: Snow, -2°C, H 0 L -5, wind 26, humidity 82, UV 1. Each city has 12 hourly temperatures and 5 daily (icon, min, max).
+
+Animation: background particles in a full-viewport canvas behind the card: the canvas shows rain when the selected city's condition is Rain, snow flakes for Snow (Reykjavik), drifting cloud blobs for Cloudy (London), and soft sun glow for Sunny (Cairo). Mumbai: Rain, 27°C, H 29 L 25, wind 18 km/h, humidity 88 percent, UV 3.
+
+Interaction: clicking a city tab swaps the data with a 300ms fade of the card content, the gradient and particles; unit toggle converts all numbers (F = C * 9/5 + 32, rounded). Arrow keys move between city tabs.
+
+Responsive: card width min(420px, calc(100vw - 32px)); stats wrap if needed.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Urbanist, no external images, no libraries. prefers-reduced-motion: static particles (drawn once) and no icon rotation.

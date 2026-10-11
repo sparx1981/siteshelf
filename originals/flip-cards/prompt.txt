@@ -1,0 +1,17 @@
+Canvas & base: Section min-height 100svh, background #f3efe8, text #1f1b16, muted #766f64. Card faces: front is a colour block per person (#e4572e, #2e86ab, #f2b134, #5b8c5a, #8a5fbf, #d45d79), back is #1f1b16 with cream text #f3efe8. Radius 22px. Body margin 0.
+
+Typography: Gabarito (500, 700, 800) for names and headings, Figtree (400, 500, 600) for body. Section heading clamp(40px, 5vw, 72px) Gabarito 800 letter-spacing -0.03em. Name 24px Gabarito 700, role 14px Figtree 500, bio 15px / 1.55.
+
+Layout: container max-width 1180px, padding 80px 32px. Heading "The people behind it." with a paragraph. A 3-column grid (2 below 900px, 1 below 560px), gap 24px, six cards each 320px tall (aspect ratio 4 / 5 on mobile).
+
+Card front: the colour block with a large CSS portrait: a head circle (88px, skin tone varied: #f1c9a5, #c58c64, #8a5a3c, #e8b794, #6b4128, #f6d7b8) over a rounded shoulder shape in a darker tone of the block, plus simple hair shapes (a different style per person using border-radius tricks), name and role in cream-ink at the bottom left, and a small "flip" circular arrow icon top right. Card back: name, role, a two-sentence bio, and three icon links (LinkedIn, X, Email) as 40px circles with 1px cream borders, hover filling cream.
+
+Flip behaviour: perspective 1200px on the grid cell, inner element transform-style preserve-3d, rotateY(180deg) on hover (pointer fine), on focus-within, and toggled on click or Enter and Space (aria-pressed on the card button wrapper). 600ms cubic-bezier(0.2, 0.8, 0.2, 1). backface-visibility hidden on both faces. Links on the back stay reachable by keyboard: when the card is flipped they are tabbable, when not they are tabindex -1.
+
+Entrance: cards fade up (translateY 24px to 0, opacity 0 to 1) with a 80ms stagger when scrolled into view, once, using IntersectionObserver.
+
+People: Maya Ortiz, Founder and CEO; Jonas Lindqvist, Head of Engineering; Amara Okafor, Design Director; Kenji Sato, Product Lead; Sofia Rossi, Customer Success; Ravi Patel, Data Scientist.
+
+Responsive: grid as above; on touch devices flip on tap only.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Gabarito and Figtree, no external images, no libraries. prefers-reduced-motion: no flip rotation (swap faces with a quick crossfade instead), no entrance animation.

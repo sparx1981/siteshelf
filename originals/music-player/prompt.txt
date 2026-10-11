@@ -1,0 +1,15 @@
+Canvas & base: Full-viewport page, min-height 100svh, background #1a1410 (warm dark), a soft radial glow of the current track colour behind the player (--tc, transitions 500ms). Player card 880px wide max, radius 28px, background #241c16, 1px #3a2e24 border, padding 32px, a two-column grid (vinyl left, controls and playlist right). Text #f6ede2, muted #9c8d7c. Accent is the current track colour (five tracks: #ff7a45, #f2c14e, #5ec2a6, #7aa2ff, #e86a92). Body margin 0.
+
+Typography: DM Serif Display for the track title and "Now playing" heading, DM Sans (400, 500, 600) for UI, tabular-nums for time. Title 34px, artist 16px muted, times 13px.
+
+Layout: left column: a 340px vinyl record drawn with CSS (black disc with concentric groove rings via repeating-radial-gradient, a lighter highlight arc via conic-gradient, a 120px centre label in the track colour with the track number and a 10px spindle hole) on a square plinth card, plus a tonearm: a 150px bar pivoting from the top right of the plinth, rotating from -28 degrees (parked) to 12 degrees (playing) over 600ms, with a headshell at the end. The record rotates 1 turn per 3.6 seconds while playing, pausing in place. Right column: "Now playing", title, artist and album, a progress bar (6px, track colour fill, draggable thumb 14px, click to seek) with elapsed and total times, controls row (shuffle, previous, a 64px play/pause circle in the track colour, next, repeat) and a playlist of 5 tracks as rows (number, title, artist, duration, a tiny animated equaliser (3 bars) on the active row).
+
+Tracks (invented): 1 "Slow Tide" by Aurelia Moon 3:42; 2 "Paper Lanterns" by The Keepers 4:05; 3 "Night Bus Home" by Odalys 2:58; 4 "Copper Sky" by Nils & Wren 3:31; 5 "Last Light in Lisbon" by Marisol 4:20.
+
+Behaviour (no real audio): a simulated clock advances elapsed time every 100ms while playing; at track end it moves to the next (or repeats the track in repeat-one mode, or picks a random next in shuffle mode; the end of the list stops unless repeat-all is on). Repeat button cycles off, all, one with an aria-label update. Space toggles play/pause, left and right arrows seek 5 seconds, N and P next and previous. Dragging the progress thumb scrubs elapsed time live. Changing track resets elapsed, recolours the accent (--tc) and swaps the label text.
+
+Responsive: below 800px the card is one column with the vinyl scaled to 72vw, controls below.
+
+Accessibility: progress is an input type range under the hood (visually styled), buttons have aria-labels, play/pause uses aria-pressed.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for DM Serif Display and DM Sans, no external images, no libraries, no audio. prefers-reduced-motion: the record does not rotate (a small tick on the label shows motion instead) and the tonearm snaps without animation.

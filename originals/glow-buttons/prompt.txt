@@ -1,0 +1,21 @@
+Canvas & base: Full-viewport board, min-height 100svh, background #0d0d12, text #ececf3, muted #8a8a9e, accent colours violet #8b5cf6, cyan #22d3ee, lime #a3e635, pink #f472b6. Buttons sit in a 4 by 2 grid of labelled cells (cell background #14141b, 1px #23232e border, radius 20px, padding 32px, min-height 200px, button centred, caption bottom-left in 12px uppercase muted). Body margin 0.
+
+Typography: Manrope (500, 600, 700) for all button labels at 16px, Geist Mono 12px for captions. Page title "Buttons" in Manrope 700 clamp(36px, 4vw, 56px) with subtitle muted.
+
+Layout: padding 64px 40px, max-width 1200px, centred. Title block then the grid, gap 16px. Below 1000px grid 2 columns, below 560px 1 column.
+
+The eight buttons (each 52px tall, padding 0 28px, radius 14px unless noted):
+1 "Gradient border": transparent background with a 2px animated conic-gradient border (violet, cyan, pink) rotating via a CSS custom property angle animated with @property over 3 seconds, inner fill #0d0d12.
+2 "Magnetic": solid violet fill; on pointer move within 80px of the button the button translates toward the pointer by up to 8px with the label moving 4px more, easing back on leave.
+3 "Ripple": solid cyan with dark text; on click a circular ripple expands from the click point over 600ms and fades.
+4 "Fill up": transparent with 2px lime border and lime text; on hover a lime fill rises from the bottom over 300ms and the text turns dark.
+5 "Shine": solid pink; a diagonal white highlight band sweeps across on hover over 700ms.
+6 "Outline draw": 2px border drawn with an SVG rect stroke-dasharray that draws on hover over 500ms, label muted turning white.
+7 "3D press": solid violet with a 6px solid darker violet bottom edge made with box-shadow 0 6px 0 #5b34c4; on active it translates down 4px and the shadow shrinks to 2px.
+8 "Submit": a loading to success sequence: click shows a spinner (16px) replacing the label for 1.4 seconds, the button widens or shrinks smoothly to 52px circle, turns lime with a check mark; after 1.6 seconds it resets. Disabled while running.
+
+Accessibility: all are real button elements with visible 2px focus rings (offset 3px, white), aria-live polite on the submit button state, tab order left to right.
+
+Responsive: as above; magnetic effect disabled on touch.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Manrope and Geist Mono, no external images, no libraries. prefers-reduced-motion: no border rotation, no magnetism, no ripple expansion, no shine, no draw animation, and the submit button just swaps text.

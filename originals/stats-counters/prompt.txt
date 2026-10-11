@@ -1,0 +1,11 @@
+Canvas & base: Single section on a warm off-white #f6f3ec page, text #15130f, muted #6f6a5f, accent #e4452a (vermilion), hairlines #d9d3c5. Section padding 120px 48px (72px 20px on mobile), content max-width 1200px centred. Body margin 0.
+
+Typography: "Bricolage Grotesque" for the figures (weight 800, optical size high, letter-spacing -0.04em) and "Instrument Sans" (400, 500, 600) for everything else. Eyebrow 13px uppercase tracking 0.14em in the accent colour. Headline 48px/1.05 weight 700 (32px on mobile). Figures clamp(56px, 8vw, 120px), line-height 0.95, tabular-nums. Labels 16px muted.
+
+Layout: eyebrow "By the numbers", then a two-column header (headline "Small team. Very large footprint." left, a 17px paragraph and a ghost button "Replay" right). Below, a 4-column grid of stat blocks separated by 1px vertical hairlines (2 columns on tablet, 1 on mobile with horizontal hairlines). Each block: the figure with a small suffix or prefix (+, %, k, M) set at 40% size in the accent colour, a 3px hairline bar under it that draws from 0 to 100% width, a 16px label, and a 14px muted footnote. Stats: 12 (years in business), 480 (projects shipped, suffix +), 98 (client retention, suffix %), 2.4 (million users reached, suffix M, one decimal).
+
+Interaction: Each figure counts from 0 to its value over 1800ms with an ease-out-expo curve when its block is 40% visible (IntersectionObserver), staggered 120ms apart, running once. The hairline bar draws in sync. The Replay button resets all figures and plays the animation again. Decimal stats keep their decimal places while counting.
+
+Responsive: Grid collapses 4 to 2 to 1 columns, header columns stack, figures keep clamp sizing and never overflow.
+
+Rules: Respect prefers-reduced-motion by showing final values immediately. Give figures an aria-label with the final value and keep the counting text aria-hidden. No images, no libraries, one HTML file.

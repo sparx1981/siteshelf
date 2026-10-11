@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Control Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ac:#3b5bfd;--tn:#e8ecff;--mut:#667085;--ln:#dde2ea}
+*{box-sizing:border-box}
+html,body{margin:0;background:#eceff4;color:#1b2230;font:400 16px/1.5 'Plus Jakarta Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums}
+.pg{max-width:1040px;margin:0 auto;padding:48px 24px;display:grid;grid-template-columns:1.5fr 1fr;gap:24px;align-items:start;min-height:100svh}
+.pn{background:#fff;border:1px solid var(--ln);border-radius:24px;padding:8px 28px;box-shadow:0 20px 40px rgba(27,34,48,.08)}
+.ph{padding:20px 0 4px}.ph h1{font:700 24px 'Plus Jakarta Sans';letter-spacing:-.02em;margin:0}
+.rw{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:72px;border-top:1px solid var(--ln);padding:14px 0}
+.rw:first-of-type{border-top:0}
+.sc{border-top:1px solid var(--ln);padding:14px 0 4px;font:600 12px 'Plus Jakarta Sans';text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+.lb b{display:block;font-weight:600;font-size:15px}.lb span{font-size:13px;color:var(--mut)}
+.col{display:block;padding:14px 0;border-top:1px solid var(--ln)}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.sw{position:relative;width:52px;height:30px;border-radius:15px;border:0;background:#cbd2dd;cursor:pointer;transition:background .2s;flex:none;padding:0}
+.sw::after{content:'';position:absolute;left:3px;top:3px;width:24px;height:24px;border-radius:12px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s,width .12s}
+.sw[aria-checked=true]{background:var(--ac)}.sw[aria-checked=true]::after{transform:translateX(22px)}
+.sw:active::after{width:28px}.sw[aria-checked=true]:active::after{transform:translateX(18px)}
+.sg{position:relative;display:flex;background:#e9edf5;border-radius:12px;padding:4px}
+.sg i{position:absolute;top:4px;bottom:4px;background:#fff;border-radius:9px;box-shadow:0 1px 3px rgba(0,0,0,.12);transition:transform .2s,width .2s}
+.sg button{position:relative;z-index:1;height:36px;padding:0 18px;border:0;background:none;font:600 14px 'Plus Jakarta Sans';color:var(--mut);cursor:pointer;border-radius:9px}
+.sg button[aria-checked=true]{color:#1b2230}
+.rng{position:relative;height:34px;margin:6px 4px 0}
+.rng .tr{position:absolute;left:0;right:0;top:14px;height:6px;border-radius:3px;background:#e1e6ee}
+.rng .fl{position:absolute;top:14px;height:6px;border-radius:3px;background:var(--ac)}
+.rng input{position:absolute;left:-4px;width:calc(100% + 8px);top:0;height:34px;margin:0;background:none;pointer-events:none;-webkit-appearance:none;appearance:none}
+.rng input::-webkit-slider-runnable-track{background:none}
+.rng input::-moz-range-track{background:none}
+.rng input::-webkit-slider-thumb{pointer-events:auto;-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:2px solid var(--ac);box-shadow:0 1px 4px rgba(0,0,0,.2);cursor:grab;margin-top:0}
+.rng input::-moz-range-thumb{pointer-events:auto;width:18px;height:18px;border-radius:50%;background:#fff;border:2px solid var(--ac);box-shadow:0 1px 4px rgba(0,0,0,.2);cursor:grab}
+.rl{display:flex;justify-content:space-between;font-size:13px;color:var(--mut);margin-top:4px}
+.rl b{color:#1b2230;font-weight:700;font-size:15px}
+.st{display:flex;align-items:center;gap:4px}
+.st button{width:44px;height:44px;border:1px solid var(--ln);background:#fff;border-radius:12px;font-size:20px;cursor:pointer;color:#1b2230}
+.st button:disabled{opacity:.4;cursor:default}
+.st output{min-width:48px;text-align:center;font:700 20px 'Plus Jakarta Sans'}
+.rc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.rc button{position:relative;text-align:left;border:2px solid var(--ln);background:#fff;border-radius:14px;padding:14px;cursor:pointer;font:inherit;color:inherit;transition:border-color .15s,background .15s}
+.rc button[aria-checked=true]{border-color:var(--ac);background:var(--tn)}
+.rc b{display:block;font-weight:700}.rc span{font-size:13px;color:var(--mut)}
+.rc i{position:absolute;right:12px;top:12px;width:16px;height:16px;border-radius:50%;border:2px solid #b8c0cf}
+.rc button[aria-checked=true] i{border:5px solid var(--ac)}
+.ch{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.ch button{height:40px;padding:0 16px;border-radius:20px;border:1px solid var(--ln);background:#fff;font:600 14px 'Plus Jakarta Sans';cursor:pointer;display:inline-flex;align-items:center;gap:6px;color:inherit}
+.ch button[aria-pressed=true]{background:var(--tn);border-color:var(--ac);color:var(--ac)}
+.ch svg{display:none}.ch button[aria-pressed=true] svg{display:block}
+.sm{position:sticky;top:24px;background:#1b2230;color:#f3efe8;border-radius:24px;padding:28px}
+.sm h2{font:700 20px 'Plus Jakarta Sans';margin:0 0 16px}
+.sm ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:14px}
+.sm li{display:flex;justify-content:space-between;gap:12px;color:rgba(243,239,232,.8)}
+.sm li b{color:#fff;font-weight:600;text-align:right}
+.tt{border-top:1px solid rgba(255,255,255,.18);margin-top:18px;padding-top:16px}
+.tt div{font:700 36px/1.1 'Plus Jakarta Sans';letter-spacing:-.02em}
+.tt span{font-size:13px;color:rgba(243,239,232,.65)}
+@media(max-width:900px){.pg{grid-template-columns:1fr}.sm{position:static;order:-1}}
+@media(max-width:560px){.rc{grid-template-columns:1fr}.pn{padding:8px 18px}.rw{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){.sw,.sw::after,.sg i,.rc button{transition:none}}
+</style></head><body>
+<main class="pg"><section class="pn" aria-label="Settings">
+<div class="ph"><h1>Plan settings</h1></div>
+<div class="sc">Notifications</div>
+<div class="rw"><div class="lb"><b>Email digest</b><span>A daily summary at 8am</span></div><button class="sw" role="switch" aria-checked="true" aria-label="Email digest" data-k="Email digest"></button></div>
+<div class="rw"><div class="lb"><b>Push alerts</b><span>Instant alerts on your phone</span></div><button class="sw" role="switch" aria-checked="false" aria-label="Push alerts" data-k="Push alerts"></button></div>
+<div class="rw"><div class="lb"><b>Weekly report</b><span>Sent every Monday</span></div><button class="sw" role="switch" aria-checked="true" aria-label="Weekly report" data-k="Weekly report"></button></div>
+<div class="sc">View</div>
+<div class="rw"><div class="lb"><b>Default view</b><span>What opens first</span></div><div class="sg" role="radiogroup" aria-label="Default view" id="sg"><i></i></div></div>
+<div class="sc">Budget</div>
+<div class="col"><div class="lb"><b>Monthly budget range</b></div>
+<div class="rng" id="rg"><div class="tr"></div><div class="fl" id="fl"></div><input type="range" id="r1" min="0" max="1000" step="10" value="200" aria-label="Minimum budget"><input type="range" id="r2" min="0" max="1000" step="10" value="650" aria-label="Maximum budget"></div>
+<div class="rl"><span>£0</span><b id="rv"></b><span>£1,000</span></div></div>
+<div class="sc">Seats</div>
+<div class="rw"><div class="lb"><b>Team seats</b><span>£12 per seat</span></div><div class="st"><button id="mn" aria-label="Fewer seats">−</button><output id="se" aria-live="polite">5</output><button id="pl" aria-label="More seats">+</button></div></div>
+<div class="sc">Support</div>
+<div class="col"><div class="rc" role="radiogroup" aria-label="Support level" id="rc"></div></div>
+<div class="sc">Add-ons</div>
+<div class="col"><div class="ch" id="ch"></div></div>
+</section>
+<aside class="sm"><h2>Your plan</h2><ul id="ls"></ul><div class="tt"><div id="tot">£0</div><span>per month</span></div></aside></main>
+<script>
+const $=id=>document.getElementById(id),calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const S={notif:{},view:'Week',lo:200,hi:650,seats:5,sup:1,add:new Set()};
+const SUP=[['Basic',0,'Email only'],['Priority',49,'4 hour reply'],['Premium',149,'24/7 phone']],ADD=[['SSO',20],['Audit log',15],['API access',25],['Custom domain',10]],gbp=n=>'£'+Math.round(n).toLocaleString('en-GB');
+document.querySelectorAll('.sw').forEach(b=>{S.notif[b.dataset.k]=b.getAttribute('aria-checked')=='true';b.onclick=()=>{const v=b.getAttribute('aria-checked')!='true';b.setAttribute('aria-checked',v);S.notif[b.dataset.k]=v;upd()}});
+function radio(box,items,get,set){const btns=[...box.querySelectorAll('[role=radio]')];btns.forEach((b,i)=>{b.onclick=()=>set(i);b.addEventListener('keydown',e=>{let d=0;if(e.key=='ArrowRight'||e.key=='ArrowDown')d=1;if(e.key=='ArrowLeft'||e.key=='ArrowUp')d=-1;if(d){e.preventDefault();const n=(i+d+btns.length)%btns.length;set(n);btns[n].focus()}})});return btns}
+const V=['Day','Week','Month'];V.forEach(v=>{const b=document.createElement('button');b.role='radio';b.textContent=v;$('sg').appendChild(b)});
+const vb=radio($('sg'),V,()=>S.view,i=>{S.view=V[i];upd()});
+SUP.forEach(s=>{const b=document.createElement('button');b.role='radio';b.innerHTML='<i></i><b>'+s[0]+'</b><span>'+(s[1]?'£'+s[1]+'/mo':'Free')+' · '+s[2]+'</span>';$('rc').appendChild(b)});
+const rb=radio($('rc'),SUP,()=>S.sup,i=>{S.sup=i;upd()});
+ADD.forEach((a,i)=>{const b=document.createElement('button');b.setAttribute('aria-pressed','false');b.innerHTML='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><path d="M2.500 7.500l3 3 6-7"/></svg>'+a[0]+' <span style="font-weight:500;opacity:.7">+£'+a[1]+'</span>';b.onclick=()=>{S.add.has(i)?S.add.delete(i):S.add.add(i);upd()};$('ch').appendChild(b)});
+const r1=$('r1'),r2=$('r2');
+function sl(){let a=+r1.value,b=+r2.value;if(b-a<50){if(document.activeElement===r1||this===r1){a=b-50;r1.value=a}else{b=a+50;r2.value=b}}S.lo=a;S.hi=b;upd()}
+r1.addEventListener('input',sl);r2.addEventListener('input',sl);
+let hold;function step(d){S.seats=Math.max(1,Math.min(20,S.seats+d));upd()}
+[['mn',-1],['pl',1]].forEach(([id,d])=>{const b=$(id);b.addEventListener('pointerdown',()=>{step(d);hold=setTimeout(function r(){step(d);hold=setTimeout(r,90)},450)});['pointerup','pointerleave','pointercancel'].forEach(e=>b.addEventListener(e,()=>clearTimeout(hold)));b.addEventListener('keydown',e=>{if(e.key=='Enter'||e.key==' '){e.preventDefault();step(d)}})});
+let shown=0,raf;
+function total(){return SUP[S.sup][1]+S.seats*12+[...S.add].reduce((t,i)=>t+ADD[i][1],0)}
+function tween(to){cancelAnimationFrame(raf);if(calm){shown=to;$('tot').textContent=gbp(to);return}const f=shown,t0=performance.now();(function s(t){const k=Math.min(1,(t-t0)/250);shown=f+(to-f)*k;$('tot').textContent=gbp(shown);if(k<1)raf=requestAnimationFrame(s)})(t0)}
+function upd(){vb.forEach((b,i)=>{const on=V[i]==S.view;b.setAttribute('aria-checked',on);b.tabIndex=on?0:-1;if(on){const ind=$('sg').firstChild;ind.style.width=b.offsetWidth+'px';ind.style.transform='translateX('+b.offsetLeft+'px)'}});
+ rb.forEach((b,i)=>{b.setAttribute('aria-checked',i==S.sup);b.tabIndex=i==S.sup?0:-1});
+ [...$('ch').children].forEach((b,i)=>b.setAttribute('aria-pressed',S.add.has(i)));
+ $('se').textContent=S.seats;$('mn').disabled=S.seats<=1;$('pl').disabled=S.seats>=20;
+ const pct=v=>v/10;$('fl').style.left=pct(S.lo)+'%';$('fl').style.width=(pct(S.hi)-pct(S.lo))+'%';
+ r1.setAttribute('aria-valuetext',gbp(S.lo));r2.setAttribute('aria-valuetext',gbp(S.hi));$('rv').textContent=gbp(S.lo)+' – '+gbp(S.hi);
+ const on=Object.keys(S.notif).filter(k=>S.notif[k]);
+ $('ls').innerHTML='<li><span>Notifications</span><b>'+(on.length?on.join(', '):'None')+'</b></li><li><span>View</span><b>'+S.view+'</b></li><li><span>Budget</span><b>'+gbp(S.lo)+' – '+gbp(S.hi)+'</b></li><li><span>Seats</span><b>'+S.seats+' × £12</b></li><li><span>Support</span><b>'+SUP[S.sup][0]+'</b></li><li><span>Add-ons</span><b>'+([...S.add].map(i=>ADD[i][0]).join(', ')||'None')+'</b></li>';
+ tween(total())}
+upd();document.fonts&&document.fonts.ready.then(upd);
+</script></body></html>

@@ -1,0 +1,25 @@
+Canvas & base: Full-viewport board, min-height 100svh, background #0f1115, text #e8eaf0, muted #7d8394, accent #5eead4 (teal) with secondary #818cf8 (indigo). Cells #171a21 with 1px #232733 border, radius 18px, height 180px, loader centred, caption bottom-left 12px Geist Mono uppercase. Body margin 0.
+
+Typography: Inter Tight (500, 600, 700) for the title and controls, Geist Mono (400) for captions. Title "Loaders" clamp(36px, 4vw, 56px) 700 letter-spacing -0.03em.
+
+Layout: container max-width 1200px, padding 56px 40px. Header row: title and subtitle left; controls right: a labelled speed slider ("Speed", range 0.5x to 2x step 0.1, default 1x, showing value) and a toggle button "Pause all" / "Play all". Grid of 12 cells, 4 columns (3 below 1000px, 2 below 700px), gap 16px.
+
+Loaders (all pure CSS keyframes, driven by a --speed CSS variable that scales animation-duration via calc(var(--d) / var(--speed)) so the slider changes all at once):
+1 Spinner: 40px ring, 4px border, teal top segment, 0.9s linear.
+2 Dots: three 12px dots bouncing with 0.15s staggers, 0.9s.
+3 Bars: five 6px by 36px bars scaling Y with staggered delays, 1s.
+4 Orbit: a 10px dot circling a 50px path with a faint ring, plus a smaller indigo dot opposite, 1.6s.
+5 Pulse: a 40px circle scaling and fading with two rings, 1.4s.
+6 Skeleton: a card skeleton (avatar circle and two lines) with a moving shimmer gradient, 1.5s.
+7 Progress: a 160px by 8px track with a fill that grows from 0 to 100 percent and loops, 2.4s ease-in-out, with a percentage label updated by CSS counter animation using @property.
+8 Morph: a 36px shape morphing between square, circle and diamond while rotating, colour shifting teal to indigo, 2.4s.
+9 Typing: three-dot chat bubble with sequential opacity, plus a blinking text caret after "Thinking", 1.2s.
+10 Ripple: two expanding rings from a centre dot, 1.8s, offset by half.
+11 Hourglass: an SVG hourglass whose sand level drains and then flips 180 degrees, 2.4s.
+12 Cube: a CSS 3D cube (40px) rotating on X and Y, 3s linear, with translucent teal faces.
+
+Behaviour: "Pause all" sets animation-play-state paused on all loaders and the button label switches to "Play all" (aria-pressed). The speed slider updates --speed live and the readout. Hovering a cell highlights its border teal.
+
+Responsive: as above.
+
+Rules: one HTML file, inline CSS and a small inline JS for the controls, one Google Fonts link for Inter Tight and Geist Mono, no external images, no libraries. prefers-reduced-motion: start paused and show a note "Animations paused to respect your motion settings", with the Play button still available.

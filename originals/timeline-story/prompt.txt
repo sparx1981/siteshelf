@@ -1,0 +1,13 @@
+Canvas & base: Page background #0e1116, text #eef1f6, muted #8b94a7, accent #ffb454 (amber) with secondary #ff6a88. 1px rgba(238,241,246,0.12) rules. Body margin 0. The page is tall: an intro block (min-height 80svh), the timeline section, and an outro block.
+
+Typography: Fraunces (400, 600, italic 400) for the headline, years and card titles, Instrument Sans (400, 500, 600) for body. Intro headline clamp(44px, 7vw, 110px) Fraunces 400 line-height 1. Year numerals in the cards 56px Fraunces 600 amber. Card title 24px Fraunces 600, body 16px muted-light #b6bdcc.
+
+Layout: Intro: eyebrow "Our story", headline "Twelve years, one idea, still going.", a down arrow cue. Timeline: a centred vertical track line (2px rgba(238,241,246,0.12)) with an amber fill line of the same width that grows from top to the current scroll progress, and eight milestone nodes (18px circles) on the line. Cards alternate left and right of the line (max-width 420px, padding 24px, 1px border, radius 18px, background #151922), each with the year, title, paragraph and a small tag. A sticky year counter at the top left of the viewport (position sticky inside the section) shows the year of the active milestone in large Fraunces 120px at 12 percent opacity, crossfading when it changes.
+
+Milestones: 2014 Founded in a spare room; 2015 First paying customer; 2017 Team of ten, first office; 2018 Launch of v2; 2020 Remote-first and 10,000 users; 2022 Series A and offices in two cities; 2024 One million projects created; 2026 Ten years of Kite and the next chapter. Invent short paragraphs for each.
+
+Scroll behaviour: the amber line height equals scroll progress through the section (requestAnimationFrame updated from scroll position). A node turns amber filled with a soft glow when the line reaches it. Cards fade and slide in (translateX 40px toward the line to 0, opacity 0 to 1, 600ms ease-out) once when they enter the viewport at 80 percent via IntersectionObserver; the card nearest the viewport centre becomes active (full opacity, border amber at 50 percent), others dim to 55 percent. Keyboard: cards are focusable articles; focusing one scrolls it to the centre and activates it.
+
+Responsive: below 800px the line moves to the left edge (24px from the left), all cards go to the right of it at full width, the year counter hides and the year numerals inside cards remain.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Fraunces and Instrument Sans, no external images, no libraries. prefers-reduced-motion: no slide-ins, no smooth scrolling, line drawn instantly to its progress, counter swaps without fade.

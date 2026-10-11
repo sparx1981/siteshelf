@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Glow Buttons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+*{box-sizing:border-box}
+html,body{margin:0;background:#0d0d12;color:#ececf3;font:500 16px/1.5 Manrope,system-ui,sans-serif}
+.wrap{max-width:1200px;margin:0 auto;padding:64px 40px;min-height:100svh}
+h1{font:700 clamp(36px,4vw,56px)/1.05 Manrope;letter-spacing:-.03em;margin:0 0 8px}
+.sub{color:#8a8a9e;margin:0 0 40px}
+.g{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.c{position:relative;background:#14141b;border:1px solid #23232e;border-radius:20px;padding:32px;min-height:200px;display:grid;place-items:center}
+.c small{position:absolute;left:20px;bottom:16px;font:400 12px 'Geist Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:#8a8a9e}
+button.b{height:52px;padding:0 28px;border-radius:14px;border:0;font:600 16px Manrope;color:#fff;cursor:pointer;position:relative;white-space:nowrap}
+button.b:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.b1{background:linear-gradient(#0d0d12,#0d0d12) padding-box,conic-gradient(from var(--a),#8b5cf6,#22d3ee,#f472b6,#8b5cf6) border-box;border:2px solid transparent!important;animation:rot 3s linear infinite}
+@keyframes rot{to{--a:360deg}}
+.b2{background:#8b5cf6;transition:transform .2s}
+.b2 span{display:inline-block;transition:transform .2s}
+.b3{background:#22d3ee;color:#04222a!important;overflow:hidden}
+.rp{position:absolute;border-radius:50%;background:rgba(4,34,42,.35);transform:scale(0);animation:rip .6s ease-out forwards;pointer-events:none}
+@keyframes rip{to{transform:scale(1);opacity:0}}
+.b4{background:transparent;color:#a3e635!important;border:2px solid #a3e635!important;overflow:hidden;z-index:0}
+.b4::before{content:'';position:absolute;inset:0;background:#a3e635;transform:translateY(100%);transition:transform .3s;z-index:-1}
+.b4:hover::before,.b4:focus-visible::before{transform:none}
+.b4:hover,.b4:focus-visible{color:#10200a!important}
+.b5{background:#f472b6;overflow:hidden}
+.b5::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg)}
+.b5:hover::after,.b5:focus-visible::after{left:130%;transition:left .7s}
+.b6{background:transparent;color:#8a8a9e!important;transition:color .3s}
+.b6 svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.b6 rect{fill:none;stroke:#fff;stroke-width:2;stroke-dasharray:var(--p);stroke-dashoffset:var(--p);transition:stroke-dashoffset .5s}
+.b6:hover rect,.b6:focus-visible rect{stroke-dashoffset:0}
+.b6:hover,.b6:focus-visible{color:#fff!important}
+.b6::before{content:'';position:absolute;inset:0;border:2px solid #2d2d3a;border-radius:14px}
+.b7{background:#8b5cf6;box-shadow:0 6px 0 #5b34c4;transition:transform .08s,box-shadow .08s}
+.b7:active{transform:translateY(4px);box-shadow:0 2px 0 #5b34c4}
+.b8{background:#8b5cf6;min-width:140px;transition:width .3s,min-width .3s,background .3s,border-radius .3s;display:inline-flex;align-items:center;justify-content:center}
+.b8.load{min-width:52px;width:52px;padding:0}
+.b8.ok{min-width:52px;width:52px;padding:0;background:#a3e635;color:#10200a}
+.sp{width:18px;height:18px;border:2.500px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spn .7s linear infinite}
+@keyframes spn{to{transform:rotate(360deg)}}
+@media(max-width:1000px){.g{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.g{grid-template-columns:1fr}.wrap{padding:40px 20px}}
+@media(prefers-reduced-motion:reduce){.b1{animation:none}.b5::after{display:none}.b4::before{transition:none}.b6 rect{transition:none}.rp{display:none}.sp{animation:none}.b8{transition:none}}
+</style></head><body>
+<main class="wrap"><h1>Buttons</h1><p class="sub">Eight interactions, one dark board.</p>
+<div class="g">
+<div class="c"><button class="b b1">Get started</button><small>Gradient border</small></div>
+<div class="c"><button class="b b2" id="mg"><span>Magnetic</span></button><small>Magnetic</small></div>
+<div class="c"><button class="b b3" id="rp">Ripple</button><small>Ripple</small></div>
+<div class="c"><button class="b b4">Fill up</button><small>Fill up</small></div>
+<div class="c"><button class="b b5">Shine</button><small>Shine</small></div>
+<div class="c"><button class="b b6" id="od">Outline draw<svg aria-hidden="true"><rect id="rr" x="1" y="1" rx="13"/></svg></button><small>Outline draw</small></div>
+<div class="c"><button class="b b7">3D press</button><small>3D press</small></div>
+<div class="c"><button class="b b8" id="sb" aria-live="polite"><span id="sl">Submit</span></button><small>Loading to success</small></div>
+</div></main>
+<script>
+const $=id=>document.getElementById(id),calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const mg=$('mg'),fine=matchMedia('(pointer:fine)').matches;
+if(!calm&&fine){addEventListener('pointermove',e=>{const r=mg.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,dx=e.clientX-cx,dy=e.clientY-cy,d=Math.hypot(dx,dy);
+ if(d<80+r.width/2){const k=Math.min(1,(80+r.width/2-d)/(80+r.width/2)),mx=dx/(r.width/2+80)*8*k*1.4,my=dy/(r.height/2+80)*8*k*1.4;mg.style.transform='translate('+mx+'px,'+my+'px)';mg.firstChild.style.transform='translate('+mx/2+'px,'+my/2+'px)'}else{mg.style.transform='';mg.firstChild.style.transform=''}})}
+$('rp').addEventListener('click',e=>{if(calm)return;const b=e.currentTarget,r=b.getBoundingClientRect(),s=Math.max(r.width,r.height)*2,d=document.createElement('span');d.className='rp';
+ d.style.cssText='width:'+s+'px;height:'+s+'px;left:'+(e.clientX-r.left-s/2)+'px;top:'+(e.clientY-r.top-s/2)+'px';b.appendChild(d);setTimeout(()=>d.remove(),650)});
+function fit(){const b=$('od'),r=$('rr');const w=b.offsetWidth-2,h=b.offsetHeight-2;r.setAttribute('width',w);r.setAttribute('height',h);b.style.setProperty('--p',2*(w+h))}
+fit();document.fonts&&document.fonts.ready.then(fit);addEventListener('resize',fit);
+const sb=$('sb'),sl=$('sl');let run=false;
+sb.addEventListener('click',()=>{if(run)return;run=true;sb.disabled=true;
+ if(calm){sl.textContent='Sending…';setTimeout(()=>{sl.textContent='Sent ✓';setTimeout(()=>{sl.textContent='Submit';sb.disabled=false;run=false},1600)},1400);return}
+ sb.classList.add('load');sl.innerHTML='<i class="sp"></i>';sb.setAttribute('aria-label','Sending');
+ setTimeout(()=>{sb.classList.remove('load');sb.classList.add('ok');sl.innerHTML='<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.500l4 4 8-9"/></svg>';sb.setAttribute('aria-label','Sent');
+  setTimeout(()=>{sb.classList.remove('ok');sl.textContent='Submit';sb.removeAttribute('aria-label');sb.disabled=false;run=false},1600)},1400)});
+</script></body></html>

@@ -1,0 +1,15 @@
+Canvas & base: Full-viewport page, min-height 100svh, background #eceff4 (cool grey), text #1b2230, muted #667085, panel white with 1px #dde2ea border and radius 24px, soft shadow 0 20px 40px rgba(27,34,48,0.08). Accent #3b5bfd (cobalt), accent tint #e8ecff, success #12b76a. Body margin 0.
+
+Typography: Plus Jakarta Sans (400, 500, 600, 700) throughout, tabular-nums for numbers. Panel title 24px 700 letter-spacing -0.02em. Row labels 15px 600, helper text 13px muted.
+
+Layout: a centred two-column page, max-width 1040px, padding 48px 24px, gap 24px: left the settings panel (padding 8px 28px, rows separated by 1px rules, each row min-height 72px with label and helper left and the control right), right a sticky summary card (dark #1b2230, cream text) titled "Your plan" listing the current choices as a live list with a total price line. Panel sections: Notifications (3 toggles: Email digest on, Push alerts off, Weekly report on), View (segmented control Day, Week, Month with Week default), Budget (dual-handle range slider from 0 to 1000 with the selected range label "£200 – £650"), Seats (stepper minus, number, plus from 1 to 20, default 5), Support level (three radio cards: Basic £0, Priority £49, Premium £149, with the Priority selected), Add-ons (checkbox chips: SSO, Audit log, API access, Custom domain).
+
+Controls detail: Toggle 52px by 30px track, 24px thumb, off #cbd2dd, on accent, thumb slides 22px over 200ms with a slight squash (scaleX 1.15 while pressed). Segmented control: pill container #e9edf5 with a sliding white indicator (200ms) behind the active label. Dual slider: custom track 6px, selected range accent, two 22px thumbs; use two overlapping input type range elements with pointer-events only on the thumbs; the thumbs can't cross (keep min gap 50). Stepper: 44px square buttons with 1px border, number in the middle 20px 700; long-press repeats. Radio cards: three cards in a row, 2px border turning accent with accent tint background when selected, radio dot in the corner. Checkbox chips: 40px tall pills that gain a tick icon and accent tint when selected.
+
+Summary: updates instantly. Total = support price + seats x 12 + add-ons (SSO 20, Audit log 15, API access 25, Custom domain 10), shown as "£{n} / month" in 36px 700, counting with a 250ms tween.
+
+Accessibility: toggles are button role switch with aria-checked; segmented and radio cards are radiogroups with arrow key support; sliders are real inputs with aria-valuetext in £; visible focus rings 2px accent, offset 2px.
+
+Responsive: below 900px one column with the summary card first (non-sticky); radio cards stack below 560px.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Plus Jakarta Sans, no external images, no libraries. prefers-reduced-motion: no slides, squash or tween.

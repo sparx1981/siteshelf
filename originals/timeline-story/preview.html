@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Our Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--am:#ffb454;--pk:#ff6a88;--mut:#8b94a7}
+*{box-sizing:border-box}
+html,body{margin:0;background:#0e1116;color:#eef1f6;font:400 16px/1.55 'Instrument Sans',system-ui,sans-serif}
+.in{min-height:80svh;display:flex;flex-direction:column;justify-content:center;padding:64px 56px;max-width:1100px;margin:0 auto}
+.eb{font:600 13px 'Instrument Sans';letter-spacing:.16em;text-transform:uppercase;color:var(--am)}
+h1{font:400 clamp(44px,7vw,110px)/1 Fraunces,serif;letter-spacing:-.02em;margin:18px 0 32px}
+h1 em{font-style:italic;color:var(--am)}
+.cue{font-size:28px;color:var(--mut);animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(8px)}}
+.tl{position:relative;max-width:1100px;margin:0 auto;padding:40px 56px 120px}
+.yr{position:sticky;top:20px;height:0;z-index:0;pointer-events:none}
+.yr div{position:absolute;left:0;top:0;font:600 120px/1 Fraunces,serif;color:rgba(238,241,246,.1);transition:opacity .4s}
+.ln{position:absolute;left:50%;top:40px;bottom:120px;width:2px;margin-left:-1px;background:rgba(238,241,246,.12)}
+.fl{position:absolute;left:0;top:0;width:100%;height:0;background:linear-gradient(var(--am),var(--pk))}
+.ms{position:relative;display:flex;margin-bottom:96px}
+.ms:nth-child(even){justify-content:flex-end}
+.nd{position:absolute;left:50%;top:28px;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:#0e1116;border:2px solid rgba(238,241,246,.25);transition:background .3s,border-color .3s,box-shadow .3s;z-index:2}
+.ms.lit .nd{background:var(--am);border-color:var(--am);box-shadow:0 0 0 6px rgba(255,180,84,.18),0 0 20px rgba(255,180,84,.5)}
+.cd{width:calc(50% - 56px);max-width:420px;padding:24px;border:1px solid rgba(238,241,246,.12);border-radius:18px;background:#151922;opacity:0;transform:translateX(-40px);transition:opacity .6s ease-out,transform .6s ease-out,border-color .3s}
+.ms:nth-child(even) .cd{transform:translateX(40px)}
+.ms.seen .cd{opacity:.55;transform:none}
+.ms.act .cd{opacity:1;border-color:rgba(255,180,84,.5)}
+.cd:focus-visible{outline:2px solid var(--am);outline-offset:3px}
+.cd .y{font:600 56px/1 Fraunces,serif;color:var(--am)}
+.cd h2{font:600 24px/1.2 Fraunces,serif;margin:10px 0 8px}
+.cd p{margin:0 0 14px;color:#b6bdcc}
+.tg{display:inline-block;font:600 12px 'Instrument Sans';letter-spacing:.08em;text-transform:uppercase;color:var(--mut);border:1px solid rgba(238,241,246,.15);border-radius:999px;padding:3px 12px}
+.out{text-align:center;padding:100px 24px 160px}
+.out h2{font:400 clamp(32px,4vw,56px)/1.1 Fraunces,serif;margin:0}
+@media(max-width:800px){.in{padding:48px 24px}.tl{padding:24px 24px 80px}.ln{left:24px}.nd{left:24px}.ms,.ms:nth-child(even){justify-content:flex-start;padding-left:44px}.cd{width:100%;max-width:none}.ms .cd,.ms:nth-child(even) .cd{transform:translateX(30px)}.ms.seen .cd,.ms.act .cd{transform:none}.yr{display:none}}
+@media(prefers-reduced-motion:reduce){.cd,.nd,.yr div{transition:none}.cue{animation:none}.ms .cd,.ms:nth-child(even) .cd{transform:none}html{scroll-behavior:auto}}
+</style></head><body>
+<header class="in"><div class="eb">Our story</div><h1>Twelve years, one idea, <em>still going.</em></h1><div class="cue" aria-hidden="true">↓</div></header>
+<main class="tl" id="tl"><div class="yr" aria-hidden="true"><div id="yc">2014</div></div><div class="ln"><div class="fl" id="fl"></div></div><div id="ms"></div></main>
+<footer class="out"><h2>And we are only getting started.</h2></footer>
+<script>
+const D=[[2014,'Founded in a spare room','Two founders, one borrowed monitor and a stubborn idea that planning a week should not feel like a second job.','Beginnings'],
+[2015,'First paying customer','A bakery in Leeds paid £9 a month. We framed the invoice and still have it on the wall.','Milestone'],
+[2017,'Team of ten, first office','We outgrew the spare room, then the kitchen, then moved above a bicycle shop with great coffee.','Team'],
+[2018,'Launch of v2','A full rewrite. Faster, calmer and finally with the calendar view everyone kept asking for.','Product'],
+[2020,'Remote-first and 10,000 users','We closed the office, kept the coffee budget, and passed ten thousand people planning with Kite.','Growth'],
+[2022,'Series A and two cities','Investors who liked our slow-and-steady plan, and teams in Bristol and Lisbon.','Funding'],
+[2024,'One million projects','The millionth project was a school allotment rota. We sent them a very large box of seeds.','Milestone'],
+[2026,'Ten years of Kite','A decade in, we are rebuilding the planner around energy and focus. The next chapter starts today.','Future']];
+const ms=document.getElementById('ms');
+ms.innerHTML=D.map((d,i)=>'<section class="ms" data-i="'+i+'"><span class="nd"></span><article class="cd" tabindex="0" aria-label="'+d[0]+': '+d[1]+'"><div class="y">'+d[0]+'</div><h2>'+d[1]+'</h2><p>'+d[2]+'</p><span class="tg">'+d[3]+'</span></article></section>').join('');
+const M=[...ms.children],calm=matchMedia('(prefers-reduced-motion:reduce)').matches,fl=document.getElementById('fl'),yc=document.getElementById('yc'),tl=document.getElementById('tl');
+let active=-1;
+function upd(){const r=tl.getBoundingClientRect(),vh=innerHeight,ln=document.querySelector('.ln').getBoundingClientRect();
+ const p=Math.max(0,Math.min(ln.height,vh*.5-ln.top));fl.style.height=p+'px';
+ let best=0,bd=1e9;M.forEach((m,i)=>{const nr=m.querySelector('.nd').getBoundingClientRect(),y=nr.top+nr.height/2;m.classList.toggle('lit',y<=vh*.5);const c=m.getBoundingClientRect(),d=Math.abs(c.top+c.height/2-vh*.5);if(d<bd){bd=d;best=i}});
+ if(best!==active){active=best;M.forEach((m,i)=>m.classList.toggle('act',i==best));const set=()=>yc.textContent=D[best][0];if(calm)set();else{yc.style.opacity=0;setTimeout(()=>{set();yc.style.opacity=1},200)}}}
+let tick=false;addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(()=>{upd();tick=false})}},{passive:true});addEventListener('resize',upd);
+if(calm||!('IntersectionObserver' in window))M.forEach(m=>m.classList.add('seen'));
+else{const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('seen');o.unobserve(e.target)}}),{rootMargin:'0px 0px -20% 0px'});M.forEach(m=>o.observe(m))}
+M.forEach((m,i)=>m.querySelector('.cd').addEventListener('focus',()=>{m.scrollIntoView({block:'center',behavior:calm?'auto':'smooth'})}));
+upd();
+</script></body></html>

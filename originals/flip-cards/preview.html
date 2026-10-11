@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flip Team Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#f3efe8;color:#1f1b16;font:400 16px/1.5 Figtree,system-ui,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:80px 32px;min-height:100svh}
+h1{font:800 clamp(40px,5vw,72px)/1 Gabarito;letter-spacing:-.03em;margin:0 0 12px}
+.sub{color:#766f64;max-width:520px;margin:0 0 48px;font-size:18px}
+.g{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.cell{perspective:1200px;opacity:0;transform:translateY(24px);transition:opacity .5s,transform .5s}
+.cell.in{opacity:1;transform:none}
+.card{position:relative;display:block;width:100%;height:320px;padding:0;border:0;background:none;text-align:left;cursor:pointer;color:inherit;font:inherit}
+.in2{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.8,.2,1);border-radius:22px}
+@media(hover:hover){.cell:hover .in2{transform:rotateY(180deg)}}
+.cell.fl .in2,.cell:focus-within .in2{transform:rotateY(180deg)}
+.f,.k{position:absolute;inset:0;border-radius:22px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.f{background:var(--c);color:#fff}
+.k{background:#1f1b16;color:#f3efe8;transform:rotateY(180deg);padding:28px;display:flex;flex-direction:column}
+.card:focus-visible{outline:3px solid #1f1b16;outline-offset:4px;border-radius:24px}
+.nm{position:absolute;left:24px;bottom:22px}
+.nm b{display:block;font:700 24px/1.15 Gabarito}
+.nm span{font-size:14px;font-weight:500;opacity:.9}
+.ic{position:absolute;right:18px;top:18px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center}
+.pt{position:absolute;left:50%;top:48px;width:160px;height:200px;transform:translateX(-50%)}
+.sh{position:absolute;left:0;right:0;bottom:0;height:96px;border-radius:70px 70px 0 0;background:var(--d)}
+.hd{position:absolute;left:36px;top:30px;width:88px;height:88px;border-radius:50%;background:var(--s)}
+.hr{position:absolute;background:var(--h)}
+.k b{font:700 26px/1.15 Gabarito}
+.k .r{color:rgba(243,239,232,.65);font-size:14px;margin:2px 0 14px}
+.k p{margin:0;font-size:15px;line-height:1.55}
+.lk{display:flex;gap:10px;margin-top:auto}
+.lk a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(243,239,232,.5);display:grid;place-items:center;color:#f3efe8}
+.lk a:hover,.lk a:focus-visible{background:#f3efe8;color:#1f1b16;outline:none}
+@media(max-width:900px){.g{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.g{grid-template-columns:1fr}.card{height:auto;aspect-ratio:4/5}.wrap{padding:56px 20px}}
+@media(prefers-reduced-motion:reduce){.cell{opacity:1;transform:none;transition:none}.in2{transition:none}.cell.fl .in2,.cell:hover .in2,.cell:focus-within .in2{transform:none}.f,.k{backface-visibility:visible;transition:opacity .2s}.k{transform:none;opacity:0}.cell.fl .k,.cell:hover .k,.cell:focus-within .k{opacity:1}.cell.fl .f,.cell:hover .f,.cell:focus-within .f{opacity:0}}
+</style></head><body>
+<main class="wrap"><h1>The people behind it.</h1><p class="sub">Twelve of us, one kitchen table, and a shared belief that software should feel kind.</p>
+<div class="g" id="g"></div></main>
+<script>
+const P=[['Maya Ortiz','Founder and CEO','Maya started the company after nine years running ops. She still answers the support inbox on Fridays.','#e4572e','#b53a1a','#f1c9a5','#2a1a14','a'],
+['Jonas Lindqvist','Head of Engineering','Jonas keeps the platform quick and calm. He is happiest deleting code and cycling to work in all weather.','#2e86ab','#1d5f7d','#c58c64','#1a1a1a','b'],
+['Amara Okafor','Design Director','Amara leads the design language and the odd office mural. Previously at two studios you have heard of.','#f2b134','#c58412','#8a5a3c','#141414','c'],
+['Kenji Sato','Product Lead','Kenji turns scribbles into roadmaps. He believes every good feature starts with a very small experiment.','#5b8c5a','#3d6a3c','#e8b794','#2a2a2a','d'],
+['Sofia Rossi','Customer Success','Sofia has onboarded more than four hundred teams and remembers most of their dogs by name.','#8a5fbf','#64409a','#6b4128','#0f0f0f','e'],
+['Ravi Patel','Data Scientist','Ravi builds the models behind the forecasts. Outside work he builds mechanical keyboards, loudly.','#d45d79','#a53a54','#f6d7b8','#4a2c1a','f']];
+const HR={a:'<i class="hr" style="left:30px;top:22px;width:100px;height:46px;border-radius:50px 50px 8px 8px"></i>',b:'<i class="hr" style="left:36px;top:24px;width:88px;height:30px;border-radius:44px 44px 0 0"></i>',c:'<i class="hr" style="left:22px;top:12px;width:116px;height:112px;border-radius:58px"></i><i class="hr" style="left:36px;top:30px;width:88px;height:88px;border-radius:50%;background:var(--s)"></i>',d:'<i class="hr" style="left:34px;top:22px;width:92px;height:36px;border-radius:46px 46px 4px 20px"></i>',e:'<i class="hr" style="left:26px;top:14px;width:108px;height:130px;border-radius:54px 54px 30px 30px"></i><i class="hd" style="z-index:1;left:36px;top:36px"></i>',f:'<i class="hr" style="left:34px;top:20px;width:92px;height:40px;border-radius:46px 46px 0 0"></i><i class="hr" style="left:50px;top:12px;width:60px;height:26px;border-radius:30px"></i>'};
+const ico={in:'<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4 9h4v11H4zM6 3.500a2.200 2.200 0 1 1 0 4.400 2.200 2.200 0 0 1 0-4.400zM10 9h4v1.600c.6-1 2-1.900 3.800-1.900 3.400 0 4.200 2.200 4.200 5.200V20h-4v-5.400c0-1.300 0-3-1.900-3-1.800 0-2.100 1.400-2.100 2.900V20h-4z"/></svg>',x:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>',m:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>'};
+const g=document.getElementById('g');
+g.innerHTML=P.map((p,i)=>'<div class="cell" style="--c:'+p[3]+';--d:'+p[4]+';--s:'+p[5]+';--h:'+p[6]+'"><button class="card" aria-pressed="false" aria-label="'+p[0]+', '+p[1]+'. Press to flip."><div class="in2"><div class="f"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-3-6.200M20 4v5h-5"/></svg></span><div class="pt"><i class="sh"></i><i class="hd"></i>'+HR[p[7]]+'</div><div class="nm"><b>'+p[0]+'</b><span>'+p[1]+'</span></div></div><div class="k"><b>'+p[0]+'</b><div class="r">'+p[1]+'</div><p>'+p[2]+'</p><div class="lk"><a href="#" aria-label="LinkedIn" tabindex="-1">'+ico.in+'</a><a href="#" aria-label="X" tabindex="-1">'+ico.x+'</a><a href="#" aria-label="Email" tabindex="-1">'+ico.m+'</a></div></div></div></button></div>').join('');
+const cells=[...g.children];
+cells.forEach(c=>{const b=c.querySelector('.card'),as=c.querySelectorAll('.lk a');
+ const set=f=>{c.classList.toggle('fl',f);b.setAttribute('aria-pressed',f);as.forEach(a=>a.tabIndex=f?0:-1)};
+ b.addEventListener('click',()=>set(!c.classList.contains('fl')));
+ c.addEventListener('mouseleave',()=>{if(matchMedia('(hover:hover)').matches&&!c.contains(document.activeElement))set(false)});});
+const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(calm||!('IntersectionObserver' in window))cells.forEach(c=>c.classList.add('in'));
+else{const o=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){const i=cells.indexOf(e.target);setTimeout(()=>e.target.classList.add('in'),(i%3)*80);o.unobserve(e.target)}}),{threshold:.1});cells.forEach(c=>o.observe(c))}
+</script></body></html>

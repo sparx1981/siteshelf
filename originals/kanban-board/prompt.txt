@@ -1,0 +1,17 @@
+Canvas & base: Full-viewport app, min-height 100svh, background #f1f2f6, text #1b1d29, muted #6d7287, columns #e6e8f0 radius 16px, cards white radius 12px with 1px #e1e3ec border and 0 1px 2px rgba(20,22,40,0.06) shadow. Tag colours: design #ec4899, build #3b82f6, bug #ef4444, docs #10b981, research #f59e0b. Accent #4f46e5 (indigo). Body margin 0.
+
+Typography: Onest (400, 500, 600, 700) throughout. Board title 24px 700 letter-spacing -0.02em, column title 14px 700 uppercase letter-spacing 0.06em, card title 15px 600, meta 12px muted.
+
+Layout: top bar 64px (white, 1px bottom border) with a logo square and "Sprint 14" title, a search input (40px, placeholder "Filter cards", with clear button) and an avatar stack of 3 initials. Board area padding 24px, four columns "Backlog", "In progress", "Review", "Done", each flex 1 min-width 260px with a count pill next to the title, a vertical scrolling card list and a bottom "+ Add card" button. Horizontally scrollable on narrow screens with scroll-snap.
+
+Cards: title, a coloured tag chip, an assignee avatar (24px initial circle) and a due date label. Seed 10 cards across the columns, e.g. "Design onboarding flow" (design), "Fix login redirect" (bug), "Write API docs" (docs), "Spike: offline sync" (research), "Build settings page" (build), and so on.
+
+Drag and drop: implement with pointer events and no library. Pointer down on a card (after 4px movement) lifts it (scale 1.03, shadow, rotate 2deg) as a floating clone following the pointer while the original becomes a faded placeholder; the drop target column highlights with an indigo dashed outline and a gap indicator line shows the insertion position among that column's cards; releasing drops the card there with a 150ms settle. Works with touch via touch-action none on the card handle area (use pointer capture). Keyboard: focus a card and press Space to pick it up (aria-live announces "Picked up Fix login redirect, column In progress, position 2"), arrow left and right move it between columns, up and down reorder, Space drops, Escape cancels returning it to its origin.
+
+Composer: "+ Add card" turns into an inline textarea with an "Add" button and a tag select; Enter submits, Escape cancels; empty titles are ignored. New cards get the next due date and "Me" as the assignee.
+
+Filter: typing in the search box dims or hides non-matching cards live and updates counts of visible cards; clear button resets.
+
+Responsive: below 800px columns are 82vw wide with horizontal scroll snap; top bar search shrinks.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Onest, no external images, no libraries. prefers-reduced-motion: no lift rotation, no settle animation.

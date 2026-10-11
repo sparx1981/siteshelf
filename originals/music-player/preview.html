@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vinyl Player</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--tc:#ff7a45}
+*{box-sizing:border-box}
+html,body{margin:0;background:#1a1410;color:#f6ede2;font:400 15px/1.45 'DM Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums}
+.pg{min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr);place-items:center;padding:24px 16px;position:relative;overflow:hidden}
+.pg::before{content:'';position:absolute;width:900px;height:900px;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,var(--tc),transparent 60%);opacity:.18;transition:background .5s}
+.pl{position:relative;width:min(880px,100%);background:#241c16;border:1px solid #3a2e24;border-radius:28px;padding:32px;display:grid;grid-template-columns:380px 1fr;gap:36px}
+.vw{position:relative;width:380px;height:380px;background:#1d1611;border-radius:22px;display:grid;place-items:center;overflow:hidden}
+.vn{position:relative;width:340px;height:340px;border-radius:50%;background:repeating-radial-gradient(circle,#111 0 2px,#1b1b1b 2px 4px);box-shadow:0 14px 30px rgba(0,0,0,.5);animation:sp 3.6s linear infinite;animation-play-state:paused}
+.vn.on{animation-play-state:running}
+@keyframes sp{to{transform:rotate(360deg)}}
+.vn::before{content:'';position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 20deg,transparent 0 10%,rgba(255,255,255,.12) 14%,transparent 20% 60%,rgba(255,255,255,.1) 64%,transparent 70%)}
+.lb{position:absolute;left:110px;top:110px;width:120px;height:120px;border-radius:50%;background:var(--tc);display:grid;place-items:center;color:rgba(0,0,0,.7);font:400 38px 'DM Serif Display';transition:background .5s}
+.lb::after{content:'';position:absolute;width:10px;height:10px;border-radius:50%;background:#1d1611}
+.lb span{position:relative;top:-12px}
+.lb i{position:absolute;bottom:20px;width:3px;height:10px;background:rgba(0,0,0,.4)}
+.arm{position:absolute;right:30px;top:24px;width:6px;height:190px;background:#cfc6b8;border-radius:3px;transform-origin:3px 3px;transform:rotate(-28deg);transition:transform .6s cubic-bezier(.4,.1,.2,1)}
+.arm.on{transform:rotate(12deg)}
+.arm::before{content:'';position:absolute;left:-14px;top:-14px;width:34px;height:34px;border-radius:50%;background:#3a2e24;border:3px solid #cfc6b8}
+.arm::after{content:'';position:absolute;left:-5px;bottom:-12px;width:16px;height:26px;border-radius:3px;background:#8a8071}
+.nw{font:600 12px 'DM Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--tc);margin-bottom:6px;transition:color .5s}
+h1{font:400 34px/1.1 'DM Serif Display';margin:0}
+.ar{color:#9c8d7c;margin:4px 0 20px}
+.pr{position:relative;height:20px;display:flex;align-items:center}
+.pr input{width:100%;margin:0;height:20px;background:none;-webkit-appearance:none;appearance:none;cursor:pointer}
+.pr input::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:linear-gradient(90deg,var(--tc) var(--p,0%),#3a2e24 var(--p,0%))}
+.pr input::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:#fff;margin-top:-4px}
+.pr input::-moz-range-track{height:6px;border-radius:3px;background:#3a2e24}
+.pr input::-moz-range-progress{height:6px;border-radius:3px;background:var(--tc)}
+.pr input::-moz-range-thumb{width:14px;height:14px;border:0;border-radius:50%;background:#fff}
+.tm{display:flex;justify-content:space-between;font-size:13px;color:#9c8d7c;margin-top:2px}
+.cn{display:flex;align-items:center;justify-content:center;gap:14px;margin:14px 0 18px}
+.cn button{width:46px;height:46px;border:0;border-radius:50%;background:none;color:#f6ede2;cursor:pointer;display:grid;place-items:center}
+.cn button:hover{background:rgba(255,255,255,.08)}
+.cn button.act{color:var(--tc)}
+.cn .pp{width:64px;height:64px;background:var(--tc);color:#1a1410;transition:background .5s}
+.cn .pp:hover{background:var(--tc);filter:brightness(1.08)}
+button:focus-visible,.tr:focus-visible,input:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.rp{font-size:10px;font-weight:700;position:absolute;margin-top:16px;margin-left:14px}
+.ls{display:grid;gap:2px}
+.tr{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;padding:9px 12px;border-radius:12px;border:0;background:none;color:inherit;text-align:left;cursor:pointer;font:inherit}
+.tr:hover{background:rgba(255,255,255,.05)}.tr.cur{background:rgba(255,255,255,.08)}
+.tr b{font-weight:600;display:block;font-size:15px}.tr span.a{font-size:13px;color:#9c8d7c}
+.tr .d{font-size:13px;color:#9c8d7c}
+.eq{display:flex;gap:2px;align-items:flex-end;height:14px;width:14px}.eq i{flex:1;background:var(--tc);height:30%;animation:eq .8s ease-in-out infinite;animation-play-state:paused}
+.pl.on .eq i{animation-play-state:running}.eq i:nth-child(2){animation-delay:-.3s}.eq i:nth-child(3){animation-delay:-.6s}
+@keyframes eq{50%{height:100%}}
+.nn{color:#9c8d7c;font-size:14px;text-align:center}
+@media(max-width:800px){.pl{grid-template-columns:1fr;padding:20px;gap:24px}.vw{width:100%;height:auto;aspect-ratio:1;max-width:72vw;margin:0 auto;justify-self:center}.vn{width:88%;height:88%}.lb{left:50%;top:50%;margin:-60px 0 0 -60px;transform:scale(.85)}.arm{right:6%;top:6%;height:44%}}
+@media(prefers-reduced-motion:reduce){.vn{animation:none!important}.arm{transition:none}.eq i{animation:none;height:70%}}
+</style></head><body>
+<main class="pg"><section class="pl" id="pl" aria-label="Music player">
+<div class="vw"><div class="vn" id="vn"><div class="lb"><span id="ln">1</span><i></i></div></div><div class="arm" id="arm"></div></div>
+<div><div class="nw">Now playing</div><h1 id="tt"></h1><div class="ar" id="ar"></div>
+<div class="pr"><input type="range" id="sk" min="0" max="1000" value="0" aria-label="Seek"></div><div class="tm"><span id="el">0:00</span><span id="du">0:00</span></div>
+<div class="cn"><button id="sh" aria-label="Shuffle off" aria-pressed="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></button>
+<button id="pv" aria-label="Previous track"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+<button class="pp" id="pp" aria-label="Play" aria-pressed="false"><svg id="pi" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+<button id="nx" aria-label="Next track"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+<button id="rp" aria-label="Repeat off" aria-pressed="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 0 1-3 3H3"/></svg><span class="rp" id="rl"></span></button></div>
+<div class="ls" id="ls" role="list"></div></div></section></main>
+<script>
+const $=id=>document.getElementById(id);
+const T=[['Slow Tide','Aurelia Moon',222,'#ff7a45'],['Paper Lanterns','The Keepers',245,'#f2c14e'],['Night Bus Home','Odalys',178,'#5ec2a6'],['Copper Sky','Nils & Wren',211,'#7aa2ff'],['Last Light in Lisbon','Marisol',260,'#e86a92']];
+const fm=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+let cur=0,el=0,play=false,shuf=false,rep=0,last=performance.now(),drag=false;
+$('ls').innerHTML=T.map((t,i)=>'<button class="tr" role="listitem" data-i="'+i+'"><span class="n">'+(i+1)+'</span><span><b>'+t[0]+'</b><span class="a">'+t[1]+'</span></span><span class="d">'+fm(t[2])+'</span></button>').join('');
+const rows=[...$('ls').children];rows.forEach((r,i)=>r.onclick=()=>{set(i);setPlay(true)});
+function set(i){cur=i;el=0;const t=T[i];document.documentElement.style.setProperty('--tc',t[3]);$('tt').textContent=t[0];$('ar').textContent=t[1]+' · Side '+(i%2?'B':'A');$('ln').textContent=i+1;$('du').textContent=fm(t[2]);
+ rows.forEach((r,j)=>{r.classList.toggle('cur',j==i);r.querySelector('.n').innerHTML=j==i?'<span class="eq"><i></i><i></i><i></i></span>':(j+1);r.setAttribute('aria-current',j==i)});show()}
+function show(){const d=T[cur][2];$('el').textContent=fm(el);if(!drag){$('sk').value=el/d*1000}$('sk').style.setProperty('--p',(el/d*100)+'%')}
+function setPlay(p){play=p;$('vn').classList.toggle('on',p);$('arm').classList.toggle('on',p);$('pl').classList.toggle('on',p);$('pp').setAttribute('aria-pressed',p);$('pp').setAttribute('aria-label',p?'Pause':'Play');
+ $('pi').innerHTML=p?'<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>':'<path d="M8 5v14l11-7z"/>'}
+function nxt(auto){if(shuf){let n;do{n=Math.floor(Math.random()*T.length)}while(n==cur&&T.length>1);set(n);return}
+ if(auto&&rep==2){set(cur);return}
+ if(cur<T.length-1)set(cur+1);else if(rep==1||!auto)set(0);else{set(0);setPlay(false)}}
+function prv(){if(el>3)set(cur);else set((cur+T.length-1)%T.length)}
+$('pp').onclick=()=>setPlay(!play);$('nx').onclick=()=>nxt(false);$('pv').onclick=prv;
+$('sh').onclick=()=>{shuf=!shuf;$('sh').classList.toggle('act',shuf);$('sh').setAttribute('aria-pressed',shuf);$('sh').setAttribute('aria-label','Shuffle '+(shuf?'on':'off'))};
+$('rp').onclick=()=>{rep=(rep+1)%3;$('rp').classList.toggle('act',rep>0);$('rp').setAttribute('aria-pressed',rep>0);$('rl').textContent=['','','1'][rep];$('rp').setAttribute('aria-label','Repeat '+['off','all','one'][rep])};
+$('sk').addEventListener('input',e=>{drag=true;el=e.target.value/1000*T[cur][2];show()});$('sk').addEventListener('change',()=>{drag=false});
+addEventListener('keydown',e=>{if(e.target.closest('input')&&e.key!=' ')return;const k=e.key.toLowerCase();
+ if(e.key==' '&&!e.target.closest('button')){e.preventDefault();setPlay(!play)}
+ else if(e.key=='ArrowRight'&&!e.target.closest('input')){el=Math.min(T[cur][2],el+5);show()}
+ else if(e.key=='ArrowLeft'&&!e.target.closest('input')){el=Math.max(0,el-5);show()}
+ else if(k=='n')nxt(false);else if(k=='p')prv()});
+setInterval(()=>{const n=performance.now(),dt=(n-last)/1000;last=n;if(!play||drag)return;el+=dt;if(el>=T[cur][2]){nxt(true)}show()},100);
+set(0);
+</script></body></html>

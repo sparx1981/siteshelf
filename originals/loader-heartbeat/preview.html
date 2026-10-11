@@ -1,0 +1,73 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Heartbeat Loader — Loaders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=VT323&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(900px 600px at 50% 30%,#0a2a22,#04100d 70%);color:#d4f5e5;font:500 16px/1.5 "Space Grotesk",system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.w{max-width:1020px;margin:0 auto;padding:40px 20px 56px}
+.eb{font:700 13px "Space Grotesk";letter-spacing:.18em;text-transform:uppercase;color:#3dffa0;margin:0 0 8px}
+h1{font:700 clamp(32px,5vw,54px)/1.04 "Space Grotesk";margin:0 0 8px;letter-spacing:-.02em}.lead{color:#8ec9ae;margin:0 0 22px;max-width:50ch;font-size:17px}
+.mo{background:#06180f;border:1px solid #134334;border-radius:16px;overflow:hidden;box-shadow:0 0 0 1px rgba(61,255,160,.06),0 30px 70px -30px #000,inset 0 0 90px rgba(61,255,160,.05);position:relative}
+.sb{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;background:#08201a;border-bottom:1px solid #134334;font:400 20px VT323,monospace;color:#8ec9ae;letter-spacing:.06em;gap:12px;flex-wrap:wrap}.sb b{color:#3dffa0;font-weight:400}.sb .cn:before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:#3dffa0;margin-right:8px;box-shadow:0 0 8px #3dffa0}
+.bd{display:grid;grid-template-columns:minmax(0,1fr) 260px}
+.cv{position:relative;height:280px;background:linear-gradient(rgba(61,255,160,.12) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,rgba(61,255,160,.12) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(rgba(61,255,160,.2) 1px,transparent 1px) 0 0/120px 120px,linear-gradient(90deg,rgba(61,255,160,.2) 1px,transparent 1px) 0 0/120px 120px}
+.cv canvas{position:absolute;inset:0;width:100%;height:100%}
+.cv:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(transparent 0 2px,rgba(0,0,0,.18) 2px 3px);pointer-events:none}
+.rt{border-left:1px solid #134334;padding:18px 20px;display:flex;flex-direction:column;gap:10px;background:#08201a}
+.hr{display:flex;align-items:center;gap:14px}.ht{width:46px;height:46px;position:relative;flex:none}.ht svg{width:100%;height:100%;fill:#ff5a6e;filter:drop-shadow(0 0 8px rgba(255,90,110,.7));transform-origin:50% 55%}.ht:after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #ff5a6e;opacity:0}.ht.p:after{animation:rg .6s ease-out}
+@keyframes rg{from{opacity:.8;transform:scale(.8)}to{opacity:0;transform:scale(1.9)}}
+.bp{font:400 96px/.85 VT323,monospace;color:#ff5a6e;text-shadow:0 0 14px rgba(255,90,110,.5);font-variant-numeric:tabular-nums}.bp small{font-size:26px;color:#d98a94;margin-left:4px}
+.tg{display:flex;gap:8px;flex-wrap:wrap}.tg span{font:400 19px VT323,monospace;border:1px solid #1f5a45;border-radius:6px;padding:0 8px;color:#8ec9ae}
+.ld{margin-top:auto;font:400 20px VT323,monospace;color:#bfeed7}.ld div{height:6px;background:#0d3326;border-radius:3px;overflow:hidden;margin-top:6px}.ld i{display:block;height:100%;width:0;background:#3dffa0;box-shadow:0 0 8px #3dffa0}
+.cn2{display:flex;gap:14px 22px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.rg{display:flex;gap:10px;align-items:center;font-weight:700}.rg output{font:400 22px VT323,monospace;color:#3dffa0;min-width:48px}input[type=range]{accent-color:#3dffa0;width:180px;height:28px}
+select{font:700 15px "Space Grotesk";padding:8px 12px;border-radius:10px;border:1.5px solid #1f5a45;background:#08201a;color:#d4f5e5;min-height:40px}
+.pz{all:unset;box-sizing:border-box;cursor:pointer;padding:9px 20px;border-radius:999px;border:1.5px solid #3dffa0;color:#3dffa0;font-weight:700;min-height:40px}.pz:hover{background:rgba(61,255,160,.12)}.pz[aria-pressed=true]{background:#3dffa0;color:#04100d}.pz:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:760px){.bd{grid-template-columns:minmax(0,1fr)}.cv{height:200px}.rt{border-left:0;border-top:1px solid #134334}.bp{font-size:72px}input[type=range]{width:140px}.w{padding:28px 14px 44px}}
+@media (prefers-reduced-motion:reduce){.ht.p:after{animation:none}}
+</style></head><body>
+<div class="w"><p class="eb">Pulse Ledger</p><h1>A steady beat while we load.</h1><p class="lead">A monitor-style trace sweeps along as your chart loads. It is entirely fictional and visual only.</p>
+<div class="mo" id="mo" role="progressbar" aria-label="Loading patient chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="sb" aria-hidden="true"><span>PULSE LEDGER · <b>BAY 4</b></span><span class="cn">CONNECTED</span><span id="ck">00:00:00</span></div>
+<div class="bd"><div class="cv"><canvas id="cv" aria-hidden="true"></canvas></div><div class="rt" aria-hidden="true"><div class="hr"><div class="ht" id="ht"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11z"/></svg></div><div><div class="bp"><span id="bp">72</span><small>BPM</small></div></div></div>
+<div class="tg"><span>SpO2 98%</span><span id="rh">Rate steady</span></div><div class="ld"><span id="ls">Authenticating...</span> <span id="pc">0%</span><div><i id="pb"></i></div></div></div></div></div>
+<div class="cn2"><div class="rg"><label for="bm">Heart rate</label><input id="bm" type="range" min="40" max="180" value="72"><output id="bmo" for="bm">72</output></div>
+<label class="rg" for="rt">Rhythm <select id="rt"><option value="n">Normal sinus</option><option value="a">Athletic</option><option value="f">Fast PR</option><option value="s">Slow wave</option></select></label>
+<label class="rg" for="sw">Sweep <select id="sw"><option value="90">Slow</option><option value="140" selected>Medium</option><option value="200">Fast</option></select></label><button class="pz" id="pz" type="button" aria-pressed="false">Pause</button></div></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,cv=$('#cv'),ctx=cv.getContext('2d'),dpr=Math.min(2,devicePixelRatio||1);
+var bpm=72,shown=72,rh='n',speed=140,paused=false,W=0,H=0,buf=[],x0=0,tPrev=0,tPulse=0,tNext=0,progress=0,hold=0,lastA=-1;
+var TPL={n:{p:[.12,.1],q:.04,r:.5,s:.1,t:[.28,.18]},a:{p:[.1,.08],q:.03,r:.55,s:.1,t:[.34,.26]},f:{p:[.08,.1],q:.03,r:.5,s:.12,t:[.22,.14]},s:{p:[.12,.12],q:.04,r:.45,s:.08,t:[.3,.2]}};
+function g(x,m,s){return Math.exp(-Math.pow((x-m)/s,2))}
+function beat(u){var T=TPL[rh]||TPL.n;return .3*(g(u,.12,.032)*1)+(-.14)*g(u,.2,.012)+1.0*g(u,.225,.011)+(-.28)*g(u,.25,.014)+(rh==='a'?.5:.32)*g(u,.4,.045)+0}
+function size(){var b=cv.getBoundingClientRect();W=Math.round(b.width*dpr);H=Math.round(b.height*dpr);cv.width=W;cv.height=H;buf=new Array(Math.ceil(W/dpr)).fill(0)}
+size();addEventListener('resize',size);
+var phase=0,lastBeat=0;
+function sample(dt){ // advance phase in beats
+ var per=60/bpm;phase+=dt/per;while(phase>=1){phase-=1;pulse()}return beat(phase)}
+function pulse(){var h=$('#ht');if(reduce)return;h.classList.remove('p');void h.offsetWidth;h.classList.add('p');h.querySelector('svg').animate([{transform:'scale(1)'},{transform:'scale(1.2)'},{transform:'scale(1)'}],{duration:Math.min(420,60000/bpm*.6),easing:'ease-out'})}
+function draw(){var w=buf.length;ctx.clearRect(0,0,W,H);ctx.save();ctx.scale(dpr,dpr);var h=H/dpr,mid=h*.62;ctx.lineJoin='round';ctx.lineCap='round';
+ ctx.shadowColor='#3dffa0';ctx.shadowBlur=10;ctx.strokeStyle='#3dffa0';ctx.lineWidth=2.4;
+ var gap=14,cut=x0%w;ctx.beginPath();var started=false;for(var i=0;i<w;i++){var idx=(cut+i+gap)%w,x=idx,v=buf[idx];var near=((idx-cut+w)%w);if(near<gap&&!reduce){started=false;continue}var y=mid-v*h*.5;if(!started){ctx.moveTo(x,y);started=true}else ctx.lineTo(x,y)}ctx.stroke();
+ var lx=cut%w,ly=mid-buf[(cut-1+w)%w]*h*.5;ctx.shadowBlur=18;ctx.fillStyle='#e8fff4';ctx.beginPath();ctx.arc(lx,ly,4,0,7);ctx.fill();ctx.restore()}
+var STEPS=['Authenticating...','Fetching vitals...','Syncing labs...','Almost ready...'];
+function step(now){var dt=Math.min(.05,(now-tPrev)/1000);tPrev=now;
+ if(!paused&&!reduce){shown+=(bpm-shown)*Math.min(1,dt*3);var jit=Math.round(shown+(Math.sin(now/900)*1));$('#bp').textContent=jit;var px=speed*dt;var n=Math.max(1,Math.round(px));var sdt=dt/n;for(var k=0;k<n;k++){buf[x0%buf.length]=sample(sdt)*(1);x0++}
+  if(progress<100){progress=Math.min(100,progress+dt*8.5);if(progress>=100){hold=2;$('#live').textContent='Patient chart loaded'}}else{hold-=dt;if(hold<=0){progress=0}}}
+ draw();var p=Math.floor(progress);$('#pb').style.width=progress.toFixed(1)+'%';$('#pc').textContent=p+'%';$('#ls').textContent=progress>=100?'Chart loaded':STEPS[Math.min(3,Math.floor(progress/25))];
+ var a=Math.floor(p/5)*5;if(a!==lastA){lastA=a;$('#mo').setAttribute('aria-valuenow',a)}
+ var d=new Date();$('#ck').textContent=[d.getHours(),d.getMinutes(),d.getSeconds()].map(function(v){return('0'+v).slice(-2)}).join(':');
+ requestAnimationFrame(step)}
+function prefill(){if(!buf.length)return;for(var i=0;i<buf.length;i++){buf[i]=sample(1/speed)}x0=buf.length}
+prefill();
+if(reduce){var per=speed*60/bpm;for(var i=0;i<buf.length;i++)buf[i]=beat(((i%per)/per));$('#bp').textContent='72';progress=62;$('#pb').style.width='62%';$('#pc').textContent='62%';$('#ls').textContent=STEPS[2];$('#mo').setAttribute('aria-valuenow',60);draw()}
+else{progress=37;tPrev=performance.now();requestAnimationFrame(step)}
+$('#bm').addEventListener('input',function(){bpm=+this.value;$('#bmo').textContent=bpm;$('#rh').textContent=bpm>120?'Rate high':bpm<55?'Rate low':'Rate steady'});
+$('#rt').addEventListener('change',function(){rh=this.value});
+$('#sw').addEventListener('change',function(){speed=+this.value});
+$('#pz').addEventListener('click',function(){paused=!paused;this.setAttribute('aria-pressed',paused);this.textContent=paused?'Play':'Pause'});
+})();
+</script></body></html>

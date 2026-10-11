@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Typewriter Boot Loader — Loaders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Inter:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{margin:0;height:100%}
+body{background:#0a0d12;color:#e9e4d8;font:400 15px/1.7 "Space Mono",monospace;overflow-x:hidden;position:relative}
+:focus-visible{outline:3px solid #7ad7ff;outline-offset:3px}
+.bt{position:fixed;inset:0;display:grid;place-items:center;padding:24px;background:radial-gradient(900px 600px at 50% 40%,#131a24,#0a0d12 70%);transition:opacity .7s;z-index:5}
+.bt:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(transparent 0 2px,rgba(255,255,255,.025) 2px 3px);pointer-events:none}
+.bt.off{opacity:0;pointer-events:none}
+.bc{width:min(720px,100%);position:relative}
+.lg{font:700 clamp(30px,6vw,52px)/1 "Space Mono";letter-spacing:.14em;display:flex;align-items:center;gap:14px;margin:0 0 4px;color:#e9e4d8}.lg svg{width:1em;height:1em;flex:none}
+.vr{color:#8d8a80;margin:0 0 20px}
+.lo{min-height:340px;font-size:15px}
+.ln{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}.ln .tm{color:#8d8a80}
+.tg{font-weight:700}.tg.ok{color:#7be39a}.tg.wt{color:#ffc766}.tg.in{color:#7ad7ff}
+.cr{display:inline-block;width:.6em;height:1.1em;background:#e9e4d8;vertical-align:-3px;margin-left:2px;animation:bl 1s steps(2) infinite}@keyframes bl{50%{opacity:0}}
+.pb{margin-top:18px;color:#7ad7ff;display:flex;gap:12px}
+.cl{position:fixed;right:16px;bottom:16px;z-index:10;display:flex;gap:8px;align-items:center;background:rgba(10,13,18,.9);border:1px solid #2a3340;border-radius:12px;padding:8px}
+.cl button,.cl select{all:unset;box-sizing:border-box;cursor:pointer;font:700 13px "Space Mono",monospace;padding:8px 12px;border-radius:8px;border:1px solid #3a4658;color:#e9e4d8;min-height:38px;background:#0f141c}
+.cl select{font-weight:400}.cl button:hover{border-color:#7ad7ff;color:#7ad7ff}.cl button:focus-visible,.cl select:focus-visible{outline:3px solid #7ad7ff;outline-offset:2px}
+.dash .cl{background:rgba(255,255,255,.92);border-color:#d9d3c4}.dash .cl button,.dash .cl select{background:#fff;color:#1a1815;border-color:#cfc8b6}.dash .cl button:hover{border-color:#1a1815;color:#1a1815}
+.dash .cl :focus-visible{outline-color:#1a1815}
+.ap{position:absolute;inset:0;background:#f4f1ea;color:#1a1815;font:400 16px/1.5 Inter,system-ui,sans-serif;overflow:auto}
+.ap .in{max-width:1000px;margin:0 auto;padding:28px 24px 80px}
+.ap :focus-visible{outline:3px solid #1a1815;outline-offset:3px}
+.ah{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:34px;flex-wrap:wrap}.lg2{font:800 22px "Bricolage Grotesque";display:flex;gap:10px;align-items:center}.lg2 svg{width:26px;height:26px}
+.sr2{background:#fff;border:1px solid #ddd6c6;border-radius:12px;padding:10px 16px;min-width:240px;font:400 15px Inter;color:#6a6458}
+.ap h1{font:800 clamp(32px,4.4vw,48px)/1.04 "Bricolage Grotesque";margin:0 0 6px;letter-spacing:-.025em;outline:0}.ap .sub{color:#6a6458;margin:0 0 22px}
+.gr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:26px}
+.cd{background:#fff;border:1px solid #e3dccb;border-radius:18px;padding:18px}.cd h2{font:700 20px "Bricolage Grotesque";margin:0 0 4px}.cd p{margin:0 0 12px;color:#6a6458;font-size:14px}
+.cd .b{height:8px;border-radius:4px;background:#ece6d6;overflow:hidden}.cd .b i{display:block;height:100%;background:var(--c)}.cd small{display:block;margin-top:6px;color:#6a6458;font-size:13px}
+.rs{opacity:0;transform:translateY(16px)}.show .rs{opacity:1;transform:none;transition:opacity .5s,transform .5s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i)*70ms)}
+.td{background:#fff;border:1px solid #e3dccb;border-radius:18px;padding:6px 18px}.td h2{font:700 18px "Bricolage Grotesque";margin:12px 0 4px}.td ul{list-style:none;margin:0;padding:0}.td li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid #efe9da}.td li:first-child{border-top:0}.td li span{color:#6a6458;font-size:14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:640px){.bt{align-items:start;padding:30px 16px}.lo{font-size:13px;min-height:360px}.gr{grid-template-columns:minmax(0,1fr)}.cl{right:8px;bottom:8px;left:8px;justify-content:center}.ap .in{padding:20px 16px 90px}}
+@media (prefers-reduced-motion:reduce){.cr{animation:none}.bt{transition:opacity .2s}.show .rs{transition:none}}
+</style></head><body>
+<main class="ap" id="ap" aria-hidden="true" inert><div class="in"><div class="ah"><div class="lg2"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 26C6 14 14 6 28 4 26 18 18 26 6 26zM6 26L18 14" fill="none" stroke="#1a1815" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Quillboard</div><div class="sr2">Search boards and tasks…</div></div>
+<h1 id="ah1" tabindex="-1">Good morning, Wren.</h1><p class="sub">Three boards moving, four things for today.</p>
+<div class="gr"><article class="cd rs" style="--i:0;--c:#4a55e8"><h2>Launch plan</h2><p>Spring release, 14 tasks</p><div class="b"><i style="width:68%"></i></div><small>68% complete</small></article><article class="cd rs" style="--i:1;--c:#0f8a73"><h2>Reading list</h2><p>Team book club, 9 items</p><div class="b"><i style="width:44%"></i></div><small>44% complete</small></article><article class="cd rs" style="--i:2;--c:#d9482b"><h2>Garden notes</h2><p>Spring planting, 6 items</p><div class="b"><i style="width:83%"></i></div><small>83% complete</small></article></div>
+<section class="td rs" style="--i:3" aria-labelledby="th"><h2 id="th">Today</h2><ul><li>Review launch checklist<span>10:00</span></li><li>Reply to Odette about the invoice<span>11:30</span></li><li>Order seed potatoes<span>13:00</span></li><li>Plan Friday retro<span>15:30</span></li></ul></section></div></main>
+<div class="bt" id="bt"><div class="bc"><h1 class="lg"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 26C6 14 14 6 28 4 26 18 18 26 6 26zM6 26L18 14" fill="none" stroke="#7ad7ff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>QUILLBOARD</h1><p class="vr">v3.2.0 (build 4417)</p>
+<div class="lo" id="lo" role="log" aria-live="off" aria-label="Boot log"></div><div class="pb" aria-hidden="true"><span id="bar">[----------]</span><span id="pc">0%</span></div></div></div>
+<div class="cl" id="cl" role="group" aria-label="Boot controls"><button type="button" id="sk">Skip</button><button type="button" id="rp">Replay</button><label class="sr" for="spd">Speed</label><select id="spd"><option value="2.2">Slow</option><option value="1" selected>Normal</option><option value=".45">Fast</option><option value="0">Instant</option></select></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var L=[['Initialising workspace...',''],['Mounting /projects','ok'],['Checking licence','ok'],['Reading config from ~/.quill','ok'],['Loading boards (12)','ok'],['Warming search index...','wt'],['Syncing 3 teammates','ok'],['Resolving 41 tasks','ok'],['Restoring last session','ok'],['Starting reminders','ok'],['Compiling templates','ok'],['Verifying integrity','ok'],['Opening dashboard...','in'],['Ready.','']];
+var run=0,timers=[],mult=1,lo=$('#lo'),bt=$('#bt'),ap=$('#ap'),lastQ=-1;
+function clr(){timers.forEach(clearTimeout);timers=[];run++}
+function sched(f,ms){timers.push(setTimeout(f,ms))}
+function bar(p){var n=Math.round(p/10);$('#bar').textContent='['+'#'.repeat(n)+'-'.repeat(10-n)+']';$('#pc').textContent=Math.round(p)+'%';var q=Math.floor(p/25);if(q>lastQ&&q>0&&q<4){lastQ=q;$('#live').textContent='Loading, '+(q*25)+' percent'}}
+function tm(i){return '[0'+(i*0.13+.04).toFixed(2).slice(0,4)+'s] '}
+function showApp(){if(bt.classList.contains('off'))return;bt.classList.add('off');ap.removeAttribute('aria-hidden');ap.inert=false;document.body.classList.add('dash');setTimeout(function(){ap.classList.add('show');var h=$('#ah1');try{h.focus({preventScroll:true})}catch(e){h.focus()}},reduce?0:300);$('#live').textContent='Ready. Dashboard loaded.'}
+function start(){clr();var my=run;lo.innerHTML='';lastQ=-1;bar(0);bt.classList.remove('off');ap.setAttribute('aria-hidden','true');ap.inert=true;ap.classList.remove('show');document.body.classList.remove('dash');
+ if(mult===0||reduce){L.forEach(function(l,i){var p=document.createElement('p');p.className='ln';p.innerHTML='<span class="tm">'+tm(i)+'</span>'+l[0]+(l[1]==='ok'?' <span class="tg ok">[ OK ]</span>':l[1]==='in'?' <span class="tg in">[ GO ]</span>':l[1]==='wt'?' <span class="tg ok">[ OK ]</span>':'');lo.appendChild(p)});bar(100);sched(function(){showApp()},reduce?250:150);return}
+ var i=0;function line(){if(my!==run)return;if(i>=L.length){sched(showApp,600*mult);return}var l=L[i],p=document.createElement('p');p.className='ln';var ts=document.createElement('span');ts.className='tm';ts.textContent=tm(i);p.appendChild(ts);var tx=document.createElement('span');p.appendChild(tx);var cr=document.createElement('i');cr.className='cr';p.appendChild(cr);lo.appendChild(p);var c=0,txt=l[0];
+  (function ty(){if(my!==run)return;tx.textContent=txt.slice(0,++c);if(c<txt.length){sched(ty,18*mult)}else{var end=function(){cr.remove();bar((i+1)/L.length*100);i++;if(i>=lo.children.length+0)sched(line,(40+Math.random()*120)*mult)};
+    if(l[1]==='wt'){var tg=document.createElement('span');tg.className='tg wt';tg.textContent=' [ WAIT ]';p.insertBefore(tg,cr);sched(function(){if(my!==run)return;tg.className='tg ok';tg.textContent=' [ OK ]';end()},520*mult)}
+    else if(l[1]){var t2=document.createElement('span');t2.className='tg '+l[1];t2.textContent=l[1]==='ok'?' [ OK ]':' [ GO ]';p.insertBefore(t2,cr);end()}else end()}})()}
+ line()}
+$('#sk').addEventListener('click',function(){clr();bar(100);showApp()});
+$('#rp').addEventListener('click',function(){start();$('#sk').focus()});
+$('#spd').addEventListener('change',function(){mult=+this.value;start()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!bt.classList.contains('off')){clr();showApp()}});
+start();$('#sk').focus({preventScroll:true});
+})();
+</script></body></html>

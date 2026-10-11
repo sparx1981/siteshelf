@@ -1,0 +1,78 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Water Fill Loader — Loaders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:linear-gradient(160deg,rgba(120,220,255,.14),transparent 45%),#06263a;color:#eaf8ff;font:400 17px/1.55 Nunito,system-ui,sans-serif;overflow-x:hidden;position:relative}
+:focus-visible{outline:3px solid #ffe27a;outline-offset:3px;box-shadow:0 0 0 6px #06263a}
+#bg{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+#bg i{position:absolute;bottom:-20px;border-radius:50%;border:1.5px solid rgba(190,240,255,.35);animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-110vh)}}
+.w{position:relative;max-width:860px;margin:0 auto;padding:44px 24px 56px;text-align:center}
+.eb{font:600 13px Nunito;letter-spacing:.18em;text-transform:uppercase;color:#7fe0ff;margin:0 0 8px}
+h1{font:700 clamp(40px,7vw,72px)/1 Fredoka;margin:0 0 8px}.lead{color:#9fc7d8;margin:0 auto 14px;max-width:44ch}
+.stg{position:relative;width:min(300px,78vw);margin:0 auto}
+.stg svg.v{display:block;width:100%;height:auto;overflow:visible}
+.pc{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);font:700 72px/1 Fredoka;color:#fff;text-shadow:0 2px 14px rgba(0,30,50,.5);pointer-events:none;font-variant-numeric:tabular-nums;transition:color .2s}
+.pc.dk{color:#06263a;text-shadow:none}
+.full{position:absolute;left:50%;top:-8px;transform:translate(-50%,-10px) scale(.8);background:#ffe27a;color:#06263a;font:700 15px Fredoka;border-radius:999px;padding:3px 14px;opacity:0;transition:.3s}.full.on{opacity:1;transform:translate(-50%,-22px) scale(1)}
+.pf{width:70%;height:14px;margin:-4px auto 0;background:radial-gradient(ellipse,rgba(120,220,255,.35),transparent 70%);filter:blur(3px)}
+.st{font:600 18px Fredoka;margin:10px 0 18px;color:#bfeaff}
+.cn{display:flex;gap:16px 26px;flex-wrap:wrap;justify-content:center;align-items:center}
+.ch{display:flex;gap:8px;flex-wrap:wrap;border:0;margin:0;padding:0;justify-content:center}.ch label{position:relative}.ch input{position:absolute;opacity:0;width:1px;height:1px}.ch span{display:block;padding:8px 16px;border-radius:999px;border:1.5px solid #3d7a99;font-weight:700;cursor:pointer;min-height:40px}.ch input:checked+span{background:#eaf8ff;color:#06263a;border-color:#eaf8ff}.ch input:focus-visible+span{outline:3px solid #ffe27a;outline-offset:3px}
+.rg{display:flex;gap:10px;align-items:center;font-weight:700}.rg output{min-width:44px;font:600 14px Fredoka}input[type=range]{accent-color:#4cd0f5;width:160px;height:28px}
+.sw{display:flex;gap:10px;align-items:center;font-weight:700;cursor:pointer}.sw input{position:absolute;opacity:0;width:1px;height:1px}.sw i{width:44px;height:26px;border-radius:13px;background:#34627a;position:relative;transition:background .2s;flex:none}.sw i:after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}.sw input:checked+i{background:#4cd0f5}.sw input:checked+i:after{transform:translateX(18px)}.sw input:focus-visible+i{outline:3px solid #ffe27a;outline-offset:3px}
+select{font:700 15px Nunito;padding:8px 12px;border-radius:10px;border:1.5px solid #3d7a99;background:#0b3550;color:#eaf8ff;min-height:40px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.rp{fill:none;stroke:#bff1ff;stroke-width:2;opacity:0}.rp.go{animation:rg 1s ease-out}@keyframes rg{from{opacity:.9;transform:scale(.4)}to{opacity:0;transform:scale(1.6)}}
+@media (max-width:560px){.w{padding:30px 16px 44px}.pc{font-size:56px}input[type=range]{width:130px}}
+@media (prefers-reduced-motion:reduce){#bg{display:none}.rp.go{animation:none}}
+</style></head><body>
+<div id="bg" aria-hidden="true"></div>
+<div class="w"><p class="eb">Brookline Water</p><h1>Fill it up.</h1><p class="lead">A tiny glass that fills as work gets done. Pick a vessel, then watch the waves settle.</p>
+<div class="stg"><div class="full" id="fl" aria-hidden="true">Full!</div><div role="progressbar" aria-label="Water level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 percent full" id="pbr"><svg class="v" id="sv" viewBox="0 0 260 320" aria-hidden="true"><defs><clipPath id="cp"><path id="cpp" d=""/></clipPath><linearGradient id="wg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5fd8f7"/><stop offset="1" stop-color="#1394c8"/></linearGradient></defs>
+<g id="rpl" transform="translate(130 20)"><ellipse class="rp" rx="70" ry="10"/><ellipse class="rp" rx="90" ry="14" style="animation-delay:.15s"/></g>
+<path id="vb" d="" fill="rgba(210,244,255,.06)" stroke="none"/>
+<g clip-path="url(#cp)"><g id="wt"><path id="w2" fill="#1aa6d6" opacity=".7" d=""/><path id="w1" fill="url(#wg)" d=""/><g id="bb"></g></g></g>
+<path id="vo" d="" fill="none" stroke="#d9f4ff" stroke-width="4" stroke-linejoin="round"/><path id="hl" d="" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="4" stroke-linecap="round"/></svg></div><div class="pc" id="pc" aria-hidden="true">0%</div></div><div class="pf" aria-hidden="true"></div>
+<p class="st" id="st" aria-hidden="true">Filling... 0%</p>
+<div class="cn"><fieldset class="ch" aria-label="Vessel"><label><input type="radio" name="vs" value="0" checked><span>Drop</span></label><label><input type="radio" name="vs" value="1"><span>Beaker</span></label><label><input type="radio" name="vs" value="2"><span>Heart</span></label><label><input type="radio" name="vs" value="3"><span>Flask</span></label></fieldset>
+<div class="rg"><label for="lv">Level</label><input id="lv" type="range" min="0" max="100" value="0"><output id="lvo" for="lv">0%</output></div><label class="sw"><input type="checkbox" id="au" checked><i></i>Auto-fill loop</label>
+<label class="rg" for="wv">Waves <select id="wv"><option value="0">Calm</option><option value="1" selected>Medium</option><option value="2">Rolling</option></select></label></div></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var V=[{o:'M130 10 C130 10 40 130 40 210 a90 90 0 0 0 180 0 C220 130 130 10 130 10 Z',top:10,bot:300,hl:'M70 200 a60 60 0 0 0 30 52'},
+{o:'M60 20 H200 V60 L228 280 a20 20 0 0 1 -20 24 H52 a20 20 0 0 1 -20 -24 L60 60 Z',top:20,bot:304,hl:'M76 90 L52 270'},
+{o:'M130 296 C20 220 20 110 60 74 C94 44 124 62 130 92 C136 62 166 44 200 74 C240 110 240 220 130 296 Z',top:56,bot:296,hl:'M52 120 C48 150 60 180 80 204'},
+{o:'M104 14 H156 V80 C230 110 250 200 220 262 a46 46 0 0 1 -42 38 H82 a46 46 0 0 1 -42 -38 C10 200 30 110 104 80 Z',top:14,bot:300,hl:'M62 170 C58 200 68 232 84 250'}];
+var cur=0,level=0,target=0,auto=!reduce,t0=0,wave=1;var WV=[[6,.5],[10,1],[16,1.6]];
+var ph1=0,ph2=0,last=performance.now(),splashAt=0,fullAnn=false,lastAria=-1;
+function setVessel(i){cur=i;var v=V[i];['cpp','vb','vo'].forEach(function(id){$('#'+id).setAttribute('d',v.o)});$('#hl').setAttribute('d',v.hl)}
+function wavePath(amp,ph,w){var d='M-260 330 L-260 0 ';var pts=[];for(var x=-260;x<=520;x+=10){pts.push((x)+' '+(Math.sin((x/130*Math.PI)*1+ph)*amp))}return 'M'+pts.join(' L')+' L520 340 L-260 340 Z'}
+var bubbles=[];(function(){var g=$('#bb');for(var i=0;i<7;i++){var c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('r',(2+Math.random()*3).toFixed(1));c.setAttribute('fill','rgba(255,255,255,.55)');g.appendChild(c);bubbles.push({e:c,x:60+Math.random()*140,y:Math.random()*300,v:.4+Math.random()*.8})}})();
+var bg=$('#bg'),bh='';for(var i=0;i<14;i++){var s=6+Math.random()*16;bh+='<i style="left:'+(Math.random()*100).toFixed(1)+'%;width:'+s+'px;height:'+s+'px;animation-duration:'+(14+Math.random()*16).toFixed(1)+'s;animation-delay:'+(-Math.random()*20).toFixed(1)+'s"></i>'}bg.innerHTML=bh;
+function render(now){var dt=Math.min(.05,(now-last)/1000);last=now;
+ if(auto&&!reduce){t0+=dt;var L=6+1+2.5,k=t0%L;target=k<6?k/6*100:(k<7?100:100-(k-7)/2.5*100);$('#lv').value=Math.round(target);$('#lvo').textContent=Math.round(target)+'%'}
+ level+=(target-level)*(reduce?1:Math.min(1,dt*6));
+ var amp=reduce?3:WV[wave][0],sp=WV[wave][1];ph1+=dt*sp*1.6;ph2-=dt*sp*1.1;
+ var v=V[cur],y=v.bot-(v.bot-v.top)*level/100;
+ $('#w1').setAttribute('d',wavePath(amp,ph1));$('#w2').setAttribute('d',wavePath(amp*.8,ph2+1.3));$('#wt').setAttribute('transform','translate(0 '+y.toFixed(1)+')');
+ bubbles.forEach(function(b){b.y-=b.v;if(b.y<-300||level<2)b.y=Math.max(10,v.bot-y)*.9;b.e.setAttribute('cx',b.x.toFixed(1));b.e.setAttribute('cy',(b.y).toFixed(1));b.e.setAttribute('opacity',reduce||level<3?0:.8)});
+ var pct=Math.round(level);$('#pc').textContent=pct+'%';$('#pc').classList.toggle('dk',y<165&&level>3);
+ $('#st').textContent=(auto?(target<99.5&&t0%9.5>7?'Draining':'Filling'):'Level')+'... '+pct+'%';
+ var a=Math.floor(pct/5)*5;if(a!==lastAria){lastAria=a;$('#pbr').setAttribute('aria-valuenow',a);$('#pbr').setAttribute('aria-valuetext',a+' percent full')}
+ if(pct>=100&&!fullAnn){fullAnn=true;$('#live').textContent='Full';if(!reduce){$('#fl').classList.add('on');document.querySelectorAll('.rp').forEach(function(r){r.classList.remove('go');void r.getBoundingClientRect();r.classList.add('go')});setTimeout(function(){$('#fl').classList.remove('on')},1400)}}
+ if(pct<90)fullAnn=false;
+ requestAnimationFrame(render)}
+setVessel(0);
+document.querySelectorAll('[name=vs]').forEach(function(r){r.addEventListener('change',function(){setVessel(+r.value)})});
+$('#lv').addEventListener('input',function(){auto=false;$('#au').checked=false;target=+this.value;$('#lvo').textContent=this.value+'%'});
+$('#au').addEventListener('change',function(){auto=this.checked;if(auto)t0=target/100*6});
+$('#wv').addEventListener('change',function(){wave=+this.value});
+if(reduce){$('#au').checked=false;target=62;$('#lv').value=62;$('#lvo').textContent='62%'}
+else{t0=3.2;level=44}
+requestAnimationFrame(render);
+})();
+</script></body></html>

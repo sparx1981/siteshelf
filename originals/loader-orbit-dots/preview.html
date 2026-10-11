@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Orbit Dot Loaders — Loaders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+:root{--c1:#6ec7ff;--c2:#b7e4ff;--s:40px;--sp:1}
+body{margin:0;min-height:100vh;background:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1.5px) 0 0/44px 44px,#0f1524;color:#e9eefc;font:400 16px/1.55 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.w{max-width:1100px;margin:0 auto;padding:48px 24px 60px}
+.eb{font:600 13px Outfit;letter-spacing:.16em;text-transform:uppercase;color:var(--c1);margin:0 0 10px}
+h1{font:700 clamp(34px,5.4vw,58px)/1.04 Outfit;margin:0 0 10px;letter-spacing:-.02em}.lead{color:#9aa8c7;margin:0 0 24px;max-width:46ch;font-size:18px}
+.cb{display:flex;gap:18px 26px;align-items:center;flex-wrap:wrap;background:#172036;border:1px solid #263250;border-radius:16px;padding:12px 18px;margin-bottom:22px}
+.cb fieldset{border:0;margin:0;padding:0;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.cb legend{float:left;margin-right:10px;font-weight:600;padding:0}
+.ch label{position:relative}.ch input{position:absolute;opacity:0;width:1px;height:1px}.ch span{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;border:1.5px solid #384870;font-weight:600;cursor:pointer;min-height:38px}.ch span:before{content:"";width:12px;height:12px;border-radius:50%;background:var(--x)}
+.ch input:checked+span{background:#22304f;border-color:#fff}.ch input:focus-visible+span{outline:3px solid #fff;outline-offset:3px}
+.rg{display:flex;gap:10px;align-items:center;font-weight:600}.rg output{font:600 13px Outfit;min-width:38px;color:var(--c1)}input[type=range]{accent-color:var(--c1);width:120px;height:28px}
+.pz{all:unset;box-sizing:border-box;cursor:pointer;padding:8px 18px;border-radius:999px;border:1.5px solid #fff;font-weight:600;min-height:40px;margin-left:auto}.pz:hover{background:rgba(255,255,255,.1)}.pz[aria-pressed=true]{background:#fff;color:#0f1524}.pz:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.tl{background:#172036;border:1px solid #263250;border-radius:20px;height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;position:relative;transition:border-color .2s,background .2s;cursor:pointer;min-width:0}
+.tl:hover{background:#1b2742;border-color:#3a4b78}.tl:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.tl .st{position:relative;width:calc(var(--s)*2.2);height:calc(var(--s)*2.2);flex:none;margin-top:6px}
+.tl h2{font:600 16px Outfit;margin:18px 0 0}.tl p{margin:2px 0 0;color:#9aa8c7;font-size:13px;text-align:center;padding:0 12px}
+.tl[aria-pressed=true]:after{content:"Paused";position:absolute;top:12px;right:12px;font:600 11px Outfit;letter-spacing:.08em;text-transform:uppercase;color:#0f1524;background:#fff;border-radius:999px;padding:2px 9px}
+.paused .an,.tl[aria-pressed=true] .an{animation-play-state:paused!important}
+.an{animation-duration:calc(var(--d)/var(--sp));animation-iteration-count:infinite;animation-timing-function:linear}
+.d{position:absolute;left:50%;top:50%;width:calc(var(--s)*.26);height:calc(var(--s)*.26);margin:calc(var(--s)*-.13) 0 0 calc(var(--s)*-.13);border-radius:50%;background:var(--c1)}
+/* 1 single orbit */
+.o1:before{content:"";position:absolute;inset:calc(var(--s)*.2);border:1.5px solid rgba(255,255,255,.1);border-radius:50%}
+.o1 .r{position:absolute;inset:0;--d:1.4s;animation-name:rot}.o1 .d{margin-top:calc(var(--s)*-1.1 - var(--s)*.13 + var(--s)*.2);}
+@keyframes rot{to{transform:rotate(360deg)}}
+.o1 .d{top:calc(var(--s)*.2);left:50%;margin:calc(var(--s)*-.13) 0 0 calc(var(--s)*-.13)}
+/* 2 comet */
+.o2 .r{position:absolute;inset:0;--d:1.6s;animation-name:rot}
+.o2 .d{top:calc(var(--s)*.1);left:50%;margin:calc(var(--s)*-.13) 0 0 calc(var(--s)*-.13)}
+.o2 .r:nth-child(1){animation-delay:0s}.o2 .r:nth-child(2){animation-delay:-.07s}.o2 .r:nth-child(3){animation-delay:-.14s}.o2 .r:nth-child(4){animation-delay:-.21s}.o2 .r:nth-child(5){animation-delay:-.28s}.o2 .r:nth-child(6){animation-delay:-.35s}
+.o2 .r:nth-child(1) .d{opacity:1}.o2 .r:nth-child(2) .d{opacity:.7;transform:scale(.9)}.o2 .r:nth-child(3) .d{opacity:.5;transform:scale(.8)}.o2 .r:nth-child(4) .d{opacity:.32;transform:scale(.68)}.o2 .r:nth-child(5) .d{opacity:.18;transform:scale(.55)}.o2 .r:nth-child(6) .d{opacity:.08;transform:scale(.42)}
+/* 3 planets */
+.o3 .d{background:var(--c2)}.o3 .ring{position:absolute;border:1px solid rgba(255,255,255,.1);border-radius:50%;left:50%;top:50%}
+.o3 .r{position:absolute;inset:0;animation-name:rot}.o3 .r1{--d:1.6s}.o3 .r2{--d:2.6s}.o3 .r3{--d:4s}
+.o3 .r1 .d{top:calc(var(--s)*.5);left:50%}.o3 .r2 .d{top:calc(var(--s)*.25);left:50%;background:var(--c1)}.o3 .r3 .d{top:0;left:50%;width:calc(var(--s)*.2);height:calc(var(--s)*.2);margin:calc(var(--s)*-.1) 0 0 calc(var(--s)*-.1)}
+.o3 .r1 .d,.o3 .r2 .d{margin:calc(var(--s)*-.13) 0 0 calc(var(--s)*-.13)}
+.o3 .c{position:absolute;left:50%;top:50%;width:calc(var(--s)*.18);height:calc(var(--s)*.18);margin:calc(var(--s)*-.09) 0 0 calc(var(--s)*-.09);border-radius:50%;background:#fff;opacity:.85}
+/* 4 binary */
+.o4 .sy{position:absolute;inset:0;animation-name:drift;--d:3s;animation-timing-function:ease-in-out;animation-direction:alternate}
+@keyframes drift{from{transform:translateX(calc(var(--s)*-.35))}to{transform:translateX(calc(var(--s)*.35))}}
+.o4 .r{position:absolute;inset:calc(var(--s)*.5);--d:1.2s;animation-name:rot}
+.o4 .r .d{top:0;left:50%}.o4 .r .d.b{top:100%;background:var(--c2)}
+/* 5 pendulum */
+.o5 .pv{position:absolute;left:50%;top:calc(var(--s)*.1);width:0;height:calc(var(--s)*1.6);transform-origin:50% 0;animation-name:sw;--d:1.8s;animation-timing-function:ease-in-out;animation-direction:alternate}
+@keyframes sw{from{transform:rotate(-55deg)}to{transform:rotate(55deg)}}
+.o5 .pv:before{content:"";position:absolute;left:-.5px;top:0;bottom:calc(var(--s)*.1);width:1px;background:rgba(255,255,255,.25)}
+.o5 .pv .d{left:0;top:100%;width:calc(var(--s)*.34);height:calc(var(--s)*.34);margin:calc(var(--s)*-.17) 0 0 calc(var(--s)*-.17)}
+.o5 .pi{position:absolute;left:50%;top:calc(var(--s)*.1);width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#fff;opacity:.6}
+/* 6 breathing ring */
+.o6 .d{animation-name:br;--d:1.6s;animation-timing-function:ease-in-out}
+@keyframes br{0%,100%{transform:rotate(var(--a)) translateY(calc(var(--s)*-.6)) scale(.7);opacity:.4}50%{transform:rotate(var(--a)) translateY(calc(var(--s)*-.9)) scale(1.1);opacity:1}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:900px){.g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.g{grid-template-columns:minmax(0,1fr)}.w{padding:32px 16px 44px}.pz{margin-left:0}}
+@media (prefers-reduced-motion:reduce){.an{animation:none!important}.d,.c{animation:rp 6s ease-in-out infinite!important}@keyframes rp{50%{opacity:.4}}.rg.sp{display:none}.o2 .d{opacity:.6}}
+</style></head><body>
+<div class="w"><p class="eb">Calmloop</p><h1>Loaders that don't shout.</h1><p class="lead">Six patient little animations for the moments when something is thinking. Speed, size and colour are yours to set.</p>
+<div class="cb" role="group" aria-label="Controls"><fieldset class="ch"><legend>Palette</legend><label><input type="radio" name="pa" value="sky" checked><span style="--x:#6ec7ff">Sky</span></label><label><input type="radio" name="pa" value="mint"><span style="--x:#4de2b0">Mint</span></label><label><input type="radio" name="pa" value="blush"><span style="--x:#ff8fb3">Blush</span></label></fieldset>
+<div class="rg sp"><label for="sp">Speed</label><input id="sp" type="range" min=".5" max="2" step=".25" value="1"><output id="spo" for="sp">1×</output></div><div class="rg"><label for="sz">Size</label><input id="sz" type="range" min="24" max="64" step="4" value="40"><output id="szo" for="sz">40px</output></div>
+<button class="pz" id="pz" type="button" aria-pressed="false">Pause all</button></div>
+<div class="g" id="g">
+<div class="tl" tabindex="0" aria-pressed="false" role="status" aria-label="Single orbit loader, loading"><div class="st o1" aria-hidden="true"><div class="r an"><i class="d"></i></div></div><h2>Single Orbit</h2><p>Short waits, inline spinners</p></div>
+<div class="tl" tabindex="0" aria-pressed="false" role="status" aria-label="Comet trail loader, loading"><div class="st o2" aria-hidden="true"><div class="r an"><i class="d"></i></div><div class="r an"><i class="d"></i></div><div class="r an"><i class="d"></i></div><div class="r an"><i class="d"></i></div><div class="r an"><i class="d"></i></div><div class="r an"><i class="d"></i></div></div><h2>Comet Trail</h2><p>Page and route changes</p></div>
+<div class="tl" tabindex="0" aria-pressed="false" role="status" aria-label="Planets loader, loading"><div class="st o3" aria-hidden="true"><i class="ring" style="width:calc(var(--s)*1);height:calc(var(--s)*1);margin:calc(var(--s)*-.5) 0 0 calc(var(--s)*-.5)"></i><i class="ring" style="width:calc(var(--s)*1.5);height:calc(var(--s)*1.5);margin:calc(var(--s)*-.75) 0 0 calc(var(--s)*-.75)"></i><i class="ring" style="width:calc(var(--s)*2.1);height:calc(var(--s)*2.1);margin:calc(var(--s)*-1.05) 0 0 calc(var(--s)*-1.05)"></i><i class="c"></i><div class="r r1 an"><i class="d"></i></div><div class="r r2 an" style="inset:calc(var(--s)*-.1)"><i class="d"></i></div><div class="r r3 an" style="inset:calc(var(--s)*-.1)"><i class="d"></i></div></div><h2>Planets</h2><p>Longer, layered processes</p></div>
+<div class="tl" tabindex="0" aria-pressed="false" role="status" aria-label="Binary loader, loading"><div class="st o4" aria-hidden="true"><div class="sy an"><div class="r an"><i class="d"></i><i class="d b"></i></div></div></div><h2>Binary</h2><p>Syncing and pairing</p></div>
+<div class="tl" tabindex="0" aria-pressed="false" role="status" aria-label="Pendulum loader, loading"><div class="st o5" aria-hidden="true"><i class="pi"></i><div class="pv an"><i class="d"></i></div></div><h2>Pendulum</h2><p>Waiting for a reply</p></div>
+<div class="tl" tabindex="0" aria-pressed="false" role="status" aria-label="Breathing ring loader, loading"><div class="st o6" aria-hidden="true" id="o6"></div><h2>Breathing Ring</h2><p>Calm, ambient waits</p></div>
+</div></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},root=document.documentElement;
+var PA={sky:['#6ec7ff','#b7e4ff'],mint:['#4de2b0','#b3f5df'],blush:['#ff8fb3','#ffd0e0']};
+document.querySelectorAll('[name=pa]').forEach(function(r){r.addEventListener('change',function(){root.style.setProperty('--c1',PA[r.value][0]);root.style.setProperty('--c2',PA[r.value][1])})});
+$('#sp').addEventListener('input',function(){root.style.setProperty('--sp',this.value);$('#spo').textContent=this.value+'×'});
+$('#sz').addEventListener('input',function(){root.style.setProperty('--s',this.value+'px');$('#szo').textContent=this.value+'px'});
+$('#pz').addEventListener('click',function(){var on=this.getAttribute('aria-pressed')!=='true';this.setAttribute('aria-pressed',on);this.textContent=on?'Play all':'Pause all';document.body.classList.toggle('paused',on)});
+var o6=$('#o6'),h='';for(var i=0;i<8;i++)h+='<i class="d an" style="--a:'+(i*45)+'deg;--d:1.6s;animation-delay:'+(-i*.2).toFixed(2)+'s"></i>';o6.innerHTML=h;
+document.querySelectorAll('.tl').forEach(function(t){t.addEventListener('click',function(){t.setAttribute('aria-pressed',t.getAttribute('aria-pressed')!=='true')});t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.click()}})});
+})();
+</script></body></html>

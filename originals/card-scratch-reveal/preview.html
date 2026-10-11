@@ -1,0 +1,73 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Scratch Reveal Cards — Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Gloock&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(800px 500px at 50% 30%,#6b3a1e,transparent 70%),#2a1710;color:#fbeedd;font:400 17px/1.55 Nunito,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #ffd36e;outline-offset:3px}
+.w{max-width:1100px;margin:0 auto;padding:52px 24px 64px}
+.eb{font:800 13px Nunito;letter-spacing:.16em;text-transform:uppercase;color:#ffd36e;margin:0 0 10px}
+h1{font:400 clamp(38px,6vw,68px)/1 Gloock,serif;margin:0 0 12px}.lead{color:#e5cfb6;max-width:48ch;margin:0 0 30px;font-size:18px}
+.g{display:flex;gap:22px;flex-wrap:wrap;justify-content:center}
+.tk{width:324px;background:#fff6e4;color:#3a1d0e;border-radius:18px;border:3px solid #e0b04a;padding:18px 18px 16px 30px;position:relative;box-shadow:0 24px 40px -20px rgba(0,0,0,.7);min-width:0}
+.tk:before{content:"";position:absolute;left:12px;top:12px;bottom:12px;border-left:3px dotted #d4b57a}
+.tk h2{font:400 20px Gloock;margin:0 0 10px;display:flex;justify-content:space-between;align-items:center}.tk h2 span{font:800 11px Nunito;letter-spacing:.1em;text-transform:uppercase;color:#c4382c;border:1.5px solid #c4382c;border-radius:6px;padding:1px 7px;transform:rotate(3deg)}
+.fo{position:relative;width:100%;height:150px;border-radius:12px;background:#fffdf5;border:2px dashed #e0b04a;overflow:hidden;touch-action:pan-y}
+.fo:focus-visible{outline:3px solid #ffd36e;outline-offset:3px;box-shadow:0 0 0 6px #2a1710}
+.pz{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:10px;gap:2px}
+.pz b{font:400 clamp(26px,3.4vw,32px)/1.05 Gloock}.pz small{font-weight:700;color:#7a4a2a}.pz svg{width:46px;height:46px;margin:0 auto 4px}
+.pz.win{animation:pr .45s cubic-bezier(.3,1.5,.5,1)}@keyframes pr{from{transform:scale(.9);opacity:.2}}
+.cv{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair;touch-action:none;transition:opacity .4s}
+.cv.gone{opacity:0;pointer-events:none}
+.coin{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3b8,#e0b04a 60%,#a8791e);border:2px solid #fff3b8;box-shadow:0 4px 10px rgba(0,0,0,.4);pointer-events:none;display:none;z-index:3}
+.fo:focus .coin,.fo:focus-visible .coin{display:block}
+.pg{margin:12px 0 4px;font-weight:700;font-size:14px;display:flex;justify-content:space-between}
+.br{height:6px;background:#e9d9ba;border-radius:3px;overflow:hidden}.br i{display:block;height:100%;width:0;background:linear-gradient(90deg,#e0b04a,#c4382c);transition:width .15s}
+.bt{display:flex;gap:8px;margin-top:12px}
+.b{all:unset;box-sizing:border-box;cursor:pointer;padding:9px 16px;border-radius:999px;font-weight:800;font-size:14px;min-height:40px;border:2px solid #3a1d0e;color:#3a1d0e;transition:background .2s}.b:hover{background:#f3e3c3}.b.p{background:#3a1d0e;color:#fff6e4}.b.p:hover{background:#5a2d17}.b:focus-visible{outline:3px solid #c4382c;outline-offset:3px}
+.tm{font-size:12px;color:#7a5a3a;margin:10px 0 0}
+.sm{text-align:center;margin-top:28px;color:#e5cfb6}.sm a{color:#ffd36e;margin-left:10px}
+.cf{position:fixed;inset:0;pointer-events:none;z-index:40}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:700px){.w{padding:36px 16px 48px}.tk{width:100%;max-width:340px}}
+@media (prefers-reduced-motion:reduce){.cv,.pz.win{transition:none;animation:none}.br i{transition:none}}
+</style></head><body>
+<div class="w"><p class="eb">Lucky Lantern Cafe</p><h1>Scratch, sip, smile.</h1><p class="lead">Three tickets are waiting. Scratch with a finger, a mouse or the arrow keys, or press Reveal if you would rather just know.</p>
+<div class="g" id="g"></div><p class="sm"><span id="sm">Tickets scratched: 0 of 3</span><a href="#" id="ra">Reset all</a></p></div>
+<canvas class="cf" id="cf" aria-hidden="true"></canvas>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,live=$('#live');
+var P=[{t:'Free flat white',s:'One drink, any size',win:1,svg:'<path d="M8 20h28v6a12 12 0 0 1-12 12h-4A12 12 0 0 1 8 26zM36 22h4a5 5 0 0 1 0 10h-4M16 10c0 4 4 4 0 8M24 10c0 4 4 4 0 8" fill="none" stroke="#3a1d0e" stroke-width="2.6" stroke-linecap="round"/>'},{t:'10% off your next bag',s:'Whole beans, any roast',win:1,svg:'<path d="M12 16h24l4 24H8z" fill="none" stroke="#3a1d0e" stroke-width="2.6" stroke-linejoin="round"/><path d="M18 16a6 6 0 0 1 12 0" fill="none" stroke="#3a1d0e" stroke-width="2.6"/><path d="M18 34l12-12" stroke="#c4382c" stroke-width="3" stroke-linecap="round"/>'},{t:'Try again tomorrow',s:'New tickets every morning',win:0,svg:'<circle cx="24" cy="24" r="14" fill="none" stroke="#3a1d0e" stroke-width="2.6"/><path d="M24 15v10l6 4" stroke="#3a1d0e" stroke-width="2.6" fill="none" stroke-linecap="round"/>'}];
+var T=[],dpr=Math.min(2,window.devicePixelRatio||1),scratched=0;
+$('#g').innerHTML=P.map(function(p,i){return '<article class="tk" aria-labelledby="h'+i+'"><h2 id="h'+i+'">Ticket '+(i+1)+'<span aria-hidden="true">'+(p.win?'Winner?':'Lucky dip')+'</span></h2><div class="fo" tabindex="0" role="img" aria-label="Scratch foil for ticket '+(i+1)+'. Use the arrow keys to scratch, or press Reveal prize." data-i="'+i+'"><div class="pz" aria-hidden="true"><svg viewBox="0 0 48 48">'+p.svg+'</svg><b>'+p.t+'</b><small>'+p.s+'</small></div><canvas class="cv" aria-hidden="true"></canvas><span class="coin" aria-hidden="true"></span></div><div class="pg"><span class="pc" aria-hidden="true">Scratched 0%</span><span class="sr">Progress</span></div><div class="br" aria-hidden="true"><i></i></div><div class="bt"><button type="button" class="b p rv">Reveal prize</button><button type="button" class="b rs">Reset</button></div><p class="tm">Valid until Sunday. One per customer.</p></article>'}).join('');
+var s=9;function r(){s=(s*9301+49297)%233280;return s/233280}
+function foil(t){var c=t.cv,w=c.width,h=c.height,x=t.ctx;x.globalCompositeOperation='source-over';var g=x.createLinearGradient(0,0,w,h);g.addColorStop(0,'#d5d9de');g.addColorStop(.5,'#9aa0a8');g.addColorStop(1,'#c8ccd2');x.fillStyle=g;x.fillRect(0,0,w,h);
+ for(var i=0;i<900;i++){x.fillStyle='rgba('+(r()>.5?'255,255,255':'60,66,72')+','+(r()*.12).toFixed(2)+')';x.fillRect(r()*w,r()*h,1.5*dpr,1.5*dpr)}
+ x.save();x.globalAlpha=.22;x.fillStyle='#fff';for(var k=-h;k<w;k+=46*dpr){x.beginPath();x.moveTo(k,0);x.lineTo(k+16*dpr,0);x.lineTo(k+16*dpr+h,h);x.lineTo(k+h,h);x.fill()}x.restore();
+ x.fillStyle='rgba(70,76,84,.55)';x.font='800 '+(15*dpr)+'px Nunito,sans-serif';x.textAlign='center';x.textBaseline='middle';for(var yy=0;yy<h;yy+=38*dpr){for(var xx=(yy/(38*dpr))%2?-60*dpr:0;xx<w+120*dpr;xx+=140*dpr){x.fillText('SCRATCH HERE',xx,yy+19*dpr)}}}
+function size(t){var b=t.fo.getBoundingClientRect();t.cv.width=Math.round(b.width*dpr);t.cv.height=Math.round(b.height*dpr);t.ctx=t.cv.getContext('2d',{willReadFrequently:true});if(!t.done)foil(t)}
+document.querySelectorAll('.tk').forEach(function(card,i){var fo=card.querySelector('.fo'),t={card:card,fo:fo,cv:fo.querySelector('canvas'),pz:fo.querySelector('.pz'),pc:card.querySelector('.pc'),bar:card.querySelector('.br i'),coin:fo.querySelector('.coin'),done:false,down:false,lx:0,ly:0,i:i,cx:60,cy:60,timer:0};T.push(t);size(t);
+ function pos(e){var b=fo.getBoundingClientRect();return [(e.clientX-b.left)*dpr,(e.clientY-b.top)*dpr]}
+ function dab(x,y,x0,y0){var c=t.ctx;c.globalCompositeOperation='destination-out';c.lineCap='round';c.lineJoin='round';c.lineWidth=44*dpr;c.beginPath();c.moveTo(x0,y0);c.lineTo(x,y);c.stroke();c.beginPath();c.arc(x,y,22*dpr,0,7);c.fill()}
+ t.cv.addEventListener('pointerdown',function(e){if(t.done)return;t.down=true;var p=pos(e);t.lx=p[0];t.ly=p[1];dab(p[0],p[1],p[0],p[1]);try{t.cv.setPointerCapture(e.pointerId)}catch(_){}sample(t,true);e.preventDefault()});
+ t.cv.addEventListener('pointermove',function(e){if(!t.down||t.done)return;var p=pos(e);dab(p[0],p[1],t.lx,t.ly);t.lx=p[0];t.ly=p[1];sample(t)});
+ ['pointerup','pointercancel'].forEach(function(n){t.cv.addEventListener(n,function(){t.down=false;sample(t,true)})});
+ fo.addEventListener('keydown',function(e){if(t.done)return;var st=(e.shiftKey?60:20),d=null;if(e.key==='ArrowLeft')d=[-st,0];else if(e.key==='ArrowRight')d=[st,0];else if(e.key==='ArrowUp')d=[0,-st];else if(e.key==='ArrowDown')d=[0,st];if(!d)return;e.preventDefault();var b=fo.getBoundingClientRect(),nx=Math.max(0,Math.min(b.width,t.cx+d[0])),ny=Math.max(0,Math.min(b.height,t.cy+d[1]));dab(nx*dpr,ny*dpr,t.cx*dpr,t.cy*dpr);t.cx=nx;t.cy=ny;t.coin.style.left=nx+'px';t.coin.style.top=ny+'px';sample(t,true)});
+ fo.addEventListener('focus',function(){t.coin.style.left=t.cx+'px';t.coin.style.top=t.cy+'px'});
+ card.querySelector('.rv').addEventListener('click',function(){reveal(t,true)});card.querySelector('.rs').addEventListener('click',function(){reset(t)})});
+function sample(t,now){if(!now){if(t.timer)return;t.timer=setTimeout(function(){t.timer=0;sample(t,true)},120);return}
+ if(t.done)return;var w=t.cv.width,h=t.cv.height,step=12*dpr,d=t.ctx.getImageData(0,0,w,h).data,tot=0,cl=0;for(var y=0;y<h;y+=step){for(var x=0;x<w;x+=step){tot++;if(d[((Math.floor(y)*w)+Math.floor(x))*4+3]<40)cl++}}
+ var p=Math.round(cl/tot*100);t.pc.textContent='Scratched '+Math.min(100,p)+'%';t.bar.style.width=Math.min(100,p)+'%';if(p>=55)reveal(t,false)}
+function confetti(t){if(reduce||!P[t.i].win)return;var cv=$('#cf'),b=t.fo.getBoundingClientRect();cv.width=innerWidth*dpr;cv.height=innerHeight*dpr;var c=cv.getContext('2d'),ps=[],cols=['#e0b04a','#c4382c','#fff6e4','#6fcf97','#4a90e2'];for(var i=0;i<60;i++)ps.push({x:(b.left+b.width/2)*dpr,y:(b.top+b.height/2)*dpr,vx:(r()-.5)*14*dpr,vy:(-r()*12-3)*dpr,c:cols[i%5],s:(4+r()*5)*dpr,a:r()*6,va:(r()-.5)*.4});var t0=performance.now();(function f(n){var k=(n-t0)/1200;c.clearRect(0,0,cv.width,cv.height);if(k>=1)return;ps.forEach(function(p){p.vy+=.45*dpr;p.x+=p.vx;p.y+=p.vy;p.a+=p.va;c.save();c.globalAlpha=1-k;c.translate(p.x,p.y);c.rotate(p.a);c.fillStyle=p.c;c.fillRect(-p.s/2,-p.s/3,p.s,p.s*.66);c.restore()});requestAnimationFrame(f)})(t0)}
+function reveal(t,viaBtn){if(t.done)return;t.done=true;t.cv.classList.add('gone');t.pz.removeAttribute('aria-hidden');t.pz.classList.add('win');t.pc.textContent='Scratched 100%';t.bar.style.width='100%';t.fo.setAttribute('role','group');t.fo.setAttribute('aria-label','Ticket '+(t.i+1)+' prize: '+P[t.i].t);t.fo.tabIndex=-1;
+ var n=T.filter(function(x){return x.done}).length;$('#sm').textContent='Tickets scratched: '+n+' of 3';live.textContent='Ticket '+(t.i+1)+': '+P[t.i].t+'. '+P[t.i].s;if(!viaBtn)confetti(t);else if(P[t.i].win)confetti(t)}
+function reset(t){t.done=false;t.down=false;t.cv.classList.remove('gone');t.pz.setAttribute('aria-hidden','true');t.pz.classList.remove('win');t.fo.setAttribute('role','img');t.fo.setAttribute('aria-label','Scratch foil for ticket '+(t.i+1)+'. Use the arrow keys to scratch, or press Reveal prize.');t.fo.tabIndex=0;t.cx=60;t.cy=60;foil(t);t.pc.textContent='Scratched 0%';t.bar.style.width='0%';$('#sm').textContent='Tickets scratched: '+T.filter(function(x){return x.done}).length+' of 3'}
+$('#ra').addEventListener('click',function(e){e.preventDefault();T.forEach(reset)});
+var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){T.forEach(function(t){if(!t.done)size(t)})},150)});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){T.forEach(function(t){if(!t.done)foil(t)})});
+/* demo: first ticket partly scratched */
+setTimeout(function(){var t=T[0];if(t.done)return;var c=t.ctx,w=t.cv.width,h=t.cv.height;c.globalCompositeOperation='destination-out';c.lineWidth=44*dpr;c.lineCap='round';c.beginPath();c.moveTo(w*.12,h*.3);c.bezierCurveTo(w*.35,h*.05,w*.5,h*.75,w*.82,h*.35);c.stroke();c.beginPath();c.moveTo(w*.2,h*.7);c.quadraticCurveTo(w*.5,h*.45,w*.7,h*.78);c.stroke();sample(t,true)},250);
+})();
+</script></body></html>

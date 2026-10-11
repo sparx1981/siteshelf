@@ -1,0 +1,91 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Time Wheel Picker — Form Controls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 78%,#ffd9a0 0,#ffb27a 12%,transparent 34%),linear-gradient(#1b1f4a,#4a3a7a 50%,#f08a6b);background-attachment:fixed;color:#f5f2ff;font:400 16px/1.5 "DM Sans",system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #ffc872;outline-offset:3px}
+.w{max-width:960px;margin:0 auto;padding:44px 20px 56px;display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:48px;align-items:center;min-height:100vh}
+.eb{font:700 13px "DM Sans";letter-spacing:.18em;text-transform:uppercase;color:#ffc872;margin:0 0 10px}
+h1{font:500 clamp(34px,5vw,56px)/1.05 Outfit;margin:0 0 12px;letter-spacing:-.02em}.lead{color:#d8d0f0;max-width:34ch;font-size:18px;margin:0}
+.cd{background:rgba(16,18,48,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);border-radius:28px;padding:22px 22px 20px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);min-width:0}
+.cd h2{font:700 18px Outfit;margin:0 0 14px;letter-spacing:.01em}
+.wh{position:relative;display:flex;justify-content:center;align-items:center;gap:6px;height:200px}
+.wh:before{content:"";position:absolute;left:0;right:0;top:80px;height:40px;background:rgba(255,255,255,.14);border-top:1px solid rgba(255,255,255,.4);border-bottom:1px solid rgba(255,255,255,.4);border-radius:10px;pointer-events:none}
+.wl{position:relative;width:92px;height:200px;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none;overscroll-behavior:contain;padding:80px 0;outline:0;border-radius:12px;-webkit-mask:linear-gradient(transparent,#000 30%,#000 70%,transparent);mask:linear-gradient(transparent,#000 30%,#000 70%,transparent)}
+.wl::-webkit-scrollbar{display:none}
+.wl:focus-visible{box-shadow:0 0 0 3px #ffc872;-webkit-mask:none;mask:none}
+.wl.ap{width:78px}
+.rw{height:40px;display:grid;place-items:center;scroll-snap-align:center;font:300 36px/1 Outfit;font-variant-numeric:tabular-nums;opacity:.45;transform:scale(.86);transition:opacity .15s,transform .15s;cursor:pointer;user-select:none;-webkit-user-select:none}
+.rw.n1{opacity:.7;transform:scale(.94)}.rw.sel{opacity:1;transform:scale(1.08);font-weight:500}
+.ap .rw{font:500 26px Outfit}.ap .rw.sel{color:#ffc872}
+.cl{font:500 40px Outfit;opacity:.8;padding-bottom:4px}
+.sm{margin:16px 0 14px;text-align:center;font-size:15px;color:#d8d0f0;min-height:24px}.sm b{color:#fff}
+.rr{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.sg{display:inline-flex;background:rgba(255,255,255,.1);border-radius:12px;padding:3px}.sg label{position:relative}.sg input{position:absolute;opacity:0;width:1px;height:1px}.sg span{display:block;padding:7px 14px;border-radius:9px;font-weight:700;font-size:14px;cursor:pointer;min-height:36px}.sg input:checked+span{background:#fff;color:#1b1f4a}.sg input:focus-visible+span{outline:3px solid #ffc872;outline-offset:2px}
+.dy{display:flex;gap:6px}.dy button{all:unset;box-sizing:border-box;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font:700 13px "DM Sans";cursor:pointer;border:1.5px solid rgba(255,255,255,.35);transition:background .2s,color .2s}
+.dy button[aria-pressed=true]{background:#ffc872;border-color:#ffc872;color:#2a1a00}.dy button:focus-visible{outline:3px solid #ffc872;outline-offset:2px}
+.st{all:unset;box-sizing:border-box;width:100%;text-align:center;cursor:pointer;background:#ffc872;color:#2a1a00;font:700 17px "DM Sans";padding:14px;border-radius:16px;min-height:50px;transition:filter .2s,transform .15s}.st:hover{filter:brightness(1.08)}.st:active{transform:scale(.98)}.st:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.sv{margin-top:16px;border-top:1px solid rgba(255,255,255,.15);padding-top:10px}.sv h3{font:700 12px "DM Sans";letter-spacing:.12em;text-transform:uppercase;color:#d8d0f0;margin:0 0 4px}
+.sv ul{list-style:none;margin:0;padding:0}.sv li{display:flex;align-items:center;gap:10px;padding:6px 0}.sv li b{font:500 22px Outfit;flex:1}.sv li small{color:#d8d0f0;font-size:12px}.sv li.off b{opacity:.45}
+.tg{all:unset;box-sizing:border-box;width:44px;height:26px;border-radius:13px;background:rgba(255,255,255,.25);position:relative;cursor:pointer;transition:background .2s;flex:none}.tg:after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}.tg[aria-checked=true]{background:#ffc872}.tg[aria-checked=true]:after{transform:translateX(18px)}.tg:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.dl{all:unset;box-sizing:border-box;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:#d8d0f0;font-size:18px}.dl:hover{background:rgba(255,255,255,.12)}.dl:focus-visible{outline:3px solid #ffc872;outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:900px){.w{grid-template-columns:minmax(0,1fr);gap:24px;padding:32px 16px;min-height:0;justify-items:center}.w>div:first-child{justify-self:stretch}.cd{width:100%;max-width:420px}}
+@media (max-width:420px){.cd{padding:18px 14px}.wl{width:84px}.dy button{width:34px;height:34px}}
+@media (prefers-reduced-motion:reduce){.rw{transition:none}}
+</style></head><body>
+<div class="w"><div><p class="eb">Daybreak Alarm</p><h1>When should we wake you?</h1><p class="lead">Scroll the wheels, press the arrow keys or just type the numbers. The summary tells you how long you have left to sleep.</p></div>
+<section class="cd" aria-labelledby="t"><h2 id="t">Set alarm</h2><div class="wh"><div class="wl" id="wh" role="spinbutton" tabindex="0" aria-label="Hours"></div><span class="cl" aria-hidden="true">:</span><div class="wl" id="wm" role="spinbutton" tabindex="0" aria-label="Minutes"></div><div class="wl ap" id="wa" role="spinbutton" tabindex="0" aria-label="AM or PM"></div></div>
+<p class="sm" id="sm" aria-live="polite"></p>
+<div class="rr"><div class="sg" role="radiogroup" aria-label="Clock format"><label><input type="radio" name="f" value="12" checked><span>12-hour</span></label><label><input type="radio" name="f" value="24"><span>24-hour</span></label></div><div class="dy" id="dy" role="group" aria-label="Repeat on days"></div></div>
+<button class="st" id="st" type="button">Set alarm</button>
+<div class="sv"><h3>Saved alarms</h3><ul id="sv"></ul></div></section></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,RH=40;
+var fmt=12,h=7,m=30,pm=0,days=[1,1,1,1,1,0,0],saved=[],buf='',bt=null,ready=false;
+try{saved=JSON.parse(localStorage.getItem('db-alarms')||'[]')||[]}catch(e){saved=[]}
+if(!saved.length)saved=[{h:6,m:45,pm:0,f:12,on:1,d:'Weekdays'},{h:9,m:0,pm:0,f:12,on:0,d:'Weekends'}];
+var wh=$('#wh'),wm=$('#wm'),wa=$('#wa');
+function pad(n){return('0'+n).slice(-2)}
+function hVals(){return fmt===12?[1,2,3,4,5,6,7,8,9,10,11,12]:Array.apply(null,Array(24)).map(function(_,i){return i})}
+function fillWheel(el,vals,lab){el.innerHTML=vals.map(function(v,i){return '<div class="rw" data-i="'+i+'" aria-hidden="true">'+lab(v)+'</div>'}).join('')}
+function build(){fillWheel(wh,hVals(),function(v){return fmt===12?v:pad(v)});fillWheel(wm,Array.apply(null,Array(60)).map(function(_,i){return i}),pad);fillWheel(wa,['AM','PM'],function(v){return v});wa.hidden=fmt===24;
+ wh.setAttribute('aria-valuemin',fmt===12?1:0);wh.setAttribute('aria-valuemax',fmt===12?12:23);wm.setAttribute('aria-valuemin',0);wm.setAttribute('aria-valuemax',59);wa.setAttribute('aria-valuemin',0);wa.setAttribute('aria-valuemax',1)}
+function hIndex(){return fmt===12?h-1:h}
+function setScroll(el,i,smooth){var top=i*RH;if(smooth&&!reduce)el.scrollTo({top:top,behavior:'smooth'});else el.scrollTop=top}
+function style(el){var c=Math.round(el.scrollTop/RH);[].forEach.call(el.children,function(r,i){var d=Math.abs(i-c);r.classList.toggle('sel',d===0);r.classList.toggle('n1',d===1)})}
+function aria(){wh.setAttribute('aria-valuenow',h);wh.setAttribute('aria-valuetext',h+(h===1?' hour':' hours'));wm.setAttribute('aria-valuenow',m);wm.setAttribute('aria-valuetext',m+(m===1?' minute':' minutes'));wa.setAttribute('aria-valuenow',pm);wa.setAttribute('aria-valuetext',pm?'PM':'AM')}
+function h24(){return fmt===24?h:(h%12)+(pm?12:0)}
+function label(o){var hh=o.f===24?pad(o.h)+':'+pad(o.m):(o.h+':'+pad(o.m)+' '+(o.pm?'PM':'AM'));return hh}
+function summary(speak){var now=new Date(),t=new Date(now);t.setHours(h24(),m,0,0);if(t<=now)t.setDate(t.getDate()+1);var mins=Math.round((t-now)/60000),hh=Math.floor(mins/60),mm=mins%60;var s='Alarm for <b>'+label({h:h,m:m,pm:pm,f:fmt})+'</b>, in '+(hh?hh+' hour'+(hh>1?'s':'')+' ':'')+mm+' minute'+(mm===1?'':'s');$('#sm').innerHTML=s;if(speak)$('#live').textContent=$('#sm').textContent}
+function read(el,len){return Math.max(0,Math.min(len-1,Math.round(el.scrollTop/RH)))}
+function sync(){h=fmt===12?read(wh,12)+1:read(wh,24);m=read(wm,60);pm=read(wa,2);aria();summary(false)}
+var tm={};function onScroll(el,key){style(el);clearTimeout(tm[key]);tm[key]=setTimeout(function(){if(!ready)return;sync();summary(true)},120)}
+[[wh,'h'],[wm,'m'],[wa,'a']].forEach(function(p){p[0].addEventListener('scroll',function(){onScroll(p[0],p[1])},{passive:true});
+ p[0].addEventListener('click',function(e){var r=e.target.closest('.rw');if(r)setScroll(p[0],+r.dataset.i,true)})});
+function stepWheel(el,len,d,wrap){var i=read(el,len),n=i+d;if(wrap)n=(n+len)%len;else n=Math.max(0,Math.min(len-1,n));setScroll(el,n,true)}
+function key(el,len,wrap,big){el.addEventListener('keydown',function(e){var k=e.key,d=0;if(k==='ArrowDown')d=1;else if(k==='ArrowUp')d=-1;else if(k==='PageDown')d=big;else if(k==='PageUp')d=-big;else if(k==='Home'){e.preventDefault();setScroll(el,0,true);return}else if(k==='End'){e.preventDefault();setScroll(el,len-1,true);return}else return;e.preventDefault();stepWheel(el,len,d,wrap&&Math.abs(d)===1)})}
+key(wh,12,1,3);key(wm,60,1,5);
+wh.addEventListener('keydown',function(e){if(fmt===24){}});
+wa.addEventListener('keydown',function(e){var k=e.key.toLowerCase();if(k==='arrowdown'||k==='arrowup'){e.preventDefault();setScroll(wa,read(wa,2)?0:1,true)}else if(k==='a'){setScroll(wa,0,true)}else if(k==='p'){setScroll(wa,1,true)}});
+function digit(el,len,isH,e){if(!/^\d$/.test(e.key))return;e.preventDefault();clearTimeout(bt);buf+=e.key;bt=setTimeout(function(){buf=''},1200);var v=parseInt(buf,10);if(buf.length>2){buf=e.key;v=parseInt(buf,10)}
+ var max=isH?(fmt===12?12:23):59,min=isH&&fmt===12?1:0;if(v>max){buf=e.key;v=parseInt(buf,10)}if(v<min&&isH)return;var i=isH?(fmt===12?v-1:v):v;setScroll(el,Math.min(len-1,i),true)}
+wh.addEventListener('keydown',function(e){digit(wh,fmt===12?12:24,true,e)});wm.addEventListener('keydown',function(e){digit(wm,60,false,e)});
+function applyFmt(to){var old=h24(),was=fmt;fmt=to;build();ready=false;if(to===24){h=old}else{pm=old>=12?1:0;h=old%12===0?12:old%12}
+ requestAnimationFrame(function(){setScroll(wh,hIndex());setScroll(wm,m);setScroll(wa,pm);[wh,wm,wa].forEach(style);ready=true;sync();summary(false)})}
+document.querySelectorAll('[name=f]').forEach(function(r){r.addEventListener('change',function(){applyFmt(+r.value)})});
+var DN=['M','T','W','T','F','S','S'],DF=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+$('#dy').innerHTML=DN.map(function(d,i){return '<button type="button" aria-pressed="'+(days[i]?'true':'false')+'" aria-label="'+DF[i]+'">'+d+'</button>'}).join('');
+$('#dy').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var i=[].indexOf.call($('#dy').children,b);days[i]=days[i]?0:1;b.setAttribute('aria-pressed',days[i]?'true':'false')});
+function dtext(){var n=days.reduce(function(a,b){return a+b},0);if(n===7)return 'Every day';if(n===0)return 'Once';if(days.join('')==='1111100')return 'Weekdays';if(days.join('')==='0000011')return 'Weekends';return days.map(function(d,i){return d?DN[i]:null}).filter(Boolean).join(' ')}
+function renderSaved(){$('#sv').innerHTML=saved.slice(0,3).map(function(a,i){return '<li class="'+(a.on?'':'off')+'"><b>'+label(a)+'</b><small>'+a.d+'</small><button type="button" class="tg" role="switch" aria-checked="'+(a.on?'true':'false')+'" aria-label="Alarm '+label(a)+' '+a.d+'" data-i="'+i+'"></button><button type="button" class="dl" aria-label="Delete alarm '+label(a)+'" data-d="'+i+'">×</button></li>'}).join('')}
+$('#sv').addEventListener('click',function(e){var t=e.target.closest('.tg'),d=e.target.closest('.dl');if(t){var i=+t.dataset.i;saved[i].on=saved[i].on?0:1;persist();renderSaved();$('#sv .tg[data-i="'+i+'"]').focus()}else if(d){saved.splice(+d.dataset.d,1);persist();renderSaved();$('#live').textContent='Alarm deleted'}});
+function persist(){try{localStorage.setItem('db-alarms',JSON.stringify(saved))}catch(e){}}
+$('#st').addEventListener('click',function(){saved.unshift({h:h,m:m,pm:pm,f:fmt,on:1,d:dtext()});saved=saved.slice(0,3);persist();renderSaved();$('#live').textContent='Alarm set for '+label({h:h,m:m,pm:pm,f:fmt})+', '+dtext()});
+build();renderSaved();
+requestAnimationFrame(function(){requestAnimationFrame(function(){setScroll(wh,hIndex());setScroll(wm,m);setScroll(wa,pm);[wh,wm,wa].forEach(style);ready=true;sync();summary(false)})});
+})();
+</script></body></html>

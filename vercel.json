@@ -1,12 +1,34 @@
 {
   "outputDirectory": "public",
-  "functions": { "api/**/*.js": { "maxDuration": 300 } },
-  "crons": [{ "path": "/api/cron", "schedule": "0 6 * * 1" }],
+  "functions": {
+    "api/**/*.js": {
+      "maxDuration": 300
+    }
+  },
   "headers": [
-    { "source": "/(.*)", "headers": [
-      { "key": "X-Content-Type-Options", "value": "nosniff" },
-      { "key": "Referrer-Policy", "value": "no-referrer" },
-      { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
-    ] }
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://www.reposhelf.co.uk/prompts.html",
+      "permanent": false
+    }
   ]
 }

@@ -1,6 +1,7 @@
 import { route, fail } from '../lib/http.js';
 import { db, enc } from '../lib/db.js';
-import { claude, extractJson } from '../lib/claude.js';
+import { complete } from '../lib/llm.js';
+import { extractJson } from '../lib/parse.js';
 import { isSafeUrl } from '../lib/text.js';
 
 const SYSTEM = `You find website-design prompts and prompt libraries similar to a given one.
@@ -24,11 +25,12 @@ export default route({
   async POST(req) {
     const query = String(req.body?.query || '').trim();
     if (!query) throw fail(400, 'Describe what to look for.');
-    const text = await claude({
+    const { text } = await complete({
       system: SYSTEM,
-      user: `Find prompts similar to this:\n${query.slice(0, 1500)}`,
+      user: `Find prompts similar to this:
+${query.slice(0, 1500)}`,
       maxTokens: 4000,
-      tools: [{ type: 'web_search_20250305', name: 'web_search', max_uses: 6 }],
+      search: true,
     });
     const found = extractJson(text);
     if (!Array.isArray(found)) throw fail(502, 'The search did not return usable results. Try again.');

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { planSync, mergeUpdate } from '../lib/sync.js';
 import { paragraphs, buildSections, compose, isSafeUrl, hash } from '../lib/text.js';
-import { extractJson, extractHtml } from '../lib/claude.js';
+import { extractJson, extractHtml } from '../lib/parse.js';
 
 // planSync: only free items are fetched; new and changed ones only
 const list = [
@@ -49,4 +49,14 @@ assert.match(extractHtml('```html\n<!doctype html><html></html>\n```'), /^<!doct
 assert.match(extractHtml('Sure! <html><body></body></html>'), /^<html>/);
 assert.equal(hash('a'), hash('a'));
 assert.notEqual(hash('a'), hash('b'));
+
+// api keys are encrypted at rest and unreadable with a different site key
+process.env.SITE_KEY = 'one';
+const { encrypt, decrypt } = await import('../lib/crypto.js');
+const sealed = encrypt('sk-test-123456');
+assert.notEqual(sealed, 'sk-test-123456');
+assert.equal(decrypt(sealed), 'sk-test-123456');
+process.env.SITE_KEY = 'two';
+assert.equal(decrypt(sealed), null);
+assert.equal(decrypt('garbage'), null);
 console.log('all logic checks passed');

@@ -1,6 +1,7 @@
 import { route, fail } from '../lib/http.js';
 import { db, enc } from '../lib/db.js';
-import { claude, extractHtml, MODEL } from '../lib/claude.js';
+import { complete } from '../lib/llm.js';
+import { extractHtml } from '../lib/parse.js';
 import { hash } from '../lib/text.js';
 
 const SYSTEM = `You turn a website design brief into a working page.
@@ -24,12 +25,14 @@ export default route({
     const [p] = await db(`/ss_prompts?id=eq.${enc(id)}&select=id,prompt`);
     if (!p) throw fail(404, 'Prompt not found.');
     const text = typeof prompt === 'string' && prompt.trim() ? prompt : p.prompt;
-    const html = extractHtml(await claude({ system: SYSTEM, user: text, maxTokens: 16000 }));
+    const r = await complete({ system: SYSTEM, user: text, maxTokens: 16000 });
+    const html = extractHtml(r.text);
+    const model = `${r.provider}:${r.model}`;
     if (!/<html|<!doctype/i.test(html)) throw fail(502, 'The model did not return a page. Try again.');
-    await db('/ss_previews', { method: 'POST', prefer: 'return=minimal', body: { prompt_id: id, prompt_hash: hash(text), html, model: MODEL() } });
+    await db('/ss_previews', { method: 'POST', prefer: 'return=minimal', body: { prompt_id: id, prompt_hash: hash(text), html, model } });
     // keep only the five newest previews per prompt
     const old = await db(`/ss_previews?prompt_id=eq.${enc(id)}&select=id&order=created_at.desc&offset=5`);
     for (const o of old) await db(`/ss_previews?id=eq.${o.id}`, { method: 'DELETE' });
-    return { preview: { html, createdAt: new Date().toISOString(), model: MODEL(), stale: text !== p.prompt } };
+    return { preview: { html, createdAt: new Date().toISOString(), model, stale: text !== p.prompt } };
   },
 });

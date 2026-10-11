@@ -1,6 +1,7 @@
 import { route, fail } from '../lib/http.js';
 import { db, enc } from '../lib/db.js';
-import { claude, extractJson } from '../lib/claude.js';
+import { complete } from '../lib/llm.js';
+import { extractJson } from '../lib/parse.js';
 import { hash, paragraphs, buildSections, compose } from '../lib/text.js';
 
 const SYSTEM = `You organise long website-design prompts so a person can edit them one part at a time.
@@ -28,7 +29,12 @@ export default route({
     const paras = paragraphs(p.prompt);
     const numbered = paras.map((t, i) => `[${i}] ${t}`).join('\n\n');
     let groups = null;
-    try { groups = extractJson(await claude({ system: SYSTEM, user: numbered, maxTokens: 2000 })); } catch (e) { if (e.status === 500) throw e; }
+    let usedProvider = null;
+    try {
+      const r = await complete({ system: SYSTEM, user: numbered, maxTokens: 2000 });
+      usedProvider = r.provider;
+      groups = extractJson(r.text);
+    } catch (e) { if (e.status === 400) throw e; }
     const sections = buildSections(paras, groups);
     await db('/ss_sections', { method: 'POST', prefer: 'resolution=merge-duplicates,return=minimal', body: { prompt_id: p.id, prompt_hash: hash(p.prompt), sections } });
     return { sections, usedFallback: !Array.isArray(groups) };

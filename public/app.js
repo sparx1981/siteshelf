@@ -57,7 +57,7 @@ async function api(path, { method = 'GET', body } = {}) {
 async function busy(btn, label, fn) {
   const old = btn.textContent;
   btn.disabled = true; btn.textContent = label;
-  try { return await fn(); } catch (e) { toast(e.message); } finally { btn.disabled = false; btn.textContent = old; }
+  try { return await fn(); } catch (e) { toast(e.message); if (/Settings\./.test(e.message)) setTimeout(() => (location.hash = '#/settings'), 1500); } finally { btn.disabled = false; btn.textContent = old; }
 }
 
 /* ---------- Routing ---------- */
@@ -66,12 +66,14 @@ const when = (iso) => (iso ? new Date(iso).toLocaleString('en-GB', { dateStyle: 
 
 async function route() {
   const hash = location.hash.replace(/^#/, '') || '/';
-  $('#nav-library').classList.toggle('active', !hash.startsWith('/discover'));
+  $('#nav-library').classList.toggle('active', !hash.startsWith('/discover') && !hash.startsWith('/settings'));
   $('#nav-discover').classList.toggle('active', hash.startsWith('/discover'));
+  $('#nav-settings').classList.toggle('active', hash.startsWith('/settings'));
   app.replaceChildren(h('p', { class: 'muted', text: 'Loading…' }));
   window.scrollTo(0, 0);
   try {
     if (hash.startsWith('/p/')) await viewDetail(hash.slice(3));
+    else if (hash.startsWith('/settings')) await viewSettings();
     else if (hash.startsWith('/discover')) await viewDiscover(new URLSearchParams(hash.split('?')[1] || '').get('q') || '');
     else await viewLibrary();
   } catch (e) {
@@ -310,6 +312,42 @@ async function viewDiscover(prefill) {
     h('label', { class: 'row muted' }, validOnly, 'Only show results with a working live example'),
     h('div', { style: 'height:16px' }), list);
   draw();
+}
+
+/* ---------- Settings ---------- */
+async function viewSettings() {
+  let cfg = await api('/api/settings');
+  const wrap = h('div', { class: 'stack' });
+
+  const draw = () => wrap.replaceChildren(...cfg.providers.map((p) => {
+    const key = h('input', { type: 'password', id: `key-${p.id}`, autocomplete: 'off', placeholder: p.configured ? `Saved key ending ${p.last4}. Paste a new one to replace it.` : 'Paste your API key', 'aria-label': `${p.label} API key` });
+    const model = h('input', { type: 'text', id: `model-${p.id}`, placeholder: p.defaultModel, 'aria-label': `${p.label} model` });
+    model.value = p.model === p.defaultModel ? '' : p.model;
+    const save = h('button', { class: 'button primary', type: 'button', text: 'Save' });
+    save.addEventListener('click', () => busy(save, 'Saving…', async () => {
+      cfg = await api('/api/settings', { method: 'PUT', body: { provider: p.id, apiKey: key.value, model: model.value } });
+      toast(`${p.label} saved.`); draw();
+    }));
+    const test = h('button', { class: 'button', type: 'button', text: 'Test', disabled: !p.configured });
+    test.addEventListener('click', () => busy(test, 'Testing…', async () => { const r = await api('/api/settings', { method: 'POST', body: { provider: p.id } }); toast(`${p.label} works (${r.model}).`); }));
+    const def = h('button', { class: 'button', type: 'button', text: cfg.default === p.id ? 'Default' : 'Use as default', disabled: !p.configured || cfg.default === p.id });
+    def.addEventListener('click', () => busy(def, 'Saving…', async () => { cfg = await api('/api/settings', { method: 'PUT', body: { provider: p.id, makeDefault: true } }); draw(); }));
+    const del = p.source === 'saved' ? h('button', { class: 'button ghost', type: 'button', text: 'Remove key' }) : null;
+    del?.addEventListener('click', () => busy(del, 'Removing…', async () => { cfg = await api(`/api/settings?provider=${p.id}`, { method: 'DELETE' }); toast('Key removed.'); draw(); }));
+    return h('section', { class: 'panel' },
+      h('div', { class: 'panel-head' }, h('strong', { text: p.label }),
+        h('span', { class: `pill ${p.configured ? 'ok' : ''}`, text: p.configured ? (p.source === 'environment' ? 'Key set on the server' : 'Key saved') : 'No key' })),
+      h('div', { class: 'panel-body stack' },
+        h('label', { class: 'field', style: 'margin:0' }, 'API key', key),
+        h('label', { class: 'field', style: 'margin:0' }, `Model (leave empty for ${p.defaultModel})`, model),
+        h('div', { class: 'row' }, save, test, def, del)));
+  }));
+  draw();
+
+  app.replaceChildren(
+    h('div', { class: 'page-title' }, h('h1', { text: 'AI keys' }), h('span', { class: 'muted', text: 'Used for previews, section splitting and Discover.' })),
+    h('p', { class: 'muted', text: 'Add whichever keys you have. Keys are encrypted before they are saved and are never shown again, only the last four characters. The default is used when more than one is set.' }),
+    h('div', { style: 'height:12px' }), wrap);
 }
 
 /* ---------- Sync ---------- */

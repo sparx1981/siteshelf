@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Letterbox Kinetic Type</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--sz:96px;--wt:700;--tr:-0.02em;--ld:1;--sk:0deg;--col:#f5f5f4;--sp:1s;--ac:#e4ff3a}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#0e0e10;color:#f5f5f4;font:14px/1.5 Inter,system-ui,sans-serif;min-height:100vh}
+.w{display:grid;grid-template-columns:minmax(0,1fr) 340px;min-height:100vh}
+.st{background:linear-gradient(#ffffff08 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,#ffffff08 1px,transparent 1px) 0 0/32px 32px;display:grid;place-items:center;padding:32px;overflow:hidden;min-width:0}
+#tx{font:var(--wt) var(--sz)/var(--ld) "Bricolage Grotesque",sans-serif;font-variation-settings:"wght" var(--wt);letter-spacing:var(--tr);color:var(--col);transform:skewX(calc(var(--sk)*-1));outline:none;max-width:100%;overflow-wrap:anywhere;text-align:center;min-width:2ch;padding:8px}
+#tx:focus-visible{outline:2px dashed #ffffff55;outline-offset:8px}
+#tx .l{display:inline-block;white-space:pre}
+.wave .l{animation:wv calc(var(--sp)*1.6) ease-in-out infinite;animation-delay:calc(var(--i)*.08s)}
+@keyframes wv{50%{transform:translateY(-.22em)}}
+.glitch .l{position:relative;animation:gl calc(var(--sp)*2) steps(1) infinite;animation-delay:calc(var(--i)*-.13s)}
+.glitch .l::before,.glitch .l::after{content:attr(data-c);position:absolute;left:0;top:0;mix-blend-mode:screen;opacity:.8}
+.glitch .l::before{color:#ff2d6f;transform:translate(-.03em,0);animation:g1 calc(var(--sp)*1.3) steps(1) infinite}
+.glitch .l::after{color:#2df0ff;transform:translate(.03em,0);animation:g1 calc(var(--sp)*1.7) steps(1) infinite reverse}
+@keyframes g1{0%{clip-path:inset(0 0 70% 0)}25%{clip-path:inset(40% 0 20% 0)}50%{clip-path:inset(75% 0 0 0)}75%{clip-path:inset(10% 0 55% 0)}100%{clip-path:inset(0 0 70% 0)}}
+@keyframes gl{0%,92%{transform:none}95%{transform:translateX(.04em)}98%{transform:translateX(-.03em)}}
+.stretch .l{transition:transform .35s cubic-bezier(.3,1.6,.5,1);transform-origin:50% 100%}
+.stretch .l:hover{transform:scaleX(1.6) scaleY(.85)}
+.reveal{overflow:hidden}
+.reveal .l{animation:rv calc(var(--sp)*.9) cubic-bezier(.2,.9,.2,1) both;animation-delay:calc(var(--i)*.05s)}
+@keyframes rv{from{transform:translateY(110%) rotate(8deg);opacity:0}}
+.pn{background:#18181b;border-left:1px solid #2a2a30;padding:20px;display:grid;gap:16px;align-content:start}
+h1{margin:0;font-size:18px}
+.f label{display:flex;justify-content:space-between;font-weight:600;color:#d4d4d8;margin-bottom:2px}.f output{color:var(--ac);font-family:"JetBrains Mono",monospace}
+input[type=range]{width:100%;accent-color:var(--ac);min-height:36px;margin:0}
+.sw{display:flex;gap:8px}.sw label{position:relative}.sw input{position:absolute;opacity:0;width:44px;height:44px;margin:0;cursor:pointer}.sw i{display:block;width:44px;height:44px;border-radius:12px;border:2px solid #2a2a30}.sw input:checked+i{border-color:#fff;box-shadow:0 0 0 2px #0e0e10 inset}.sw input:focus-visible+i{outline:3px solid var(--ac);outline-offset:2px}
+.pr{display:flex;gap:6px;flex-wrap:wrap}
+.pr button,.row button{border:1px solid #2a2a30;background:#222228;color:#f5f5f4;border-radius:10px;padding:0 14px;min-height:44px;font:600 13px Inter;cursor:pointer}
+.pr button[aria-pressed=true]{background:var(--ac);color:#111;border-color:var(--ac)}
+pre{margin:0;background:#0e0e10;border:1px solid #2a2a30;border-radius:10px;padding:12px;font:500 12px/1.6 "JetBrains Mono",monospace;color:#c4f1a4;white-space:pre-wrap;overflow-wrap:anywhere}
+.row{display:flex;gap:8px}.row .cp{background:var(--ac);color:#111;border:0;flex:1}
+button:focus-visible,input:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+@media(max-width:860px){.w{grid-template-columns:minmax(0,1fr)}.st{min-height:50vh}.pn{border-left:0;border-top:1px solid #2a2a30}}
+@media(prefers-reduced-motion:reduce){#tx .l,#tx .l::before,#tx .l::after{animation:none!important}.glitch .l::before,.glitch .l::after{display:none}}
+</style></head><body><div class="w"><div class="st"><div id="tx" contenteditable="true" spellcheck="false" role="textbox" aria-label="Preview text, editable" aria-multiline="true">Make it move</div></div>
+<aside class="pn" aria-label="Controls"><h1>Letterbox</h1><div id="sl"></div>
+<div class="f"><label id="cl">Colour</label><div class="sw" role="radiogroup" aria-labelledby="cl" id="sw"></div></div>
+<div class="f"><label id="pl">Animation</label><div class="pr" role="group" aria-labelledby="pl" id="pr"></div></div>
+<div class="f"><label for="spd">Speed <output id="spo">1×</output></label><input id="spd" type="range" min="0.4" max="2.5" step="0.1" value="1"></div>
+<pre id="css" aria-label="Generated CSS"></pre><div class="row"><button class="cp" id="cp">Copy CSS</button><button id="rs">Reset</button></div>
+<div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div></aside></div>
+<script>
+const $=s=>document.querySelector(s),tx=$("#tx"),R=document.documentElement.style;
+const S=[["sz","Size",24,200,1,96,"px"],["wt","Weight",200,800,10,700,""],["tr","Tracking",-.1,.4,.01,-.02,"em"],["ld","Leading",.8,1.6,.05,1,""],["sk","Slant",0,15,1,0,"°"]];
+const COLS=["#f5f5f4","#e4ff3a","#ff5c8a","#6ee7ff","#ffb347"];
+let preset="none",state={};
+S.forEach(([k,l,mn,mx,st,df,u])=>{const d=document.createElement("div");d.className="f";d.innerHTML=`<label for="r${k}">${l} <output id="o${k}"></output></label><input id="r${k}" type="range" min="${mn}" max="${mx}" step="${st}" value="${df}">`;$("#sl").append(d);const r=d.querySelector("input");r.oninput=()=>{state[k]=+r.value;upd()}});
+COLS.forEach((c,i)=>{const l=document.createElement("label");l.innerHTML=`<input type="radio" name="c" aria-label="Colour ${c}" ${i==0?"checked":""}><i style="background:${c}"></i>`;l.querySelector("input").onchange=()=>{state.col=c;upd()};$("#sw").append(l)});
+["none","wave","glitch","stretch","reveal"].forEach(p=>{const b=document.createElement("button");b.textContent=p[0].toUpperCase()+p.slice(1);b.setAttribute("aria-pressed",p=="none");b.onclick=()=>{preset=p;document.querySelectorAll("#pr button").forEach(x=>x.setAttribute("aria-pressed",x==b));wrap();upd();say(b.textContent+" animation")};$("#pr").append(b)});
+function def(){state={sz:96,wt:700,tr:-.02,ld:1,sk:0,col:COLS[0],sp:1}}
+function say(m){const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)}
+function upd(){R.setProperty("--sz",state.sz+"px");R.setProperty("--wt",state.wt);R.setProperty("--tr",state.tr+"em");R.setProperty("--ld",state.ld);R.setProperty("--sk",state.sk+"deg");R.setProperty("--col",state.col);R.setProperty("--sp",1/state.sp+"s");S.forEach(([k,,,,,,u])=>{$("#o"+k).textContent=(k=="tr"?state[k].toFixed(2):state[k])+u});$("#spo").textContent=state.sp+"×";
+$("#css").textContent=`font-size: ${state.sz}px;\nfont-weight: ${state.wt};\nletter-spacing: ${state.tr}em;\nline-height: ${state.ld};\ncolor: ${state.col};${state.sk?`\ntransform: skewX(-${state.sk}deg);`:""}`}
+function wrap(){const t=tx.innerText.replace(/\n+$/,"");tx.className=preset=="none"?"":preset;if(preset=="none"){tx.textContent=t;return}tx.innerHTML="";let i=0;[...t].forEach(ch=>{if(ch=="\n"){tx.append(document.createElement("br"));return}const s=document.createElement("span");s.className="l";s.dataset.c=ch;s.style.setProperty("--i",i++);s.textContent=ch;s.setAttribute("aria-hidden","true");tx.append(s)});tx.setAttribute("aria-label","Preview text: "+t)}
+tx.addEventListener("blur",()=>{wrap()});
+tx.addEventListener("keydown",e=>{if(e.key=="Escape")tx.blur()});
+$("#spd").oninput=e=>{state.sp=+e.target.value;upd()};
+$("#cp").onclick=async()=>{try{await navigator.clipboard.writeText($("#css").textContent)}catch(e){}$("#cp").textContent="Copied ✓";setTimeout(()=>$("#cp").textContent="Copy CSS",1500)};
+$("#rs").onclick=()=>{def();S.forEach(([k,,,,,df])=>$("#r"+k).value=df);$("#spd").value=1;$("#sw input").checked=true;preset="none";document.querySelectorAll("#pr button").forEach((x,i)=>x.setAttribute("aria-pressed",i==0));tx.textContent="Make it move";wrap();upd();say("Reset")};
+def();upd();
+</script></body></html>

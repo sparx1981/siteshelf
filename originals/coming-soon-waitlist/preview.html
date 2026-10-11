@@ -1,0 +1,54 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lumen Habit — Coming Soon</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#f4f2ff;--mut:#a9a4d0;--co:#ff6b8a;--vi:#8b6bff}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#0d0b24;color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:hidden;display:grid;place-items:center;padding:40px 16px;position:relative}
+.bl{position:fixed;border-radius:50%;filter:blur(90px);opacity:.55;animation:dr 18s ease-in-out infinite alternate;pointer-events:none}
+.b1{width:420px;height:420px;background:var(--vi);left:-120px;top:-100px}.b2{width:380px;height:380px;background:var(--co);right:-100px;bottom:-80px;animation-delay:-6s}
+@keyframes dr{to{transform:translate(80px,60px)}}
+main{position:relative;width:100%;max-width:720px;text-align:center;display:grid;gap:24px}
+.lg{font:800 18px Syne;letter-spacing:.04em;display:flex;gap:8px;justify-content:center;align-items:center}.lg i{width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--co),var(--vi));box-shadow:0 0 16px var(--co)}
+h1{font:800 clamp(44px,9vw,84px)/1 Syne;margin:0;background:linear-gradient(90deg,#fff,#cfc4ff 50%,#ffb3c4);-webkit-background-clip:text;background-clip:text;color:transparent}
+p{margin:0;color:var(--mut)}
+.cd{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.t{background:#ffffff12;border:1px solid #ffffff24;border-radius:16px;padding:16px 4px}
+.t b{display:block;font:800 clamp(34px,8vw,56px)/1 Syne;font-variant-numeric:tabular-nums;overflow:hidden;height:1.05em}
+.t b span{display:block;animation:fl .4s}
+@keyframes fl{from{transform:translateY(60%);opacity:0}}
+.t small{color:var(--mut);text-transform:uppercase;letter-spacing:.12em;font-size:11px}
+.gl{background:#ffffff12;border:1px solid #ffffff24;border-radius:20px;padding:22px;backdrop-filter:blur(10px);display:grid;gap:14px}
+form{display:flex;gap:8px;flex-wrap:wrap}
+input{flex:1;min-width:200px;font:inherit;background:#0d0b2480;border:1px solid #ffffff30;border-radius:12px;color:var(--ink);padding:0 16px;min-height:52px}
+input:focus{outline:none;border-color:var(--co);box-shadow:0 0 0 4px #ff6b8a33}
+input[aria-invalid=true]{border-color:#ff8a8a}
+.btn{border:0;border-radius:12px;background:linear-gradient(135deg,var(--co),var(--vi));color:#fff;font:700 16px Inter;padding:0 24px;min-height:52px;cursor:pointer}
+.btn.sm{min-height:44px;padding:0 18px;font-size:14px}.btn.gh{background:#ffffff1c;border:1px solid #ffffff30}
+.er{color:#ffb0b0;font-size:14px;text-align:left}
+.pos{font:800 56px/1 Syne;color:#fff}
+.rf{display:flex;gap:8px;align-items:center;background:#0d0b2480;border-radius:12px;padding:6px 6px 6px 14px;border:1px dashed #ffffff40}
+.rf code{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left;color:#d8d2ff}
+.pr{height:10px;background:#ffffff1c;border-radius:99px;overflow:hidden}.pr i{display:block;height:100%;background:linear-gradient(90deg,var(--co),var(--vi));transition:width .6s}
+.pl{display:flex;justify-content:space-between;color:var(--mut);font-size:14px;font-variant-numeric:tabular-nums}
+button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+@media(max-width:480px){.cd{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><div class="bl b1"></div><div class="bl b2"></div>
+<main><div class="lg"><i></i>LUMEN HABIT</div><h1>Habits that glow</h1><p>A calmer way to build routines. Launching soon, with early access for the first 2,000 on the list.</p>
+<div class="cd" role="timer" aria-label="Time until launch"><div class="t"><b id="d">00</b><small>Days</small></div><div class="t"><b id="h">00</b><small>Hours</small></div><div class="t"><b id="m">00</b><small>Minutes</small></div><div class="t"><b id="s">00</b><small>Seconds</small></div></div>
+<section class="gl" aria-label="Join the waitlist"><div id="f1"><form id="f" novalidate><label for="em" style="position:absolute;width:1px;height:1px;overflow:hidden">Email address</label><input id="em" type="email" placeholder="you@example.com" autocomplete="email" aria-describedby="er"><button class="btn">Join the waitlist</button></form><div class="er" id="er" role="alert"></div></div>
+<div id="f2" hidden style="display:grid;gap:12px"><p>You're on the list</p><div class="pos" id="pos">#1,285</div><p>Share your link to move up 50 spots per friend.</p><div class="rf"><code id="lk">lumenhabit.example/r/ember-4821</code><button class="btn sm" id="cp">Copy</button></div><button class="btn sm gh" id="sim" style="justify-self:center">Simulate a friend joining</button></div>
+<div><div class="pr" role="progressbar" aria-label="Early access progress" aria-valuemin="0" aria-valuemax="2000" aria-valuenow="1284" id="pbar"><i id="pf" style="width:64.2%"></i></div><div class="pl" style="margin-top:8px"><span id="pc">1,284 / 2,000 for early access</span><span id="pp">64%</span></div></div></section></main>
+<div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div>
+<script>
+const $=s=>document.querySelector(s),L=new Date(Date.now()+21*864e5+3*36e5);
+function say(m){const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)}
+const prev={};function tick(){let r=Math.max(0,L-Date.now())/1000|0;const v={d:r/86400|0,h:r%86400/3600|0,m:r%3600/60|0,s:r%60};for(const k in v){const t=String(v[k]).padStart(2,"0");if(prev[k]!==t){prev[k]=t;$("#"+k).innerHTML="<span>"+t+"</span>"}}}
+tick();setInterval(tick,1000);
+let n=1284,pos=0,list=new Set(["taken@example.com"]);
+function prog(){$("#pc").textContent=n.toLocaleString()+" / 2,000 for early access";$("#pf").style.width=n/20+"%";$("#pp").textContent=Math.round(n/20)+"%";$("#pbar").setAttribute("aria-valuenow",n)}
+$("#f").onsubmit=e=>{e.preventDefault();const i=$("#em"),v=i.value.trim().toLowerCase(),er=$("#er");if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v)){er.textContent="Enter a valid email address";i.setAttribute("aria-invalid","true");i.focus();return}if(list.has(v)){er.textContent="That email is already on the list";i.setAttribute("aria-invalid","true");return}i.removeAttribute("aria-invalid");er.textContent="";list.add(v);n++;pos=n+1;$("#pos").textContent="#"+pos.toLocaleString();$("#f1").hidden=true;$("#f2").hidden=false;prog();say("You are number "+pos.toLocaleString()+" on the waitlist")};
+$("#em").oninput=()=>{$("#em").removeAttribute("aria-invalid");$("#er").textContent=""};
+$("#cp").onclick=async()=>{try{await navigator.clipboard.writeText($("#lk").textContent)}catch(e){}$("#cp").textContent="Copied ✓";say("Link copied");setTimeout(()=>$("#cp").textContent="Copy",1600)};
+$("#sim").onclick=()=>{pos=Math.max(1,pos-50);n++;$("#pos").textContent="#"+pos.toLocaleString();prog();say("A friend joined. You moved up to "+pos.toLocaleString())};
+</script></body></html>

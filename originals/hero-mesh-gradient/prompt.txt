@@ -1,0 +1,11 @@
+Canvas & base: Full-viewport hero with a canvas background of five large blurred colour blobs that drift and follow the pointer subtly; overlay noise-free dark scrim rgba(8,8,16,.35); palette switcher offers Aurora (violet/teal/pink), Sunset (orange/magenta/indigo), Ocean (blue/cyan/green), Mono (greys). Ink #fff, secondary rgba(255,255,255,.75). Invented product "Prismly".
+
+Typography: "Bricolage Grotesque" (500,700,800) with headline clamp(44px,8vw,104px), "Inter" 17px body.
+
+Layout: Minimal nav (logo, links, Sign in), a centred badge ("New: Prism 2.0"), headline "Design systems that feel [alive]" where the final word rotates through alive / effortless / yours every 2.4s with a slide/fade, supporting paragraph, two buttons (Get started, Watch demo with play glyph), avatar stack plus "Loved by 8,000 designers", and a floating palette picker bottom centre.
+
+Interaction: Canvas uses requestAnimationFrame, pauses when the tab is hidden, DPR-aware, resizes with ResizeObserver; blobs ease toward the pointer; palette buttons cross-fade colours over 600ms and are radio-style buttons with aria-pressed; rotating word is aria-hidden with a visually hidden full sentence; reduced motion freezes the canvas on a static frame and stops rotation.
+
+Responsive: Nav links hide under 640px; headline scales; buttons stack.
+
+Rules: No libraries or external images, hidden attribute respected, 44px targets, contrast of text over the gradient is held by the scrim.

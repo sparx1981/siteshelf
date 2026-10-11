@@ -1,0 +1,11 @@
+Canvas & base: Warm white #faf8f5, ink #1c1a17, secondary #75706a, border #e6e1d9, accent clay #b8532e, swatch colours Sand #e3cfae, Moss #8a9a6a, Clay #c4673f, Ink #2b2f3a. Invented store "Hollow & Hearth", product "Orla Table Lamp".
+
+Typography: "Fraunces" (500,600) for product name at 40px, "Hanken Grotesk" (400,500,700) at 15px.
+
+Layout: Two columns above 900px: left gallery (large art stage built from CSS shapes forming a lamp, 4 thumbnails switching views: front, detail, in room, scale), right info panel with breadcrumb, name, rating link, price, short copy, colour swatches (radio group), size (S, M, L with price deltas), quantity stepper, Add to cart, delivery estimate by postcode check, and accordions (Details, Care, Shipping & returns).
+
+Interaction: Swatches recolour the lamp shade/base live and update the selected label; size changes price and scales the lamp; quantity 1–10; Add to cart disables with "Added ✓" for 1.5s and opens a cart drawer with line item, subtotal, free shipping progress (free over $150), remove and quantity controls, and the header cart count; gallery thumbs have arrow-key navigation; postcode check validates 5 digits and shows an arrival date range; accordions toggle with aria-expanded. Announce cart changes.
+
+Responsive: Single column below 900px, thumbnails below stage; drawer full width under 520px.
+
+Rules: No libraries or external images, hidden attribute respected, 44px targets, reduced motion, invented content.

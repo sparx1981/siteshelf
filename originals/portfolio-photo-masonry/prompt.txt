@@ -1,0 +1,11 @@
+Canvas & base: Warm off-white #f5f2ec, ink #191714, secondary #77715f, accent terracotta #c2512b. Tiles are generated gradient/shape artwork (no photos) in muted palettes. Invented photographer "Elin Varga".
+
+Typography: "Cormorant Garamond" (500,600) italic for the name at 56px, "Karla" (400,500,700) at 15px.
+
+Layout: Header with name and tagline, nav links, filter row (All, Landscape, Portrait, Street, Studio) with counts. A CSS-columns masonry (3 columns desktop, 2 tablet, 1 mobile) of 15 tiles with varied aspect ratios, caption overlay on hover/focus (title, location, year), and an about strip at the bottom.
+
+Interaction: Filter chips hide non-matching tiles with fade/scale and the columns reflow; tiles are buttons opening a lightbox with large art, caption, Prev/Next, counter and Escape/arrow keys; focus trapped and returned; swipe left/right on touch; filtered set defines lightbox sequence. Announce filter result counts.
+
+Responsive: Columns per breakpoint; lightbox full-screen under 700px.
+
+Rules: No libraries or external images, hidden attribute respected, reduced-motion disables fades, 44px chips, invented content only.

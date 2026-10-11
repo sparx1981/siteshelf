@@ -1,0 +1,11 @@
+Canvas & base: Midnight indigo #0d0b24 with soft aurora blobs (blurred radial gradients, slow drift), glass panel rgba(255,255,255,.07) with 1px rgba(255,255,255,.14) border, ink #f4f2ff, secondary #a9a4d0, accent coral #ff6b8a, accent violet #8b6bff. Invented product "Lumen Habit".
+
+Typography: "Syne" (700,800) for headlines, "Inter" (400,500,600) at 16px, countdown numerals tabular at 56px.
+
+Layout: Centered 720px column. Logo, headline "Habits that glow", subcopy, four countdown tiles (days, hours, minutes, seconds) to a launch date 21 days ahead, a glass waitlist card (email field + Join button, 1,284 already waiting), a milestone progress bar ("1,284 / 2,000 for early access").
+
+Interaction: Countdown ticks each second and flips tile digits with a small slide; email validated; on join show queue position (e.g. #1,285) with confetti-free success state, a referral link with Copy button, and "Move up 50 spots per friend" with a Simulate referral button that decreases position and increments progress; duplicate email shows "already on the list". Announce changes.
+
+Responsive: Tiles in a 4-up grid that shrinks to 2x2 under 480px.
+
+Rules: No libraries or external images, reduced-motion stops blob drift and flip, hidden attribute respected, 44px targets, invented content.

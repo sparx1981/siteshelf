@@ -1,0 +1,11 @@
+Canvas & base: Dark ink #0c0d12 section with subtle noise-free gradient glow, cards #161822 with 1px #262a38 border and 18px radius, text #eef0f7, secondary #9aa1b5, accent gold #ffc857 for stars, accent mint #5eead4. Invented tool "Quillstack" with invented customers.
+
+Typography: "DM Sans" (400,500,700) at 15px; heading "DM Serif Display" 48px.
+
+Layout: Centered header (stars row with 4.9 average, "Loved by 12,000 teams", pause/play button). Two horizontal rows of 8 cards each; row 1 scrolls left, row 2 scrolls right at different speeds; edges fade via mask-image. Each card has quote (2–4 lines), avatar initial, name, role and company, and a small stars row.
+
+Interaction: Animation is CSS translateX on a duplicated track for a seamless loop; hover or focus-within pauses that row; a global Pause/Play button toggles all rows and sets aria-pressed; rows are tabbable cards (tabindex=0) so keyboard focus pauses; the duplicate set is aria-hidden.
+
+Responsive: Cards 280px wide under 600px; header scales.
+
+Rules: No libraries or external images, reduced-motion stops animation and makes rows horizontally scrollable instead, hidden attribute respected, 44px button, invented names only.

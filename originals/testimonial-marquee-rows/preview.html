@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Testimonial Marquee Rows</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:radial-gradient(700px 300px at 50% 0,#1b2140,transparent),#0c0d12;color:#eef0f7;font:15px/1.55 "DM Sans",system-ui,sans-serif;padding:72px 0;overflow-x:hidden;min-height:100vh}
+header{text-align:center;padding:0 16px 40px}
+h1{font:400 clamp(34px,6vw,52px)/1.1 "DM Serif Display",serif;margin:12px 0}
+.st{color:#ffc857;letter-spacing:3px;font-size:20px}.sub{color:#9aa1b5}
+.pp{margin-top:14px;border:1px solid #262a38;background:#161822;color:#eef0f7;border-radius:99px;padding:0 20px;min-height:44px;font:700 14px "DM Sans";cursor:pointer}
+.pp:focus-visible,.c:focus-visible{outline:3px solid #5eead4;outline-offset:3px}
+.row{overflow:hidden;margin:16px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.tr{display:flex;gap:16px;width:max-content;animation:m var(--d) linear infinite;animation-direction:var(--r,normal);padding:6px 0}
+.row:hover .tr,.row:focus-within .tr,.paused .tr{animation-play-state:paused}
+@keyframes m{to{transform:translateX(calc(-50% - 8px))}}
+.c{width:340px;flex:none;background:#161822;border:1px solid #262a38;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:14px;white-space:normal}
+.c p{margin:0;flex:1}
+.c .st{font-size:13px;letter-spacing:2px}
+.w{display:flex;gap:12px;align-items:center}
+.av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#0c0d12;flex:none}
+.w b{display:block;line-height:1.2}.w span{color:#9aa1b5;font-size:13px}
+@media(max-width:600px){.c{width:280px}}
+@media(prefers-reduced-motion:reduce){.tr{animation:none}.row{overflow-x:auto}.pp{display:none}}
+</style></head><body><header><div class="st" aria-hidden="true">★★★★★</div><h1>Loved by 12,000 teams</h1><div class="sub"><b style="color:#fff">4.9</b> average from 3,200 reviews</div><button class="pp" id="pp" aria-pressed="false">Pause scrolling</button></header>
+<section aria-label="Customer reviews"><div class="row" id="r1"><div class="tr" style="--d:50s"></div></div><div class="row" id="r2"><div class="tr" style="--d:62s;--r:reverse"></div></div></section>
+<script>
+const Q=[["Quillstack replaced three tools for our editorial team. Drafts, reviews and publishing now live in one place.","Odile Marsh","Managing Editor, Brightline Press","#5eead4"],["Our onboarding docs went from a maze to a map. New hires ship in their first week.","Jonas Pell","Head of Ops, Tin Lantern","#ffc857"],["The comment threads are the best I've used. Feedback finally lands where the work is.","Priya Holt","Design Lead, Kelp & Co.","#ff9ec7"],["We cut review time nearly in half. Nobody misses the email chains.","Theo Marsh","Product Manager, Halden Rail","#a5b4fc"],["Setup took an afternoon. Adoption took about a day. That never happens.","Isla Ferndale","COO, Oatly Moon","#fdba74"],["Search alone is worth it. I found a note from two years ago in seconds.","Corin Vale","Researcher, Fernlight Labs","#86efac"],["Support replied within the hour and fixed our import quirk the same day.","Sana Pike","Engineering Manager, Harbourline","#f9a8d4"],["Finally a tool that lets writers and engineers work in the same doc without friction.","Wren Alder","CTO, Mono & Moss","#7dd3fc"]];
+function fill(el,list){const tr=el.querySelector(".tr");[0,1].forEach(k=>list.forEach(q=>{const c=document.createElement("figure");c.className="c";c.style.margin=0;if(k){c.setAttribute("aria-hidden","true");c.tabIndex=-1}else c.tabIndex=0;c.innerHTML=`<div class="st" aria-label="5 out of 5 stars">★★★★★</div><p></p><figcaption class="w"><span class="av" style="background:${q[3]}">${q[1][0]}</span><div><b>${q[1]}</b><span>${q[2]}</span></div></figcaption>`;c.querySelector("p").textContent="“"+q[0]+"”";if(k)c.querySelectorAll("*").forEach(x=>x.setAttribute("aria-hidden","true"));tr.append(c)}))}
+fill(document.querySelector("#r1"),Q);fill(document.querySelector("#r2"),[...Q.slice(4),...Q.slice(0,4)]);
+const pp=document.querySelector("#pp");pp.onclick=()=>{const p=pp.getAttribute("aria-pressed")!="true";pp.setAttribute("aria-pressed",p);document.querySelector("section").classList.toggle("paused",p);pp.textContent=p?"Resume scrolling":"Pause scrolling"};
+</script></body></html>

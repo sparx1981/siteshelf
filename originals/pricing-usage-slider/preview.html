@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Usage Pricing Slider</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f172a;--mut:#5b6780;--ln:#e3e8f0;--ac:#0f9d6b;--ti:#e6f6ef;--am:#f5a524}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f7f9fc;color:var(--ink);font:15px/1.5 "Plus Jakarta Sans",system-ui,sans-serif;padding:32px 16px 60px}
+.card{max-width:880px;margin:0 auto;background:#fff;border:1px solid var(--ln);border-radius:24px;padding:32px;display:grid;gap:26px}
+.hd{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+h1{margin:0;font-size:26px;font-weight:800}.hd p{margin:4px 0 0;color:var(--mut)}
+.tg{display:flex;background:#eef2f7;border-radius:99px;padding:4px}
+.tg button{border:0;background:none;border-radius:99px;padding:0 18px;min-height:44px;font:700 14px inherit;font-family:inherit;color:var(--mut);cursor:pointer}
+.tg button[aria-pressed=true]{background:#fff;color:var(--ink);box-shadow:0 1px 4px #0002}
+.tg em{font-style:normal;color:var(--ac);margin-left:6px}
+.sl label{display:flex;justify-content:space-between;font-weight:700;margin-bottom:6px}
+.sl output{color:var(--ac);font-size:20px;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;height:44px;appearance:none;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:8px;border-radius:9px;background:linear-gradient(90deg,var(--ac) var(--p),#e3e8f0 var(--p))}
+input[type=range]::-moz-range-track{height:8px;border-radius:9px;background:#e3e8f0}input[type=range]::-moz-range-progress{height:8px;border-radius:9px;background:var(--ac)}
+input[type=range]::-webkit-slider-thumb{appearance:none;width:28px;height:28px;border-radius:50%;background:#fff;border:3px solid var(--ac);margin-top:-10px;box-shadow:0 3px 8px #0003}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--ac)}
+input:focus-visible{outline:3px solid #0f9d6b55;outline-offset:4px;border-radius:9px}
+.tk{display:flex;justify-content:space-between;color:var(--mut);font-size:12px;font-variant-numeric:tabular-nums}
+.pr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:end}
+.big{font:800 clamp(44px,9vw,64px)/1 inherit;font-variant-numeric:tabular-nums}.big small{font-size:16px;color:var(--mut);font-weight:500}
+.sv{color:var(--ac);font-weight:700;min-height:22px}
+.ef{background:var(--ti);border-radius:14px;padding:14px 16px;color:#0b6b49;font-weight:700}
+.tw{overflow-x:auto;border:1px solid var(--ln);border-radius:14px}
+table{border-collapse:collapse;width:100%;min-width:480px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--ln);font-variant-numeric:tabular-nums}th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut)}
+tr:last-child td{border:0}tr.on td{background:var(--ti)}tr.on td:first-child{box-shadow:inset 3px 0 var(--ac)}
+td:last-child,th:last-child{text-align:right}
+.pl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.pc{border:1.5px solid var(--ln);border-radius:16px;padding:18px;position:relative;transition:.2s}
+.pc.best{border-color:var(--ac);box-shadow:0 8px 24px #0f9d6b22}
+.pc .bd{position:absolute;top:-11px;left:16px;background:var(--ac);color:#fff;font-size:11px;font-weight:800;border-radius:99px;padding:2px 10px;text-transform:uppercase;letter-spacing:.06em}
+.pc h3{margin:0;font-size:17px}.pc p{margin:4px 0 0;color:var(--mut);font-size:13px}
+.pc b{display:block;margin-top:10px;font-size:20px;font-variant-numeric:tabular-nums}
+.cs{background:#fff7e6;border:1px solid #f5d28a;color:#7a4b00;border-radius:14px;padding:14px 16px;font-weight:600}
+@media(max-width:700px){.card{padding:20px}.pr{grid-template-columns:minmax(0,1fr)}.pl{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="card">
+<div class="hd"><div><h1>Pingwell pricing</h1><p>Pay for what you send. No seats, no surprises.</p></div><div class="tg" role="group" aria-label="Billing period"><button aria-pressed="true" data-b="m">Monthly</button><button aria-pressed="false" data-b="a">Annual<em>−20%</em></button></div></div>
+<div class="sl"><label for="rg">Requests per month <output id="ov" for="rg">100K</output></label><input id="rg" type="range" min="0" max="1000" value="200" aria-valuetext="100 thousand requests"><div class="tk"><span>10K</span><span>100K</span><span>1M</span><span>10M</span></div></div>
+<div class="pr"><div><div class="big"><span id="pr">$0</span> <small id="per">/ month</small></div><div class="sv" id="sv"></div></div><div class="ef" id="ef"></div></div>
+<div class="cs" id="cs" hidden>That's beyond our public tiers. Talk to us for volume pricing and a dedicated cluster.</div>
+<div class="tw"><table><caption style="position:absolute;left:-9999px">Tier breakdown</caption><thead><tr><th>Tier</th><th>Requests</th><th>Rate / 1K</th><th>Cost</th></tr></thead><tbody id="tb"></tbody></table></div>
+<div class="pl" id="pl"></div>
+<div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div></div>
+<script>
+const $=s=>document.querySelector(s),T=[["Free",0,100e3,0],["Standard",100e3,1e6,.4],["Volume",1e6,5e6,.25],["Scale",5e6,1e7,.12]];
+const P=[["Starter","Up to 1M requests",1e6],["Growth","Up to 5M requests",5e6],["Scale","Up to 10M requests",1e7]];
+let ann=false,shown=0,anim,lt;
+const f=n=>n>=1e6?+(n/1e6).toFixed(2)+"M":n>=1e3?(n/1e3).toFixed(0)+"K":""+n;
+const usd=n=>"$"+n.toLocaleString("en",{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2});
+function val(){const v=+$("#rg").value,x=1e4*Math.pow(1000,v/1000);const nice=x<1e5?Math.round(x/1e4)*1e4:x<1e6?Math.round(x/5e4)*5e4:Math.round(x/2.5e5)*2.5e5;return Math.min(1e7,Math.max(1e4,nice))}
+function cost(n){let c=0;T.forEach(t=>{const u=Math.max(0,Math.min(n,t[2])-t[1]);c+=u/1000*t[3]});return c}
+function tween(to){const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;cancelAnimationFrame(anim);if(reduce){shown=to;$("#pr").textContent=usd(Math.round(to));return}const a=shown,t0=performance.now();(function s(t){const k=Math.min(1,(t-t0)/350);shown=a+(to-a)*(1-Math.pow(1-k,3));$("#pr").textContent=usd(Math.round(shown));if(k<1)anim=requestAnimationFrame(s)})(t0)}
+function upd(){const n=val(),m=cost(n),p=ann?m*.8:m;$("#rg").style.setProperty("--p",$("#rg").value/10+"%");$("#ov").textContent=f(n);$("#rg").setAttribute("aria-valuetext",f(n)+" requests");tween(p);$("#per").textContent=ann?"/ month, billed yearly":"/ month";$("#sv").textContent=ann&&m>0?"You save "+usd(Math.round(m*.2*12))+" a year":"";$("#ef").textContent=n>1e5?"Effective "+usd(+(p/n*1000).toFixed(3))+" per 1K requests":"Free up to 100K requests";$("#cs").hidden=n<1e7;
+$("#tb").innerHTML=T.map(t=>{const u=Math.max(0,Math.min(n,t[2])-t[1]);return `<tr class="${u>0?"on":""}"><td>${t[0]}</td><td>${f(t[1])} – ${f(t[2])}</td><td>${t[3]?usd(t[3]):"Free"}</td><td>${usd(+(u/1000*t[3]).toFixed(2))}</td></tr>`}).join("");
+const best=P.findIndex(x=>n<=x[2]);$("#pl").innerHTML=P.map((x,i)=>{const c=cost(x[2]);return `<div class="pc ${i==best?"best":""}">${i==best?'<span class="bd">Best value</span>':""}<h3>${x[0]}</h3><p>${x[1]}</p><b>${c?usd(Math.round(ann?c*.8:c))+"/mo at the cap":"Free"}</b></div>`}).join("");
+clearTimeout(lt);lt=setTimeout(()=>{$("#live").textContent=f(n)+" requests: "+usd(Math.round(p))+" per month"},500)}
+$("#rg").oninput=upd;document.querySelectorAll(".tg button").forEach(b=>b.onclick=()=>{ann=b.dataset.b=="a";document.querySelectorAll(".tg button").forEach(x=>x.setAttribute("aria-pressed",x==b));upd()});upd();
+</script></body></html>

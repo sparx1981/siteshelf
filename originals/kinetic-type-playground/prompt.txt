@@ -1,0 +1,11 @@
+Canvas & base: Near-black #0e0e10 stage with fine grid, control panel #18181b with 1px #2a2a30 border, ink #f5f5f4, secondary #a1a1aa, accent acid yellow #e4ff3a. Invented tool "Letterbox".
+
+Typography: Display preview uses "Bricolage Grotesque" at variable weight 200–800 and width where available; UI in "Inter" 14px; code in "JetBrains Mono".
+
+Layout: Left stage with the editable text (contenteditable, default "Make it move"), right panel with sliders (Size 24–200px, Weight 200–800, Tracking −0.1 to 0.4em, Leading 0.8–1.6, Slant 0–15deg via skew), colour swatches, animation preset buttons (None, Wave, Glitch, Stretch, Reveal), speed slider, and a CSS output box with Copy button.
+
+Interaction: All sliders update the preview live via CSS variables and show current values; each letter is wrapped in a span for animations (Wave staggers translateY, Glitch uses clip/offset colour copies with steps(), Stretch scales X per letter on hover, Reveal slides letters up from a mask in sequence and replays on change); editing text re-wraps letters without losing the caret (re-wrap on blur and on preset change only); presets are aria-pressed buttons; Copy writes generated CSS to clipboard and shows Copied; Reset button; reduced motion disables animation presets (shows static).
+
+Responsive: Panel moves under the stage below 860px; stage text wraps and never overflows.
+
+Rules: No libraries or external images, hidden attribute respected, 44px targets, native range inputs with labels and output values.

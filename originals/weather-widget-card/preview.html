@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Weather Widget Card</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#e9eef5;font:15px/1.4 Outfit,system-ui,sans-serif;min-height:100vh;display:grid;place-items:center;padding:24px 16px}
+.cd{width:100%;max-width:380px;border-radius:28px;color:#fff;overflow:hidden;position:relative;box-shadow:0 24px 60px #1b2a4a40;transition:background .6s;background:var(--g)}
+.tb{display:flex;gap:4px;padding:14px 14px 0;overflow-x:auto}
+.tb button{border:0;background:none;color:#ffffffc0;border-radius:99px;padding:0 14px;min-height:44px;font:500 14px Outfit;cursor:pointer;white-space:nowrap}
+.tb button[aria-selected=true]{background:#ffffff30;color:#fff}
+.sc{height:190px;position:relative;overflow:hidden}
+.sc>*{position:absolute}
+.sun{width:96px;height:96px;border-radius:50%;background:#ffe27a;left:50%;top:30px;margin-left:-48px;box-shadow:0 0 60px #ffe27a}
+.sun::before{content:"";position:absolute;inset:-26px;border-radius:50%;background:repeating-conic-gradient(#ffe27a99 0 6deg,transparent 6deg 30deg);-webkit-mask:radial-gradient(circle,transparent 52%,#000 54%,#000 66%,transparent 68%);mask:radial-gradient(circle,transparent 52%,#000 54%,#000 66%,transparent 68%);animation:sp 24s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.cl{height:46px;width:130px;background:#fff;border-radius:99px;opacity:.9;animation:dft 14s ease-in-out infinite alternate}
+.cl::before,.cl::after{content:"";position:absolute;background:#fff;border-radius:50%}.cl::before{width:60px;height:60px;left:24px;top:-28px}.cl::after{width:46px;height:46px;left:68px;top:-18px}
+@keyframes dft{to{transform:translateX(70px)}}
+.dr{top:-20px;width:2px;height:18px;background:#cfe3ff;border-radius:2px;opacity:.8;animation:rn .8s linear infinite}
+@keyframes rn{to{transform:translateY(230px)}}
+.sn{top:-10px;width:7px;height:7px;background:#fff;border-radius:50%;animation:sf 6s linear infinite}
+@keyframes sf{50%{margin-left:14px}to{transform:translateY(210px);margin-left:-6px}}
+.main{padding:0 24px 8px;display:flex;justify-content:space-between;align-items:flex-end}
+.tmp{font:300 88px/1 Outfit;letter-spacing:-.04em}.tmp sup{font-size:30px;vertical-align:top;position:relative;top:10px;font-weight:300}
+.cn{text-align:right;font-size:20px;font-weight:500;padding-bottom:10px}.cn small{display:block;font-weight:300;opacity:.85}
+.pl{display:flex;gap:8px;padding:8px 24px 16px;flex-wrap:wrap}.pl span{background:#ffffff26;border-radius:99px;padding:4px 12px;font-size:13px}
+.hr{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 16px 12px;cursor:grab}
+.hr div{flex:none;scroll-snap-align:start;width:58px;text-align:center;background:#ffffff1c;border-radius:16px;padding:10px 0;font-size:13px}
+.hr div.now{background:#ffffff40}.hr b{display:block;font-size:17px;font-weight:500}.hr .ic{display:block;font-size:20px;margin:4px 0}
+.dy{background:#00000026;padding:6px 14px 10px}
+.dy button{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:52px 30px minmax(0,1fr) 90px;gap:10px;align-items:center;min-height:44px;padding:0 10px;border-radius:12px;cursor:pointer}
+.dy button:hover,.dy button:focus-visible{background:#ffffff1c}
+.dy button:focus-visible{outline:2px solid #fff}
+.rg{height:5px;border-radius:9px;background:#ffffff33;position:relative}.rg i{position:absolute;top:0;bottom:0;border-radius:9px;background:linear-gradient(90deg,#8fd3ff,#ffd36b)}
+.rr{text-align:right;font-variant-numeric:tabular-nums;font-size:14px}.rr span{opacity:.7}
+.dt{padding:0 12px 8px 62px;font-size:13px;opacity:.9}
+.ft{display:flex;justify-content:space-between;align-items:center;padding:8px 14px 14px;font-size:13px;background:#00000026}
+.ft button{border:0;background:#ffffff26;color:#fff;border-radius:99px;min-height:44px;padding:0 14px;font:500 13px Outfit;cursor:pointer}
+.u{display:flex;background:#ffffff26;border-radius:99px;padding:3px}.u button{min-height:38px;background:none}.u button[aria-pressed=true]{background:#fff;color:#1b2a4a}
+.spn{display:inline-block;width:12px;height:12px;border:2px solid #fff6;border-top-color:#fff;border-radius:50%;animation:s .7s linear infinite;margin-right:6px;vertical-align:-1px}
+@keyframes s{to{transform:rotate(360deg)}}
+button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><section class="cd" id="cd" aria-label="Weather"><div class="tb" role="tablist" aria-label="Cities" id="tb"></div>
+<div class="sc" id="sc" aria-hidden="true"></div>
+<div class="main"><div class="tmp"><span id="t">0</span><sup id="un">°C</sup></div><div class="cn"><span id="cn">Sunny</span><small id="fl"></small></div></div>
+<div class="pl" id="pl"></div><div class="hr" id="hr" tabindex="0" role="region" aria-label="Hourly forecast"></div><div class="dy" id="dy"></div>
+<div class="ft"><span id="up">Updated just now</span><div class="u" role="group" aria-label="Units"><button aria-pressed="true" data-u="C">°C</button><button aria-pressed="false" data-u="F">°F</button></div><button id="rf">Refresh</button></div>
+<div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div></section>
+<script>
+const $=s=>document.querySelector(s);
+const G={sun:"linear-gradient(160deg,#4facfe,#00c6fb)",rain:"linear-gradient(160deg,#4b5d79,#1f2a3d)",snow:"linear-gradient(160deg,#8aa7c4,#d6e4f2)",cloud:"linear-gradient(160deg,#7c8da6,#b9c5d6)"};
+const IC={sun:"☀️",rain:"🌧️",snow:"❄️",cloud:"☁️"},NM={sun:"Sunny",rain:"Rain",snow:"Snow",cloud:"Cloudy"};
+const C={Lisbon:{c:"sun",t:24,f:25,h:48,w:14,hr:[24,25,26,26,25,23,21,20],hc:["sun","sun","sun","sun","cloud","cloud","sun","sun"],d:[["Fri","sun",27,17,5],["Sat","sun",28,18,0],["Sun","cloud",24,17,20],["Mon","rain",21,15,70],["Tue","sun",25,16,10]]},
+Oslo:{c:"snow",t:-3,f:-8,h:84,w:11,hr:[-3,-3,-4,-4,-5,-5,-4,-3],hc:["snow","snow","snow","cloud","snow","snow","cloud","cloud"],d:[["Fri","snow",-1,-7,80],["Sat","snow",-2,-9,65],["Sun","cloud",0,-6,30],["Mon","cloud",1,-5,20],["Tue","snow",-3,-10,75]]},
+Quito:{c:"rain",t:14,f:13,h:81,w:9,hr:[14,15,15,14,13,13,12,12],hc:["rain","cloud","rain","rain","rain","cloud","rain","rain"],d:[["Fri","rain",17,9,75],["Sat","cloud",18,9,40],["Sun","rain",16,8,80],["Mon","rain",16,9,70],["Tue","cloud",18,10,35]]},
+Wellington:{c:"cloud",t:12,f:9,h:72,w:31,hr:[12,12,13,13,12,11,10,10],hc:["cloud","cloud","cloud","rain","cloud","cloud","cloud","rain"],d:[["Fri","cloud",14,9,30],["Sat","rain",13,8,60],["Sun","cloud",15,9,25],["Mon","sun",17,10,5],["Tue","cloud",14,9,35]]}};
+let city="Lisbon",u="C";const cv=x=>u=="C"?Math.round(x):Math.round(x*9/5+32);
+function say(m){const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)}
+function tabs(){const t=$("#tb");t.innerHTML="";const k=Object.keys(C);k.forEach((n,i)=>{const b=document.createElement("button");b.setAttribute("role","tab");b.setAttribute("aria-selected",n==city);b.tabIndex=n==city?0:-1;b.textContent=n;b.onclick=()=>{city=n;render(true)};b.onkeydown=e=>{if(e.key=="ArrowRight"||e.key=="ArrowLeft"){e.preventDefault();city=k[(i+(e.key=="ArrowRight"?1:k.length-1))%k.length];render(true);t.querySelector("[aria-selected=true]").focus()}};t.append(b)})}
+function scene(c){const s=$("#sc");s.innerHTML="";if(c=="sun"){s.innerHTML='<div class="sun"></div><div class="cl" style="left:14px;top:120px;opacity:.7;transform:scale(.7)"></div>'}else if(c=="cloud"){s.innerHTML='<div class="cl" style="left:30px;top:70px"></div><div class="cl" style="left:150px;top:116px;animation-delay:-5s;opacity:.7"></div>'}else{s.innerHTML='<div class="cl" style="left:90px;top:36px;background:'+(c=="rain"?"#cfd8e6":"#fff")+'"></div>';const n=c=="rain"?26:18;for(let i=0;i<n;i++){const d=document.createElement("div");d.className=c=="rain"?"dr":"sn";d.style.left=(Math.random()*100)+"%";d.style.animationDelay=(-Math.random()*3)+"s";d.style.animationDuration=(c=="rain"?.6+Math.random()*.4:4+Math.random()*3)+"s";s.append(d)}}}
+function render(sw){const d=C[city];$("#cd").style.setProperty("--g",G[d.c]);tabs();scene(d.c);$("#t").textContent=cv(d.t);$("#un").textContent="°"+u;$("#cn").textContent=NM[d.c];$("#fl").textContent="Feels like "+cv(d.f)+"°";$("#pl").innerHTML=`<span>💧 ${d.h}% humidity</span><span>💨 ${d.w} km/h</span>`;
+const h=new Date().getHours();$("#hr").innerHTML=d.hr.map((x,i)=>`<div class="${i?"":"now"}"><span>${i?String((h+i)%24).padStart(2,"0")+":00":"Now"}</span><span class="ic" aria-hidden="true">${IC[d.hc[i]]}</span><b>${cv(x)}°</b></div>`).join("");
+const lo=Math.min(...d.d.map(x=>x[3])),hi=Math.max(...d.d.map(x=>x[2]));$("#dy").innerHTML="";d.d.forEach((x,i)=>{const b=document.createElement("button");b.setAttribute("aria-expanded","false");b.innerHTML=`<span>${x[0]}</span><span aria-hidden="true">${IC[x[1]]}</span><span class="rg" aria-hidden="true"><i style="left:${(x[3]-lo)/(hi-lo)*100}%;right:${100-(x[2]-lo)/(hi-lo)*100}%"></i></span><span class="rr"><span>${cv(x[3])}°</span> ${cv(x[2])}°</span>`;b.setAttribute("aria-label",`${x[0]}, ${NM[x[1]]}, high ${cv(x[2])}, low ${cv(x[3])}`);const p=document.createElement("div");p.className="dt";p.hidden=true;p.textContent=x[4]+"% chance of precipitation";b.onclick=()=>{const o=b.getAttribute("aria-expanded")=="true";b.setAttribute("aria-expanded",!o);p.hidden=o};$("#dy").append(b,p)});
+if(sw)say(city+": "+NM[d.c]+", "+cv(d.t)+" degrees")}
+document.querySelectorAll(".u button").forEach(b=>b.onclick=()=>{u=b.dataset.u;document.querySelectorAll(".u button").forEach(x=>x.setAttribute("aria-pressed",x==b));render();say("Units "+b.textContent)});
+$("#rf").onclick=()=>{$("#up").innerHTML='<span class="spn"></span>Updating…';setTimeout(()=>{$("#up").textContent="Updated just now";say("Weather updated")},900)};
+let dn=false,sx=0,sl=0;const hr=$("#hr");hr.onpointerdown=e=>{dn=true;sx=e.clientX;sl=hr.scrollLeft;hr.style.scrollSnapType="none"};addEventListener("pointermove",e=>{if(dn)hr.scrollLeft=sl-(e.clientX-sx)});addEventListener("pointerup",()=>{if(dn){dn=false;hr.style.scrollSnapType=""}});
+render();
+</script></body></html>

@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Plumb Unit Converter</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f1f5f4;--ink:#10231f;--mut:#5f7771;--ln:#dfe7e5;--ac:#0f766e;--ti:#d9f2ee}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Manrope,system-ui,sans-serif;padding:32px 16px 60px}
+.c{max-width:640px;margin:0 auto;background:#fff;border:1px solid var(--ln);border-radius:20px;padding:24px;display:grid;gap:18px}
+h1{margin:0;font-size:24px;font-weight:800}
+.tb{display:flex;gap:6px;overflow-x:auto}
+.tb button{border:1px solid var(--ln);background:#fff;border-radius:99px;padding:0 16px;min-height:44px;font:700 14px inherit;font-family:inherit;color:var(--mut);cursor:pointer;white-space:nowrap}
+.tb button[aria-selected=true]{background:var(--ac);color:#fff;border-color:var(--ac)}
+.rw{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:10px}
+.rw label{grid-column:1/-1;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);font-weight:700;margin-bottom:-4px}
+input,select{font:inherit;border:1.5px solid var(--ln);border-radius:12px;min-height:56px;padding:0 14px;background:#fff;color:var(--ink);min-width:0;width:100%}
+input.v{font:500 28px "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+input:focus,select:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 4px #0f766e22}
+.sw{justify-self:center;display:flex;align-items:center;gap:12px;margin:-6px 0}
+.sw button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--ln);background:var(--ti);cursor:pointer;font-size:20px;color:var(--ac);transition:transform .3s}
+.sw button.r{transform:rotate(180deg)}
+.sw span{height:1px;flex:1;background:var(--ln)}
+.fm{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;background:var(--ti);border-radius:12px;padding:10px 14px}
+.fm code{font:500 14px "IBM Plex Mono",monospace;color:#0b4f4a;overflow-wrap:anywhere}
+.cp{border:0;background:var(--ac);color:#fff;border-radius:10px;padding:0 16px;min-height:44px;font:700 14px inherit;font-family:inherit;cursor:pointer}
+.pr{display:flex;align-items:center;gap:10px;color:var(--mut);font-weight:700;font-size:14px}.pr select{min-height:44px;width:auto}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin:0 0 8px}
+.tw{overflow-x:auto;border:1px solid var(--ln);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:320px}th,td{padding:8px 14px;text-align:left;border-bottom:1px solid var(--ln);font-variant-numeric:tabular-nums}tr:last-child td{border:0}th{color:var(--mut);font-size:13px}
+td:nth-child(2){font-family:"IBM Plex Mono",monospace}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+ul button{width:100%;text-align:left;border:1px solid var(--ln);background:#fff;border-radius:10px;min-height:44px;padding:0 14px;font:500 14px "IBM Plex Mono",monospace;cursor:pointer;color:var(--ink)}
+ul button:hover{border-color:var(--ac)}
+.em{color:var(--mut);font-size:14px}
+button:focus-visible{outline:3px solid #0f766e66;outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden}
+@media(max-width:480px){.rw{grid-template-columns:minmax(0,1fr)}.c{padding:16px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="c"><h1>Plumb converter</h1>
+<div class="tb" role="tablist" aria-label="Category" id="tb"></div>
+<div><div class="rw"><label for="a">From</label><input class="v" id="a" inputmode="decimal" autocomplete="off" aria-label="From value"><select id="ua" aria-label="From unit"></select></div>
+<div class="sw"><span></span><button id="sw" aria-label="Swap units">⇅</button><span></span></div>
+<div class="rw"><label for="b">To</label><input class="v" id="b" inputmode="decimal" autocomplete="off" aria-label="To value"><select id="ub" aria-label="To unit"></select></div></div>
+<div class="fm"><code id="fm"></code><button class="cp" id="cp">Copy result</button></div>
+<div class="pr"><label for="pc">Precision</label><select id="pc"><option value="a">Auto</option><option value="2">2 decimals</option><option value="4">4 decimals</option><option value="6">6 decimals</option></select></div>
+<div><h2>Quick reference</h2><div class="tw"><table><thead><tr><th id="h1">From</th><th id="h2b">To</th></tr></thead><tbody id="rf"></tbody></table></div></div>
+<div><h2>Recent</h2><ul id="rc"></ul><div class="em" id="re">Your conversions will appear here.</div></div>
+<div class="sr" id="live" aria-live="polite"></div></div>
+<script>
+const $=s=>document.querySelector(s);
+const U={Length:{m:["Metre (m)",1],km:["Kilometre (km)",1000],cm:["Centimetre (cm)",.01],mi:["Mile (mi)",1609.344],yd:["Yard (yd)",.9144],ft:["Foot (ft)",.3048],in:["Inch (in)",.0254]},
+Weight:{kg:["Kilogram (kg)",1],g:["Gram (g)",.001],lb:["Pound (lb)",.45359237],oz:["Ounce (oz)",.028349523125],st:["Stone (st)",6.35029318]},
+Temperature:{C:["Celsius (°C)"],F:["Fahrenheit (°F)"],K:["Kelvin (K)"]},
+Volume:{l:["Litre (l)",1],ml:["Millilitre (ml)",.001],gal:["US gallon (gal)",3.785411784],cup:["US cup",.2365882365],floz:["US fl oz",.0295735295625]},
+Speed:{ms:["Metres/second (m/s)",1],kmh:["Kilometres/hour (km/h)",1/3.6],mph:["Miles/hour (mph)",.44704],kn:["Knots (kn)",.514444]}};
+const DEF={Length:["km","mi",12],Weight:["kg","lb",70],Temperature:["C","F",21],Volume:["l","gal",4],Speed:["kmh","mph",100]};
+const REF={Length:[1,5,10,42.195,100],Weight:[1,5,10,50,100],Temperature:[-40,0,21,37,100],Volume:[.5,1,2,5,10],Speed:[10,30,50,100,120]};
+let cat="Length",rt=null,last="a";
+function say(m){const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)}
+function conv(v,f,t){if(cat=="Temperature"){let c=f=="C"?v:f=="F"?(v-32)*5/9:v-273.15;return t=="C"?c:t=="F"?c*9/5+32:c+273.15}const u=U[cat];return v*u[f][1]/u[t][1]}
+function fmt(n){if(!isFinite(n))return"";const p=$("#pc").value;if(p!="a")return (+n.toFixed(+p)).toString();if(n==0)return"0";const a=Math.abs(n);return a>=1e9||a<1e-6?n.toExponential(4):(+n.toPrecision(7)).toString()}
+function tabs(){const t=$("#tb");t.innerHTML="";Object.keys(U).forEach((c,i,arr)=>{const b=document.createElement("button");b.setAttribute("role","tab");b.setAttribute("aria-selected",c==cat);b.tabIndex=c==cat?0:-1;b.textContent=c;b.onclick=()=>setCat(c);b.onkeydown=e=>{if(e.key=="ArrowRight"||e.key=="ArrowLeft"){e.preventDefault();const n=arr[(i+(e.key=="ArrowRight"?1:arr.length-1))%arr.length];setCat(n);t.querySelector("[aria-selected=true]").focus()}};t.append(b)})}
+function setCat(c){cat=c;const d=DEF[c];tabs();for(const id of["ua","ub"]){const s=$("#"+id);s.innerHTML=Object.entries(U[c]).map(([k,v])=>`<option value="${k}">${v[0]}</option>`).join("")}$("#ua").value=d[0];$("#ub").value=d[1];$("#a").value=d[2];last="a";calc();say(c+" converter")}
+function calc(){const src=last=="a"?"a":"b",dst=src=="a"?"b":"a",us=src=="a"?"ua":"ub",ud=src=="a"?"ub":"ua";const raw=$("#"+src).value.trim().replace(",",".");if(raw===""||isNaN(+raw)||raw=="-"){$("#"+dst).value="";$("#fm").textContent="Enter a number";ref();return}const v=+raw;$("#"+dst).value=fmt(conv(v,$("#"+us).value,$("#"+ud).value));const a=+$("#a").value.replace(",","."),b=+$("#b").value;$("#fm").textContent=txt();ref();sched()}
+function txt(){const fa=$("#ua").value,fb=$("#ub").value;return `${$("#a").value} ${fa} = ${$("#b").value} ${fb}`}
+function ref(){const fa=$("#ua").value,fb=$("#ub").value;$("#h1").textContent=U[cat][fa][0].replace(/ \(.*\)/,"")+" ("+fa+")";$("#h2b").textContent=U[cat][fb][0].replace(/ \(.*\)/,"")+" ("+fb+")";$("#rf").innerHTML=REF[cat].map(v=>`<tr><td>${v} ${fa}</td><td>${fmt(conv(v,fa,fb))} ${fb}</td></tr>`).join("")}
+let rec=[];function sched(){clearTimeout(rt);rt=setTimeout(commit,1000);clearTimeout(sched.s);sched.s=setTimeout(()=>say($("#fm").textContent),700)}
+function commit(){const t=$("#fm").textContent;if(!$("#b").value||!$("#a").value)return;rec=[{t,cat,a:$("#a").value,ua:$("#ua").value,ub:$("#ub").value},...rec.filter(r=>r.t!=t)].slice(0,5);$("#re").hidden=true;const u=$("#rc");u.innerHTML="";rec.forEach(r=>{const li=document.createElement("li"),b=document.createElement("button");b.textContent=r.t;b.onclick=()=>{if(cat!=r.cat)setCat(r.cat);$("#ua").value=r.ua;$("#ub").value=r.ub;$("#a").value=r.a;last="a";calc()};li.append(b);u.append(li)})}
+$("#a").oninput=()=>{last="a";calc()};$("#b").oninput=()=>{last="b";calc()};$("#ua").onchange=()=>{last="a";calc()};$("#ub").onchange=()=>{last="a";calc()};$("#pc").onchange=()=>calc();
+[$("#a"),$("#b")].forEach(i=>i.onkeydown=e=>{if(e.key=="Enter")commit()});
+$("#sw").onclick=()=>{const b=$("#sw");b.classList.toggle("r");const ua=$("#ua").value,ub=$("#ub").value,vb=$("#b").value;$("#ua").value=ub;$("#ub").value=ua;$("#a").value=vb;last="a";calc();say("Units swapped")};
+$("#cp").onclick=async()=>{try{await navigator.clipboard.writeText($("#fm").textContent)}catch(e){}$("#cp").textContent="Copied ✓";setTimeout(()=>$("#cp").textContent="Copy result",1500)};
+setCat("Length");
+</script></body></html>

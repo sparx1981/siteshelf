@@ -1,0 +1,11 @@
+Canvas & base: Soft grey #eceff4 app backdrop showing a fake "Parcel" dashboard behind a modal; palette panel white, 14px radius, shadow 0 30px 80px rgba(15,23,42,.3), backdrop rgba(15,23,42,.35) with blur 3px; ink #0f172a, secondary #64748b, selected row #eef2ff with left bar #4f46e5. Invented app "Parcel".
+
+Typography: "Geist"-like "Inter" (400,500,600) at 15px; shortcut keys in kbd chips with "JetBrains Mono" 12px.
+
+Layout: Page with a trigger button "Search or run a command… ⌘K". Palette modal: search input with icon, groups (Recent, Navigation, Actions, Settings) with 36–44px rows each showing icon, label, optional shortcut kbd, and a footer legend (↑↓ navigate, ↵ select, esc close).
+
+Interaction: Cmd/Ctrl+K toggles; typing fuzzy-filters (subsequence scoring) and highlights matched characters; ArrowUp/Down moves the active option (aria-activedescendant on combobox/listbox), Enter runs, Escape closes (or goes back from a nested page), Backspace on empty input goes back; "Change theme…" opens a nested page with Light/Dark/Contrast that actually applies a theme to the dashboard; actions show a toast and are added to Recent (max 3); mouse hover sets active; empty state "No results for …".
+
+Responsive: Palette is 92vw under 640px and sits near top; shortcuts hidden on touch.
+
+Rules: No libraries or external images, focus trapped and returned, hidden attribute respected, reduced-motion, invented content.

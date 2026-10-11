@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Command Palette</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eceff4;--cd:#fff;--ink:#0f172a;--mut:#64748b;--ln:#e2e8f0;--ac:#4f46e5}
+body.dark{--bg:#0f1220;--cd:#181c2e;--ink:#e8ebf7;--mut:#8b93b0;--ln:#2a3050}
+body.hc{--bg:#000;--cd:#000;--ink:#fff;--mut:#ddd;--ln:#fff;--ac:#ffe600}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif;min-height:100vh;transition:background .3s}
+.app{max-width:960px;margin:0 auto;padding:28px 20px;display:grid;gap:20px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+h1{margin:0;font-size:22px}
+.tr{display:flex;gap:10px;align-items:center;border:1px solid var(--ln);background:var(--cd);border-radius:12px;padding:0 14px;min-height:46px;color:var(--mut);font:inherit;cursor:pointer;min-width:min(100%,320px)}
+.tr kbd{margin-left:auto}
+kbd{font:500 12px "JetBrains Mono",monospace;border:1px solid var(--ln);background:var(--bg);border-radius:6px;padding:1px 6px;color:var(--mut)}
+.gr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.k{background:var(--cd);border:1px solid var(--ln);border-radius:14px;padding:16px}.k small{color:var(--mut)}.k b{display:block;font-size:28px}
+.bx{height:200px;background:var(--cd);border:1px solid var(--ln);border-radius:14px;display:flex;align-items:flex-end;gap:10px;padding:16px}
+.bx i{flex:1;background:var(--ac);border-radius:6px 6px 0 0;opacity:.85}
+.ov{position:fixed;inset:0;background:rgba(15,23,42,.35);backdrop-filter:blur(3px);z-index:50;display:flex;justify-content:center;align-items:flex-start;padding-top:14vh;animation:f .15s}
+@keyframes f{from{opacity:0}}
+.pl{width:min(620px,92vw);background:var(--cd);border-radius:14px;box-shadow:0 30px 80px rgba(15,23,42,.3);overflow:hidden;border:1px solid var(--ln);animation:p .18s}
+@keyframes p{from{transform:translateY(-8px) scale(.98);opacity:0}}
+.in{display:flex;align-items:center;gap:10px;padding:0 16px;border-bottom:1px solid var(--ln)}
+.in input{flex:1;border:0;background:none;font:inherit;font-size:16px;color:var(--ink);min-height:56px;outline:none}
+.in svg{width:18px;height:18px;stroke:var(--mut);fill:none;stroke-width:2}
+.pg{display:none;background:var(--bg);border-radius:6px;padding:2px 8px;font-size:12px;color:var(--mut)}
+.ls{max-height:min(380px,50vh);overflow:auto;padding:6px;list-style:none;margin:0}
+.gh{padding:10px 12px 4px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);font-weight:600}
+.o{display:flex;align-items:center;gap:12px;padding:0 12px;min-height:44px;border-radius:10px;cursor:pointer;position:relative}
+.o[aria-selected=true]{background:color-mix(in srgb,var(--ac) 12%,transparent)}
+.o[aria-selected=true]::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:3px;background:var(--ac)}
+.o .ic{width:28px;height:28px;border-radius:8px;background:var(--bg);display:grid;place-items:center;font-size:14px;flex:none}
+.o mark{background:none;color:var(--ac);font-weight:700}
+.o kbd{margin-left:auto}
+.em{padding:28px;text-align:center;color:var(--mut)}
+.ft{display:flex;gap:16px;padding:10px 16px;border-top:1px solid var(--ln);color:var(--mut);font-size:12px;background:var(--bg)}
+.to{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:99px;font-weight:600;z-index:60}
+button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden}
+@media(max-width:640px){.gr{grid-template-columns:minmax(0,1fr)}.ov{padding-top:6vh}.o kbd,.ft span:not(:first-child){display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><div class="app" id="app"><div class="top"><h1>Parcel</h1><button class="tr" id="tr" aria-haspopup="dialog"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>Search or run a command… <kbd>⌘K</kbd></button></div>
+<div class="gr"><div class="k"><small>Shipments today</small><b>1,284</b></div><div class="k"><small>On-time rate</small><b>97.2%</b></div><div class="k"><small>Open issues</small><b>14</b></div></div>
+<div class="bx" aria-hidden="true"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:78%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:66%"></i></div></div>
+<div id="pw"></div><div class="sr" id="live" aria-live="polite"></div>
+<script>
+const $=s=>document.querySelector(s);
+let toast;function say(m){const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)}
+function tst(m){document.querySelectorAll(".to").forEach(x=>x.remove());const t=document.createElement("div");t.className="to";t.textContent=m;t.setAttribute("role","status");document.body.append(t);setTimeout(()=>t.remove(),2000)}
+const setTheme=t=>{document.body.className=t=="light"?"":t=="dark"?"dark":"hc";tst("Theme: "+t)};
+const CMD=[["Navigation","Go to Dashboard","🏠","G D",()=>tst("Dashboard")],["Navigation","Go to Shipments","📦","G S",()=>tst("Shipments")],["Navigation","Go to Customers","👥","G C",()=>tst("Customers")],["Navigation","Open Reports","📊","G R",()=>tst("Reports")],
+["Actions","Create shipment","➕","C",()=>tst("New shipment drafted")],["Actions","Invite teammate","✉️","I",()=>tst("Invite link copied")],["Actions","Export CSV","⬇️","E",()=>tst("Export started")],["Actions","Copy tracking link","🔗","",()=>tst("Link copied")],
+["Settings","Change theme…","🎨","",null,"theme"],["Settings","Notification preferences","🔔","",()=>tst("Preferences opened")],["Settings","Sign out","🚪","",()=>tst("Signed out (demo)")]];
+const THEMES=[["Settings","Light","☀️","",()=>setTheme("light")],["Settings","Dark","🌙","",()=>setTheme("dark")],["Settings","High contrast","◐","",()=>setTheme("hc")]];
+let recent=[],open=false,page="root",q="",items=[],act=0,last=null;
+function score(s,q){s=s.toLowerCase();q=q.toLowerCase();let i=0,sc=0,pos=[],p=-2;for(let j=0;j<s.length&&i<q.length;j++)if(s[j]==q[i]){sc+=(j==p+1?5:1)+(j==0||s[j-1]==" "?4:0);pos.push(j);p=j;i++}return i==q.length?{sc:sc-s.length*.05,pos}:null}
+function hl(s,pos){let o="";[...s].forEach((c,i)=>o+=pos.includes(i)?"<mark>"+c.replace("<","&lt;")+"</mark>":c.replace("<","&lt;"));return o}
+function build(){const src=page=="theme"?THEMES:CMD;let r=[];if(!q){if(page=="root"&&recent.length)r.push(...recent.map(c=>({c,g:"Recent",pos:[]})));const gs=[...new Set(src.map(c=>c[0]))];gs.forEach(g=>src.filter(c=>c[0]==g).forEach(c=>r.push({c,g,pos:[]})))}else{src.forEach(c=>{const m=score(c[1],q);if(m)r.push({c,g:c[0],pos:m.pos,sc:m.sc})});r.sort((a,b)=>b.sc-a.sc)}items=r;act=Math.min(act,Math.max(0,r.length-1))}
+function render(){build();const ls=$("#ls");ls.innerHTML="";let g="";if(!items.length){ls.innerHTML=`<li class="em" role="presentation">No results for “${q.replace(/</g,"&lt;")}”</li>`}items.forEach((it,i)=>{if(!q&&it.g!=g){g=it.g;const h=document.createElement("li");h.className="gh";h.setAttribute("role","presentation");h.textContent=g;ls.append(h)}const li=document.createElement("li");li.className="o";li.id="o"+i;li.setAttribute("role","option");li.setAttribute("aria-selected",i==act);li.innerHTML=`<span class="ic" aria-hidden="true">${it.c[2]}</span><span>${hl(it.c[1],it.pos)}</span>${it.c[3]?`<kbd>${it.c[3]}</kbd>`:""}`;li.onmousemove=()=>{if(act!=i){act=i;sel()}};li.onclick=()=>run(i);ls.append(li)});$("#q").setAttribute("aria-activedescendant",items.length?"o"+act:"");$("#pg").style.display=page=="root"?"none":"block"}
+function sel(){document.querySelectorAll(".o").forEach((o,i)=>o.setAttribute("aria-selected",i==act));$("#q").setAttribute("aria-activedescendant","o"+act);const a=$("#o"+act);a&&a.scrollIntoView({block:"nearest"})}
+function run(i){const it=items[i];if(!it)return;const c=it.c;if(c[5]=="theme"){page="theme";q="";$("#q").value="";act=0;$("#q").placeholder="Pick a theme…";render();say("Theme options");return}close();c[4]();if(page=="root"&&!recent.includes(c))recent=[c,...recent].slice(0,3);else if(page=="theme")recent=[c,...recent.filter(x=>x!=c)].slice(0,3)}
+function openP(){if(open)return;open=true;last=document.activeElement;page="root";q="";act=0;const w=$("#pw");w.innerHTML=`<div class="ov" id="ov"><div class="pl" role="dialog" aria-modal="true" aria-label="Command palette"><div class="in"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><span class="pg" id="pg">Theme</span><input id="q" role="combobox" aria-expanded="true" aria-controls="ls" aria-autocomplete="list" aria-label="Search commands" placeholder="Type a command or search…" autocomplete="off"></div><ul class="ls" id="ls" role="listbox" aria-label="Commands"></ul><div class="ft"><span>↑↓ navigate</span><span>↵ select</span><span>esc close</span></div></div></div>`;
+$("#ov").onmousedown=e=>{if(e.target.id=="ov")close()};const i=$("#q");i.focus();i.oninput=()=>{q=i.value;act=0;render()};
+i.onkeydown=e=>{const n=items.length;if(e.key=="ArrowDown"){e.preventDefault();if(n){act=(act+1)%n;sel()}}else if(e.key=="ArrowUp"){e.preventDefault();if(n){act=(act-1+n)%n;sel()}}else if(e.key=="Enter"){e.preventDefault();run(act)}else if(e.key=="Escape"){e.preventDefault();if(page!="root"){back()}else close()}else if(e.key=="Backspace"&&!i.value&&page!="root"){back()}else if(e.key=="Tab")e.preventDefault()};render();say("Command palette open")}
+function back(){page="root";q="";$("#q").value="";$("#q").placeholder="Type a command or search…";act=0;render()}
+function close(){open=false;$("#pw").innerHTML="";if(last&&document.body.contains(last))last.focus()}
+document.addEventListener("keydown",e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()=="k"){e.preventDefault();open?close():openP()}});
+$("#tr").onclick=openP;
+if(!/Mac|iPhone|iPad/.test(navigator.platform)){document.querySelector(".tr kbd").textContent="Ctrl K"}
+</script></body></html>

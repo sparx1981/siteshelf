@@ -1,0 +1,111 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Orla Table Lamp — Hollow &amp; Hearth</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f5;--ink:#1c1a17;--mut:#75706a;--ln:#e6e1d9;--ac:#b8532e;--shade:#e3cfae;--base:#2b2f3a}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Hanken Grotesk",system-ui,sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 24px;border-bottom:1px solid var(--ln)}
+.lg{font:600 20px Fraunces,serif}
+.cb{border:1px solid var(--ln);background:#fff;border-radius:99px;min-height:44px;padding:0 18px;font:700 14px inherit;font-family:inherit;color:var(--ink);cursor:pointer}
+.pg{max-width:1100px;margin:0 auto;padding:24px 20px 60px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px}
+.bc{font-size:13px;color:var(--mut);margin-bottom:12px}.bc a{color:inherit}
+.stage{aspect-ratio:1;background:radial-gradient(circle at 50% 40%,#fff,#ece6dc);border-radius:20px;position:relative;overflow:hidden;display:grid;place-items:center}
+.lamp{position:relative;width:60%;height:78%;transition:transform .3s;transform:scale(var(--sc,1));transform-origin:50% 90%}
+.lamp .sh{position:absolute;left:12%;right:12%;top:2%;height:42%;background:var(--shade);border-radius:46% 46% 8% 8%/70% 70% 8% 8%;transition:background .3s;box-shadow:inset -14px 0 24px #0002,0 0 70px #ffe4a850}
+.lamp .nk{position:absolute;left:47%;width:6%;top:44%;height:14%;background:#0003}
+.lamp .bs{position:absolute;left:25%;right:25%;top:56%;bottom:6%;background:var(--base);border-radius:48% 48% 18% 18%/32% 32% 10% 10%;transition:background .3s;box-shadow:inset -10px 0 18px #0004}
+.lamp .sd{position:absolute;left:5%;right:5%;bottom:0;height:5%;background:#0002;border-radius:50%;filter:blur(6px)}
+.v2 .lamp{transform:scale(2.1) translateY(24%)}
+.rm{position:absolute;inset:0;background:linear-gradient(#e8dccb 62%,#b89a76 62%);display:none}
+.v3 .rm{display:block}.v3 .lamp{width:30%;height:44%;left:14%;top:30%;position:absolute}
+.v3 .rm::after{content:"";position:absolute;left:40%;right:8%;top:30%;height:32%;background:#9fb0a0;border-radius:12px}
+.v4 .lamp{transform:scale(.55)}
+.rl{position:absolute;right:10%;top:14%;bottom:10%;width:2px;background:#0004;display:none}.v4 .rl{display:block}
+.v4 .rl::after{content:"50 cm";position:absolute;top:50%;left:8px;font-size:12px;color:var(--mut)}
+.th{display:flex;gap:10px;margin-top:12px}
+.th button{flex:1;aspect-ratio:1;border:2px solid var(--ln);border-radius:12px;background:#f2ede4;cursor:pointer;font:600 12px inherit;font-family:inherit;color:var(--mut);min-height:44px}
+.th button[aria-selected=true]{border-color:var(--ink);color:var(--ink)}
+h1{font:500 clamp(30px,5vw,40px)/1.1 Fraunces,serif;margin:0 0 6px}
+.rt{color:var(--mut);margin-bottom:10px}.rt b{color:var(--ac);letter-spacing:2px}
+.price{font:600 28px Fraunces,serif;font-variant-numeric:tabular-nums}
+p.d{color:var(--mut);margin:10px 0 18px}
+.lb{font-weight:700;margin:16px 0 8px}.lb span{font-weight:400;color:var(--mut)}
+.sw{display:flex;gap:10px}
+.sw label{position:relative}
+.sw input{position:absolute;opacity:0;width:44px;height:44px;margin:0;cursor:pointer}
+.sw i{display:block;width:44px;height:44px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1.5px var(--ln)}
+.sw input:checked+i{box-shadow:0 0 0 2px var(--ink)}
+.sw input:focus-visible+i{outline:3px solid var(--ac);outline-offset:3px}
+.sz{display:flex;gap:8px}
+.sz label{flex:1}.sz input{position:absolute;opacity:0}
+.sz span{display:block;text-align:center;border:1.5px solid var(--ln);border-radius:12px;padding:8px 4px;cursor:pointer;background:#fff;min-height:48px}
+.sz small{display:block;color:var(--mut)}
+.sz input:checked+span{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.sz input:focus-visible+span{outline:3px solid var(--ac);outline-offset:2px}
+.buy{display:flex;gap:12px;margin-top:20px}
+.qt{display:flex;align-items:center;border:1.5px solid var(--ln);border-radius:12px;background:#fff}
+.qt button{width:44px;height:48px;border:0;background:none;font-size:20px;cursor:pointer}.qt output{min-width:28px;text-align:center;font-weight:700}
+.add{flex:1;border:0;border-radius:12px;background:var(--ink);color:#fff;font:700 16px inherit;font-family:inherit;min-height:50px;cursor:pointer}
+.add:disabled{background:#2f6d4f}
+.dl{display:flex;gap:8px;margin-top:20px;align-items:flex-start;flex-wrap:wrap}
+.dl input{flex:1;min-width:140px;font:inherit;border:1.5px solid var(--ln);border-radius:12px;padding:0 14px;min-height:44px}
+.dl button{border:1.5px solid var(--ink);border-radius:12px;background:none;padding:0 18px;min-height:44px;font:700 14px inherit;font-family:inherit;cursor:pointer}
+.dm{width:100%;font-size:14px;color:var(--mut)}.dm.er{color:#b42318}
+.ac{margin-top:24px;border-top:1px solid var(--ln)}
+.ac button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;min-height:52px;font-weight:700;cursor:pointer;border-bottom:1px solid var(--ln)}
+.ac button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.ac div.p{color:var(--mut);padding:10px 0 14px;border-bottom:1px solid var(--ln)}
+.dr{position:fixed;right:0;top:0;bottom:0;width:380px;max-width:100%;background:#fff;box-shadow:-16px 0 40px #0003;z-index:40;display:flex;flex-direction:column;padding:20px;gap:14px;animation:sl .25s}
+@keyframes sl{from{transform:translateX(40px);opacity:0}}
+.ov{position:fixed;inset:0;background:#0006;z-index:39}
+.dr h2{margin:0;font:600 22px Fraunces,serif;display:flex;justify-content:space-between;align-items:center}
+.ln{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:12px;align-items:center;border-bottom:1px solid var(--ln);padding-bottom:12px}
+.ln .mini{width:64px;height:64px;border-radius:12px;background:#f2ede4;position:relative}.mini i{position:absolute;display:block}
+.ln small{color:var(--mut);display:block}.ln .qt{transform:scale(.85);transform-origin:left;margin-top:4px;width:max-content}
+.fs{height:8px;background:var(--ln);border-radius:9px;overflow:hidden}.fs i{display:block;height:100%;background:var(--ac);transition:width .4s}
+.ft{margin-top:auto;display:grid;gap:10px}.ft .r{display:flex;justify-content:space-between;font-weight:700}
+.ix{border:0;background:#f2ede4;border-radius:50%;width:44px;height:44px;cursor:pointer;font-size:18px}
+button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden}
+@media(max-width:900px){.pg{grid-template-columns:minmax(0,1fr);gap:24px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><span class="lg">Hollow &amp; Hearth</span><button class="cb" id="cb" aria-haspopup="dialog">Cart (<span id="cc">0</span>)</button></header>
+<div class="pg"><div><div class="bc"><a href="#">Home</a> / <a href="#">Lighting</a> / Orla Table Lamp</div>
+<div class="stage" id="stage"><div class="rm"></div><div class="rl"></div><div class="lamp" id="lamp" role="img" aria-label="Orla Table Lamp"><div class="sh"></div><div class="nk"></div><div class="bs"></div><div class="sd"></div></div></div>
+<div class="th" role="tablist" aria-label="Product views" id="th"></div></div>
+<div><h1>Orla Table Lamp</h1><div class="rt"><b aria-hidden="true">★★★★★</b> <a href="#" style="color:inherit">4.8 · 214 reviews</a></div>
+<div class="price" id="price">$128</div>
+<p class="d">A hand-thrown ceramic base with a linen shade that spreads a warm, even glow. Dimmable, with a braided cloth cord.</p>
+<div class="lb">Colour <span id="cl">Sand</span></div><div class="sw" role="radiogroup" aria-label="Colour" id="sw"></div>
+<div class="lb">Size</div><div class="sz" role="radiogroup" aria-label="Size" id="sz"></div>
+<div class="buy"><div class="qt"><button id="mn" aria-label="Decrease quantity">−</button><output id="q" aria-live="polite">1</output><button id="pl" aria-label="Increase quantity">+</button></div><button class="add" id="add">Add to cart</button></div>
+<form class="dl" id="dl" novalidate><label class="sr" for="pc">Postcode</label><input id="pc" inputmode="numeric" maxlength="5" placeholder="Postcode (5 digits)"><button>Check delivery</button><div class="dm" id="dm" role="status"></div></form>
+<div class="ac" id="ac"></div></div></div>
+<div id="cw"></div><div class="sr" id="live" aria-live="polite"></div>
+<script>
+const $=s=>document.querySelector(s);
+const COL=[["Sand","#e3cfae","#6e5a3d"],["Moss","#8a9a6a","#33402a"],["Clay","#c4673f","#4a2414"],["Ink","#3a4052","#14161d"]];
+const SZ=[["S",-20,.82],["M",0,1],["L",30,1.14]];
+let col=0,sz=1,qty=1,cart=null;
+function say(m){const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)}
+function apply(){const c=COL[col];document.documentElement.style.setProperty("--shade",c[1]);document.documentElement.style.setProperty("--base",c[2]);$("#cl").textContent=c[0];$("#lamp").style.setProperty("--sc",SZ[sz][2]);$("#price").textContent="$"+(128+SZ[sz][1])}
+COL.forEach((c,i)=>{const l=document.createElement("label");l.innerHTML=`<input type="radio" name="c" ${i==0?"checked":""} aria-label="${c[0]}"><i style="background:${c[1]}"></i>`;l.querySelector("input").onchange=()=>{col=i;apply();say(c[0]+" selected")};$("#sw").append(l)});
+SZ.forEach((s,i)=>{const l=document.createElement("label");l.innerHTML=`<input type="radio" name="z" ${i==1?"checked":""} aria-label="Size ${s[0]}"><span><b>${s[0]}</b><small>${s[1]>0?"+$"+s[1]:s[1]<0?"−$"+-s[1]:"$128"}</small></span>`;l.querySelector("input").onchange=()=>{sz=i;apply()};$("#sz").append(l)});
+["Front","Detail","In room","Scale"].forEach((n,i)=>{const b=document.createElement("button");b.setAttribute("role","tab");b.setAttribute("aria-selected",i==0);b.tabIndex=i==0?0:-1;b.textContent=n;b.onclick=()=>view(i);b.onkeydown=e=>{if(e.key=="ArrowRight"||e.key=="ArrowLeft"){e.preventDefault();const j=(i+(e.key=="ArrowRight"?1:3))%4;view(j);$("#th").children[j].focus()}};$("#th").append(b)});
+function view(i){$("#stage").className="stage"+(i?" v"+(i+1):"");[...$("#th").children].forEach((b,j)=>{b.setAttribute("aria-selected",j==i);b.tabIndex=j==i?0:-1})}
+$("#mn").onclick=()=>{qty=Math.max(1,qty-1);$("#q").textContent=qty};$("#pl").onclick=()=>{qty=Math.min(10,qty+1);$("#q").textContent=qty};
+[["Details","Hand-thrown stoneware base, natural linen shade, 3 m braided cord, inline dimmer. Accepts an E27 bulb up to 9 W (not included)."],["Care","Dust the shade with a soft brush. Wipe the base with a damp cloth. Do not immerse."],["Shipping & returns","Free shipping over $150. Dispatched in 2 working days. Return within 30 days in original packaging."]].forEach(([t,p],i)=>{const b=document.createElement("button");b.id="ab"+i;b.setAttribute("aria-expanded","false");b.setAttribute("aria-controls","ap"+i);b.innerHTML=`<span>${t}</span><span aria-hidden="true">+</span>`;const d=document.createElement("div");d.className="p";d.id="ap"+i;d.hidden=true;d.setAttribute("role","region");d.setAttribute("aria-labelledby","ab"+i);d.textContent=p;b.onclick=()=>{const o=b.getAttribute("aria-expanded")=="true";b.setAttribute("aria-expanded",!o);d.hidden=o;b.lastChild.textContent=o?"+":"−"};$("#ac").append(b,d)});
+$("#dl").onsubmit=e=>{e.preventDefault();const v=$("#pc").value.trim(),m=$("#dm");if(!/^\d{5}$/.test(v)){m.className="dm er";m.textContent="Enter a 5-digit postcode";return}m.className="dm";const a=new Date(Date.now()+3*864e5),b=new Date(Date.now()+5*864e5),f=d=>d.toLocaleDateString("en",{weekday:"short",month:"short",day:"numeric"});m.textContent="Arrives "+f(a)+" – "+f(b)};
+const money=n=>"$"+n.toLocaleString("en",{minimumFractionDigits:0});
+$("#add").onclick=()=>{const b=$("#add"),price=128+SZ[sz][1];if(cart&&cart.col==col&&cart.sz==sz)cart.q=Math.min(10,cart.q+qty);else cart={col,sz,q:qty,price};count();b.disabled=true;b.textContent="Added ✓";setTimeout(()=>{b.disabled=false;b.textContent="Add to cart"},1500);say("Added to cart");drawer()};
+function count(){$("#cc").textContent=cart?cart.q:0}
+let last;function drawer(){const w=$("#cw");last=document.activeElement;w.innerHTML="";const o=document.createElement("div");o.className="ov";o.onclick=close;const d=document.createElement("aside");d.className="dr";d.setAttribute("role","dialog");d.setAttribute("aria-modal","true");d.setAttribute("aria-label","Cart");
+const sub=cart?cart.q*cart.price:0,rem=Math.max(0,150-sub);
+d.innerHTML=`<h2>Your cart <button class="ix" aria-label="Close cart">×</button></h2>${cart?`<div class="ln"><div class="mini"><i style="left:22%;right:22%;top:8%;height:38%;background:${COL[cart.col][1]};border-radius:46% 46% 8% 8%"></i><i style="left:32%;right:32%;top:48%;bottom:8%;background:${COL[cart.col][2]};border-radius:40% 40% 14% 14%"></i></div><div><b>Orla Table Lamp</b><small>${COL[cart.col][0]} · ${SZ[cart.sz][0]}</small><div class="qt"><button data-d="-1" aria-label="Decrease">−</button><output>${cart.q}</output><button data-d="1" aria-label="Increase">+</button></div></div><div style="text-align:right"><b>${money(cart.q*cart.price)}</b><br><button class="rm" style="border:0;background:none;color:var(--mut);text-decoration:underline;cursor:pointer;min-height:44px">Remove</button></div></div>`:'<p style="color:var(--mut)">Your cart is empty.</p>'}<div><div style="font-size:14px;margin-bottom:6px">${rem?"Add "+money(rem)+" more for free shipping":"You've unlocked free shipping 🎉"}</div><div class="fs"><i style="width:${Math.min(100,sub/1.5)}%"></i></div></div><div class="ft"><div class="r"><span>Subtotal</span><span>${money(sub)}</span></div><button class="add">Checkout</button></div>`;
+w.append(o,d);d.querySelector(".ix").focus();d.querySelector(".ix").onclick=close;d.onkeydown=e=>{if(e.key=="Escape")close();if(e.key=="Tab"){const f=[...d.querySelectorAll("button")],i=f.indexOf(document.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();f.at(-1).focus()}else if(!e.shiftKey&&i==f.length-1){e.preventDefault();f[0].focus()}}};
+d.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{cart.q=Math.max(1,Math.min(10,cart.q+ +b.dataset.d));count();drawer();say("Quantity "+cart.q);d2=document.querySelector(`[data-d="${b.dataset.d}"]`);d2&&d2.focus()});
+const r=d.querySelector(".rm");if(r)r.onclick=()=>{cart=null;count();drawer();say("Item removed")}}
+let d2;function close(){$("#cw").innerHTML="";(last&&document.body.contains(last)?last:$("#cb")).focus()}
+$("#cb").onclick=drawer;apply();
+</script></body></html>

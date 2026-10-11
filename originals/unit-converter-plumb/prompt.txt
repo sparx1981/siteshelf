@@ -1,0 +1,11 @@
+Canvas & base: Calm #f1f5f4 background, white card with #dfe7e5 border and 20px radius, ink #10231f, secondary #5f7771, accent teal #0f766e, accent tint #d9f2ee. Invented app "Plumb".
+
+Typography: "Manrope" (500,700,800) at 15px; result numerals "IBM Plex Mono" 500 at 28px.
+
+Layout: 640px card: category tabs (Length, Weight, Temperature, Volume, Speed) as a tablist, two stacked converter rows ("From" value and unit select, swap button between, "To" value and unit select), precision selector (2, 4, 6 decimals or auto), a formula line ("1 km = 0.621371 mi"), copy button, a reference table for common values, and a recent conversions list (last 5, click to restore).
+
+Interaction: Typing in either field updates the other instantly (two-way); unit selects update; swap exchanges units and values with a rotate animation; temperature handles offsets correctly (C, F, K); invalid or empty input clears the other field; copy puts "12 km = 7.45645 mi" in the clipboard and shows "Copied"; recent entries are saved when the user pauses typing 1s; Enter commits to recent; category change resets to sensible defaults. Announce results politely (debounced).
+
+Responsive: Rows stack value above unit under 480px; table scrolls.
+
+Rules: No libraries or external images, hidden attribute respected, large inputs 16px+, 44px targets, reduced motion disables rotate.

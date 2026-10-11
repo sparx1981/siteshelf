@@ -1,0 +1,11 @@
+Canvas & base: Page #e9eef5; widget 380px card with 28px radius whose background gradient depends on condition: Sunny #4facfe to #00c6fb, Rain #4b5d79 to #1f2a3d, Snow #a8c0d8 to #e4eef8, Cloudy #7c8da6 to #b9c5d6. White text. Invented sample data for four invented cities.
+
+Typography: "Outfit" (300,500,700) with the temperature at 88px weight 300.
+
+Layout: Card with city tabs at top (Lisbon, Oslo, Quito, Wellington), a scene area with CSS-animated condition art (sun with rays rotation, rain streaks, snowflakes falling, drifting clouds), big temperature, condition, feels-like and humidity/wind pills, an hourly strip (8 hours, scrollable) with small icons, and a 5-day list with high/low range bars.
+
+Interaction: City tabs switch data and gradient with cross-fade; °C/°F toggle converts all temperatures; hourly strip scrolls horizontally with snap and drag; day rows highlight on hover and expand to show precipitation chance; auto-refresh button shows "Updated just now" with spinner; arrow keys move between city tabs; announce city and condition.
+
+Responsive: Card is 100% width up to 380px; hourly strip scrolls.
+
+Rules: No libraries or external images, particles are CSS-only or limited DOM nodes, reduced motion disables animations, hidden attribute respected, 44px targets.

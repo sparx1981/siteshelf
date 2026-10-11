@@ -1,0 +1,11 @@
+Canvas & base: Cool white #f7f9fc, card white with #e3e8f0 border, ink #0f172a, secondary #5b6780, accent emerald #0f9d6b, accent tint #e6f6ef, highlight amber #f5a524. Invented API product "Pingwell" priced per 1,000 requests.
+
+Typography: "Plus Jakarta Sans" (500,700,800) at 15px, price numerals 64px tabular.
+
+Layout: 880px card: heading, billing toggle (Monthly / Annual -20%), a large range slider for monthly requests (10K–10M, logarithmic scale) with tick labels, a big live price with "per month" and effective price per 1K, a tier breakdown table (first 100K free, next 900K at $0.40/1K, next 4M at $0.25/1K, beyond at $0.12/1K), and three plan cards (Starter, Growth, Scale) where the cheapest suitable one is highlighted "Best value".
+
+Interaction: Slider is a native range mapping position to log values with snapping to nice numbers; keyboard arrows step; value shown formatted (1.2M); price animates by number tweening; annual toggle applies 20% and shows savings; table rows light up for tiers in use; contact-sales message above 10M cap. Announce price changes politely (debounced).
+
+Responsive: Table scrolls horizontally inside its own wrapper; plan cards stack.
+
+Rules: No libraries or external images, hidden attribute respected, 44px targets, reduced motion disables tween.

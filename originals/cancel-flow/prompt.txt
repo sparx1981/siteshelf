@@ -1,0 +1,11 @@
+Canvas & base: A calm account page background #f3f4f1 behind a centred modal-style flow card (white, 24px radius, 1px #e1e3dc border, shadow 0 30px 80px -40px rgba(20,30,20,.5), max-width 560px). Ink #1d241f, secondary #667068, primary green #1f7a4d, caution amber #b45f06 on #fff4e0, destructive text #a8321f. Invented product "Cadence", a habit-planning app, plan "Plus £7.99/month".
+
+Typography: "Instrument Sans" (400, 500, 600, 700) for everything; step title 26px 700 tracking -.02em; body 16px; helper 14px.
+
+Layout: A card with a step indicator (4 dots), a title, body, and a footer with Back and primary actions. Step 1 "Before you go": radio list of reasons (Too expensive, Not using it enough, Missing a feature, Found an alternative, Just taking a break, Other with text field). Step 2 offers tailored to the reason: Too expensive → 50% off for 3 months; Not using it → pause for 1, 2 or 3 months; Missing a feature → a short text box and a link to the roadmap; break → pause. Each offer is a card with Accept and "No thanks, continue". Step 3 "What you will lose": list of what ends on the billing date (plus a date computed 30 days ahead) with a checkbox "I understand" required to proceed, plus a note that data is kept 90 days. Step 4 confirm: summary and "Cancel subscription" in destructive style with an equal-weight "Keep my plan" button. Final state shows either "Plan paused until …", "Discount applied", "Subscription cancelled" with a "Resubscribe" link and export data link.
+
+Interaction: Steps animate with a short slide; focus moves to the step heading on change; validation prevents moving on without a reason or the acknowledgement; Escape asks for confirmation before leaving mid-flow. A "Keep my plan" option is available at every step. No dark patterns: Cancel is always reachable and equal in prominence.
+
+Responsive: Card goes full-width bottom-sheet-like with 16px padding below 560px; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Radio inputs real with labels; live region announces step changes; reduced-motion safe. Invented names only.

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bento Portfolio — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#eceae6;--tl:#fff;--ink:#17171a;--mut:#6d6a63;--ln:#e1ddd5;--sh:0 1px 2px rgba(0,0,0,.04),0 12px 30px -16px rgba(30,25,15,.25)}
+:root.dark{--bg:#111113;--tl:#1b1b1f;--ink:#f1f0ed;--mut:#9b9992;--ln:#2a2a30;--sh:0 1px 2px rgba(0,0,0,.4),0 12px 30px -16px rgba(0,0,0,.7)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 'Inter Tight',sans-serif;transition:background .3s,color .3s}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:3px}
+.w{max-width:1120px;margin:0 auto;padding:28px 20px 60px}
+.g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:150px;gap:14px}
+.t{background:var(--tl);border:1px solid var(--ln);border-radius:28px;padding:22px;box-shadow:var(--sh);position:relative;overflow:hidden;min-width:0;transition:transform .25s,box-shadow .25s,background .3s;display:flex;flex-direction:column;justify-content:space-between;color:inherit;text-align:left;font:inherit}
+button.t,a.t{cursor:pointer;text-decoration:none}
+@media(hover:hover){button.t:hover,a.t:hover{transform:translateY(-4px) rotate(-.3deg);box-shadow:0 2px 4px rgba(0,0,0,.05),0 24px 40px -16px rgba(30,25,15,.35)}}
+.c2{grid-column:span 2}.r2{grid-row:span 2}
+.lab{font:500 12px 'JetBrains Mono';text-transform:uppercase;letter-spacing:.08em;color:var(--mut)}
+.in{background:#f6e27a;color:#17171a}
+.in h1{font:800 clamp(34px,5vw,60px)/.98 'Bricolage Grotesque';letter-spacing:-.03em;margin:0}
+.in p{margin:10px 0 0;max-width:34ch;font-size:17px}
+.av{width:64px;height:64px;border-radius:50%;background:#17171a;position:relative;overflow:hidden}.av:before{content:'';position:absolute;left:50%;top:16px;width:22px;height:22px;border-radius:50%;background:#f6e27a;transform:translateX(-50%)}.av:after{content:'';position:absolute;left:50%;top:40px;width:44px;height:44px;border-radius:50%;background:#f6e27a;transform:translateX(-50%)}
+.av{margin-bottom:auto}
+.av2{display:flex;justify-content:space-between;align-items:flex-start}
+.av2 .st{font:600 13px 'Inter Tight';background:#17171a;color:#fff;border-radius:999px;padding:5px 12px;display:flex;gap:8px;align-items:center}
+.pd{width:8px;height:8px;border-radius:50%;background:#4ade80;animation:pl 1.6s infinite}
+@keyframes pl{50%{box-shadow:0 0 0 6px rgba(74,222,128,0)}0%{box-shadow:0 0 0 0 rgba(74,222,128,.6)}}
+.ft{background:#cfc3ff;color:#17171a}
+.ft h2{font:800 26px/1.05 'Bricolage Grotesque';margin:6px 0 0}
+.mk{flex:1;margin:14px -8px -30px;background:#fff;border-radius:16px 16px 0 0;padding:12px;box-shadow:0 -10px 30px -10px rgba(40,20,120,.3);display:grid;gap:8px;align-content:start;transform:rotate(-2deg);transition:transform .3s}
+button.ft:hover .mk{transform:rotate(0) translateY(-6px)}
+.mk i{display:block;height:10px;border-radius:5px;background:#e6e1ff}.mk i:nth-child(1){width:40%;background:#8a6dff}.mk i:nth-child(3){width:75%}.mk .bx{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.mk .bx b{height:44px;border-radius:10px;background:#f1ecff}.mk .bx b:first-child{background:#ffc9b0}
+.sn{font:800 54px/1 'Bricolage Grotesque';letter-spacing:-.04em}.sn small{font:500 15px 'Inter Tight';letter-spacing:0;color:var(--mut);display:block;margin-top:4px}
+.ck{display:flex;justify-content:space-between;align-items:flex-end;background:#bcd9ff;color:#17171a}
+.ck svg{width:78px;height:78px;flex:none}
+.ck .tm{font:800 30px 'Bricolage Grotesque';letter-spacing:-.02em;line-height:1}
+.tl{display:flex;flex-wrap:wrap;gap:8px}.tl span{background:#f1f0ec;color:#17171a;border-radius:999px;padding:6px 14px;font-weight:600;font-size:14px;display:flex;gap:6px;align-items:center}:root.dark .tl span{background:#2a2a30;color:#f1f0ed}.tl i{width:10px;height:10px;border-radius:3px;background:var(--c)}
+.so a{display:flex;justify-content:space-between;padding:6px 0;color:inherit;text-decoration:none;font-weight:600;border-bottom:1px solid var(--ln);font-size:15px;min-height:32px}.so a:last-child{border:0}.so a:hover{color:#6d4aff}
+.q{background:#ffc9b0;color:#17171a}.q p{margin:0;font:600 20px/1.25 'Bricolage Grotesque'}
+.wr{background:#bfe8d3;color:#17171a}.wr h3{font:800 18px/1.15 'Bricolage Grotesque';margin:4px 0 0}
+.cta{background:#17171a;color:#fff;border-color:#17171a}:root.dark .cta{background:#f6e27a;color:#17171a}
+.cta h2{font:800 clamp(22px,3vw,30px)/1.05 'Bricolage Grotesque';margin:0;letter-spacing:-.02em}
+.cta .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.cta .em{font:500 14px 'JetBrains Mono';opacity:.85;overflow:hidden;text-overflow:ellipsis}
+.cb{background:#fff;color:#17171a;border:0;border-radius:999px;padding:8px 16px;font:600 14px 'Inter Tight';cursor:pointer;min-height:40px}:root.dark .cb{background:#17171a;color:#fff}
+.th{align-items:center;justify-content:center;gap:10px;text-align:center}
+.th .sw{width:56px;height:32px;border-radius:16px;background:#dcd8cf;position:relative}.th .sw:after{content:'☀';position:absolute;left:4px;top:4px;width:24px;height:24px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:14px;transition:transform .3s}
+:root.dark .th .sw{background:#444}:root.dark .th .sw:after{content:'☾';transform:translateX(24px);background:#111113;color:#fff}
+dialog{border:1px solid var(--ln);border-radius:28px;padding:30px;width:min(560px,calc(100vw - 24px));background:var(--tl);color:var(--ink)}
+dialog::backdrop{background:rgba(10,10,12,.55)}
+dialog h2{font:800 30px/1.05 'Bricolage Grotesque';margin:6px 0 12px;letter-spacing:-.02em}dialog p{color:var(--mut);margin:0 0 12px}
+dialog .cl{float:right;background:#f1f0ec;border:0;border-radius:50%;width:44px;height:44px;cursor:pointer;font-size:18px;color:#17171a}
+.fade{animation:fi .6s both}@keyframes fi{from{opacity:0;transform:translateY(14px)}}
+@media(max-width:900px){.g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.g{grid-template-columns:minmax(0,1fr);grid-auto-rows:minmax(150px,auto)}.c2,.r2{grid-column:span 1;grid-row:span 1}.r2{min-height:300px}.w{padding:16px}.mk{margin-bottom:-24px;min-height:100px}}
+@media(prefers-reduced-motion:reduce){.fade,.pd{animation:none}.t,.th .sw:after,body{transition:none}}
+</style></head><body>
+<div class="w"><div class="g" id="g">
+<div class="t in c2 r2"><div class="av2"><div class="av" role="img" aria-label="Illustration of Noor"></div><span class="st"><i class="pd"></i>Available for work</span></div><div><h1>Hi, I'm Noor. I design calm, useful products.</h1><p>Product designer in Gothenburg, working with small teams on health, finance and learning tools.</p></div></div>
+<button class="t ft c2 r2" data-qv="0" aria-haspopup="dialog"><div><span class="lab" style="color:#4a3d99">Featured project</span><h2>Harbour, a calm shared inbox</h2></div><div class="mk" aria-hidden="true"><i></i><i></i><i></i><div class="bx"><b></b><b></b><b></b></div></div></button>
+<div class="t"><span class="lab">Experience</span><div class="sn">8 yrs<small>42 projects shipped</small></div></div>
+<div class="t ck"><div><span class="lab" style="color:#2a4a78">Gothenburg</span><div class="tm" id="tm">00:00</div></div><svg viewBox="0 0 100 100" role="img" aria-label="Analog clock"><circle cx="50" cy="50" r="46" fill="#fff"/><g stroke="#17171a" stroke-width="2" id="tk"></g><line id="hh" x1="50" y1="50" x2="50" y2="28" stroke="#17171a" stroke-width="4" stroke-linecap="round"/><line id="mh" x1="50" y1="50" x2="50" y2="16" stroke="#17171a" stroke-width="3" stroke-linecap="round"/><line id="sh" x1="50" y1="54" x2="50" y2="12" stroke="#e5484d" stroke-width="1.5" stroke-linecap="round"/><circle cx="50" cy="50" r="3" fill="#17171a"/></svg></div>
+<div class="t c2"><span class="lab">Tools I reach for</span><div class="tl"><span><i style="--c:#a259ff"></i>Figma</span><span><i style="--c:#00c2a8"></i>Framer</span><span><i style="--c:#ff7a59"></i>Webflow</span><span><i style="--c:#0a84ff"></i>Linear</span><span><i style="--c:#f5b700"></i>Notion</span></div></div>
+<div class="t so"><span class="lab">Find me</span><div><a href="#">LinkedIn <span aria-hidden="true">↗</span></a><a href="#">Read.cv <span aria-hidden="true">↗</span></a><a href="#">Dribbble <span aria-hidden="true">↗</span></a></div></div>
+<div class="t q c2"><span class="lab" style="color:#8a4a2a">Philosophy</span><p>“Good design is mostly removing the things that get in the way.”</p></div>
+<button class="t wr" data-qv="1" aria-haspopup="dialog"><span class="lab" style="color:#2d6b4b">Latest writing</span><h3>Designing for the second visit</h3></button>
+<div class="t cta c2"><h2>Have something in mind? Let's talk.</h2><div class="row"><span class="em">noor@example.com</span><button class="cb" id="cp" type="button">Copy email</button></div></div>
+<button class="t th" id="th" role="switch" aria-checked="false" aria-label="Dark theme"><span class="sw" aria-hidden="true"></span><span class="lab">Theme</span></button>
+</div></div>
+<dialog id="dlg"><button class="cl" id="cl" aria-label="Close">✕</button><span class="lab" id="dk"></span><h2 id="dt"></h2><div id="db"></div></dialog>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var root=document.documentElement;
+function theme(d){root.classList.toggle('dark',d);$('th').setAttribute('aria-checked',d);try{localStorage.setItem('bn-theme',d?'dark':'light')}catch(e){}}
+var sv=null;try{sv=localStorage.getItem('bn-theme')}catch(e){}
+var dk=sv?sv==='dark':matchMedia('(prefers-color-scheme: dark)').matches;root.classList.toggle('dark',dk);$('th').setAttribute('aria-checked',dk);
+$('th').onclick=function(){theme(!root.classList.contains('dark'))};
+var tk='';for(var i=0;i<12;i++){var a=i*30*Math.PI/180;tk+='<line x1="'+(50+Math.sin(a)*38)+'" y1="'+(50-Math.cos(a)*38)+'" x2="'+(50+Math.sin(a)*43)+'" y2="'+(50-Math.cos(a)*43)+'"/>'}$('tk').innerHTML=tk;
+function tick(){var d=new Date(),p;try{p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Stockholm',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).formatToParts(d).reduce(function(o,x){o[x.type]=+x.value;return o},{})}catch(e){p={hour:d.getHours(),minute:d.getMinutes(),second:d.getSeconds()}}
+ var h=p.hour%24,m=p.minute,s=p.second;$('tm').textContent=String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');
+ $('hh').setAttribute('transform','rotate('+((h%12)*30+m/2)+' 50 50)');$('mh').setAttribute('transform','rotate('+(m*6+s/10)+' 50 50)');$('sh').setAttribute('transform','rotate('+(RM?0:s*6)+' 50 50)');$('sh').style.display=RM?'none':''}
+tick();setInterval(tick,RM?30000:1000);
+var Q=[['Case study','Harbour, a calm shared inbox','<p>Teams sharing a support mailbox kept stepping on each other. Harbour adds quiet ownership: who is replying, what is waiting and what can safely be ignored.</p><p><b>Role:</b> Lead designer, 2023–24<br><b>Result:</b> First-reply time down 38% in three months.</p>'],['Article','Designing for the second visit','<p>Most onboarding is for people who have never seen your product. The second visit is where habits form, and it deserves its own design: what changed, what to do next, and what can wait.</p><p>Read time: 6 minutes.</p>']];
+document.addEventListener('click',function(e){var b=e.target.closest('[data-qv]');if(!b)return;var q=Q[+b.dataset.qv];$('dk').textContent=q[0];$('dt').textContent=q[1];$('db').innerHTML=q[2];$('dlg').showModal();window._t=b});
+$('cl').onclick=function(){$('dlg').close()};$('dlg').addEventListener('click',function(e){if(e.target===this)this.close()});$('dlg').addEventListener('close',function(){if(window._t)window._t.focus()});
+$('cp').onclick=function(){var b=this;try{navigator.clipboard.writeText('noor@example.com').then(function(){b.textContent='Copied ✓'},function(){b.textContent='Copy failed'})}catch(e){b.textContent='Copy failed'}setTimeout(function(){b.textContent='Copy email'},1800)};
+if(!RM)[].forEach.call(document.querySelectorAll('.t'),function(t,i){t.classList.add('fade');t.style.animationDelay=i*50+'ms'});
+})();
+</script></body></html>

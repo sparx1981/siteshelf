@@ -1,0 +1,11 @@
+Canvas & base: A code-review screen in a GitHub-like dark theme: page #0d1117, panels #161b22 with 1px #30363d borders, text #e6edf3, secondary #8b949e. Added lines #12261e with gutter #1b4332 and text accent #3fb950; removed lines #2d1215 with gutter #5a1e24 and accent #f85149; hunk headers #121d2f in #79c0ff; word-level highlights are slightly stronger. Invented repo "kestrel/gridwork", pull request "Add keyboard navigation to the data grid".
+
+Typography: "JetBrains Mono" (400, 500) 13px/20px for code and line numbers, "Inter" (400, 500, 600) for UI. File names 14px 600.
+
+Layout: Header with PR title, branch chip, and summary stats ("+84 −31 in 3 files"). Left file tree (240px) listing changed files with +/- counts and a checkbox "Viewed". Main area: for each file a card with header (path, stats, collapse toggle, Viewed) and a diff table. A toolbar toggles Split / Unified and Wrap lines. Split view shows old and new columns with line numbers; unified shows a single column with +/- markers. Unchanged runs longer than 6 lines collapse into "Expand 14 hidden lines" rows between hunks.
+
+Interaction: Clicking a line number's "+" button opens an inline comment composer under that line (textarea, Comment, Cancel); posted comments appear as a thread with avatar, name, time and a Resolve toggle. Expanding hidden lines inserts them in place. File tree links scroll to files and mark the active one. Marking a file Viewed collapses it and updates a progress counter. Keyboard: j/k move between changed hunks, with a visible focus outline. Syntax colouring uses a tiny hand-written tokenizer (keywords, strings, comments, numbers) in spans.
+
+Responsive: Below 900px the tree hides behind a Files button; split view falls back to unified; the code area scrolls horizontally inside its own container, never the page (no horizontal page overflow at 390px).
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Use table semantics for diffs, aria-labels on line buttons, aria-live for comment posts. Invented names only.

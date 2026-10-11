@@ -1,0 +1,11 @@
+Canvas & base: A clean retail utility on #f6f7f4 with white panels (1px #e0e3da borders, 16px radius), ink #1e2a22, secondary #62705f, forest primary #1f6b45, pin colours: open #1f9d62, closing soon #e08a14, closed #8a948b, selected #1e2a22. The map is an inline SVG sketch (streets, a river, a park, labels) with 8 numbered pins. Invented retailer "Greenhatch Garden Centres" with 8 fictional stores across a fictional county.
+
+Typography: "Albert Sans" (400, 500, 600, 700) throughout; store names 17px 700; status badges 12px 700 uppercase tracking .04em.
+
+Layout: Two-pane layout. Left panel: search input ("Postcode or town"), a "Use my location" button (simulated, centres on a fixed point with a toast), filter chips (Open now, Café, Garden advice, Click and collect, Pet supplies), a count, and a scrollable list of store cards (name, address, distance in miles, status badge with next change, service icons). Right: the SVG map with pins that scale on hover/selected, and when a store is selected a details card slides over the bottom of the map with address, today's hours and a full week table, phone, services, and Get directions / Call buttons.
+
+Interaction: Typing filters by name, town or postcode; the distance for each store is computed from a user origin (default town centre) using the haversine formula on fixed coordinates and the list sorts by distance. Chips combine with AND logic. Selecting a card or pin highlights both, pans the map pins list into view and opens details. Opening status is computed from the weekly hours and the current time of day with badges Open until 6pm, Closes in 40 min, Closed, opens 9am. Keyboard: list items are buttons; arrows move through the list; Escape closes details. No results state with Clear filters.
+
+Responsive: Below 900px the map moves above the list as a 260px strip with the list under it; details become a bottom sheet; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Pins are focusable buttons inside the SVG with labels; status is never colour-only. Invented names only.

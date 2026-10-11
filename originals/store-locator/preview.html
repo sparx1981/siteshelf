@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Store Locator — Widgets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#1e2a22;--mut:#62705f;--ln:#e0e3da;--gr:#1f6b45;--op:#1f9d62;--cl:#e08a14;--cs:#8a948b}
+*{box-sizing:border-box}
+body{margin:0;background:#f6f7f4;color:var(--ink);font:400 15px/1.5 'Albert Sans',sans-serif}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:2px}
+.top{background:#fff;border-bottom:1px solid var(--ln);padding:14px 20px;display:flex;align-items:center;gap:12px}
+.lg{font-weight:700;font-size:18px;display:flex;gap:10px;align-items:center}.lg i{width:26px;height:26px;border-radius:8px;background:var(--gr);display:grid;place-items:center;color:#fff;font-style:normal;font-size:14px}
+.top span{margin-left:auto;color:var(--mut);font-size:14px}
+.lay{display:grid;grid-template-columns:400px minmax(0,1fr);height:calc(100vh - 63px);min-height:560px}
+.pn{background:#fff;border-right:1px solid var(--ln);display:flex;flex-direction:column;min-height:0}
+.sh{padding:16px;border-bottom:1px solid var(--ln);display:grid;gap:10px}
+.sh h1{font:700 22px 'Albert Sans';margin:0}
+.sr2{display:flex;gap:8px}.sr2 input{flex:1;min-width:0;border:1.5px solid #cdd3c7;border-radius:10px;padding:11px 14px;font:inherit}
+.bt{background:#fff;border:1.5px solid #cdd3c7;border-radius:10px;padding:10px 14px;font:600 14px 'Albert Sans';cursor:pointer;min-height:44px;color:var(--ink);white-space:nowrap}.bt:hover{border-color:var(--gr)}
+.bt.p{background:var(--gr);color:#fff;border-color:var(--gr)}
+.fl{display:flex;gap:6px;flex-wrap:wrap}.fl button{border:1.5px solid #cdd3c7;background:#fff;border-radius:999px;padding:4px 12px;font:600 13px 'Albert Sans';cursor:pointer;min-height:34px}.fl button[aria-pressed=true]{background:var(--gr);color:#fff;border-color:var(--gr)}
+.ct{padding:10px 16px;font-size:13.5px;color:var(--mut);border-bottom:1px solid var(--ln)}
+.ls{overflow:auto;flex:1;min-height:0;list-style:none;margin:0;padding:0}
+.ls li{border-bottom:1px solid #eef0ea}
+.it{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;width:100%;text-align:left;background:#fff;border:0;border-left:4px solid transparent;padding:14px 16px;cursor:pointer;font:inherit;color:inherit;align-items:start}
+.it:hover{background:#f7f9f5}.it[aria-current=true]{background:#eef6f0;border-left-color:var(--gr)}
+.nb{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font:700 13px 'Albert Sans';margin-top:2px}
+.it b{font-weight:700;font-size:17px;display:block}.it .ad{color:var(--mut);font-size:14px}
+.sb{display:inline-flex;gap:6px;align-items:center;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-top:6px}.sb:before{content:'';width:8px;height:8px;border-radius:50%;background:currentColor}
+.sb.op{color:#127446}.sb.cl{color:#a85f00}.sb.cs{color:#5c665e}
+.sv{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}.sv span{font-size:12px;background:#f0f3ec;border-radius:6px;padding:1px 8px;color:#3c4a3f}
+.ds{font-weight:700;font-size:14px;white-space:nowrap}
+.mp{position:relative;background:#e7efe3;min-width:0;overflow:hidden}
+.mp>svg{width:100%;height:100%;display:block}
+.pin{cursor:pointer}.pin circle{transition:r .15s}.pin:hover circle,.pin.sel circle{r:20}.pin.dim{opacity:.35}
+.pin:focus-visible{outline:none}.pin:focus-visible circle{stroke:#2f7de1;stroke-width:5}
+.you{pointer-events:none}
+.dt{position:absolute;left:14px;right:14px;bottom:14px;background:#fff;border:1px solid var(--ln);border-radius:18px;padding:18px 20px;box-shadow:0 20px 50px -20px rgba(0,0,0,.4);animation:up .25s;max-height:70%;overflow:auto}
+@keyframes up{from{transform:translateY(20px);opacity:0}}
+.dt h2{font:700 20px 'Albert Sans';margin:0 40px 2px 0}.dt .x{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;border:0;background:#eef0ea;cursor:pointer;font-size:16px}
+.dt .row{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap}.dt a.bt{text-decoration:none;display:inline-flex;align-items:center}
+.hr{width:100%;border-collapse:collapse;font-size:14px}.hr td{padding:4px 0;border-top:1px solid #eef0ea}.hr td:last-child{text-align:right}.hr tr.td td{font-weight:700;color:var(--gr)}
+.em{padding:40px 20px;text-align:center;color:var(--mut)}
+#toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;z-index:50;max-width:calc(100vw - 24px)}
+.sr{position:absolute;left:-9999px}
+@media(max-width:900px){.lay{grid-template-columns:minmax(0,1fr);height:auto;display:flex;flex-direction:column-reverse}.mp{height:300px}.pn{border-right:0;max-height:none}.ls{overflow:visible}
+ .dt{position:fixed;left:0;right:0;bottom:0;max-height:75vh;border-radius:20px 20px 0 0;z-index:30}.sh{padding:14px}.top{padding:12px 16px}}
+@media(prefers-reduced-motion:reduce){.dt{animation:none}.pin circle{transition:none}}
+</style></head><body>
+<header class="top"><div class="lg"><i aria-hidden="true">G</i>Greenhatch Garden Centres</div><span>Find a store</span></header>
+<div class="lay"><section class="pn" aria-label="Stores"><div class="sh"><h1>Find your nearest store</h1><div class="sr2"><label class="sr" for="q">Postcode or town</label><input id="q" type="search" placeholder="Postcode or town" autocomplete="off"><button class="bt p" id="loc" type="button">Use my location</button></div><div class="fl" id="fl" role="group" aria-label="Filter stores"></div></div>
+<div class="ct" id="ct" role="status" aria-live="polite"></div><ul class="ls" id="ls"></ul></section>
+<section class="mp" aria-label="Map"><svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" id="map" role="group" aria-label="Map of stores"></svg><div class="dt" id="dt" hidden></div></section></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var SV={cafe:'Café',adv:'Garden advice',cc:'Click and collect',pet:'Pet supplies'};
+var H=function(a){return a};
+var W=[[9,18],[9,18],[9,18],[9,19],[9,19],[9,18],[10,16]];
+var ST=[
+{n:'Greenhatch Millbrook',t:'Millbrook',pc:'MB1 2AB',a:'Mill Lane, Millbrook',ph:'01632 960 101',la:51.50,lo:-0.12,x:260,y:300,s:['cafe','adv','cc','pet']},
+{n:'Greenhatch Aldersgate',t:'Aldersgate',pc:'AG4 7QT',a:'14 Station Road, Aldersgate',ph:'01632 960 102',la:51.57,lo:-0.05,x:470,y:150,s:['cc','pet']},
+{n:'Greenhatch Fenwick',t:'Fenwick',pc:'FW2 9LD',a:'Fen Road, Fenwick',ph:'01632 960 103',la:51.44,lo:-0.21,x:130,y:450,s:['cafe','adv']},
+{n:'Greenhatch Hollin Cross',t:'Hollin Cross',pc:'HC3 5NE',a:'The Green, Hollin Cross',ph:'01632 960 104',la:51.53,lo:-0.01,x:600,y:260,s:['cafe','adv','cc']},
+{n:'Greenhatch Wetherby Park',t:'Wetherby Park',pc:'WP6 1RS',a:'Retail Park, Wetherby Park',ph:'01632 960 105',la:51.47,lo:-0.03,x:560,y:430,s:['cafe','cc','pet']},
+{n:'Greenhatch Kingsbarrow',t:'Kingsbarrow',pc:'KB8 3HF',a:'High Street, Kingsbarrow',ph:'01632 960 106',la:51.60,lo:-0.18,x:310,y:90,s:['adv','pet']},
+{n:'Greenhatch Saltmarsh',t:'Saltmarsh',pc:'SM5 4GG',a:'Quay Road, Saltmarsh',ph:'01632 960 107',la:51.41,lo:-0.08,x:380,y:520,s:['cafe','cc']},
+{n:'Greenhatch Pendleford',t:'Pendleford',pc:'PF9 8JP',a:'Nursery Lane, Pendleford',ph:'01632 960 108',la:51.55,lo:-0.27,x:90,y:200,s:['adv','cc','pet']}].map(function(s,i){s.id=i;s.h=W.map(function(d,k){return k===6&&i%2?[10,16]:i===6?[9,17]:d});return s});
+var OR={la:51.505,lo:-0.1,x:300,y:330,name:'Millbrook town centre'};
+var q='',fs={},sel=null,origin=OR;
+var chips=[['open','Open now']].concat(Object.keys(SV).map(function(k){return[k,SV[k]]}));
+function km(a,b,c,d){var R=3958.8,p=Math.PI/180,x=Math.sin((c-a)*p/2),y=Math.sin((d-b)*p/2),h=x*x+Math.cos(a*p)*Math.cos(c*p)*y*y;return 2*R*Math.asin(Math.sqrt(h))}
+function status(s){var d=new Date(),day=(d.getDay()+6)%7,h=d.getHours()+d.getMinutes()/60,t=s.h[day];
+ function f(x){var hh=Math.floor(x%12)||12;return hh+(x>=12?'pm':'am')}
+ if(h>=t[0]&&h<t[1]){var left=(t[1]-h)*60;if(left<=60)return{k:'cl',t:'Closes in '+Math.round(left)+' min'};return{k:'op',t:'Open until '+f(t[1])}}
+ if(h<t[0])return{k:'cs',t:'Closed · opens '+f(t[0])};var n=s.h[(day+1)%7];return{k:'cs',t:'Closed · opens '+f(n[0])+' tomorrow'}}
+function dist(s){return km(origin.la,origin.lo,s.la,s.lo)}
+function fmt(h){function f(x){var hh=Math.floor(x%12)||12;return hh+(x>=12?'pm':'am')}return f(h[0])+' – '+f(h[1])}
+function list(){
+ var r=ST.filter(function(s){var m=!q||(s.n+' '+s.t+' '+s.pc).toLowerCase().indexOf(q)>=0;if(!m)return false;for(var k in fs){if(!fs[k])continue;if(k==='open'){if(status(s).k==='cs')return false}else if(s.s.indexOf(k)<0)return false}return true});
+ r.sort(function(a,b){return dist(a)-dist(b)});return r}
+function render(){
+ var r=list();$('fl').innerHTML=chips.map(function(c){return'<button type="button" data-f="'+c[0]+'" aria-pressed="'+!!fs[c[0]]+'">'+c[1]+'</button>'}).join('');
+ $('ct').textContent=r.length+' store'+(r.length===1?'':'s')+' · sorted by distance from '+origin.name;
+ $('ls').innerHTML=r.length?r.map(function(s,i){var st=status(s);return'<li><button class="it" type="button" data-id="'+s.id+'" aria-current="'+(sel===s.id)+'"><span class="nb" aria-hidden="true">'+(ST.indexOf(s)+1)+'</span><span style="min-width:0"><b>'+s.n+'</b><span class="ad">'+s.a+', '+s.pc+'</span><br><span class="sb '+st.k+'">'+st.t+'</span><span class="sv">'+s.s.map(function(k){return'<span>'+SV[k]+'</span>'}).join('')+'</span></span><span class="ds">'+dist(s).toFixed(1)+' mi</span></button></li>'}).join(''):'<li class="em"><p style="margin:0 0 10px">No stores match your search.</p><button class="bt" id="clr" type="button">Clear filters</button></li>';
+ var ids=r.map(function(s){return s.id});
+ var h='<rect width="800" height="600" fill="#e7efe3"/><path d="M0 380C140 340 240 420 380 380C520 340 640 420 800 360V430C640 490 520 410 380 450C240 490 140 410 0 450Z" fill="#cfe3ee"/><rect x="430" y="30" width="190" height="120" rx="30" fill="#cfe6c4"/><g stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round"><path d="M0 250C150 230 300 280 450 240S700 200 800 230"/><path d="M200 0C220 150 180 300 230 600"/><path d="M520 0C540 200 500 350 580 600"/></g><g stroke="#f7f6ee" stroke-width="5" fill="none"><path d="M0 120H800M0 520H800M80 0V600M680 0V600"/></g><g font-family="Albert Sans" font-size="13" fill="#62705f" font-weight="600"><text x="460" y="95">Hollin Park</text><text x="330" y="412" fill="#4a7894">River Mill</text><text x="40" y="244">A-road</text></g>';
+ h+='<g class="you"><circle cx="'+origin.x+'" cy="'+origin.y+'" r="22" fill="#2f7de1" opacity=".18"/><circle cx="'+origin.x+'" cy="'+origin.y+'" r="8" fill="#2f7de1" stroke="#fff" stroke-width="3"/></g>';
+ ST.forEach(function(s,i){var st=status(s),c=sel===s.id?'#1e2a22':st.k==='op'?'#1f9d62':st.k==='cl'?'#e08a14':'#8a948b',vis=ids.indexOf(s.id)>=0;
+  h+='<g class="pin'+(sel===s.id?' sel':'')+(vis?'':' dim')+'" data-pid="'+s.id+'" tabindex="0" role="button" aria-label="'+s.n+', '+st.t+'"><circle cx="'+s.x+'" cy="'+s.y+'" r="16" fill="'+c+'" stroke="#fff" stroke-width="4"/><text x="'+s.x+'" y="'+(s.y+5)+'" text-anchor="middle" font-family="Albert Sans" font-weight="700" font-size="14" fill="#fff" style="pointer-events:none">'+(i+1)+'</text></g>'});
+ $('map').innerHTML=h;
+ var c2=$('clr');if(c2)c2.onclick=function(){q='';$('q').value='';fs={};render()};
+ detail()}
+function detail(){
+ var d=$('dt');if(sel===null){d.hidden=true;return}var s=ST[sel],st=status(s),day=(new Date().getDay()+6)%7,DN=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+ d.hidden=false;d.setAttribute('role','region');d.setAttribute('aria-label','Store details');
+ d.innerHTML='<button class="x" id="dx" aria-label="Close details">✕</button><h2>'+s.n+'</h2><div class="ad" style="color:var(--mut)">'+s.a+', '+s.pc+' · '+dist(s).toFixed(1)+' mi away</div><span class="sb '+st.k+'">'+st.t+'</span><div class="row"><a class="bt p" href="#" onclick="return false">Get directions</a><a class="bt" href="tel:'+s.ph.replace(/\s/g,'')+'">Call '+s.ph+'</a></div><div class="sv" style="margin:0 0 10px">'+s.s.map(function(k){return'<span>'+SV[k]+'</span>'}).join('')+'</div><table class="hr"><caption class="sr">Opening hours</caption>'+DN.map(function(n,i){return'<tr class="'+(i===day?'td':'')+'"><td>'+n+(i===day?' (today)':'')+'</td><td>'+fmt(s.h[i])+'</td></tr>'}).join('')+'</table>';
+ $('dx').onclick=function(){close()}}
+function pick(id,fromList){sel=id;render();$('live').textContent=ST[id].n+' selected';var b=document.querySelector('.it[data-id="'+id+'"]');if(b&&!fromList)b.scrollIntoView({block:'nearest',behavior:RM?'auto':'smooth'})}
+function close(){var p=sel;sel=null;render();var b=document.querySelector('.it[data-id="'+p+'"]');if(b)b.focus()}
+$('ls').addEventListener('click',function(e){var b=e.target.closest('.it');if(b)pick(+b.dataset.id,true);var f=document.querySelector('.it[data-id="'+(b&&b.dataset.id)+'"]');if(f)f.focus()});
+$('ls').addEventListener('keydown',function(e){if(e.key!=='ArrowDown'&&e.key!=='ArrowUp')return;var all=[].slice.call(document.querySelectorAll('.it')),i=all.indexOf(document.activeElement);if(i<0)return;e.preventDefault();var j=Math.max(0,Math.min(all.length-1,i+(e.key==='ArrowDown'?1:-1)));all[j].focus()});
+function pg(p){if(p.dataset.pid!==undefined)pick(+p.dataset.pid,false)}
+$('map').addEventListener('click',function(e){var p=e.target.closest('.pin');if(p)pg(p)});
+$('map').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){var p=e.target.closest('.pin');if(p){e.preventDefault();pg(p);var np=document.querySelector('.pin[data-pid="'+p.dataset.pid+'"]');if(np)np.focus()}}});
+$('fl').addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(!b)return;fs[b.dataset.f]=!fs[b.dataset.f];render();var nb=document.querySelector('[data-f="'+b.dataset.f+'"]');if(nb)nb.focus()});
+$('q').addEventListener('input',function(){q=this.value.trim().toLowerCase();render()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&sel!==null)close()});
+var tt;$('loc').onclick=function(){origin={la:51.55,lo:-0.04,x:520,y:200,name:'your location (simulated)'};render();var t=document.createElement('div');t.id='toast';t.setAttribute('role','status');t.textContent='Using a sample location near Hollin Cross';document.body.appendChild(t);clearTimeout(tt);tt=setTimeout(function(){t.remove()},2600)};
+render();
+})();
+</script></body></html>

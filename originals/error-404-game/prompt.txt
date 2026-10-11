@@ -1,0 +1,11 @@
+Canvas & base: A friendly dark error page on #14121f with a soft grid and glow. Game canvas panel #1d1a2e (1px #342f4d border, 20px radius). Accent mint #6ef3c5, secondary lilac #b9a8ff, warning coral #ff7a8a, text #f2f0ff, muted #9d97bd. The player is a little paper plane or ghost made from canvas shapes; obstacles are cacti-like blocks and floating clouds are decorative. Invented site "Pathfinder Docs".
+
+Typography: "Space Grotesk" (500, 700) for the 404 and headings (404 at clamp(90px,20vw,200px) with a gradient fill), "DM Sans" (400, 500) for body, "Press Start 2P"-style fallback not needed; score digits use "Space Grotesk" tabular-nums.
+
+Layout: Centred column. Huge "404", headline "This page wandered off", one line of explanation, then the game panel (16:5 canvas) with a score and best score in the corner and a "Press space or tap to jump" hint. Below it three helpful links (Home, Search, Contact support) as pill buttons, and a small search input.
+
+Interaction: The game starts on first jump. The runner jumps with Space, Arrow Up or a tap/click on the canvas; speed increases with score; obstacles spawn at random intervals; collision ends the run with "Game over, press to retry". Best score is stored in localStorage (try/catch). P or Escape pauses; the canvas loses focus gracefully and pauses when the tab is hidden. A "Skip the game" link hides the canvas for people who prefer. prefers-reduced-motion: the game does not autostart animations and shows a static "Play" button; gameplay is only started by explicit click. The loop uses requestAnimationFrame with delta time so speed is device independent; devicePixelRatio scaling.
+
+Responsive: Canvas scales to container width (min 300px) keeping aspect via CSS and internal logical resolution; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Canvas has role=img with a label, controls are keyboard-operable buttons, score announced via an aria-live region only on game over. Invented names only.

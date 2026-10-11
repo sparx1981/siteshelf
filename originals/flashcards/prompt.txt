@@ -1,0 +1,11 @@
+Canvas & base: A focused study space on #f4f1fb with the card stage on a soft radial lilac glow. Cards are white with 1px #e3ddf3 border, 26px radius and a deep shadow; the back face uses violet #5b3df5 with white text. Success mint #1fa971, review coral #f0614f, ink #1d1636, secondary #6c6489. Invented app "Recall" with a deck "Spanish: Around the house" of 12 cards.
+
+Typography: "Sora" (400, 600, 700) for UI and card text; the card face term at clamp(30px,6vw,48px) 700; back text 22px. Small caps labels in "Sora" 12px 600 uppercase tracking .1em.
+
+Layout: Header with deck title, a progress ring (cards mastered / total) and a Shuffle button. Centre: a large card (max-width 560px, aspect 3/2) showing the term with a hint "Tap or press Space to flip"; flipping rotates in 3D to reveal the meaning, an example sentence and a pronunciation hint. Under the card: two buttons, "Need review" (coral) and "I knew it" (mint), disabled until flipped. Below, a queue strip of small card thumbnails showing status (new, review, known) and the current card. A stats row: Known, Review, Remaining.
+
+Interaction: Space or Enter flips; Right arrow = knew it; Left arrow = need review; S shuffles; Z undoes the last answer. Marked "review" cards return to the queue a few positions later (simple spaced repetition); "known" cards leave the queue. Cards slide out to the right or left with a short animation then the next slides in. When the queue is empty a session summary dialog shows accuracy, time spent and a Study again button (re-queue review cards or all). Progress persists in localStorage (try/catch). Reduced motion: flips become a fade and slides are removed.
+
+Responsive: Card and buttons scale; queue strip scrolls horizontally; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. The card is a button with aria-pressed, back face text is hidden from assistive tech until flipped, live region announces the answer. Invented names only.

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>404 Mini-Game — Error Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+body{margin:0;background:#14121f;color:#f2f0ff;font:400 17px/1.6 'DM Sans',sans-serif;min-height:100svh;background-image:radial-gradient(60% 40% at 50% 0,rgba(110,243,197,.12),transparent),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:auto,40px 40px,40px 40px}
+:focus-visible{outline:3px solid #6ef3c5;outline-offset:3px}
+.w{max-width:760px;margin:0 auto;padding:40px 20px 60px;text-align:center}
+.lg{font:700 18px 'Space Grotesk';color:#b9a8ff;margin-bottom:10px}
+h1{font:700 clamp(90px,20vw,200px)/.9 'Space Grotesk';margin:0;background:linear-gradient(120deg,#6ef3c5,#b9a8ff 60%,#ff7a8a);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.05em}
+h2{font:700 clamp(26px,5vw,38px)/1.15 'Space Grotesk';margin:6px 0 10px}
+p.l{color:#9d97bd;margin:0 auto 26px;max-width:46ch}
+.gp{background:#1d1a2e;border:1px solid #342f4d;border-radius:20px;padding:14px;position:relative;box-shadow:0 30px 60px -40px rgba(0,0,0,.8)}
+canvas{width:100%;display:block;border-radius:12px;aspect-ratio:16/5;min-height:130px;background:#17142a;cursor:pointer;touch-action:manipulation}
+.sc{display:flex;justify-content:space-between;font:700 15px 'Space Grotesk';font-variant-numeric:tabular-nums;color:#9d97bd;padding:0 4px 10px}.sc b{color:#6ef3c5}
+.ov{position:absolute;inset:48px 14px 14px;display:grid;place-content:center;gap:10px;background:rgba(20,18,31,.6);border-radius:12px;backdrop-filter:blur(2px)}
+.ov strong{font:700 24px 'Space Grotesk'}.ov span{color:#9d97bd;font-size:15px}
+.btn{background:#6ef3c5;color:#06251c;border:0;border-radius:999px;padding:12px 26px;font:700 16px 'Space Grotesk';cursor:pointer;min-height:48px;text-decoration:none;display:inline-block}
+.btn.o{background:transparent;color:#f2f0ff;border:1.5px solid #4a4470}.btn.o:hover{border-color:#6ef3c5}
+.ct{display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.lk{background:none;border:0;color:#9d97bd;text-decoration:underline;text-underline-offset:3px;cursor:pointer;font:500 14px 'DM Sans';padding:12px;min-height:44px}
+.ln{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:26px 0 18px}
+.sf{display:flex;gap:8px;max-width:420px;margin:0 auto}.sf input{flex:1;min-width:0;background:#1d1a2e;border:1.5px solid #342f4d;border-radius:999px;padding:12px 18px;color:#f2f0ff;font:inherit}
+.sr{position:absolute;left:-9999px}
+@media(max-width:480px){.w{padding:28px 14px 40px}.ov{inset:44px 14px 14px}.gp{padding:10px}}
+</style></head><body>
+<div class="w"><div class="lg">Pathfinder Docs</div><h1 aria-label="Error 404">404</h1><h2>This page wandered off</h2><p class="l">We looked everywhere but could not find what you were after. While you are here, why not try to outrun the bugs?</p>
+<div id="gw"><div class="gp"><div class="sc"><span>Score <b id="sc">0</b></span><span>Best <b id="bs">0</b></span></div>
+<canvas id="cv" width="800" height="250" role="img" aria-label="Runner mini-game. Press space or tap to jump over the obstacles."></canvas>
+<div class="ov" id="ov"><strong id="ot">Ready?</strong><span id="os">Press space or tap to jump</span><button class="btn" id="pl" type="button">Play</button></div></div>
+<div class="ct"><button class="lk" id="pb" type="button">Pause (P)</button><button class="lk" id="sk" type="button">Skip the game</button></div></div>
+<div class="ln"><a class="btn" href="#">Back to home</a><a class="btn o" href="#">Documentation</a><a class="btn o" href="#">Contact support</a></div>
+<form class="sf" role="search"><label class="sr" for="q">Search the docs</label><input id="q" type="search" placeholder="Search the docs"><button class="btn o" type="submit">Search</button></form>
+<div class="sr" id="live" role="status" aria-live="polite"></div></div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var cv=$('cv'),cx=cv.getContext('2d'),W=800,H=250,GY=200;
+var best=0;try{best=+localStorage.getItem('pf-best')||0}catch(e){}$('bs').textContent=best;
+var S={y:GY,vy:0,on:false,over:false,paused:false,t:0,obs:[],next:1.2,score:0,spd:300,last:0,raf:0};
+var cl=[[100,50,60],[380,30,80],[640,60,50]];
+function reset(){S.y=GY;S.vy=0;S.over=false;S.obs=[];S.next=1;S.score=0;S.spd=300;S.t=0;cl=[[100,50,60],[380,30,80],[640,60,50]]}
+function jump(){if(!S.on||S.over||S.paused)return;if(S.y>=GY-1){S.vy=-640}}
+function start(){reset();S.on=true;S.paused=false;$('ov').hidden=true;S.last=performance.now();cancelAnimationFrame(S.raf);S.raf=requestAnimationFrame(loop);cv.focus&&0}
+function end(){S.over=true;S.on=false;var sc=Math.floor(S.score);if(sc>best){best=sc;$('bs').textContent=best;try{localStorage.setItem('pf-best',best)}catch(e){}}
+ $('ot').textContent='Game over';$('os').textContent='You scored '+sc+'. Best is '+best+'.';$('pl').textContent='Try again';$('ov').hidden=false;$('live').textContent='Game over. Score '+sc+'. Best '+best+'.';$('pl').focus()}
+function pause(p){if(!S.on||S.over)return;S.paused=p===undefined?!S.paused:p;$('pb').textContent=S.paused?'Resume (P)':'Pause (P)';if(S.paused){$('ot').textContent='Paused';$('os').textContent='Press P to resume';$('pl').textContent='Resume';$('ov').hidden=false}else{$('ov').hidden=true;S.last=performance.now();S.raf=requestAnimationFrame(loop)}}
+function loop(now){
+ if(!S.on||S.paused)return;
+ var dt=Math.min(.05,(now-S.last)/1000);S.last=now;S.t+=dt;
+ S.vy+=1900*dt;S.y+=S.vy*dt;if(S.y>=GY){S.y=GY;S.vy=0}
+ S.spd=300+S.score*.9;S.score+=dt*S.spd/30;
+ S.next-=dt;if(S.next<=0){var h=36+Math.random()*30,w=22+Math.random()*20;S.obs.push({x:W+20,w:w,h:h});S.next=.9+Math.random()*1.1-Math.min(.5,S.score/1500)}
+ S.obs.forEach(function(o){o.x-=S.spd*dt});S.obs=S.obs.filter(function(o){return o.x>-60});
+ cl.forEach(function(c){c[0]-=S.spd*.15*dt;if(c[0]<-100)c[0]=W+60});
+ // collision
+ var px=90,pw=34,ph=34;
+ S.obs.forEach(function(o){if(px+pw-6>o.x+4&&px+6<o.x+o.w-4&&S.y-ph+6<GY+0&&S.y>GY-o.h+4+0&&(S.y)>GY-o.h+2){}
+  if(px+pw-8>o.x&&px+8<o.x+o.w&&S.y>GY-o.h+4){S.hit=true}});
+ draw();$('sc').textContent=Math.floor(S.score);
+ if(S.hit){S.hit=false;draw();end();return}
+ S.raf=requestAnimationFrame(loop);
+}
+function draw(){
+ cx.clearRect(0,0,W,H);
+ var g=cx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#1a1733');g.addColorStop(1,'#241f45');cx.fillStyle=g;cx.fillRect(0,0,W,H);
+ cx.fillStyle='rgba(185,168,255,.15)';cl.forEach(function(c){cx.beginPath();cx.ellipse(c[0],c[1],c[2],14,0,0,6.3);cx.fill();cx.beginPath();cx.ellipse(c[0]+c[2]*.4,c[1]-8,c[2]*.5,12,0,0,6.3);cx.fill()});
+ cx.fillStyle='#342f4d';cx.fillRect(0,GY,W,H-GY);cx.fillStyle='#6ef3c5';cx.fillRect(0,GY,W,3);
+ cx.fillStyle='#4a4470';var off=(S.t*S.spd)%40;for(var i=-1;i<W/40+1;i++)cx.fillRect(i*40-off,GY+14,18,3);
+ S.obs.forEach(function(o){cx.fillStyle='#ff7a8a';cx.beginPath();cx.roundRect?cx.roundRect(o.x,GY-o.h,o.w,o.h,6):cx.rect(o.x,GY-o.h,o.w,o.h);cx.fill();cx.fillStyle='#ffb0ba';cx.fillRect(o.x+o.w/2-2,GY-o.h+8,4,14)});
+ // player ghost
+ var x=90,y=S.y;cx.fillStyle='#f2f0ff';cx.beginPath();cx.moveTo(x,y);cx.lineTo(x,y-22);cx.quadraticCurveTo(x+17,y-44,x+34,y-22);cx.lineTo(x+34,y);cx.lineTo(x+26,y-8);cx.lineTo(x+17,y);cx.lineTo(x+8,y-8);cx.closePath();cx.fill();
+ cx.fillStyle='#14121f';cx.beginPath();cx.arc(x+11,y-22,3,0,6.3);cx.arc(x+24,y-22,3,0,6.3);cx.fill();
+}
+draw();
+$('pl').onclick=function(){if(S.paused){pause(false)}else start()};
+$('pb').onclick=function(){pause()};
+$('sk').onclick=function(){S.on=false;$('gw').hidden=true};
+cv.tabIndex=0;
+cv.addEventListener('pointerdown',function(){if(S.on)jump()});
+document.addEventListener('keydown',function(e){
+ if(e.target.tagName==='INPUT')return;
+ if((e.key===' '||e.key==='ArrowUp')&&e.target===cv||(e.key===' '||e.key==='ArrowUp')&&e.target===document.body){if(S.on){e.preventDefault();jump()}else if(!S.over&&document.activeElement===document.body&&!RM){e.preventDefault();start()}}
+ if((e.key==='p'||e.key==='P'||e.key==='Escape')&&S.on)pause();
+});
+document.addEventListener('visibilitychange',function(){if(document.hidden&&S.on&&!S.paused)pause(true)});
+if(RM){$('os').textContent='Press Play to start. Use space or tap to jump.'}
+})();
+</script></body></html>

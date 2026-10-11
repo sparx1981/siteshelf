@@ -1,0 +1,11 @@
+Canvas & base: A friendly finance dashboard on #f5f6fa with white cards (1px #e4e7f0 border, 18px radius, soft shadow). Ink #1b2033, secondary #667089, primary indigo #4f46e5. Category colours: Housing #4f46e5, Food #f59e0b, Transport #0ea5e9, Fun #ec4899, Bills #10b981, Savings #8b5cf6, Other #94a3b8. Over-budget red #dc2626 on #fee2e2. Invented app "Penny Jar"; all amounts in £ and fictional.
+
+Typography: "Manrope" (500, 600, 700, 800) for UI; large figures 34px 800 tabular-nums; labels 12px 600 uppercase tracking .06em.
+
+Layout: Header with month switcher (previous, "October 2026", next) and an Add expense button. Top row of three summary cards: Income £3,200, Spent (with delta vs last month), Left to spend. Main grid: donut chart card (spending by category with a centre total, legend with amounts and percentages), "Budgets" card listing categories with limit input, spent amount and a progress bar (turning amber above 85% and red above 100% with an "Over by £x" pill), and a recent expenses list with date, description, category chip and amount.
+
+Interaction: Add expense opens a native dialog (amount, description, category select, date) with validation; saving updates donut, bars, summaries and list with a subtle highlight on the changed row. Category limits are editable inline (number inputs with £ prefix) and recalculated live. Hovering or focusing a donut segment or legend item highlights both and shows a tooltip with category, amount and share. Month switcher shows seeded data for three months. Delete expense with an Undo toast. Data in localStorage (try/catch).
+
+Responsive: Summary cards stack; donut moves above the budgets list; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. The donut is hand-drawn SVG with accessible labels and a text table alternative (visually hidden), progress bars have role=progressbar. Invented names only.

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flashcard Study App — App UI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#1d1636;--mut:#6c6489;--vi:#5b3df5;--ok:#1fa971;--rv:#f0614f;--ln:#e3ddf3}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(60% 50% at 50% 30%,#e9e1ff,transparent),#f4f1fb;color:var(--ink);font:400 16px/1.55 'Sora',sans-serif;min-height:100svh}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:3px}
+.w{max-width:760px;margin:0 auto;padding:22px 20px 50px}
+.hd{display:flex;align-items:center;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.hd .lg{font-weight:700;font-size:18px;display:flex;gap:8px;align-items:center}.lg i{width:20px;height:20px;border-radius:6px;background:var(--vi);display:block;transform:rotate(12deg)}
+.hd h1{font:700 clamp(20px,3vw,26px) 'Sora';margin:0;flex:1 1 200px}.hd small{display:block;font:400 14px 'Sora';color:var(--mut)}
+.rg{position:relative;width:64px;height:64px}.rg svg{transform:rotate(-90deg);width:100%;height:100%}.rg b{position:absolute;inset:0;display:grid;place-items:center;font-size:14px}.rg circle{transition:stroke-dashoffset .5s}
+.bt{border:1px solid #d3cbed;background:#fff;border-radius:12px;padding:10px 16px;font:600 14px 'Sora';cursor:pointer;color:var(--ink);min-height:44px}
+.lab{font:600 12px 'Sora';text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+.stage{perspective:1400px;margin:10px auto 22px;max-width:560px;position:relative}
+.card{display:block;width:100%;aspect-ratio:3/2;border:0;background:none;padding:0;cursor:pointer;position:relative;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.3,.7,.3,1);font:inherit;color:inherit;text-align:center}
+.card.fl{transform:rotateY(180deg)}
+.card.out-r{animation:oR .3s forwards}.card.out-l{animation:oL .3s forwards}.card.in{animation:inn .3s}
+@keyframes oR{to{transform:translateX(120%) rotate(8deg);opacity:0}}@keyframes oL{to{transform:translateX(-120%) rotate(-8deg);opacity:0}}@keyframes inn{from{transform:translateY(20px) scale(.96);opacity:0}}
+.fc{position:absolute;inset:0;border-radius:26px;padding:26px;display:grid;place-content:center;gap:8px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 40px 60px -36px rgba(60,30,150,.5)}
+.fr{background:#fff;border:1px solid var(--ln)}
+.bk{background:linear-gradient(145deg,#6a4dff,#4a2fe0);color:#fff;transform:rotateY(180deg)}
+.fr .t{font:700 clamp(30px,6vw,48px)/1.1 'Sora';letter-spacing:-.02em}
+.fr .h,.bk .lab{opacity:.8}.fr .h{color:var(--mut);font-size:14px;margin-top:10px}
+.bk .m{font:700 clamp(26px,5vw,38px)/1.1 'Sora'}.bk .e{font-size:17px;opacity:.9;font-style:italic}.bk .pr{font-size:14px;opacity:.75}.bk .lab{color:#d8d0ff}
+.ac{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:560px;margin:0 auto 22px}
+.ac button{border:0;border-radius:16px;padding:16px;font:700 16px 'Sora';cursor:pointer;color:#fff;min-height:56px}
+.ac .rv{background:var(--rv)}.ac .ok{background:var(--ok)}.ac button[aria-disabled=true]{opacity:.35;cursor:not-allowed}
+.ac small{display:block;font-weight:400;opacity:.85;font-size:12px}
+.q{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;max-width:560px;margin:0 auto 14px}
+.q span{flex:0 0 auto;width:54px;height:38px;border-radius:10px;border:1.5px solid var(--ln);background:#fff;display:grid;place-items:center;font-size:11px;font-weight:600;color:var(--mut)}
+.q .cur{border-color:var(--vi);color:var(--vi);box-shadow:0 0 0 3px #5b3df522}.q .kn{background:#e0f6ec;border-color:#a6e3c8;color:#157a52}.q .rvq{background:#fde8e5;border-color:#f5b6ae;color:#b8402f}
+.sts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:560px;margin:0 auto}.sts div{background:#fff;border:1px solid var(--ln);border-radius:14px;padding:12px;text-align:center}.sts b{display:block;font-size:22px}.sts span{font-size:12px;color:var(--mut)}
+.kb{text-align:center;color:var(--mut);font-size:13px;margin-top:18px}.kb kbd{background:#fff;border:1px solid #d3cbed;border-radius:6px;padding:1px 8px;font:600 12px 'Sora'}
+dialog{border:0;border-radius:26px;padding:30px;width:min(420px,calc(100vw - 24px));text-align:center;color:var(--ink)}dialog::backdrop{background:rgba(29,22,54,.55)}
+dialog h2{font:700 26px 'Sora';margin:0 0 6px}dialog .big{font:700 56px 'Sora';color:var(--vi);line-height:1;margin:14px 0}
+dialog .row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}dialog .row button{flex:1;min-width:130px}
+.pri{background:var(--vi);color:#fff;border:0}
+.sr{position:absolute;left:-9999px}
+@media(max-width:480px){.w{padding:14px 14px 40px}.fc{padding:16px}.ac button{padding:12px 6px;font-size:15px}.rg{width:52px;height:52px}}
+@media(prefers-reduced-motion:reduce){.card{transition:opacity .2s}.card.fl{transform:none}.card.fl .fr{opacity:0}.fc.bk{transform:none;opacity:0}.card.fl .bk{opacity:1}.card.out-r,.card.out-l,.card.in{animation:none}.rg circle{transition:none}}
+</style></head><body>
+<div class="w"><header class="hd"><div class="lg"><i aria-hidden="true"></i>Recall</div><h1>Spanish: Around the house<small id="sm"></small></h1><div class="rg" role="img" id="rgl"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#e3ddf3" stroke-width="7"/><circle id="rc" cx="32" cy="32" r="27" fill="none" stroke="#1fa971" stroke-width="7" stroke-linecap="round" stroke-dasharray="169.6" stroke-dashoffset="169.6"/></svg><b id="rp">0%</b></div><button class="bt" id="sh" type="button">Shuffle (S)</button></header>
+<div class="stage"><button class="card" id="cd" aria-pressed="false" aria-label="Flashcard. Press to flip."><div class="fc fr"><span class="lab" id="cn"></span><span class="t" id="tm"></span><span class="h">Tap or press Space to flip</span></div><div class="fc bk" aria-hidden="true" id="bk"><span class="lab">Meaning</span><span class="m" id="mn"></span><span class="e" id="ex"></span><span class="pr" id="pr"></span></div></button></div>
+<div class="ac"><button class="rv" id="br" aria-disabled="true">Need review<small>Left arrow</small></button><button class="ok" id="bo" aria-disabled="true">I knew it<small>Right arrow</small></button></div>
+<div class="q" id="q" aria-label="Queue"></div>
+<div class="sts"><div><b id="k">0</b><span>Known</span></div><div><b id="r">0</b><span>Review</span></div><div><b id="m">0</b><span>Remaining</span></div></div>
+<p class="kb"><kbd>Space</kbd> flip · <kbd>←</kbd> review · <kbd>→</kbd> knew it · <kbd>Z</kbd> undo · <kbd>S</kbd> shuffle</p></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<dialog id="dg"><h2>Session complete</h2><p style="color:var(--mut);margin:0">Nicely done. Here is how it went.</p><div class="big" id="ac2"></div><p id="dt" style="color:var(--mut);margin:0"></p><div class="row"><button class="bt" id="d1" type="button">Review missed</button><button class="bt pri" id="d2" type="button">Study all again</button></div></dialog>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var C=[['la cocina','the kitchen','Cocinamos juntos en la cocina.','ko-THEE-na'],['el dormitorio','the bedroom','El dormitorio tiene una ventana grande.','dor-mee-TOR-yo'],['la nevera','the fridge','La leche está en la nevera.','na-VEH-ra'],['la ventana','the window','Abre la ventana, por favor.','ben-TA-na'],['la puerta','the door','Cierra la puerta con llave.','PWER-ta'],['el sofá','the sofa','El gato duerme en el sofá.','so-FA'],['la mesa','the table','Pon los platos en la mesa.','ME-sa'],['la silla','the chair','Esta silla es muy cómoda.','SEE-ya'],['el espejo','the mirror','Me miro en el espejo.','es-PEH-ho'],['la lámpara','the lamp','Enciende la lámpara.','LAM-pa-ra'],['el armario','the wardrobe','Mi ropa está en el armario.','ar-MA-ryo'],['la escalera','the stairs','Sube por la escalera.','es-ka-LEH-ra']].map(function(a,i){return{id:i,t:a[0],m:a[1],e:a[2],p:a[3]}});
+var S={q:C.map(function(c){return c.id}),st:{},hist:[],ok:0,tot:0,t0:Date.now()};
+try{var s=JSON.parse(localStorage.getItem('rc-v1'));if(s&&s.q)S=s}catch(e){}
+function save(){try{localStorage.setItem('rc-v1',JSON.stringify(S))}catch(e){}}
+var flipped=false,busy=false;
+function cur(){return C[S.q[0]]}
+function known(){return Object.keys(S.st).filter(function(i){return S.st[i]==='k'}).length}
+function review(){return Object.keys(S.st).filter(function(i){return S.st[i]==='r'}).length}
+function stats(){var k=known(),r=review();$('k').textContent=k;$('r').textContent=r;$('m').textContent=S.q.length;
+ var p=k/C.length;$('rc').style.strokeDashoffset=169.6*(1-p);$('rp').textContent=Math.round(p*100)+'%';$('rgl').setAttribute('aria-label',k+' of '+C.length+' cards known');$('sm').textContent=C.length+' cards';
+ $('q').innerHTML=C.map(function(c){var cl=S.st[c.id]==='k'?'kn':S.st[c.id]==='r'?'rvq':'';return'<span class="'+cl+(S.q[0]===c.id?' cur':'')+'" title="'+c.t+'">'+(c.id+1)+'</span>'}).join('');
+ var cu=$('q').querySelector('.cur');if(cu&&cu.scrollIntoView)cu.parentNode.scrollLeft=cu.offsetLeft-100}
+function show(anim){
+ if(!S.q.length){done();return}
+ var c=cur();flipped=false;var cd=$('cd');cd.classList.remove('fl');cd.setAttribute('aria-pressed','false');cd.setAttribute('aria-label','Flashcard: '+c.t+'. Press to flip.');
+ $('cn').textContent='Card '+(C.indexOf(c)+1)+' of '+C.length;$('tm').textContent=c.t;$('mn').textContent=c.m;$('ex').textContent=c.e;$('pr').textContent='/'+c.p+'/';
+ $('bk').setAttribute('aria-hidden','true');$('br').setAttribute('aria-disabled','true');$('bo').setAttribute('aria-disabled','true');
+ if(anim&&!RM){cd.classList.add('in');setTimeout(function(){cd.classList.remove('in')},320)}
+ stats();save()}
+function flip(){if(busy||!S.q.length)return;flipped=!flipped;var cd=$('cd');cd.classList.toggle('fl',flipped);cd.setAttribute('aria-pressed',flipped);$('bk').setAttribute('aria-hidden',!flipped);
+ $('br').setAttribute('aria-disabled',!flipped);$('bo').setAttribute('aria-disabled',!flipped);if(flipped)$('live').textContent=cur().t+' means '+cur().m+'. '+cur().e}
+function answer(k){if(!flipped||busy)return;busy=true;var id=S.q[0];S.hist.push({id:id,st:S.st[id],q:S.q.slice()});if(S.hist.length>20)S.hist.shift();S.tot++;
+ var cd=$('cd');if(!RM)cd.classList.add(k?'out-r':'out-l');
+ setTimeout(function(){cd.classList.remove('out-r','out-l');S.q.shift();if(k){S.st[id]='k';S.ok++}else{S.st[id]='r';S.q.splice(Math.min(3,S.q.length),0,id)}busy=false;show(true)},RM?0:300)}
+$('cd').onclick=flip;$('bo').onclick=function(){answer(true)};$('br').onclick=function(){answer(false)};
+function undo(){if(busy||!S.hist.length)return;var h=S.hist.pop();S.q=h.q;if(h.st===undefined)delete S.st[h.id];else S.st[h.id]=h.st;S.tot=Math.max(0,S.tot-1);show(true);$('live').textContent='Undid last answer'}
+function shuffle(){var a=S.q.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}S.q=a;show(true);$('live').textContent='Deck shuffled'}
+$('sh').onclick=shuffle;
+document.addEventListener('keydown',function(e){if(document.querySelector('dialog[open]')||e.metaKey||e.ctrlKey)return;
+ if(e.key===' '&&e.target===document.body){e.preventDefault();flip()}
+ else if(e.key==='ArrowRight'){answer(true)}else if(e.key==='ArrowLeft'){answer(false)}else if(e.key==='z'||e.key==='Z')undo();else if(e.key==='s'||e.key==='S')shuffle()});
+function done(){stats();var acc=S.tot?Math.round(S.ok/S.tot*100):100,mins=Math.max(1,Math.round((Date.now()-S.t0)/60000));$('ac2').textContent=acc+'%';$('dt').textContent=S.tot+' answers · '+review()+' to review · about '+mins+' min';$('d1').hidden=!review();$('dg').showModal()}
+function restart(onlyR){S.q=C.filter(function(c){return onlyR?S.st[c.id]==='r':true}).map(function(c){return c.id});if(!onlyR)S.st={};S.hist=[];S.ok=0;S.tot=0;S.t0=Date.now();$('dg').close();show(true);$('cd').focus()}
+$('d1').onclick=function(){restart(true)};$('d2').onclick=function(){restart(false)};
+show(false);
+})();
+</script></body></html>

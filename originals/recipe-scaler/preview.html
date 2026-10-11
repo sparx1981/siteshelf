@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recipe Scaler — Widgets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#2a211b;--mut:#7a6a5a;--ln:#eadfca;--tm:#d6452b;--bs:#4f7a3a;--bt:#f6d98a}
+*{box-sizing:border-box}
+body{margin:0;background:#fbf6ee;color:var(--ink);font:400 17px/1.6 'Figtree',sans-serif;font-variant-numeric:tabular-nums}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:3px}
+.w{max-width:1100px;margin:0 auto;padding:24px 20px 100px}
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:30px;align-items:center;margin-bottom:34px}
+.by{color:var(--tm);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.14em}
+h1{font:400 clamp(36px,6vw,64px)/1.02 'DM Serif Display',serif;margin:8px 0 12px;letter-spacing:-.01em}h1 em{color:var(--tm)}
+.st{color:#c8941a;letter-spacing:2px}.rt{color:var(--mut);font-size:15px;margin-left:8px}
+.ch{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.ch span{background:#fff;border:1px solid var(--ln);border-radius:999px;padding:6px 16px;font-weight:600;font-size:15px}
+.bw{width:100%;max-width:340px;margin:0 auto;display:block}
+.g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:30px;align-items:start}
+.card{background:#fffdf8;border:1px solid var(--ln);border-radius:20px;padding:24px;box-shadow:0 20px 40px -32px rgba(60,35,10,.5)}
+.ing{position:sticky;top:14px}
+h2{font:400 28px 'DM Serif Display',serif;margin:0 0 14px}
+.ctl{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin-bottom:16px}
+.sv{display:flex;align-items:center;gap:6px;background:#f5ecdc;border-radius:999px;padding:4px}
+.sv button{width:44px;height:44px;border-radius:50%;border:0;background:#fff;font-size:22px;cursor:pointer;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.15)}.sv button[aria-disabled=true]{opacity:.35;cursor:default}
+.sv output{min-width:96px;text-align:center;font-weight:700}
+.sg{display:flex;background:#f5ecdc;border-radius:999px;padding:4px}.sg button{border:0;background:transparent;padding:8px 16px;border-radius:999px;font:600 14px 'Figtree';cursor:pointer;min-height:40px;color:var(--mut)}.sg button[aria-pressed=true]{background:var(--ink);color:#fff}
+.il{list-style:none;margin:0;padding:0}
+.il li{border-top:1px solid #f1e8d6}
+.il label{display:grid;grid-template-columns:auto 86px minmax(0,1fr);gap:12px;align-items:baseline;padding:11px 0;cursor:pointer;min-height:48px}
+.il input{width:22px;height:22px;accent-color:var(--bs);align-self:center;margin:0}
+.il b{font-weight:700;text-align:right}.il small{color:var(--mut)}
+.il input:checked~span,.il input:checked~b{text-decoration:line-through;color:#a89984}
+.pr{font-size:14px;color:var(--mut);margin:8px 0 14px}
+.btn{background:var(--tm);color:#fff;border:0;border-radius:12px;padding:12px 20px;font:700 15px 'Figtree';cursor:pointer;min-height:46px;width:100%}.btn.o{background:#fff;color:var(--ink);border:1px solid #d9c9a8;width:auto;padding:8px 16px;min-height:40px;font-size:14px}
+.sp{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;gap:12px}
+.sp li{counter-increment:s;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;padding:16px;border:1.5px solid var(--ln);border-radius:16px;background:#fffdf8;transition:border-color .2s,background .2s}
+.sp li:before{content:counter(s);width:36px;height:36px;border-radius:50%;background:var(--bt);display:grid;place-items:center;font:700 16px 'Figtree'}
+.sp li.nx{border-color:var(--tm);background:#fff6f1}.sp li.dn{opacity:.55}.sp li.dn:before{content:'✓';background:var(--bs);color:#fff}
+.sp p{margin:0 0 10px}.sp .ac{display:flex;gap:8px;flex-wrap:wrap}
+.nt{background:#fff6dd;border:1px dashed #e3c670;border-radius:16px;padding:16px 18px;margin-top:16px;font-size:16px}
+#tm{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);display:flex;gap:8px;flex-wrap:wrap;justify-content:center;z-index:20;width:calc(100% - 24px);pointer-events:none}
+.tp{pointer-events:auto;background:var(--ink);color:#fff;border-radius:999px;padding:6px 8px 6px 18px;display:flex;gap:12px;align-items:center;box-shadow:0 12px 30px rgba(0,0,0,.35);font-weight:600}
+.tp b{font:700 20px 'Figtree';min-width:56px}.tp button{border:0;background:rgba(255,255,255,.18);color:#fff;border-radius:999px;height:40px;padding:0 14px;font:600 14px 'Figtree';cursor:pointer}
+.tp.done{background:var(--tm);animation:pu 1s 3}@keyframes pu{50%{transform:scale(1.05)}}
+.sr{position:absolute;left:-9999px}
+@media(max-width:860px){.hero,.g{grid-template-columns:minmax(0,1fr)}.ing{position:static}.bw{max-width:240px}.hero{gap:16px}.w{padding:16px 16px 110px}.card{padding:18px}}
+@media(max-width:420px){.il label{grid-template-columns:auto 76px minmax(0,1fr);gap:8px}.sv output{min-width:78px}}
+@media(prefers-reduced-motion:reduce){.tp.done{animation:none}.sp li{transition:none}}
+</style></head><body>
+<div class="w"><header class="hero"><div><div class="by">Marguerite Ashdown · Supper club</div><h1>Slow-roast tomato <em>orecchiette</em></h1><div><span class="st" aria-hidden="true">★★★★★</span><span class="rt">4.9 · 312 cooks</span></div><div class="ch"><span>Prep 15 min</span><span>Cook 45 min</span><span id="sc">Serves 4</span></div></div>
+<svg class="bw" viewBox="0 0 300 260" role="img" aria-label="Illustration of a bowl of pasta with basil"><ellipse cx="150" cy="232" rx="104" ry="14" fill="#2a211b" opacity=".12"/><path d="M40 120h220c0 70-48 112-110 112S40 190 40 120z" fill="#fff" stroke="#eadfca" stroke-width="3"/><path d="M40 120h220" stroke="#eadfca" stroke-width="3"/><ellipse cx="150" cy="120" rx="110" ry="26" fill="#f6d98a"/><g fill="#d6452b"><circle cx="110" cy="112" r="16"/><circle cx="150" cy="104" r="18"/><circle cx="192" cy="114" r="15"/><circle cx="130" cy="126" r="13"/><circle cx="172" cy="128" r="13"/></g><g fill="#ff8a6c" opacity=".7"><circle cx="106" cy="107" r="5"/><circle cx="147" cy="99" r="6"/><circle cx="188" cy="110" r="5"/></g><g fill="#4f7a3a"><ellipse cx="140" cy="92" rx="20" ry="9" transform="rotate(-25 140 92)"/><ellipse cx="170" cy="94" rx="18" ry="8" transform="rotate(30 170 94)"/><ellipse cx="156" cy="86" rx="14" ry="7" fill="#5f8e48"/></g><path d="M214 30c14-10 22 6 12 18" stroke="#d9c9a8" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M90 40c14-10 22 6 12 18" stroke="#d9c9a8" stroke-width="3" fill="none" stroke-linecap="round"/></svg></header>
+<div class="g"><section class="card ing" aria-labelledby="ih"><h2 id="ih">Ingredients</h2><div class="ctl"><div class="sv" role="group" aria-label="Servings"><button id="mn" aria-label="Fewer servings">−</button><output id="sv" aria-live="polite">4 servings</output><button id="pl" aria-label="More servings">+</button></div><div class="sg" role="group" aria-label="Units"><button data-u="m" aria-pressed="true">Metric</button><button data-u="i" aria-pressed="false">Imperial</button></div></div>
+<ul class="il" id="il"></ul><p class="pr" id="pr" role="status"></p><button class="btn" id="cp" type="button">Copy shopping list</button></section>
+<section aria-labelledby="mh"><h2 id="mh" style="font-size:32px">Method</h2><ol class="sp" id="sp"></ol><div class="nt"><b>Cook's note:</b> The tomatoes can be roasted a day ahead. Keep them in their oil and bring to room temperature before tossing with the pasta.</div></section></div></div>
+<div id="tm" aria-live="off"></div><div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var I=[['Cherry tomatoes',600,'g','halved'],['Olive oil',90,'ml','plus extra to serve'],['Garlic cloves',4,'','sliced'],['Orecchiette',350,'g',''],['Chilli flakes',0.5,'tsp','to taste'],['Basil leaves',20,'g','torn'],['Parmesan',60,'g','finely grated'],['Sea salt',1.5,'tsp',''],['Balsamic vinegar',2,'tbsp','']];
+var ST=[['Heat the oven to 160°C (140°C fan). Toss the tomatoes with the oil, garlic, chilli and salt on a large tray.',0],['Roast for 40 minutes until the tomatoes have collapsed and edges caramelise.',40],['Meanwhile, bring a large pan of well-salted water to the boil and cook the orecchiette until al dente.',11],['Reserve a mugful of pasta water, drain, and toss the pasta through the tomatoes with a splash of water and the balsamic.',0],['Serve topped with basil, parmesan and a final drizzle of olive oil.',0]];
+var S={n:4,u:'m',ck:{},dn:{}};try{var s=JSON.parse(localStorage.getItem('rs-v1'));if(s)S=s}catch(e){}
+function save(){try{localStorage.setItem('rs-v1',JSON.stringify(S))}catch(e){}}
+var FR=[[0.125,'⅛'],[0.25,'¼'],[0.333,'⅓'],[0.5,'½'],[0.667,'⅔'],[0.75,'¾']];
+function frac(v){var w=Math.floor(v+1e-6),f=v-w,b=null,bd=1;FR.forEach(function(x){var d=Math.abs(f-x[0]);if(d<bd){bd=d;b=x}});
+ if(f<0.06)return String(w||(v>0?'⅛':0));if(f>0.94)return String(w+1);if(bd<0.07)return (w?w+' ':'')+b[1];return String(Math.round(v*10)/10)}
+function conv(v,u,sys){
+ if(sys==='m'){if(u==='g'||u==='ml')return v>=1000?[Math.round(v/10)/100,u==='g'?'kg':'l']:[Math.round(v/5)*5||Math.round(v),u];return [v,u]}
+ if(u==='g'){var oz=v/28.35;return oz>=16?[Math.round(oz/16*100)/100,'lb']:[Math.round(oz*2)/2||0.5,'oz']}
+ if(u==='ml'){var f=v/29.57;return f>=16?[Math.round(f/8)/2,'cups']:[Math.round(f*2)/2,'fl oz']}
+ return [v,u]}
+function fmt(q,u,sys){var r=conv(q,u,sys),v=r[0],un=r[1];
+ var s=(un==='tsp'||un==='tbsp'||un===''||un==='cups')?frac(v):(Number.isInteger(v)?String(v):String(Math.round(v*10)/10));return s+(un?' '+un:'')}
+function render(){
+ var k=S.n/4;
+ $('sv').textContent=S.n+' serving'+(S.n>1?'s':'');$('sc').textContent='Serves '+S.n;
+ $('mn').setAttribute('aria-disabled',S.n<=1);$('pl').setAttribute('aria-disabled',S.n>=12);
+ [].forEach.call(document.querySelectorAll('[data-u]'),function(b){b.setAttribute('aria-pressed',b.dataset.u===S.u)});
+ $('il').innerHTML=I.map(function(x,i){return'<li><label><input type="checkbox" data-i="'+i+'"'+(S.ck[i]?' checked':'')+'><b>'+fmt(x[1]*k,x[2],S.u)+'</b><span>'+x[0]+(x[3]?' <small>'+x[3]+'</small>':'')+'</span></label></li>'}).join('');
+ var c=Object.keys(S.ck).filter(function(i){return S.ck[i]}).length;$('pr').textContent=c+' of '+I.length+' gathered';
+ var nx=-1;for(var j=0;j<ST.length;j++){if(!S.dn[j]){nx=j;break}}
+ $('sp').innerHTML=ST.map(function(t,i){var tx=t[0];if(S.u==='i')tx=tx.replace(/(\d+)°C \((\d+)°C fan\)/,function(_,a,b){return Math.round(a*1.8+32)+'°F ('+Math.round(b*1.8+32)+'°F fan)'});
+  return'<li class="'+(S.dn[i]?'dn':i===nx?'nx':'')+'"><div><p>'+tx+'</p><div class="ac"><button class="btn o" data-d="'+i+'" aria-pressed="'+!!S.dn[i]+'">'+(S.dn[i]?'Undo done':'Mark done')+'</button>'+(t[1]?'<button class="btn o" data-t="'+i+'">⏱ Start '+t[1]+' min timer</button>':'')+'</div></div></li>'}).join('');
+ save()}
+$('mn').onclick=function(){if(S.n>1){S.n--;render()}};$('pl').onclick=function(){if(S.n<12){S.n++;render()}};
+document.addEventListener('click',function(e){var u=e.target.closest('[data-u]');if(u){S.u=u.dataset.u;render();return}
+ var d=e.target.closest('[data-d]');if(d){S.dn[d.dataset.d]=!S.dn[d.dataset.d];render();var nb=document.querySelector('[data-d="'+d.dataset.d+'"]');if(nb)nb.focus();return}
+ var t=e.target.closest('[data-t]');if(t){timer(+t.dataset.t);return}});
+$('il').addEventListener('change',function(e){var i=e.target.dataset.i;S.ck[i]=e.target.checked;var c=Object.keys(S.ck).filter(function(k){return S.ck[k]}).length;$('pr').textContent=c+' of '+I.length+' gathered';save()});
+$('cp').onclick=function(){var k=S.n/4,l=I.filter(function(x,i){return !S.ck[i]}).map(function(x){return '• '+fmt(x[1]*k,x[2],S.u)+' '+x[0]+(x[3]?' ('+x[3]+')':'')}).join('\n'),b=this;
+ var t='Shopping list for '+S.n+'\n'+l;try{navigator.clipboard.writeText(t).then(function(){b.textContent='Copied ✓'},function(){b.textContent='Copy failed'})}catch(x){b.textContent='Copy failed'}setTimeout(function(){b.textContent='Copy shopping list'},1800)};
+var T={};
+function mmss(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function timer(i){if(T[i])return;var mins=ST[i][1];T[i]={left:mins*60,p:false};drawT();
+ T[i].iv=setInterval(function(){var o=T[i];if(!o||o.p)return;o.left--;if(o.left<=0){clearInterval(o.iv);o.done=true;$('live').textContent='Timer finished for step '+(i+1);}drawT()},1000)}
+function drawT(){$('tm').innerHTML=Object.keys(T).map(function(i){var o=T[i];return'<div class="tp'+(o.done?' done':'')+'" role="timer" aria-label="Step '+(+i+1)+' timer">Step '+(+i+1)+'<b>'+(o.done?'Done!':mmss(o.left))+'</b>'+(o.done?'':'<button data-tp="'+i+'">'+(o.p?'Resume':'Pause')+'</button>')+'<button data-tc="'+i+'" aria-label="Cancel timer for step '+(+i+1)+'">'+(o.done?'Dismiss':'✕')+'</button></div>'}).join('')}
+$('tm').addEventListener('click',function(e){var p=e.target.closest('[data-tp]');if(p){T[p.dataset.tp].p=!T[p.dataset.tp].p;drawT();return}var c=e.target.closest('[data-tc]');if(c){clearInterval(T[c.dataset.tc].iv);delete T[c.dataset.tc];drawT()}});
+render();
+})();
+</script></body></html>

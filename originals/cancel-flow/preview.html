@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cancel Subscription Flow — Components</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#1d241f;--mut:#667068;--gr:#1f7a4d;--am:#b45f06;--ln:#e1e3dc}
+*{box-sizing:border-box}
+body{margin:0;background:#f3f4f1;color:var(--ink);font:400 16px/1.55 'Instrument Sans',sans-serif;min-height:100svh}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:3px}
+.bg{max-width:900px;margin:0 auto;padding:30px 20px;filter:blur(0)}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}.lg{font-weight:700;font-size:20px;display:flex;gap:8px;align-items:center}.lg i{width:22px;height:22px;border-radius:50%;border:5px solid var(--gr);display:block}
+.pl{background:#fff;border:1px solid var(--ln);border-radius:20px;padding:26px;display:grid;gap:10px}
+.pl h1{font:700 26px 'Instrument Sans';margin:0;letter-spacing:-.02em}.pl p{margin:0;color:var(--mut)}
+.badge{display:inline-block;background:#e4f4ea;color:var(--gr);font-weight:700;font-size:13px;border-radius:999px;padding:2px 12px;justify-self:start}
+.btn{border:1px solid #c7ccc3;background:#fff;color:var(--ink);border-radius:12px;padding:12px 20px;font:600 16px 'Instrument Sans';cursor:pointer;min-height:48px}
+.btn.p{background:var(--gr);color:#fff;border-color:var(--gr)}.btn.p:hover{background:#18633f}
+.btn.d{background:#fff;color:#a8321f;border-color:#e2b3aa}.btn.d:hover{background:#fdf1ee}
+.btn[aria-disabled=true]{opacity:.45;cursor:not-allowed}
+.lk{background:none;border:0;color:var(--mut);text-decoration:underline;text-underline-offset:3px;font:500 15px 'Instrument Sans';cursor:pointer;min-height:44px;padding:0 6px}
+dialog{border:1px solid var(--ln);border-radius:24px;padding:0;width:min(560px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;box-shadow:0 30px 80px -40px rgba(20,30,20,.6);color:var(--ink)}
+dialog::backdrop{background:rgba(29,36,31,.45)}
+.fl{padding:28px}
+.dots{display:flex;gap:6px;margin-bottom:20px}.dots i{height:5px;flex:1;border-radius:3px;background:#e4e7df}.dots i.on{background:var(--gr)}
+.st{animation:in .25s}
+@keyframes in{from{opacity:0;transform:translateX(16px)}}
+h2{font:700 26px/1.2 'Instrument Sans';margin:0 0 6px;letter-spacing:-.02em}h2:focus{outline:none}
+.sub{color:var(--mut);margin:0 0 18px}
+.opts{display:grid;gap:8px;border:0;padding:0;margin:0}
+.opt{display:flex;gap:12px;align-items:center;border:1.5px solid #d4d8cf;border-radius:14px;padding:14px 16px;cursor:pointer;min-height:54px}
+.opt:hover{border-color:#a9b2a4}.opt:has(input:checked){border-color:var(--gr);background:#f2faf5}.opt:has(input:focus-visible){outline:3px solid #2f7de1;outline-offset:2px}
+.opt input{width:20px;height:20px;accent-color:var(--gr);flex:none}
+textarea,input[type=text]{width:100%;border:1.5px solid #d4d8cf;border-radius:12px;padding:12px;font:inherit;margin-top:10px}
+.er{color:#a8321f;font-size:14px;margin-top:8px;min-height:0}
+.of{border:1.5px solid #cfe5d6;background:#f6fbf8;border-radius:18px;padding:20px;margin-bottom:12px}.of h3{margin:0 0 4px;font:700 20px 'Instrument Sans'}.of p{margin:0 0 14px;color:var(--mut)}
+.pa{display:flex;gap:8px;margin:0 0 14px;flex-wrap:wrap}
+.lose{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:8px}.lose li{display:flex;gap:10px;align-items:flex-start}.lose li:before{content:'✕';color:#a8321f;font-weight:700;margin-top:1px}
+.am{background:#fff4e0;color:#7a4300;border-radius:12px;padding:12px 14px;font-size:15px;margin-bottom:16px}
+.ack{display:flex;gap:12px;align-items:flex-start;cursor:pointer;padding:6px 0}.ack input{width:22px;height:22px;accent-color:var(--gr);margin-top:2px;flex:none}
+.sm{border:1px solid var(--ln);border-radius:14px;padding:6px 16px;margin-bottom:18px}.sm div{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #eef0ea}.sm div:last-child{border:0}.sm span{color:var(--mut)}
+.ft{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:22px;flex-wrap:wrap}
+.ft .r{display:flex;gap:10px;flex-wrap:wrap}
+.keep{width:100%;margin-top:12px}
+.done{text-align:center;padding:12px 0}.done .ic{width:68px;height:68px;border-radius:50%;background:#e4f4ea;color:var(--gr);display:grid;place-items:center;font-size:32px;margin:0 auto 16px}
+.cf{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.4);display:grid;place-items:center;padding:16px}.cf>div{background:#fff;border-radius:18px;padding:24px;max-width:380px;width:100%}.cf h3{margin:0 0 6px;font:700 20px 'Instrument Sans'}.cf .ac{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+.sr{position:absolute;left:-9999px}
+@media(max-width:560px){dialog{width:100vw;max-width:none;margin:auto 0 0;border-radius:24px 24px 0 0;max-height:92dvh}.fl{padding:20px 16px 24px}.ft{flex-direction:column-reverse;align-items:stretch}.ft .r{flex-direction:column}.bg{padding:20px 16px}}
+@media(prefers-reduced-motion:reduce){.st{animation:none}}
+</style></head><body>
+<div class="bg"><div class="nav"><div class="lg"><i aria-hidden="true"></i>Cadence</div><span style="color:var(--mut)">Account</span></div>
+<section class="pl" id="pl"><span class="badge" id="bd">Plus · active</span><h1 id="ph">Your plan</h1><p id="pp">Plus, £7.99 per month. Renews on <b id="rd"></b>.</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px"><button class="btn" type="button">Change plan</button><button class="btn" id="ct" type="button">Cancel subscription</button></div></section></div>
+<dialog id="dlg" aria-labelledby="h"><div class="fl"><div class="dots" id="dots" aria-hidden="true"></div><div id="bd2"></div></div></dialog>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var R=[['price','Too expensive'],['use','I am not using it enough'],['feat','It is missing a feature I need'],['alt','I found an alternative'],['break','I am just taking a break'],['other','Something else']];
+var st=0,reason='',txt='',offer=null,ack=false,res=null;
+var now=new Date();function dt(d){return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}
+var bill=new Date(now);bill.setDate(bill.getDate()+30);$('rd').textContent=dt(bill);
+var dlg=$('dlg');
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function dots(){$('dots').innerHTML=[0,1,2,3].map(function(i){return'<i class="'+(i<=st&&!res?'on':res?'on':'')+'"></i>'}).join('')}
+function view(){
+ dots();var h='';
+ if(res){
+  var r=res,t=r==='pause'?['Plan paused','Your plan is paused until '+dt(new Date(now.getFullYear(),now.getMonth()+offer.m,now.getDate()))+'. Nothing is charged until then and your data stays safe.']:r==='disc'?['Discount applied','You will pay £3.99 a month for the next three months. Thanks for staying with us.']:['Subscription cancelled','You keep Plus until '+dt(bill)+'. We will keep your data for 90 days in case you change your mind.'];
+  h='<div class="done st"><div class="ic" aria-hidden="true">'+(r==='cancel'?'✓':'✓')+'</div><h2 id="h" tabindex="-1">'+t[0]+'</h2><p class="sub">'+t[1]+'</p><div class="ft" style="justify-content:center"><button class="btn p" type="button" data-close>Done</button>'+(r==='cancel'?'<button class="lk" type="button" data-re>Changed your mind? Resubscribe</button><button class="lk" type="button">Export my data</button>':'')+'</div></div>';
+ }else if(st===0){
+  h='<div class="st"><h2 id="h" tabindex="-1">Before you go</h2><p class="sub">Tell us why you are leaving. It takes ten seconds and genuinely helps.</p><fieldset class="opts"><legend class="sr">Reason for cancelling</legend>'+R.map(function(r){return'<label class="opt"><input type="radio" name="rs" value="'+r[0]+'"'+(reason===r[0]?' checked':'')+'>'+r[1]+'</label>'}).join('')+'</fieldset>'+(reason==='other'||reason==='alt'?'<label class="sr" for="tx">Tell us more</label><input type="text" id="tx" placeholder="'+(reason==='alt'?'Which one?':'Tell us more')+'" value="'+esc(txt)+'">':'')+'<div class="er" id="er" role="alert"></div><div class="ft"><button class="lk" type="button" data-close>Keep my plan</button><div class="r"><button class="btn p" type="button" data-next>Continue</button></div></div></div>';
+ }else if(st===1){
+  var o=reason;
+  var card=o==='price'?'<div class="of"><h3>50% off for 3 months</h3><p>Pay £3.99 a month for the next three months, then £7.99 as normal. Cancel any time.</p><button class="btn p" type="button" data-acc="disc">Apply 50% off</button></div>':
+   (o==='use'||o==='break')?'<div class="of"><h3>Pause instead</h3><p>Take a break without losing your habits or history. Nothing is charged while paused.</p><div class="pa" role="group" aria-label="Pause length">'+[1,2,3].map(function(m){return'<button class="btn" type="button" data-p="'+m+'">'+m+' month'+(m>1?'s':'')+'</button>'}).join('')+'</div></div>':
+   o==='feat'?'<div class="of"><h3>Tell us what is missing</h3><p>We read every message, and many of our best features started here.</p><label class="sr" for="ft">What feature?</label><textarea id="ft" rows="3" placeholder="e.g. Shared plans for families"></textarea><p style="margin:10px 0 0"><a href="#" style="color:var(--gr)">See the public roadmap</a></p></div>':
+   '<div class="of"><h3>Thanks for letting us know</h3><p>If anything changes, you can come back at any time and pick up where you left off.</p></div>';
+  h='<div class="st"><h2 id="h" tabindex="-1">'+(o==='price'||o==='use'||o==='break'?'Would this help?':'Anything we can do?')+'</h2><p class="sub">Here is something that might fit better than cancelling.</p>'+card+'<div class="ft"><button class="lk" type="button" data-back>Back</button><div class="r"><button class="btn p" type="button" data-close>Keep my plan</button><button class="btn" type="button" data-next>No thanks, continue</button></div></div></div>';
+ }else if(st===2){
+  h='<div class="st"><h2 id="h" tabindex="-1">What you will lose</h2><p class="sub">Your plan ends on <b>'+dt(bill)+'</b>. After that:</p><ul class="lose"><li>Unlimited habits (the free plan allows 3)</li><li>Weekly insights and streak recovery</li><li>Shared plans and reminders</li><li>Calendar and wearable sync</li></ul><div class="am">We keep your data for 90 days after you leave, so you can come back and restore it.</div><label class="ack"><input type="checkbox" id="ak"'+(ack?' checked':'')+'><span>I understand what will change on '+dt(bill)+'.</span></label><div class="er" id="er" role="alert"></div><div class="ft"><button class="lk" type="button" data-back>Back</button><div class="r"><button class="btn p" type="button" data-close>Keep my plan</button><button class="btn" type="button" data-next>Continue</button></div></div></div>';
+ }else{
+  h='<div class="st"><h2 id="h" tabindex="-1">Confirm cancellation</h2><p class="sub">Please check the details below.</p><div class="sm"><div><span>Plan</span><b>Plus, £7.99 per month</b></div><div><span>Access until</span><b>'+dt(bill)+'</b></div><div><span>Reason</span><b>'+esc((R.filter(function(r){return r[0]===reason})[0]||[0,'—'])[1])+'</b></div><div><span>Future charges</span><b>None</b></div></div><div class="ft" style="flex-direction:row"><button class="btn p" type="button" data-close style="flex:1">Keep my plan</button><button class="btn d" type="button" data-cancel style="flex:1">Cancel subscription</button></div><div style="text-align:center;margin-top:8px"><button class="lk" type="button" data-back>Back</button></div></div>';
+ }
+ $('bd2').innerHTML=h;
+ var hh=$('h');if(hh){hh.focus();$('live').textContent=hh.textContent}
+}
+function open(){st=0;reason='';txt='';ack=false;res=null;offer=null;view();dlg.showModal()}
+$('ct').onclick=open;
+function leaveGuard(){if(res||(st===0&&!reason)){dlg.close();return}
+ var c=document.createElement('div');c.className='cf';c.innerHTML='<div role="alertdialog" aria-labelledby="ct1"><h3 id="ct1">Leave without cancelling?</h3><p style="margin:0;color:var(--mut)">Your plan will stay exactly as it is.</p><div class="ac"><button class="btn" type="button" id="cs">Keep going</button><button class="btn p" type="button" id="cl">Keep my plan</button></div></div>';document.body.appendChild(c);$('cs').focus();
+ $('cs').onclick=function(){c.remove();var hh=$('h');if(hh)hh.focus()};$('cl').onclick=function(){c.remove();dlg.close()}}
+dlg.addEventListener('cancel',function(e){e.preventDefault();leaveGuard()});
+dlg.addEventListener('click',function(e){
+ if(e.target===dlg){leaveGuard();return}
+ var b=e.target.closest('button');if(!b)return;
+ if(b.hasAttribute('data-close')){if(res)dlg.close();else leaveGuard();return}
+ if(b.hasAttribute('data-back')){st=Math.max(0,st-1);view();return}
+ if(b.hasAttribute('data-re')){res=null;dlg.close();return}
+ if(b.dataset.acc==='disc'){res='disc';$('bd').textContent='Plus · 50% off';$('pp').innerHTML='Plus, £3.99 per month for 3 months, then £7.99.';view();return}
+ if(b.dataset.p){offer={m:+b.dataset.p};res='pause';$('bd').textContent='Plus · paused';$('pp').textContent='Paused until '+dt(new Date(now.getFullYear(),now.getMonth()+offer.m,now.getDate()))+'.';view();return}
+ if(b.hasAttribute('data-cancel')){res='cancel';$('bd').textContent='Plus · ends '+dt(bill);$('pp').textContent='Your subscription is cancelled. You keep access until '+dt(bill)+'.';view();return}
+ if(b.hasAttribute('data-next')){
+  if(st===0){var r=document.querySelector('[name=rs]:checked');if(!r){$('er').textContent='Please choose a reason to continue.';document.querySelector('[name=rs]').focus();return}reason=r.value;var t=$('tx');txt=t?t.value:'';st=1}
+  else if(st===2){if(!$('ak').checked){$('er').textContent='Please tick the box to continue.';$('ak').focus();return}ack=true;st=3}
+  else st++;
+  view()}
+});
+dlg.addEventListener('change',function(e){if(e.target.name==='rs'){reason=e.target.value;var tx=$('tx');var need=reason==='other'||reason==='alt';if(need&&!tx||!need&&tx){view();var rr=document.querySelector('[name=rs][value="'+reason+'"]');if(rr)rr.focus()}}});
+})();
+</script></body></html>

@@ -1,0 +1,11 @@
+Canvas & base: A soft modern portfolio on #eceae6 (dark mode #111113) with tiles in white (dark #1b1b1f), 28px radius, 1px #e1ddd5 borders and layered soft shadows. Tile accent fills: lemon #f6e27a, lilac #cfc3ff, peach #ffc9b0, mint #bfe8d3, sky #bcd9ff. Ink #17171a. Invented designer "Noor Eliasson", product designer in Gothenburg.
+
+Typography: "Bricolage Grotesque" (400, 600, 800) for the large intro and tile titles (intro clamp(34px,5vw,60px) 800 tracking -.03em) and "Geist"-like "Inter Tight" (400, 500, 600) for body and labels. Mono details in "JetBrains Mono" 500 at 12px.
+
+Layout: A 4-column CSS grid with gap 14px and auto rows of 150px, tiles spanning variously: a large intro tile (2×2) with avatar made from shapes, greeting, one-sentence bio and "Available for work" pulsing dot; a featured project tile (2×2) with an inline-SVG mock UI and title; stats tile (1×1: "8 years, 42 projects"); live local time tile (1×1) with an analog clock drawn in SVG and city; a tools tile (2×1) with icon chips; social tile (1×1) with link rows; a quote tile (2×1); a "Latest writing" tile (1×1); a contact CTA tile (2×1, accent fill) with email copy button; and a theme toggle tile (1×1).
+
+Interaction: Tiles lift with a transform and shadow on hover or focus (not on touch). The featured project and writing tiles open a native dialog quick-view with a short case study. The clock updates every second (static under reduced motion). Copy email shows "Copied". Theme toggle switches light/dark with a smooth transition and remembers the choice (try/catch); default follows prefers-color-scheme. Tiles fade in with stagger unless reduced motion.
+
+Responsive: 4 columns on desktop, 2 on tablet, 1 on mobile with spans reset (the 2×2 tiles keep a taller min-height); no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Interactive tiles are buttons or links with focus rings; clock has an accessible text alternative. Invented names only.

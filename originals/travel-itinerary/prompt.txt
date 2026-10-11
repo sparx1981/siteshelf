@@ -1,0 +1,11 @@
+Canvas & base: A bright travel planner on #f2f7f6 with white cards (1px #dbe7e4 border, 18px radius), ink #14312d, secondary #5d7a75, primary teal #0f766e, coral accent #ff6b4a, sand #fff3df. Category colours: Sights #7c5cff, Food #ff6b4a, Transport #0ea5e9, Stay #f59e0b, Free time #10b981. Invented trip "Four days in Lisbon-by-the-sea", fictional "Costa Brava Kite", 4 days, budget €900.
+
+Typography: "Outfit" (400, 500, 600, 700) for UI and "Lora" (500, 600, italic) for the trip title and day headings. Times in tabular-nums.
+
+Layout: Header with trip title, dates, travellers avatars, and a budget meter (spent / €900). Day tab strip (Day 1–4 with date and weather icon). Two columns: left a vertical timeline of activity cards for the selected day (time, title, category chip, duration, cost, short note, buttons Move up, Move down, Remove), with "Add activity" row at the end (inline form: title, time, category, cost); right a sticky map sketch (SVG with a coastline, pins numbered per stop, route polyline) plus a day summary card (total cost, walking time, number of stops).
+
+Interaction: Selecting a day swaps the timeline and map with a short fade. Hovering or focusing a card highlights its pin and vice versa; clicking a pin scrolls to its card. Move buttons reorder with an animated swap and renumber pins; times can be edited inline (time input). Costs roll into the budget meter, which turns amber above 85% and coral above 100% with a text message. Add activity validates the title. Remove asks inline "Undo" toast. Data saved in localStorage (try/catch).
+
+Responsive: Below 900px the map moves above the timeline as a compact strip; day tabs scroll horizontally; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Day tabs use role=tablist with arrow keys; reorder buttons have descriptive aria-labels and announce the new position. Invented names only.

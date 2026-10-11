@@ -1,0 +1,11 @@
+Canvas & base: A warm kitchen-table look on #fbf6ee with cards in #fffdf8 (1px #eadfca border, 18px radius), ink #2a211b, secondary #7a6a5a, tomato accent #d6452b, basil #4f7a3a, butter #f6d98a. The dish illustration is drawn in CSS/SVG (a bowl with pasta swirl and basil leaves). Invented recipe "Slow-roast tomato orecchiette", by "Marguerite Ashdown".
+
+Typography: "DM Serif Display" (400, italic) for the recipe title (clamp(36px,6vw,64px)) and section heads, "Figtree" (400, 500, 600, 700) for ingredients, steps and UI. Quantities in tabular-nums 600.
+
+Layout: Hero with title, rating, time chips (Prep 15 min, Cook 45 min, Serves n), and the SVG bowl. Two columns: left sticky Ingredients card with a servings stepper (−, count, +; 1–12) and a Metric/Imperial segmented control, the ingredient list with checkboxes (quantity, unit, name, note), and a "Copy shopping list" button; right numbered Method steps each with a checkbox-like "Done" toggle and, where relevant, a "Start 20 min timer" button. A small notes box at the end.
+
+Interaction: Changing servings rescales every quantity from the base (4 servings) and formats nicely (fractions like ½, ⅓, ¼, ¾ for volumes and small counts; whole numbers or one decimal for weights); metric/imperial converts g↔oz, ml↔fl oz, °C↔°F in steps. Ticking an ingredient strikes it through and updates "x of y gathered". Steps can be marked done, and the next step gets a subtle highlight. Timers run in a floating pill (mm:ss) with pause/cancel, supporting two at once, announce completion via aria-live and a soft visual pulse (no audio). Copy shopping list copies unticked ingredients as text (try/catch) and shows "Copied". State is remembered in localStorage (try/catch).
+
+Responsive: Single column below 860px with the ingredient card first (not sticky); timer pill sits at the bottom; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Stepper buttons have labels and the count is an output element; checkboxes are real inputs; timers use role=timer. Invented names only.

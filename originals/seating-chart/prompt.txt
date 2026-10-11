@@ -1,0 +1,11 @@
+Canvas & base: A planner workspace on warm #f7f4ee with a floor area #fffdf8 bordered 1px #e4ddcf and a subtle parquet-like repeating-linear-gradient. Tables are circles with a ring showing seats filled (SVG stroke) in sage #5d8a6b, warning amber #e0a030 when over capacity, and ink #25302a labels. Guest chips are rounded pills in pastel tints by group: Family #ffd9c9, Friends #d7e8ff, Work #e3f3d5, Neighbours #f0e0ff. Invented event "Okonkwo–Reyes anniversary dinner", 40 guests, 5 round tables of 8.
+
+Typography: "Fraunces" (600) for table names and headings, "Nunito" (400, 600, 700) for chips and UI.
+
+Layout: Two-pane. Left sidebar "Unseated (n)" with search input, group filter chips and a list of guest chips with a small drag handle. Right floor plan with five round tables (T1–T5) arranged in a loose grid, each showing its name, "5 / 8" and seat dots around the circumference that fill as guests are assigned; guests seated at a table are listed in a small popover or caption card under the table. A top bar shows "Seated 27 of 40", an Auto-seat button (fills remaining by group) and Reset.
+
+Interaction: Drag a guest chip onto a table to seat them (pointer events, with a drag ghost); dropping onto the sidebar unseats. Keyboard alternative: focus a chip, press Enter to pick it up, use arrow keys or Tab to move between tables, Enter to drop, Escape to cancel, announced in an aria-live region. A table at capacity rejects the drop with a shake and message. Conflicts: a "Keep apart" pair (two guests) shows an amber warning icon on a table if both are seated there. Auto-seat respects capacity and groups. Guest removal from a table via an x on the chip in the table caption.
+
+Responsive: Below 820px the sidebar moves above the floor plan as a horizontally scrolling chip tray; the floor plan scales via viewBox/CSS grid; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Touch dragging must not break page scrolling (use touch-action only on the handle). Invented names only.

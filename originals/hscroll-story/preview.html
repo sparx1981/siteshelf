@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Long Way Round</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#f3efe7;color:#1b1b1f;font:400 19px/1.6 Inter,system-ui,sans-serif}
+.intro{height:100svh;display:grid;place-items:center;text-align:center;padding:24px}
+.intro h1{font:700 clamp(48px,9vw,150px)/.95 Fraunces,Georgia,serif;letter-spacing:-.03em;margin:0 0 20px}
+.intro h1 em{font-weight:400}
+.lb{font:600 12px Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:#6a665d}
+.arrow{display:block;margin:28px auto 0;width:40px;height:40px;animation:bob 1.6s ease-in-out infinite;color:#e4572e}
+@keyframes bob{50%{transform:translateY(10px)}}
+.sec{position:relative;height:500vh}
+.pin{position:sticky;top:0;height:100vh;overflow:hidden}
+.trk{display:flex;height:100%;width:500vw;will-change:transform}
+.pnl{position:relative;flex:none;width:100vw;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 max(32px,8vw);overflow:hidden}
+.p1{background:#f3efe7}.p2{background:#ffd9c2}.p3{background:#cfe8dc}.p4{background:#c9d6ff}.p5{background:#1b1b1f;color:#f3efe7}.p5 .lb{color:#a9a69c}.p5 p{color:#d3d0c6}
+.pnl .tx{position:relative;z-index:2;max-width:760px}
+.n{font:600 12px Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;margin-bottom:18px;color:#e4572e}
+h2{font:700 clamp(48px,9vw,150px)/.95 Fraunces,Georgia,serif;letter-spacing:-.03em;margin:0 0 24px;transition:opacity .7s,transform .7s}
+h2 em{font-weight:400}
+.pnl p{margin:0;max-width:34em;color:#3d3a34}
+.pnl .rv{opacity:0;transform:translateY(40px)}
+.pnl.on .rv{opacity:1;transform:none}
+.sh{position:absolute;inset:0;pointer-events:none;z-index:1}
+.sh i{position:absolute;display:block}
+.p1 .a{right:8%;top:14%;width:26vmin;height:26vmin;border-radius:50%;background:#e4572e}
+.p1 .b{right:22%;bottom:12%;width:44vmin;height:22vmin;border-radius:44vmin 44vmin 0 0;background:#1b1b1f}
+.p2 .a{right:10%;top:20%;width:34vmin;height:34vmin;border-radius:50%;background:radial-gradient(circle,#fff4d6,#ffb36b)}
+.p2 .b{right:4%;bottom:0;width:60vmin;height:16vmin;background:repeating-linear-gradient(90deg,#e4572e 0 40px,transparent 40px 80px)}
+.p3 .a{right:8%;top:12%;width:40vmin;height:40vmin;border-radius:50%;border:6vmin solid #4c9a7a}
+.p3 .b{right:30%;bottom:14%;width:20vmin;height:20vmin;border-radius:50%;background:#e4572e}
+.p4 .a{right:6%;bottom:10%;width:70vmin;height:30vmin;background:repeating-radial-gradient(ellipse at 50% 100%,#6b82e8 0 12px,transparent 12px 28px);border-radius:50% 50% 0 0}
+.p4 .b{right:20%;top:12%;width:16vmin;height:16vmin;border-radius:50%;background:#fff}
+.p5 .a{right:10%;top:16%;width:30vmin;height:30vmin;border-radius:50%;box-shadow:inset -3vmin -3vmin 0 #f3efe7,0 0 0 2px #f3efe7}
+.p5 .b{right:26%;bottom:16%;width:6vmin;height:6vmin;border-radius:50%;background:#e4572e}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:14px max(20px,4vw);display:flex;align-items:center;gap:20px;background:linear-gradient(transparent,rgba(243,239,231,.92) 40%);opacity:0;pointer-events:none;transition:opacity .3s}
+.bar.on{opacity:1;pointer-events:auto}
+.bar .pg{flex:1;height:3px;background:rgba(27,27,31,.15);border-radius:2px;overflow:hidden}.bar .pg i{display:block;height:100%;width:100%;background:#e4572e;transform-origin:left;transform:scaleX(0)}
+.dots{display:flex;gap:8px}.dots button{width:14px;height:14px;border-radius:50%;border:2px solid #1b1b1f;background:none;cursor:pointer;padding:0}
+.dots button[aria-current=true]{background:#e4572e;border-color:#e4572e}
+.dots button:focus-visible{outline:2px solid #e4572e;outline-offset:3px}
+.bar .cn{font:600 13px Inter,sans-serif;min-width:150px;text-align:right;color:#1b1b1f}
+.end{min-height:100svh;display:grid;place-items:center;text-align:center;background:#f3efe7;padding:24px}
+.end a{color:#e4572e;font-weight:600;text-underline-offset:4px}
+@media(max-width:800px),(prefers-reduced-motion:reduce){
+ .sec{height:auto}.pin{position:static;height:auto;overflow:visible}.trk{display:block;width:auto;transform:none!important}
+ .pnl{width:100%;min-height:80svh;padding:64px 24px}.bar{display:none}.sh i{transform:none!important}
+ .pnl .rv{opacity:1;transform:none}
+}
+</style></head><body>
+<section class="intro"><div><p class="lb">A short story in five chapters</p><h1>The long <em>way round</em></h1><p class="lb">Scroll to travel</p><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"/></svg></div></section>
+<section class="sec" id="sec" aria-label="Story chapters"><div class="pin"><div class="trk" id="trk">
+ <article class="pnl p1" id="c0"><div class="sh"><i class="a" data-s=".5"></i><i class="b" data-s="1.4"></i></div><div class="tx"><div class="n rv">01 / 05</div><h2 class="rv">Leaving <em>early</em></h2><p class="rv">The road out of town was empty at dawn, and the map on the passenger seat had one line drawn across it in pencil. We were not going anywhere in particular. That was the whole idea.</p></div></article>
+ <article class="pnl p2" id="c1"><div class="sh"><i class="a" data-s=".6"></i><i class="b" data-s="1.5"></i></div><div class="tx"><div class="n rv">02 / 05</div><h2 class="rv">The <em>warm</em> hours</h2><p class="rv">By noon the windows were down and the radio had given up. We stopped for peaches at a roadside stand and ate them on the bonnet, watching the heat shimmer over the fields like water.</p></div></article>
+ <article class="pnl p3" id="c2"><div class="sh"><i class="a" data-s=".5"></i><i class="b" data-s="1.3"></i></div><div class="tx"><div class="n rv">03 / 05</div><h2 class="rv">Into the <em>green</em></h2><p class="rv">The road bent into a forest so dense the light turned green. We drove with the engine off down the last hill, listening to the tyres whisper and a river somewhere below us.</p></div></article>
+ <article class="pnl p4" id="c3"><div class="sh"><i class="a" data-s="1.2"></i><i class="b" data-s=".6"></i></div><div class="tx"><div class="n rv">04 / 05</div><h2 class="rv">The <em>sea</em>, at last</h2><p class="rv">Then, with no warning at all, the land ended. The whole sky turned the colour of a blue we had no word for, and the pencil line on the map finally touched the edge of the page.</p></div></article>
+ <article class="pnl p5" id="c4"><div class="sh"><i class="a" data-s=".5"></i><i class="b" data-s="1.4"></i></div><div class="tx"><div class="n rv">05 / 05</div><h2 class="rv">Home <em>after dark</em></h2><p class="rv">We drove back through the night with the windows up and nothing to say. It had not been the shortest way, and that was exactly why we would remember it.</p></div></article>
+</div></div></section>
+<div class="bar" id="bar"><div class="dots" id="dots" role="group" aria-label="Chapters"></div><div class="pg"><i id="pgi"></i></div><div class="cn" id="cn">Leaving early</div></div>
+<section class="end"><div><h2 style="font-size:clamp(40px,7vw,96px)">The end</h2><p class="lb" style="margin-bottom:16px">Thanks for the ride</p><a href="#" id="top">Back to the top</a></div></section>
+<script>
+(function(){
+var sec=document.getElementById('sec'),trk=document.getElementById('trk'),bar=document.getElementById('bar'),pgi=document.getElementById('pgi'),cn=document.getElementById('cn'),dots=document.getElementById('dots');
+var N=5,names=['Leaving early','The warm hours','Into the green','The sea, at last','Home after dark'],pnl=[].slice.call(document.querySelectorAll('.pnl')),shapes=[].slice.call(document.querySelectorAll('.sh i'));
+var cur=0,target=0,pos=0,run=false;
+var stacked=function(){return matchMedia('(max-width:800px)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches};
+names.forEach(function(n,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Chapter '+(i+1)+': '+n);b.onclick=function(){if(stacked()){pnl[i].scrollIntoView({behavior:'smooth'});return}var top=sec.offsetTop+i/(N-1)*(sec.offsetHeight-innerHeight);scrollTo({top:top,behavior:'smooth'})};dots.appendChild(b)});
+function prog(){var r=sec.getBoundingClientRect(),max=sec.offsetHeight-innerHeight;return Math.max(0,Math.min(1,-r.top/max))}
+function frame(){var d=target-pos;pos+=d*.12;if(Math.abs(d)<.0003)pos=target;
+ var W=innerWidth,x=-pos*(N-1)*W;trk.style.transform='translate3d('+x+'px,0,0)';
+ shapes.forEach(function(s){var k=+s.dataset.s,pi=pnl.indexOf(s.closest('.pnl')),off=(pi*W+x);s.style.transform='translate3d('+(off*(k-1)*-.35*-1)+'px,0,0)'});
+ pgi.style.transform='scaleX('+pos+')';
+ var ci=Math.round(pos*(N-1));if(ci!==cur||!dots.querySelector('[aria-current]')){cur=ci;cn.textContent=names[ci];[].forEach.call(dots.children,function(b,i){if(i===ci)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current')})}
+ pnl.forEach(function(p,i){p.classList.toggle('on',Math.abs(pos*(N-1)-i)<.55)});
+ if(pos!==target)requestAnimationFrame(frame);else run=false}
+function onScroll(){if(stacked()){bar.classList.remove('on');trk.style.transform='';return}
+ var r=sec.getBoundingClientRect();bar.classList.toggle('on',r.top<=0&&r.bottom>innerHeight*.5);target=prog();if(!run){run=true;requestAnimationFrame(frame)}}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',function(){onScroll();if(stacked())pnl.forEach(function(p){p.classList.add('on')})});
+document.getElementById('top').onclick=function(e){e.preventDefault();scrollTo({top:0,behavior:'smooth'})};
+if(stacked())pnl.forEach(function(p){p.classList.add('on')});onScroll();
+})();
+</script>
+</body></html>

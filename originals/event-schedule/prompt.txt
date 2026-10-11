@@ -1,0 +1,11 @@
+Canvas & base: Page #0f1220, panels #171b2e, border #262b45, text #eef0fb, muted #8e94b8. Track colours: Product #7c5cff, Engineering #19d3a2, Design #ff7a59, Business #ffc933. Max width 1180px centred, 24px gutters.
+
+Typography: "Space Grotesk" (500, 700) for headings and times, "Inter" (400, 500, 600) for body. Page title 40px 700, session titles 16px 600, speaker lines 14px muted, time labels 13px tabular-nums.
+
+Layout: Header: title "Summit 2026" with date and venue, and a "My agenda (n)" button. Day tabs (Thu 15, Fri 16, Sat 17). A row of track filter chips (All, Product, Engineering, Design, Business), each with a coloured dot, toggling on and off. The schedule is a grid: a left time column (09:00 to 17:00 in 30 minute rows, each row 56px) and four track columns. Sessions are absolutely positioned cards spanning their duration (30, 45, 60, 90 minutes) with a 4px left border in the track colour, title, speaker, room and a star button in the corner. A horizontal red "Now" line with a pill crosses the grid at the current simulated time (set to 11:15 on the first day and moving every 10s, advancing one minute per tick).
+
+Interaction: Day tabs switch the data set with a quick fade. Filter chips hide columns' non-matching sessions (dimmed to 15% opacity) rather than removing the layout. Clicking a card expands a detail panel below the grid (title, abstract, speaker, time, room, Add to agenda button). The star toggles a saved session; saved sessions are counted in the header button and listed in a right-hand drawer sorted by time, flagging time clashes with an amber warning. Keyboard: cards are buttons, Escape closes the drawer and detail.
+
+Responsive: Under 900px the grid switches to a single agenda list grouped by time with the track colour as a left border, filters still work, and the Now marker becomes a badge on the current group.
+
+Rules: Generate at least 8 sessions per day (24 total) from an in-page array with plausible titles and speakers. prefers-reduced-motion disables fades. No images, no libraries, one HTML file.

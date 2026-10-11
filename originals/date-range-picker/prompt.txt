@@ -1,0 +1,11 @@
+Canvas & base: Page #f4f7f6. A white booking card 880px max, radius 24px, padding 28px, shadow 0 20px 50px rgba(15,60,50,0.12). Ink #14231f, muted #5f726c, line #e3ebe8, accent teal #0f9d8a, range tint #d9f3ee, disabled #b7c4bf. Body margin 0, min-height 100svh, content centred.
+
+Typography: "Outfit" (400, 500, 600, 700). Month titles 18px 600, weekday labels 12px uppercase muted, day numbers 15px 500, summary figures 28px 700 tabular-nums.
+
+Layout: Header row with the title "Plan your stay", two read-only fields "Check in" and "Check out" showing the chosen dates (or "Add date"), and a nights badge. Below, a calendar with two consecutive months side by side (one on mobile), each a 7-column grid of 44px square day buttons with previous and next month arrow buttons in the header of each side. Under the calendar, a preset row (Weekend, Next 7 nights, Two weeks, Clear). A summary panel: nights, nightly rate £142 as a number with a unit, total cost, and a primary "Reserve" button disabled until a full range is selected.
+
+Interaction: Dates before today are disabled. First click sets check-in, second click sets check-out (if earlier than check-in it becomes the new check-in). While choosing check-out, hovering a later day previews the range in the tint colour with rounded caps at both ends. The start and end days are solid teal circles. Clicking a third time starts over. Presets select ranges relative to today. Arrow keys move focus by day and week across the grid, Enter selects, PageUp and PageDown change month. The summary computes nights and total from the selection and the Reserve button shows a confirmation line instead of navigating.
+
+Responsive: Under 720px one month shows with its own prev and next arrows; day cells flex to fit; the summary stacks below.
+
+Rules: Compute "today" from the Date object, never hard-code dates. The grid uses role="grid" with aria-selected on chosen days. prefers-reduced-motion removes transitions. No images, no libraries, one HTML file. Do not use a pound sign as a JavaScript identifier.

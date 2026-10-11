@@ -1,0 +1,13 @@
+Canvas & base: Page #101114, content card #17181d with 1px #26272e border and radius 24px, padding 24px, max-width 1000px centred. Text #f2f2f5, muted #9a9ba6, accent #ffd166. Body margin 0, min-height 100svh, content centred vertically.
+
+Typography: "Hanken Grotesk" (400, 600, 700, 800). Title 30px 800 letter-spacing -0.02em, labels 12px uppercase tracking 0.14em, tabs 15px 600.
+
+Layout: Title "See the difference" and a muted sentence. A row of three scene tabs (Mountains, Living room, City night). Below, a 16:9 comparison frame (radius 16px, overflow hidden) containing two full-bleed scenes drawn only with CSS gradients and inline SVG: the "after" scene is the bright, saturated version and the "before" scene is the same composition desaturated, low contrast and slightly blurred (use the same markup with a CSS filter grayscale(0.8) contrast(0.7) brightness(0.8) blur(1.5px)). A vertical divider line 3px wide with a round 48px handle (two chevrons) sits at 50%. "BEFORE" and "AFTER" pill labels sit in the top corners and fade as the divider approaches them.
+
+Scenes: (1) Mountains: sky gradient, a sun, three layered SVG mountain ranges and a lake reflection band. (2) Living room: a wall, a floor, a sofa, a lamp with a glow and a framed picture, drawn with divs. (3) City night: dark sky, stars, a skyline of rectangles with lit windows built from a repeating gradient, and a moon.
+
+Interaction: Drag the handle or click anywhere on the frame to move the divider (pointer events, works with touch, clamped to 0 to 100). The before layer is revealed with clip-path inset. Keyboard: the handle is role="slider" with ArrowLeft and ArrowRight (step 2, shift step 10), Home and End. On first view the handle pulses and the divider swings from 50% to 35% to 65% to 50% once over 1.6s. Switching tabs resets the divider to 50% with a short crossfade.
+
+Responsive: The frame keeps 16:9 and the tabs wrap; the handle is 44px on mobile; nothing overflows at 390px.
+
+Rules: prefers-reduced-motion disables the intro swing and pulse. All imagery is code-drawn. No images, no libraries, one HTML file.

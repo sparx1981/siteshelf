@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tilt Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;color:#fff;font:500 14px/1.45 Manrope,system-ui,sans-serif}
+body{min-height:100svh;background:radial-gradient(circle at 50% 40%,#171a2e,#0b0c14 70%);display:grid;place-items:center;padding:40px 16px}
+.row{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;perspective:900px}
+.card{position:relative;width:min(300px,86vw);aspect-ratio:5/7;border-radius:22px;cursor:pointer;transform-style:preserve-3d;transform:rotateX(var(--rx,0)) rotateY(var(--ry,0)) scale(var(--s,1));transition:transform .5s cubic-bezier(.2,.8,.2,1);outline-offset:6px;touch-action:none;-webkit-tap-highlight-color:transparent}
+.card.hot{transition:transform .08s linear}
+.card:focus-visible{outline:3px solid #fff}
+.sh{position:absolute;inset:6% 6% 2%;border-radius:22px;background:#000;filter:blur(24px);opacity:.5;transform:translate(var(--sx,0),var(--sy,18px)) translateZ(-30px);transition:transform .5s,opacity .5s;pointer-events:none}
+.card.hot .sh{opacity:.75;transition:transform .08s}
+.face{position:absolute;inset:0;border-radius:22px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid rgba(255,255,255,.25);transform-style:preserve-3d}
+.f1{background:linear-gradient(150deg,#5b3df5,#c23df5)}.f2{background:linear-gradient(150deg,#0ea5a4,#22c55e)}.f3{background:linear-gradient(150deg,#f59e0b,#ef4444)}
+.face:before{content:"";position:absolute;inset:12px;border:1px solid rgba(255,255,255,.28);border-radius:14px;pointer-events:none}
+.glyph{position:absolute;left:50%;top:38%;width:62%;aspect-ratio:1;margin:-31% 0 0 -31%;transform:translateZ(40px)}
+.g1{border-radius:50%;background:repeating-radial-gradient(circle,rgba(255,255,255,.9) 0 3px,transparent 3px 20px);filter:drop-shadow(0 0 12px rgba(255,255,255,.5))}
+.g2{background:repeating-linear-gradient(45deg,rgba(255,255,255,.9) 0 2px,transparent 2px 18px),repeating-linear-gradient(-45deg,rgba(255,255,255,.9) 0 2px,transparent 2px 18px);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);filter:drop-shadow(0 0 10px rgba(255,255,255,.5))}
+.g3{border-radius:50%;background:radial-gradient(circle,#fff 0 18%,transparent 19%),repeating-conic-gradient(rgba(255,255,255,.9) 0 6deg,transparent 6deg 24deg);filter:drop-shadow(0 0 14px rgba(255,255,255,.55))}
+.tt{position:absolute;left:24px;right:24px;bottom:78px;transform:translateZ(60px)}
+.rar{font:700 11px Manrope,sans-serif;text-transform:uppercase;letter-spacing:.2em;opacity:.85;margin-bottom:6px}
+h2{font:700 26px/1.1 Unbounded,sans-serif;margin:0;text-shadow:0 2px 10px rgba(0,0,0,.25)}
+.st{position:absolute;left:24px;right:24px;bottom:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;transform:translateZ(30px)}
+.st span{background:rgba(0,0,0,.28);border-radius:999px;padding:6px 0;text-align:center;font-weight:700;font-size:13px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.st b{opacity:.75;font-weight:500;margin-right:4px}
+.gl{position:absolute;inset:0;border-radius:22px;pointer-events:none;mix-blend-mode:color-dodge;opacity:0;transition:opacity .3s;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.9),transparent 45%),repeating-linear-gradient(115deg,#ff6ec7 0,#ffd86e 12%,#6effc2 24%,#6ec7ff 36%,#c76eff 48%,#ff6ec7 60%);background-size:100% 100%,250% 250%;background-position:0 0,var(--gx,50%) var(--gy,50%)}
+.card.hot .gl{opacity:.38}
+.back{transform:rotateY(180deg);background:#12142a;display:flex;flex-direction:column;justify-content:center;padding:34px;text-align:left}
+.back h2{font-size:22px;margin-bottom:12px}.back p{margin:0 0 14px;color:#cfd3f5}.back small{opacity:.7}
+.inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .6s}
+.card.flip .inner{transform:rotateY(180deg)}
+@media(prefers-reduced-motion:reduce){.card,.inner,.sh,.gl{transition:none!important}.card.flip .inner{transform:none}.card.flip .front{display:none}.card:not(.flip) .back{display:none}.card.flip .back{transform:none}}
+@keyframes wob{0%,100%{transform:rotateX(0) rotateY(0)}25%{transform:rotateX(8deg) rotateY(-12deg)}75%{transform:rotateX(-6deg) rotateY(12deg)}}
+</style></head><body>
+<main class="row" id="row">
+ <div class="card" tabindex="0" role="button" aria-pressed="false" aria-label="Aurora Ring, legendary card. Press Enter to flip."><div class="sh"></div><div class="inner"><div class="face front f1"><div class="glyph g1"></div><div class="tt"><div class="rar">Legendary</div><h2>Aurora Ring</h2></div><div class="st"><span><b>ATK</b>92</span><span><b>DEF</b>64</span><span><b>SPD</b>78</span></div><div class="gl"></div></div><div class="face back"><h2>Aurora Ring</h2><p>Forged where the northern lights touch the ocean. It bends light around its holder.</p><small>Press Enter to flip back</small></div></div></div>
+ <div class="card" tabindex="0" role="button" aria-pressed="false" aria-label="Prism Lattice, rare card. Press Enter to flip."><div class="sh"></div><div class="inner"><div class="face front f2"><div class="glyph g2"></div><div class="tt"><div class="rar">Rare</div><h2>Prism Lattice</h2></div><div class="st"><span><b>ATK</b>58</span><span><b>DEF</b>88</span><span><b>SPD</b>51</span></div><div class="gl"></div></div><div class="face back"><h2>Prism Lattice</h2><p>A web of crystal threads that reflects every attack back at its source.</p><small>Press Enter to flip back</small></div></div></div>
+ <div class="card" tabindex="0" role="button" aria-pressed="false" aria-label="Solar Burst, epic card. Press Enter to flip."><div class="sh"></div><div class="inner"><div class="face front f3"><div class="glyph g3"></div><div class="tt"><div class="rar">Epic</div><h2>Solar Burst</h2></div><div class="st"><span><b>ATK</b>97</span><span><b>DEF</b>40</span><span><b>SPD</b>85</span></div><div class="gl"></div></div><div class="face back"><h2>Solar Burst</h2><p>One bright, brief explosion of heat. Powerful, fragile and impossible to ignore.</p><small>Press Enter to flip back</small></div></div></div>
+</main>
+<script>
+(function(){
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+[].forEach.call(document.querySelectorAll('.card'),function(c){
+ function move(x,y){if(rm)return;var r=c.getBoundingClientRect(),px=(x-r.left)/r.width,py=(y-r.top)/r.height;
+  c.classList.add('hot');c.style.setProperty('--ry',((px-.5)*28)+'deg');c.style.setProperty('--rx',((.5-py)*28)+'deg');c.style.setProperty('--s','1.04');
+  c.style.setProperty('--gx',(px*100)+'%');c.style.setProperty('--gy',(py*100)+'%');c.style.setProperty('--sx',((.5-px)*40)+'px');c.style.setProperty('--sy',(18+(py-.5)*30)+'px')}
+ function reset(){c.classList.remove('hot');['--rx','--ry','--s','--sx','--sy'].forEach(function(k){c.style.removeProperty(k)})}
+ c.addEventListener('pointermove',function(e){move(e.clientX,e.clientY)});
+ c.addEventListener('pointerleave',reset);c.addEventListener('pointercancel',reset);c.addEventListener('pointerup',function(e){if(e.pointerType==='touch')reset()});
+ function flip(){var f=c.classList.toggle('flip');c.setAttribute('aria-pressed',String(f))}
+ c.addEventListener('click',flip);
+ c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}});
+ c.addEventListener('focus',function(){if(rm||c.matches(':hover'))return;c.classList.add('hot');var s=performance.now();(function f(n){var t=(n-s)/1200;if(t>=1){reset();return}var a=Math.sin(t*Math.PI*2);c.style.setProperty('--ry',(a*10)+'deg');c.style.setProperty('--rx',(Math.cos(t*Math.PI*2)*-6+6)+'deg');c.style.setProperty('--gx',(50+a*35)+'%');c.style.setProperty('--s','1.03');requestAnimationFrame(f)})(s)});
+});
+})();
+</script>
+</body></html>

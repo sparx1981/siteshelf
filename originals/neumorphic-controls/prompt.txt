@@ -1,0 +1,11 @@
+Canvas & base: Single surface colour #e4e9f0 (dark variant #23272f when the theme switch is on). Elements are the same colour as the page and are separated only by two soft shadows: raised = 8px 8px 18px #bcc3cf, -8px -8px 18px #ffffff; inset = inset 6px 6px 12px #bcc3cf, inset -6px -6px 12px #ffffff. Dark variant uses #181b21 and #2e333d. Text #4a5262 (dark #aab2c3), accent #5b8cff.
+
+Typography: "Nunito" (600, 700, 800). Labels 13px uppercase tracking 0.12em; values 28px 800 tabular-nums; title 28px 800.
+
+Layout: A centred control panel 860px wide max, radius 36px, padding 40px, raised shadow, containing a 2-column grid of control modules (1 column on mobile), each a rounded 28px module with a label. Modules: (1) Rotary knob 180px: drag around its centre to turn it from -135deg to +135deg, shows 0 to 100 as a large value and a ring of 21 tick marks that light up in the accent colour up to the value. (2) Power button 96px circle that toggles between raised and inset and shows a glowing accent power icon plus an ON/OFF label. (3) Thermostat dial: a semicircle SVG arc gauge showing 16 to 30 degrees with plus and minus round buttons. (4) Embossed horizontal slider for volume with an inset track, a raised 28px thumb and a live percentage. (5) A 3-way segmented control (Eco, Comfort, Boost) with an inset track and a raised selected pill that slides. (6) A soft theme switch (a wide inset track with a raised round thumb, sun and moon glyphs) that switches the whole panel between light and dark.
+
+Interaction: Knob supports pointer drag (mouse and touch), arrow keys (step 5) and role="slider". Buttons press in with a 120ms transition. The slider uses a real input[type=range] styled to match. Thermostat buttons clamp to the range and animate the arc.
+
+Responsive: One column under 640px; the knob scales to 150px; nothing overflows at 390px.
+
+Rules: Contrast must stay readable despite the soft style (labels AA). prefers-reduced-motion removes transitions. No images, no libraries, one HTML file.

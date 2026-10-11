@@ -1,0 +1,11 @@
+Canvas & base: App page #eef0f4. Two columns: a form panel on the left (white, 1px #dfe2ea border, radius 16px, padding 24px) and a paper preview on the right (an A4-proportioned white sheet, aspect ratio 1 / 1.414, soft shadow 0 20px 50px rgba(30,40,70,0.18), padding 40px) on a #dde1ea backdrop. Ink #1a1f2b, muted #667085, accent #2f5bea, danger #d92d20, line #e4e7ee.
+
+Typography: "DM Sans" (400, 500, 700) for the UI and the invoice; "DM Mono" (400, 500) for amounts and the invoice number. Panel headings 13px uppercase tracking 0.08em muted, invoice title 34px 700 letter-spacing -0.02em, body 14px.
+
+Layout: Left panel sections: Details (invoice number, issue date, due date), Bill to (client name, email, address), Line items (a table with description, qty, unit price, a computed amount and a remove button, plus an "Add item" button), Adjustments (tax rate percent, discount type percent or fixed with a value, currency select GBP, EUR, USD), and a Notes textarea. A sticky footer bar shows the total and a "Print / Save PDF" button. Right: the invoice sheet with a header (the sender "Northlight Studio" and the word INVOICE with the number), billed to block, dates, a table of the line items, a totals block (subtotal, discount, tax, total due in large type) and notes, all mirroring the form instantly.
+
+Interaction: Every input updates the preview on the input event. Quantity and price accept decimals; invalid or empty values count as 0. Amounts are formatted with Intl.NumberFormat for the chosen currency. Add item appends a row and focuses its description; remove deletes it (minimum one row). Print triggers window.print with print CSS that shows only the sheet at full width. The due date defaults to 14 days after the issue date and updates when the issue date changes unless it was edited by hand.
+
+Responsive: Under 1000px the preview stacks below the form; line item rows reflow into stacked fields at 560px; the sheet scales to the available width.
+
+Rules: Compute all totals in integer minor units to avoid floating point drift. Do not use a pound sign as a JavaScript identifier. prefers-reduced-motion removes transitions. No images, no libraries, one HTML file.

@@ -1,0 +1,11 @@
+Canvas & base: Section on #0a0a0f, cards #12121a with a 1px #23232f border, radius 24px, padding 28px, gap 16px. Text #f4f4f8, muted #8b8ba0, accent gradient from #7c5cff to #19d3ff. Max width 1180px centred, section padding 110px 24px (64px 16px on mobile).
+
+Typography: "Sora" (400, 600, 700) for headings and "Inter" (400, 500) for body. Section headline 52px/1.05 700 letter-spacing -0.03em centred with the second line in the accent gradient; card titles 22px 600; body 15px muted.
+
+Layout: eyebrow pill "Features", headline "Everything you need. Nothing you don't.", a 18px subhead. Then a 6-column bento grid (auto rows 190px) with six cards: (1) wide 4x2 "Ask anything" with a fake chat panel where messages type themselves in a loop, (2) 2x1 "Live analytics" with 7 animated bars that re-randomise every 2.5s, (3) 2x3 tall "Integrations" with a vertical list of six app rows each with a working toggle switch, (4) 2x1 "Speed" with a big counter that counts up to 38ms when visible, (5) 2x1 "Private by design" with a lock icon drawn in SVG that animates closed, (6) 4x1 wide "Ship together" with five overlapping avatar circles and a short sentence.
+
+Interaction: Every card has a radial spotlight border that follows the pointer (CSS variables --mx and --my, a radial-gradient mask on a ::before layer). Cards lift 4px on hover. Toggles are real buttons with aria-pressed. The chat loop types one character every 28ms, pauses, then clears.
+
+Responsive: At 900px the grid becomes 2 columns, below 600px 1 column with natural card heights; the tall card keeps its list.
+
+Rules: prefers-reduced-motion shows the full chat text, static bars and the final counter. No images, no libraries, one HTML file.

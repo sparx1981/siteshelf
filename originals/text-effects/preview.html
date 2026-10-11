@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kinetic Type Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#0d0d12;color:#f5f5fa;font:400 16px/1.5 Inter,system-ui,sans-serif}
+.w{max-width:980px;margin:0 auto;padding:56px 24px}
+h1{font:800 34px "Bricolage Grotesque",sans-serif;letter-spacing:-.03em;margin:0 0 6px}
+.cap{color:#8d8da3;margin:0 0 28px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:16px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1px solid #25252f;background:#14141c;color:#b4b4c8;font:500 14px "JetBrains Mono",monospace;border-radius:999px;padding:9px 16px;cursor:pointer}
+.tabs button:hover{color:#fff;border-color:#3a3a4c}
+.tabs button[aria-selected=true]{background:#ffb703;color:#1a1200;border-color:#ffb703}
+:focus-visible{outline:2px solid #ffb703;outline-offset:3px}
+.stage{background:#14141c;border:1px solid #25252f;border-radius:24px;min-height:360px;padding:40px 20px;display:grid;place-items:center;text-align:center;overflow:hidden}
+.fx{font:800 clamp(40px,8vw,96px)/1.05 "Bricolage Grotesque",sans-serif;letter-spacing:-.03em;max-width:100%;overflow-wrap:anywhere}
+.ctl{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;align-items:center}
+.ctl label{display:flex;flex:1 1 280px;align-items:center;gap:12px;color:#8d8da3;font-size:14px}
+.ctl input{flex:1;min-width:0;height:44px;background:#14141c;border:1px solid #25252f;border-radius:12px;color:#fff;padding:0 14px;font:500 16px Inter,sans-serif}
+.rp{height:44px;border-radius:12px;border:1px solid #3a3a4c;background:none;color:#fff;font:500 15px Inter,sans-serif;padding:0 20px;cursor:pointer}
+.rp:hover{background:#1d1d28}
+.tech{margin-top:14px;font:400 13px "JetBrains Mono",monospace;color:#8d8da3}
+.tech b{color:#ffb703;font-weight:500}
+.caret{display:inline-block;width:.06em;height:.85em;background:#ffb703;margin-left:.06em;vertical-align:-.08em;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.ch{display:inline-block;overflow:hidden;vertical-align:bottom;line-height:1.1}
+.ch i{display:inline-block;font-style:normal;transform:translateY(105%);animation:up .6s cubic-bezier(.2,.9,.2,1) forwards}
+@keyframes up{to{transform:none}}
+.sp{display:inline-block;width:.28em}
+.sh{background:linear-gradient(90deg,#ffb703,#fb5607,#8338ec,#ffb703);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 3s linear infinite}
+@keyframes sh{to{background-position:-300% 0}}
+.sc{font-variant-numeric:tabular-nums}
+.sc .u{color:#5a5a70}
+.ol{position:relative;display:inline-block;color:transparent;-webkit-text-stroke:2px #f5f5fa;cursor:pointer}
+.ol:after{content:attr(data-t);position:absolute;left:0;top:0;white-space:nowrap;color:#ffb703;-webkit-text-stroke:0;clip-path:inset(0 100% 0 0);transition:clip-path .6s cubic-bezier(.3,.7,.2,1)}
+.ol:hover:after,.ol:focus-visible:after{clip-path:inset(0)}
+.ws{display:inline-flex;gap:.22em;flex-wrap:wrap;justify-content:center}
+.ws .rot{display:inline-block;height:1.1em;overflow:hidden;vertical-align:bottom;color:#ffb703}
+.ws .rot span{display:block;height:1.1em;transition:transform .5s cubic-bezier(.3,.8,.2,1)}
+@media(max-width:640px){.w{padding:36px 16px}.stage{min-height:300px;padding:28px 14px}}
+@media(prefers-reduced-motion:reduce){.sh{animation:none}.ch i{animation:none;transform:none}.caret{animation:none}.ol:after{transition:none}}
+</style></head><body>
+<main class="w">
+ <h1>Kinetic type lab</h1><p class="cap">Six small text effects. Pick one, change the words, replay.</p>
+ <div class="tabs" role="tablist" aria-label="Effects" id="tabs"></div>
+ <div class="stage" id="stage" role="tabpanel" aria-live="off"></div>
+ <div class="ctl"><label>Your text<input id="txt" type="text" value="Make words move." maxlength="40" autocomplete="off"></label><button class="rp" id="rp" type="button">Replay</button></div>
+ <p class="tech" id="tech"></p>
+</main>
+<script>
+(function(){
+var fx=[['Typewriter','JS timers · blinking caret'],['Split reveal','overflow:hidden · translateY · staggered animation-delay'],['Shimmer','background-clip:text · animated background-position'],['Scramble','requestAnimationFrame · random glyph swap'],['Outline','-webkit-text-stroke · clip-path reveal'],['Word swap','translateY slide · setInterval']];
+var cur=0,txt=document.getElementById('txt'),st=document.getElementById('stage'),tabs=document.getElementById('tabs'),tech=document.getElementById('tech');
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches,timers=[],raf=0,deb;
+function clear(){timers.forEach(function(t){clearTimeout(t);clearInterval(t)});timers=[];cancelAnimationFrame(raf)}
+function T(f,ms){var t=setTimeout(f,ms);timers.push(t);return t}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function mk(){tabs.innerHTML='';fx.forEach(function(f,i){var b=document.createElement('button');b.type='button';b.id='t'+i;b.role='tab';b.setAttribute('role','tab');b.setAttribute('aria-selected',String(i===cur));b.tabIndex=i===cur?0:-1;b.textContent=f[0];b.onclick=function(){cur=i;mk();play()};b.onkeydown=function(e){var d={ArrowRight:1,ArrowLeft:-1}[e.key];if(d){e.preventDefault();cur=(cur+d+fx.length)%fx.length;mk();document.getElementById('t'+cur).focus();play()}};tabs.appendChild(b)});st.setAttribute('aria-labelledby','t'+cur)}
+function play(){clear();var s=txt.value||' ',box=document.createElement('div');box.className='fx';box.setAttribute('aria-label',s);st.replaceChildren(box);tech.innerHTML='Technique: <b>'+fx[cur][1]+'</b>';
+ if(cur===0){var sp=document.createElement('span');sp.setAttribute('aria-hidden','true');box.appendChild(sp);
+  if(rm){sp.textContent=s;return}
+  var i=0,dir=1;(function tick(){sp.innerHTML=esc(s.slice(0,i))+'<i class="caret"></i>';if(dir>0){if(i<s.length){i++;T(tick,70)}else{dir=-1;T(tick,1400)}}else{if(i>0){i--;T(tick,35)}else{dir=1;T(tick,500)}}})()}
+ else if(cur===1){var h='';s.split(' ').forEach(function(w,wi,arr){h+='<span style="display:inline-block;white-space:nowrap">';w.split('').forEach(function(c,ci){var idx=arr.slice(0,wi).join(' ').length+ci;h+='<span class="ch" aria-hidden="true"><i style="animation-delay:'+(idx*40)+'ms">'+esc(c)+'</i></span>'});h+='</span>'+(wi<arr.length-1?'<span class="sp"></span>':'')});box.insertAdjacentHTML('beforeend',h)}
+ else if(cur===2){var sp2=document.createElement('span');sp2.className='sh';sp2.setAttribute('aria-hidden','true');sp2.textContent=s;box.appendChild(sp2)}
+ else if(cur===3){var sp3=document.createElement('span');sp3.className='sc';sp3.setAttribute('aria-hidden','true');box.appendChild(sp3);
+  if(rm){sp3.textContent=s;return}
+  var G='!<>-_\\/[]{}=+*^?#ABCDEFGHJKLMNPQRSTUVWXYZ0123456789',t0=performance.now(),D=1200;
+  (function f(n){var p=Math.min((n-t0)/D,1),k=Math.floor(p*s.length),o='';for(var i=0;i<s.length;i++){var c=s[i];if(c===' '||i<k)o+=esc(c);else o+='<span class="u">'+G[Math.floor(Math.random()*G.length)]+'</span>'}sp3.innerHTML=o;if(p<1)raf=requestAnimationFrame(f);else sp3.textContent=s})(t0)}
+ else if(cur===4){var sp4=document.createElement('span');sp4.className='ol';sp4.tabIndex=0;sp4.dataset.t=s;sp4.setAttribute('aria-hidden','true');sp4.textContent=s;box.appendChild(sp4);
+  box.insertAdjacentHTML('beforeend','<div style="font:400 14px Inter,sans-serif;color:#8d8da3;margin-top:16px;letter-spacing:0;-webkit-text-stroke:0;font-weight:400">Hover or focus the text</div>')}
+ else{var words=['faster','smarter','together'];box.innerHTML='<span class="ws" aria-hidden="true"><span>Design</span><span class="rot"><span id="rl">'+words.join('</span><span style="display:block;height:1.1em">')+'</span></span></span>';box.setAttribute('aria-label','Design faster, smarter, together');
+  var rl=box.querySelector('.rot'),first=rl.firstElementChild,spans=rl.querySelectorAll('span');var n=0;spans.forEach(function(x){x.style.display='block';x.style.height='1.1em'});
+  if(rm){rl.style.height='auto';rl.innerHTML='faster';return}
+  var iv=setInterval(function(){n=(n+1)%words.length;first.style.transform='translateY(-'+(n*1.1)+'em)'},2000);timers.push(iv)}}
+txt.addEventListener('input',function(){clearTimeout(deb);deb=setTimeout(play,200)});
+document.getElementById('rp').onclick=play;
+mk();play();
+})();
+</script>
+</body></html>

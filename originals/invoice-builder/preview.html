@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Invoice Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#eef0f4;color:#1a1f2b;font:400 14px/1.45 "DM Sans",system-ui,sans-serif}
+.app{display:grid;grid-template-columns:minmax(0,480px) minmax(0,1fr);gap:24px;max-width:1360px;margin:0 auto;padding:24px;align-items:start}
+.pn{background:#fff;border:1px solid #dfe2ea;border-radius:16px;padding:24px 24px 0}
+h2{font:700 13px "DM Sans",sans-serif;text-transform:uppercase;letter-spacing:.08em;color:#667085;margin:0 0 12px}
+.sec{margin-bottom:26px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.f{display:block;margin-bottom:12px}.f span{display:block;font-size:12.5px;color:#667085;margin-bottom:4px;font-weight:500}
+input,select,textarea{width:100%;border:1px solid #d5d9e3;border-radius:10px;padding:9px 12px;font:400 14px "DM Sans",sans-serif;color:#1a1f2b;background:#fff}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid #2f5bea;outline-offset:1px;border-color:#2f5bea}
+textarea{resize:vertical;min-height:70px}
+.num{font-family:"DM Mono",ui-monospace,monospace}
+.li{display:grid;grid-template-columns:minmax(0,1fr) 62px 86px 28px;gap:8px;align-items:end;margin-bottom:10px}
+.li .am{grid-column:1/-1;text-align:right;font:500 13px "DM Mono",monospace;color:#667085;margin-top:-4px}
+.x{width:28px;height:36px;border:0;background:none;color:#98a2b3;font-size:20px;cursor:pointer;border-radius:8px}.x:hover{color:#d92d20;background:#fef3f2}
+.add{border:1.5px dashed #b7c3e8;background:#f6f8ff;color:#2f5bea;border-radius:10px;padding:9px 14px;font:700 14px "DM Sans",sans-serif;cursor:pointer;width:100%}
+.add:hover{background:#edf1ff}
+.ft{position:sticky;bottom:0;margin:0 -24px;padding:14px 24px;background:#fff;border-top:1px solid #e4e7ee;border-radius:0 0 16px 16px;display:flex;align-items:center;gap:12px;justify-content:space-between}
+.ft small{color:#667085;display:block}.ft b{font:500 22px "DM Mono",monospace}
+.pb{background:#2f5bea;color:#fff;border:0;border-radius:10px;padding:12px 20px;font:700 14px "DM Sans",sans-serif;cursor:pointer}.pb:hover{background:#2449c4}
+.bk{background:#dde1ea;border-radius:16px;padding:28px;position:sticky;top:24px;max-height:calc(100vh - 48px);overflow:auto}
+.sh{background:#fff;aspect-ratio:1/1.414;box-shadow:0 20px 50px rgba(30,40,70,.18);padding:40px;font-size:13px;display:flex;flex-direction:column;container-type:inline-size;min-height:0}
+.sh h1{font:700 34px/1 "DM Sans",sans-serif;letter-spacing:-.02em;margin:0}
+.sh .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:28px}
+.sh .me b{display:block;font-size:15px}.sh .me{color:#667085}
+.sh .no{font:500 13px "DM Mono",monospace;color:#667085;text-align:right;margin-top:6px}
+.meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:24px}
+.meta small{display:block;color:#667085;font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.meta div{white-space:pre-line;overflow-wrap:anywhere}
+table{width:100%;border-collapse:collapse;margin-bottom:16px}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#667085;text-align:left;padding:8px 0;border-bottom:1.5px solid #1a1f2b}
+th.r,td.r{text-align:right}
+td{padding:9px 0;border-bottom:1px solid #e4e7ee;vertical-align:top;overflow-wrap:anywhere}
+td.r{font-family:"DM Mono",monospace;white-space:nowrap;padding-left:8px}
+.tot{margin-left:auto;width:min(260px,100%)}
+.tot div{display:flex;justify-content:space-between;padding:5px 0;color:#667085}.tot div span:last-child{font-family:"DM Mono",monospace;color:#1a1f2b}
+.tot .due{border-top:1.5px solid #1a1f2b;margin-top:6px;padding-top:10px;font-weight:700;color:#1a1f2b;font-size:16px}
+.tot .due span:last-child{font-size:20px;color:#2f5bea}
+.nt{margin-top:auto;color:#667085;white-space:pre-line;border-top:1px solid #e4e7ee;padding-top:12px;font-size:12px}
+@media(max-width:1000px){.app{grid-template-columns:minmax(0,1fr);padding:14px}.bk{position:static;max-height:none;padding:14px}.sh{padding:22px}.sh h1{font-size:26px}}
+@media(max-width:560px){.g2{grid-template-columns:minmax(0,1fr)}.li{grid-template-columns:minmax(0,1fr) 70px 28px}.li .pr{grid-column:1/3}.meta{grid-template-columns:minmax(0,1fr)}.sh{aspect-ratio:auto}}
+@media print{body{background:#fff}.app{display:block;padding:0}.pn{display:none}.bk{background:none;padding:0;position:static;max-height:none;overflow:visible}.sh{box-shadow:none;aspect-ratio:auto;min-height:100vh}}
+</style></head><body>
+<div class="app">
+ <section class="pn" aria-label="Invoice form">
+  <div class="sec"><h2>Details</h2><div class="g2"><label class="f"><span>Invoice number</span><input id="no" class="num" value="INV-0042"></label><label class="f"><span>Currency</span><select id="cur"><option value="GBP">GBP — Pound</option><option value="EUR">EUR — Euro</option><option value="USD">USD — Dollar</option></select></label><label class="f"><span>Issue date</span><input id="is" type="date"></label><label class="f"><span>Due date</span><input id="du" type="date"></label></div></div>
+  <div class="sec"><h2>Bill to</h2><label class="f"><span>Client</span><input id="cn" value="Harbor &amp; Pine Ltd"></label><label class="f"><span>Email</span><input id="ce" type="email" value="accounts@harborpine.example"></label><label class="f"><span>Address</span><textarea id="ca">12 Quay Street
+Bristol BS1 4XY</textarea></label></div>
+  <div class="sec"><h2>Line items</h2><div id="lis"></div><button class="add" id="add" type="button">+ Add item</button></div>
+  <div class="sec"><h2>Adjustments</h2><div class="g2"><label class="f"><span>Tax rate (%)</span><input id="tx" class="num" inputmode="decimal" value="20"></label><label class="f"><span>Discount</span><div style="display:grid;grid-template-columns:minmax(0,1fr) 76px;gap:8px"><input id="dv" class="num" inputmode="decimal" value="10"><select id="dt" aria-label="Discount type"><option value="p">%</option><option value="f">Fixed</option></select></div></label></div></div>
+  <div class="sec"><h2>Notes</h2><label class="f"><textarea id="nt" aria-label="Notes">Payment due within 14 days by bank transfer.
+Thank you for your business.</textarea></label></div>
+  <div class="ft"><div><small>Total due</small><b id="ftt">0</b></div><button class="pb" id="pr" type="button">Print / Save PDF</button></div>
+ </section>
+ <section class="bk" aria-label="Invoice preview"><div class="sh" id="sh"></div></section>
+</div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var items=[{d:'Brand identity design',q:'1',p:'2400'},{d:'Website build (5 pages)',q:'1',p:'3800'},{d:'Copywriting, per page',q:'5',p:'180'}];
+function today(){var d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());return d.toISOString().slice(0,10)}
+function plus(s,n){var d=new Date(s+'T12:00:00');d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)}
+$('is').value=today();$('du').value=plus($('is').value,14);var dueEdited=false;
+var cents=function(v){var n=parseFloat(String(v).replace(',','.'));return isFinite(n)?Math.round(n*100):0};
+var num=function(v){var n=parseFloat(String(v).replace(',','.'));return isFinite(n)?n:0};
+function money(c){return new Intl.NumberFormat('en-GB',{style:'currency',currency:$('cur').value}).format(c/100)}
+function dt(s){return s?new Date(s+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'—'}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function rows(){var h='';items.forEach(function(it,i){h+='<div class="li" data-i="'+i+'"><label class="f" style="margin:0"><span>Description</span><input data-k="d" value="'+esc(it.d).replace(/"/g,'&quot;')+'"></label><label class="f qy" style="margin:0"><span>Qty</span><input data-k="q" class="num" inputmode="decimal" value="'+esc(it.q)+'"></label><label class="f pr" style="margin:0"><span>Price</span><input data-k="p" class="num" inputmode="decimal" value="'+esc(it.p)+'"></label><button class="x" type="button" aria-label="Remove item" '+(items.length<2?'disabled style="opacity:.3;cursor:not-allowed"':'')+'>×</button><div class="am" data-a="'+i+'"></div></div>'});$('lis').innerHTML=h;
+ [].forEach.call($('lis').querySelectorAll('.li'),function(r){var i=+r.dataset.i;[].forEach.call(r.querySelectorAll('input'),function(inp){inp.oninput=function(){items[i][inp.dataset.k]=inp.value;calc()}});r.querySelector('.x').onclick=function(){if(items.length<2)return;items.splice(i,1);rows();calc()}})}
+function calc(){
+ var sub=0;items.forEach(function(it,i){var line=Math.round(num(it.q)*cents(it.p));sub+=line;var a=document.querySelector('[data-a="'+i+'"]');if(a)a.textContent=money(line)});
+ var dv=$('dt').value==='p'?Math.round(sub*Math.min(num($('dv').value),100)/100):Math.min(cents($('dv').value),sub);
+ var taxable=sub-dv,tax=Math.round(taxable*Math.max(num($('tx').value),0)/100),total=taxable+tax;
+ $('ftt').textContent=money(total);
+ var tr=items.map(function(it){var line=Math.round(num(it.q)*cents(it.p));return'<tr><td>'+esc(it.d||'—')+'</td><td class="r">'+esc(num(it.q))+'</td><td class="r">'+money(cents(it.p))+'</td><td class="r">'+money(line)+'</td></tr>'}).join('');
+ $('sh').innerHTML='<div class="hd"><div><h1>INVOICE</h1><div class="no">'+esc($('no').value)+'</div></div><div class="me" style="text-align:right"><b>Northlight Studio</b>8 Mill Lane<br>Bath BA1 1AA</div></div>'
+ +'<div class="meta"><div><small>Billed to</small><b>'+esc($('cn').value)+'</b>\n'+esc($('ca').value)+'\n'+esc($('ce').value)+'</div><div><small>Issued</small>'+dt($('is').value)+'</div><div><small>Due</small>'+dt($('du').value)+'</div></div>'
+ +'<table><thead><tr><th>Description</th><th class="r">Qty</th><th class="r">Price</th><th class="r">Amount</th></tr></thead><tbody>'+tr+'</tbody></table>'
+ +'<div class="tot"><div><span>Subtotal</span><span>'+money(sub)+'</span></div>'+(dv?'<div><span>Discount</span><span>−'+money(dv)+'</span></div>':'')+'<div><span>Tax ('+num($('tx').value)+'%)</span><span>'+money(tax)+'</span></div><div class="due"><span>Total due</span><span>'+money(total)+'</span></div></div>'
+ +'<div class="nt">'+esc($('nt').value)+'</div>'}
+['no','cn','ce','ca','nt','tx','dv','dt','cur'].forEach(function(i){$(i).addEventListener('input',function(){calc();if(i==='cur')rows(),calc()})});
+$('is').addEventListener('input',function(){if(!dueEdited)$('du').value=plus($('is').value,14);calc()});
+$('du').addEventListener('input',function(){dueEdited=true;calc()});
+$('add').onclick=function(){items.push({d:'',q:'1',p:'0'});rows();calc();var l=$('lis').querySelectorAll('.li');l[l.length-1].querySelector('input').focus()};
+$('pr').onclick=function(){window.print()};
+rows();calc();
+})();
+</script>
+</body></html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Relay — Notifications</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#f6f6f9;color:#17172a;font:400 15px/1.45 "Public Sans",system-ui,sans-serif}
+.bar{height:64px;background:#fff;border-bottom:1px solid #e4e4ec;display:flex;align-items:center;padding:0 max(16px,4vw);gap:16px}
+.bar b{font:700 20px "Public Sans",sans-serif;letter-spacing:-.02em;margin-right:auto}
+.bell{position:relative;width:42px;height:42px;border-radius:50%;border:1px solid #e4e4ec;background:#fff;cursor:pointer;display:grid;place-items:center;color:#17172a}
+.bell:hover{background:#f3f3f8}
+.bd{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;border-radius:10px;background:#dc2626;color:#fff;font:700 11px "Public Sans",sans-serif;display:grid;place-items:center;padding:0 5px;border:2px solid #fff}
+:focus-visible{outline:2px solid #4f46e5;outline-offset:2px}
+main{max-width:760px;margin:40px auto;padding:0 16px}
+.card{background:#fff;border:1px solid #e4e4ec;border-radius:20px;padding:28px}
+h1{font:700 26px "Public Sans",sans-serif;letter-spacing:-.02em;margin:0 0 4px}
+.sub{color:#6b6b82;margin:0 0 22px}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.btn{border:1px solid #d9d9e6;background:#fff;color:#17172a;border-radius:10px;padding:10px 16px;font:600 14px "Public Sans",sans-serif;cursor:pointer}
+.btn:hover{background:#f3f3f8}
+.btn.s{border-color:#bfe8cd;color:#12803a;background:#f0fbf4}.btn.w{border-color:#f5d9a8;color:#a85a05;background:#fff8ec}.btn.e{border-color:#f6c4c4;color:#b91c1c;background:#fff3f3}.btn.i{border-color:#b8e0f1;color:#0369a1;background:#f0f9ff}
+.btn.p{background:#4f46e5;border-color:#4f46e5;color:#fff}
+.lab{font:600 13px "Public Sans",sans-serif;color:#6b6b82;text-transform:uppercase;letter-spacing:.08em;margin:6px 0 8px;display:block}
+.seg{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.seg button{border:1px solid #d9d9e6;background:#fff;border-radius:999px;padding:7px 14px;font:500 13.5px "Public Sans",sans-serif;cursor:pointer;color:#17172a}
+.seg button[aria-pressed=true]{background:#17172a;border-color:#17172a;color:#fff}
+.dur{display:flex;align-items:center;gap:14px;margin-bottom:20px}.dur input{flex:1;accent-color:#4f46e5}
+#vp{position:fixed;z-index:60;display:flex;gap:10px;padding:16px;pointer-events:none;width:372px;max-width:100%}
+#vp.tr{top:64px;right:0;flex-direction:column}#vp.tl{top:64px;left:0;flex-direction:column}
+#vp.br{bottom:0;right:0;flex-direction:column-reverse}#vp.bc{bottom:0;left:50%;transform:translateX(-50%);flex-direction:column-reverse}
+.t{position:relative;pointer-events:auto;background:#fff;border-radius:14px;padding:14px 16px 16px 16px;box-shadow:0 12px 32px rgba(23,23,42,.18);border-left:4px solid var(--c);display:flex;gap:12px;overflow:hidden;touch-action:pan-y;transition:transform .26s,opacity .26s,margin .26s,max-height .26s;max-height:140px;animation:in .26s ease-out}
+@keyframes in{from{opacity:0;transform:translateY(-10px)}}
+#vp.br .t,#vp.bc .t{animation-name:inb}@keyframes inb{from{opacity:0;transform:translateY(10px)}}
+.t.out{opacity:0;max-height:0;padding-top:0;padding-bottom:0;margin-top:-10px}
+.t .ic{width:22px;height:22px;flex:none;color:var(--c);margin-top:1px}
+.t .tx{flex:1;min-width:0}.t b{display:block;font-size:15px;font-weight:600}.t span.m{color:#6b6b82;font-size:14px}
+.t .x{border:0;background:none;color:#8a8aa0;cursor:pointer;width:26px;height:26px;border-radius:6px;font-size:18px;line-height:1;flex:none}
+.t .x:hover{background:#f0f0f6;color:#17172a}
+.t .un{border:0;background:none;color:#4f46e5;font:700 14px "Public Sans",sans-serif;cursor:pointer;padding:6px 0 0}
+.t .pr{position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--c);opacity:.5;transform-origin:left}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(400px,100%);background:#fff;border-left:1px solid #e4e4ec;transform:translateX(105%);visibility:hidden;transition:transform .28s,visibility .28s;z-index:70;display:flex;flex-direction:column}
+.dr.on{transform:none;visibility:visible;box-shadow:-20px 0 50px rgba(23,23,42,.14)}
+.dr header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #e4e4ec}
+.dr h2{font:700 18px "Public Sans",sans-serif;margin:0}
+.dr ul{list-style:none;margin:0;padding:8px 12px;overflow-y:auto;flex:1}
+.dr li{display:flex;gap:12px;padding:12px 8px;border-bottom:1px solid #f0f0f6}
+.dr li i{width:10px;height:10px;border-radius:50%;background:var(--c);margin-top:6px;flex:none}
+.dr li small{display:block;color:#8a8aa0}
+.dr .em{color:#8a8aa0;text-align:center;padding:40px 0}
+@media(max-width:560px){#vp,#vp.bc{width:100%;left:0;right:0;transform:none}.card{padding:20px}}
+@media(prefers-reduced-motion:reduce){.t{animation:none;transition:none}.dr{transition:none}}
+</style></head><body>
+<header class="bar"><b>Relay</b><button class="bell" id="bell" type="button" aria-label="Open notification history"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0112 0c0 7 3 8 3 8H3s3-1 3-8M10 20a2 2 0 004 0"/></svg><span class="bd" id="bd" hidden>0</span></button></header>
+<main><section class="card">
+ <h1>Notification playground</h1><p class="sub">Fire some toasts and see how they behave. Hover one to pause it, swipe it away, or open the history.</p>
+ <span class="lab">Type</span><div class="row"><button class="btn s" data-t="success" type="button">Success</button><button class="btn w" data-t="warning" type="button">Warning</button><button class="btn e" data-t="error" type="button">Error</button><button class="btn i" data-t="info" type="button">Info</button></div>
+ <span class="lab">Actions</span><div class="row"><button class="btn p" id="del" type="button">Undoable delete</button><button class="btn" id="spam" type="button">Spam 5</button><button class="btn" id="clr" type="button">Clear all</button></div>
+ <span class="lab">Position</span><div class="seg" id="pos"></div>
+ <span class="lab">Duration</span><div class="dur"><input id="dur" type="range" min="2" max="10" value="5" aria-label="Duration in seconds"><b id="dv">5s</b></div>
+</section></main>
+<div id="vp" class="tr" role="region" aria-label="Notifications" aria-live="polite"></div>
+<aside class="dr" id="dr" aria-label="Notification history" aria-hidden="true"><header><h2>History</h2><span><button class="btn" id="mr" type="button">Mark all read</button> <button class="btn" id="cl" type="button" aria-label="Close history">✕</button></span></header><ul id="hl"></ul></aside>
+<script>
+(function(){
+var C={success:['#16a34a','Saved','Your changes are live.','<path d="M5 12l5 5 9-10"/>'],warning:['#d97706','Heads up','Storage is almost full.','<path d="M12 8v5M12 17h.01M10.300 3.900L2.400 18a2 2 0 001.700 3h15.800a2 2 0 001.700-3L13.700 3.900a2 2 0 00-3.400 0z"/>'],error:['#dc2626','Something broke','We could not reach the server.','<path d="M12 8v5M12 17h.01"/><circle cx="12" cy="12" r="9"/>'],info:['#0284c7','New version','Relay 2.4 is ready to install.','<path d="M12 11v6M12 7h.01"/><circle cx="12" cy="12" r="9"/>']};
+var vp=document.getElementById('vp'),hist=[],unread=0,dur=5000,MAXV=4,queue=[],open=0,rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function ago(t){var s=Math.round((Date.now()-t)/1000);return s<60?'just now':Math.round(s/60)+' min ago'}
+function badge(){var b=document.getElementById('bd');b.hidden=!unread;b.textContent=unread>9?'9+':unread}
+function log(type,title,msg){hist.unshift({type:type,title:title,msg:msg,t:Date.now()});unread++;badge()}
+function toast(type,title,msg,opts){opts=opts||{};if(open>=MAXV){queue.push([type,title,msg,opts]);return}
+ var c=C[type],el=document.createElement('div');el.className='t';el.style.setProperty('--c',c[0]);el.setAttribute('role',type==='error'?'alert':'status');
+ el.innerHTML='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+c[3]+'</svg><div class="tx"><b></b><span class="m"></span></div><button class="x" type="button" aria-label="Dismiss">×</button><div class="pr"></div>';
+ el.querySelector('b').textContent=title;el.querySelector('.m').textContent=msg;
+ if(opts.undo){var u=document.createElement('button');u.className='un';u.type='button';u.textContent='Undo';el.querySelector('.tx').appendChild(u);u.onclick=function(){close();toast('success','Undone','Item restored.')}}
+ var tl=dur,start=Date.now(),timer,paused=false,pr=el.querySelector('.pr'),done=false;
+ function run(){start=Date.now();pr.style.transition=rm?'none':'transform '+tl+'ms linear';pr.style.transform='scaleX(0)';timer=setTimeout(close,tl)}
+ function pause(){if(paused||done)return;paused=true;clearTimeout(timer);tl-=Date.now()-start;var w=Math.max(tl/dur,0);pr.style.transition='none';pr.style.transform='scaleX('+w+')'}
+ function resume(){if(!paused||done)return;paused=false;run()}
+ function close(){if(done)return;done=true;clearTimeout(timer);open--;el.classList.add('out');setTimeout(function(){el.remove();var q=queue.shift();if(q)toast.apply(null,q)},rm?0:270)}
+ el.querySelector('.x').onclick=close;el.addEventListener('mouseenter',pause);el.addEventListener('mouseleave',resume);el.addEventListener('focusin',pause);el.addEventListener('focusout',resume);
+ var sx=null,dx=0;el.addEventListener('pointerdown',function(e){if(e.target.closest('button'))return;sx=e.clientX;dx=0;el.setPointerCapture(e.pointerId);el.style.transition='none'});
+ el.addEventListener('pointermove',function(e){if(sx===null)return;dx=e.clientX-sx;el.style.transform='translateX('+dx+'px)';el.style.opacity=Math.max(.2,1-Math.abs(dx)/260)});
+ function end(){if(sx===null)return;sx=null;el.style.transition='';if(Math.abs(dx)>80){el.style.transform='translateX('+(dx>0?400:-400)+'px)';close()}else{el.style.transform='';el.style.opacity=''}}
+ el.addEventListener('pointerup',end);el.addEventListener('pointercancel',end);
+ vp.prepend(el);open++;requestAnimationFrame(run);
+ if(!opts.nolog)log(type,title,msg);return el}
+[].forEach.call(document.querySelectorAll('[data-t]'),function(b){b.onclick=function(){var c=C[b.dataset.t];toast(b.dataset.t,c[1],c[2])}});
+document.getElementById('del').onclick=function(){toast('info','Item deleted','“Quarterly report” was moved to trash.',{undo:true})};
+document.getElementById('spam').onclick=function(){var k=Object.keys(C);for(var i=0;i<5;i++)(function(i){setTimeout(function(){var c=C[k[i%4]];toast(k[i%4],c[1]+' #'+(i+1),c[2])},i*120)})(i)};
+document.getElementById('clr').onclick=function(){queue=[];[].forEach.call(vp.querySelectorAll('.t .x'),function(x){x.click()})};
+var pos=[['tr','Top right'],['tl','Top left'],['br','Bottom right'],['bc','Bottom centre']],ps=document.getElementById('pos');
+pos.forEach(function(p,i){var b=document.createElement('button');b.type='button';b.textContent=p[1];b.setAttribute('aria-pressed',String(i===0));b.onclick=function(){vp.className=p[0];[].forEach.call(ps.children,function(x){x.setAttribute('aria-pressed',String(x===b))})};ps.appendChild(b)});
+document.getElementById('dur').oninput=function(){dur=this.value*1000;document.getElementById('dv').textContent=this.value+'s'};
+var dr=document.getElementById('dr'),hl=document.getElementById('hl');
+function drawH(){hl.innerHTML=hist.length?hist.map(function(h){return'<li style="--c:'+C[h.type][0]+'"><i></i><div><b>'+h.title+'</b><div style="color:#6b6b82">'+h.msg+'</div><small>'+ago(h.t)+'</small></div></li>'}).join(''):'<li class="em">No notifications yet.</li>'}
+function openD(){drawH();dr.classList.add('on');dr.setAttribute('aria-hidden','false');unread=0;badge();document.getElementById('cl').focus()}
+function closeD(){dr.classList.remove('on');dr.setAttribute('aria-hidden','true');document.getElementById('bell').focus()}
+document.getElementById('bell').onclick=openD;document.getElementById('cl').onclick=closeD;document.getElementById('mr').onclick=function(){unread=0;badge()};
+addEventListener('keydown',function(e){if(e.key==='Escape'&&dr.classList.contains('on'))closeD()});
+toast('info','Welcome to Relay','Try the buttons below.',{nolog:false});
+})();
+</script>
+</body></html>

@@ -1,0 +1,11 @@
+Canvas & base: Light app page #f6f6f9 with a top bar 64px (white, 1px #e4e4ec bottom border) and a content area holding a demo panel. Ink #17172a, muted #6b6b82, accent #4f46e5, success #16a34a, warning #d97706, error #dc2626, info #0284c7. Toasts are white cards 340px wide, radius 14px, padding 14px 16px, shadow 0 12px 32px rgba(23,23,42,0.18), 4px left border in the type colour.
+
+Typography: "Public Sans" (400, 500, 600, 700) throughout, toast title 15px 600, message 14px muted.
+
+Layout: Top bar with the logo "Relay", a bell icon button with a red unread count badge. Content: a card "Notification playground" with four type buttons (Success, Warning, Error, Info), an "Undoable delete" button, a "Spam 5" button, a position selector (top-right, top-left, bottom-right, bottom-left, bottom-centre) as a segmented control, a duration slider (2 to 10 seconds), and a "Clear all" ghost button. A toast viewport is fixed to the chosen corner, stacking up to 4 visible toasts (newest nearest the edge, older ones scaled slightly and offset), extra ones queued. A history drawer slides in from the right when the bell is pressed, listing every notification with type icon, text and relative time, plus "Mark all read".
+
+Interaction: Each toast has an icon, title, message, a close button and a progress bar along the bottom that shrinks over the duration; hovering or focusing a toast pauses its timer. Swiping a toast sideways more than 80px (pointer events) dismisses it, otherwise it springs back. The undoable delete toast has an Undo button that dismisses it and adds an "Undone" success toast. Entering toasts slide and fade in (260ms), leaving toasts collapse in height. The bell badge counts unread history entries and clears when the drawer opens. Escape closes the drawer.
+
+Responsive: On screens narrower than 560px toasts become full width minus 16px, pinned to the top or bottom according to the position choice; the drawer is full width.
+
+Rules: The viewport uses role="region" aria-live="polite" (errors use role="alert"). prefers-reduced-motion removes slides and uses instant show and hide. No images, no libraries, one HTML file.

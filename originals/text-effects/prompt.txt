@@ -1,0 +1,13 @@
+Canvas & base: Page #0d0d12, a stage panel #14141c with a 1px #25252f border and radius 24px, min-height 360px, centred content. Text #f5f5fa, muted #8d8da3, accent #ffb703 with secondary #fb5607 and #8338ec. Max width 980px, 24px gutters.
+
+Typography: "Bricolage Grotesque" (600, 800) for the effect text at clamp(40px, 8vw, 96px), letter-spacing -0.03em; "JetBrains Mono" (400, 500) for the tabs, caption and scramble effect; "Inter" (400, 500) for the UI.
+
+Layout: Header with title "Kinetic type lab" and a one-line caption. A row of 6 tab buttons (Typewriter, Split reveal, Shimmer, Scramble, Outline, Word swap) as pills. Under it a stage that shows the selected effect, below the stage a text field "Your text" (default "Make words move.") and a Replay button, then a footer line showing the CSS technique used for the current effect.
+
+Effects: (1) Typewriter: types the text one character at a time with a blinking caret, then deletes it and loops after a pause. (2) Split reveal: each letter is a span that rises from below (translateY 100% to 0, masked by overflow hidden) with 40ms stagger. (3) Shimmer: text filled with a moving linear-gradient (accent, orange, violet) via background-clip text, animating background-position over 3s, infinite. (4) Scramble: letters resolve from random glyphs into the final text left to right over about 1.2s, monospace-feeling but keep the display font. (5) Outline: transparent fill with a 2px text stroke that fills with the accent colour from left to right on hover or focus using a clipped duplicate layer. (6) Word swap: "Design • faster / smarter / together" where the last word cycles through three words with a vertical slide every 2s.
+
+Interaction: Switching tabs replays the effect. The input updates the effect text live (debounced 200ms) and the Replay button replays. Tabs are a proper tablist with arrow-key navigation and aria-selected.
+
+Responsive: Tabs scroll horizontally on mobile with no page overflow; text size uses clamp; stage padding 20px.
+
+Rules: prefers-reduced-motion shows the final static text for every effect. Text is always exposed to screen readers via aria-label with animated spans aria-hidden. No images, no libraries, one HTML file.

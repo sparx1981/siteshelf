@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Summit 2026 — Schedule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#0f1220;color:#eef0fb;font:400 15px/1.45 Inter,system-ui,sans-serif}
+.w{max-width:1180px;margin:0 auto;padding:40px 24px 80px}
+.hd{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;margin-bottom:26px}
+h1{font:700 40px/1.05 "Space Grotesk",sans-serif;letter-spacing:-.03em;margin:0 0 6px}
+.meta{color:#8e94b8;margin:0}
+.btn{border:1px solid #2f3556;background:#171b2e;color:#eef0fb;border-radius:12px;padding:11px 18px;font:600 14px Inter,sans-serif;cursor:pointer}
+.btn:hover{background:#1f2440}
+:focus-visible{outline:2px solid #7c5cff;outline-offset:2px}
+.days{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.days button{border:1px solid #262b45;background:#171b2e;color:#b6bbd8;border-radius:12px;padding:10px 20px;font:700 15px "Space Grotesk",sans-serif;cursor:pointer}
+.days button[aria-selected=true]{background:#eef0fb;color:#0f1220;border-color:#eef0fb}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid #2f3556;background:none;color:#b6bbd8;border-radius:999px;padding:7px 14px;font:500 14px Inter,sans-serif;cursor:pointer}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--c,#eef0fb)}
+.chip[aria-pressed=true]{background:#1f2440;color:#fff;border-color:var(--c,#eef0fb)}
+.grid{position:relative;display:grid;grid-template-columns:64px repeat(4,minmax(0,1fr));background:#171b2e;border:1px solid #262b45;border-radius:18px;overflow:hidden;transition:opacity .2s}
+.grid.fade{opacity:.3}
+.th{padding:12px 10px;font:700 13px "Space Grotesk",sans-serif;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid #262b45;border-left:1px solid #262b45;text-align:center;background:#171b2e;position:relative;z-index:3}
+.th:first-child{border-left:0}
+.tm{position:relative;border-right:0}
+.tm span{position:absolute;left:0;right:0;text-align:center;font:500 13px "Space Grotesk",sans-serif;color:#8e94b8;font-variant-numeric:tabular-nums;transform:translateY(-8px)}
+.col{position:relative;border-left:1px solid #262b45;background:repeating-linear-gradient(#262b45 0 1px,transparent 1px 56px)}
+.s{position:absolute;left:6px;right:6px;border-radius:12px;background:#222845;border:1px solid #2f3556;border-left:4px solid var(--c);padding:8px 10px;overflow:hidden;text-align:left;color:#eef0fb;font:inherit;cursor:pointer;transition:opacity .2s,transform .15s;display:block;width:calc(100% - 12px)}
+.s:hover{transform:translateY(-1px);background:#2a3053}
+.s.dim{opacity:.15;pointer-events:none}
+.s b{display:block;font:600 14.5px/1.25 Inter,sans-serif;padding-right:22px}
+.s small{display:block;color:#8e94b8;font-size:12.5px;margin-top:2px}
+.s .st{position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:8px;border:0;background:none;color:#8e94b8;cursor:pointer;font-size:17px;line-height:1;display:grid;place-items:center;padding:0}
+.s .st:hover{background:rgba(255,255,255,.08);color:#fff}
+.s .st[aria-pressed=true]{color:#ffc933}
+.now{position:absolute;left:64px;right:0;height:2px;background:#ff4d6d;z-index:4;pointer-events:none}
+.now span{position:absolute;left:-60px;top:-10px;background:#ff4d6d;color:#fff;border-radius:999px;font:700 11px "Space Grotesk",sans-serif;padding:3px 8px;font-variant-numeric:tabular-nums}
+.det{margin-top:18px;background:#171b2e;border:1px solid #262b45;border-left:4px solid var(--c);border-radius:16px;padding:22px}
+.det h2{font:700 24px "Space Grotesk",sans-serif;margin:0 0 6px;letter-spacing:-.02em}
+.det p{color:#b6bbd8;margin:10px 0 16px;max-width:60ch}
+.det .row{display:flex;gap:10px;flex-wrap:wrap;color:#8e94b8}
+.drw{position:fixed;top:0;right:0;bottom:0;width:min(380px,100%);background:#171b2e;border-left:1px solid #262b45;z-index:50;transform:translateX(105%);visibility:hidden;transition:transform .25s,visibility .25s;display:flex;flex-direction:column}
+.drw.on{transform:none;visibility:visible;box-shadow:-20px 0 50px rgba(0,0,0,.4)}
+.drw header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid #262b45}
+.drw h2{font:700 20px "Space Grotesk",sans-serif;margin:0}
+.drw ul{list-style:none;margin:0;padding:10px 14px;overflow-y:auto;flex:1}
+.drw li{border-left:4px solid var(--c);background:#1f2440;border-radius:10px;padding:10px 12px;margin-bottom:10px}
+.drw li small{display:block;color:#8e94b8}.drw li .w2{color:#ffc933;font-size:13px;font-weight:600}
+.drw .em{color:#8e94b8;text-align:center;padding:40px 10px}
+.list{display:none}
+@media(max-width:900px){
+ .grid{display:none}.list{display:block}
+ .lg{margin-bottom:14px}.lg h3{font:700 14px "Space Grotesk",sans-serif;color:#8e94b8;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+ .lg h3 .nw{background:#ff4d6d;color:#fff;border-radius:999px;padding:2px 8px;font-size:11px}
+ .lg .s{position:relative;left:auto;right:auto;width:100%;margin-bottom:8px}
+ h1{font-size:32px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<main class="w">
+ <div class="hd"><div><h1>Summit 2026</h1><p class="meta">15–17 October · Riverside Convention Centre</p></div><button class="btn" id="mine" type="button">My agenda (0)</button></div>
+ <div class="days" role="tablist" id="days"></div>
+ <div class="chips" id="chips"></div>
+ <div class="grid" id="grid"></div>
+ <div class="list" id="list"></div>
+ <div id="det"></div>
+</main>
+<aside class="drw" id="drw" aria-label="My agenda" aria-hidden="true"><header><h2>My agenda</h2><button class="btn" id="dx" type="button" aria-label="Close agenda">✕</button></header><ul id="dl"></ul></aside>
+<script>
+(function(){
+var TR={Product:'#7c5cff',Engineering:'#19d3a2',Design:'#ff7a59',Business:'#ffc933'},names=Object.keys(TR);
+var T0=9*60,PX=56/30,END=17*60;
+var titles=['Opening keynote','Scaling to a million users','Design systems that last','The business of open source','Shipping without fear','Research that changes minds','Pricing experiments','Edge computing in practice','Accessible by default','Building a product culture','Observability deep dive','Storytelling with data','Hiring for craft','Micro-interactions that matter','From prototype to platform','Fundraising in a tight market'];
+var sp=['Ava Moreno','Kenji Sato','Priya Nair','Luca Ferri','Sana Haddad','Tom Whitaker','Ines Duarte','Noah Berg','Mei Lin','Omar Aziz','Hana Novak','Ravi Kulkarni'];
+var D=[{n:'Thu 15',d:[]},{n:'Fri 16',d:[]},{n:'Sat 17',d:[]}],id=0;
+var lens=[60,45,90,30,60,45,60,45];
+D.forEach(function(day,di){names.forEach(function(tr,ti){var t=T0+(ti%2)*30;for(var k=0;k<3;k++){var L=lens[(di*3+ti+k*5)%8],st=t+((k+ti+di)%2?0:0);if(st+L>END)break;day.d.push({id:++id,tr:tr,t:st,l:L,title:titles[(id*3+di)%16],sp:sp[(id*5)%12],room:'Room '+String.fromCharCode(65+ti)});t=st+L+((k+di)%2?30:0)}})});
+var day=0,filt={},saved={},sel=null,nowM=11*60+15;
+var $=function(i){return document.getElementById(i)};
+function hm(m){return String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0')}
+function dimmed(s){var any=Object.keys(filt).some(function(k){return filt[k]});return any&&!filt[s.tr]}
+function card(s,abs){var b=document.createElement('div');b.className='s'+(dimmed(s)?' dim':'');b.style.setProperty('--c',TR[s.tr]);b.setAttribute('role','button');b.tabIndex=0;b.setAttribute('aria-label',s.title+', '+s.tr+', '+hm(s.t)+' to '+hm(s.t+s.l));
+ if(abs){b.style.top=((s.t-T0)*PX+3)+'px';b.style.height=(s.l*PX-6)+'px'}
+ b.innerHTML='<b></b><small></small><small></small><button class="st" type="button" aria-pressed="'+!!saved[s.id]+'" aria-label="Save session">'+(saved[s.id]?'★':'☆')+'</button>';
+ b.querySelector('b').textContent=s.title;var sm=b.querySelectorAll('small');sm[0].textContent=s.sp;sm[1].textContent=hm(s.t)+'–'+hm(s.t+s.l)+' · '+s.room;if(abs&&s.l<45)sm[1].remove();
+ b.querySelector('.st').onclick=function(e){e.stopPropagation();saved[s.id]=!saved[s.id];if(!saved[s.id])delete saved[s.id];draw()};
+ b.onclick=function(){sel=s;draw();document.getElementById('det').scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})};
+ b.onkeydown=function(e){if((e.key==='Enter'||e.key===' ')&&e.target===b){e.preventDefault();b.click()}};return b}
+function draw(){
+ var d=D[day].d;$('days').innerHTML='';D.forEach(function(x,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.setAttribute('aria-selected',String(i===day));b.textContent=x.n;b.onclick=function(){if(i===day)return;day=i;sel=null;var g=$('grid');g.classList.add('fade');setTimeout(function(){draw();g.classList.remove('fade')},160)};$('days').appendChild(b)});
+ $('chips').innerHTML='';[['All',null]].concat(names.map(function(n){return[n,n]})).forEach(function(c){var b=document.createElement('button');b.type='button';b.className='chip';if(c[1])b.style.setProperty('--c',TR[c[1]]);var on=c[1]?!!filt[c[1]]:!Object.keys(filt).some(function(k){return filt[k]});b.setAttribute('aria-pressed',String(on));b.innerHTML='<i></i>'+c[0];b.onclick=function(){if(!c[1])filt={};else filt[c[1]]=!filt[c[1]];draw()};$('chips').appendChild(b)});
+ var g=$('grid');g.innerHTML='<div class="th"></div>'+names.map(function(n){return'<div class="th" style="color:'+TR[n]+'">'+n+'</div>'}).join('');
+ var rows=(END-T0)/30,H=rows*56,tm=document.createElement('div');tm.className='tm';tm.style.height=H+'px';for(var m=T0;m<END;m+=60){var sp2=document.createElement('span');sp2.style.top=((m-T0)*PX+8)+'px';sp2.textContent=hm(m);tm.appendChild(sp2)}g.appendChild(tm);
+ names.forEach(function(n){var c=document.createElement('div');c.className='col';c.style.height=H+'px';d.filter(function(s){return s.tr===n}).forEach(function(s){c.appendChild(card(s,true))});g.appendChild(c)});
+ if(day===0&&nowM>=T0&&nowM<=END){var nl=document.createElement('div');nl.className='now';nl.style.top=(45+(nowM-T0)*PX)+'px';nl.innerHTML='<span>'+hm(nowM)+'</span>';g.appendChild(nl)}
+ var L=$('list');L.innerHTML='';var times=[];d.forEach(function(s){if(times.indexOf(s.t)<0)times.push(s.t)});times.sort(function(a,b){return a-b});
+ times.forEach(function(t){var gp=document.createElement('div');gp.className='lg';var cur=day===0&&nowM>=t&&nowM<t+30;gp.innerHTML='<h3>'+hm(t)+(cur?' <span class="nw">Now</span>':'')+'</h3>';d.filter(function(s){return s.t===t}).forEach(function(s){gp.appendChild(card(s,false))});L.appendChild(gp)});
+ $('mine').textContent='My agenda ('+Object.keys(saved).length+')';
+ var dt=$('det');dt.innerHTML='';if(sel){var s=sel,e=document.createElement('section');e.className='det';e.style.setProperty('--c',TR[s.tr]);e.innerHTML='<div class="row"><span style="color:'+TR[s.tr]+';font-weight:600">'+s.tr+'</span><span>'+hm(s.t)+'–'+hm(s.t+s.l)+'</span><span>'+s.room+'</span></div><h2></h2><div class="row">'+s.sp+'</div><p>Join '+s.sp+' for a practical session on “'+s.title.toLowerCase()+'”. Expect real examples, honest trade-offs and time for questions at the end.</p><button class="btn" type="button">'+(saved[s.id]?'Remove from agenda':'Add to agenda')+'</button> <button class="btn" type="button">Close</button>';e.querySelector('h2').textContent=s.title;var bs=e.querySelectorAll('button');bs[0].onclick=function(){saved[s.id]=!saved[s.id];if(!saved[s.id])delete saved[s.id];draw()};bs[1].onclick=function(){sel=null;draw()};dt.appendChild(e)}
+ drawL()}
+function drawL(){var all=[];D.forEach(function(x,i){x.d.forEach(function(s){if(saved[s.id])all.push({s:s,day:i})})});all.sort(function(a,b){return a.day-b.day||a.s.t-b.s.t});
+ $('dl').innerHTML=all.length?all.map(function(o,i){var clash=all.some(function(p,j){return j!==i&&p.day===o.day&&p.s.t<o.s.t+o.s.l&&o.s.t<p.s.t+p.s.l});return'<li style="--c:'+TR[o.s.tr]+'"><b>'+o.s.title+'</b><small>'+D[o.day].n+' · '+hm(o.s.t)+'–'+hm(o.s.t+o.s.l)+' · '+o.s.room+'</small>'+(clash?'<span class="w2">⚠ Clashes with another saved session</span>':'')+'</li>'}).join(''):'<li class="em">Star a session to build your agenda.</li>'}
+$('mine').onclick=function(){drawL();$('drw').classList.add('on');$('drw').setAttribute('aria-hidden','false');$('dx').focus()};
+function closeD(){$('drw').classList.remove('on');$('drw').setAttribute('aria-hidden','true');$('mine').focus()}
+$('dx').onclick=closeD;addEventListener('keydown',function(e){if(e.key==='Escape'){if($('drw').classList.contains('on'))closeD();else if(sel){sel=null;draw()}}});
+setInterval(function(){nowM=nowM+1>END?T0:nowM+1;if(day===0){var nl=document.querySelector('.now');if(nl){nl.style.top=(45+(nowM-T0)*PX)+'px';nl.firstChild.textContent=hm(nowM)}}},10000);
+draw();
+})();
+</script>
+</body></html>

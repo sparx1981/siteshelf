@@ -1,0 +1,11 @@
+Canvas & base: Page background #f3efe7, ink #1b1b1f, muted #6a665d. Five chapter panels, each 100vw by 100vh, with distinct backgrounds: #f3efe7 (cream), #ffd9c2 (peach), #cfe8dc (sage), #c9d6ff (periwinkle), #1b1b1f (ink, with cream text). Accent #e4572e.
+
+Typography: "Fraunces" (400, 700, italic 400) for chapter titles at clamp(48px, 9vw, 150px), line-height 0.95, letter-spacing -0.03em; "Inter" (400, 500, 600) for body 19px/1.6 and 12px uppercase labels with tracking 0.14em.
+
+Layout: A short intro screen ("Scroll to travel", a down arrow) followed by a tall scroll section (height = number of panels times 100vh) containing a sticky 100vh viewport. Inside, a flex track of five panels translates horizontally as the user scrolls down. Each panel has a chapter number "01 / 05", a big title, a paragraph of 30 to 45 words, and a decorative CSS shape layer (circles, arcs, a sun, waves made with gradients) that moves at a different speed from the text for parallax. A fixed bottom bar shows a progress bar and the current chapter name. After the sticky section, a closing footer section "The end" with a link back to the top.
+
+Interaction: Scroll progress through the sticky section maps to translateX (0 to -(n-1)*100vw) using requestAnimationFrame and scrollY math, with a light inertia (lerp 0.12) for smoothness. Shapes use translateX offsets of 0.5x to 1.5x the track movement. The progress bar and chapter label update; clicking a dot in the bottom bar scrolls to that chapter. Titles slide up and fade in when their panel is more than 50% in view.
+
+Responsive: Under 800px disable pinning: panels stack vertically at min-height 80svh with natural scroll, the track is a column and the bottom bar hides.
+
+Rules: Keyboard users can reach every chapter through the dot buttons; the text must never be clipped; prefers-reduced-motion also uses the stacked vertical layout. No images, no libraries, one HTML file.

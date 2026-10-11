@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Soft Controls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e4e9f0;--s1:#bcc3cf;--s2:#fff;--tx:#4a5262;--ac:#5b8cff}
+[data-t=dark]{--bg:#23272f;--s1:#181b21;--s2:#2e333d;--tx:#aab2c3}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--tx);font:600 16px/1.4 Nunito,system-ui,sans-serif;transition:background .3s,color .3s}
+body{min-height:100svh;display:grid;place-items:center;padding:28px 16px}
+.raise{box-shadow:8px 8px 18px var(--s1),-8px -8px 18px var(--s2)}
+.inset{box-shadow:inset 6px 6px 12px var(--s1),inset -6px -6px 12px var(--s2)}
+.pnl{width:min(860px,100%);border-radius:36px;padding:40px;background:var(--bg)}
+h1{font:800 28px Nunito,sans-serif;margin:0 0 4px}
+.sub{margin:0 0 30px;opacity:.85}
+.gr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
+.md{border-radius:28px;padding:26px;background:var(--bg);display:flex;flex-direction:column;align-items:center;gap:18px;min-width:0}
+.md.w{grid-column:1/-1}
+.lb{font:700 13px Nunito,sans-serif;text-transform:uppercase;letter-spacing:.12em;align-self:flex-start}
+.val{font:800 28px Nunito,sans-serif;font-variant-numeric:tabular-nums;color:var(--tx)}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+/* knob */
+.kn{position:relative;width:min(220px,100%);aspect-ratio:1;display:grid;place-items:center}
+.tk{position:absolute;inset:0}
+.tk i{position:absolute;left:50%;top:0;width:3px;height:10px;margin-left:-1.5px;border-radius:2px;background:var(--s1);transform-origin:50% calc(var(--r) * 1px);transition:background .2s}
+.tk i.on{background:var(--ac);box-shadow:0 0 6px var(--ac)}
+.dial{width:68%;aspect-ratio:1;border-radius:50%;background:var(--bg);cursor:grab;touch-action:none;position:relative;display:grid;place-items:center}
+.dial:active{cursor:grabbing}
+.dial:after{content:"";position:absolute;top:10%;left:50%;width:5px;height:16%;margin-left:-2.5px;border-radius:3px;background:var(--ac);box-shadow:0 0 8px var(--ac)}
+.dial>span{position:absolute;inset:0;border-radius:50%}
+.kv{position:absolute;pointer-events:none}
+/* power */
+.pw{width:96px;height:96px;border-radius:50%;border:0;background:var(--bg);color:var(--tx);cursor:pointer;display:grid;place-items:center;transition:box-shadow .12s,color .2s;box-shadow:8px 8px 18px var(--s1),-8px -8px 18px var(--s2)}
+.pw[aria-pressed=true]{box-shadow:inset 6px 6px 12px var(--s1),inset -6px -6px 12px var(--s2);color:var(--ac)}
+.pw[aria-pressed=true] svg{filter:drop-shadow(0 0 6px var(--ac))}
+/* thermo */
+.th{position:relative;width:min(240px,100%)}
+.th svg{display:block;width:100%}
+.th .v{position:absolute;left:0;right:0;bottom:6px;text-align:center}
+.rb{display:flex;gap:26px}
+.rb button{width:52px;height:52px;border-radius:50%;border:0;background:var(--bg);color:var(--tx);font:800 24px Nunito,sans-serif;cursor:pointer;box-shadow:6px 6px 12px var(--s1),-6px -6px 12px var(--s2);transition:box-shadow .12s}
+.rb button:active{box-shadow:inset 4px 4px 8px var(--s1),inset -4px -4px 8px var(--s2)}
+/* slider */
+.sl{width:100%}
+.sl input{-webkit-appearance:none;appearance:none;width:100%;height:16px;border-radius:10px;background:var(--bg);box-shadow:inset 4px 4px 8px var(--s1),inset -4px -4px 8px var(--s2);outline-offset:8px;margin:14px 0}
+.sl input::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--bg);box-shadow:5px 5px 10px var(--s1),-5px -5px 10px var(--s2);border:0;cursor:grab}
+.sl input::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:var(--bg);box-shadow:5px 5px 10px var(--s1),-5px -5px 10px var(--s2);border:0;cursor:grab}
+.sl .row{display:flex;justify-content:space-between;align-items:baseline}
+/* segmented */
+.sg{position:relative;display:grid;grid-template-columns:repeat(3,1fr);width:100%;border-radius:20px;padding:6px;background:var(--bg);box-shadow:inset 6px 6px 12px var(--s1),inset -6px -6px 12px var(--s2)}
+.sg i{position:absolute;top:6px;bottom:6px;left:6px;width:calc((100% - 12px)/3);border-radius:15px;background:var(--bg);box-shadow:4px 4px 8px var(--s1),-4px -4px 8px var(--s2);transition:transform .25s cubic-bezier(.3,.8,.3,1)}
+.sg button{position:relative;border:0;background:none;color:var(--tx);font:700 15px Nunito,sans-serif;padding:12px 0;cursor:pointer}
+.sg button[aria-checked=true]{color:var(--ac)}
+/* theme */
+.ts{width:112px;height:52px;border-radius:30px;border:0;background:var(--bg);position:relative;cursor:pointer;box-shadow:inset 6px 6px 12px var(--s1),inset -6px -6px 12px var(--s2);padding:0}
+.ts i{position:absolute;top:6px;left:6px;width:40px;height:40px;border-radius:50%;background:var(--bg);box-shadow:4px 4px 8px var(--s1),-4px -4px 8px var(--s2);transition:transform .3s;display:grid;place-items:center;color:var(--ac)}
+.ts[aria-pressed=true] i{transform:translateX(60px)}
+@media(max-width:640px){.pnl{padding:22px;border-radius:28px}.gr{grid-template-columns:minmax(0,1fr);gap:24px}.kn{width:min(190px,100%)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<main class="pnl raise" id="pnl">
+ <h1>Control panel</h1><p class="sub">Everything here is the same colour. Only light and shadow do the work.</p>
+ <div class="gr">
+  <section class="md raise"><span class="lb" id="kl">Gain</span>
+   <div class="kn"><div class="tk" id="tk" aria-hidden="true"></div><div class="dial raise" id="dial" role="slider" tabindex="0" aria-labelledby="kl" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40"></div></div>
+   <div class="val" id="kv">40</div></section>
+  <section class="md raise"><span class="lb">Power</span><button class="pw" id="pw" type="button" aria-pressed="false" aria-label="Power"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v8M6.300 6.600a8 8 0 1011.400 0"/></svg></button><div class="val" id="pv">OFF</div></section>
+  <section class="md raise"><span class="lb">Thermostat</span>
+   <div class="th"><svg viewBox="0 0 240 140" aria-hidden="true"><path d="M30 120A90 90 0 0 1 210 120" fill="none" stroke="var(--s1)" stroke-width="16" stroke-linecap="round"/><path id="arc" d="M30 120A90 90 0 0 1 210 120" fill="none" stroke="var(--ac)" stroke-width="16" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100" style="transition:stroke-dasharray .3s"/></svg><div class="v val"><span id="tv">21</span>°C</div></div>
+   <div class="rb"><button id="tm" type="button" aria-label="Lower temperature">−</button><button id="tp" type="button" aria-label="Raise temperature">+</button></div></section>
+  <section class="md raise"><span class="lb" id="sl">Volume</span><div class="sl"><input id="vol" type="range" min="0" max="100" value="65" aria-labelledby="sl"><div class="row"><span>Low</span><span class="val"><span id="vv">65</span>%</span><span>High</span></div></div></section>
+  <section class="md raise w"><span class="lb">Mode</span><div class="sg" id="sg" role="radiogroup" aria-label="Mode"><i></i><button type="button" role="radio" aria-checked="false">Eco</button><button type="button" role="radio" aria-checked="true">Comfort</button><button type="button" role="radio" aria-checked="false">Boost</button></div></section>
+  <section class="md raise w" style="flex-direction:row;justify-content:space-between"><span class="lb" style="align-self:center">Dark soft theme</span><button class="ts" id="ts" type="button" aria-pressed="false" aria-label="Dark theme"><i id="ti">☀</i></button></section>
+ </div>
+</main>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+/* knob */
+var tk=$('tk'),dial=$('dial'),val=40,N=21,R=0;
+function build(){tk.innerHTML='';var r=tk.clientWidth/2;for(var i=0;i<N;i++){var e=document.createElement('i'),a=-135+i*(270/(N-1));e.style.setProperty('--r',r);e.style.transform='rotate('+a+'deg)';tk.appendChild(e)}paint()}
+function paint(){dial.style.transform='rotate('+(-135+val*2.7)+'deg)';$('kv').textContent=Math.round(val);dial.setAttribute('aria-valuenow',Math.round(val));[].forEach.call(tk.children,function(e,i){e.classList.toggle('on',i/(N-1)*100<=val+.01)})}
+function setFrom(e){var r=dial.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,a=Math.atan2(e.clientY-cy,e.clientX-cx)*180/Math.PI+90;if(a>180)a-=360;a=Math.max(-135,Math.min(135,a));val=(a+135)/2.7;paint()}
+var drag=false;dial.addEventListener('pointerdown',function(e){drag=true;dial.setPointerCapture(e.pointerId);setFrom(e)});dial.addEventListener('pointermove',function(e){if(drag)setFrom(e)});dial.addEventListener('pointerup',function(){drag=false});
+dial.addEventListener('keydown',function(e){var d={ArrowRight:5,ArrowUp:5,ArrowLeft:-5,ArrowDown:-5,Home:-100,End:100}[e.key];if(d){e.preventDefault();val=Math.max(0,Math.min(100,val+d));paint()}});
+build();addEventListener('resize',build);
+/* power */
+$('pw').onclick=function(){var on=$('pw').getAttribute('aria-pressed')!=='true';$('pw').setAttribute('aria-pressed',String(on));$('pv').textContent=on?'ON':'OFF'};
+/* thermo */
+var t=21;function th(){$('tv').textContent=t;$('arc').setAttribute('stroke-dasharray',((t-16)/14*100)+' 100')}th();
+$('tm').onclick=function(){t=Math.max(16,t-1);th()};$('tp').onclick=function(){t=Math.min(30,t+1);th()};
+/* slider */
+$('vol').oninput=function(){$('vv').textContent=this.value};
+/* segmented */
+var sg=$('sg'),bs=[].slice.call(sg.querySelectorAll('button'));
+function seg(i){bs.forEach(function(b,j){b.setAttribute('aria-checked',String(i===j));b.tabIndex=i===j?0:-1});sg.querySelector('i').style.transform='translateX('+i*100+'%)'}
+bs.forEach(function(b,i){b.onclick=function(){seg(i)};b.onkeydown=function(e){var d={ArrowRight:1,ArrowLeft:-1}[e.key];if(d){e.preventDefault();var n=(i+d+3)%3;seg(n);bs[n].focus()}}});seg(1);
+/* theme */
+$('ts').onclick=function(){var d=$('ts').getAttribute('aria-pressed')!=='true';$('ts').setAttribute('aria-pressed',String(d));document.documentElement.dataset.t=d?'dark':'light';$('ti').textContent=d?'☾':'☀'};
+})();
+</script>
+</body></html>

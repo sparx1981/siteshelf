@@ -1,0 +1,11 @@
+Canvas & base: Page #0b0c14 with a faint radial vignette (#171a2e at the centre). Three trading-card style cards 300px by 420px, radius 22px, each with its own gradient body (violet #5b3df5 to #c23df5; teal #0ea5a4 to #22c55e; amber #f59e0b to #ef4444), a 1px rgba(255,255,255,0.25) border and an inner 12px frame line. Text #ffffff.
+
+Typography: "Unbounded" (500, 700) for card titles at 26px and "Manrope" (500, 700) for stats and body at 14px. Rarity label 11px uppercase tracking 0.2em.
+
+Layout: A centred row (flex, wrap, gap 40px) of the three cards on a perspective of 900px. Each card contains, in separate z-layers: a background gradient, a large CSS-drawn glyph (concentric rings for violet, a diamond lattice for teal, a sun burst for amber) floating at translateZ(40px), the title and rarity label at translateZ(60px), and a stats row of three pills (ATK, DEF, SPD) at translateZ(30px). A glare layer is a radial-gradient white highlight plus a repeating rainbow linear-gradient at 35% opacity (mix-blend-mode: color-dodge) clipped to the card.
+
+Interaction: On pointer move the card rotates up to 14deg on both axes toward the pointer (rotateX from vertical offset, rotateY from horizontal offset), the glare follows the pointer, the shadow shifts opposite and grows, and the card scales to 1.04. On leave it eases back over 500ms. On touch, dragging a finger over a card does the same. For keyboard users, focusing a card (tabindex 0) plays a gentle automatic wobble over 1.2s; Enter flips it to show a back face with a short description (rotateY 180deg, 600ms).
+
+Responsive: Cards scale down to fit with width min(300px, 86vw) keeping aspect ratio 5:7; they stack vertically on narrow screens.
+
+Rules: All motion uses transform and opacity. prefers-reduced-motion disables tilt and wobble (the flip becomes an instant swap). No images, no libraries, one HTML file.

@@ -1,0 +1,11 @@
+Canvas & base: Bone-white page #f4f1ea, ink #181613, secondary #6b665c (5.6:1), accent vermilion #e4482b. Artworks are generated SVG compositions (no external images) in eight palettes with varied aspect ratios (3:4, 4:5, 1:1, 5:4). Invented gallery "Slow Scroll Studio".
+
+Typography: "Instrument Serif" 400 and italic for the sticky title and captions (title clamp 56px to 150px, line-height .88, tracking -.03em); "Inter" 400/500 for body and labels (13px uppercase labels with .14em tracking).
+
+Layout: Left sticky panel (30% width, desktop) containing the title "Slow Scroll" with the second word in italic vermilion, a short paragraph, a vertical progress rail showing page scroll progress with the current section label ("Spring", "Summer", "Autumn", "Winter" updating at quarter points) and the count "09 / 24". Right region: three columns (gap 18px) of 8 artworks each (24 total). Column 1 scrolls at normal speed, column 2 offset by translateY driven by scroll with factor 0.18 faster (moves upward relative), column 3 with factor 0.32 so the columns drift relative to each other creating a staggered rhythm. Each artwork card has radius 6px and a caption overlay at the bottom (title, artist, year) that fades in on hover or focus. The first column begins with a larger hero tile.
+
+Interaction: Parallax via requestAnimationFrame reading scrollY and applying transforms (translate3d); cards reveal with a clip-path inset animation when entering the viewport (IntersectionObserver, 700ms). Hovering a card dims others slightly (opacity .55). Cards are buttons: Enter or click opens a lightbox (native dialog) with the larger art, caption and "Next/Prev" within the same column. Keyboard: Tab moves in DOM order; Escape closes.
+
+Responsive: Under 900px the sticky panel becomes a compact top header and the layout is two columns with parallax disabled (factor 0), under 520px a single column; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Cards are buttons with aria-labels; decorative transforms do not alter DOM order; visible focus 3px #e4482b. Respect prefers-reduced-motion (no parallax, no reveal animation). Invented names only.

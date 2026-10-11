@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Too Many Requests Page — Error Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 30%,rgba(124,92,255,.35),transparent 55%),#120d2b;color:#f1eeff;font:400 16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #38e1c6;outline-offset:3px;border-radius:12px}
+.dots{position:fixed;inset:0;pointer-events:none;overflow:hidden}.dots i{position:absolute;width:6px;height:6px;border-radius:50%;background:#7c5cff;opacity:.35;animation:fl var(--t) ease-in-out infinite alternate}@keyframes fl{to{transform:translateY(-30px)}}
+header{padding:20px clamp(18px,4vw,40px);font:700 20px 'Space Grotesk',sans-serif;position:relative}header i{display:inline-block;width:14px;height:14px;border-radius:50% 50% 50% 0;background:#7c5cff;margin-right:8px}
+.w{position:relative;max-width:640px;margin:0 auto;padding:0 20px 60px;text-align:center}
+.rg{position:relative;width:min(82vw,300px);aspect-ratio:1;margin:10px auto 0}.rg svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}.rg circle{fill:none;stroke-width:8}.rg .bg{stroke:rgba(255,255,255,.1)}.rg .fg{stroke:url(#gr);stroke-linecap:round;transition:stroke-dashoffset 1s linear}
+.rg .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.n{font:700 clamp(96px,22vw,150px)/.9 'Space Grotesk',sans-serif;letter-spacing:-.05em;background:linear-gradient(135deg,#7c5cff,#38e1c6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tm{font:600 18px 'Space Grotesk',sans-serif;color:#d8d2ff;font-variant-numeric:tabular-nums;margin-top:4px}
+h1{font:700 clamp(30px,5vw,42px)/1.1 'Space Grotesk',sans-serif;letter-spacing:-.02em;margin:22px 0 10px}.lead{color:#b5acdf;margin:0 auto 22px;max-width:46ch}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:20px;text-align:left;margin-bottom:14px;backdrop-filter:blur(8px)}
+.mt{display:flex;justify-content:space-between;font:400 13px 'JetBrains Mono',monospace;margin-bottom:8px;color:#d8d2ff}.bar{position:relative;margin-bottom:24px;height:12px;background:rgba(255,255,255,.1);border-radius:99px}.bar i{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:#ffb84d;transition:width 1s linear,background .4s;width:100%}.bar u{position:absolute;top:-5px;bottom:-5px;width:2px;background:#fff;left:83.3%}.bar u:after{content:"limit 100";position:absolute;top:auto;bottom:-22px;left:50%;transform:translateX(-50%);font:400 11px 'JetBrains Mono',monospace;color:#b5acdf;white-space:nowrap;text-decoration:none}
+.sw{display:flex;gap:12px;align-items:center;justify-content:space-between;font-weight:500}.sw button{width:48px;height:28px;border-radius:99px;border:0;background:#4a4170;position:relative;cursor:pointer;transition:background .2s;flex:none}.sw button:after{content:"";position:absolute;left:3px;top:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform .2s}.sw button[aria-checked=true]{background:#38e1c6}.sw button[aria-checked=true]:after{transform:translateX(20px)}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:18px 0}.btn{font:600 16px Inter,sans-serif;border-radius:14px;padding:14px 26px;border:0;cursor:pointer;text-decoration:none;display:inline-block;transition:transform .2s,opacity .2s}.pr{background:#7c5cff;color:#fff}.pr[aria-disabled=true]{opacity:.4;cursor:not-allowed}.pr.rd{animation:pu 1.4s infinite}@keyframes pu{0%{box-shadow:0 0 0 0 rgba(124,92,255,.7)}100%{box-shadow:0 0 0 16px rgba(124,92,255,0)}}.sc{background:transparent;color:#f1eeff;border:1.5px solid rgba(255,255,255,.3)}.btn:hover{transform:translateY(-2px)}
+.ti{text-align:left;list-style:none;margin:0;padding:0;display:grid;gap:10px}.ti li{display:flex;gap:12px}.ti b{color:#38e1c6;font-family:'Space Grotesk',sans-serif}
+.cd{display:flex;gap:10px;align-items:center;background:#0b0820;border-radius:12px;padding:10px 14px;margin-top:12px;font:400 13px 'JetBrains Mono',monospace;color:#d8d2ff}.cd code{flex:1}.cd button{font:600 12px Inter,sans-serif;background:rgba(255,255,255,.1);border:0;color:#fff;border-radius:8px;padding:6px 12px;cursor:pointer}
+.ok{padding:40px 10px}.ok .t{width:88px;height:88px;border-radius:50%;background:#38e1c6;color:#04201b;display:grid;place-items:center;font-size:44px;margin:0 auto 16px;animation:pp .5s cubic-bezier(.3,1.6,.5,1)}@keyframes pp{from{transform:scale(0)}}
+.rs{background:none;border:0;color:#b5acdf;text-decoration:underline;cursor:pointer;font:inherit;font-size:14px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><div class="dots" aria-hidden="true" id="dots"></div>
+<header><i></i>quillpost</header>
+<main class="w" id="main"><div id="wait"><div class="rg"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="gr" x1="0" x2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#38e1c6"/></linearGradient></defs><circle class="bg" cx="50" cy="50" r="46"/><circle class="fg" id="fg" cx="50" cy="50" r="46" stroke-dasharray="289.03" stroke-dashoffset="0"/></svg><div class="c"><div class="n" aria-hidden="true">429</div><div class="tm" id="tm">Try again in 30s</div></div></div>
+<h1>Slow down a little.</h1><p class="lead">You've sent 120 requests in the last minute. Your plan allows 100. Take a short breather and we'll let you back in.</p>
+<div class="card"><div class="mt"><span id="rq">120 / 100 requests this minute</span><span id="pc">120%</span></div><div class="bar" aria-hidden="true"><i id="mf"></i><u></u></div></div>
+<div class="card sw"><span id="swl">Retry automatically when the timer ends</span><button type="button" role="switch" aria-checked="true" aria-labelledby="swl" id="sw"></button></div>
+<div class="btns"><button class="btn pr" type="button" id="rt" aria-disabled="true">Retry now</button><a class="btn sc" href="#">Upgrade plan</a></div>
+<div class="card"><b style="font:700 17px 'Space Grotesk',sans-serif">Why this happens</b><ul class="ti" style="margin-top:10px"><li><b>1</b><span>Batch your calls. One request can create up to 50 items.</span></li><li><b>2</b><span>Cache responses that rarely change, such as lookups.</span></li><li><b>3</b><span>Use webhooks instead of polling for updates.</span></li></ul><div class="cd"><code id="ra">Retry-After: 30</code><button type="button" id="cp">Copy</button></div></div></div>
+<div class="ok card" id="ok" hidden><div class="t" aria-hidden="true">✓</div><h1 style="margin-top:0" tabindex="-1" id="oh">You're back in.</h1><p class="lead">Requests are flowing again. We'll keep an eye on your usage.</p><a class="btn pr" href="#">Go to dashboard</a></div>
+<p><button class="rs" type="button" id="rs">Restart demo</button></p><div class="vh" id="lv" aria-live="polite"></div></main>
+<script>
+(function(){
+var D=30,left=D,auto=true,timer,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,fg=document.getElementById('fg'),tm=document.getElementById('tm'),rt=document.getElementById('rt'),mf=document.getElementById('mf'),lv=document.getElementById('lv'),C=289.03;
+var ds=document.getElementById('dots');for(var i=0;i<18;i++){var d=document.createElement('i');d.style.cssText='left:'+((i*37)%100)+'%;top:'+((i*53)%100)+'%;--t:'+(4+i%5)+'s;animation-delay:-'+i+'s';ds.appendChild(d)}
+function draw(){var f=left/D;fg.style.strokeDashoffset=C*(1-f);if(reduce)fg.style.transition='none';tm.textContent=left>0?'Try again in '+left+'s':'Ready';var n=Math.round(120*f+(1-f)*0);var req=Math.max(0,Math.round(120*f));document.getElementById('rq').textContent=req+' / 100 requests this minute';document.getElementById('pc').textContent=Math.round(req)+'%';mf.style.width=Math.min(100,req/120*100)+'%';mf.style.background=req>100?'#ffb84d':'#38e1c6';document.getElementById('ra').textContent='Retry-After: '+left;
+if(left===0){rt.setAttribute('aria-disabled','false');rt.classList.add('rd');lv.textContent='The cooldown is over. You can retry now.'}else if(left%10===0)lv.textContent=left+' seconds until you can retry.'}
+function start(){clearInterval(timer);left=D;rt.setAttribute('aria-disabled','true');rt.classList.remove('rd');document.getElementById('wait').hidden=false;document.getElementById('ok').hidden=true;fg.style.transition='none';draw();void fg.getBoundingClientRect();fg.style.transition='';timer=setInterval(function(){left--;draw();if(left<=0){clearInterval(timer);if(auto)go()}},1000)}
+function go(){tm.textContent='Retrying…';rt.setAttribute('aria-disabled','true');rt.classList.remove('rd');setTimeout(function(){document.getElementById('wait').hidden=true;document.getElementById('ok').hidden=false;document.getElementById('oh').focus()},reduce?0:1200)}
+rt.addEventListener('click',function(){if(rt.getAttribute('aria-disabled')==='true')return;go()});
+var sw=document.getElementById('sw');sw.addEventListener('click',function(){auto=!auto;sw.setAttribute('aria-checked',auto)});
+document.getElementById('rs').addEventListener('click',start);
+document.getElementById('cp').addEventListener('click',function(){var b=this;try{navigator.clipboard.writeText('Retry-After: '+left).then(d,d)}catch(e){d()}function d(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1500)}});
+start();
+})();
+</script></body></html>

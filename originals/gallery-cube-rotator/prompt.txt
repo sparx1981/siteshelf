@@ -1,0 +1,11 @@
+Canvas & base: Warm paper page #efe9e0 with a soft floor ellipse shadow under the cube, ink #231d16, secondary #6a5f50 (5.8:1), accent terracotta #c4532f. Six artwork faces are generated SVG compositions (no external images) in different palettes, each face 280px square with a 1px inner highlight and slight edge darkening. Invented gallery "Six Sides" showing invented artists.
+
+Typography: "Fraunces" 600 and italic 600 for headings and captions (title clamp 36px to 76px, line-height 1, tracking -.02em); "Inter" 400/500/600 for body and chip labels (15px).
+
+Layout: Header with wordmark "Six Sides" and counter. Title "Every side has a story." Sub "Turn the cube to meet six small works." Centre stage: perspective 1100px, a cube 280px with faces Front, Right, Back, Left, Top, Bottom (transform rotateY/rotateX translateZ(140px)). Under the stage a caption card (title, artist, year, medium, one-sentence note) that updates to the facing artwork with a fade. Controls row: six face chips labelled by artwork short names (aria-pressed for the facing one), previous/next round buttons (rotate by 90 degrees around Y), an "Auto spin" toggle (aria-pressed) and a "Reset view" button.
+
+Interaction: Pointer drag rotates the cube (rotateY by dx*0.5, rotateX by -dy*0.5 clamped to +/-80 degrees) with inertia and a gentle snap to the nearest face orientation on release (400ms ease); chips rotate to that face with a 700ms ease; arrow keys rotate by 90 degrees (Left/Right around Y, Up/Down around X); Auto spin turns the cube around Y at 14 degrees per second, pausing during drag/hover/focus; the facing artwork is the face whose normal points most toward the viewer (compute with dot product) and drives the caption and the active chip.
+
+Responsive: Cube scales to 60vw max 280px (use a CSS variable for size and translateZ half-size); chips wrap; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. The cube has role=group with aria-label and aria-live caption; face chips are buttons; visible focus 3px #c4532f. Respect prefers-reduced-motion (no spin or inertia; face changes jump). Invented names only.

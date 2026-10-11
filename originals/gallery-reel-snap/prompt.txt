@@ -1,0 +1,11 @@
+Canvas & base: Full-viewport vertical scroll-snap reel (scroll-snap-type y mandatory) on a near-black page #0c0c0f. Ten panels, each 100vh with a full-bleed generated SVG artwork background (no external images; vivid palettes) and a soft dark gradient at the bottom for legibility. Text #ffffff on gradient (contrast above 7:1 on the darkened area), secondary #d9d6e6. Accent bar white. Invented photographer collective "Night Reel".
+
+Typography: "Syne" 700/800 for panel titles (clamp 44px to 120px, line-height .95, tracking -.03em, uppercase) and the counter; "Inter" 400/500 for notes (17px) and labels (12px uppercase .14em).
+
+Layout: Fixed overlay UI: top-left wordmark "NIGHT REEL"; top-right counter "03 / 10" in Syne; a thin vertical progress rail at the right edge (2px line with a 24px moving thumb); bottom-left a hint "Scroll, swipe or press ↓". Each panel shows its index number as a huge outlined numeral ("03", 28vw, 1px stroke, 12% opacity) behind the text, the title bottom-left, a one-sentence note below with place and year ("Marlowe docks, 2024"), and a "View details" text button that expands a short info drawer (title, camera note, 2 lines) sliding up from the bottom.
+
+Interaction: Panels snap; arrival is detected by IntersectionObserver (threshold .6) which adds .active, animating title (translateY 40px to 0, 700ms with stagger by word) and note (fade 500ms delayed), and the artwork scales from 1.08 to 1 over 1.2s. Keyboard: ArrowDown/PageDown/Space go next, ArrowUp/PageUp previous, Home/End jump; two small round buttons (up and down) at the bottom-right do the same; wheel and touch use native snapping. The counter and progress thumb update from scroll position. A "details" drawer toggles with aria-expanded and closes on arrival of another panel.
+
+Responsive: Titles clamp smaller; UI stays inside safe areas (padding env(safe-area-inset-*)); no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Panels are sections with aria-labels (title and number); counter has aria-live polite (debounced); visible focus 3px #ffffff outline with dark offset. Respect prefers-reduced-motion (no entrance animation or scale; scroll-behavior auto). Invented names only.

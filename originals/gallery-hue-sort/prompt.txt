@@ -1,0 +1,13 @@
+Canvas & base: Clean off-white page #fafafa, ink #161616, secondary #646464 (5.9:1), hairlines #e4e4e4. Tiles are generated SVG artworks (no external images) each built around a dominant colour, so sorting by hue produces smooth bands: 48 tiles with hues spread across the colour wheel plus 6 neutrals. Invented studio "Spectrum Room".
+
+Typography: "Bricolage Grotesque" 700/800 for the title (clamp 40px to 96px, line-height .95, tracking -.04em); "DM Mono" 400/500 for hex codes, counts and labels (12px, .06em tracking); "Inter" 400/500 for body.
+
+Layout: Header with wordmark "SPECTRUM ROOM" and a count "48 works". Title "Sorted by colour, not by anything else." with a sub line. A toolbar: sort selector as segmented control (Hue, Lightness, Title; aria-pressed) with a direction toggle (ascending/descending), a hue ribbon (a full-width gradient bar of the colour wheel, 28px tall, with a draggable range of two handles to filter by hue range; keyboard operable sliders) and a "Neutrals" checkbox. Grid: auto-fill columns of 140px tiles (aspect 1) with 10px gap; each tile shows the artwork and, on hover or focus, an overlay with the title and hex code; clicking a tile copies its hex (clipboard in try/catch) and shows a toast "Copied #3a7bd5". A palette strip at the bottom shows the 8 most common dominant colours of the visible tiles as chips with counts (click to filter by that colour family).
+
+Interaction: Changing sort or filter reflows the grid with FLIP (each tile animates from its old position to the new one over 500ms with a 6ms stagger by index); tiles leaving fade and scale out (200ms), entering tiles fade in. Hue range handles update the visible set live and the count. All controls are keyboard-accessible: handles are role=slider with arrow keys (1 degree, Shift 10), Home/End.
+
+Data: Hues are computed as HSL (h, 55 to 85% saturation, 40 to 65% lightness) turned into hex for labels; sorting by Lightness uses HSL L; Title sorts alphabetically; titles are invented two-word names.
+
+Responsive: Tiles shrink to 96px under 600px; toolbar wraps; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Tiles are buttons with aria-labels (title, hex); count in aria-live; visible focus 3px #161616 with white halo. Respect prefers-reduced-motion (no FLIP or fades). Invented names only.

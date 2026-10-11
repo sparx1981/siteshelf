@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Orbit Ring Gallery — Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 45%,rgba(110,90,255,.22),transparent 55%),#0a0b14;color:#f1f0ff;font:400 15px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #ff7a6b;outline-offset:3px;border-radius:10px}
+.tb{display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,4vw,48px);font:800 18px Syne,sans-serif;letter-spacing:.2em}.tb span{font:700 16px Syne,sans-serif;letter-spacing:.1em;color:#a6a3cc;font-variant-numeric:tabular-nums}
+.hd{text-align:center;padding:0 20px}h1{font:800 clamp(36px,6vw,80px)/1 Syne,sans-serif;letter-spacing:-.03em;margin:6px 0 10px}.sub{color:#a6a3cc;max-width:44ch;margin:0 auto}
+.st{position:relative;height:56vh;min-height:380px;perspective:1400px;overflow:hidden;margin-top:10px;cursor:grab;touch-action:pan-y;outline:none}.st:active{cursor:grabbing}.st:focus-visible{outline:3px solid #ff7a6b;outline-offset:-6px;border-radius:20px}
+.ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
+.t{all:unset;box-sizing:border-box;position:absolute;width:var(--w);height:var(--h);left:calc(var(--w)/-2);top:calc(var(--h)/-2);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.18);box-shadow:0 20px 50px -20px rgba(0,0,0,.8);transition:opacity .3s,filter .3s;cursor:pointer;backface-visibility:hidden;background:#111}
+.t svg{width:100%;height:100%;display:block;pointer-events:none}.t:focus-visible{outline:3px solid #ff7a6b;outline-offset:3px}
+.fl{position:absolute;left:50%;bottom:6%;width:min(80vw,640px);height:60px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(110,90,255,.35),transparent 70%);filter:blur(10px);pointer-events:none}
+.cp{text-align:center;padding:10px 20px 0;min-height:110px}.cp h2{font:800 28px Syne,sans-serif;margin:0;transition:opacity .2s}.cp p{margin:4px 0 0;color:#a6a3cc;transition:opacity .2s}.cp.sw h2,.cp.sw p{opacity:0}
+.ct{display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;padding:6px 20px 50px}
+.rb{width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:#f1f0ff;font-size:20px;cursor:pointer;transition:background .2s}.rb:hover{background:rgba(255,255,255,.16)}
+.ap{font:600 14px Inter,sans-serif;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:#f1f0ff;border-radius:99px;padding:10px 18px;cursor:pointer}.ap[aria-pressed=true]{background:#ff7a6b;border-color:#ff7a6b;color:#1a0502}
+.sp{display:flex;gap:8px;align-items:center;font-size:13px;color:#a6a3cc}.sp input{accent-color:#ff7a6b;width:120px}
+dialog{border:0;border-radius:22px;padding:0;max-width:760px;width:calc(100% - 28px);background:#14152a;color:#f1f0ff;overflow:hidden}dialog::backdrop{background:rgba(5,5,12,.8)}
+.lb{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.lb .a{aspect-ratio:200/260;background:#111}.lb .a svg{width:100%;height:100%;display:block}.lb .i{padding:26px}.lb h3{font:800 30px Syne,sans-serif;margin:0 0 6px}.lb .m{color:#a6a3cc;margin:0 0 14px}.lb .x{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(0,0,0,.5);color:#fff;font-size:22px;cursor:pointer}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:700px){.lb{grid-template-columns:minmax(0,1fr)}.sp input{width:90px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="tb">RING ROOM<span id="cn">01 / 12</span></div>
+<header class="hd"><h1>Twelve pieces, one orbit.</h1><p class="sub">Drag the ring, use the arrow keys, or let it turn on its own. Press the front piece to look closer.</p></header>
+<div class="st" id="st" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Artwork ring. Use left and right arrow keys to rotate."><div class="ring" id="ring"></div><div class="fl" aria-hidden="true"></div></div>
+<section class="cp" id="cp" aria-live="polite"><h2 id="ct"></h2><p id="cm"></p></section>
+<div class="ct"><button class="rb" id="pv" type="button" aria-label="Previous piece">←</button><button class="ap" id="ap" type="button" aria-pressed="true">Auto-rotate</button><button class="rb" id="nx" type="button" aria-label="Next piece">→</button><label class="sp">Speed <input id="sp" type="range" min="1" max="20" value="6"></label></div>
+<dialog id="dlg" aria-labelledby="dh"><button class="x" id="dx" type="button" aria-label="Close">×</button><div class="lb"><div class="a" id="da"></div><div class="i"><h3 id="dh"></h3><p class="m" id="dm"></p><p id="dd"></p></div></div></dialog>
+<script>
+(function(){
+var PAL=[['#ff7a59','#ffd166','#1b1b3a'],['#2ec4b6','#cbf3f0','#ff9f1c'],['#6a4c93','#c8b6ff','#ffd6a5'],['#0b132b','#5bc0be','#f4f1de'],['#d62828','#f77f00','#eae2b7'],['#264653','#e9c46a','#f4a261']],TT=['Slow Morning','Tidewater Study','Hill and Moon','Quiet Arithmetic','Ember Field','Paper Harbour','Nocturne in Teal','Folded Light','Orchard at Noon','Low Sun, Long Shadow','Blue Interval','The Last Lantern'],AR=['Mara Quill','Idris Calloway','Noor Hashemi','Joss Ferreira','Iris Tanaka','Callum Rees'],MD=['Gouache on panel','Screenprint, edition of 40','Oil on linen','Cut paper collage','Risograph print','Acrylic on board'];
+function rng(s){return function(){s=(s*9301+49297)%233280;return s/233280}}
+function art(i){var p=PAL[i%6],r=rng(i*131+7),k=i%4,s='<svg viewBox="0 0 200 260" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="260" fill="'+p[0]+'"/>';
+if(k===0){s+='<circle cx="'+(60+r()*80)+'" cy="'+(70+r()*40)+'" r="'+(34+r()*20)+'" fill="'+p[1]+'"/><path d="M0 200Q60 '+(140+r()*30)+' 120 190T200 '+(170+r()*30)+'V260H0z" fill="'+p[2]+'"/><path d="M0 230Q70 190 140 225T200 215V260H0z" fill="'+p[1]+'" opacity=".5"/>'}
+else if(k===1){for(var a=0;a<6;a++)s+='<circle cx="100" cy="150" r="'+(12+a*20)+'" fill="none" stroke="'+p[a%3===0?1:a%3===1?2:1]+'" stroke-width="'+(6+a*1.5)+'" opacity="'+(1-a*.1)+'"/>';s+='<rect x="0" y="0" width="200" height="90" fill="'+p[2]+'" opacity=".35"/>'}
+else if(k===2){for(var b=0;b<9;b++){s+='<rect x="'+(r()*140)+'" y="'+(r()*200)+'" width="'+(30+r()*70)+'" height="'+(30+r()*70)+'" fill="'+p[1+b%2]+'" opacity="'+(.55+r()*.4)+'"/>'}s+='<circle cx="'+(40+r()*120)+'" cy="'+(40+r()*60)+'" r="22" fill="'+p[2]+'"/>'}
+else{for(var c=0;c<7;c++)s+='<path d="M-10 '+(40+c*34)+'Q50 '+(10+c*34+r()*30)+' 100 '+(40+c*34)+'T210 '+(40+c*34)+'V270H-10z" fill="'+p[1+c%2]+'" opacity="'+(.9-c*.1)+'"/>';s+='<circle cx="150" cy="50" r="20" fill="'+p[2]+'"/>'}
+return s+'</svg>'}
+var N=12,STEP=360/N,st=document.getElementById('st'),ring=document.getElementById('ring'),tiles=[],rot=0,vel=0,drag=false,auto=true,hover=false,focusIn=false,speed=6,target=null,lx=0,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,front=-1,W=220,H=290,R;
+function size(){var m=innerWidth<700;W=m?150:220;H=m?200:290;R=Math.round(W/2/Math.tan(Math.PI/N))+10;tiles.forEach(function(t,i){t.style.setProperty('--w',W+'px');t.style.setProperty('--h',H+'px')})}
+for(var i=0;i<N;i++){var t=document.createElement('button');t.type='button';t.className='t';t.innerHTML=art(i);t.setAttribute('aria-label',TT[i]+' by '+AR[i%6]+', piece '+(i+1)+' of '+N);t.dataset.i=i;t.addEventListener('click',function(e){if(moved>6)return;var j=+this.dataset.i;if(j===front)openD(j);else{var d=((j*STEP)-(-rot)%360+540)%360-180;target=rot-((j*STEP+rot+540)%360-180)}});ring.appendChild(t);tiles.push(t)}
+var moved=0;size();addEventListener('resize',size);
+function norm(a){a=a%360;if(a<0)a+=360;return a}
+function idx(){return Math.round(norm(-rot)/STEP)%N}
+function apply(){ring.style.transform='translateZ(-'+R+'px) rotateY('+rot+'deg)';tiles.forEach(function(t,i){t.style.transform='rotateY('+(i*STEP)+'deg) translateZ('+R+'px)';var d=Math.abs(((i*STEP+rot+540)%360)-180);t.style.opacity=d<50?1:Math.max(.25,1-(d-50)/130);t.style.filter=d>70?'blur('+Math.min(3,(d-70)/35)+'px) brightness(.7)':'none';t.tabIndex=i===idx()?0:-1;t.style.zIndex=Math.round(200-d)});var f=idx();if(f!==front){front=f;var cp=document.getElementById('cp');cp.classList.add('sw');setTimeout(function(){document.getElementById('ct').textContent=TT[f];document.getElementById('cm').textContent=AR[f%6]+' · '+(2018+f%7)+' · '+MD[f%6];cp.classList.remove('sw')},reduce?0:150);document.getElementById('cn').textContent=('0'+(f+1)).slice(-2)+' / '+N}}
+var last=performance.now();function loop(n){var dt=Math.min(.05,(n-last)/1000);last=n;
+if(target!==null){var d=target-rot;rot+=d*(reduce?1:Math.min(1,dt*7));if(Math.abs(d)<.1){rot=target;target=null}}
+else if(!drag){if(Math.abs(vel)>.02){rot+=vel*dt*60;vel*=.95}else if(auto&&!hover&&!focusIn&&!reduce){rot-=speed*dt}else if(Math.abs(vel)<=.02&&vel!==0){vel=0}
+if(!auto&&Math.abs(vel)<=.3&&!drag&&target===null){var s=Math.round(rot/STEP)*STEP,dd=s-rot;if(Math.abs(dd)>.05)rot+=dd*Math.min(1,dt*6)}}
+apply();requestAnimationFrame(loop)}
+st.addEventListener('pointerdown',function(e){drag=true;moved=0;lx=e.clientX;vel=0;target=null;st.setPointerCapture(e.pointerId)});
+st.addEventListener('pointermove',function(e){if(!drag)return;var dx=e.clientX-lx;moved+=Math.abs(dx);lx=e.clientX;rot+=dx*.35;vel=dx*.35});
+['pointerup','pointercancel'].forEach(function(n){st.addEventListener(n,function(){drag=false;setTimeout(function(){moved=0},0)})});
+st.addEventListener('pointerenter',function(){hover=true});st.addEventListener('pointerleave',function(){hover=false});st.addEventListener('focusin',function(){focusIn=true});st.addEventListener('focusout',function(){focusIn=false});
+function go(d){vel=0;var base=target!==null?target:Math.round(rot/STEP)*STEP;target=base-d*STEP}
+st.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}else if(e.key==='Enter'&&e.target===st){openD(front)}});
+document.getElementById('pv').addEventListener('click',function(){go(-1)});document.getElementById('nx').addEventListener('click',function(){go(1)});
+var ap=document.getElementById('ap');ap.addEventListener('click',function(){auto=!auto;ap.setAttribute('aria-pressed',auto)});if(reduce){auto=false;ap.setAttribute('aria-pressed','false')}document.getElementById('sp').addEventListener('input',function(e){speed=+e.target.value});
+var dlg=document.getElementById('dlg');function openD(i){document.getElementById('da').innerHTML=art(i);document.getElementById('dh').textContent=TT[i];document.getElementById('dm').textContent=AR[i%6]+' · '+(2018+i%7)+' · '+MD[i%6];document.getElementById('dd').textContent='Part of the Ring Room collection. Made in a small studio on the south coast, this piece plays with '+['warm light','repeating shapes','quiet geometry','slow movement'][i%4]+' and invites a long look.';dlg.showModal()}
+document.getElementById('dx').addEventListener('click',function(){dlg.close()});dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+rot=0;apply();requestAnimationFrame(loop);
+})();
+</script></body></html>

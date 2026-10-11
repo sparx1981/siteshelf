@@ -1,0 +1,11 @@
+Canvas & base: Dark teal notes-app page #0d1b1e with a subtle diagonal gradient to #12292d and faint dotted pattern. Panels #162a2e with 1px #26454b borders. Text #e6f4f2, secondary #8fb3b0 (6.8:1). Accent mint #4fe3c1, secondary accent coral #ff7e6b for the delete action. Invented app "Pocket Notes".
+
+Typography: "Outfit" 500/600/700 for headings and labels; "Inter" 400/500 for note text (15px).
+
+Layout: A notes-list mock page: header "Pocket Notes" with search, five note cards in a column (title, two lines of text, date), enough to scroll. A radial menu anchored bottom-right (24px from edges): a 64px round main button (mint, dark plus icon) which rotates 45 degrees when open. When open, five 52px round action buttons fan out on a quarter-circle arc from 180 to 270 degrees (up-left) at 110px radius: New note (pencil), Photo (camera), Voice (mic), Checklist (check), Share (arrow). Each action is an inline SVG icon (no external images) on a #1d3a40 circle with a 1px mint ring; a text label tooltip appears next to the focused or hovered action (positioned away from the arc). A dim scrim (rgba(0,0,0,.45)) appears behind while open.
+
+Interaction: Pressing the main button toggles; items animate from the centre outward with 40ms stagger (translate + scale from 0.4 to 1, 280ms cubic-bezier(.3,1.4,.5,1)) and reverse on close. Keyboard: Enter/Space on the main button opens and moves focus to the first action; ArrowLeft/ArrowUp and ArrowRight/ArrowDown move focus along the arc (wrapping), Home/End jump to ends, Escape closes and returns focus to the main button, Tab closes the menu and continues. Activating an action closes the menu and shows a toast ("New note created") and adds a placeholder card to the list for New note. Outside click closes (use event.composedPath). The main button has aria-haspopup="menu", aria-expanded; actions are role=menuitem inside role=menu.
+
+Responsive: Radius reduces to 92px under 480px and the arc stays within the viewport (switch to 180 to 270 degrees fixed); no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Icons aria-hidden with text labels in aria-label; visible focus 3px #4fe3c1 with dark offset. Respect prefers-reduced-motion (items appear instantly without scale or travel). Invented names only.

@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Radial Menu — Navigation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:linear-gradient(135deg,#0d1b1e,#12292d);color:#e6f4f2;font:400 15px/1.55 Inter,system-ui,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(rgba(79,227,193,.07) 1px,transparent 1.5px) 0 0/26px 26px;pointer-events:none}
+:focus-visible{outline:3px solid #4fe3c1;outline-offset:3px;box-shadow:0 0 0 6px #0d1b1e;border-radius:12px}
+.w{position:relative;max-width:640px;margin:0 auto;padding:28px 18px 200px}
+h1{font:700 32px Outfit,sans-serif;margin:0 0 14px;display:flex;align-items:center;gap:10px}h1 i{width:14px;height:14px;border-radius:4px 4px 4px 0;background:#4fe3c1}
+.sr{width:100%;font:15px Inter,sans-serif;padding:12px 16px;border-radius:14px;border:1px solid #26454b;background:#162a2e;color:#e6f4f2;margin-bottom:16px}
+.n{background:#162a2e;border:1px solid #26454b;border-radius:18px;padding:16px 18px;margin-bottom:12px;animation:in .35s}@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.n b{display:block;font:600 18px Outfit,sans-serif}.n p{margin:2px 0 8px;color:#a7c3c0}.n small{color:#8fb3b0}
+.sc{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .25s;z-index:20}.sc.on{opacity:1;pointer-events:auto}
+.rm{position:fixed;right:24px;bottom:24px;width:64px;height:64px;z-index:30}
+.mn{all:unset;box-sizing:border-box;position:absolute;right:0;bottom:0;width:64px;height:64px;border-radius:50%;background:#4fe3c1;color:#04201a;display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 30px -8px rgba(79,227,193,.55);transition:transform .3s cubic-bezier(.3,1.4,.5,1),box-shadow .2s;z-index:2}.mn:hover{box-shadow:0 14px 36px -4px rgba(79,227,193,.8)}.mn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.mn svg{width:28px;height:28px;stroke:currentColor;stroke-width:3;fill:none;stroke-linecap:round}.rm.open .mn{transform:rotate(45deg)}
+.it{all:unset;box-sizing:border-box;position:absolute;right:6px;bottom:6px;width:52px;height:52px;border-radius:50%;background:#1d3a40;border:1px solid #4fe3c1;color:#4fe3c1;display:grid;place-items:center;cursor:pointer;opacity:0;pointer-events:none;transform:translate(0,0) scale(.4);transition:transform .28s cubic-bezier(.3,1.4,.5,1),opacity .2s,background .2s;transition-delay:calc(var(--i)*40ms)}
+.rm.open .it{opacity:1;pointer-events:auto;transform:translate(var(--x),var(--y)) scale(1)}.rm:not(.open) .it{transition-delay:0ms}
+.it:hover,.it:focus-visible{background:#2a5259}.it:focus-visible{outline:3px solid #fff;outline-offset:3px}.it.dg{color:#ff7e6b;border-color:#ff7e6b}
+.it svg{width:24px;height:24px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.it .lb{position:absolute;right:calc(100% + 10px);top:50%;transform:translateY(-50%);background:#04100f;color:#e6f4f2;font:500 13px Outfit,sans-serif;padding:5px 12px;border-radius:99px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s;border:1px solid #26454b}.it:hover .lb,.it:focus-visible .lb{opacity:1}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#e6f4f2;color:#0d1b1e;padding:10px 20px;border-radius:99px;font-weight:600;opacity:0;transition:.25s;z-index:40;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
+.hint{font-size:13px;color:#8fb3b0;margin:0 0 12px}
+@media(max-width:480px){.rm{right:16px;bottom:16px}.it .lb{display:none}.it:focus-visible .lb,.it:hover .lb{display:block}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body>
+<main class="w"><h1><i></i>Pocket Notes</h1><label class="vh" for="q" style="position:absolute;left:-9999px">Search notes</label><input class="sr" id="q" type="search" placeholder="Search notes"><p class="hint">Press the round button, then use the arrow keys to choose an action.</p><div id="ls"></div></main>
+<div class="sc" id="sc"></div>
+<div class="rm" id="rm"><div role="menu" aria-label="Quick actions" id="mnu"></div><button class="mn" id="mn" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Open quick actions"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function(){
+var A=[['New note','<path d="M4 20h4L19 9l-4-4L4 16z"/>'],['Photo','<rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M9 7l1.5-2h3L15 7"/>'],['Voice','<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>'],['Checklist','<path d="M4 7l2 2 3-3M4 14l2 2 3-3M12 8h8M12 15h8"/>'],['Share','<path d="M5 12v7h14v-7M12 4v11M8 8l4-4 4 4"/>']];
+var NOTES=[['Weekend list','Oat milk, tomatoes, a very good loaf, lightbulbs for the hall.','Today'],['Ideas for the garden','Raised beds on the south wall, sweet peas along the fence.','Yesterday'],['Book club','Chapter nine, bring the cheese. Priya is hosting.','Tue'],['Recipe: lentil soup','Onion, carrot, red lentils, smoked paprika, lemon at the end.','Mon'],['Trip to Lisbon','Trams, custard tarts, the viewpoint at sunset.','Last week']];
+var ls=document.getElementById('ls'),rm=document.getElementById('rm'),mn=document.getElementById('mn'),mnu=document.getElementById('mnu'),sc=document.getElementById('sc'),open=false,items=[],toast=document.getElementById('toast'),tt,R=110;
+function note(n,fresh){var d=document.createElement('div');d.className='n';d.innerHTML='<b>'+n[0]+'</b><p>'+n[1]+'</p><small>'+n[2]+'</small>';ls.insertBefore(d,fresh?ls.firstChild:null)}NOTES.forEach(function(n){note(n)});
+function layout(){R=innerWidth<=480?92:110;items.forEach(function(b,i){var ang=(180+i*(90/(A.length-1)))*Math.PI/180;b.style.setProperty('--x',(Math.cos(ang)*R).toFixed(1)+'px');b.style.setProperty('--y',(Math.sin(ang)*R).toFixed(1)+'px')})}
+A.forEach(function(a,i){var b=document.createElement('button');b.type='button';b.className='it';b.setAttribute('role','menuitem');b.setAttribute('aria-label',a[0]);b.tabIndex=-1;b.style.setProperty('--i',i);b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true">'+a[1]+'</svg><span class="lb" aria-hidden="true">'+a[0]+'</span>';
+b.addEventListener('click',function(){close(true);say(a[0]==='New note'?'New note created':a[0]==='Share'?'Share sheet opened':a[0]+' started');if(a[0]==='New note')note(['Untitled note','Start typing…','Just now'],true)});
+b.addEventListener('keydown',function(e){var k=e.key,n=-1;if(k==='ArrowLeft'||k==='ArrowUp')n=(i+1)%A.length;else if(k==='ArrowRight'||k==='ArrowDown')n=(i-1+A.length)%A.length;else if(k==='Home')n=0;else if(k==='End')n=A.length-1;if(n>-1){e.preventDefault();items[n].focus()}else if(k==='Escape'){e.preventDefault();close(true)}else if(k==='Tab'){close(false)}});mnu.appendChild(b);items.push(b)});layout();addEventListener('resize',layout);
+function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},1800)}
+function set(o){open=o;rm.classList.toggle('open',o);sc.classList.toggle('on',o);mn.setAttribute('aria-expanded',o);mn.setAttribute('aria-label',o?'Close quick actions':'Open quick actions');items.forEach(function(b){b.tabIndex=o?0:-1})}
+function close(f){if(!open)return;set(false);if(f)mn.focus()}
+mn.addEventListener('click',function(){if(open)close(true);else{set(true);setTimeout(function(){items[0].focus()},40)}});
+mn.addEventListener('keydown',function(e){if(open&&(e.key==='Escape')){close(true)}else if(!open&&(e.key==='ArrowUp'||e.key==='ArrowLeft')){e.preventDefault();set(true);setTimeout(function(){items[0].focus()},40)}});
+document.addEventListener('click',function(e){if(open&&!e.composedPath().includes(rm))close(false)});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open)close(true)});
+})();
+</script></body></html>

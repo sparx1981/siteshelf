@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Floating Island Nav — Navigation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f3f1ec;color:#15171c;font:400 16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #ff6a3d;outline-offset:3px;box-shadow:0 0 0 6px #fff;border-radius:10px}
+.is{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;width:min(280px,92vw);background:rgba(21,23,28,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#f6f4ef;border:1px solid rgba(255,255,255,.12);border-radius:26px;box-shadow:0 14px 40px -10px rgba(0,0,0,.45);transition:width .45s cubic-bezier(.3,1.3,.5,1),border-radius .45s,padding .3s;overflow:hidden}
+.is.open{width:min(520px,94vw);border-radius:28px}.is.sm{width:112px}
+.bar{display:flex;align-items:center;gap:12px;height:52px;padding:0 8px 0 18px}.lg{font:700 18px Sora,sans-serif;display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit}.lg i{width:10px;height:10px;border-radius:50%;background:#ff6a3d;box-shadow:0 0 10px #ff6a3d}
+.cur{flex:1;text-align:center;font:500 14px Inter,sans-serif;color:#c9c5bb;transition:opacity .25s,width .3s;white-space:nowrap;overflow:hidden}.is.open .cur,.is.sm .cur{opacity:0;flex:0;width:0}.is.sm .lg span{display:none}.is.sm .bar{padding-left:14px}.is.open .bar{justify-content:space-between}
+.mb{flex:none;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;position:relative;transition:background .2s}.mb:hover{background:rgba(255,255,255,.22)}.mb i,.mb i:before,.mb i:after{position:absolute;left:11px;width:16px;height:2px;border-radius:2px;background:#fff;transition:transform .3s,top .3s,opacity .2s}.mb i{top:18px}.mb i:before{content:"";top:-5px;left:0}.mb i:after{content:"";top:5px;left:0}
+.is.open .mb i{background:transparent}.is.open .mb i:before{top:0;transform:rotate(45deg)}.is.open .mb i:after{top:0;transform:rotate(-45deg)}
+.pn{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:4px 14px 14px;max-height:0;opacity:0;transition:max-height .45s cubic-bezier(.3,1.3,.5,1),opacity .3s}.is.open .pn{max-height:340px;opacity:1}
+.pn a{display:block;text-decoration:none;color:inherit;padding:10px 12px;border-radius:14px;opacity:0;transform:translateY(8px);transition:background .2s,opacity .3s,transform .3s;transition-delay:calc(var(--i)*40ms)}.is.open .pn a{opacity:1;transform:none}.pn a:hover{background:rgba(255,255,255,.1)}.pn a b{display:block;font:600 15px Sora,sans-serif}.pn a span{font-size:12.5px;color:#aaa69b}.pn a[aria-current=true] b{color:#ff9a78}
+.pn .sr{grid-column:1/-1;padding:0}.pn .sr input{width:100%;font:15px Inter,sans-serif;padding:10px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);color:#fff}.pn .sr input::placeholder{color:#8f8b82}
+.pn .cta{grid-column:1/-1;text-align:center;background:#ff6a3d;color:#1a0800;font:700 15px Sora,sans-serif;padding:13px;border-radius:16px}.pn .cta:hover{background:#ff825c}
+section{min-height:90vh;padding:120px clamp(20px,6vw,100px) 60px;display:flex;flex-direction:column;justify-content:center}section:nth-of-type(2){background:#e9efe8}section:nth-of-type(3){background:#f0e9f2}section:nth-of-type(4){background:#e8eef5}section:nth-of-type(5){background:#f3e8e1}
+h1,h2{font:700 clamp(40px,7vw,88px)/1 Sora,sans-serif;letter-spacing:-.03em;margin:0 0 20px;max-width:14ch}h2{font-size:clamp(34px,5vw,60px)}.lead{max-width:50ch;color:#4a4d57;font-size:19px}
+.cd{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}.cd div{background:#fff;border-radius:20px;padding:24px;min-height:150px}.cd b{display:block;font:700 20px Sora,sans-serif}.cd span{color:#4a4d57}
+.st{display:flex;gap:40px;margin-top:20px;flex-wrap:wrap}.st b{display:block;font:700 44px Sora,sans-serif;color:#ff6a3d}
+.jr a{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid #cdd3dd;text-decoration:none;color:inherit;font:600 20px Sora,sans-serif}.jr a span{font:400 14px Inter,sans-serif;color:#4a4d57}
+.em{font:700 clamp(28px,5vw,64px) Sora,sans-serif;color:#15171c;text-decoration:underline;text-decoration-color:#ff6a3d;text-underline-offset:8px}
+@media(max-width:700px){.cd{grid-template-columns:minmax(0,1fr)}.pn{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style></head><body>
+<nav class="is" id="is" aria-label="Main"><div class="bar"><a class="lg" href="#home"><i></i><span>orbit</span></a><span class="cur" id="cur" aria-hidden="true">Home</span><button class="mb" id="mb" type="button" aria-expanded="false" aria-controls="pn" aria-label="Open menu"><i></i></button></div>
+<div class="pn" id="pn" role="region" aria-label="Menu"><div class="sr"><label class="vh" for="q" style="position:absolute;left:-9999px">Search</label><input id="q" type="search" placeholder="Search the studio"></div>
+<a href="#home" style="--i:0"><b>Home</b><span>Back to the start</span></a><a href="#work" style="--i:1"><b>Work</b><span>Selected projects</span></a><a href="#studio" style="--i:2"><b>Studio</b><span>Who we are</span></a><a href="#journal" style="--i:3"><b>Journal</b><span>Notes and essays</span></a><a href="#contact" style="--i:4"><b>Contact</b><span>Say hello</span></a><a href="#studio" style="--i:5"><b>Careers</b><span>Two open roles</span></a><a class="cta" href="#contact">Start a project</a></div></nav>
+<main><section id="home"><h1>We shape calm digital products.</h1><p class="lead">Orbit Studio designs and builds quiet, useful software for people who have better things to do. Scroll down and watch the island get out of your way.</p></section>
+<section id="work"><h2>Selected work</h2><div class="cd"><div><b>Harbour Bank</b><span>A calmer way to see your money.</span></div><div><b>Lantern Health</b><span>Appointments without the phone queue.</span></div><div><b>Maple Market</b><span>Local food, delivered by bike.</span></div></div></section>
+<section id="studio"><h2>A small studio on purpose.</h2><p class="lead">Fourteen designers and engineers in a converted print works. We take four projects a year and stay with them long after launch.</p><div class="st"><div><b>14</b>people</div><div><b>11</b>years</div><div><b>4</b>projects a year</div></div></section>
+<section id="journal"><h2>From the journal</h2><div class="jr"><a href="#journal">Designing for the second visit <span>8 min</span></a><a href="#journal">What we learnt from deleting a feature <span>6 min</span></a><a href="#journal">Why our prototypes are boring on purpose <span>5 min</span></a></div></section>
+<section id="contact"><h2>Let's talk.</h2><a class="em" href="mailto:hello@orbit.example">hello@orbit.example</a></section></main>
+<script>
+(function(){
+var is=document.getElementById('is'),mb=document.getElementById('mb'),pn=document.getElementById('pn'),cur=document.getElementById('cur'),open=false,last=0,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function set(o){open=o;is.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);mb.setAttribute('aria-label',o?'Close menu':'Open menu');if(o){is.classList.remove('sm');pn.querySelector('a').focus&&0}else{}}
+mb.addEventListener('click',function(){set(!open);if(!open)mb.focus()});
+document.addEventListener('click',function(e){if(open&&!e.composedPath().includes(is))set(false)});
+is.addEventListener('keydown',function(e){if(e.key==='Escape'&&open){set(false);mb.focus()}if(e.key==='Tab'&&open){var f=[].slice.call(is.querySelectorAll('a,button,input')).filter(function(x){return x.offsetParent!==null}),a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}});
+pn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
+addEventListener('scroll',function(){var y=scrollY;if(reduce)return;if(!open){if(y>last&&y>80)is.classList.add('sm');else if(y<last)is.classList.remove('sm')}last=y},{passive:true});
+var links=[].slice.call(pn.querySelectorAll('a:not(.cta)')),secs=[].slice.call(document.querySelectorAll('main section'));
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var id=e.target.id;cur.textContent=id[0].toUpperCase()+id.slice(1);links.forEach(function(a){if(a.getAttribute('href')==='#'+id&&a.querySelector('b').textContent!=='Careers')a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')})}})},{rootMargin:'-45% 0px -50% 0px'});secs.forEach(function(s){io.observe(s)});
+})();
+</script></body></html>

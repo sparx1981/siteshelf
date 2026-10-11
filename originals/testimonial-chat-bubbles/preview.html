@@ -1,0 +1,96 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chat Bubble Testimonials — Testimonials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(700px 420px at 12% 0,#fff,transparent 70%),#eef0ff;color:#1d1b3a;font:500 16px/1.55 "Plus Jakarta Sans",system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #ff7a59;outline-offset:2px;box-shadow:0 0 0 5px #fff}
+.w{max-width:1180px;margin:0 auto;padding:64px 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,560px);gap:56px;align-items:center}
+.eb{font:700 13px "Plus Jakarta Sans";text-transform:uppercase;letter-spacing:.14em;color:#3a31a8;margin:0 0 14px}
+h1{font:800 clamp(36px,5.2vw,64px)/1.02 "Plus Jakarta Sans";margin:0 0 18px;letter-spacing:-.025em}
+.lead{color:#46446d;max-width:44ch;margin:0 0 26px;font-size:18px}
+.st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:26px;max-width:480px}
+.st div{background:#fff;border:1px solid #dcdffa;border-radius:16px;padding:14px}.st b{display:block;font:800 26px "Plus Jakarta Sans";color:#3a31a8}.st span{font-size:13px;color:#46446d}
+.ct{display:flex;gap:10px;flex-wrap:wrap}
+.bt{all:unset;box-sizing:border-box;cursor:pointer;padding:12px 20px;border-radius:999px;font-weight:700;font-size:15px;border:1.5px solid #3a31a8;color:#3a31a8;background:#fff;min-height:44px;transition:background .2s,color .2s,transform .15s}
+.bt:hover{background:#3a31a8;color:#fff}.bt:active{transform:scale(.97)}.bt[aria-pressed=true]{background:#3a31a8;color:#fff}.bt:focus-visible{outline:3px solid #ff7a59;outline-offset:3px}
+.cw{background:#fff;border:1px solid #dcdffa;border-radius:24px;box-shadow:0 40px 80px -40px rgba(54,48,140,.5);overflow:hidden;display:flex;flex-direction:column;height:620px}
+.ch{background:#3a31a8;color:#fff;padding:16px 20px;display:flex;align-items:center;gap:12px}
+.ch b{font:800 18px "Plus Jakarta Sans"}.ch span{font:400 12px "DM Mono",monospace;opacity:.85;margin-left:auto;display:flex;align-items:center;gap:6px}.ch span:before{content:"";width:8px;height:8px;border-radius:50%;background:#4be0bd;box-shadow:0 0 0 3px rgba(75,224,189,.3)}
+.th{flex:1;min-height:0;overflow-y:auto;padding:18px 18px 8px;display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth;overscroll-behavior:contain}
+.dv,.sy{align-self:center;font:400 12px "DM Mono",monospace;color:#7a78a6;background:#f1f2fd;border-radius:999px;padding:4px 12px;animation:pop .3s both}
+.m{display:flex;gap:10px;align-items:flex-end;max-width:92%;animation:pop .28s cubic-bezier(.3,1.4,.5,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.92)}}
+.av{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font:800 14px "Plus Jakarta Sans";color:#fff}
+.bd{min-width:0}.nm{font-size:13px;font-weight:700;margin:0 0 3px 4px}.nm span{font-weight:500;color:#6a6896}
+.bb{background:#f1f2fd;border-radius:18px 18px 18px 6px;padding:11px 15px;position:relative}.bb p{margin:0}
+.m.hi .bb{background:#3a31a8;color:#fff}
+.mt{font:400 11px "DM Mono",monospace;color:#7a78a6;margin:4px 0 0 4px;display:flex;gap:6px;align-items:center}.mt svg{width:14px;height:10px;stroke:#19b394;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.m.me{align-self:flex-end;flex-direction:row-reverse}.m.me .bb{background:#e4faf4;border-radius:18px 18px 6px 18px}.m.me .nm,.m.me .mt{margin-right:4px;text-align:right;justify-content:flex-end}
+.ty{display:flex;gap:10px;align-items:flex-end;animation:pop .2s both}
+.ty i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#8f8cc0;animation:bn 1s infinite}.ty i:nth-child(2){animation-delay:.15s}.ty i:nth-child(3){animation-delay:.3s}
+@keyframes bn{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-5px);opacity:1}}
+.ty .bb{display:flex;gap:5px;align-items:center;padding:14px 16px}
+.rx{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.rx button{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;gap:6px;align-items:center;background:#fff;border:1px solid #dcdffa;border-radius:999px;padding:4px 11px;font-size:14px;min-height:32px;animation:pop .45s cubic-bezier(.3,1.6,.5,1) both;color:#1d1b3a}
+.rx button:hover{border-color:#3a31a8}.rx button[aria-pressed=true]{background:#e8e6ff;border-color:#3a31a8}.rx button:focus-visible{outline:3px solid #ff7a59;outline-offset:2px}.rx small{font:500 12px "DM Mono",monospace}
+.cf{border-top:1px solid #e6e8fb;padding:12px 16px;display:flex;gap:10px;align-items:center;color:#7a78a6;font-size:14px}.cf i{flex:1;background:#f1f2fd;border-radius:999px;padding:10px 16px;font-style:normal}.cf b{width:38px;height:38px;border-radius:50%;background:#3a31a8;display:grid;place-items:center;color:#fff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:900px){.w{grid-template-columns:minmax(0,1fr);gap:32px;padding:36px 16px 48px}.cw{height:560px}.m{max-width:100%}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style></head><body>
+<div class="w">
+<section aria-labelledby="h"><p class="eb">Loved by small teams</p><h1 id="h">Payroll people actually message us about.</h1>
+<p class="lead">Pebble Payroll runs wages, holiday pay and tax filings for teams of two to two hundred. Here is what lands in our inbox on a normal week.</p>
+<div class="st"><div><b>4.9</b><span>average rating</span></div><div><b>12,000</b><span>teams paid</span></div><div><b>3 min</b><span>median reply</span></div></div>
+<div class="ct"><button class="bt" id="rp" type="button">Replay</button><button class="bt" id="ps" type="button" aria-pressed="false">Pause</button><button class="bt" id="sa" type="button">Show all</button></div></section>
+<section class="cw" aria-label="Customer messages"><div class="ch"><b>#love-notes</b><span>38 members online</span></div>
+<div class="th" id="th" role="log" aria-live="polite" aria-relevant="additions" tabindex="0" aria-label="Chat thread"></div>
+<div class="cf" aria-hidden="true"><i>Message #love-notes</i><b>↑</b></div></section>
+</div>
+<div class="sr" id="sr" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var th=$('#th'),sr=$('#sr');
+var M=[
+{d:'Today'},
+{n:'Odalys Fenn',r:'Bakery owner',c:'#ff7a59',t:'09:14',q:'Payday used to eat my Friday. Last week it took me four minutes, and I spent the rest of the morning icing buns.'},
+{n:'Tobias Reyes-Wu',r:'Studio manager',c:'#19b394',t:'09:17',q:'We moved nine part-timers over in an afternoon. Nobody noticed except the accountant, who sent flowers.'},
+{n:'Anneke Prill',r:'Charity treasurer',c:'#3a31a8',t:'09:21',hi:1,q:'Gift Aid, pensions, three different pay frequencies and a trustee who asks for everything in a spreadsheet. Pebble just handles it, and the spreadsheet exports cleanly. I have genuinely started to enjoy month end.'},
+{s:'Pebble Support joined the channel'},
+{n:'Jomo Adeyemi',r:'Café owner',c:'#d9488a',t:'09:26',q:'The holiday-pay calculator alone paid for the year. It was right when I was wrong.'},
+{n:'Sunniva Berg',r:'Dentist',c:'#2b8ad6',t:'09:30',q:'My practice manager says it is the first tool that did not need a training day. I say it is the first that did not need an apology.'},
+{n:'Hector Valli',r:'Bike-shop owner',c:'#e0a21b',t:'09:33',q:'Asked a question at 7pm on a Sunday. A human answered before the kettle boiled.'},
+{n:'Pebble Support',r:'Team',c:'#1d1b3a',t:'09:34',me:1,q:'Thank you all. You have made our Monday. We will keep the kettle on.'}];
+var timers=[],idx=0,paused=false,running=false,playedAll=false,autoScroll=true,started=false;
+function clear(){timers.forEach(clearTimeout);timers=[]}
+function ini(n){return n.split(' ').map(function(w){return w[0]}).join('').slice(0,2)}
+function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+var tick='<svg viewBox="0 0 16 10" aria-hidden="true"><path d="M1 5l3 3 6-7M7 8l1 1 6-8"/></svg>';
+function node(m){var el=document.createElement('div');
+ if(m.d){el.className='dv';el.textContent=m.d;return el}
+ if(m.s){el.className='sy';el.textContent=m.s;return el}
+ el.className='m'+(m.hi?' hi':'')+(m.me?' me':'');
+ el.innerHTML='<span class="av" style="background:'+m.c+'" aria-hidden="true">'+ini(m.n)+'</span><div class="bd"><p class="nm">'+esc(m.n)+' <span>· '+esc(m.r)+'</span></p><div class="bb"><p>'+esc(m.q)+'</p></div><div class="mt"><span>'+m.t+'</span>'+(m.me?'':tick+'<span>Seen</span>')+'</div>'+(m.hi?'<div class="rx" id="rx" hidden></div>':'')+'</div>';return el}
+function scroll(){if(autoScroll)th.scrollTo({top:th.scrollHeight,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})}
+function typing(m){var el=document.createElement('div');el.className='ty';el.setAttribute('aria-hidden','true');el.innerHTML='<span class="av" style="background:'+m.c+'">'+ini(m.n)+'</span><div class="bb"><i></i><i></i><i></i></div>';return el}
+function reactions(){var rx=$('#rx');if(!rx)return;rx.hidden=false;rx.innerHTML='';[['❤️','Heart',24],['🎉','Party',11],['👍','Thumbs up',9]].forEach(function(r,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed','false');b.setAttribute('aria-label',r[1]+' reaction, '+r[2]);b.style.animationDelay=i*110+'ms';b.dataset.n=r[2];b.innerHTML='<span aria-hidden="true">'+r[0]+'</span><small>'+r[2]+'</small>';rx.appendChild(b)})}
+th.addEventListener('click',function(e){var b=e.target.closest('.rx button');if(!b)return;var on=b.getAttribute('aria-pressed')!=='true',n=+b.dataset.n+(on?1:0);b.setAttribute('aria-pressed',on);b.querySelector('small').textContent=n;b.setAttribute('aria-label',b.getAttribute('aria-label').split(' reaction')[0]+' reaction, '+n)});
+th.addEventListener('wheel',function(){autoScroll=false});th.addEventListener('touchmove',function(){autoScroll=false});
+function next(){if(paused||idx>=M.length){if(idx>=M.length)finish();return}
+ var m=M[idx];
+ if(m.d||m.s){th.appendChild(node(m));idx++;scroll();timers.push(setTimeout(next,450));return}
+ var ty=typing(m),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ th.appendChild(ty);autoScroll=true;scroll();sr.textContent=m.n.split(' ')[0]+' is typing';
+ var wait=Math.min(1100,600+m.q.length*3);
+ timers.push(setTimeout(function(){if(ty.parentNode)ty.remove();th.appendChild(node(m));idx++;scroll();timers.push(setTimeout(next,520))},wait))}
+function finish(){running=false;playedAll=true;reactions();setTimeout(scroll,60)}
+function start(pre){clear();th.innerHTML='';idx=0;if(pre){for(;idx<pre;idx++){var n0=node(M[idx]);n0.style.animation='none';th.appendChild(n0)}}paused=false;playedAll=false;running=true;autoScroll=true;$('#ps').setAttribute('aria-pressed','false');$('#ps').textContent='Pause';next()}
+function showAll(){clear();th.innerHTML='';M.forEach(function(m){th.appendChild(node(m))});th.querySelectorAll('.m,.dv,.sy').forEach(function(e){e.style.animation='none'});idx=M.length;running=false;playedAll=true;paused=false;$('#ps').setAttribute('aria-pressed','false');$('#ps').textContent='Pause';reactions();th.scrollTop=th.scrollHeight}
+$('#rp').addEventListener('click',function(){started=true;start()});
+$('#sa').addEventListener('click',function(){started=true;showAll()});
+$('#ps').addEventListener('click',function(){if(playedAll)return;paused=!paused;this.setAttribute('aria-pressed',paused);this.textContent=paused?'Play':'Pause';if(!paused){clear();next()}else clear()});
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){showAll()}else{
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!started){started=true;io.disconnect();start(3)}})},{threshold:.35});io.observe($('.cw'))}
+})();
+</script></body></html>

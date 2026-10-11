@@ -1,0 +1,95 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shrinking Sticky Header — Navigation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+:root{--e:cubic-bezier(.3,.9,.3,1);--t:350ms}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:#faf7f2;color:#1c1a17;font:400 17px/1.7 "DM Sans",system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #d0542b;outline-offset:3px;box-shadow:0 0 0 5px #faf7f2}
+.hd:not(.sm) :focus-visible{box-shadow:0 0 0 5px #fff;outline-color:#ff9a72}
+.skip{position:fixed;left:12px;top:-60px;background:#d0542b;color:#fff;padding:10px 16px;border-radius:8px;z-index:100;text-decoration:none;font-weight:600;transition:top .2s}.skip:focus{top:12px}
+.hd{position:fixed;top:0;left:0;right:0;z-index:50;height:128px;color:#f6efe3;transition:height var(--t) var(--e),background var(--t),color var(--t),box-shadow var(--t),backdrop-filter var(--t);border-bottom:1px solid transparent}
+.hd.sm{height:60px;background:rgba(250,247,242,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:#1c1a17;border-bottom-color:#e3dccf;box-shadow:0 10px 30px -18px rgba(28,26,23,.45)}
+.hi{position:relative;height:100%;max-width:1180px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px}
+.ed{grid-column:1;grid-row:1;font:500 13px "DM Sans";letter-spacing:.1em;text-transform:uppercase;transition:opacity var(--t),transform var(--t) var(--e);white-space:nowrap}.hd.sm .ed{opacity:0;transform:translateX(-12px);pointer-events:none}
+.br{grid-row:1;display:flex;flex-direction:column;align-items:center;text-decoration:none;color:inherit;grid-column:2;transition:transform var(--t) var(--e);position:relative}
+.wm{font:800 34px/1 "Playfair Display",Georgia,serif;letter-spacing:-.01em;transition:font-size var(--t) var(--e),opacity var(--t);white-space:nowrap}
+.tg{font:500 12px "DM Sans";letter-spacing:.18em;text-transform:uppercase;margin-top:8px;opacity:.85;transition:opacity var(--t),max-height var(--t) var(--e),margin var(--t);max-height:20px;white-space:nowrap}
+.mo{position:absolute;left:0;top:50%;width:36px;height:36px;margin-top:-18px;border-radius:50%;background:#d0542b;color:#fff;display:grid;place-items:center;font:800 20px "Playfair Display",serif;opacity:0;transform:scale(.5);transition:opacity var(--t),transform var(--t) var(--e)}
+.hd.sm .br{transform:translateX(calc(-50vw + min(590px,50vw) - 0px + 24px + 18px));grid-column:1;justify-self:start;transform:none}
+.hd.sm .wm{font-size:0;opacity:0;width:0}.hd.sm .tg{opacity:0;max-height:0;margin:0;width:0;overflow:hidden}
+.hd.sm .mo{opacity:1;transform:none;position:relative;top:auto;margin-top:0}
+.hd:not(.sm) .mo{position:absolute}
+.nv{display:flex;gap:6px;justify-content:center;grid-column:2;opacity:0;pointer-events:none;transition:opacity var(--t);position:absolute;left:46%;top:50%;transform:translate(-50%,-50%)}
+.hd.sm .nv{opacity:1;pointer-events:auto}
+.nv a{white-space:nowrap;position:relative;color:inherit;text-decoration:none;font-weight:500;font-size:15px;padding:8px 12px;border-radius:8px}.nv a:hover{color:#d0542b}
+.nv a[aria-current]{color:#d0542b}
+.ul{position:absolute;bottom:4px;height:2px;background:#d0542b;border-radius:2px;left:0;width:0;transition:transform .35s var(--e),width .35s var(--e)}
+.rt{grid-row:1;display:flex;justify-content:flex-end;align-items:center;gap:10px;grid-column:3}
+.sb{display:inline-block;background:#d0542b;color:#fff;text-decoration:none;font:600 15px "DM Sans";padding:11px 22px;border-radius:999px;transition:padding var(--t) var(--e),background .2s;white-space:nowrap;min-height:44px;line-height:22px}.hd.sm .sb{padding:7px 18px;min-height:40px;line-height:26px}.sb:hover{background:#b6431d}
+.mb{all:unset;box-sizing:border-box;display:none;cursor:pointer;font:600 15px "DM Sans";padding:8px 14px;border:1.5px solid currentColor;border-radius:999px;min-height:44px;align-items:center}.mb:focus-visible{outline:3px solid #d0542b;outline-offset:2px}
+.pg{position:absolute;left:0;right:0;bottom:-1px;height:3px;background:#d0542b;transform:scaleX(0);transform-origin:left;opacity:0;transition:opacity var(--t)}.hd.sm .pg{opacity:1}
+.dd{position:absolute;left:12px;right:12px;top:calc(100% + 6px);background:#fffdf9;color:#1c1a17;border:1px solid #e3dccf;border-radius:16px;box-shadow:0 24px 50px -20px rgba(28,26,23,.5);padding:8px;display:none}
+.dd.on{display:block;animation:dd .2s var(--e)}@keyframes dd{from{opacity:0;transform:translateY(-8px)}}
+.dd a{display:block;padding:14px 16px;border-radius:10px;text-decoration:none;color:inherit;font-weight:500;min-height:48px}.dd a:hover{background:#f1ebde}
+.hero{position:relative;min-height:100vh;background:#14202b;color:#f6efe3;display:grid;align-items:end;padding:0 24px 12vh;overflow:hidden}
+.hero svg{position:absolute;inset:0;width:100%;height:100%}
+.hero div{position:relative;max-width:1180px;margin:0 auto;width:100%}
+.hero h1{font:800 clamp(44px,9vw,128px)/.95 "Playfair Display",serif;margin:0 0 18px;letter-spacing:-.02em;max-width:11ch}
+.hero p{max-width:46ch;font-size:19px;margin:0;color:#e5dccb}
+article{max-width:680px;margin:0 auto;padding:72px 24px 40px}
+article h2{font:700 34px/1.15 "Playfair Display",serif;margin:48px 0 12px;scroll-margin-top:90px}
+article h2:first-child{margin-top:0}
+article p{margin:0 0 20px}
+.pq{font:700 28px/1.3 "Playfair Display",serif;border-left:4px solid #d0542b;padding:4px 0 4px 22px;margin:34px 0;color:#1c1a17}
+.dc:first-letter{font:800 74px/.8 "Playfair Display",serif;float:left;padding:6px 10px 0 0;color:#d0542b}
+footer{border-top:1px solid #e3dccf;padding:36px 24px 60px;text-align:center;color:#5d574e;font-size:15px}
+@media (max-width:760px){.hd{height:84px}.hd.sm{height:56px}.hi{padding:0 16px;grid-template-columns:auto 1fr auto;gap:8px}.ed,.nv{display:none}.br{grid-column:1;align-items:flex-start}.hd:not(.sm) .br{grid-column:1/3;justify-self:start}.hd.sm .br{grid-column:1/3}.wm{font-size:26px}.tg{font-size:10px;letter-spacing:.14em}.mb{display:inline-flex}.rt{grid-column:3}.rt .sb{display:none}.dd .sb{display:none}.hero{padding:0 18px 12vh}.hero p{font-size:17px}article{padding:48px 18px 24px}article h2{font-size:28px}.hd.sm .mo{width:32px;height:32px}.rt .sb{min-width:0}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style></head><body>
+<a class="skip" href="#main">Skip to the article</a>
+<header class="hd" id="hd"><div class="hi">
+<span class="ed" aria-hidden="true">Issue 41 · Autumn</span>
+<a class="br" href="#top" aria-label="Northlight Journal, back to top"><span class="mo" aria-hidden="true">N</span><span class="wm">Northlight Journal</span><span class="tg">Stories from the long light</span></a>
+<nav class="nv" id="nv" aria-label="Sections"><a href="#s1">Features</a><a href="#s2">Essays</a><a href="#s3">Field Notes</a><a href="#s4">Archive</a><i class="ul" id="ul" aria-hidden="true"></i></nav>
+<div class="rt"><button class="mb" id="mb" type="button" aria-expanded="false" aria-controls="dd">Menu</button><a class="sb" href="#">Subscribe</a></div>
+<div class="dd" id="dd" role="region" aria-label="Menu"><a href="#s1">Features</a><a href="#s2">Essays</a><a href="#s3">Field Notes</a><a href="#s4">Archive</a><a href="#" style="color:#d0542b;font-weight:600">Subscribe</a></div></div>
+<div class="pg" id="pg" aria-hidden="true"></div></header>
+<section class="hero" id="top"><svg id="sky" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg><div><h1>The last good winter</h1><p>A season of short days, long shadows and the people who still read the sky for a living. Scroll to watch the header settle.</p></div></section>
+<main id="main"><article>
+<h2 id="s1">The sky reader</h2><p class="dc">Ines Calloway has been forecasting from a stone hut above Pennick Bay for thirty-one winters. Her instruments are a brass barometer, a notebook and a habit of stepping outside to smell the air before she writes a word.</p><p>She says the light is the first thing to change. A week before the snow arrives the horizon turns the colour of a worn coin, and the gulls stop arguing. The notebook, she admits, is only a way of pretending she is not guessing.</p>
+<div class="pq">“The weather doesn’t lie. We just ask it the wrong questions.”</div>
+<h2 id="s2">An essay on short days</h2><p>There is a particular kind of tiredness that arrives at four in the afternoon in December, when the lamps come on and the day has barely begun to be used. It is not quite sadness. It is closer to the feeling of a held breath.</p><p>The old almanacs prescribed soup, early bedtimes and the rereading of familiar books. They were right about all three, and wrong only about how long it would last.</p>
+<h2 id="s3">Field notes from the coast road</h2><p>Frost on the cattle grid, a heron standing in the flooded lane, the café at Lantern Cove open for exactly four hours on Thursdays. We drove the whole road in a day and wrote down everything that did not move.</p><p>Bring a flask. Bring gloves with fingers you can undo. Bring a second pair of socks for the person you meet who forgot theirs.</p>
+<h2 id="s4">From the archive</h2><p>In issue nine, we printed a map of every footbridge on the northern shore. Eleven have since been replaced, two washed away, and one, the little rope one at Kestrel Point, was never really there. Readers kept writing in to say they had crossed it.</p><p>Write to us at letters@northlight-journal.example.com. We read everything, usually with the kettle on.</p>
+</article></main>
+<footer>© Northlight Journal · Printed in small batches on recycled paper · Pennick Bay</footer>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var hd=$('#hd'),pg=$('#pg'),sm=false,tick=false;
+var s=7;function r(){s=(s*9301+49297)%233280;return s/233280}
+(function(){var o='<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c141c"/><stop offset=".6" stop-color="#2a3b4c"/><stop offset="1" stop-color="#b86a44"/></linearGradient></defs><rect width="1440" height="900" fill="url(#g)"/>';
+ for(var i=0;i<90;i++)o+='<circle cx="'+(r()*1440)+'" cy="'+(r()*480)+'" r="'+(.5+r()*1.4)+'" fill="#fff" opacity="'+(.3+r()*.6)+'"/>';
+ o+='<circle cx="1100" cy="560" r="64" fill="#f6c58b" opacity=".9"/>';
+ [['#1b2a39',520,.9],['#14202b',640,.7],['#0e1822',740,.5]].forEach(function(l,k){var d='M0 900 L0 '+l[1];for(var x=0;x<=1440;x+=60)d+=' L'+x+' '+(l[1]-r()*180*l[2]-(k===0?120:0));d+=' L1440 900Z';o+='<path d="'+d+'" fill="'+l[0]+'"/>'});
+ $('#sky').innerHTML=o})();
+function update(){tick=false;var y=window.scrollY||document.documentElement.scrollTop;
+ if(!sm&&y>60){sm=true;hd.classList.add('sm');place()}else if(sm&&y<20){sm=false;hd.classList.remove('sm')}
+ var h=document.documentElement.scrollHeight-innerHeight;pg.style.transform='scaleX('+(h>0?Math.min(1,Math.max(0,y/h)):0)+')'}
+function req(){if(!tick){tick=true;requestAnimationFrame(update)}}
+addEventListener('scroll',req,{passive:true});update();
+/* nav underline + current section */
+var links=[].slice.call(document.querySelectorAll('#nv a')),ul=$('#ul'),heads=links.map(function(a){return $(a.getAttribute('href'))}),curL=null;
+function place(){if(!curL){ul.style.width='0';return}ul.style.width=(curL.offsetWidth-24)+'px';ul.style.transform='translateX('+(curL.offsetLeft+12)+'px)'}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var i=heads.indexOf(e.target);links.forEach(function(a,k){if(k===i)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});curL=links[i];place()}})},{rootMargin:'-90px 0px -65% 0px'});
+heads.forEach(function(h){io.observe(h)});addEventListener('resize',place);
+/* mobile menu */
+var mb=$('#mb'),dd=$('#dd');
+function menu(v,focus){dd.classList.toggle('on',v);mb.setAttribute('aria-expanded',v);if(v){var a=dd.querySelector('a');if(a&&focus)a.focus()}else if(focus)mb.focus()}
+mb.addEventListener('click',function(){menu(!dd.classList.contains('on'),true)});
+dd.addEventListener('click',function(e){if(e.target.closest('a'))menu(false,false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&dd.classList.contains('on')){e.preventDefault();menu(false,true)}});
+document.addEventListener('click',function(e){var p=e.composedPath();if(dd.classList.contains('on')&&p.indexOf(dd)<0&&p.indexOf(mb)<0)menu(false,false)});
+})();
+</script></body></html>

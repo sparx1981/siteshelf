@@ -1,0 +1,11 @@
+Canvas & base: Invented access console Weavegate; near-black #161922 ink on #f4f3f8, #625d72 secondary, #d8d3e4 borders, #60449a purple actions, white action text; inherited cells use muted #eeebf4.
+
+Typography: Space Grotesk 500/600/700 for 38px heading and 20px section labels; DM Sans 400/500/600/700 for 14px UI. Role headers 13px; resource labels 15px.
+
+Layout: Header Weavegate and a local Save policy button. Heading Access, made explicit. The left 220px team selector contains Editorial, Research and Operations. Main area displays a border-separated matrix with rows Drafts, Releases, Billing and Team settings; columns Viewer, Editor, Lead. Each cell is a real button with text Allow or Block, and lockable inherited cells say Inherited. A purple-tinted summary strip beneath shows the pending change count, Review changes and Discard. Legend and a policy-inheritance explanation appear below.
+
+Interaction: Matrix uses arrow keys to move horizontally and vertically with roving tabindex. Inherited Viewer/Drafts and Lead cells use aria-disabled and remain arrow-reachable; activating them announces access is inherited. Editable cells toggle permission and list differences from the original. Switch teams only after confirming discard of pending changes in a native dialog. Review changes shows a native dialog with resource/role/before/after lines and Save policy; saving replaces the baseline locally and announces no server changes. Discard restores the original policy. Empty review says No unsaved changes. Escape closes dialogs.
+
+Responsive: Below 850px place three team buttons above the matrix. Below 560px use a 92px resource column and three flexible columns, 12px cell text and a 32px heading; inherited labels stay visible and the grid never scrolls horizontally at 390px.
+
+Rules: Deliver a single HTML file with a Google Fonts link and inline CSS/JS; no libraries or external images. Include [hidden]{display:none!important}, semantic accessibility, labelled controls, keyboard support, visible focus and polite status announcements. Honour prefers-reduced-motion, use minmax(0,1fr) grids and min-width:0 on flex children, and prevent horizontal scrolling at 390px. Use invented names only and example.com contact details; label fictional data and simulated submissions. Wrap any localStorage or clipboard calls in try/catch.

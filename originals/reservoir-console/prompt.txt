@@ -1,0 +1,11 @@
+Canvas & base: A calm engineering console for invented Alder Basin: #eef3f1 background, #14332d ink, #50675f secondary, #d5ded9 borders, #ffffff panels and #186551 green actions with white text; chart stage #153a33 and pale green data.
+
+Typography: DM Sans 400/500/600/700; page heading 42px/1.12 weight 600, water reading 64px weight 500, panel titles 20px weight 600 and tabular-nums on measurements.
+
+Layout: Use a 1260px container with 36px padding. Header reads Alder Basin / Fictional operations demo. Main heading Reservoir overview, a 280px station rail and a flexible chart column. Three station buttons: North Mere, Fern Reach, Vale Pocket. A dark 330px SVG chart panel contains the current percentage, 6 hours and 24 hours range controls, plotted readings and a horizontal conservation target. Below it, a target slider and a sensor-alert panel share a two-column row. End with a readings details/table.
+
+Interaction: North Mere starts at 68% with eight readings [64,65,63,66,65,67,66,68]; Fern Reach ends at 52% and Vale Pocket at 34%. Clicking a station sets aria-pressed and refreshes the SVG, capacity and table. Range buttons change the time labels and range summary. Target slider 30–80%, initial 45%, updates the dashed target and tells whether the current station is below target. Acknowledge sensor marks the North Mere telemetry alert reviewed, disables its own action and announces completion. Native details reveals the numeric readings; never rebuild station controls on hover.
+
+Responsive: At 900px collapse the main columns; at 760px use 20px outer padding, wrap controls, and stack secondary panels; no horizontal scroll at 390px.
+
+Rules: Deliver a single HTML file with a Google Fonts link and inline CSS/JS; no libraries or external images. Include [hidden]{display:none!important}, semantic accessibility, labelled controls, keyboard support, visible focus and polite status announcements. Honour prefers-reduced-motion, use minmax(0,1fr) grids and min-width:0 on flex children, and prevent horizontal scrolling at 390px. Use invented names only and example.com contact details; label fictional data and simulated submissions. Wrap any localStorage or clipboard calls in try/catch.

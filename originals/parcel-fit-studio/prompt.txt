@@ -1,0 +1,11 @@
+Canvas & base: Invented packing workshop Foldwell; warm #f4efe5 ground, #302a23 ink, #665d51 secondary, #d9cbbb rules, #a33e25 terracotta action with white text; orange-brown measurement diagram on #e7d9c7.
+
+Typography: Fraunces 500/600 for headings at 52px and 26px; DM Sans 400/500/600/700 for 15px body and labels. IBM Plex Mono 400 for dimensions and totals at 13px.
+
+Layout: Header Foldwell / Packing bench. Title A smaller box. A better fit. with intro. Use three columns: 300px dimension form, flexible open diagram, 280px comparison list; a solid terracotta bottom strip reports unused volume and selected carton. Form has Length, Width, Height in centimetres, Cushioning each side 0–5cm, Allow rotation checkbox, Aster tumbler and Neri lamp preset buttons, and Find a carton. Diagram is a labelled top view of selected carton and item, drawn with inline SVG from measurements; carton result list contains Moss 18×14×12, Rill 26×20×18 and Grove 36×28×24.
+
+Interaction: Start with a 12×8×10cm tumbler and 1cm cushioning, rotation enabled, Moss selected. Validate every dimension 1–100cm, cushioning 0–5cm; show an inline error without changing the previous drawing. Find a carton tests all six orientation permutations when rotation is allowed and lists only fitting cartons, smallest volume first; clicking a result changes the scaled diagram and efficiency. Aster tumbler and Neri lamp (24×16×22cm) presets recalculate immediately. No-fit state says No stocked carton fits, hides the old diagram and suggests reducing cushioning or using a custom carton; never recommend a too-small box.
+
+Responsive: Below 1080px use two columns and move carton choices into a three-column row. Below 650px stack form, diagram and carton list, use a 40px heading and a 220px diagram; no horizontal scroll at 390px.
+
+Rules: Deliver a single HTML file with a Google Fonts link and inline CSS/JS; no libraries or external images. Include [hidden]{display:none!important}, semantic accessibility, labelled controls, keyboard support, visible focus and polite status announcements. Honour prefers-reduced-motion, use minmax(0,1fr) grids and min-width:0 on flex children, and prevent horizontal scrolling at 390px. Use invented names only and example.com contact details; label fictional data and simulated submissions. Wrap any localStorage or clipboard calls in try/catch.

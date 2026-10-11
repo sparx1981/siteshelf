@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Stillwater Yoga — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:linear-gradient(180deg,#eef1e6,#fbeee3);color:#2c3a2e;font:400 17px/1.6 Karla,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #3d5a45;outline-offset:3px;border-radius:10px}
+header{display:flex;align-items:center;gap:26px;padding:18px clamp(18px,4vw,56px)}
+.logo{font:500 28px 'Cormorant Garamond',serif;margin-right:auto;display:flex;align-items:center;gap:10px}.logo i{width:18px;height:18px;border-radius:50%;border:2px solid #c8643c;box-shadow:0 0 0 4px rgba(200,100,60,.18)}
+header a{color:#5d6e5f;text-decoration:none;font-weight:500;font-size:15px}header a:hover{color:#2c3a2e}
+.btn{display:inline-block;font:700 15px Karla,sans-serif;padding:12px 24px;border-radius:99px;background:#3d5a45;color:#fff!important;border:0;text-decoration:none;cursor:pointer;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px);background:#2f4936}
+.hero{text-align:center;max-width:760px;margin:0 auto;padding:clamp(24px,6vh,70px) clamp(18px,4vw,40px) 10px}
+.lab{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#c8643c}
+h1{font:500 clamp(44px,8vw,100px)/1 'Cormorant Garamond',serif;margin:14px 0 16px}h1 em{color:#c8643c}
+.sub{color:#5d6e5f;max-width:46ch;margin:0 auto;font-size:18px}
+.br{display:flex;flex-direction:column;align-items:center;margin:34px 0 20px}
+.cir{position:relative;width:min(80vw,300px);aspect-ratio:1;display:grid;place-items:center}
+.cir:before,.cir:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(200,100,60,.3)}.cir:before{inset:-6%}.cir:after{inset:-14%;border-color:rgba(200,100,60,.15)}
+.orb{width:62%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fbd8bc,#e59a72);transition:transform 4s ease-in-out;display:grid;place-items:center;box-shadow:0 20px 60px -10px rgba(200,100,60,.45)}
+.orb.in{transform:scale(1.4)}.orb.hold{transform:scale(1.4);transition-duration:.3s}.orb.out{transform:scale(1);transition-duration:6s}
+.orb span{font:500 22px 'Cormorant Garamond',serif;color:#3a1a0a;text-align:center;padding:0 8px}
+.cir .t{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.bc{margin-top:26px;font-size:14px;color:#5d6e5f;min-height:22px}
+.sec{max-width:920px;margin:0 auto;padding:40px clamp(18px,4vw,40px)}
+h2{font:500 clamp(32px,4.4vw,52px)/1.05 'Cormorant Garamond',serif;margin:0 0 20px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:14px}
+.tabs button{flex:none;font:700 15px Karla,sans-serif;background:rgba(255,255,255,.7);border:1.5px solid #dfe5d4;border-radius:99px;padding:10px 18px;cursor:pointer;color:#2c3a2e;min-width:72px}
+.tabs button[aria-selected=true]{background:#3d5a45;color:#fff;border-color:#3d5a45}.tabs small{display:block;font-weight:400;font-size:11px;opacity:.8}
+.cls{display:flex;flex-direction:column;gap:10px}
+.c{display:grid;grid-template-columns:78px minmax(0,1fr) auto;gap:16px;align-items:center;background:rgba(255,255,255,.8);border:1px solid #dfe5d4;border-radius:20px;padding:16px 20px;transition:transform .2s,box-shadow .2s}
+.c:hover{transform:translateY(-2px);box-shadow:0 14px 30px -20px rgba(61,90,69,.6)}
+.c .tm{font:500 26px 'Cormorant Garamond',serif}.c b{display:block;font-size:18px}.c span.m{color:#5d6e5f;font-size:14px}
+.lv{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:99px;background:#e7eedb;color:#3d5a45;margin-left:8px}
+.bk{font:700 14px Karla,sans-serif;border:1.5px solid #3d5a45;background:transparent;color:#3d5a45;padding:9px 16px;border-radius:99px;cursor:pointer;min-width:130px;transition:background .2s}
+.bk:hover{background:#e7eedb}.bk[aria-pressed=true]{background:#3d5a45;color:#fff}
+.sm{margin-top:16px;min-height:26px;font-weight:700;color:#3d5a45}
+.band{background:#3d5a45;color:#f6efe3;text-align:center;padding:70px 24px;margin-top:40px}.band p{font:italic 500 clamp(26px,3.6vw,42px)/1.25 'Cormorant Garamond',serif;max-width:24em;margin:0 auto 16px}.band span{font-size:15px;opacity:.85}
+footer{text-align:center;padding:30px;font-size:14px;color:#5d6e5f}
+@media(max-width:700px){.c{grid-template-columns:minmax(0,1fr) auto}.c .tm{grid-column:1/-1}header a:not(.btn){display:none}.bk{min-width:112px}}
+@media(prefers-reduced-motion:reduce){.orb,.orb.out,.orb.hold{transition:none!important}*{transition:none!important}}
+</style></head><body>
+<header><div class="logo"><i></i>Stillwater</div><a href="#week">Classes</a><a href="#">Teachers</a><a href="#">Visit</a><a class="btn" href="#week">Book a class</a></header>
+<main><section class="hero"><div class="lab">Yoga and breathwork, Bath</div><h1>Slow down. <em>Start here.</em></h1><p class="sub">Small classes, warm rooms and teachers who never rush you. First class free.</p>
+<div class="br"><div class="cir"><div class="orb" id="orb"><span id="ot">Press start</span></div></div><div class="bc" id="bc" aria-live="polite"></div><button class="btn" id="go" type="button" aria-pressed="false">Start breathing</button></div></section>
+<section class="sec" id="week"><h2>This week at Stillwater</h2><div class="tabs" role="tablist" aria-label="Days" id="tabs"></div><div class="cls" id="cls" role="tabpanel" tabindex="0"></div><div class="sm" id="sm" aria-live="polite"></div></section>
+<div class="band"><p>"I came for the stretching and stayed for the silence at the end."</p><span>Elena, member since 2022</span></div></main>
+<footer>Stillwater Yoga · 14 Weavers Lane, Bath · hello@stillwater.example</footer>
+<script>
+(function(){
+var orb=document.getElementById('orb'),ot=document.getElementById('ot'),go=document.getElementById('go'),bc=document.getElementById('bc'),run=false,timers=[],n=0,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function clr(){timers.forEach(clearTimeout);timers=[]}
+function phase(){if(!run)return;orb.className='orb in';ot.textContent='Breathe in';bc.textContent='Breathe in for four';
+timers.push(setTimeout(function(){orb.className='orb hold';ot.textContent='Hold';bc.textContent='Hold gently'},4000));
+timers.push(setTimeout(function(){orb.className='orb out';ot.textContent='Breathe out';bc.textContent='Breathe out for six'},8000));
+timers.push(setTimeout(function(){n++;bc.textContent=n+(n===1?' breath':' breaths')+' complete';phase()},14000))}
+go.addEventListener('click',function(){run=!run;go.setAttribute('aria-pressed',run);go.textContent=run?'Stop':'Start breathing';clr();if(run){n=0;requestAnimationFrame(phase)}else{orb.className='orb';ot.textContent='Press start';bc.textContent=n?'Well done, '+n+(n===1?' breath':' breaths')+'.':''}});
+var D=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],C=[[['07:30','Dawn Flow','Mara','All levels',4],['12:15','Lunch Reset','Joss','Gentle',0],['18:30','Candlelit Vinyasa','Mara','Intermediate',6]],[['08:00','Slow Hatha','Iris','Beginner',8],['17:45','Strong Foundations','Joss','Intermediate',3],['19:30','Yin and Breath','Iris','All levels',9]],[['07:30','Dawn Flow','Mara','All levels',5],['12:15','Desk Release','Joss','Gentle',7],['18:30','Vinyasa Flow','Noor','Intermediate',2]],[['08:00','Slow Hatha','Iris','Beginner',6],['17:45','Hips and Hamstrings','Noor','All levels',4],['19:30','Restorative','Iris','Gentle',10]],[['07:30','Sunrise Sun Salutes','Mara','All levels',3],['12:15','Lunch Reset','Joss','Gentle',5],['17:30','Friday Unwind','Noor','All levels',8]],[['09:00','Weekend Vinyasa','Noor','Intermediate',0],['10:45','Beginner Basics','Iris','Beginner',9],['16:00','Yin and Sound Bath','Mara','All levels',12]],[['09:30','Sunday Slow Flow','Iris','All levels',7],['11:15','Breathwork Hour','Mara','All levels',10],['17:00','Restorative Evening','Noor','Gentle',9]]];
+var today=(new Date().getDay()+6)%7,cur=today,bk={},tabs=document.getElementById('tabs'),cls=document.getElementById('cls'),sm=document.getElementById('sm');
+D.forEach(function(d,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.innerHTML=d+'<small>'+(i===today?'Today':'')+'</small>';b.addEventListener('click',function(){show(i)});b.addEventListener('keydown',function(e){var k={ArrowRight:1,ArrowLeft:-1}[e.key];if(k){e.preventDefault();show((i+k+7)%7,true)}});tabs.appendChild(b)});
+function show(i,f){cur=i;[].forEach.call(tabs.children,function(b,k){b.setAttribute('aria-selected',k===i);b.tabIndex=k===i?0:-1});if(f)tabs.children[i].focus();cls.innerHTML='';
+C[i].forEach(function(c,j){var key=i+'-'+j,on=!!bk[key],left=c[4]-(on?1:0),full=c[4]===0,el=document.createElement('div');el.className='c';
+el.innerHTML='<div class="tm">'+c[0]+'</div><div><b>'+c[1]+'<span class="lv">'+c[3]+'</span></b><span class="m">with '+c[2]+' · '+(full?'Class full':left+' spaces left')+'</span></div><button type="button" class="bk" aria-pressed="'+on+'">'+(on?'Booked ✓':full?'Join waitlist':'Book')+'</button>';
+el.querySelector('button').addEventListener('click',function(){bk[key]=!bk[key];show(cur);var nb=Object.keys(bk).filter(function(k){return bk[k]}).length;sm.textContent=nb?'Your bookings: '+nb+(nb===1?' class':' classes')+' this week.':'';var b2=cls.children[j].querySelector('button');b2.focus()});cls.appendChild(el)});
+cls.setAttribute('aria-label',D[i])}
+show(today);
+})();
+</script></body></html>

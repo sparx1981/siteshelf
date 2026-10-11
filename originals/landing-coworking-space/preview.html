@@ -1,0 +1,98 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hatch Rooms Coworking — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#faf6f0;color:#231a14;font:400 17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #f26a1b;outline-offset:3px;border-radius:8px}
+header{display:flex;align-items:center;gap:26px;padding:18px clamp(18px,4vw,56px)}
+.logo{font:800 24px Syne,sans-serif;margin-right:auto;display:flex;align-items:center;gap:8px}.logo i{width:20px;height:24px;background:#f26a1b;border-radius:99px 99px 0 0}
+header a{color:#6e5f52;text-decoration:none;font-weight:500;font-size:15px}header a:hover{color:#231a14}
+.btn{display:inline-block;font:600 16px Inter,sans-serif;padding:14px 26px;border-radius:99px;border:1.5px solid #231a14;background:transparent;color:#231a14;text-decoration:none;cursor:pointer;transition:transform .2s,background .2s}
+.btn.pr{background:#f26a1b;border-color:#f26a1b;color:#fff!important}.btn:hover{transform:translateY(-2px)}header .btn{padding:9px 20px;font-size:14px}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:center;max-width:1240px;margin:0 auto;padding:30px clamp(18px,4vw,56px) 60px}
+h1{font:800 clamp(32px,4.4vw,64px)/1.05 Syne,sans-serif;letter-spacing:-.03em;margin:0 0 20px}
+.sub{color:#6e5f52;max-width:48ch;margin:0 0 28px;font-size:18px}.btns{display:flex;gap:12px;flex-wrap:wrap}
+.col{position:relative;aspect-ratio:1/.9;max-width:520px;width:100%;margin:0 auto}
+.col i{position:absolute;display:block;animation:fl 7s ease-in-out infinite alternate}
+.a1{left:4%;top:8%;width:44%;height:62%;background:#f26a1b;border-radius:999px 999px 0 0}
+.a2{right:4%;top:0;width:40%;height:40%;background:#3b1f3f;border-radius:50%;animation-delay:-2s!important}
+.a3{right:8%;bottom:4%;width:46%;height:50%;background:#e9d7bd;border-radius:999px 0 0 0;animation-delay:-4s!important}
+.a4{left:10%;bottom:2%;width:30%;height:22%;background:#3b1f3f;border-radius:99px;animation-delay:-1s!important}
+.a5{left:48%;top:44%;width:14%;aspect-ratio:1;background:#fff;border:3px solid #231a14;border-radius:50%}
+@keyframes fl{to{transform:translateY(-12px)}}
+.sec{max-width:1100px;margin:0 auto;padding:30px clamp(18px,4vw,56px)}
+h2{font:800 clamp(30px,4vw,48px)/1.05 Syne,sans-serif;letter-spacing:-.02em;margin:0 0 22px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:18px}
+.tabs button{flex:none;font:600 15px Inter,sans-serif;background:#fff;border:1.5px solid #eadfd2;border-radius:99px;padding:10px 20px;cursor:pointer;color:#231a14;transition:background .2s}
+.tabs button[aria-selected=true]{background:#231a14;color:#faf6f0;border-color:#231a14}
+.panel{background:#fff;border:1px solid #eadfd2;border-radius:24px;padding:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;animation:fi .25s}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}}
+.panel h3{font:800 28px Syne,sans-serif;margin:0 0 8px}.panel p{color:#6e5f52;margin:0 0 14px}
+.price{font:800 30px Syne,sans-serif}.price small{font:500 14px Inter,sans-serif;color:#6e5f52}
+.am{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.am span{font-size:13px;background:#f6ecde;border-radius:99px;padding:5px 12px}
+.av h4{margin:0 0 10px;font-size:14px;font-weight:600;color:#6e5f52}
+.cells{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:5px}
+.cells button{position:relative;height:46px;border:0;border-radius:8px;background:#2f9e5b;cursor:pointer;color:#fff;font:600 11px Inter,sans-serif;transition:transform .15s}
+.cells button:hover{transform:translateY(-3px)}.cells button.busy{background:#e3d6c6;color:#8a7a69;cursor:not-allowed}
+.cells button[aria-pressed=true]{background:#f26a1b;box-shadow:0 0 0 3px #fff,0 0 0 5px #f26a1b}
+.lg{display:flex;gap:14px;font-size:12px;color:#6e5f52;margin:10px 0}.lg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
+.sum{font-weight:600;min-height:26px}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.plan{background:#fff;border:2px solid #eadfd2;border-radius:20px;padding:22px;cursor:pointer;text-align:left;font:inherit;color:inherit;transition:border-color .2s,transform .2s}
+.plan:hover{transform:translateY(-3px)}.plan[aria-checked=true]{border-color:#f26a1b;background:#fff6ef}
+.plan b{display:block;font:800 22px Syne,sans-serif}.plan span{color:#6e5f52;font-size:15px}.plan strong{display:block;margin-top:10px;font:800 26px Syne,sans-serif}
+.band{background:#3b1f3f;color:#faf6f0;margin-top:50px;padding:56px 20px;text-align:center}
+.band .st{display:flex;gap:clamp(20px,6vw,80px);justify-content:center;flex-wrap:wrap;margin-bottom:28px}.band b{display:block;font:800 clamp(34px,5vw,56px) Syne,sans-serif;color:#ffb27a}
+dialog{border:0;border-radius:24px;padding:28px;max-width:440px;width:calc(100% - 32px);color:#231a14;background:#fff}dialog::backdrop{background:rgba(35,26,20,.55)}
+dialog h3{font:800 26px Syne,sans-serif;margin:0 0 14px}
+dialog label{display:block;font-weight:600;font-size:14px;margin:12px 0 6px}
+dialog input[type=text],dialog input[type=email]{width:100%;font:16px Inter,sans-serif;padding:12px 14px;border:1.5px solid #eadfd2;border-radius:12px}
+dialog input[aria-invalid=true]{border-color:#c62828}
+.err{color:#c62828;font-size:13px;min-height:18px}
+.ch{display:flex;gap:8px;flex-wrap:wrap}.ch button{font:500 14px Inter,sans-serif;border:1.5px solid #eadfd2;background:#fff;border-radius:99px;padding:8px 14px;cursor:pointer}.ch button[aria-pressed=true]{background:#231a14;color:#fff;border-color:#231a14}
+.ok{text-align:center;padding:20px 0}.ok b{display:block;font:800 24px Syne,sans-serif;margin-bottom:6px}
+.row{display:flex;gap:10px;margin-top:20px;justify-content:flex-end}
+@media(max-width:860px){.hero,.panel{grid-template-columns:minmax(0,1fr)}.plans{grid-template-columns:minmax(0,1fr)}header a:not(.btn){display:none}.cells button{height:40px;font-size:10px}.col{max-width:320px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div class="logo"><i></i>hatch</div><a href="#spaces">Spaces</a><a href="#plans">Membership</a><a href="#">Visit</a><button class="btn pr" type="button" data-tour>Book a tour</button></header>
+<main><section class="hero"><div><h1>Rooms that make work feel like a good idea.</h1><p class="sub">Light, quiet, well-run space for freelancers and small teams. Desks, private offices, meeting rooms and a podcast booth, all on one key fob.</p><div class="btns"><button class="btn pr" type="button" data-tour>Book a tour</button><a class="btn" href="#spaces">See spaces</a></div></div>
+<div class="col" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="a4"></i><i class="a5"></i></div></section>
+<section class="sec" id="spaces"><h2>Find your kind of room</h2><div class="tabs" role="tablist" aria-label="Space types" id="tabs"></div><div class="panel" id="panel" role="tabpanel" tabindex="0"></div></section>
+<section class="sec" id="plans"><h2>Membership that bends</h2><div class="plans" role="radiogroup" aria-label="Membership plan" id="pl"></div><p class="sum" id="plsum" aria-live="polite" style="margin-top:14px"></p></section></main>
+<div class="band"><div class="st"><div><b>14</b>private offices</div><div><b>96</b>hot desks</div><div><b>24/7</b>member access</div></div><button class="btn pr" type="button" data-tour>Book a tour</button></div>
+<dialog id="dlg" aria-labelledby="dt"><form id="f" novalidate method="dialog"><div id="form"><h3 id="dt">Book a tour</h3>
+<label for="nm">Your name</label><input id="nm" type="text" autocomplete="name"><div class="err" id="e1"></div>
+<label for="em">Email</label><input id="em" type="email" autocomplete="email"><div class="err" id="e2"></div>
+<label id="dl">Day</label><div class="ch" id="days" role="group" aria-labelledby="dl"></div><label id="tl" style="margin-top:14px">Time</label><div class="ch" id="times" role="group" aria-labelledby="tl"></div>
+<div class="row"><button class="btn" type="button" id="cx" style="padding:11px 20px">Cancel</button><button class="btn pr" type="submit" style="padding:11px 20px">Confirm tour</button></div></div>
+<div class="ok" id="ok" hidden><b>You're booked in</b><span id="okt"></span><div class="row" style="justify-content:center"><button class="btn" type="button" id="cl" style="padding:11px 20px">Close</button></div></div></form></dialog>
+<script>
+(function(){
+var S=[{n:'Hot desk',t:'A seat that is yours for the day',p:'£18',u:'a day',r:6,a:['Fast fibre','Free coffee','Lockers'],b:[1,1,0,0,1,0,0,1,0,0]},{n:'Private office',t:'A lockable room for two to eight people',p:'£420',u:'a desk a month',r:50,a:['Own key','Furniture included','Phone booth'],b:[1,1,1,1,1,1,1,1,0,0]},{n:'Meeting room',t:'Daylight, a big screen and a proper whiteboard',p:'£22',u:'an hour',r:22,a:['Seats 10','4K screen','Catering on request'],b:[0,0,1,1,0,0,0,1,1,0]},{n:'Podcast booth',t:'Treated walls, two mics and a quiet door',p:'£15',u:'an hour',r:15,a:['Two mics','Sound-proofed','Free editing space'],b:[0,0,0,1,0,0,0,0,1,1]}];
+var P=[{n:'Day pass',d:'Drop in when you need to',p:'£18 a day'},{n:'Flex',d:'Ten days a month, any desk',p:'£120 a month'},{n:'Resident',d:'Your own desk, 24/7 access',p:'£260 a month'}];
+var tabs=document.getElementById('tabs'),panel=document.getElementById('panel'),cur=0,sel={};
+S.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.id='t'+i;b.textContent=s.n;b.setAttribute('aria-controls','panel');b.addEventListener('click',function(){show(i)});b.addEventListener('keydown',function(e){var k={ArrowRight:1,ArrowLeft:-1}[e.key];if(e.key==='Home')k=-i;if(e.key==='End')k=S.length-1-i;if(k!==undefined){e.preventDefault();show((i+k+S.length)%S.length,true)}});tabs.appendChild(b)});
+function show(i,f){cur=i;[].forEach.call(tabs.children,function(b,k){b.setAttribute('aria-selected',k===i);b.tabIndex=k===i?0:-1});if(f)tabs.children[i].focus();panel.setAttribute('aria-labelledby','t'+i);var s=S[i],g='';
+s.b.forEach(function(x,h){var hr=8+h,k=i+'-'+h;g+='<button type="button" class="'+(x?'busy':'')+'" '+(x?'aria-disabled="true"':'')+' aria-pressed="'+(!!sel[k])+'" data-k="'+k+'" aria-label="'+hr+':00, '+(x?'busy':'free')+'" title="'+hr+':00, '+(x?'busy':'free')+'">'+hr+'</button>'});
+panel.style.animation='none';void panel.offsetWidth;panel.style.animation='';
+panel.innerHTML='<div><h3>'+s.n+'</h3><p>'+s.t+'.</p><div class="price">'+s.p+' <small>'+s.u+'</small></div><div class="am">'+s.a.map(function(a){return'<span>'+a+'</span>'}).join('')+'</div></div><div class="av"><h4>Today, free hours</h4><div class="cells">'+g+'</div><div class="lg"><span><i style="background:#2f9e5b"></i>Free</span><span><i style="background:#e3d6c6"></i>Busy</span><span><i style="background:#f26a1b"></i>Yours</span></div><div class="sum" id="sum" aria-live="polite"></div></div>';
+panel.querySelectorAll('.cells button').forEach(function(b){b.addEventListener('click',function(){if(b.classList.contains('busy'))return;var k=b.dataset.k;sel[k]=!sel[k];b.setAttribute('aria-pressed',!!sel[k]);sum()})});sum()}
+function sum(){var n=0;Object.keys(sel).forEach(function(k){if(sel[k]&&k.indexOf(cur+'-')===0)n++});document.getElementById('sum').textContent=n?n+(n>1?' hours':' hour')+' selected, £'+(n*S[cur].r):'Pick free hours to hold them.'}
+show(0);
+var pl=document.getElementById('pl'),ps=document.getElementById('plsum'),pi=1;
+P.forEach(function(p,i){var b=document.createElement('button');b.type='button';b.className='plan';b.setAttribute('role','radio');b.innerHTML='<b>'+p.n+'</b><span>'+p.d+'</span><strong>'+p.p+'</strong>';b.addEventListener('click',function(){pick(i)});b.addEventListener('keydown',function(e){var k={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];if(k){e.preventDefault();pick((pi+k+3)%3,true)}});pl.appendChild(b)});
+function pick(i,f){pi=i;[].forEach.call(pl.children,function(b,k){b.setAttribute('aria-checked',k===i);b.tabIndex=k===i?0:-1});if(f)pl.children[i].focus();ps.textContent='Selected: '+P[i].n+', '+P[i].p+'. Cancel any time.'}pick(1);
+var dlg=document.getElementById('dlg'),days=document.getElementById('days'),times=document.getElementById('times'),dsel=0,tsel=1,D=[];
+var d=new Date();while(D.length<5){d.setDate(d.getDate()+1);if(d.getDay()%6)D.push(d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'}))}
+function chips(el,arr,get,set){el.innerHTML='';arr.forEach(function(x,i){var b=document.createElement('button');b.type='button';b.textContent=x;b.setAttribute('aria-pressed',get()===i);b.addEventListener('click',function(){set(i);[].forEach.call(el.children,function(c,k){c.setAttribute('aria-pressed',k===i)})});el.appendChild(b)})}
+var TM=['10:00','12:00','15:00'];chips(days,D,function(){return dsel},function(i){dsel=i});chips(times,TM,function(){return tsel},function(i){tsel=i});
+document.querySelectorAll('[data-tour]').forEach(function(b){b.addEventListener('click',function(){document.getElementById('form').hidden=false;document.getElementById('ok').hidden=true;dlg.showModal()})});
+document.getElementById('cx').addEventListener('click',function(){dlg.close()});document.getElementById('cl').addEventListener('click',function(){dlg.close()});
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('nm'),m=document.getElementById('em'),ok=true;
+n.setAttribute('aria-invalid',!n.value.trim());document.getElementById('e1').textContent=n.value.trim()?'':'Please tell us your name';
+var v=/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(m.value.trim());m.setAttribute('aria-invalid',!v);document.getElementById('e2').textContent=v?'':'Enter a valid email address';
+if(!n.value.trim()){n.focus();return}if(!v){m.focus();return}
+document.getElementById('form').hidden=true;document.getElementById('ok').hidden=false;document.getElementById('okt').textContent='See you on '+D[dsel]+' at '+TM[tsel]+', '+n.value.trim().split(' ')[0]+'.'});
+})();
+</script></body></html>

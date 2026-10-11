@@ -1,0 +1,11 @@
+Canvas & base: Warm cream page #fbf8f2, white cards with 1px #e8e0d0 borders and 18px radius, ink #1f1b16, secondary #6b6256 (5.8:1), accent forest #1f6b4f, highlight marker #ffe27a. Invented product "Marginalia", an AI meeting-notes tool for small teams.
+
+Typography: "Newsreader" 500 and italic 500 for headlines (clamp 40px to 76px, line-height 1.04, tracking -.02em); "Inter" 400/500/600 for UI and body (17px; transcript 15px). Headline: "Meetings end. The notes shouldn't." with "shouldn't" italic.
+
+Layout: Sticky header (wordmark "Marginalia", links Features, Pricing, Customers, button "Try it free"). Hero: centred label chip "Listens, so you don't have to type", headline, 56ch sub "Marginalia joins your call, writes clean notes as people talk, and pulls out every decision and action item before the meeting ends.", two buttons "Start free" and "Watch a 2 minute demo". Under that a product window (max-width 980px, radius 20px, soft shadow, window dots) split in two: left "Live transcript" (speaker chips Priya, Tom, Aiko in different tints with timestamps) and right "Notes" panel with sections "Decisions" and "Action items" (checkbox list with owner chips and due dates). Below: three feature cards (Live notes, Action items, Searchable archive), a quote strip, and a footer CTA band in forest green.
+
+Interaction: The transcript plays a scripted conversation of eight lines, one every 1.8s with a fade and slide; lines containing decisions or tasks get a yellow marker highlight and, 600ms later, the item appears in the right panel with a pop animation. Controls under the window: Pause or Play (aria-pressed) and Restart. Action items are real checkboxes that strike through when ticked and update a counter "2 of 4 done". Hover lifts feature cards 4px. All buttons have hover, active and focus-visible states (3px #1f6b4f outline offset 3px).
+
+Responsive: Under 820px the window panes stack; nav links collapse leaving the button; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Transcript container has role=log and aria-live=polite. Respect prefers-reduced-motion by showing all lines and items immediately. Invented names only.

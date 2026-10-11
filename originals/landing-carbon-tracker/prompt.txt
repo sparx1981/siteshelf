@@ -1,0 +1,13 @@
+Canvas & base: Soft sage page #eef4ea, white cards (#ffffff, 1px #d6e3cf border, 22px radius), deep green ink #17331f, secondary #4c6a55 (6:1), accent leaf #2f9e5b, warm sun #f2b544, alert coral #e2603f. Invented app "Tern", a carbon footprint tracker that turns guilt into small wins.
+
+Typography: "Fraunces" 600 for headings (clamp 40px to 78px, line-height 1.04, tracking -.02em, italic 600 on one word); "DM Sans" 400/500/700 for body 17px and UI. Headline: "Know your footprint. Shrink it, kindly." with "kindly" italic.
+
+Layout: Header with a tern bird glyph (inline SVG) and wordmark "Tern", links How it works, Swaps, Stories and a button "Get the app". Hero: label chip "Free on iOS and Android", headline and 50ch sub. Directly below, a calculator card in two columns. Left: four sliders with live values: "Commute by car, km per week" 0 to 400 (default 120), "Meat meals per week" 0 to 21 (default 9), "Flights per year" 0 to 12 (default 3), "Home energy, kWh per month" 100 to 900 (default 420). Right: a large SVG ring gauge showing tonnes CO2e per year in the centre (Fraunces 56px), a comparison line "UK average 7.5 t" with a tick on the ring, and colour that shifts from green to amber to coral by value. Beneath the ring three "Swap" chips (toggle buttons, aria-pressed): "Take the train for 1 trip a week" (-0.3 t), "Meat-free Mondays" (-0.4 t), "Switch to a green tariff" (-0.9 t); active chips subtract from the total and show a "You'd save 1.6 t a year, like planting 27 trees" message. Below: three story cards and a footer CTA.
+
+Calculation: car 0.17 kg per km x 52, meat meal 2.5 kg x 52 x (meals/9 scaling is not used; use meals*2.5*52/1000), flights 0.9 t each, energy kWh*12*0.23/1000; total = sum + 1.4 t base. Swaps subtract their savings but never below 1.5 t.
+
+Interaction: Ring arc animates to the new value with a 600ms ease whenever sliders change; the number counts to the new figure; slider thumbs have large 28px hit areas and visible focus; chips pop when toggled.
+
+Responsive: Under 860px the calculator stacks (ring first); no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. aria-live on the result, labelled sliders with output values. Respect prefers-reduced-motion (no ring animation). Invented names only.

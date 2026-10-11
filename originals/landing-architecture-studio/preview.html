@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Plinth Architects — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#fafaf8;color:#0f0f0f;font:400 17px/1.55 Archivo,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #ff4a1c;outline-offset:2px}
+.mono{font:400 12px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em}
+header{display:flex;align-items:center;gap:28px;padding:18px clamp(18px,3vw,44px);border-bottom:1px solid rgba(15,15,15,.12)}
+.logo{font:800 20px Archivo,sans-serif;letter-spacing:.16em;margin-right:auto}
+.nv{display:flex;gap:26px}header a{color:#0f0f0f;text-decoration:none}header a:hover{color:#ff4a1c}
+.guides{position:absolute;inset:0;pointer-events:none;display:grid;grid-template-columns:repeat(12,1fr);padding:0 clamp(18px,3vw,44px)}.guides i{border-left:1px solid rgba(15,15,15,.05)}.guides i:last-child{border-right:1px solid rgba(15,15,15,.05)}
+.hero{position:relative;padding:clamp(36px,8vh,100px) clamp(18px,3vw,44px) 40px}
+h1{position:relative;font:800 clamp(44px,9.4vw,140px)/.92 Archivo,sans-serif;letter-spacing:-.04em;text-transform:uppercase;margin:0;max-width:11ch}
+h1 .o{color:transparent;-webkit-text-stroke:2px #ff4a1c}
+.intro{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;margin-top:44px;align-items:end}
+.intro p{max-width:42ch;margin:0;color:#6a6a66}
+.cnt{display:flex;gap:clamp(18px,4vw,56px);justify-content:flex-end}.cnt b{display:block;font:800 clamp(32px,4vw,56px)/1 Archivo,sans-serif}
+.idx{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(20px,4vw,60px);padding:30px clamp(18px,3vw,44px) 60px;border-top:1px solid rgba(15,15,15,.12)}
+.filt{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.filt button{font:400 12px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em;background:transparent;border:1px solid rgba(15,15,15,.3);padding:7px 14px;cursor:pointer;color:#0f0f0f}
+.filt button[aria-pressed=true]{background:#0f0f0f;color:#fafaf8}
+.list{list-style:none;margin:0;padding:0;border-top:1px solid #0f0f0f}
+.list li{display:block;overflow:hidden;max-height:90px;transition:max-height .3s,opacity .3s;border-bottom:1px solid rgba(15,15,15,.2)}
+.list li.off{max-height:0;opacity:0;border:0}
+.list a{display:grid;grid-template-columns:44px minmax(0,1.4fr) minmax(0,1fr) 90px 52px;gap:12px;align-items:center;padding:20px 8px;text-decoration:none;color:inherit;transition:background .2s,color .2s}
+.list .n{color:#6a6a66}.list .t{font:500 22px Archivo,sans-serif}
+.list a:hover,.list a:focus-visible{background:#0f0f0f;color:#fafaf8;outline-offset:-3px}.list a:hover .n,.list a:focus-visible .n{color:#ff4a1c}
+.prev{position:sticky;top:20px;align-self:start}
+.pl{aspect-ratio:1;background:#fff;border:1px solid #0f0f0f;position:relative}
+.pl svg{width:100%;height:100%;display:block}.pl path,.pl line,.pl rect,.pl circle{fill:none;stroke:#ff4a1c;stroke-width:1.5;stroke-dasharray:var(--l,1200);stroke-dashoffset:var(--l,1200)}
+.pl.draw path,.pl.draw line,.pl.draw rect,.pl.draw circle{animation:dr .9s ease forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.cap{display:flex;justify-content:space-between;margin-top:10px}
+.studio{padding:40px clamp(18px,3vw,44px) 60px;border-top:1px solid #0f0f0f;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px}
+.studio h2{font:800 clamp(28px,4vw,52px)/1 Archivo,sans-serif;text-transform:uppercase;letter-spacing:-.03em;margin:0}
+.studio p{color:#6a6a66;margin:0 0 14px;max-width:48ch}.studio a{color:#0f0f0f;font-weight:500}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:900px){.idx,.intro,.studio{grid-template-columns:minmax(0,1fr)}.prev{position:static;order:-1}.pl{aspect-ratio:16/10}.list a{grid-template-columns:34px minmax(0,1fr) 52px}.list .ty,.list .lo{display:none}.cnt{justify-content:flex-start}header .nv{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.pl path,.pl line,.pl rect,.pl circle{stroke-dashoffset:0!important}}
+</style></head><body>
+<header><div class="logo">PLINTH</div><nav class="mono nv" aria-label="Main"><a href="#idx">Index</a><a href="#studio">Studio</a><a href="#">Journal</a><a href="#studio">Contact</a></nav><span class="mono">EN / PT</span></header>
+<main><section class="hero"><div class="guides" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<h1>We build quiet places for <span class="o">loud lives.</span></h1>
+<div class="intro"><p>Plinth is a Rotterdam and Lisbon studio making housing, schools and public rooms that disappear into their streets and last for generations.</p><div class="cnt"><div><b data-n="212">0</b><span class="mono">projects</span></div><div><b data-n="31">0</b><span class="mono">awards</span></div><div><b data-n="2">0</b><span class="mono">studios</span></div></div></div></section>
+<section class="idx" id="idx"><div><div class="filt" role="group" aria-label="Filter projects" id="filt"></div><ul class="list" id="list"></ul></div>
+<aside class="prev" aria-label="Plan preview"><div class="pl draw" id="pl"><svg viewBox="0 0 200 200" id="svg" aria-hidden="true"></svg></div><div class="cap mono"><span id="pn">01 · Harbour Row</span><span id="pa">4,200 m²</span></div></aside></section>
+<section class="studio" id="studio"><h2>Studio</h2><div><p>Forty people, two studios, one belief: a building should be easy to love and cheap to keep. We work with councils, schools and people building a home for the first time.</p><p>Say hello: <a href="mailto:hello@plinth.example">hello@plinth.example</a></p></div></section></main>
+<div class="sr" id="live" aria-live="polite"></div>
+<script>
+(function(){
+var P=[
+['Harbour Row','Rotterdam','Housing',2019,'4,200 m²','<rect x="30" y="40" width="140" height="40"/><rect x="30" y="100" width="60" height="60"/><rect x="110" y="100" width="60" height="60"/><line x1="90" y1="130" x2="110" y2="130"/>'],
+['Tide School','Lisbon','Public',2021,'6,800 m²','<path d="M30 160V60h140v100z"/><path d="M30 110h140M100 60v100"/><circle cx="65" cy="85" r="14"/><circle cx="135" cy="135" r="14"/>'],
+['Lantern Library','Rotterdam','Culture',2020,'3,100 m²','<circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="40"/><line x1="30" y1="100" x2="170" y2="100"/><line x1="100" y1="30" x2="100" y2="170"/>'],
+['Kiln Offices','Lisbon','Workplace',2022,'9,500 m²','<path d="M30 50h140v30H30zM30 90h100v30H30zM30 130h140v30H30z"/><line x1="130" y1="90" x2="130" y2="120"/>'],
+['Mill Court','Rotterdam','Housing',2018,'5,600 m²','<path d="M40 40h120v120H40z"/><path d="M70 70h60v60H70z"/><line x1="40" y1="40" x2="70" y2="70"/><line x1="160" y1="40" x2="130" y2="70"/><line x1="40" y1="160" x2="70" y2="130"/><line x1="160" y1="160" x2="130" y2="130"/>'],
+['Ferry Hall','Lisbon','Public',2023,'2,400 m²','<path d="M30 140Q100 20 170 140z"/><line x1="30" y1="140" x2="170" y2="140"/><line x1="100" y1="140" x2="100" y2="60"/>'],
+['Ropeworks','Rotterdam','Culture',2017,'7,300 m²','<path d="M30 60h60v50H30zM110 60h60v50h-60zM30 130h140v30H30z"/><circle cx="100" cy="85" r="8"/>'],
+['Salt House','Lisbon','Workplace',2024,'3,800 m²','<path d="M40 160V70l60-30 60 30v90z"/><path d="M70 160v-50h60v50"/><line x1="40" y1="70" x2="160" y2="70"/>']];
+var F=['All','Housing','Culture','Public','Workplace'],list=document.getElementById('list'),filt=document.getElementById('filt'),svg=document.getElementById('svg'),pl=document.getElementById('pl'),live=document.getElementById('live'),cur=-1,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+P.forEach(function(p,i){var li=document.createElement('li');li.dataset.t=p[2];var n=('0'+(i+1)).slice(-2);li.innerHTML='<a href="#" data-i="'+i+'"><span class="n mono">'+n+'</span><span class="t">'+p[0]+'</span><span class="lo mono">'+p[1]+'</span><span class="ty mono">'+p[2]+'</span><span class="mono">'+p[3]+'</span></a>';list.appendChild(li)});
+function show(i){if(i===cur)return;cur=i;var p=P[i];svg.innerHTML=p[5];[].forEach.call(svg.children,function(el,k){var l=el.getTotalLength?el.getTotalLength():400;el.style.setProperty('--l',Math.ceil(l)+2);el.style.animationDelay=(k*.12)+'s'});pl.classList.remove('draw');void pl.offsetWidth;if(!reduce)pl.classList.add('draw');document.getElementById('pn').textContent=('0'+(i+1)).slice(-2)+' · '+p[0];document.getElementById('pa').textContent=p[4];live.textContent=p[0]+', '+p[2]+', '+p[1]+', '+p[4]}
+if(reduce)pl.className='pl';
+var links=[].slice.call(list.querySelectorAll('a'));
+links.forEach(function(a,k){['pointerenter','focus'].forEach(function(e){a.addEventListener(e,function(){show(k)})});
+a.addEventListener('click',function(e){e.preventDefault();if(matchMedia('(hover:none)').matches&&cur!==k)show(k)});
+a.addEventListener('keydown',function(e){if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();var v=links.filter(function(x){return!x.parentNode.classList.contains('off')}),j=v.indexOf(a)+(e.key==='ArrowDown'?1:-1);if(v[j])v[j].focus()}})});
+F.forEach(function(f,i){var b=document.createElement('button');b.type='button';b.textContent=f;b.setAttribute('aria-pressed',i===0);b.addEventListener('click',function(){[].forEach.call(filt.children,function(c){c.setAttribute('aria-pressed',c===b)});[].forEach.call(list.children,function(li){var off=f!=='All'&&li.dataset.t!==f;li.classList.toggle('off',off);li.firstChild.tabIndex=off?-1:0})});filt.appendChild(b)});
+show(0);
+var done=false;new IntersectionObserver(function(e){if(e[0].isIntersecting&&!done){done=true;document.querySelectorAll('[data-n]').forEach(function(b){var to=+b.dataset.n,t0=performance.now();(function f(n){var k=reduce?1:Math.min(1,(n-t0)/1200);b.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(t0)})}},{threshold:.4}).observe(document.querySelector('.cnt'));
+})();
+</script></body></html>

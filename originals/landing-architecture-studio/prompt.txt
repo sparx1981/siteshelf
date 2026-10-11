@@ -1,0 +1,11 @@
+Canvas & base: White page #fafaf8, ink #0f0f0f, secondary #6a6a66 (5.3:1), hairlines 1px #0f0f0f at 12% opacity, one accent signal orange #ff4a1c used for hover, index numbers and the drawn plan lines. Visible 12-column guide lines (1px, 4% black) behind the hero. Invented studio "Plinth Architects", Rotterdam and Lisbon.
+
+Typography: "Archivo" 800 for the big statement (clamp 44px to 130px, line-height .92, tracking -.04em, uppercase) and 500 for project titles; "DM Mono" 400 for index numbers, years and labels (12px, uppercase, .08em tracking); "Archivo" 400 17px for body.
+
+Layout: Thin header (wordmark "PLINTH" left, links Index, Studio, Journal, Contact right, plus "EN / PT" toggle). Hero: statement "We build quiet places for loud lives." with the final two words in orange outline text, a 42ch intro, and a row of three counters (212 projects, 31 awards, 2 studios). Then the Index: left column a table-like list of eight projects (number 01 to 08, name, location, type, year) with filter buttons above (All, Housing, Culture, Public, Workplace); right column sticky square preview panel showing an SVG line drawing of the active project's plan (each project has a distinct plan composed of rectangles, arcs and lines, stroke #ff4a1c 1.5px on #fafaf8) with label and area (m²). Under it a studio paragraph and contact block with email hello@plinth.example.
+
+Interaction: Hovering or focusing a row highlights it (background #0f0f0f, text #fafaf8, number turns orange) and its plan draws in with stroke-dashoffset over 900ms. Filter buttons (aria-pressed) fade non-matching rows out and collapse them smoothly (height transition 300ms). Rows are links with arrow-key navigation (Up/Down moves focus between rows). On touch the first tap previews, second tap opens (aria-live announces the project name). Counters count up once when scrolled into view.
+
+Responsive: Under 900px the preview moves above the list as a 16:10 panel (not sticky) and rows drop the type column; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Visible focus (3px #ff4a1c), aria-labels, SVG plans aria-hidden with a text alternative in the live region. Respect prefers-reduced-motion (plans appear instantly). Invented names only.

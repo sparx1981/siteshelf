@@ -1,0 +1,11 @@
+Canvas & base: Deep navy #070b1a with a vertical gradient to #0d1633 and a soft moon glow (radial-gradient at 80% 15%, rgba(190,210,255,.18), transparent 40%). A full-bleed canvas draws 90 stars (radius .6 to 1.8px, colour #dbe6ff with alpha .5 to 1) drifting slowly with wrap-around. Lines (1px, #8fb0ff at alpha up to .35) join any two stars closer than 130px, and all stars within 180px of the pointer are connected to it. Invented stargazing app "Nightjar". Text #eef3ff, secondary #a9b8e0 (8:1), accent #ffd37a.
+
+Typography: "Fraunces" 600 for the headline (clamp 44px to 112px, line-height 1, tracking -.02em, italic 600 for the word "stories"); "Inter" 400/500/600 for body 17px and 12px labels with .16em tracking. Headline: "Every star has stories." with "stories" italic gold.
+
+Layout: Top bar with "Nightjar" wordmark and a link "Sky tonight". Centre column: label "Stargazing, simplified", headline, 50ch sub "Point your phone at the sky and Nightjar names the stars, planets and satellites above you, with the myths behind them.", a primary button "Join the beta" (gold #ffd37a, text #070b1a, radius 99px, 16px 30px) and a text link "How it works". Footer row of three tiny facts: "88 constellations", "Works offline", "Free for the first year".
+
+Interaction: Hovering or focusing the primary button makes nearby stars attract towards it (velocity nudged proportional to inverse distance) and draws extra lines from the button's centre to the 12 nearest stars; leaving releases them. Clicking the button fires a brief ripple of lines and changes its label to "You're on the list" for 3 seconds. Stars twinkle by alpha sine at individual frequencies.
+
+Responsive: Star count drops to 50 under 700px; headline 12vw; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Canvas aria-hidden; visible focus ring 3px #ffd37a. Respect prefers-reduced-motion by drawing a static constellation with no drift or attraction. Invented names only.

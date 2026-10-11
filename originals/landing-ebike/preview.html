@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fathom E-Bike — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#eef2f4;color:#0e1a22;font:400 17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #0e1a22;outline-offset:3px;border-radius:8px}
+header{display:flex;align-items:center;gap:26px;padding:18px clamp(18px,4vw,56px);position:relative;z-index:5}
+.logo{font:700 22px Outfit,sans-serif;letter-spacing:.2em;margin-right:auto}
+header a{color:#55656f;text-decoration:none;font-weight:500;font-size:15px}header a:hover{color:#0e1a22}
+.btn{display:inline-block;font:600 16px Inter,sans-serif;padding:14px 26px;border-radius:99px;background:#b6f23a;color:#0e1a22!important;border:0;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(150,210,30,.5)}header .btn{padding:9px 20px;font-size:14px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:30px;align-items:center;max-width:1300px;margin:0 auto;padding:20px clamp(18px,4vw,56px) 40px}
+h1{font:700 clamp(42px,6.4vw,96px)/.98 Outfit,sans-serif;letter-spacing:-.03em;margin:0 0 18px}
+.sub{color:#55656f;max-width:44ch;margin:0 0 26px;font-size:18px}.pn{margin-left:14px;font-size:14px;color:#55656f}
+.bike{width:100%;height:auto;display:block;overflow:visible}
+.wheel{transform-box:fill-box;transform-origin:center}
+.run{position:relative;height:320vh}
+.stick{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:30px;align-items:center;max-width:1300px;margin:0 auto;padding:0 clamp(18px,4vw,56px)}
+.pins .pin{opacity:.25;transition:opacity .4s}.pins .pin.on{opacity:1}
+.pin text{font:600 13px Inter,sans-serif;fill:#0e1a22}.pin line{stroke:#0e1a22;stroke-width:1.5}.pin circle{fill:#b6f23a;stroke:#0e1a22;stroke-width:2}
+.steps{position:relative;height:100%}
+.st{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);background:#fff;border:1px solid #dbe3e8;border-radius:22px;padding:26px;opacity:0;pointer-events:none;transition:opacity .4s,transform .4s;transform:translateY(-44%)}
+.st.on{opacity:1;transform:translateY(-50%);pointer-events:auto}
+.st small{font:600 12px Inter,sans-serif;letter-spacing:.14em;color:#55656f}.st h2{font:700 clamp(28px,3.4vw,44px)/1.05 Outfit,sans-serif;margin:6px 0 8px;letter-spacing:-.02em}.st p{margin:0;color:#55656f}
+.dots{position:absolute;right:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px}.dots i{width:8px;height:8px;border-radius:50%;background:#c4d0d6;transition:background .3s}.dots i.on{background:#0e1a22}
+.rng{max-width:900px;margin:0 auto;padding:60px clamp(18px,4vw,40px)}
+.rng h2{font:700 clamp(30px,4vw,52px)/1.05 Outfit,sans-serif;letter-spacing:-.02em;margin:0 0 20px}
+.pnl{background:#fff;border:1px solid #dbe3e8;border-radius:24px;padding:30px}
+.big{font:700 clamp(54px,9vw,110px)/1 Outfit,sans-serif;letter-spacing:-.04em}.big small{font:600 22px Inter,sans-serif;color:#55656f;letter-spacing:0}
+.mode{display:flex;justify-content:space-between;font-weight:600;margin:20px 0 6px;font-size:15px}.mode span{color:#55656f}.mode span.on{color:#0e1a22}
+input[type=range]{width:100%;height:36px;accent-color:#0e1a22;margin:0}
+.bar{height:12px;background:#e3eaee;border-radius:99px;overflow:hidden;margin-top:12px}.bar i{display:block;height:100%;background:#b6f23a;border-right:3px solid #0e1a22;transition:width .5s}
+.nt{font-size:14px;color:#55656f;margin:12px 0 0}
+.band{background:#0f3b40;color:#eaf6f3;text-align:center;padding:70px 24px}.band h2{font:700 clamp(32px,5vw,64px)/1 Outfit,sans-serif;margin:0 0 8px;letter-spacing:-.03em}.band p{margin:0 0 24px;color:#b8d6d1}
+@media(max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}.stick{grid-template-columns:minmax(0,1fr);grid-template-rows:38vh minmax(0,1fr);padding-top:70px;align-items:start}.steps{height:100%}.dots{display:none}header a:not(.btn){display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header><div class="logo">FATHOM</div><a href="#">Bike</a><a href="#range">Range</a><a href="#">Specs</a><a class="btn" href="#range">Reserve, £1,990</a></header>
+<main><section class="hero"><div><h1>Go further. Arrive fresher.</h1><p class="sub">The Fathom Tern 3 is a 17kg commuter e-bike with a 120km range and a motor you will forget is there.</p><a class="btn" href="#range">Reserve yours</a><span class="pn">£1,990 · ships in 3 weeks</span></div>
+<div id="b0"></div></section>
+<section class="run" id="run"><div class="stick"><div id="b1"></div><div class="steps" id="steps">
+<div class="st on"><small>01 / MOTOR</small><h2>250W mid-drive</h2><p>65Nm of torque that arrives smoothly, so hills feel like a gentle tailwind. Quiet enough to hear your tyres.</p></div>
+<div class="st"><small>02 / BATTERY</small><h2>504Wh, removable</h2><p>Slides out in two seconds so you can charge it at your desk. A full charge takes 4.5 hours.</p></div>
+<div class="st"><small>03 / FRAME</small><h2>17kg aluminium</h2><p>Hydroformed 6061 aluminium in three sizes, with hidden cables and mudguard mounts as standard.</p></div>
+<div class="st"><small>04 / LIGHTS AND LOCK</small><h2>Built in, always on</h2><p>Integrated lights, a frame lock and a GPS tracker you can follow from your phone.</p></div>
+<div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i></div></div></div></section>
+<section class="rng" id="range"><h2>How far will it go?</h2><div class="pnl"><div class="big"><span id="km">85</span><small> km estimated</small></div>
+<div class="mode" id="mode"><span>Eco</span><span class="on">Tour</span><span>Turbo</span></div><input id="as" type="range" min="0" max="2" step="1" value="1" aria-label="Assist level" aria-valuetext="Tour"><div class="bar" aria-hidden="true"><i id="bi" style="width:71%"></i></div><p class="nt">Estimates assume a 75kg rider on mixed terrain at 20°C. Real range varies.</p></div></section></main>
+<div class="band"><h2>£1,990. Free delivery.</h2><p>Reserve with £50, fully refundable until it ships.</p><a class="btn" href="#">Reserve your Tern 3</a></div>
+<template id="svgt"><svg class="bike" viewBox="0 0 520 300" role="img" aria-label="Line drawing of the Fathom Tern 3 electric bike"><title>Fathom Tern 3 electric bike</title>
+<g class="wheel" id="w1"><circle cx="110" cy="190" r="86" fill="none" stroke="#0e1a22" stroke-width="7"/><circle cx="110" cy="190" r="74" fill="none" stroke="#9fb0ba" stroke-width="2"/><g stroke="#55656f" stroke-width="1.5"><line x1="110" y1="108" x2="110" y2="272"/><line x1="28" y1="190" x2="192" y2="190"/><line x1="52" y1="132" x2="168" y2="248"/><line x1="52" y1="248" x2="168" y2="132"/></g></g>
+<g class="wheel" id="w2"><circle cx="410" cy="190" r="86" fill="none" stroke="#0e1a22" stroke-width="7"/><circle cx="410" cy="190" r="74" fill="none" stroke="#9fb0ba" stroke-width="2"/><g stroke="#55656f" stroke-width="1.5"><line x1="410" y1="108" x2="410" y2="272"/><line x1="328" y1="190" x2="492" y2="190"/><line x1="352" y1="132" x2="468" y2="248"/><line x1="352" y1="248" x2="468" y2="132"/></g></g>
+<g fill="none" stroke="#0e1a22" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M110 190L200 190 250 100 345 100"/><path d="M200 190L250 100M200 190L345 100M345 100L410 190M250 100l-10-24M345 100l8-30"/><path d="M215 76h50M335 70h36"/><path d="M200 190l62 0"/></g>
+<rect x="228" y="124" width="82" height="22" rx="8" fill="#0f3b40" transform="rotate(-24 269 135)"/><circle cx="200" cy="190" r="22" fill="#b6f23a" stroke="#0e1a22" stroke-width="5"/>
+<g class="pins"><g class="pin on" data-i="0"><line x1="200" y1="190" x2="150" y2="262"/><circle cx="200" cy="190" r="6"/><text x="82" y="284">Motor</text></g><g class="pin" data-i="1"><line x1="270" y1="130" x2="300" y2="42"/><circle cx="270" cy="130" r="6"/><text x="270" y="30">Battery</text></g><g class="pin" data-i="2"><line x1="297" y1="100" x2="440" y2="40"/><circle cx="297" cy="100" r="6"/><text x="412" y="30">Frame</text></g><g class="pin" data-i="3"><line x1="345" y1="70" x2="480" y2="60"/><circle cx="345" cy="70" r="6"/><text x="440" y="52">Lights</text></g></g></svg></template>
+<script>
+(function(){
+var t=document.getElementById('svgt'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+['b0','b1'].forEach(function(id,k){var f=t.content.cloneNode(true);var s=f.querySelector('svg');s.querySelectorAll('[id]').forEach(function(e){e.id=e.id+'_'+k});document.getElementById(id).appendChild(f)});
+var W=[].slice.call(document.querySelectorAll('.wheel')),run=document.getElementById('run'),steps=[].slice.call(document.querySelectorAll('.st')),dots=[].slice.call(document.querySelectorAll('#dots i')),pins=[].slice.call(document.querySelectorAll('#b1 .pin')),cur=0;
+function setStep(i){cur=i;steps.forEach(function(s,k){s.classList.toggle('on',k===i)});dots.forEach(function(d,k){d.classList.toggle('on',k===i)});pins.forEach(function(p,k){p.classList.toggle('on',k===i)})}
+function tick(){var y=scrollY;if(!reduce)W.forEach(function(w){w.style.transform='rotate('+(y*.6)+'deg)'});var r=run.getBoundingClientRect(),p=Math.max(0,Math.min(.999,-r.top/(r.height-innerHeight)));setStep(Math.floor(p*4))}
+addEventListener('scroll',function(){requestAnimationFrame(tick)},{passive:true});tick();
+var as=document.getElementById('as'),km=document.getElementById('km'),bi=document.getElementById('bi'),mode=document.getElementById('mode'),V=[120,85,55],N=['Eco','Tour','Turbo'],P=[100,71,46],shown=85,raf;
+as.addEventListener('input',function(){var v=+as.value;as.setAttribute('aria-valuetext',N[v]);[].forEach.call(mode.children,function(s,k){s.classList.toggle('on',k===v)});bi.style.width=P[v]+'%';cancelAnimationFrame(raf);var from=shown,to=V[v],t0=performance.now();if(reduce){shown=to;km.textContent=to;return}(function f(n){var k=Math.min(1,(n-t0)/500);shown=Math.round(from+(to-from)*k);km.textContent=shown;if(k<1)raf=requestAnimationFrame(f)})(t0)});
+})();
+</script></body></html>

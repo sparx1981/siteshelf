@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Quill Spend Card — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:radial-gradient(circle at 70% 12%,rgba(54,226,184,.16),transparent 45%),#071a1f;color:#e8fbf6;font:400 17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #36e2b8;outline-offset:3px;border-radius:10px}
+header{display:flex;align-items:center;gap:28px;padding:20px clamp(18px,4vw,56px)}
+.logo{font:700 24px Sora,sans-serif;margin-right:auto}.logo i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#36e2b8;margin-left:3px}
+header a{color:#9ec2bd;text-decoration:none;font-size:15px;font-weight:500}header a:hover{color:#fff}
+.btn{display:inline-block;font:600 16px Inter,sans-serif;padding:14px 26px;border-radius:99px;border:1.5px solid #2c6571;color:#e8fbf6;background:transparent;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn.pr{background:#36e2b8;color:#05211c!important;border-color:#36e2b8}.btn:hover{transform:translateY(-2px)}.btn.pr:hover{box-shadow:0 10px 30px rgba(54,226,184,.35)}
+header .btn{padding:9px 20px;font-size:14px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:50px;align-items:center;max-width:1240px;margin:0 auto;padding:30px clamp(18px,4vw,56px) 60px}
+h1{font:700 clamp(40px,5.6vw,80px)/1.02 Sora,sans-serif;letter-spacing:-.03em;margin:0 0 18px}
+.sub{color:#9ec2bd;max-width:46ch;margin:0 0 28px}.btns{display:flex;gap:12px;flex-wrap:wrap}
+.stage{perspective:900px;max-width:460px;margin:0 auto;width:100%}
+.card{position:relative;aspect-ratio:1.586;border-radius:22px;background:linear-gradient(135deg,#0f5c52,#1b9c86);padding:22px 24px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 40px 80px -30px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.3);transform-style:preserve-3d;transition:transform .25s ease-out,filter .5s;overflow:hidden;animation:float 6s ease-in-out infinite}
+.card.tilt{animation:none}
+@keyframes float{50%{transform:translateY(-8px)}}
+.card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--sx,30%) var(--sy,20%),rgba(255,255,255,.35),transparent 45%);pointer-events:none}
+.card.fz{filter:grayscale(1) brightness(.75)}
+.cb{display:flex;justify-content:space-between;align-items:center}.cb b{font:700 26px Sora,sans-serif}.cb span{font:500 12px Inter,sans-serif;opacity:.85}
+.num{font:400 20px 'DM Mono',monospace;letter-spacing:.14em}
+.cf{display:flex;justify-content:space-between;font:500 12px Inter,sans-serif;letter-spacing:.08em}
+.chips{display:flex;gap:6px;flex-wrap:wrap;min-height:26px}
+.chips span{font:600 11px Inter,sans-serif;background:rgba(5,33,28,.55);padding:4px 10px;border-radius:99px;animation:pop .4s cubic-bezier(.2,1.5,.4,1)}
+@keyframes pop{from{transform:scale(.6);opacity:0}}
+.frost{position:absolute;inset:0;display:none;place-items:center;font:700 22px Sora,sans-serif;background:rgba(7,26,31,.35);letter-spacing:.08em}.card.fz .frost{display:grid}
+.rules{margin:18px auto 0;max-width:460px;background:#0e2a31;border:1px solid #1b4650;border-radius:20px;padding:6px 18px}
+.r{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #16383f}.r:last-child{border:0}
+.r div{flex:1;min-width:0}.r b{display:block;font-weight:600;font-size:16px}.r small{color:#9ec2bd;font-size:13px}
+.sw{width:50px;height:30px;border-radius:99px;background:#244a53;border:0;position:relative;cursor:pointer;flex:none;transition:background .25s}
+.sw:after{content:"";position:absolute;left:3px;top:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:transform .25s}
+.sw[aria-checked=true]{background:#36e2b8}.sw[aria-checked=true]:after{transform:translateX(20px)}.sw[aria-disabled=true]{opacity:.4;cursor:not-allowed}
+.lim{padding:6px 0 16px;border-bottom:1px solid #16383f}.lim .top{display:flex;justify-content:space-between;font-size:14px;color:#9ec2bd;margin-bottom:8px}.lim .top b{color:#e8fbf6;font:700 16px Sora,sans-serif}
+input[type=range]{width:100%;accent-color:#36e2b8}
+.bar{height:8px;background:#16383f;border-radius:99px;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:#36e2b8;transition:width .3s,background .3s}.bar.hi i{background:#ffb454}
+.feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1240px;margin:0 auto;padding:0 clamp(18px,4vw,56px)}
+.fc{background:#0e2a31;border:1px solid #1b4650;border-radius:20px;padding:24px;transition:transform .25s,border-color .25s}.fc:hover{transform:translateY(-4px);border-color:#36e2b8}.fc b{display:block;font:700 20px Sora,sans-serif;margin-bottom:6px}.fc p{margin:0;color:#9ec2bd;font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1240px;margin:60px auto;padding:0 clamp(18px,4vw,56px);text-align:center}.stats b{display:block;font:700 clamp(34px,5vw,60px) Sora,sans-serif;color:#36e2b8}.stats span{color:#9ec2bd}
+.cta{text-align:center;padding:30px 20px 80px}.cta h2{font:700 clamp(28px,4vw,48px)/1.1 Sora,sans-serif;margin:0 0 20px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:900px){.hero{grid-template-columns:minmax(0,1fr)}.feat,.stats{grid-template-columns:minmax(0,1fr)}header a:not(.btn){display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div class="logo">quill<i></i></div><a href="#">Card</a><a href="#">Rules</a><a href="#">Pricing</a><a class="btn pr" href="#">Get the card</a></header>
+<main><section class="hero"><div><h1>A card that follows your rules.</h1>
+<p class="sub">Set limits, block categories and freeze the card in one tap. Quill enforces your rules at the till, not after the fact.</p>
+<div class="btns"><a class="btn pr" href="#">Order your card</a><a class="btn" href="#">See how rules work</a></div></div>
+<div><div class="stage" id="stage"><div class="card" id="card" role="img" aria-label="Quill spend card preview"><div class="cb"><b>quill</b><span>DEBIT</span></div><div><div class="num">4821 •••• •••• 0937</div><div class="chips" id="chips"></div></div><div class="cf"><span>ADA LOVELACE-REYES</span><span>09/29</span></div><div class="frost">❄ FROZEN</div></div></div>
+<div class="rules" role="group" aria-label="Card rules">
+<div class="r"><div><b>Block gambling</b><small>Declines betting and casino merchants</small></div><button class="sw" role="switch" aria-checked="false" aria-label="Block gambling" data-k="g"></button></div>
+<div class="r"><div><b>Pause spending abroad</b><small>Only UK and Ireland payments</small></div><button class="sw" role="switch" aria-checked="false" aria-label="Pause spending abroad" data-k="a"></button></div>
+<div class="r" style="display:block;border:0;padding-bottom:0"><div style="display:flex;align-items:center;gap:14px"><div><b>Weekly limit</b><small>Resets every Monday</small></div><button class="sw" role="switch" aria-checked="true" aria-label="Weekly limit" data-k="l"></button></div>
+<div class="lim" id="lim"><div class="top"><span>Limit</span><b id="lv">£300</b></div><input type="range" id="rg" min="50" max="1000" step="10" value="300" aria-label="Weekly limit in pounds"><div class="top" style="margin-top:10px"><span>Spent £212</span><span id="pc">71%</span></div><div class="bar" id="bar"><i style="width:71%"></i></div></div></div>
+<div class="r"><div><b>Freeze card</b><small>Stops every payment instantly</small></div><button class="sw" role="switch" aria-checked="false" aria-label="Freeze card" data-k="f"></button></div></div>
+<div class="sr" role="status" id="st"></div></div></section>
+<section class="feat"><div class="fc"><b>Rules at the till</b><p>Payments are checked against your rules in under 200ms, before the merchant is paid.</p></div><div class="fc"><b>Freeze in 3 seconds</b><p>Lost it behind the sofa? Freeze it from the lock screen and thaw it when it turns up.</p></div><div class="fc"><b>No fee surprises</b><p>No monthly fee, no foreign-exchange mark-up on the first £500 each month.</p></div></section>
+<section class="stats"><div><b>£0</b><span>monthly fees</span></div><div><b>3 sec</b><span>to freeze</span></div><div><b>1.4m</b><span>cards in wallets</span></div></section>
+<section class="cta"><h2>Your money. Your rules.</h2><a class="btn pr" href="#">Order your card</a></section></main>
+<script>
+(function(){
+var card=document.getElementById('card'),stage=document.getElementById('stage'),chips=document.getElementById('chips'),sw=[].slice.call(document.querySelectorAll('.sw')),st={g:0,a:0,l:1,f:0},rg=document.getElementById('rg'),lv=document.getElementById('lv'),bar=document.getElementById('bar'),pc=document.getElementById('pc'),stat=document.getElementById('st'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function render(){var L=+rg.value;lv.textContent='£'+L.toLocaleString('en-GB');var p=Math.min(100,Math.round(212/L*100));bar.firstChild.style.width=p+'%';pc.textContent=p+'%';bar.classList.toggle('hi',p>80);
+var a=[];if(st.g)a.push('No gambling');if(st.a)a.push('UK only');if(st.l)a.push('£'+L+' / week');
+var cur=[].map.call(chips.children,function(c){return c.textContent});if(cur.join('|')!==a.join('|')){chips.innerHTML=a.map(function(x){return'<span>'+x+'</span>'}).join('')}
+card.classList.toggle('fz',!!st.f);
+sw.forEach(function(b){var k=b.dataset.k;b.setAttribute('aria-checked',!!st[k]);if(k!=='f')b.setAttribute('aria-disabled',!!st.f)});
+rg.disabled=!st.l||!!st.f;rg.parentNode.style.opacity=st.l?1:.4}
+sw.forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.k;if(k!=='f'&&st.f){return}st[k]=st[k]?0:1;render();stat.textContent=b.getAttribute('aria-label')+(st[k]?' on':' off')})});
+rg.addEventListener('input',render);render();
+if(!reduce){stage.addEventListener('pointermove',function(e){var r=stage.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.classList.add('tilt');card.style.transform='rotateY('+x*24+'deg) rotateX('+(-y*24)+'deg)';card.style.setProperty('--sx',(x+.5)*100+'%');card.style.setProperty('--sy',(y+.5)*100+'%')});
+stage.addEventListener('pointerleave',function(){card.style.transform='';card.classList.remove('tilt')})}
+})();
+</script></body></html>

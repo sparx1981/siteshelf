@@ -1,0 +1,11 @@
+Canvas & base: Soft sage-to-peach page (linear-gradient 180deg #eef1e6 to #fbeee3) with ink #2c3a2e, secondary #5d6e5f (5.4:1), accent clay #c8643c, deep moss #3d5a45. Cards #ffffffcc with 1px #dfe5d4 borders, radius 24px. Invented studio "Stillwater Yoga" in Bath.
+
+Typography: "Cormorant Garamond" 500 and italic 500 for headings (clamp 44px to 100px, line-height 1, tracking -.01em); "Karla" 400/500/700 for body 17px and UI; labels uppercase 12px with .18em tracking. Headline: "Slow down. Start here." with "Start here." italic.
+
+Layout: Header with wordmark "Stillwater" (serif) and a small circle glyph, links Classes, Teachers, Visit, and button "Book a class". Hero centred: label "Yoga and breathwork, Bath", headline, 46ch sub "Small classes, warm rooms and teachers who never rush you. First class free." Then the breathing guide: a 260px circle (radial-gradient #fbd8bc to #e59a72) inside two faint outer rings, label text in the centre in dark clay #3a1a0a ("Press start") and a button "Start breathing" (aria-pressed). While running it expands over 4s on "Breathe in", holds 4s on "Hold", contracts over 6s on "Breathe out" (cycle 14s), the centre text and an aria-live line follow, and a small cycle counter shows "3 breaths". Next section "This week": seven weekday tabs (Mon to Sun, today preselected) and below a list of 3 classes per day (time, name, teacher, level pill, spaces left) each with a Book button that toggles to "Booked ✓" (aria-pressed) and updates a "Your bookings" summary line; full classes show "Join waitlist". A closing quote band in moss green and a footer.
+
+Interaction: Tabs follow the ARIA tabs pattern (arrow keys). Booking changes button state instantly and decreases spaces left by one; unbooking restores it. The circle animation uses CSS transitions driven by a class and JS timers; Stop returns it to the resting size.
+
+Responsive: Under 700px the weekday tabs scroll horizontally in their container, class rows stack; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Visible focus (3px #3d5a45), aria-live for breathing and bookings. Respect prefers-reduced-motion (circle changes size instantly with text only, no easing). Invented names only.

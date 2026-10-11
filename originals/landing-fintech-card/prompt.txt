@@ -1,0 +1,11 @@
+Canvas & base: Dark teal-navy page #071a1f with a soft glow (radial-gradient at 70% 20%, rgba(54,226,184,.16), transparent 45%). Surfaces #0e2a31 with 1px #1b4650 borders and 20px radius. Accent mint #36e2b8, warm #ffb454 for warnings, danger #ff6b7a. Text #e8fbf6, secondary #9ec2bd (7:1). Invented product "Quill", a spend card with rules you set yourself.
+
+Typography: "Sora" 600/700 for headings (clamp 40px to 80px, line-height 1.02, tracking -.03em) and numbers; "Inter" 400/500/600 for body 17px; card digits in "DM Mono" 400 at 18px with 2px tracking. Headline: "A card that follows your rules."
+
+Layout: Header with wordmark "quill" (lowercase, Sora 700 with a mint quill dot), links Card, Rules, Pricing and a mint "Get the card" button. Hero in two columns: left headline, sub "Set limits, block categories and freeze the card in one tap. Quill enforces your rules at the till, not after the fact.", buttons "Order your card" and "See how rules work"; right a 3D card (aspect 1.586, radius 22px, gradient #0f5c52 to #1b9c86 with a subtle sheen, brand "quill", masked number "4821 •••• •••• 0937", name "ADA LOVELACE-REYES", expiry 09/29) above a rules panel. Rules panel: toggles "Block gambling", "Pause spending abroad", "Weekly limit" with a slider £50 to £1,000, and "Freeze card". Below: three feature cards, a stats row (£0 fees, 3 second freeze, 1.4m cards) and a final CTA.
+
+Interaction: The card tilts up to 12 degrees toward the pointer (perspective 900px) with a moving sheen, and eases back on leave; keyboard focus on the card shows a gentle idle float. Toggling rules adds chips to the card face ("No gambling", "UK only", "£300 / week") with a pop animation; the slider updates the weekly chip and a small spend bar (£212 spent) that turns amber above 80%. Freeze dims the card to grayscale with a "Frozen" snowflake overlay and disables the other toggles (aria-disabled). Toggles are role=switch buttons.
+
+Responsive: Under 900px columns stack, the card is full width max 420px; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Visible focus (3px #36e2b8), aria-checked on switches, aria-live status line. Respect prefers-reduced-motion by disabling tilt and float. Invented names only.

@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Groove Letter Record Club — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:radial-gradient(circle at 25% 30%,rgba(255,160,70,.18),transparent 45%),#17110d;color:#f6ead9;font:400 17px/1.6 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #ffa046;outline-offset:3px;border-radius:8px}
+header{display:flex;align-items:center;gap:26px;padding:18px clamp(18px,4vw,56px)}
+.logo{font:400 26px 'DM Serif Display',serif;margin-right:auto;display:flex;align-items:center;gap:10px}.logo i{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle,#ffa046 0 22%,#0d0b0a 24%)}
+header a{color:#bfa98f;text-decoration:none;font-size:15px;font-weight:500}header a:hover{color:#fff}
+.btn{display:inline-block;font:700 16px 'DM Sans',sans-serif;padding:14px 26px;border-radius:99px;border:1.5px solid #5a4636;background:transparent;color:#f6ead9;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn.pr{background:#ffa046;color:#1b1109!important;border-color:#ffa046}.btn:hover{transform:translateY(-2px)}.btn.pr:hover{box-shadow:0 10px 30px rgba(255,160,70,.3)}header .btn{padding:9px 20px;font-size:14px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;max-width:1240px;margin:0 auto;padding:20px clamp(18px,4vw,56px) 50px}
+h1{font:400 clamp(42px,6vw,92px)/1 'DM Serif Display',serif;letter-spacing:-.02em;margin:0 0 20px}h1 em{color:#ffa046}
+.sub{color:#bfa98f;max-width:46ch;margin:0 0 26px}.note{margin-left:14px;color:#bfa98f;font-size:14px}
+.turn{position:relative;width:min(100%,440px);margin:0 auto;aspect-ratio:1}
+.rec{position:absolute;left:0;top:0;width:90%;height:90%;border-radius:50%;background:radial-gradient(circle,transparent 0 37%,rgba(255,255,255,.06) 37.5%,transparent 38.5% 52%,rgba(255,255,255,.05) 52.5%,transparent 53.5% 68%,rgba(255,255,255,.05) 68.5%,transparent 69.5%),conic-gradient(from 20deg,#0d0b0a,#2a2522 12%,#0d0b0a 25%,#1d1917 38%,#0d0b0a 50%,#2a2522 62%,#0d0b0a 75%,#1d1917 88%,#0d0b0a);box-shadow:0 30px 70px -20px rgba(0,0,0,.8),inset 0 0 0 4px #1a1512;animation:sp 4s linear infinite;animation-play-state:paused}
+.on .rec{animation-play-state:running}
+@keyframes sp{to{transform:rotate(360deg)}}
+.lab{position:absolute;left:50%;top:50%;width:36%;aspect-ratio:1;margin:-18% 0 0 -18%;border-radius:50%;background:radial-gradient(circle,#17110d 0 5%,transparent 5.5%),linear-gradient(135deg,#ffa046,#e0642a);display:grid;place-items:center;text-align:center;color:#2a1306;font:700 10px 'DM Sans',sans-serif;letter-spacing:.1em}
+.arm{position:absolute;right:3%;top:2%;width:46%;height:8px;background:linear-gradient(#cfc4b4,#8a7e6e);border-radius:99px;transform-origin:92% 50%;transform:rotate(-12deg);transition:transform .8s cubic-bezier(.4,0,.2,1);box-shadow:0 6px 12px rgba(0,0,0,.4)}
+.arm:after{content:"";position:absolute;left:-8px;top:-5px;width:22px;height:16px;background:#3a2c22;border-radius:4px}.arm:before{content:"";position:absolute;right:-12px;top:-10px;width:28px;height:28px;border-radius:50%;background:#3a2c22;border:3px solid #cfc4b4}
+.on .arm{transform:rotate(24deg)}
+.pp{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);width:60px;height:60px;border-radius:50%;border:0;background:#ffa046;color:#1b1109;font-size:22px;cursor:pointer;box-shadow:0 10px 24px rgba(255,160,70,.35);transition:transform .2s}.pp:hover{transform:translateX(-50%) scale(1.07)}
+.sec{max-width:1100px;margin:0 auto;padding:40px clamp(18px,4vw,56px)}
+h2{font:400 clamp(30px,4vw,52px)/1.05 'DM Serif Display',serif;margin:0 0 24px}
+.mo{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:30px;background:#231a14;border:1px solid #3a2c22;border-radius:24px;padding:26px}
+.sl{aspect-ratio:1;border-radius:10px;position:relative;overflow:hidden;background:#e9d7b8;transition:transform .3s;box-shadow:0 20px 40px -18px rgba(0,0,0,.7)}.sl:hover{transform:rotate(-2deg) scale(1.02)}
+.sl i{position:absolute;display:block}.sl .a{left:-10%;bottom:-10%;width:70%;height:70%;border-radius:50%;background:#1f6f73}.sl .b{right:10%;top:10%;width:30%;height:30%;border-radius:50%;background:#e0642a}.sl .c{left:8%;top:10%;width:36%;height:8px;background:#17110d}.sl .d{left:8%;top:22%;width:24%;height:8px;background:#17110d}
+.mo h3{font:400 30px 'DM Serif Display',serif;margin:0}.mo .ar{color:#bfa98f;margin:2px 0 14px}
+.tr{list-style:none;margin:0;padding:0}.tr li button{all:unset;box-sizing:border-box;display:flex;width:100%;gap:14px;padding:10px 12px;border-radius:10px;cursor:pointer;align-items:center;transition:background .2s}
+.tr li button:hover{background:#2e231b}.tr li button:focus-visible{outline:3px solid #ffa046}
+.tr .n{color:#bfa98f;width:20px;font-variant-numeric:tabular-nums}.tr .d{margin-left:auto;color:#bfa98f;font-variant-numeric:tabular-nums}
+.tr li.on button{background:#3a2616;color:#ffa046}.tr .pg{height:3px;background:#ffa046;border-radius:3px;position:absolute;left:12px;bottom:3px}
+.tr li{position:relative}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pn{background:#231a14;border:2px solid #3a2c22;border-radius:20px;padding:22px;text-align:left;font:inherit;color:inherit;cursor:pointer;transition:border-color .2s,transform .2s}.pn:hover{transform:translateY(-3px)}
+.pn[aria-checked=true]{border-color:#ffa046;background:#2e1f12}.pn b{display:block;font:400 26px 'DM Serif Display',serif}.pn span{color:#bfa98f;font-size:15px}.pn strong{display:block;margin-top:10px;font:400 34px 'DM Serif Display',serif;color:#ffa046}
+.join{display:flex;align-items:center;gap:18px;margin-top:20px;flex-wrap:wrap}
+footer{text-align:center;padding:50px 20px;color:#bfa98f;font-size:14px;border-top:1px solid #2a2018;margin-top:40px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:860px){.hero,.mo{grid-template-columns:minmax(0,1fr)}.plans{grid-template-columns:minmax(0,1fr)}.turn{width:min(100%,300px)}.mo .sl{max-width:240px}header a:not(.btn){display:none}}
+@media(prefers-reduced-motion:reduce){.rec{animation:none!important}.arm{transition:none}*{transition:none!important}}
+</style></head><body>
+<header><div class="logo"><i></i>Groove Letter</div><a href="#month">This month</a><a href="#plans">Plans</a><a href="#">Archive</a><a class="btn pr" href="#plans">Join the club</a></header>
+<main><section class="hero"><div><h1>One great record, <em>every month.</em></h1><p class="sub">We pick one brilliant, overlooked record, press it on 180g vinyl and post it with liner notes written by a real person.</p><a class="btn pr" href="#plans">Join from £19 a month</a><span class="note">Cancel any time</span></div>
+<div class="turn" id="turn"><div class="rec" aria-hidden="true"><div class="lab">GROOVE<br>LETTER</div></div><div class="arm" aria-hidden="true"></div><button class="pp" id="pp" type="button" aria-pressed="false" aria-label="Play the demo">▶</button></div></section>
+<section class="sec" id="month"><h2>This month: Midnight Tram</h2><div class="mo"><div class="sl" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div><div><h3>Midnight Tram</h3><div class="ar">The Salt Line · 2024 · 180g vinyl</div><ol class="tr" id="tr"></ol><div class="sr" aria-live="polite" id="np"></div></div></div></section>
+<section class="sec" id="plans"><h2>Pick your plan</h2><div class="plans" role="radiogroup" aria-label="Plan" id="pl"></div><div class="join"><a class="btn pr" href="#" id="jb">Join as Collector, £26 a month</a><span class="note" id="jn" style="margin:0"></span></div></section></main>
+<footer>Groove Letter · Posted from Bristol · Free UK delivery · hello@grooveletter.example</footer>
+<script>
+(function(){
+var T=[['Lamplight','3:42'],['Last Stop, Platform Nine','4:18'],['Wet Pavement','2:56'],['Brass Moon','5:03'],['Night Bus Home','3:31'],['Cathedral of Steam','4:47'],['A Slow Goodbye','3:09'],['Midnight Tram','6:12']],tr=document.getElementById('tr'),turn=document.getElementById('turn'),pp=document.getElementById('pp'),np=document.getElementById('np'),cur=0,play=false,t,pg=0,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+T.forEach(function(x,i){var li=document.createElement('li');li.innerHTML='<button type="button"><span class="n">'+(i+1)+'</span><span>'+x[0]+'</span><span class="d">'+x[1]+'</span></button><i class="pg" style="width:0"></i>';li.firstChild.addEventListener('click',function(){go(i)});tr.appendChild(li)});
+function go(i){cur=i;pg=0;[].forEach.call(tr.children,function(li,k){li.classList.toggle('on',k===i&&play);li.lastChild.style.width='0'});if(play){np.textContent='Now playing: '+T[i][0]}}
+function tick(){pg+=.04;var li=tr.children[cur];li.lastChild.style.width=Math.min(100,pg*100)+'%';if(pg>=1)go((cur+1)%T.length)}
+pp.addEventListener('click',function(){play=!play;turn.classList.toggle('on',play);pp.setAttribute('aria-pressed',play);pp.textContent=play?'❚❚':'▶';pp.setAttribute('aria-label',play?'Pause the demo':'Play the demo');clearInterval(t);if(play){go(cur);t=setInterval(tick,240)}else{[].forEach.call(tr.children,function(li){li.classList.remove('on')});np.textContent=''}});
+var P=[['Listener','1 record a month','£19'],['Collector','1 record plus a 7-inch','£26'],['Crate Digger','2 records a month','£34']],pl=document.getElementById('pl'),pi=1;
+P.forEach(function(p,i){var b=document.createElement('button');b.type='button';b.className='pn';b.setAttribute('role','radio');b.innerHTML='<b>'+p[0]+'</b><span>'+p[1]+'</span><strong>'+p[2]+'</strong>';b.addEventListener('click',function(){pick(i)});b.addEventListener('keydown',function(e){var k={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];if(k){e.preventDefault();pick((pi+k+3)%3,true)}});pl.appendChild(b)});
+function pick(i,f){pi=i;[].forEach.call(pl.children,function(b,k){b.setAttribute('aria-checked',k===i);b.tabIndex=k===i?0:-1});if(f)pl.children[i].focus();document.getElementById('jb').textContent='Join as '+P[i][0]+', '+P[i][2]+' a month';document.getElementById('jn').textContent='Free postage in the UK. Skip or cancel online.'}pick(1);
+})();
+</script></body></html>

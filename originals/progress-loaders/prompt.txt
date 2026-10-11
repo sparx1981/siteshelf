@@ -1,0 +1,11 @@
+Canvas & base: A bright, clean specimen board on #f5f7fb with white cards (1px #e1e6f0 border, 18px radius) in a responsive grid. Ink #172036, secondary #667290, accents electric blue #2e6bff, mint #19c39a, amber #ffb020, rose #ff5c7a, violet #8a5cff. Invented studio "Gauge Lab".
+
+Typography: "Outfit" (500, 600, 700) for UI and "IBM Plex Mono" (500) for numbers. Card captions 12px uppercase tracking .08em.
+
+Layout: A header with title, a global control bar (Play/Pause, Restart, Speed select 0.5x, 1x, 2x) and a status line. Six cards: (1) circular progress ring with the percentage in the centre and a gradient stroke, (2) segmented step bar with five labelled steps (Upload, Scan, Process, Review, Publish) that fill and tick in sequence, (3) indeterminate sliding bar plus a three-dot bounce, (4) striped determinate upload bar with animated stripes, file name, size and speed readouts, (5) three concentric activity rings (Move, Focus, Rest) with legend values, (6) a countdown arc from 60 s with a pulse in the last 10 seconds.
+
+Interaction: A single requestAnimationFrame-driven clock feeds all cards so they stay in sync, with pause, restart and speed controls. Individual cards have a small "Skip to end" button. Progress values are exposed as role=progressbar with aria-valuenow, valuemin and valuemax (indeterminate omits valuenow); a polite live region announces milestones (25, 50, 75, 100 percent) rather than every frame. The countdown card has its own pause and uses text-based seconds for assistive tech.
+
+Responsive: The grid goes 3, 2 then 1 column; rings use viewBox sizing; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Under prefers-reduced-motion stripes and bounces stop and values update in steps. Visible focus, invented names only.

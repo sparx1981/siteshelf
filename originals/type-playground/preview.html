@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Type Playground — Typography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Fraunces:wght@100..900&family=Inter:wght@100..900&family=Playfair+Display:wght@400..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#faf8f4;--ink:#1c1a17;--mut:#77715f;--bd:#e8e3d9;--ac:#d4472b;--cv:#fffdf8;--cvi:#1c1a17}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 14px/1.45 'Inter',system-ui,sans-serif}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.app{display:grid;grid-template-columns:300px minmax(0,1fr);min-height:100svh}
+.rail{background:#fff;border-right:1px solid var(--bd);padding:20px;overflow:auto;max-height:100svh;position:sticky;top:0}
+.brand{font:600 15px 'Inter',sans-serif;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.brand i{width:18px;height:18px;border-radius:5px;background:var(--ac)}
+.g{margin-bottom:18px}
+.gl{display:flex;justify-content:space-between;align-items:center;font:600 11px 'Inter',sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:8px}
+.gl output{font:500 13px 'Inter',sans-serif;text-transform:none;letter-spacing:0;color:var(--ink);font-variant-numeric:tabular-nums}
+.fl{display:grid;gap:4px}
+.fb{display:flex;justify-content:space-between;align-items:center;border:1.5px solid var(--bd);background:#fff;border-radius:10px;padding:0 12px;min-height:44px;cursor:pointer;text-align:left;font-size:17px;color:var(--ink)}
+.fb small{font:500 11px 'Inter',sans-serif;color:var(--mut)}
+.fb[aria-checked=true]{border-color:var(--ac);background:#fff3ef}
+input[type=range]{width:100%;accent-color:var(--ac);height:32px}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:#f3efe6;border-radius:10px;padding:3px;gap:2px}
+.seg button{border:0;background:none;border-radius:8px;min-height:38px;cursor:pointer;font:600 13px 'Inter',sans-serif;color:var(--mut)}
+.seg button[aria-checked=true]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.sw{display:flex;gap:10px}
+.sw button{width:44px;height:44px;border-radius:50%;border:2px solid var(--bd);cursor:pointer}
+.sw button[aria-checked=true]{outline:3px solid var(--ac);outline-offset:2px}
+.main{padding:28px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.cv{background:var(--cv);color:var(--cvi);border:1px solid var(--bd);border-radius:18px;padding:36px;transition:background .25s,color .25s}
+.sp{outline:0;font-family:var(--ff);font-size:var(--fs);font-weight:var(--fw);letter-spacing:var(--ls);line-height:var(--lh);text-align:var(--ta);text-transform:var(--tt);overflow-wrap:anywhere;min-height:1.2em}
+.sp:focus-visible{outline:2px dashed var(--ac);outline-offset:10px}
+.cap{font:500 12px 'Inter',sans-serif;color:var(--mut);margin:0 0 10px}
+.para{font-family:var(--ff);font-size:18px;line-height:1.6;max-width:62ch;margin-top:28px;opacity:.82;font-weight:400;text-transform:none;letter-spacing:0}
+.pair{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pc{background:var(--cv);color:var(--cvi);border:1px solid var(--bd);border-radius:14px;padding:16px;min-width:0}
+.pc h3{font-family:var(--ff);font-weight:var(--fw);font-size:22px;margin:0 0 6px;line-height:1.15;text-transform:none;letter-spacing:0}
+.pc p{margin:0;font-size:14px;line-height:1.55}
+.pc small{display:block;margin-top:8px;color:var(--mut);font:500 11px 'Inter',sans-serif}
+.css{background:#1c1a17;color:#efe9d9;border-radius:14px;padding:16px 18px;font:400 13px/1.7 ui-monospace,Menlo,Consolas,monospace;position:relative;overflow-x:auto;white-space:pre}
+.css .b{position:sticky;float:right;right:0;top:0;display:flex;gap:8px}
+.css button{border:1px solid #4a463c;background:#2a2721;color:#fff;border-radius:8px;padding:0 14px;min-height:36px;cursor:pointer;font:600 12px 'Inter',sans-serif}
+.css button:hover{border-color:var(--ac)}
+.tgr{display:none;border:1.5px solid var(--bd);background:#fff;border-radius:10px;min-height:44px;padding:0 16px;font:600 14px 'Inter',sans-serif;cursor:pointer;margin:12px 20px 0;color:var(--ink)}
+@media(max-width:900px){.app{grid-template-columns:minmax(0,1fr)}.rail{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--bd);padding:0}.rail .in{padding:16px 20px}.rail.closed .in{display:none}.tgr{display:block;margin-bottom:12px}.brand{padding:16px 20px 0;margin:0}.main{padding:16px}.cv{padding:22px}.pair{grid-template-columns:minmax(0,1fr)}.sp{font-size:min(var(--fs),22vw)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="app"><aside class="rail" id="rl" aria-label="Controls"><div class="brand"><i></i>Inkwell &amp; Co. Type Lab</div><button class="tgr" id="tg" type="button" aria-expanded="true">Controls</button><div class="in">
+<div class="g"><div class="gl" id="lf">Font</div><div class="fl" role="radiogroup" aria-labelledby="lf" id="ff"></div></div>
+<div class="g"><div class="gl"><label for="fs">Size</label><output id="fo"></output></div><input type="range" id="fs" min="12" max="200" value="96"></div>
+<div class="g"><div class="gl"><label for="fw">Weight</label><output id="wo"></output></div><input type="range" id="fw" min="100" max="900" step="100" value="600"></div>
+<div class="g"><div class="gl"><label for="ls">Tracking</label><output id="lo"></output></div><input type="range" id="ls" min="-8" max="30" value="-2"></div>
+<div class="g"><div class="gl"><label for="lh">Line height</label><output id="ho"></output></div><input type="range" id="lh" min="80" max="200" value="105"></div>
+<div class="g"><div class="gl" id="la">Alignment</div><div class="seg" role="radiogroup" aria-labelledby="la" id="ta"></div></div>
+<div class="g"><div class="gl" id="lc">Case</div><div class="seg" role="radiogroup" aria-labelledby="lc" id="tt"></div></div>
+<div class="g"><div class="gl" id="lt">Canvas</div><div class="sw" role="radiogroup" aria-labelledby="lt" id="cs"></div></div></div></aside>
+<main class="main"><div class="cv" id="cv"><p class="cap" id="cp">Click the text to edit it</p><div class="sp" id="sp" contenteditable="true" spellcheck="false" role="textbox" aria-multiline="true" aria-label="Specimen text">Quiet letters, loud ideas</div>
+<p class="para" id="pa">The quick brown fox jumps over the lazy dog, then pauses to admire the way light falls on a well-set paragraph. Good typography is felt before it is noticed: even rhythm, sensible contrast and room to breathe.</p></div>
+<div><p class="cap">Pairing ideas for the heading font</p><div class="pair" id="pr"></div></div>
+<div class="css" id="css" aria-label="Generated CSS"></div></main></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var F=[{n:'Fraunces',w:[100,900],f:"'Fraunces',serif"},{n:'Space Grotesk',w:[300,700],f:"'Space Grotesk',sans-serif"},{n:'Playfair Display',w:[400,900],f:"'Playfair Display',serif"},{n:'DM Serif Display',w:[400,400],f:"'DM Serif Display',serif"},{n:'Inter',w:[100,900],f:"'Inter',sans-serif"}];
+var PAIR={'Fraunces':['Inter','Space Grotesk','Playfair Display'],'Space Grotesk':['Fraunces','Inter','DM Serif Display'],'Playfair Display':['Inter','Space Grotesk','Fraunces'],'DM Serif Display':['Inter','Space Grotesk','Fraunces'],'Inter':['Fraunces','Playfair Display','DM Serif Display']};
+var DEF={f:0,s:96,w:600,l:-2,h:105,a:'left',t:'none',c:0};
+var st=Object.assign({},DEF);
+var AL=[['left','Left'],['center','Centre'],['right','Right']],TT=[['none','Aa'],['uppercase','AA'],['lowercase','aa'],['capitalize','Ab']];
+var CV=[['#fffdf8','#1c1a17','Light'],['#f1e6d0','#2d2412','Sepia'],['#17150f','#f4efe2','Dark']];
+function ro(id,list,key,labelFn){var h='';list.forEach(function(x,i){h+='<button type="button" role="radio" aria-checked="'+(st[key]===x[0])+'" tabindex="'+(st[key]===x[0]?0:-1)+'" data-v="'+x[0]+'">'+x[1]+'</button>'});$(id).innerHTML=h}
+function fonts(){$('#ff').innerHTML=F.map(function(f,i){var on=st.f===i;return '<button class="fb" type="button" role="radio" aria-checked="'+on+'" tabindex="'+(on?0:-1)+'" data-i="'+i+'" style="font-family:'+f.f+'"><span>'+f.n+'</span><small>'+(f.w[0]===f.w[1]?'400':f.w[0]+'–'+f.w[1])+'</small></button>'}).join('')}
+function snap(){var f=F[st.f],lo=f.w[0],hi=f.w[1];var w=Math.min(hi,Math.max(lo,st.w));w=Math.round(w/100)*100;st.w=w;var r=$('#fw');r.min=lo;r.max=hi;r.disabled=lo===hi;r.value=w}
+function apply(){var f=F[st.f],cv=CV[st.c],sp=$('#cv');
+ var s=sp.style;s.setProperty('--ff',f.f);s.setProperty('--fs',st.s+'px');s.setProperty('--fw',st.w);s.setProperty('--ls',(st.l/100)+'em');s.setProperty('--lh',st.h/100);s.setProperty('--ta',st.a);s.setProperty('--tt',st.t);
+ $('#cv').style.setProperty('--ff',f.f);$('#cv').style.background=cv[0];$('#cv').style.color=cv[1];
+ $('#sp').style.cssText='';$('#fo').textContent=st.s+' px';$('#wo').textContent=st.w;$('#lo').textContent=(st.l/100).toFixed(2)+' em';$('#ho').textContent=(st.h/100).toFixed(2);
+ $('#pa').style.textAlign=st.a;
+ var p=PAIR[f.n];$('#pr').innerHTML=p.map(function(n){var b=F.filter(function(x){return x.n===n})[0];return '<div class="pc" style="font-family:'+f.f+'"><h3>Small things, set well</h3><p style="font-family:'+b.f+'">Body copy in '+n+' keeps lines calm and readable beside the heading above.</p><small>'+f.n+' + '+n+'</small></div>'}).join('');
+ $('#pr').style.setProperty('--fw',st.w);
+ $('#css').innerHTML='<span class="b"><button type="button" id="cc">Copy CSS</button><button type="button" id="rs">Reset</button></span>'+css()}
+function css(){var f=F[st.f];return '.specimen {\n  font-family: '+f.f.replace(/"/g,"'")+';\n  font-size: '+st.s+'px;\n  font-weight: '+st.w+';\n  letter-spacing: '+(st.l/100)+'em;\n  line-height: '+(st.h/100)+';\n  text-align: '+st.a+';\n  text-transform: '+st.t+';\n}'}
+function all(){fonts();ro('#ta',AL,'a');ro('#tt',TT,'t');$('#cs').innerHTML=CV.map(function(c,i){return '<button type="button" role="radio" aria-checked="'+(st.c===i)+'" tabindex="'+(st.c===i?0:-1)+'" data-i="'+i+'" aria-label="'+c[2]+' canvas" title="'+c[2]+'" style="background:'+c[0]+'"></button>'}).join('');snap();apply();$('#fs').value=st.s;$('#ls').value=st.l;$('#lh').value=st.h}
+function roving(box,sel){box.addEventListener('keydown',function(e){var k=e.key;if(['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].indexOf(k)<0)return;e.preventDefault();var bs=[].slice.call(box.querySelectorAll(sel)),i=bs.indexOf(document.activeElement),d=k==='ArrowRight'||k==='ArrowDown'?1:-1,n=bs[(i+d+bs.length)%bs.length];n.click();(box.querySelector(sel+'[aria-checked=true]')||n).focus()})}
+$('#ff').addEventListener('click',function(e){var b=e.target.closest('[data-i]');if(!b)return;st.f=+b.dataset.i;fonts();snap();apply()});
+$('#ta').addEventListener('click',function(e){var b=e.target.closest('[data-v]');if(!b)return;st.a=b.dataset.v;ro('#ta',AL,'a');apply()});
+$('#tt').addEventListener('click',function(e){var b=e.target.closest('[data-v]');if(!b)return;st.t=b.dataset.v;ro('#tt',TT,'t');apply()});
+$('#cs').addEventListener('click',function(e){var b=e.target.closest('[data-i]');if(!b)return;st.c=+b.dataset.i;all()});
+roving($('#ff'),'.fb');roving($('#ta'),'button');roving($('#tt'),'button');roving($('#cs'),'button');
+[['fs','s'],['ls','l'],['lh','h']].forEach(function(a){$('#'+a[0]).addEventListener('input',function(){st[a[1]]=+this.value;apply()})});
+$('#fw').addEventListener('input',function(){st.w=+this.value;apply()});
+$('#css').addEventListener('click',function(e){if(e.target.id==='cc'){try{navigator.clipboard.writeText(css()).catch(function(){})}catch(x){}e.target.textContent='Copied';setTimeout(function(){var b=$('#cc');if(b)b.textContent='Copy CSS'},1500)}if(e.target.id==='rs'){st=Object.assign({},DEF);$('#sp').textContent='Quiet letters, loud ideas';all()}});
+$('#sp').addEventListener('paste',function(e){e.preventDefault();var t=(e.clipboardData||window.clipboardData).getData('text/plain').replace(/\s+/g,' ');document.execCommand('insertText',false,t)});
+$('#tg').addEventListener('click',function(){var c=$('#rl').classList.toggle('closed');this.setAttribute('aria-expanded',!c)});
+all();
+})();
+</script></body></html>

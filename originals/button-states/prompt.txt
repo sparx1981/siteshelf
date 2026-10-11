@@ -1,0 +1,11 @@
+Canvas & base: A clean specimen board on #f5f4f1 with a 3x2 grid of white cells (1px #e6e3dc border, 18px radius) each holding a labelled button demo. Ink #1d1c1a, secondary #77736a. Buttons use their own palettes: ink #1d1c1a, indigo #4338ff, green #12a150, red #e5484d, coral #ff6b4a. Invented brand "Pressline".
+
+Typography: "Onest" (500, 600, 700) for everything; demo captions 12px uppercase tracking .08em.
+
+Layout: Page title and a global "Replay all" button. Six demo cells: (1) Submit pill that shrinks to a circular spinner then a check, (2) Download button with a left-to-right progress fill and percentage, (3) Hold-to-delete button needing a 1.2 s press with a radial or linear fill, (4) Like button with heart, count and burst of 8 dots, (5) Save button that fails then shakes and shows "Try again", (6) Copy-link button that swaps to "Copied" with a tick. Each cell has a small reset link.
+
+Interaction: Button 1 morphs width and radius with a 1.6 s fake request then success for 1.5 s and resets. Button 2 counts 0 to 100 with eased progress, label updates, finishes with "Open file". Button 3 fills while held with pointer or Space/Enter, cancels on release or Escape, and triggers "Deleted" on completion with an Undo link. Button 4 toggles liked state, increments count and bursts dots (burst skipped under reduced motion). Button 5 alternates failure then success on retry with aria-live feedback. Button 6 uses the clipboard in try/catch. All states are announced through a polite live region and set aria-busy while loading and disable only during loading.
+
+Responsive: The grid becomes 2 columns then 1 column; buttons keep a minimum of 48px height and nothing overflows at 390px.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus rings, prefers-reduced-motion replaces morphs with instant swaps, invented names only.

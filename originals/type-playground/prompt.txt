@@ -1,0 +1,11 @@
+Canvas & base: A calm studio tool on #faf8f4 with a left control rail on white (1px #e8e3d9 border) and a large specimen canvas. Ink #1c1a17, secondary #77715f, accent #d4472b, canvas switchable between light, sepia #f1e6d0 and dark #17150f. Invented foundry "Inkwell & Co."
+
+Typography: UI in "Inter" (400, 500, 600); the specimen switches between "Fraunces", "Space Grotesk", "Playfair Display", "DM Serif Display" and "Inter" loaded via one Google Fonts link. Specimen default 96px.
+
+Layout: Left rail (300px) with groups: Font (segmented list of five families), Size (12 to 200 px), Weight (100 to 900 in 100 steps, disabled steps greyed per font), Tracking (-0.08 to 0.3em), Line height (0.8 to 2), Alignment (left, centre, right), Case (as typed, UPPER, lower, Title) and Canvas theme swatches. Main: an editable specimen block (contenteditable, default "Quiet letters, loud ideas"), below it a paragraph sample in the same family at 18px and a pairing row showing the heading font with three body font suggestions. A bottom bar shows generated CSS in a code block with a Copy CSS button and a Reset button.
+
+Interaction: Every control updates the specimen live via CSS custom properties; numeric fields sit beside each slider and stay synced. The specimen is contenteditable with plain-text paste. Font choice adjusts the weight slider's available weights (Playfair 400-900, DM Serif 400 only, etc.) and snaps to the nearest valid weight. Copy CSS writes to the clipboard in try/catch and the button text confirms. Reset restores defaults. Keyboard: all sliders are native range inputs; segmented controls use arrow keys. Settings are not persisted.
+
+Responsive: Below 900px the rail moves above the specimen as a collapsible panel; the specimen font-size is capped with clamp for narrow screens; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Label every control, visible focus, prefers-reduced-motion, invented names only.

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About Us Story Page — About Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#fbf6ee;--bg2:#f2e8d8;--ink:#2a2118;--mut:#7a6a58;--ac:#c4572e;--sg:#6f8f6a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 'Karla',system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+.w{max-width:1120px;margin:0 auto;padding:0 24px}
+.lab{font:700 12px 'Karla',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--ac)}
+h1,h2,h3{font-family:'Young Serif',serif;font-weight:400;margin:0}
+header{position:sticky;top:0;z-index:20;background:rgba(251,246,238,.92);backdrop-filter:blur(8px);transition:box-shadow .2s}
+header.s{box-shadow:0 4px 18px rgba(42,33,24,.1)}
+header .w{display:flex;align-items:center;gap:20px;height:64px}
+.lg{font:400 20px 'Young Serif',serif}
+header nav{display:flex;gap:4px;margin-left:auto}
+header nav a{color:var(--ink);text-decoration:none;padding:8px 12px;border-radius:99px;font-weight:500;font-size:15px}
+header nav a:hover{background:var(--bg2)}
+.hero{padding:56px 0 80px}
+.hero .w{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;align-items:center}
+h1{font-size:clamp(40px,7vw,84px);line-height:1;letter-spacing:-.02em;margin:14px 0 20px}
+h1 em{color:var(--ac);font-style:normal}
+.hero p{max-width:46ch;color:#4d4033;margin:0 0 26px}
+.bt{display:inline-flex;align-items:center;min-height:50px;padding:0 26px;border-radius:99px;font:700 16px 'Karla',sans-serif;text-decoration:none;cursor:pointer;border:2px solid var(--ink);background:var(--ink);color:#fff;margin:0 10px 10px 0}
+.bt.g{background:transparent;color:var(--ink)}.bt:hover{background:var(--ac);border-color:var(--ac);color:#fff}
+.ph{position:relative;height:420px;max-width:100%}
+.ph div{position:absolute;border-radius:28px;box-shadow:0 20px 40px rgba(42,33,24,.2);overflow:hidden}
+.p1{left:2%;top:4%;width:62%;height:62%;background:linear-gradient(160deg,#f4c27a,#c4572e);transform:rotate(-5deg)}
+.p1:after{content:"";position:absolute;left:12%;right:12%;bottom:16%;height:44%;border-radius:50% 50% 38% 38%;background:linear-gradient(#e0a050,#b87430);box-shadow:inset 0 -8px 0 rgba(0,0,0,.12)}
+.p2{right:0;top:0;width:44%;height:50%;background:radial-gradient(circle at 50% 70%,#ffd27a 0,#f08a3c 35%,#4a2418 75%);transform:rotate(6deg)}
+.p3{right:6%;bottom:2%;width:56%;height:46%;background:linear-gradient(135deg,#8fae88,#4d6e4a);transform:rotate(-3deg)}
+.p3:after{content:"flour";position:absolute;inset:0;display:grid;place-items:center;font:400 34px 'Young Serif',serif;color:rgba(255,255,255,.88);letter-spacing:.04em}
+section{padding:80px 0}
+.alt{background:var(--bg2)}
+.nm{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;text-align:center}
+.nm b{display:block;font:400 clamp(40px,6vw,64px)/1 'Young Serif',serif;color:var(--ac);font-variant-numeric:tabular-nums}
+.nm span{color:var(--mut);font-weight:500}
+.hd{max-width:620px;margin-bottom:36px}
+.hd h2{font-size:clamp(30px,4.5vw,48px);line-height:1.1;margin:8px 0 12px}
+.ac{max-width:780px}
+.ai{border-bottom:2px solid rgba(42,33,24,.12)}
+.ai h3{font:inherit;margin:0}
+.ai button{width:100%;display:flex;align-items:center;gap:16px;text-align:left;background:none;border:0;padding:20px 0;cursor:pointer;color:var(--ink);font:400 24px 'Young Serif',serif;min-height:64px}
+.ai .ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:22px;flex:none}
+.ai .pl{margin-left:auto;transition:transform .25s;font-size:26px;color:var(--ac)}
+.ai button[aria-expanded=true] .pl{transform:rotate(45deg)}
+.ai .pn{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+.ai .pn>div{overflow:hidden}
+.ai .pn.o{grid-template-rows:1fr}
+.ai .pn p{margin:0 0 22px 60px;color:#4d4033}
+.tl{position:relative;max-width:760px;margin:0 auto;padding-left:0}
+.tl:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:rgba(42,33,24,.18);transform:translateX(-1px)}
+.ti{position:relative;width:50%;padding:0 40px 44px 0;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.ti.in{opacity:1;transform:none}
+.ti:nth-child(even){margin-left:50%;padding:0 0 44px 40px}
+.ti:before{content:"";position:absolute;right:-9px;top:6px;width:18px;height:18px;border-radius:50%;background:var(--ac);border:4px solid var(--bg2)}
+.ti:nth-child(even):before{right:auto;left:-9px}
+.ti b{font:400 30px 'Young Serif',serif;color:var(--ac);display:block}
+.ti h3{font-size:20px;margin:2px 0 4px}.ti p{margin:0;color:#4d4033;font-size:16px}
+.tm{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.tc{position:relative;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(42,33,24,.08);padding:0}
+.av{height:190px;position:relative;display:grid;place-items:end center}
+.av i{display:block;position:absolute}
+.hdd{position:absolute;left:50%;bottom:70px;width:64px;height:64px;border-radius:50%;transform:translateX(-50%)}
+.bdy{position:absolute;left:50%;bottom:-40px;width:130px;height:110px;border-radius:65px 65px 0 0;transform:translateX(-50%)}
+.tx{padding:16px 20px 20px}.tx b{font:400 20px 'Young Serif',serif;display:block}.tx span{color:var(--mut);font-size:15px}
+.bio{position:absolute;inset:0;background:rgba(42,33,24,.94);color:#fff;padding:24px;display:flex;align-items:center;opacity:0;transition:opacity .25s;font-size:16px}
+.tc:hover .bio,.tc:focus .bio,.tc:focus-within .bio{opacity:1}
+.cta{background:var(--ink);color:#fff;border-radius:32px;padding:56px 40px;text-align:center}
+.cta h2{font-size:clamp(30px,5vw,52px);line-height:1.1;margin-bottom:12px}
+.cta p{color:#d8cdbd;margin:0 auto 26px;max-width:46ch}
+.cta .bt{background:var(--ac);border-color:var(--ac)}
+.hr{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:26px;color:#d8cdbd;font-size:15px}
+footer{padding:30px 0;text-align:center;color:var(--mut);font-size:14px}
+@media(max-width:860px){.hero .w{grid-template-columns:minmax(0,1fr)}.ph{height:340px}.nm{grid-template-columns:repeat(2,minmax(0,1fr))}.tm{grid-template-columns:repeat(2,minmax(0,1fr))}header nav{display:none}section{padding:56px 0}}
+@media(max-width:620px){.tm{grid-template-columns:minmax(0,1fr)}.tl:before{left:8px}.ti,.ti:nth-child(even){width:100%;margin-left:0;padding:0 0 36px 36px}.ti:before,.ti:nth-child(even):before{left:0;right:auto}.ai .pn p{margin-left:0}.cta{padding:40px 22px;border-radius:24px}.ai button{font-size:20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ti{opacity:1;transform:none;transition:none}*{transition:none!important}}
+</style></head><body>
+<header id="hd"><div class="w"><span class="lg">Kettlewood</span><nav aria-label="Page"><a href="#values">Values</a><a href="#story">Our story</a><a href="#team">Team</a><a href="#visit">Visit</a></nav></div></header>
+<main>
+<section class="hero"><div class="w"><div><span class="lab">About Kettlewood Bakehouse</span><h1>We bake for the <em>street</em> we live on</h1><p>Since 1998 we have fed Marrow Bridge with slow-risen loaves, honest pastries and the occasional too-warm cinnamon bun. Everything starts at four in the morning and ends on a doorstep.</p><a class="bt" href="#story">Read our story</a><a class="bt g" href="#visit">Visit the bakery</a></div>
+<div class="ph" aria-hidden="true"><div class="p1"></div><div class="p2"></div><div class="p3"></div></div></div></section>
+<section class="alt" aria-label="In numbers"><div class="w"><div class="nm"><div><b data-n="27">0</b><span>years baking</span></div><div><b data-n="14">0</b><span>bakers on the team</span></div><div><b data-n="3100" data-c="1">0</b><span>loaves every week</span></div><div><b data-n="1">0</b><span>oven, named Gerald</span></div></div></div></section>
+<section id="values"><div class="w"><div class="hd"><span class="lab">What we believe</span><h2>Three habits we refuse to change</h2></div><div class="ac" id="ac"></div></div></section>
+<section class="alt" id="story"><div class="w"><div class="hd" style="margin-inline:auto;text-align:center"><span class="lab">Our story</span><h2>From one oven to one street</h2></div><div class="tl" id="tl"></div></div></section>
+<section id="team"><div class="w"><div class="hd"><span class="lab">The people</span><h2>Meet the early shift</h2><p style="color:var(--mut);margin:0">Hover or focus a card to read a little more.</p></div><div class="tm" id="tm"></div></div></section>
+<section id="visit"><div class="w"><div class="cta"><span class="lab" style="color:#f4b08a">Come say hello</span><h2>The door is always open at 7</h2><p>Pull up a stool, try the seeded rye and tell us what you would like us to bake next.</p><a class="bt" href="#visit">Plan your visit</a><div class="hr"><span>Tue–Sat 7:00–16:00</span><span>Sun 8:00–13:00</span><span>14 Wharf Row, Marrow Bridge</span></div></div></div></section>
+</main><footer>© Kettlewood Bakehouse — an invented example.</footer>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},$$=function(s){return[].slice.call(document.querySelectorAll(s))};
+var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+var V=[['🌾','#e8dcc2','Slow dough','Our loaves rest for up to thirty hours. It costs us sleep and shelf space, and it gives the crust its crackle and the crumb its flavour.'],['🚜','#dbe6d6','Local grain','Eighty percent of our flour comes from two farms within twenty miles. We know the farmers by name and the fields by season.'],['🚪','#f6d9cb','Open door','The back door is open to anyone who wants to watch, ask or help shape. Saturday mornings are for school groups and curious neighbours.']];
+$('#ac').innerHTML=V.map(function(v,i){return '<div class="ai"><h3><button type="button" id="ab'+i+'" aria-expanded="'+(i===0)+'" aria-controls="ap'+i+'"><span class="ic" style="background:'+v[1]+'" aria-hidden="true">'+v[0]+'</span>'+v[2]+'<span class="pl" aria-hidden="true">+</span></button></h3><div class="pn'+(i===0?' o':'')+'" id="ap'+i+'" role="region" aria-labelledby="ab'+i+'"><div><p>'+v[3]+'</p></div></div></div>'}).join('');
+$('#ac').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var on=b.getAttribute('aria-expanded')==='true';$$('#ac button').forEach(function(x){x.setAttribute('aria-expanded','false');document.getElementById(x.getAttribute('aria-controls')).classList.remove('o')});if(!on){b.setAttribute('aria-expanded','true');document.getElementById(b.getAttribute('aria-controls')).classList.add('o')}});
+var T=[['1998','The first batch','Two ovens in a rented garage and one very tired family. Forty loaves sold before nine.'],['2004','Our own shopfront','We moved to Wharf Row and hung the green sign that is still above the door.'],['2011','Gerald arrives','A deck oven from a closed-down hotel, restored and named by a five-year-old.'],['2018','The grain pledge','We signed our first long contract with a local farm and started milling in-house.'],['2025','The Saturday school','Weekend baking classes for neighbours of all ages, free for under-sixteens.']];
+$('#tl').innerHTML=T.map(function(t){return '<div class="ti"><b>'+t[0]+'</b><h3>'+t[1]+'</h3><p>'+t[2]+'</p></div>'}).join('');
+var M=[['Hattie Penrose','Head baker','#d9a066','#2a2118','Hattie has shaped over a million loaves and can tell the humidity by the smell of the room.'],['Omar Bellweather','Pastry','#c4572e','#3a2418','Omar’s laminated dough has twenty-seven layers and exactly zero shortcuts.'],['Sunniva Roake','Front of house','#6f8f6a','#4a3020','Sunniva remembers every regular’s order, and most of their dogs’ names.'],['Tomasz Kitely','Milling','#a8805a','#2a1a10','Tomasz runs the stone mill and keeps a notebook on every harvest since 2018.'],['Priya Wexcombe','Sourdough','#e0b86a','#1f1810','Priya feeds the starter, nicknamed Dorothy, twice a day, holidays included.'],['Leo Armitage','Deliveries','#8a6f9a','#3a2a1a','Leo cycles the early round and knows which doorsteps get an extra roll.']];
+$('#tm').innerHTML=M.map(function(m){return '<article class="tc" tabindex="0" aria-label="'+m[0]+', '+m[1]+'"><div class="av" style="background:linear-gradient(160deg,'+m[2]+'55,'+m[2]+')"><i class="bdy" style="background:'+m[3]+'"></i><i class="hdd" style="background:#f0c9a0"></i></div><div class="tx"><b>'+m[0]+'</b><span>'+m[1]+'</span></div><div class="bio">'+m[4]+'</div></article>'}).join('');
+function count(el){var n=+el.dataset.n,c=el.dataset.c;function fmt(v){return c?v.toLocaleString('en-GB'):v}if(rm){el.textContent=fmt(n);return}var t0=performance.now(),D=1400;(function f(t){var p=Math.min(1,(t-t0)/D),e=1-Math.pow(1-p,3);el.textContent=fmt(Math.round(n*e));if(p<1)requestAnimationFrame(f)})(t0)}
+$$('[data-n]').forEach(function(e){e.textContent=e.dataset.c?(+e.dataset.n).toLocaleString('en-GB'):e.dataset.n});
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');if(en.target.dataset.n)count(en.target);io.unobserve(en.target)}})},{threshold:.35});
+ $$('[data-n]').forEach(function(e){if(!rm)e.textContent='0';io.observe(e)});$$('.ti').forEach(function(e){io.observe(e)})}else{$$('.ti').forEach(function(e){e.classList.add('in')})}
+function sc(){$('#hd').classList.toggle('s',scrollY>10)}addEventListener('scroll',sc,{passive:true});sc();
+})();
+</script></body></html>

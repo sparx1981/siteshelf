@@ -1,0 +1,11 @@
+Canvas & base: A showcase page on #e9ecf5 with a phone frame (360x720, 36px radius, #0f1222 bezel 10px) centred on it. Inside, a screen on #fbfbfe with a floating tab bar (white, 22px radius, shadow 0 10px 30px rgba(30,40,90,.18)) docked 14px above the bottom. Ink #161a33, secondary #7a809c, accent violet #6a4cff. Invented app "Tidepool Go".
+
+Typography: "Plus Jakarta Sans" (500, 700, 800). Tab labels 11px 700; screen titles 26px 800.
+
+Layout: Five tabs: Home, Explore, a raised centre "+" action button, Inbox (with a numeric badge), Profile. The active tab shows a violet pill behind icon and label that slides between tabs. Each screen has a header and 3 to 4 content cards (invented content). Outside the phone, a short caption and a toggle "Labels: always / active only".
+
+Interaction: Clicking or pressing arrow keys switches tabs (roving tabindex, role tablist) and slides the pill with a transform transition; the screen content cross-fades and slides 12px in the direction of travel. The centre button opens a bottom sheet (native dialog) with three quick actions. Inbox badge clears when the tab is opened. Tab icons are inline SVG that gently bounce when selected. The labels toggle changes tab layout live.
+
+Responsive: Below 480px the phone frame becomes full viewport width and height without bezel; nothing overflows at 390px.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. aria-selected and aria-controls on tabs, visible focus rings, prefers-reduced-motion disables slides and bounce, invented names only.

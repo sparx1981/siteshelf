@@ -1,0 +1,11 @@
+Canvas & base: A verification screen on #f3f5fb with a centred white card (440px, 24px radius, shadow 0 20px 50px rgba(30,40,90,.12)). Ink #151a2e, secondary #69708a, accent cobalt #2a56ff, success #12a150, error #e5484d. Invented brand "Keyring".
+
+Typography: "Manrope" (500, 700, 800) for UI and "Space Mono" (700) at 28px for the digits.
+
+Layout: Card with a lock icon badge, heading "Check your email", text "We sent a 6-digit code to m•••@example.com", six digit boxes (52x64, 14px radius) with a subtle gap after the third, a primary "Verify" button (disabled until complete), a resend row "Didn't get it? Resend in 0:30" and a "Use a different email" link. A tiny hint says demo code is 428193.
+
+Interaction: Six separate input elements with inputmode numeric, autocomplete one-time-code on the first. Typing a digit fills and moves focus right; Backspace on an empty box moves left and clears; arrow keys, Home and End move; pasting a code distributes digits across boxes and moves focus to the last filled. Non-digits are rejected with a tiny shake. When all six are filled the form auto-submits after 300 ms. A wrong code shows a red border, shake, the message "That code doesn't match. 2 attempts left" and clears the boxes; three failures lock the form for 10 s with a visible countdown. The correct code shows a green success state with a check animation. The resend timer counts from 30 to 0, then Resend becomes enabled and restarts the timer with a toast-like inline "New code sent". Errors are announced via role=alert.
+
+Responsive: Digit boxes shrink to 44x56 below 420px with a gap of 6px; no overflow at 390px.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Each box has an aria-label "Digit N of 6", visible focus ring, prefers-reduced-motion removes shake and check animation, invented names only.

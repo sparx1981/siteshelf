@@ -1,0 +1,11 @@
+Canvas & base: A dusk-toned stage on #1b1633 with a soft radial glow, a deck of 7 rounded cards (28px radius, 320x440) with generated CSS-gradient "photos" in distinct palettes. Ink #fff on cards over a bottom scrim, accent apricot #ffb27a. Invented destinations: Saltmarsh Quay, Cinder Ridge, Aurelia Bay, Hollow Pines, Marrow Dunes, Lantern Cove, Tern Island.
+
+Typography: "Sora" (500, 700) for names and "Inter" (400, 500) for details. Card title 26px 700; caption 13px.
+
+Layout: Centred deck where the top card sits in front and the next three peek behind with decreasing scale (1, .94, .88, .82) and a 14px vertical offset. Each card shows a gradient scene made from layered CSS shapes (sun, hills, water), the destination name, a small tag row (days, price band) and a heart icon. Beneath the deck: Pass, Undo and Save buttons, a progress dots row "3 of 7" and a Shuffle link. A saved tray lists saved cards as small chips with remove buttons.
+
+Interaction: Drag the top card with pointer events; it rotates with horizontal movement, shows a SAVE or PASS stamp and flies off beyond 110px (or with enough velocity), otherwise springs back. Buttons and keys do the same: ArrowRight saves, ArrowLeft passes, Backspace or Z undoes. The next cards animate forward. When the deck is empty show an "All caught up" panel with Start over. Announce actions in a live region. Cards are focusable with an accessible name that includes the position.
+
+Responsive: Deck scales with min(86vw, 320px); no overflow at 390px; the saved tray wraps.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images (scenes are CSS gradients). Add [hidden]{display:none!important}. prefers-reduced-motion removes rotation and fly-off animations (instant change). Invented names only.

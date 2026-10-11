@@ -1,0 +1,11 @@
+Canvas & base: A bright boutique product page on #ffffff with soft grey panels #f3f1ed, ink #1b1a18, secondary #75706a, accent deep green #1e5a45 and sale red #c8322a. Invented store "Larkspur & Thread" selling one invented item, the "Harbour Wool Overshirt". Product images are generated CSS and inline SVG illustrations of the shirt in four colourways, drawn with simple shapes, no external images.
+
+Typography: "Cormorant Garamond" (500, 600, 700) for the product name at clamp(34px,5vw,52px) and "Jost" (400, 500, 600) for UI. Price 24px tabular-nums.
+
+Layout: A header with logo and a bag button showing a count. Two columns: left gallery with a vertical thumbnail rail (5 views: front, back, detail collar, detail cuff, flat lay) and a large 4:5 stage; right details with breadcrumb, name, rating stars with count, price (with struck-through original price), colour swatches (Moss, Ink, Rust, Oat), size buttons (XS to XXL, some out of stock and struck), a quantity stepper, Add to bag, and an accordion for Details, Fabric & care, Delivery.
+
+Interaction: Hovering the stage on pointer devices shows a lens and a 2.2x magnified view that follows the cursor; on touch or click the stage opens a full-screen lightbox (native dialog) with arrows, thumbnails, pinch-less zoom toggle and Escape to close. Choosing a colour re-tints every view instantly and updates the label. Sizes with no stock are disabled with a tooltip "Out of stock"; picking a size updates availability text ("Only 3 left"). Add to bag requires a size (shows an inline error otherwise), animates the bag count and shows a small confirmation. Thumbnails use roving tabindex with arrow keys. Accordion uses buttons with aria-expanded.
+
+Responsive: Below 900px the thumbnail rail becomes a horizontal row beneath the stage and the details stack; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Alt text or aria-labels on all views, visible focus, prefers-reduced-motion, invented names only.

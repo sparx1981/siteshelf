@@ -1,0 +1,11 @@
+Canvas & base: A warm, human company page on #fbf6ee with sections alternating #fbf6ee and #f2e8d8, ink #2a2118, secondary #7a6a58, accent terracotta #c4572e and sage #6f8f6a. Invented brand "Kettlewood Bakehouse", a family bakery founded in 1998 in an invented town called Marrow Bridge. All imagery is made from CSS gradients and shapes.
+
+Typography: "Young Serif" (400) for headlines at clamp(40px,7vw,84px) and "Karla" (400, 500, 700) for body at 17px/1.65. Small caps labels 12px 700 tracking .14em.
+
+Layout: (1) Hero split: big headline "We bake for the street we live on", a short paragraph and two buttons on the left; on the right a stack of overlapping rounded CSS "photos" (loaf, oven glow, flour bag) rotated slightly. (2) Numbers strip with four counters (27 years, 14 bakers, 3,100 loaves a week, 1 oven named Gerald). (3) Values: three-item accordion (Slow dough, Local grain, Open door) with an illustrated icon each. (4) Timeline: vertical line with five milestones that fade in on scroll. (5) Team grid of six cards with CSS-drawn avatars; hovering or focusing shows a short bio overlay. (6) Closing banner with a call to action and opening hours.
+
+Interaction: Counters animate once when scrolled into view (IntersectionObserver) and show final values immediately under reduced motion. The accordion uses buttons with aria-expanded and only one open at a time. Timeline items reveal as they enter the viewport. Team cards are keyboard focusable and reveal bios on focus. A sticky slim header gains a shadow on scroll and has anchor links with smooth scrolling unless reduced motion is set.
+
+Responsive: Hero stacks with the image cluster below; team grid goes 3, 2, 1; timeline line moves to the left edge; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, invented names only.

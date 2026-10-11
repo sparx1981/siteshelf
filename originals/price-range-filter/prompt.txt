@@ -1,0 +1,11 @@
+Canvas & base: A shopping-filter panel on #f6f4ef with a white filter card (1px #e5e0d4 border, 18px radius) beside a results grid. Ink #211f1a, secondary #766f60, accent forest #1f6b4a with tint #e3f1ea. Invented shop "Fieldnote Goods" selling invented notebooks, pens and desk items.
+
+Typography: "Bricolage Grotesque" (500, 700, 800) for headings and "DM Sans" (400, 500, 700) for UI. Prices tabular-nums.
+
+Layout: Left filter card (320px): heading "Price", a 40-bar histogram of item price distribution above a dual-thumb slider, two number fields (Min, Max) with a currency prefix and an en-dash between, a row of preset chips (Under £20, £20-50, £50-100, £100+, Any), then a checkbox group for Category with live counts. Right: header with "Showing N of 48 products" and a sort select, an active filter chip row with remove buttons and "Clear all", and a responsive grid of product tiles (CSS-gradient thumbnails, name, price, category).
+
+Interaction: Two native-feeling thumbs built on role=slider elements with pointer dragging (setPointerCapture), arrow keys (1 step, Shift 10, PageUp/Down 25, Home/End) and touch support; thumbs cannot cross. Histogram bars inside the range are coloured, outside are greyed. Typing in the number fields updates the thumbs on blur or Enter with clamping and an error state for invalid values. Presets set the range and mark the matching chip as pressed. Category checkboxes combine with price; counts reflect the current price range. Sorting supports Featured, Price low to high, Price high to low. Results re-render quickly without re-rendering the filter card, and a polite live region reports the count.
+
+Responsive: Below 860px the filter card stacks above results and can collapse under a Filters toggle button; the grid goes 2 columns then 1; no overflow at 390px.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Generate the 48 products in JS from a seeded list. aria-valuemin, max, now and text on thumbs, visible focus, prefers-reduced-motion, invented names only.

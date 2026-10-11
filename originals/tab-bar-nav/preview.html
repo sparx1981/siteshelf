@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bottom Tab Bar Navigation — Navigation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#e9ecf5;--ink:#161a33;--mut:#7a809c;--ac:#6a4cff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 15px/1.5 'Plus Jakarta Sans',system-ui,sans-serif;min-height:100svh;display:grid;place-items:center;padding:24px 16px}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.stage{display:flex;flex-direction:column;align-items:center;gap:20px;width:100%}
+.cap{text-align:center;max-width:380px;color:var(--mut)}
+.cap b{color:var(--ink);font-weight:800}
+.tg{display:inline-flex;align-items:center;gap:10px;background:#fff;border-radius:99px;padding:6px 8px 6px 16px;font-weight:700;font-size:14px}
+.tg button{border:0;background:var(--ac);color:#fff;border-radius:99px;padding:0 14px;min-height:36px;font:700 13px 'Plus Jakarta Sans',sans-serif;cursor:pointer}
+.phone{width:360px;height:720px;max-width:100%;background:#0f1222;border-radius:44px;padding:10px;box-shadow:0 30px 60px rgba(30,40,90,.3)}
+.scr{position:relative;height:100%;background:#fbfbfe;border-radius:34px;overflow:hidden}
+.sb{display:flex;justify-content:space-between;padding:12px 24px 0;font-size:12px;font-weight:800}
+.pg{position:absolute;inset:34px 0 0 0;overflow:auto;padding:16px 20px 120px}
+.pg h1{font:800 26px 'Plus Jakarta Sans',sans-serif;margin:8px 0 14px}
+.pg.in-r{animation:inr .3s ease-out}.pg.in-l{animation:inl .3s ease-out}
+@keyframes inr{from{opacity:0;transform:translateX(12px)}}
+@keyframes inl{from{opacity:0;transform:translateX(-12px)}}
+.cd{background:#fff;border:1px solid #eceef6;border-radius:18px;padding:14px 16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(30,40,90,.05)}
+.cd b{display:block;font-weight:800}.cd span{color:var(--mut);font-size:14px}
+.hero{background:linear-gradient(135deg,#6a4cff,#b06cff);color:#fff;border-radius:22px;padding:18px;margin-bottom:14px}
+.hero small{opacity:.8}.hero h2{margin:4px 0 0;font:800 22px 'Plus Jakarta Sans',sans-serif}
+.tabs{position:absolute;left:14px;right:14px;bottom:14px;background:#fff;border-radius:22px;box-shadow:0 10px 30px rgba(30,40,90,.18);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));height:68px;padding:6px;isolation:isolate}
+.pill{position:absolute;top:6px;bottom:6px;left:6px;width:calc((100% - 12px)/5);border-radius:16px;background:#efeaff;transition:transform .35s cubic-bezier(.3,1.3,.5,1);z-index:-1}
+.tab{background:none;border:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;color:var(--mut);font:700 11px 'Plus Jakarta Sans',sans-serif;position:relative;border-radius:16px;min-width:44px;min-height:44px}
+.tab svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tab[aria-selected=true]{color:var(--ac)}
+.tab[aria-selected=true] svg{animation:bn .45s}
+@keyframes bn{40%{transform:translateY(-4px) scale(1.12)}}
+.lab-a .tab:not([aria-selected=true]) span.l{display:none}
+.bd{position:absolute;top:4px;right:calc(50% - 22px);background:#ff4d6a;color:#fff;font:800 10px 'Plus Jakarta Sans',sans-serif;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;padding:0 5px;border:2px solid #fff}
+.fab{align-self:center;justify-self:center;width:54px;height:54px;border-radius:50%;background:var(--ac);color:#fff;border:0;cursor:pointer;margin-top:-26px;box-shadow:0 8px 20px rgba(106,76,255,.5);display:grid;place-items:center;transition:transform .15s}
+.fab:hover{transform:scale(1.06)}.fab svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2.6;stroke-linecap:round}
+dialog{border:0;border-radius:24px 24px 0 0;padding:20px;width:100%;max-width:340px;margin:auto auto 0;box-shadow:0 -10px 40px rgba(0,0,0,.25);color:var(--ink);font-family:inherit}
+dialog::backdrop{background:rgba(15,18,34,.45)}
+dialog h2{margin:0 0 12px;font:800 20px 'Plus Jakarta Sans',sans-serif}
+dialog button.o{display:flex;width:100%;gap:12px;align-items:center;text-align:left;background:#f4f2ff;border:0;border-radius:14px;padding:0 16px;min-height:52px;margin-bottom:8px;cursor:pointer;font:700 15px 'Plus Jakarta Sans',sans-serif;color:var(--ink)}
+dialog button.o:hover{background:#e9e4ff}
+dialog .x{width:100%;background:none;border:0;color:var(--mut);min-height:44px;font:700 14px 'Plus Jakarta Sans',sans-serif;cursor:pointer}
+@media(max-width:480px){body{padding:0;display:block}.stage{gap:0}.cap,.tg{display:none}.phone{width:100%;height:100svh;border-radius:0;padding:0;box-shadow:none;background:#fbfbfe}.scr{border-radius:0}}
+@media(prefers-reduced-motion:reduce){.pg.in-r,.pg.in-l,.tab[aria-selected=true] svg{animation:none}.pill{transition:none}}
+</style></head><body>
+<div class="stage"><p class="cap"><b>Tidepool Go</b> — tap a tab, use ← → on the keyboard, or open the centre button for quick actions.</p>
+<div class="tg"><span id="tl">Labels: always</span><button type="button" id="tgb" aria-describedby="tl">Switch</button></div>
+<div class="phone"><div class="scr" id="scr"><div class="sb"><span>9:41</span><span>●●● ▮</span></div>
+<main class="pg" id="pg" role="tabpanel" tabindex="0"></main>
+<div class="tabs" role="tablist" aria-label="Main" id="tb"><div class="pill" id="pl"></div></div></div></div></div>
+<dialog id="sh" aria-label="Quick actions"><h2>Quick actions</h2><button class="o" type="button">📍 Drop a pin</button><button class="o" type="button">📷 Add a photo</button><button class="o" type="button">✍️ Write a note</button><button class="x" type="button" id="cl">Cancel</button></dialog>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var I={home:'<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',explore:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',inbox:'<path d="M3 13l3-8h12l3 8v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M3 13h5l1 3h6l1-3h5"/>',profile:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>'};
+var T=[{k:'home',n:'Home'},{k:'explore',n:'Explore'},{k:'fab'},{k:'inbox',n:'Inbox'},{k:'profile',n:'Profile'}];
+var S={home:['Good morning','<div class="hero"><small>Today’s tide</small><h2>High at 11:42</h2></div><div class="cd"><b>Harbour walk</b><span>2.4 km · 35 min · easy</span></div><div class="cd"><b>Rock-pool guide</b><span>7 species to spot this week</span></div><div class="cd"><b>Sunset spot</b><span>West pier at 18:05</span></div>'],
+explore:['Explore','<div class="cd"><b>Gull Point</b><span>Lighthouse · 1.2 km away</span></div><div class="cd"><b>Marram Dunes</b><span>Quiet beach · dogs welcome</span></div><div class="cd"><b>Pebble Cove</b><span>Best at low tide</span></div><div class="cd"><b>Old Boatyard</b><span>Café and workshops</span></div>'],
+inbox:['Inbox','<div class="cd"><b>Maya shared a pin</b><span>“Found the secret cove!”</span></div><div class="cd"><b>Tide alert</b><span>Spring tides this weekend</span></div><div class="cd"><b>Walk group</b><span>Saturday meet-up at 9:00</span></div>'],
+profile:['Profile','<div class="cd"><b>Jules Harrow</b><span>Member since 2023 · 48 walks</span></div><div class="cd"><b>Saved places</b><span>12 pins</span></div><div class="cd"><b>Settings</b><span>Units, notifications, privacy</span></div>']};
+var cur=0,badge=3,always=true;
+var idx=[0,1,3,4];
+function build(){var h='<div class="pill" id="pl"></div>';T.forEach(function(t,i){if(t.k==='fab')h+='<button class="fab" type="button" id="fb" aria-label="Quick actions" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>';
+ else h+='<button class="tab" role="tab" id="t'+i+'" aria-selected="'+(i===cur)+'" aria-controls="pg" tabindex="'+(i===cur?0:-1)+'" data-i="'+i+'"><svg viewBox="0 0 24 24" aria-hidden="true">'+I[t.k]+'</svg><span class="l">'+t.n+'</span>'+(t.k==='inbox'&&badge?'<span class="bd" aria-label="'+badge+' unread">'+badge+'</span>':'')+'</button>'});
+ $('#tb').innerHTML=h;pill()}
+function pill(){var p=$('#pl');p.style.transform='translateX('+(cur*100)+'%)'}
+function screen(dir){var s=S[T[cur].k];var pg=$('#pg');pg.className='pg';void pg.offsetWidth;pg.className='pg '+(dir>=0?'in-r':'in-l');pg.innerHTML='<h1>'+s[0]+'</h1>'+s[1];pg.scrollTop=0;pg.setAttribute('aria-labelledby','t'+cur)}
+function go(i,focus){if(i===cur||T[i].k==='fab')return;var d=i-cur;cur=i;if(T[i].k==='inbox')badge=0;var f=focus;var keep=$('#pl');
+ document.querySelectorAll('.tab').forEach(function(t){var on=+t.dataset.i===cur;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1});
+ var b=document.querySelector('.bd');if(b&&!badge)b.remove();pill();screen(d);if(f)$('#t'+cur).focus()}
+$('#tb').addEventListener('click',function(e){var t=e.target.closest('.tab');if(t)go(+t.dataset.i,false);if(e.target.closest('#fb'))$('#sh').showModal()});
+$('#tb').addEventListener('keydown',function(e){var n=[0,1,3,4],p=n.indexOf(cur),d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:e.key==='Home'?-9:e.key==='End'?9:0;if(!d)return;e.preventDefault();var q=d===-9?0:d===9?3:(p+d+4)%4;go(n[q],true)});
+$('#cl').addEventListener('click',function(){$('#sh').close()});
+$('#sh').addEventListener('click',function(e){if(e.target===this)this.close();if(e.target.closest('.o'))this.close()});
+$('#tgb').addEventListener('click',function(){always=!always;$('#scr').classList.toggle('lab-a',!always);$('#tl').textContent='Labels: '+(always?'always':'active only')});
+build();screen(0);
+})();
+</script></body></html>

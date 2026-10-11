@@ -1,0 +1,11 @@
+Canvas & base: A SaaS app shell on #f4f5f9 with a white sidebar (264px, 1px #e4e6ee right border), ink #1a1f36, secondary #6b7390, accent teal #0e9f8e on a #e2f5f2 active tint. Invented product "Basecamp Nine" with invented workspace names.
+
+Typography: "Figtree" (400, 500, 600, 700) at 14px; section labels 11px 700 uppercase tracking .08em.
+
+Layout: Sidebar with a workspace switcher button at the top (avatar, name, chevron), a search shortcut row, primary groups (Dashboard, Projects with children, Reports with children, Team, Settings), a Favourites section with three pinned items and a bottom user card. A collapse button toggles between 264px and a 72px icon rail. Main area on the right shows a header with breadcrumb and a placeholder page that reflects the selected item.
+
+Interaction: Click collapses or expands with a width transition; in rail mode labels hide and hovering or focusing an icon shows a tooltip; group parents open a small flyout of their children. In expanded mode, groups toggle open with aria-expanded and a rotating chevron, children indent with a guide line. The active route is highlighted and the main breadcrumb and title update. Keyboard: arrow Up/Down move between visible items (roving tabindex), Right opens a group, Left closes it, Enter selects, and "[" toggles the sidebar. The workspace switcher is a menu with three workspaces. Pin and unpin favourites with a star button revealed on hover or focus. Collapsed state is saved in localStorage (try/catch).
+
+Responsive: Below 820px the sidebar becomes an off-canvas drawer opened by a menu button, with a scrim; Escape closes it. No overflow at 390px.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. role=tree/treeitem semantics, visible focus, prefers-reduced-motion disables transitions, invented names only.

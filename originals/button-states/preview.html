@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Button Loading States — Buttons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#f5f4f1;--ink:#1d1c1a;--mut:#77736a;--bd:#e6e3dc;--ind:#4338ff;--gr:#12a150;--rd:#e5484d;--co:#ff6b4a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.5 'Onest',system-ui,sans-serif;padding:40px 20px}
+:focus-visible{outline:3px solid var(--ind);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+h1{font:700 clamp(30px,5vw,44px)/1.05 'Onest',sans-serif;margin:0;letter-spacing:-.03em}
+header p{margin:6px 0 0;color:var(--mut)}
+.rp{background:var(--ink);color:#fff;border:0;border-radius:12px;padding:0 20px;min-height:48px;font:600 15px 'Onest',sans-serif;cursor:pointer}
+.gr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cell{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:18px;min-height:190px}
+.cap{font:600 12px 'Onest',sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);display:flex;justify-content:space-between;align-items:center}
+.cap button{background:none;border:0;color:var(--mut);text-decoration:underline;cursor:pointer;font:500 12px 'Onest',sans-serif;min-height:32px;text-transform:none;letter-spacing:0}
+.stage{flex:1;display:grid;place-items:center;min-height:90px}
+.b{position:relative;border:0;border-radius:14px;min-height:52px;padding:0 26px;font:600 16px 'Onest',sans-serif;cursor:pointer;color:#fff;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;user-select:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.b:active{transform:scale(.97)}
+.b[disabled]{cursor:progress}
+.sp{width:20px;height:20px;border-radius:50%;border:3px solid rgba(255,255,255,.35);border-top-color:#fff;animation:sp .7s linear infinite;flex:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+.tk{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:30;stroke-dashoffset:30;animation:tk .35s .05s forwards;flex:none}
+@keyframes tk{to{stroke-dashoffset:0}}
+/* 1 submit */
+#b1{background:var(--ind);width:190px;transition:width .35s cubic-bezier(.6,.1,.3,1),border-radius .35s,background .25s;padding:0}
+#b1.ld{width:52px;border-radius:26px}#b1.ok{background:var(--gr);width:52px;border-radius:26px}#b1.ld .t,#b1.ok .t{display:none}
+/* 2 download */
+#b2{background:#2a2a3a;width:220px}
+#b2 .fl{position:absolute;inset:0;background:var(--ind);transform-origin:left;transform:scaleX(0)}
+#b2 span.z{position:relative;font-variant-numeric:tabular-nums}
+#b2.dn{background:var(--gr)}#b2.dn .fl{display:none}
+/* 3 hold */
+#b3{background:#fde8e8;color:var(--rd);width:210px;border:2px solid var(--rd)}
+#b3 .fl{position:absolute;inset:0;background:var(--rd);transform-origin:left;transform:scaleX(0)}
+#b3 span.z{position:relative;mix-blend-mode:normal;transition:color .1s}
+#b3.hl span.z{color:#fff}
+#b3.dn{background:#e8f6ee;border-color:var(--gr);color:var(--gr)}
+.un{background:none;border:0;color:var(--ind);text-decoration:underline;cursor:pointer;font:600 14px 'Onest',sans-serif;min-height:44px}
+/* 4 like */
+#b4{background:#fff;color:var(--ink);border:2px solid var(--bd);width:130px;overflow:visible}
+#b4 svg{width:22px;height:22px;fill:none;stroke:var(--ink);stroke-width:2;transition:transform .2s}
+#b4[aria-pressed=true]{border-color:var(--co);color:var(--co)}
+#b4[aria-pressed=true] svg{fill:var(--co);stroke:var(--co);animation:pop .4s}
+@keyframes pop{40%{transform:scale(1.4)}}
+.dt{position:absolute;left:40px;top:50%;width:6px;height:6px;border-radius:50%;background:var(--co);pointer-events:none;animation:bs .6s ease-out forwards}
+@keyframes bs{from{transform:translate(0,-50%) scale(1);opacity:1}to{transform:translate(var(--x),calc(-50% + var(--y))) scale(.2);opacity:0}}
+/* 5 save */
+#b5{background:var(--ind);width:190px}
+#b5.er{background:var(--rd);animation:sh .4s}
+#b5.ok{background:var(--gr)}
+@keyframes sh{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+/* 6 copy */
+#b6{background:var(--ink);width:190px}
+#b6.ok{background:var(--gr)}
+.live{position:absolute;left:-9999px}
+@media(max-width:860px){.gr{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.gr{grid-template-columns:minmax(0,1fr)}body{padding:28px 16px}.b{max-width:100%}}
+@media(prefers-reduced-motion:reduce){#b1{transition:none}.sp{animation-duration:1.6s}.tk{animation:none;stroke-dashoffset:0}.dt,#b5.er,#b4[aria-pressed=true] svg{animation:none}.b:active{transform:none}}
+</style></head><body>
+<div class="wrap"><header><div><h1>Pressline</h1><p>Six ways a button can tell you what it is doing.</p></div><button class="rp" id="ra" type="button">Replay all</button></header>
+<div class="gr">
+<section class="cell"><div class="cap">Submit<button type="button" data-r="1">Reset</button></div><div class="stage"><button class="b" id="b1" type="button"><span class="t">Send message</span></button></div></section>
+<section class="cell"><div class="cap">Download<button type="button" data-r="2">Reset</button></div><div class="stage"><button class="b" id="b2" type="button"><i class="fl"></i><span class="z">Download report</span></button></div></section>
+<section class="cell"><div class="cap">Hold to delete<button type="button" data-r="3">Reset</button></div><div class="stage" style="gap:6px"><button class="b" id="b3" type="button" aria-describedby="h3"><i class="fl"></i><span class="z">Hold to delete</span></button><span id="h3" style="font-size:13px;color:var(--mut)">Press and hold for 1.2 seconds</span><button class="un" id="u3" type="button" hidden>Undo</button></div></section>
+<section class="cell"><div class="cap">Like<button type="button" data-r="4">Reset</button></div><div class="stage"><button class="b" id="b4" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11z"/></svg><span id="c4">128</span></button></div></section>
+<section class="cell"><div class="cap">Save with retry<button type="button" data-r="5">Reset</button></div><div class="stage"><button class="b" id="b5" type="button"><span class="t">Save changes</span></button></div></section>
+<section class="cell"><div class="cap">Copy link<button type="button" data-r="6">Reset</button></div><div class="stage"><button class="b" id="b6" type="button"><span class="t">Copy invite link</span></button></div></section>
+</div><div class="live" id="lv" aria-live="polite"></div></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+var TK='<svg class="tk" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>';
+var timers={};function later(k,f,ms){clearTimeout(timers[k]);timers[k]=setTimeout(f,ms)}
+function say(t){$('#lv').textContent=t}
+/* 1 */
+var b1=$('#b1');
+function r1(){clearTimeout(timers[1]);b1.className='b';b1.disabled=false;b1.removeAttribute('aria-busy');b1.innerHTML='<span class="t">Send message</span>'}
+b1.addEventListener('click',function(){if(b1.disabled||b1.classList.contains('ok'))return;b1.disabled=true;b1.setAttribute('aria-busy','true');b1.classList.add('ld');b1.innerHTML='<span class="sp"></span>';b1.setAttribute('aria-label','Sending');say('Sending message');
+ later(1,function(){b1.removeAttribute('aria-label');b1.removeAttribute('aria-busy');b1.className='b ok';b1.disabled=false;b1.innerHTML=TK;b1.setAttribute('aria-label','Message sent');say('Message sent');later(1,r1,1500)},1600)});
+/* 2 */
+var b2=$('#b2'),raf2=0;
+function r2(){cancelAnimationFrame(raf2);b2.className='b';b2.disabled=false;b2.removeAttribute('aria-busy');b2.querySelector('.fl').style.transform='scaleX(0)';b2.querySelector('.z').textContent='Download report'}
+b2.addEventListener('click',function(){if(b2.classList.contains('dn')){say('Opening file');return}if(b2.disabled)return;b2.disabled=true;b2.setAttribute('aria-busy','true');var t0=performance.now(),D=2600;say('Downloading');
+ (function f(n){var p=Math.min(1,(n-t0)/D),e=1-Math.pow(1-p,2.2);b2.querySelector('.fl').style.transform='scaleX('+e+')';b2.querySelector('.z').textContent='Downloading '+Math.round(e*100)+'%';
+  if(p<1)raf2=requestAnimationFrame(f);else{b2.className='b dn';b2.disabled=false;b2.removeAttribute('aria-busy');b2.querySelector('.z').textContent='Open file ✓';say('Download complete')}})(t0)});
+/* 3 */
+var b3=$('#b3'),hold=0,h0=0,raf3=0,HD=1200;
+function r3(){cancelAnimationFrame(raf3);hold=0;b3.className='b';b3.querySelector('.fl').style.transform='scaleX(0)';b3.querySelector('.z').textContent='Hold to delete';$('#u3').hidden=true;$('#h3').hidden=false}
+function stop3(){if(!hold)return;hold=0;cancelAnimationFrame(raf3);if(!b3.classList.contains('dn')){b3.querySelector('.fl').style.transform='scaleX(0)';b3.classList.remove('hl')}}
+function start3(){if(hold||b3.classList.contains('dn'))return;hold=1;h0=performance.now();say('Keep holding to delete');
+ (function f(n){if(!hold)return;var p=Math.min(1,(n-h0)/HD);b3.querySelector('.fl').style.transform='scaleX('+p+')';b3.classList.toggle('hl',p>.5);
+  if(p<1)raf3=requestAnimationFrame(f);else{hold=0;b3.className='b dn';b3.querySelector('.fl').style.transform='scaleX(0)';b3.querySelector('.z').textContent='Deleted ✓';$('#u3').hidden=false;$('#h3').hidden=true;say('Deleted. Undo is available.')}})(h0)}
+b3.addEventListener('pointerdown',function(e){e.preventDefault();start3()});
+['pointerup','pointerleave','pointercancel','blur'].forEach(function(ev){b3.addEventListener(ev,stop3)});
+b3.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();if(!e.repeat)start3()}if(e.key==='Escape')stop3()});
+b3.addEventListener('keyup',function(e){if(e.key===' '||e.key==='Enter')stop3()});
+b3.addEventListener('contextmenu',function(e){e.preventDefault()});
+$('#u3').addEventListener('click',function(){r3();say('Restored');b3.focus()});
+/* 4 */
+var b4=$('#b4'),n4=128;
+function r4(){n4=128;b4.setAttribute('aria-pressed','false');$('#c4').textContent=n4}
+b4.addEventListener('click',function(){var on=b4.getAttribute('aria-pressed')!=='true';b4.setAttribute('aria-pressed',on);n4+=on?1:-1;$('#c4').textContent=n4;say(on?'Liked, '+n4+' likes':'Like removed, '+n4+' likes');
+ if(on&&!rm){for(var i=0;i<8;i++){var d=document.createElement('i');d.className='dt';var a=i/8*Math.PI*2;d.style.setProperty('--x',Math.cos(a)*34+'px');d.style.setProperty('--y',Math.sin(a)*34+'px');b4.appendChild(d);(function(x){setTimeout(function(){x.remove()},650)})(d)}}});
+/* 5 */
+var b5=$('#b5'),fail=true;
+function r5(){clearTimeout(timers[5]);fail=true;b5.className='b';b5.disabled=false;b5.removeAttribute('aria-busy');b5.innerHTML='<span class="t">Save changes</span>'}
+b5.addEventListener('click',function(){if(b5.disabled)return;b5.disabled=true;b5.setAttribute('aria-busy','true');b5.className='b';b5.innerHTML='<span class="sp"></span><span>Saving…</span>';say('Saving');
+ later(5,function(){b5.removeAttribute('aria-busy');b5.disabled=false;if(fail){fail=false;b5.className='b er';b5.innerHTML='<span>Couldn’t save · Try again</span>';say('Saving failed. Press again to retry.')}else{fail=true;b5.className='b ok';b5.innerHTML=TK+'<span>Saved</span>';say('Saved');later(5,r5,1800)}},1300)});
+/* 6 */
+var b6=$('#b6');
+function r6(){clearTimeout(timers[6]);b6.className='b';b6.innerHTML='<span class="t">Copy invite link</span>'}
+b6.addEventListener('click',function(){try{navigator.clipboard.writeText('https://pressline.example/invite/x7k2').catch(function(){})}catch(e){}b6.className='b ok';b6.innerHTML=TK+'<span>Copied</span>';say('Link copied');later(6,r6,1800)});
+var R={1:r1,2:r2,3:r3,4:r4,5:r5,6:r6};
+document.addEventListener('click',function(e){var r=e.target.closest('[data-r]');if(r)R[r.dataset.r]()});
+$('#ra').addEventListener('click',function(){Object.keys(R).forEach(function(k){R[k]()});say('All demos reset')});
+})();
+</script></body></html>

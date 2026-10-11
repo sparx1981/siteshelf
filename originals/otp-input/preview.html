@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>One-Time Code Input — Form Controls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#f3f5fb;--ink:#151a2e;--mut:#69708a;--ac:#2a56ff;--ok:#12a150;--er:#e5484d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.5 'Manrope',system-ui,sans-serif;min-height:100svh;display:grid;place-items:center;padding:24px 16px}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+.card{width:100%;max-width:440px;background:#fff;border-radius:24px;padding:36px 32px;box-shadow:0 20px 50px rgba(30,40,90,.12);text-align:center}
+.bg{width:60px;height:60px;border-radius:18px;background:#e8edff;color:var(--ac);display:grid;place-items:center;margin:0 auto 18px;transition:background .3s,color .3s}
+.bg svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card.ok .bg{background:#dff4e6;color:var(--ok)}
+h1{font:800 26px/1.2 'Manrope',sans-serif;margin:0 0 8px;letter-spacing:-.02em}
+p{margin:0;color:var(--mut)}
+p b{color:var(--ink)}
+.row{display:flex;justify-content:center;gap:8px;margin:28px 0 8px}
+.row input{width:52px;height:64px;border:2px solid #dde2f0;border-radius:14px;text-align:center;font:700 28px 'Space Mono',monospace;color:var(--ink);background:#f9faff;padding:0;caret-color:var(--ac);transition:border-color .15s,background .15s,transform .15s}
+.row input:nth-child(3){margin-right:12px}
+.row input:focus{border-color:var(--ac);background:#fff;outline:0;box-shadow:0 0 0 4px rgba(42,86,255,.15)}
+.row input:not(:placeholder-shown){border-color:#b9c6ff;background:#fff}
+.row.er input{border-color:var(--er);background:#fff6f6}
+.row.er{animation:sh .4s}
+.row.ok input{border-color:var(--ok);background:#f2fbf5;color:var(--ok)}
+.row input.rj{animation:sh .25s}
+@keyframes sh{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.msg{min-height:24px;font-size:14px;margin:6px 0 10px;font-weight:600}
+.msg.e{color:var(--er)}.msg.g{color:var(--ok)}
+.btn{width:100%;background:var(--ac);color:#fff;border:0;border-radius:14px;min-height:54px;font:700 16px 'Manrope',sans-serif;cursor:pointer;transition:filter .15s,opacity .15s}
+.btn:hover:not(:disabled){filter:brightness(1.1)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.rs{margin-top:18px;font-size:14px;color:var(--mut)}
+.lk{background:none;border:0;color:var(--ac);font:700 14px 'Manrope',sans-serif;cursor:pointer;text-decoration:underline;min-height:44px;padding:0 6px}
+.lk:disabled{color:#a3a9bd;cursor:not-allowed;text-decoration:none}
+.hint{margin-top:14px;font-size:12px;color:#9aa1b8}
+.tk{width:46px;height:46px;stroke:var(--ok);fill:none;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:40;stroke-dashoffset:40;animation:tk .5s .1s forwards}
+@keyframes tk{to{stroke-dashoffset:0}}
+.sc{padding:10px 0}
+@media(max-width:420px){.card{padding:28px 16px}.row{gap:6px}.row input{width:44px;height:56px;font-size:24px}.row input:nth-child(3){margin-right:8px}}
+@media(prefers-reduced-motion:reduce){.row.er,.row input.rj{animation:none}.tk{animation:none;stroke-dashoffset:0}*{transition:none!important}}
+</style></head><body>
+<main class="card" id="cd">
+<form id="fm" novalidate>
+<div class="bg" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+<h1>Check your email</h1><p>We sent a 6-digit code to <b>m•••@example.com</b></p>
+<div class="row" id="rw" role="group" aria-label="Verification code"></div>
+<div class="msg" id="ms" role="alert"></div>
+<button class="btn" id="vb" type="submit" disabled>Verify</button>
+<div class="rs"><span id="rt"></span> <button class="lk" id="rb" type="button" disabled>Resend code</button></div>
+<div class="rs" style="margin-top:0"><button class="lk" type="button">Use a different email</button></div>
+<p class="hint">Demo code: 428193</p></form>
+<div class="sc" id="ss" hidden><div class="bg" style="background:#dff4e6;color:var(--ok)"><svg class="tk" viewBox="0 0 24 24" style="width:30px;height:30px;stroke-width:3"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div><h1>You’re verified</h1><p>Welcome back to Keyring.</p><div style="margin-top:20px"><button class="btn" id="rp" type="button">Try the demo again</button></div></div>
+</main>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var CODE='428193',N=6,fails=0,lock=0,lt=null,rt=null,secs=30;
+var rw=$('#rw');
+function build(){var h='';for(var i=0;i<N;i++)h+='<input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="'+(i?'off':'one-time-code')+'" placeholder=" " aria-label="Digit '+(i+1)+' of '+N+'" data-i="'+i+'">';rw.innerHTML=h}
+function ins(){return[].slice.call(rw.querySelectorAll('input'))}
+function val(){return ins().map(function(x){return x.value}).join('')}
+function upd(){$('#vb').disabled=val().length!==N||!!lock}
+function msg(t,c){var m=$('#ms');m.textContent=t||'';m.className='msg'+(c?' '+c:'')}
+function reject(el){el.classList.remove('rj');void el.offsetWidth;el.classList.add('rj')}
+rw.addEventListener('input',function(e){var el=e.target,i=+el.dataset.i,v=el.value;
+ if(v.length>1){fill(v,i);return}
+ if(v&&!/^\d$/.test(v)){el.value='';reject(el);return}
+ rw.classList.remove('er');if(v&&i<N-1)ins()[i+1].focus();upd();if(val().length===N)auto()});
+rw.addEventListener('keydown',function(e){var el=e.target,i=+el.dataset.i,a=ins();
+ if(e.key==='Backspace'&&!el.value&&i>0){e.preventDefault();a[i-1].value='';a[i-1].focus();upd()}
+ else if(e.key==='ArrowLeft'&&i>0){e.preventDefault();a[i-1].focus()}
+ else if(e.key==='ArrowRight'&&i<N-1){e.preventDefault();a[i+1].focus()}
+ else if(e.key==='Home'){e.preventDefault();a[0].focus()}else if(e.key==='End'){e.preventDefault();a[N-1].focus()}
+ else if(e.key.length===1&&!/\d/.test(e.key)&&!e.metaKey&&!e.ctrlKey){e.preventDefault();reject(el)}});
+rw.addEventListener('paste',function(e){e.preventDefault();var t=(e.clipboardData||window.clipboardData).getData('text').replace(/\D/g,'');fill(t,+e.target.dataset.i)});
+rw.addEventListener('focusin',function(e){e.target.select&&e.target.select()});
+function fill(t,start){t=t.replace(/\D/g,'');if(!t){reject(ins()[start]);ins()[start].value='';return}var a=ins();if(t.length>=N)start=0;for(var k=0;k<t.length&&start+k<N;k++)a[start+k].value=t[k];a[Math.min(N-1,start+t.length)].focus();rw.classList.remove('er');upd();if(val().length===N)auto()}
+var at=null;function auto(){clearTimeout(at);at=setTimeout(function(){if(val().length===N&&!lock)check()},300)}
+function check(){clearTimeout(at);if(lock)return;
+ if(val()===CODE){rw.classList.add('ok');msg('Code accepted','g');ins().forEach(function(x){x.readOnly=true});$('#vb').disabled=true;setTimeout(function(){$('#fm').hidden=true;$('#ss').hidden=false;$('#cd').classList.add('ok');$('#rp').focus()},500);clearInterval(rt);return}
+ fails++;rw.classList.remove('er');void rw.offsetWidth;rw.classList.add('er');
+ if(fails>=3){startLock()}else{msg('That code doesn’t match. '+(3-fails)+' attempt'+(3-fails===1?'':'s')+' left.','e')}
+ setTimeout(function(){if(!lock){ins().forEach(function(x){x.value=''});rw.classList.remove('er');ins()[0].focus();upd()}},650)}
+function startLock(){lock=10;ins().forEach(function(x){x.disabled=true});$('#vb').disabled=true;
+ function t(){msg('Too many attempts. Try again in '+lock+'s.','e');if(lock<=0){clearInterval(lt);lock=0;fails=0;ins().forEach(function(x){x.disabled=false;x.value=''});rw.classList.remove('er');msg('You can try again now.');ins()[0].focus();upd()}lock--}
+ lock++;t();lt=setInterval(t,1000)}
+$('#fm').addEventListener('submit',function(e){e.preventDefault();if(val().length===N)check()});
+function tick(){var m=Math.floor(secs/60),s=secs%60;$('#rt').textContent=secs>0?'Didn’t get it? Resend in '+m+':'+String(s).padStart(2,'0'):'Didn’t get it?';$('#rb').disabled=secs>0}
+function startTimer(){clearInterval(rt);secs=30;tick();rt=setInterval(function(){secs--;tick();if(secs<=0)clearInterval(rt)},1000)}
+$('#rb').addEventListener('click',function(){startTimer();msg('A new code is on its way.','g');ins().forEach(function(x){x.value=''});ins()[0].focus();upd()});
+function reset(){clearInterval(lt);lock=0;fails=0;$('#fm').hidden=false;$('#ss').hidden=true;$('#cd').classList.remove('ok');rw.classList.remove('ok','er');build();msg('');upd();startTimer();ins()[0].focus()}
+$('#rp').addEventListener('click',reset);
+build();startTimer();
+})();
+</script></body></html>

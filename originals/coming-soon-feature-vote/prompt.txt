@@ -1,0 +1,11 @@
+Canvas & base: Near-black #0c0f14 with a subtle dotted grid, panel #151a22 with 1px #232b38 border and 20px radius, ink #f2f5fa, secondary #8b97aa, accent electric blue #3b82f6 with glow, secondary accent lime #a3e635 for the leading option. Invented product "Orbit Notes".
+
+Typography: "Space Grotesk" (500,700) for headings, "Inter" (400,500,600) 15px.
+
+Layout: Centred 640px column: logo, headline "Help us choose what ships first", countdown-style subline ("Launching in 18 days"), a vote panel with five feature options (each a button row with title, short description, vote count and animated percentage bar), a suggest-a-feature input row, and an email capture panel ("Get notified when it ships").
+
+Interaction: Clicking an option casts a single vote (seeded counts) with a bump animation and the bars reorder by votes using FLIP animation; the chosen option shows a "Your vote" badge and others offer "Switch vote"; undo/change decrements the previous; leading option gets a lime crown; suggest-a-feature adds a new option with 1 vote after profanity-free validation (3–60 chars), max 7 options; counts total and percentages update with tweening; email field validates and confirms; announce vote and ranking changes via live region.
+
+Responsive: Rows keep bars below text on narrow screens.
+
+Rules: No libraries or external images, hidden attribute respected, 52px option rows, reduced-motion replaces FLIP with instant reorder, invented content only.

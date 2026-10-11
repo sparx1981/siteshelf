@@ -1,0 +1,11 @@
+Canvas & base: Soft #f6f8fb page, white cards #fff with #e1e7ef border and 18px radius, ink #0e1a2b, secondary #5d6b82, accent cobalt #2457ff with tint #e8eeff. Invented service "Harbor Pay" (small business payments).
+
+Typography: "Public Sans" (400,500,600,700) at 16px.
+
+Layout: Hero with title and a large search field with ⌘/ hint; a tablist of categories (Getting started, Payments, Fees, Security, Account) each with count badge; the active panel shows an accordion list of 4–5 Q&As; a sidebar card "Still stuck?" with Contact support and Live chat buttons; search mode replaces tabs panel with grouped results by category and highlighted terms.
+
+Interaction: Typing filters across all categories (title and answer text) with highlight marks and result count announced; empty state shows suggestions and a contact card; accordion items use buttons with aria-expanded/aria-controls and animated height via grid-template-rows; "Expand all / Collapse all" toggles current view; URL hash updates to #payments-3 style ids and opening a hash on load expands and scrolls to the item; each answer has Helpful / Not helpful buttons with a thank-you; "/" key focuses search, Escape clears it; tabs follow ARIA with arrow keys.
+
+Responsive: Sidebar moves below content; tabs scroll horizontally.
+
+Rules: No libraries or external images, hidden attribute respected, 44px targets, reduced-motion disables height animation, invented content only.

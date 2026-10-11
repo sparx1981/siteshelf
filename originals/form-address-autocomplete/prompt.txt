@@ -1,0 +1,11 @@
+Canvas & base: Warm off-white page (#f6f3ee), centred white card 560px wide with 16px radius and a soft shadow. Ink #1d2a2f, accent teal #0f766e, error #b42318.
+
+Typography: Fraunces for the heading, Inter for labels and inputs. Labels 13px semibold above fields; inputs 16px so mobile never zooms.
+
+Layout: Single column. "Find your address" combobox at the top, then street, apartment, city, region, postcode in a two-column grid that collapses to one at 520px. A live "Deliver to" summary box sits below the button.
+
+Interaction: Typing 2+ characters filters an invented list of addresses and opens a listbox (role=listbox, aria-activedescendant). Arrow keys move, Enter picks, Escape closes. Matched text is bolded. Picking fills the fields with a brief highlight. "Enter manually" reveals the fields without a pick. Submit validates required fields and postcode pattern with inline messages.
+
+Responsive: Fields stack under 520px; list becomes full-width.
+
+Rules: Single HTML file, inline CSS/JS, invented addresses only, no network calls, respect prefers-reduced-motion, errors announced via aria-live.

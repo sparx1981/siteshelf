@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kindle Habit — Small habits, big glow</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#231a14;--mut:#7a6a5c;--or:#ff7a2f;--tl:#0f9d8a;--br:#3a2417}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff8ef;color:var(--ink);font:17px/1.6 Figtree,system-ui,sans-serif;overflow-x:hidden}
+.c{max-width:1120px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.lg{font:800 22px "Bricolage Grotesque";display:flex;gap:8px;align-items:center}.lg i{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,var(--or),#ffb36b)}
+nav .l{display:flex;gap:4px;align-items:center}nav a{color:var(--ink);text-decoration:none;font-weight:500;padding:0 14px;min-height:44px;display:inline-flex;align-items:center;border-radius:99px}
+nav a:hover{background:#ffe9d3}nav a.d{background:var(--ink);color:#fff;font-weight:700}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--or);outline-offset:3px}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:center;padding:40px 0 70px}
+h1{font:800 clamp(40px,6vw,72px)/1 "Bricolage Grotesque";margin:0 0 18px;letter-spacing:-.03em}h1 em{font-style:normal;color:var(--or)}
+.hero p{margin:0 0 24px;color:#5a4a3d;max-width:480px}
+.bd{display:flex;gap:10px;flex-wrap:wrap}.bd a{display:flex;gap:10px;align-items:center;background:var(--ink);color:#fff;border-radius:14px;padding:8px 18px;min-height:56px;text-decoration:none}.bd small{display:block;font-size:11px;opacity:.7;line-height:1}.bd b{font-size:17px;line-height:1.1}
+.rt{margin-top:18px;color:var(--mut);font-size:15px}.rt b{color:var(--or);letter-spacing:2px}
+.ph{position:relative;justify-self:center;width:min(300px,78vw)}
+.fr{aspect-ratio:9/18.500;background:#1a1410;border-radius:44px;padding:11px;box-shadow:0 40px 80px #3a241744,inset 0 0 0 2px #4a3a2e;position:relative}
+.sc{width:100%;height:100%;background:#fff8ef;border-radius:34px;overflow:hidden;position:relative;display:flex;flex-direction:column}
+.nt{position:absolute;left:50%;top:10px;width:84px;height:22px;background:#1a1410;border-radius:99px;transform:translateX(-50%);z-index:3}
+.sb{display:flex;justify-content:space-between;padding:12px 22px 0;font:700 11px Figtree;z-index:2}
+.sv{padding:26px 18px 16px;flex:1;animation:sl .45s}
+@keyframes sl{from{opacity:0;transform:translateX(18px)}}
+.sv h3{margin:0 0 4px;font:800 20px "Bricolage Grotesque"}.sv p{margin:0 0 12px;font-size:12px;color:var(--mut);max-width:none}
+.fl{display:flex;gap:6px;align-items:center;font:800 40px "Bricolage Grotesque"}.fl small{font:600 12px Figtree;color:var(--mut)}
+.wk{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:12px}
+.wk div{aspect-ratio:1;border-radius:10px;background:#f1e5d6;display:grid;place-items:center;font:700 10px Figtree;color:var(--mut);transition:.3s}
+.wk div.on{background:var(--or);color:#fff}
+.hb{margin-top:14px;display:grid;gap:8px}.hb div{background:#fff;border-radius:12px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;font:600 12px Figtree;box-shadow:0 1px 4px #3a241714}
+.tg{appearance:none;width:34px;height:20px;border-radius:99px;background:#d9c9b6;position:relative;cursor:pointer;transition:.2s;flex:none;margin:0}.tg::after{content:"";position:absolute;left:2px;top:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:.2s}.tg:checked{background:var(--tl)}.tg:checked::after{left:16px}.tg:focus-visible{outline:2px solid var(--or)}
+.ch{display:flex;align-items:flex-end;gap:7px;height:120px;margin-top:14px}.ch i{flex:1;background:linear-gradient(var(--tl),#5cd6c3);border-radius:6px 6px 0 0;height:0;transition:height .8s cubic-bezier(.2,.8,.2,1)}
+.fc{position:absolute;background:#fff;border-radius:14px;padding:8px 14px;font:700 14px Figtree;box-shadow:0 12px 30px #3a241730;animation:bb 4s ease-in-out infinite;z-index:4;white-space:nowrap}
+.f1{left:-46px;top:16%}.f2{right:-34px;bottom:22%;animation-delay:-2s}
+@keyframes bb{50%{transform:translateY(-10px)}}
+.ft{padding:30px 0}
+.tb{display:flex;gap:8px;overflow-x:auto;margin:0 0 20px}
+.tb button{border:1.5px solid #ecd9c3;background:#fff;border-radius:99px;min-height:48px;padding:0 22px;font:700 16px Figtree;cursor:pointer;color:var(--ink);white-space:nowrap}
+.tb button[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tp{max-width:620px}.tp h2{font:800 clamp(28px,4vw,40px)/1.1 "Bricolage Grotesque";margin:0 0 10px}.tp p{margin:0;color:#5a4a3d}
+.st{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding:60px 0}
+.st div{text-align:center}.st b{display:block;font:800 clamp(34px,5vw,54px)/1 "Bricolage Grotesque";color:var(--or)}.st span{color:var(--mut)}
+.tm{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding-bottom:70px}
+.tm blockquote{margin:0;background:#fff;border-radius:20px;padding:24px;box-shadow:0 8px 24px #3a24170f}.tm cite{display:block;margin-top:10px;font-style:normal;font-weight:700;color:var(--mut);font-size:15px}
+.dl{background:var(--br);color:#fff8ef;border-radius:32px;padding:48px;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:40px;align-items:center;margin-bottom:60px}
+.dl h2{font:800 clamp(30px,4vw,46px)/1.05 "Bricolage Grotesque";margin:0 0 10px}.dl p{margin:0 0 18px;color:#e8d4be}
+.dl form{display:flex;gap:8px;flex-wrap:wrap}.dl input{flex:1;min-width:200px;font:inherit;font-size:16px;border:0;border-radius:99px;padding:0 20px;min-height:52px}
+.dl button{border:0;background:var(--or);color:#2a1100;font:800 16px Figtree;border-radius:99px;min-height:52px;padding:0 26px;cursor:pointer}
+.dl .m{min-height:24px;margin-top:8px;font-weight:700}
+.qr{background:#fff;border-radius:20px;padding:14px;display:grid;grid-template-columns:repeat(21,1fr);gap:0;aspect-ratio:1}.qr i{aspect-ratio:1;background:transparent}.qr i.b{background:#231a14}
+.rv{opacity:0;transform:translateY(24px);transition:.7s}.rv.on{opacity:1;transform:none}
+@media(max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}.st{grid-template-columns:repeat(2,minmax(0,1fr))}.tm{grid-template-columns:minmax(0,1fr)}.dl{grid-template-columns:minmax(0,1fr);padding:28px}.qr{width:180px}nav .l a:not(.d){display:none}.f1{left:-8px}.f2{right:-8px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style></head><body><div class="c"><nav aria-label="Main"><div class="lg"><i></i>Kindle Habit</div><div class="l"><a href="#features">Features</a><a href="#stories">Stories</a><a class="d" href="#get">Download</a></div></nav>
+<header class="hero"><div><h1>Small habits, <em>big glow</em></h1><p>Kindle Habit is the gentlest way to build routines that stick. No guilt streaks, no noise. Just a warm nudge at the right time.</p><div class="bd"><a href="#get"><span aria-hidden="true" style="font-size:24px"></span><span><small>Download on the</small><b>App Store</b></span></a><a href="#get"><span aria-hidden="true" style="font-size:22px">▶</span><span><small>Get it on</small><b>Google Play</b></span></a></div><div class="rt"><b aria-hidden="true">★★★★★</b> 4.8 from 62,000 ratings</div></div>
+<div class="ph"><span class="fc f1" aria-hidden="true">Day 12 🔥</span><span class="fc f2" aria-hidden="true">Time to stretch ✨</span><div class="fr"><div class="sc"><span class="nt"></span><div class="sb"><span>9:41</span><span>●●● 5G</span></div><div id="sv"></div></div></div></div></header>
+<section class="ft" id="features"><div class="tb" role="tablist" aria-label="Features" id="tb"></div><div class="tp" id="tp" role="tabpanel" tabindex="0"></div></section>
+<div class="st rv"><div><b data-n="4" data-s="M">0</b><span>happy users</span></div><div><b data-n="4.8" data-d="1">0</b><span>average rating</span></div><div><b data-n="12">0</b><span>languages</span></div><div><b data-n="92" data-s="%">0</b><span>keep going after 30 days</span></div></div>
+<section class="tm rv" id="stories"><blockquote>“I've tried a dozen trackers. This is the first one I haven't felt bad about opening.”<cite>Odile M., teacher</cite></blockquote><blockquote>“The reminders are so kind. It's like a friend nudging me, not an alarm yelling at me.”<cite>Jonas P., nurse</cite></blockquote></section>
+<section class="dl rv" id="get"><div><h2>Start your first glow today</h2><p>We'll text you a link to download Kindle Habit on your phone.</p><form id="f" novalidate><label for="em" style="position:absolute;left:-9999px">Email address</label><input id="em" type="email" placeholder="you@example.com" autocomplete="email"><button>Send me a link</button></form><div class="m" id="mg" role="status"></div></div><div class="qr" id="qr" role="img" aria-label="QR-style download code (decorative)"></div></section></div>
+<script>
+const $=s=>document.querySelector(s),rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const T=[["Streaks","Streaks that forgive","Miss a day and your streak pauses instead of breaking. Come back whenever you're ready, and your flame is still lit."],["Reminders","Reminders that feel kind","Pick the times that suit you. Kindle Habit learns when you usually say yes and gently shifts reminders to match."],["Insights","Insights worth reading","See your week at a glance, with plain-language notes like “You're strongest on Tuesdays. Try moving stretching there.”"]];
+let cur=0;
+function screen(){const s=$("#sv");s.className="sv";s.innerHTML="";const d=document.createElement("div");d.className="sv";if(cur==0){d.innerHTML=`<h3>Good morning, Avery</h3><p>Your flame is glowing.</p><div class="fl">🔥 <span id="fn">11</span><small>day streak</small></div><div class="wk">${"MTWTFSS".split("").map((x,i)=>`<div class="${i<4?"on":""}">${x}</div>`).join("")}</div><div class="hb"><div><span>Drink water</span><span>✓</span></div><div><span>10 min stretch</span><span>○</span></div><div><span>Read a chapter</span><span>○</span></div></div>`;s.append(d);if(!rm){setTimeout(()=>{const n=$("#fn");if(n)n.textContent=12},700);[4,5].forEach((k,j)=>setTimeout(()=>{const w=document.querySelectorAll(".wk div")[k];w&&w.classList.add("on")},500+j*500))}}
+else if(cur==1){d.innerHTML=`<h3>Reminders</h3><p>When should we nudge you?</p><div class="hb">${[["Morning water","8:00"],["Stretch break","12:30"],["Evening read","21:00"],["Weekly review","Sun 18:00"]].map(([a,b],i)=>`<div><span>${a}<br><small style="color:#7a6a5c">${b}</small></span><input class="tg" type="checkbox" role="switch" aria-label="${a}" ${i!=3?"checked":""}></div>`).join("")}</div>`;s.append(d)}
+else{d.innerHTML=`<h3>Your week</h3><p>You're strongest on Tuesdays.</p><div class="ch">${[60,82,95,70,88,45,66].map(h=>`<i data-h="${h}"></i>`).join("")}</div><div style="display:flex;justify-content:space-between;font:700 10px Figtree;color:#7a6a5c;margin-top:6px">${"MTWTFSS".split("").map(x=>`<span>${x}</span>`).join("")}</div><div class="hb"><div><span>Completion</span><b>86%</b></div></div>`;s.append(d);requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelectorAll(".ch i").forEach(i=>i.style.height=i.dataset.h+"%")))}
+$("#sv").append(...s.childNodes)}
+function tabs(){const t=$("#tb");t.innerHTML="";T.forEach((x,i)=>{const b=document.createElement("button");b.id="t"+i;b.setAttribute("role","tab");b.setAttribute("aria-selected",i==cur);b.setAttribute("aria-controls","tp");b.tabIndex=i==cur?0:-1;b.textContent=x[0];b.onclick=()=>sel(i);b.onkeydown=e=>{let j=i;if(e.key=="ArrowRight")j=(i+1)%3;else if(e.key=="ArrowLeft")j=(i+2)%3;else if(e.key=="Home")j=0;else if(e.key=="End")j=2;else return;e.preventDefault();sel(j);$("#t"+j).focus()};t.append(b)});$("#tp").setAttribute("aria-labelledby","t"+cur);$("#tp").innerHTML=`<h2>${T[cur][1]}</h2><p>${T[cur][2]}</p>`}
+function sel(i){cur=i;tabs();screen()}
+tabs();screen();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add("on");io.unobserve(e.target);e.target.querySelectorAll("[data-n]").forEach(b=>{const n=+b.dataset.n,s=b.dataset.s||"",dd=+b.dataset.d||0;if(rm){b.textContent=n.toFixed(dd)+s;return}const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/1200);b.textContent=(n*(1-Math.pow(1-k,3))).toFixed(dd)+s;if(k<1)requestAnimationFrame(f)})(t0)})}),{threshold:.3});document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+const q=$("#qr");let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;for(let y=0;y<21;y++)for(let x=0;x<21;x++){const i=document.createElement("i");const fin=(x<7&&y<7)||(x>13&&y<7)||(x<7&&y>13);let on;if(fin){const lx=x%14<7?x%14:x-14,ly=y%14<7?y%14:y-14;on=lx==0||lx==6||ly==0||ly==6||(lx>=2&&lx<=4&&ly>=2&&ly<=4)}else on=rnd()>.5;if(on)i.className="b";q.append(i)}
+$("#f").onsubmit=e=>{e.preventDefault();const v=$("#em").value.trim(),m=$("#mg");if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v)){m.style.color="#ffb4a2";m.textContent="Please enter a valid email address.";$("#em").focus();return}m.style.color="#9ff0d8";m.textContent="Link sent to "+v+". Check your inbox!"};
+</script></body></html>

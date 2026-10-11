@@ -1,0 +1,52 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Modal Dialog Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#eef1f6;font:16px/1.5 "DM Sans",system-ui,sans-serif;color:#0f172a;display:grid;place-items:center;padding:24px 16px}
+body.lock{overflow:hidden}
+.kit{background:#fff;border-radius:18px;padding:28px;max-width:520px;width:100%;box-shadow:0 10px 30px rgba(15,23,42,.08)}
+h1{font-size:22px;margin:0 0 4px}.kit p{margin:0 0 18px;color:#64748b}
+.btns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+button{font:600 15px "DM Sans";cursor:pointer;border-radius:10px;padding:11px 14px;border:1.5px solid #cbd5e1;background:#fff;color:#0f172a}
+button:hover{background:#f1f5f9}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid rgba(37,99,235,.4);outline-offset:1px}
+.pri{background:#2563eb;border-color:#2563eb;color:#fff}.pri:hover{background:#1d4ed8}
+.dan{background:#dc2626;border-color:#dc2626;color:#fff}.dan:hover{background:#b91c1c}button:disabled{opacity:.4;cursor:not-allowed}
+.ov{position:fixed;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;z-index:10;opacity:0;transition:opacity .2s}
+.ov.show{opacity:1}
+.dlg{background:#fff;border-radius:16px;width:100%;max-width:440px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.3);transform:translateY(12px);transition:transform .25s}
+.ov.show .dlg{transform:none}
+.dlg h2{font-size:20px;margin:0 0 6px}.dlg p{margin:0 0 16px;color:#475569;font-size:15px}
+.act{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+label{display:block;font-size:13px;font-weight:700;margin:12px 0 5px}
+input,select{width:100%;padding:10px 12px;border:1.5px solid #cbd5e1;border-radius:10px;font:inherit}
+.er{color:#dc2626;font-size:13px;min-height:18px}
+.ov.drawer{justify-content:flex-end;padding:0}.drawer .dlg{height:100%;max-width:360px;border-radius:0;transform:translateX(100%)}.drawer.show .dlg{transform:none}
+.ov.sheet .dlg{max-width:440px}
+.hd{width:44px;height:5px;border-radius:9px;background:#cbd5e1;margin:-8px auto 14px;display:none;touch-action:none;cursor:grab}
+.chk{display:flex;gap:10px;align-items:center;margin:8px 0;font-size:15px}.chk input{width:auto}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 18px;border-radius:99px;font-size:14px;z-index:20}
+@media(max-width:480px){.drawer .dlg{max-width:none}.ov.sheet{align-items:flex-end;padding:0}.sheet .dlg{border-radius:20px 20px 0 0;max-width:none;transform:translateY(100%)}.sheet.show .dlg{transform:none}.sheet .hd{display:block}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><main class="kit" id="app"><h1>Dialogs</h1><p>Four patterns, one shared behaviour layer.</p>
+<div class="btns"><button id="b1">Confirm delete</button><button id="b2">Edit profile</button><button id="b3">Filters</button><button id="b4">Share</button></div></main>
+<div id="host"></div><div class="toast" id="toast" hidden role="status"></div>
+<script>
+const T={
+c:{k:"",h:()=>`<h2 id="t">Delete project “Harbour Lights”?</h2><p>This removes 14 files. Type <b>DELETE</b> to confirm.</p><input id="cf" aria-label="Type DELETE" autocomplete="off"><div class="act"><button data-x>Cancel</button><button class="dan" id="ok" disabled>Delete</button></div>`},
+p:{k:"",h:()=>`<h2 id="t">Edit profile</h2><form id="pf" novalidate><label for="nm">Display name</label><input id="nm" value="Marlo Vance"><div class="er" id="e1"></div><label for="rl">Role</label><select id="rl"><option>Designer</option><option>Engineer</option><option>Producer</option></select><div class="act"><button type="button" data-x>Cancel</button><button class="pri">Save</button></div></form>`},
+d:{k:"drawer",h:()=>`<h2 id="t">Filters</h2><p>Narrow the list.</p><label class="chk"><input type="checkbox" checked> In stock</label><label class="chk"><input type="checkbox"> On sale</label><label class="chk"><input type="checkbox"> Free shipping</label><label for="pm">Max price</label><input id="pm" type="range" min="10" max="500" value="200"><div class="act"><button data-x>Close</button><button class="pri" data-x>Apply</button></div>`},
+s:{k:"sheet",h:()=>`<div class="hd" id="hd"></div><h2 id="t">Share this page</h2><p>Anyone with the link can view.</p><input value="https://example.test/p/harbour" readonly aria-label="Link"><div class="act"><button data-x>Done</button><button class="pri" id="cp">Copy link</button></div>`}};
+const host=document.getElementById("host"),app=document.getElementById("app");let last=null,ov=null;
+function open(key,btn){last=btn;const c=T[key];ov=document.createElement("div");ov.className="ov "+c.k;ov.innerHTML=`<div class="dlg" role="dialog" aria-modal="true" aria-labelledby="t">${c.h()}</div>`;host.appendChild(ov);
+app.inert=true;document.body.classList.add("lock");const o0=ov;requestAnimationFrame(()=>o0.classList.add("show"));
+const d=ov.firstChild;const f=focusables(d);(d.querySelector("input,select")||f[0]).focus();
+ov.addEventListener("mousedown",e=>{if(e.target===ov)close()});ov.querySelectorAll("[data-x]").forEach(b=>b.onclick=close);
+if(key=="c"){const i=d.querySelector("#cf"),ok=d.querySelector("#ok");i.oninput=()=>ok.disabled=i.value!=="DELETE";ok.onclick=()=>{close();toast("Project deleted")}}
+if(key=="p")d.querySelector("#pf").onsubmit=e=>{e.preventDefault();const n=d.querySelector("#nm").value.trim();if(n.length<2){d.querySelector("#e1").textContent="Name needs at least 2 characters.";return}close();toast("Saved “"+n+"”")};
+if(key=="s"){d.querySelector("#cp").onclick=()=>toast("Link copied");const hd=d.querySelector("#hd");let y0=null;hd.onpointerdown=e=>{y0=e.clientY;hd.setPointerCapture(e.pointerId)};hd.onpointermove=e=>{if(y0!=null)d.style.transform="translateY("+Math.max(0,e.clientY-y0)+"px)"};hd.onpointerup=e=>{if(y0==null)return;const dy=e.clientY-y0;y0=null;if(dy>80)close();else d.style.transform=""}}}
+function focusables(r){return[...r.querySelectorAll('button:not(:disabled),input,select,[href]')]}
+function close(){if(!ov)return;const o=ov;ov=null;o.classList.remove("show");setTimeout(()=>o.remove(),220);app.inert=false;document.body.classList.remove("lock");last&&last.focus()}
+document.addEventListener("keydown",e=>{if(!ov)return;if(e.key=="Escape"){close();return}if(e.key=="Tab"){const f=focusables(ov.firstChild),a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}else if(!ov.contains(document.activeElement)){e.preventDefault();a.focus()}}});
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,2200)}
+[["b1","c"],["b2","p"],["b3","d"],["b4","s"]].forEach(([i,k])=>{const b=document.getElementById(i);b.onclick=()=>open(k,b)});
+</script></body></html>

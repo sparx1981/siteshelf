@@ -1,0 +1,11 @@
+Canvas & base: Paper-toned article page (#fbf8f1) with a slim reading-progress bar fixed to the top in terracotta #c2410c. Themes: Paper, Sepia (#f1e4c8) and Night (#14161a / #d8d4ca).
+
+Typography: Reader-selectable Serif (Source Serif 4) or Sans (Inter); sizes 16–24px via A−/A+; headline in Source Serif 4 bold at 44px.
+
+Layout: A sticky toolbar under the header with size, font, width (Narrow/Medium/Wide) and theme controls, plus "N min left". Article: title, byline, deck, 5–6 paragraphs with a pull quote and two subheadings.
+
+Interaction: Every control updates the article instantly through CSS variables on a wrapper; the time-left label recalculates from scroll position at 220 words per minute; progress bar tracks scroll. Settings persist in a variable (and try/catch localStorage). Keyboard shortcuts + and − change text size.
+
+Responsive: Toolbar scrolls horizontally on narrow screens; Width control is hidden under 600px.
+
+Rules: Single HTML file, invented article, aria-pressed on toggles, prefers-reduced-motion respected, contrast AA in all themes.

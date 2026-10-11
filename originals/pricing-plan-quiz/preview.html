@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Find your plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f3f0fb;color:#241a3d;font:16px/1.5 "Plus Jakarta Sans",system-ui,sans-serif;min-height:100vh;display:grid;place-items:center;padding:24px 16px}
+.panel{width:100%;max-width:680px;background:#fff;border-radius:20px;padding:32px;box-shadow:0 18px 50px rgba(91,46,166,.15)}
+.dots{display:flex;gap:8px;margin-bottom:22px}.dots i{flex:1;height:6px;border-radius:9px;background:#e6defa;transition:background .3s}.dots i.on{background:#5b2ea6}
+h2{font-size:28px;line-height:1.2;margin:0 0 6px;font-weight:800;outline:0}p.h{margin:0 0 20px;color:#6b5e8a}
+.opts{display:grid;gap:10px}
+.opt{display:block;position:relative}.opt input{position:absolute;opacity:0}
+.opt span{display:block;padding:16px 18px;border:2px solid #e6defa;border-radius:14px;cursor:pointer;transition:.2s}
+.opt b{display:block}.opt small{color:#6b5e8a;font-size:14px}
+.opt:hover span{border-color:#b9a3ec}.opt input:checked+span{border-color:#5b2ea6;background:#f5f0ff}
+.opt input:focus-visible+span{outline:3px solid rgba(91,46,166,.35)}
+.nav{margin-top:18px;display:flex;justify-content:space-between}
+.ghost{background:none;border:0;color:#5b2ea6;font:600 15px inherit;font-family:inherit;cursor:pointer;padding:8px 0}
+.sw{display:inline-flex;background:#efe9fc;border-radius:99px;padding:4px;margin:8px 0 18px}
+.sw button{border:0;background:none;padding:8px 16px;border-radius:99px;font:600 14px "Plus Jakarta Sans";cursor:pointer;color:#5b2ea6}.sw button[aria-pressed=true]{background:#5b2ea6;color:#fff}
+.res{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:14px}
+.main{border:2px solid #5b2ea6;border-radius:16px;padding:20px;position:relative}
+.badge{position:absolute;top:-12px;left:16px;background:#2fbf8f;color:#052b1e;font-size:12px;font-weight:800;padding:3px 10px;border-radius:99px}
+.price{font-size:38px;font-weight:800}.price small{font-size:14px;font-weight:400;color:#6b5e8a}
+ul{padding:0;margin:12px 0 0;list-style:none}li{padding:4px 0 4px 22px;position:relative;font-size:14.5px}li:before{content:"✓";position:absolute;left:0;color:#2fbf8f;font-weight:800}
+.alts{display:grid;gap:10px}.alt{border:1px solid #e6defa;border-radius:14px;padding:14px;font-size:14px}.alt b{display:block;font-size:16px}
+.cta{margin-top:16px;width:100%;padding:12px;border:0;border-radius:12px;background:#5b2ea6;color:#fff;font:700 15px "Plus Jakarta Sans";cursor:pointer}
+@media(max-width:600px){.res{grid-template-columns:minmax(0,1fr)}.panel{padding:22px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="panel">
+<div class="dots" id="dots"></div>
+<div id="q"><h2 id="qt" tabindex="-1"></h2><p class="h" id="qh"></p><div class="opts" id="qo" role="radiogroup"></div><div class="nav"><button class="ghost" id="back">← Back</button><span></span></div></div>
+<div id="r" hidden><h2 id="rt" tabindex="-1">Your best fit</h2><p class="h" id="rs"></p>
+<div class="sw" role="group" aria-label="Billing"><button aria-pressed="true" data-b="m">Monthly</button><button aria-pressed="false" data-b="y">Yearly · 2 months free</button></div>
+<div class="res"><div class="main" id="rm"></div><div class="alts" id="ra"></div></div>
+<div class="nav"><button class="ghost" id="retake">↺ Retake quiz</button><span></span></div></div>
+<div class="sr" aria-live="polite" style="position:absolute;left:-9999px" id="live"></div></div>
+<script>
+const Q=[{t:"How big is your team?",h:"Parcelo is priced by seats.",o:[["Just me","Solo shipments, a few a week",[2,0,0]],["2–10 people","A small ops crew",[0,2,0]],["More than 10","Several teams, one account",[0,0,2]]]},
+{t:"How many parcels a month?",h:"We count every label you print.",o:[["Under 200","Light volume",[2,0,0]],["200–5,000","Steady growth",[0,2,0]],["5,000+","High volume and bulk",[0,1,2]]]},
+{t:"What support do you want?",h:"Pick what feels right.",o:[["Help centre is fine","Docs and email",[2,0,0]],["Fast replies","Chat within a few hours",[0,2,0]],["A named contact","Priority line and onboarding",[0,0,2]]]}];
+const P=[{n:"Starter",m:12,f:["1 seat","200 labels / month","Email support"]},{n:"Studio",m:39,f:["Up to 10 seats","5,000 labels / month","Chat support","Carrier rate comparison"]},{n:"Scale",m:99,f:["Unlimited seats","Unlimited labels","Named account manager","Custom carrier contracts"]}];
+let step=0,ans=[],sc=[0,0,0],bill="m";const $=i=>document.getElementById(i);
+function dots(){ $("dots").innerHTML=Q.map((_,i)=>`<i class="${i<=step?'on':''}"></i>`).join("")}
+function show(){ $("q").hidden=false;$("r").hidden=true;dots();const q=Q[step];$("qt").textContent=q.t;$("qh").textContent=q.h;
+$("qo").innerHTML=q.o.map((o,i)=>`<label class="opt"><input type="radio" name="a" value="${i}"${ans[step]===i?" checked":""}><span><b>${o[0]}</b><small>${o[1]}</small></span></label>`).join("");
+$("back").style.visibility=step?"visible":"hidden";$("qt").focus();$("live").textContent="Question "+(step+1)+" of 3: "+q.t}
+$("qo").addEventListener("click",e=>{if(e.target.name!="a")return;ans[step]=+e.target.value;setTimeout(()=>{if(step<Q.length-1){step++;show()}else result()},350)});
+$("back").onclick=()=>{if(step){step--;show()}};
+function result(){ sc=[0,0,0];ans.forEach((a,i)=>Q[i].o[a][2].forEach((w,j)=>sc[j]+=w));const best=sc.indexOf(Math.max(...sc));window.best=best;$("q").hidden=true;$("r").hidden=false;$("rs").textContent="Based on your answers we recommend "+P[best].n+".";render();$("rt").focus();$("live").textContent="Recommended plan: "+P[best].n}
+function pr(p){return bill=="m"?p.m:Math.round(p.m*10/12)}
+function render(){const b=window.best;const c=(p)=>`$${pr(p)}<small> /mo${bill=="y"?", billed yearly":""}</small>`;
+$("rm").innerHTML=`<span class="badge">Best match</span><h3 style="margin:4px 0">${P[b].n}</h3><div class="price">${c(P[b])}</div><ul>${P[b].f.map(f=>"<li>"+f+"</li>").join("")}</ul><button class="cta">Start with ${P[b].n}</button>`;
+$("ra").innerHTML=P.map((p,i)=>i==b?"":`<div class="alt"><b>${p.n}</b>${c(p)}</div>`).join("")}
+document.querySelectorAll(".sw button").forEach(x=>x.onclick=()=>{bill=x.dataset.b;document.querySelectorAll(".sw button").forEach(y=>y.setAttribute("aria-pressed",y==x));render()});
+$("retake").onclick=()=>{step=0;ans=[];show()};
+show();
+</script></body></html>

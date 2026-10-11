@@ -1,0 +1,50 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Back shortly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#0b1220 radial-gradient(#1b2740 1px,transparent 1px) 0 0/22px 22px;color:#e8edf7;font:16px/1.55 "IBM Plex Sans",system-ui,sans-serif;display:grid;place-items:center;padding:32px 16px}
+main{width:100%;max-width:720px;text-align:center}
+.ring{width:84px;height:84px;margin:0 auto 20px;border-radius:50%;border:2px solid #f5b84b;display:grid;place-items:center;color:#f5b84b;animation:pulse 2.4s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 14px rgba(245,184,75,.1)}}
+h1{font:700 clamp(32px,6vw,48px) "Space Grotesk";margin:0 0 6px}p{color:#9fb0cc;margin:0 0 28px}
+.cd{display:flex;gap:12px;justify-content:center;margin-bottom:28px}
+.cd div{min-width:96px;padding:14px 8px;border-radius:14px;background:#121c31;border:1px solid #23314e}
+.cd b{display:block;font:700 56px/1 "Space Grotesk";font-variant-numeric:tabular-nums}.cd span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#7f93b4}
+.bar{height:10px;border-radius:99px;background:#1a2640;overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#f5b84b,#fbd38d);transition:width .8s}
+.pc{text-align:right;font-size:13px;color:#9fb0cc;margin:6px 0 24px}
+.st{text-align:left;background:#121c31;border:1px solid #23314e;border-radius:16px;padding:6px 18px;margin-bottom:24px}
+.row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #1d2a45}.row:last-child{border:0}
+.row .n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dot{width:10px;height:10px;border-radius:50%;background:#f5b84b;animation:pulse2 1.4s infinite}
+@keyframes pulse2{50%{opacity:.35}}
+.up .dot{background:#34d399;animation:none}.row em{font-style:normal;font-size:13px;color:#f5b84b}.up em{color:#34d399}
+form{display:flex;gap:8px;max-width:460px;margin:0 auto}
+input{flex:1;min-width:0;padding:12px 14px;border-radius:10px;border:1.5px solid #2c3d5f;background:#0e1729;color:#fff;font:inherit}
+input:focus{outline:3px solid rgba(245,184,75,.3)}
+button{padding:12px 18px;border-radius:10px;border:0;background:#f5b84b;color:#1a1205;font:600 15px "Space Grotesk";cursor:pointer}
+.msg{min-height:24px;margin-top:10px;font-size:14px}.bad{color:#fca5a5}.good{color:#34d399}
+@media(max-width:520px){.cd{gap:8px}.cd div{min-width:0;flex:1}.cd b{font-size:36px}form{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><main>
+<div class="ring" aria-hidden="true"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5l-6 6a1.8 1.8 0 0 0 2.6 2.6l6-6a4 4 0 0 0 5-5.4l-2.4 2.4-2.2-.6-.6-2.2z"/></svg></div>
+<h1 id="h">Back shortly</h1><p id="sub">We're upgrading Orrin Cloud's storage layer. Nothing is lost — we'll be back soon.</p>
+<div class="cd" role="timer" aria-label="Time remaining"><div><b id="hh">00</b><span>hrs</span></div><div><b id="mm">00</b><span>min</span></div><div><b id="ss">00</b><span>sec</span></div></div>
+<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pb"><i id="pf"></i></div><div class="pc" id="pt">0% complete</div>
+<div class="st" id="sv" aria-live="polite"></div>
+<button id="rl" hidden style="margin-bottom:24px" onclick="location.reload()">Reload page</button>
+<form id="f" novalidate><input id="em" type="email" aria-label="Email" placeholder="you@example.com"><button>Notify me</button></form><div class="msg" id="msg" aria-live="polite"></div>
+</main><script>
+const S=["Dashboard","Sync engine","File storage","Public API","Billing portal"],T=47*60,t0=Date.now(),$=i=>document.getElementById(i);
+const sv=$("sv");sv.innerHTML=S.map((s,i)=>`<div class="row" id="r${i}"><span class="dot"></span><span class="n">${s}</span><em>Updating</em></div>`).join("");
+const p2=n=>String(n).padStart(2,"0");let done=0;
+function tick(){const el=(Date.now()-t0)/1000,left=Math.max(0,T-el),pct=Math.min(100,Math.round(el/T*100));
+$("hh").textContent=p2(Math.floor(left/3600));$("mm").textContent=p2(Math.floor(left%3600/60));$("ss").textContent=p2(Math.floor(left%60));
+$("pf").style.width=pct+"%";$("pt").textContent=pct+"% complete";$("pb").setAttribute("aria-valuenow",pct);
+const should=Math.min(S.length,Math.floor(pct/20)+(left==0?1:0));
+while(done<should){const r=$("r"+done);r.classList.add("up");r.querySelector("em").textContent="Operational";done++}
+document.title=left==0?"We're back":`Back soon (${done}/5 up)`;
+if(left==0){$("h").textContent="We're back";$("sub").textContent="Everything is running again. Thanks for your patience.";$("rl").hidden=false;clearInterval(iv)}}
+const iv=setInterval(tick,1000);tick();
+window.__skip=m=>{}; 
+$("f").addEventListener("submit",e=>{e.preventDefault();const v=$("em").value.trim(),m=$("msg");if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){m.className="msg bad";m.textContent="Please enter a valid email.";return}m.className="msg good";m.textContent="Done — we'll email "+v+" when we're back."; $("em").value=""});
+</script></body></html>

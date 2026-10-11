@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Lamp at Skerrow Point</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+.w{--bg:#fbf8f1;--fg:#25211b;--mut:#7a7165;--fs:19px;--ff:"Source Serif 4",Georgia,serif;--mw:640px;--bd:#e7dfcf;background:var(--bg);color:var(--fg);min-height:100vh;transition:background .3s,color .3s}
+.w.sepia{--bg:#f1e4c8;--fg:#3b2f1d;--mut:#7a6746;--bd:#dccaa0}.w.night{--bg:#14161a;--fg:#d8d4ca;--mut:#8b8a85;--bd:#2a2d33}
+body{margin:0;font-family:Inter,system-ui,sans-serif}
+#pg{position:fixed;top:0;left:0;height:4px;width:0;background:#c2410c;z-index:30}
+header{padding:18px 20px;font-weight:600;border-bottom:1px solid var(--bd)}header span{color:#c2410c}
+.tb{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--bd);display:flex;gap:18px;align-items:center;padding:10px 20px;overflow-x:auto;white-space:nowrap;font-size:14px}
+.g{display:flex;align-items:center;gap:4px}.g>span{color:var(--mut);margin-right:4px}
+.tb button{font:600 14px Inter;color:inherit;background:none;border:1.5px solid var(--bd);border-radius:8px;padding:6px 10px;cursor:pointer}
+.tb button[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.tb button:focus-visible{outline:3px solid #c2410c}
+.left{margin-left:auto;color:var(--mut)}
+article{max-width:var(--mw);margin:0 auto;padding:48px 20px 120px;font:var(--fs)/1.7 var(--ff);transition:max-width .3s}
+.kick{font:600 12px Inter;letter-spacing:.14em;text-transform:uppercase;color:#c2410c}
+h1{font:700 44px/1.1 "Source Serif 4",serif;margin:10px 0 14px}.deck{font-size:1.15em;color:var(--mut);margin:0 0 8px}.by{font:14px Inter;color:var(--mut);margin-bottom:34px}
+h2{font:700 1.4em/1.2 "Source Serif 4",serif;margin:2em 0 .5em}
+p{margin:0 0 1.2em}
+blockquote{margin:1.8em 0;padding-left:20px;border-left:4px solid #c2410c;font-size:1.3em;font-style:italic}cite{display:block;font:14px Inter;color:var(--mut);margin-top:6px;font-style:normal}
+@media(max-width:600px){h1{font-size:32px}.gw{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div id="pg"></div>
+<div class="w" id="w"><header>Tidewrack <span>Quarterly</span></header>
+<div class="tb" role="toolbar" aria-label="Reading controls">
+<div class="g"><span>Size</span><button id="sm" aria-label="Smaller text">A−</button><button id="lg" aria-label="Larger text">A+</button></div>
+<div class="g"><span>Font</span><button data-f="serif" aria-pressed="true">Serif</button><button data-f="sans" aria-pressed="false">Sans</button></div>
+<div class="g gw"><span>Width</span><button data-w="560" aria-pressed="false">Narrow</button><button data-w="640" aria-pressed="true">Medium</button><button data-w="820" aria-pressed="false">Wide</button></div>
+<div class="g"><span>Theme</span><button data-t="" aria-pressed="true">Paper</button><button data-t="sepia" aria-pressed="false">Sepia</button><button data-t="night" aria-pressed="false">Night</button></div>
+<div class="left" id="left" aria-live="off">— min left</div></div>
+<article id="art"><div class="kick">Field notes</div><h1>The Lamp at Skerrow Point</h1><p class="deck">Every winter, someone lights the window of an empty lighthouse cottage. Nobody will say who.</p><div class="by">By Ines Callow · 6 min read</div>
+<p>The lighthouse at Skerrow Point was automated in 1987, and the keeper's cottage has stood empty ever since. Yet every winter, someone leaves a lamp burning in its upstairs window.</p><p>Nobody on the island will say who. The postmistress shrugs, the fishermen change the subject, and the children — who know everything — invent a different answer each year.</p><h2>A habit, not a mystery</h2><p>I spent the winter of last year trying to find out. What I found was less a mystery than a habit: a community that had decided, without ever deciding, that the window should not go dark.</p><blockquote>“It isn't for the ships. It's for us.”<cite>— a retired net-mender</cite></blockquote><p>The pattern is older than the lighthouse. Parish records mention a lamp at Skerrow as early as 1790, kept by whoever had lost someone to the water that year. It was a private grief made public by a single flame.</p><h2>Forty-one names</h2><p>In 1962 the practice nearly ended. The cottage roof failed, and the council proposed demolition. A petition of forty-one names — nearly the whole island — saved it, and the signatories each took a month of the year to look after the lamp.</p><p>Today the rota lives on a faded sheet taped inside the harbour shop door. There are twelve names and twelve months, and the names change quietly, the way old things are passed on: no ceremony, just a different hand on the switch.</p></article></div>
+<script>
+const w=document.getElementById("w"),art=document.getElementById("art"),$=s=>document.querySelector(s);let fs=19;
+function save(){try{localStorage.setItem("rc",JSON.stringify({fs,f:w.style.getPropertyValue("--ff")}))}catch(e){}}
+function pressed(sel,v,attr){document.querySelectorAll(sel).forEach(b=>b.setAttribute("aria-pressed",b.dataset[attr]===v))}
+function size(d){fs=Math.min(24,Math.max(16,fs+d));w.style.setProperty("--fs",fs+"px");upd();save()}
+$("#sm").onclick=()=>size(-1);$("#lg").onclick=()=>size(1);
+document.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{w.style.setProperty("--ff",b.dataset.f=="sans"?"Inter,system-ui,sans-serif":'"Source Serif 4",Georgia,serif');pressed("[data-f]",b.dataset.f,"f");upd()});
+document.querySelectorAll("[data-w]").forEach(b=>b.onclick=()=>{w.style.setProperty("--mw",b.dataset.w+"px");pressed("[data-w]",b.dataset.w,"w");upd()});
+document.querySelectorAll("[data-t]").forEach(b=>b.onclick=()=>{w.className="w "+b.dataset.t;pressed("[data-t]",b.dataset.t,"t")});
+document.addEventListener("keydown",e=>{if(e.target.matches("input,textarea"))return;if(e.key=="+"||e.key=="=")size(1);if(e.key=="-")size(-1)});
+const words=art.innerText.trim().split(/\s+/).length;
+function upd(){const r=art.getBoundingClientRect(),p=Math.min(1,Math.max(0,-r.top/Math.max(1,r.height-innerHeight)));
+document.getElementById("pg").style.width=(p*100)+"%";const left=Math.max(0,Math.ceil(words/220*(1-p)));$("#left").textContent=left?left+" min left":"Finished"}
+addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);upd();
+</script></body></html>

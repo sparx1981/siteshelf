@@ -1,0 +1,52 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Orbit Notes — Vote on what ships first</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#f2f5fa;--mut:#8b97aa;--ln:#232b38;--bl:#3b82f6;--li:#a3e635}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(#1a2130 1px,transparent 1px) 0 0/22px 22px,#0c0f14;color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif;display:grid;place-items:start center;padding:48px 16px}
+main{width:100%;max-width:640px;display:grid;gap:20px}
+.lg{font:700 18px "Space Grotesk";display:flex;gap:8px;align-items:center;justify-content:center}.lg i{width:16px;height:16px;border-radius:50%;border:3px solid var(--bl);box-shadow:0 0 14px var(--bl)}
+h1{font:700 clamp(32px,6vw,48px)/1.05 "Space Grotesk";margin:0;text-align:center;letter-spacing:-.02em}
+.sub{text-align:center;color:var(--mut);margin:-8px 0 0}
+.pn{background:#151a22;border:1px solid var(--ln);border-radius:20px;padding:16px;display:grid;gap:10px}
+.pn h2{margin:0 0 2px;font:700 14px "Space Grotesk";text-transform:uppercase;letter-spacing:.1em;color:var(--mut);display:flex;justify-content:space-between}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;position:relative}
+li{position:relative}
+.op{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;align-items:center;min-height:68px;padding:10px 16px;border:1.5px solid var(--ln);border-radius:14px;cursor:pointer;position:relative;overflow:hidden;background:#10151c;transition:border-color .2s}
+.op:hover{border-color:#37445a}.op:focus-visible{outline:3px solid var(--bl);outline-offset:2px}
+.op .bar{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,#3b82f633,#3b82f61a);width:0;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.op.lead .bar{background:linear-gradient(90deg,#a3e63533,#a3e6351a)}
+.op>*:not(.bar){position:relative}
+.op b{font:700 16px "Space Grotesk";display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.op small{color:var(--mut);grid-column:1}
+.op .v{grid-row:1/3;grid-column:2;text-align:right;font:700 20px "Space Grotesk";font-variant-numeric:tabular-nums}.op .v small{display:block;font:500 12px Inter;color:var(--mut)}
+.op.mine{border-color:var(--bl);box-shadow:0 0 0 3px #3b82f61f}
+.bd{font:600 11px Inter;background:var(--bl);color:#fff;border-radius:99px;padding:1px 8px}
+.cr{color:var(--li)}
+.op.bump .v{animation:bp .4s}@keyframes bp{40%{transform:scale(1.25)}}
+.ad{display:flex;gap:8px;flex-wrap:wrap}
+input{flex:1;min-width:180px;font:inherit;font-size:16px;background:#10151c;color:var(--ink);border:1.5px solid var(--ln);border-radius:12px;padding:0 14px;min-height:50px}
+input:focus{outline:none;border-color:var(--bl);box-shadow:0 0 0 4px #3b82f633}
+.b{border:0;background:var(--bl);color:#fff;border-radius:12px;min-height:50px;padding:0 20px;font:700 15px "Space Grotesk";cursor:pointer}.b.g{background:#232b38}
+.er{color:#ff8e8e;font-size:13px;min-height:18px;margin-top:-4px}
+.ok{color:var(--li);font-weight:600;min-height:20px}
+button:focus-visible{outline:3px solid var(--bl);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body><main><div class="lg"><i></i>Orbit Notes</div><h1>Help us choose what ships first</h1><p class="sub" id="sb">Launching in 18 days · <b id="tv">0</b> votes so far</p>
+<section class="pn" aria-label="Vote on features"><h2><span>Vote for one</span><span id="hint"></span></h2><ul id="ls"></ul>
+<form class="ad" id="af" novalidate><label for="sg" style="position:absolute;left:-9999px">Suggest a feature</label><input id="sg" maxlength="60" placeholder="Suggest another feature…" autocomplete="off"><button class="b g">Add</button></form><div class="er" id="er" role="alert"></div></section>
+<section class="pn" aria-label="Get notified"><h2><span>Get notified</span></h2><form class="ad" id="ef" novalidate><label for="em" style="position:absolute;left:-9999px">Email</label><input id="em" type="email" placeholder="you@example.com" autocomplete="email"><button class="b">Notify me</button></form><div class="ok" id="ok" role="status"></div></section></main>
+<div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div>
+<script>
+const $=s=>document.querySelector(s),rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+let O=[{id:1,t:"Offline mode",d:"Read and edit notes with no connection",v:312},{id:2,t:"Voice capture",d:"Dictate notes and get clean transcripts",v:268},{id:3,t:"Team spaces",d:"Shared notebooks with comments",v:231},{id:4,t:"Web clipper",d:"Save articles straight into a notebook",v:187},{id:5,t:"Handwriting",d:"Sketch and search ink on tablets",v:94}];
+let mine=null,nid=6;const say=m=>{const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)};
+const total=()=>O.reduce((a,b)=>a+b.v,0);
+function render(flip){const ul=$("#ls");const old={};if(flip)ul.querySelectorAll("li").forEach(li=>old[li.dataset.id]=li.getBoundingClientRect().top);const T=total(),S=[...O].sort((a,b)=>b.v-a.v||a.id-b.id);ul.innerHTML="";S.forEach((o,i)=>{const li=document.createElement("li");li.dataset.id=o.id;const b=document.createElement("button");b.className="op"+(i==0?" lead":"")+(mine==o.id?" mine":"");const pc=Math.round(o.v/T*100);b.innerHTML=`<span class="bar" style="width:0"></span><b><span></span>${i==0?'<span class="cr" aria-label="Leading">♛</span>':""}${mine==o.id?'<span class="bd">Your vote</span>':""}</b><small></small><span class="v">${o.v}<small>${pc}%</small></span>`;b.querySelector("b span").textContent=o.t;b.querySelector("small").textContent=o.d;b.setAttribute("aria-pressed",mine==o.id);b.setAttribute("aria-label",`${o.t}. ${o.d}. ${o.v} votes, ${pc} percent${mine==o.id?". Your vote. Press to remove":""}`);b.onclick=()=>vote(o.id);li.append(b);ul.append(li);requestAnimationFrame(()=>requestAnimationFrame(()=>b.querySelector(".bar").style.width=pc+"%"))});
+$("#tv").textContent=T.toLocaleString();$("#hint").textContent=mine?"Tap your pick again to undo":"";
+if(flip&&!rm)ul.querySelectorAll("li").forEach(li=>{const d=old[li.dataset.id]-li.getBoundingClientRect().top;if(d){li.animate([{transform:`translateY(${d}px)`},{transform:"none"}],{duration:450,easing:"cubic-bezier(.2,.8,.2,1)"})}})}
+function vote(id){const o=O.find(x=>x.id==id),prevLead=[...O].sort((a,b)=>b.v-a.v)[0].id;if(mine==id){o.v--;mine=null;say("Vote removed")}else{if(mine)O.find(x=>x.id==mine).v--;o.v++;mine=id;say("You voted for "+o.t)}render(true);const nl=[...O].sort((a,b)=>b.v-a.v||a.id-b.id)[0];if(nl.id!=prevLead)say(nl.t+" is now leading");const b=$("#ls [data-id='"+id+"'] .op");b&&b.classList.add("bump");b&&b.focus()}
+$("#af").onsubmit=e=>{e.preventDefault();const v=$("#sg").value.trim(),er=$("#er");if(v.length<3){er.textContent="Describe the feature in at least 3 characters.";return}if(O.length>=7){er.textContent="That's the maximum of 7 options.";return}if(O.some(o=>o.t.toLowerCase()==v.toLowerCase())){er.textContent="That idea is already on the list. Vote for it instead.";return}er.textContent="";O.push({id:nid++,t:v[0].toUpperCase()+v.slice(1),d:"Suggested by a visitor",v:1});$("#sg").value="";render(true);say("Added “"+v+"” to the list")};
+$("#ef").onsubmit=e=>{e.preventDefault();const v=$("#em").value.trim(),ok=$("#ok");if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v)){ok.style.color="#ff8e8e";ok.textContent="Please enter a valid email address.";return}ok.style.color="";ok.textContent="Done. We'll email "+v+" when the winner ships."};
+render();
+</script></body></html>

@@ -1,0 +1,11 @@
+Canvas & base: Light #f4f6fb, cards white #fff with #e3e8f2 border and 16px radius, ink #121a2b, secondary #66718a, project colours Atlas #4f46e5, Beacon #0ea5e9, Cedar #10b981, Drift #f59e0b, warning red #ef4444, capacity line #121a2b. Invented team of 7.
+
+Typography: "Manrope" (500,700,800) at 14px; KPI numerals 30px.
+
+Layout: Header with title, week navigator (prev, "Mar 10 – 16", next), legend chips for four projects (toggle filter). KPI row (Team capacity, Booked hours, Utilisation %, Overloaded people). A list of 7 rows: avatar initial, name, role, a horizontal stacked bar (segments per project, width = hours/40) with a dashed 40h capacity marker and total hours label turning red above 40; each segment is a focusable button.
+
+Interaction: Week navigation swaps deterministic generated data for that week; legend chips filter which projects show (dimming others and recalculating totals); clicking a segment opens a small popover with project, hours, and Move options ("Move 4h to…" a select of people with the least load) that reassigns hours and re-renders with animated bar widths; overload rows show a warning badge and sort-toggle "Sort by load"; KPIs recalc after every change; announce reassignments; keyboard accessible segments with aria-labels.
+
+Responsive: Rows stack name above the bar under 640px; KPI row 2×2.
+
+Rules: No libraries or external images, hidden attribute respected, 44px interactive targets (segments min 28px high but row hit area 44px), reduced-motion disables width transitions.

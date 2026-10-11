@@ -1,0 +1,11 @@
+Canvas & base: Light slate page (#eef1f6) showing a small card of four trigger buttons. Overlay rgba(15,23,42,.55) with a 4px backdrop blur. Dialog surfaces white, 16px radius.
+
+Typography: DM Sans; 20px dialog titles, 15px body. Destructive actions in #dc2626.
+
+Layout: Triggers: Confirm delete (centred modal), Edit profile (modal with form), Filters (right drawer 360px) and Share (bottom sheet on mobile, modal on desktop).
+
+Interaction: Native-like behaviour: focus moves into the dialog, Tab is trapped, Escape and backdrop click close, background gets inert, scroll is locked, and focus returns to the trigger. Confirm delete requires typing the word DELETE to enable the button. Profile form validates and closes with a toast. Drawer slides in; sheet slides up and can be dismissed by dragging down on its handle.
+
+Responsive: Drawer becomes full width below 480px; sheet always docks to the bottom on mobile.
+
+Rules: Single HTML file, role=dialog, aria-modal, aria-labelledby, prefers-reduced-motion disables slides, invented content.

@@ -1,0 +1,11 @@
+Canvas & base: Soft lilac page (#f3f0fb), centred 680px panel in white with 20px radius. Plum #5b2ea6 primary, mint #2fbf8f for the recommended badge.
+
+Typography: Plus Jakarta Sans throughout; 28px question titles, 15px option descriptions.
+
+Layout: Progress dots at top, one question at a time as large radio cards (team size, storage needs, support level). Result screen shows a recommended plan card with feature list, price, and two quiet alternatives beside it.
+
+Interaction: Choosing a card scores weights toward Starter, Studio or Scale and auto-advances after 350ms; Back button restores answers. Result screen has a Monthly/Yearly toggle that updates all prices (yearly = 2 months free) and a "Retake quiz" button. Keyboard: radio groups with arrow keys, focus moves to the new heading on each step.
+
+Responsive: Alternatives stack under the main card below 600px.
+
+Rules: Single HTML file, inline CSS/JS, invented product "Parcelo", respect prefers-reduced-motion, aria-live for step changes.

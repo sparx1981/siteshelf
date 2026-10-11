@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Harbor Pay Help — FAQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0e1a2b;--mut:#5d6b82;--ln:#e1e7ef;--ac:#2457ff;--ti:#e8eeff}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f6f8fb;color:var(--ink);font:16px/1.6 "Public Sans",system-ui,sans-serif;padding:40px 16px 80px}
+.w{max-width:1000px;margin:0 auto}
+h1{font-size:clamp(30px,5vw,42px);line-height:1.1;margin:0 0 6px;letter-spacing:-.02em}.sub{color:var(--mut);margin:0 0 20px}
+.sr{position:relative;margin-bottom:22px}
+.sr input{width:100%;font:inherit;font-size:17px;border:1.5px solid var(--ln);border-radius:14px;padding:0 90px 0 48px;min-height:56px;background:#fff}
+.sr input:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 4px #2457ff22}
+.sr svg{position:absolute;left:16px;top:18px;width:20px;height:20px;stroke:var(--mut);fill:none;stroke-width:2}
+.sr kbd{position:absolute;right:14px;top:16px;border:1px solid var(--ln);border-radius:6px;padding:0 8px;font:600 13px "Public Sans";color:var(--mut);background:#f6f8fb;line-height:22px}
+.sr button{position:absolute;right:8px;top:6px;border:0;background:none;color:var(--ac);font:700 14px "Public Sans";min-height:44px;padding:0 12px;cursor:pointer}
+.ly{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:24px;align-items:start}
+.tb{display:flex;gap:8px;overflow-x:auto;margin-bottom:14px;padding-bottom:2px}
+.tb button{display:flex;gap:8px;align-items:center;border:1.5px solid var(--ln);background:#fff;border-radius:99px;min-height:46px;padding:0 16px;font:600 15px "Public Sans";cursor:pointer;white-space:nowrap;color:var(--ink)}
+.tb button small{background:#eef1f6;border-radius:99px;padding:0 8px;font-size:12px;color:var(--mut)}
+.tb button[aria-selected=true]{background:var(--ac);color:#fff;border-color:var(--ac)}.tb button[aria-selected=true] small{background:#ffffff33;color:#fff}
+.ph{display:flex;justify-content:space-between;align-items:center;margin:0 0 8px;color:var(--mut);font-size:14px}
+.ph button{border:0;background:none;color:var(--ac);font:700 14px "Public Sans";cursor:pointer;min-height:44px}
+.ac{background:#fff;border:1px solid var(--ln);border-radius:18px;overflow:hidden}
+.it+.it{border-top:1px solid var(--ln)}
+.it h3{margin:0}
+.it>h3>button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:0 20px;min-height:60px;font-weight:600;cursor:pointer}
+.it>h3>button:hover{background:#fafbfd}.it>h3>button:focus-visible{outline:3px solid var(--ac);outline-offset:-3px}
+.it .pl{font-size:22px;color:var(--ac);transition:transform .25s;flex:none}.it.open .pl{transform:rotate(45deg)}
+.pn{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}.it.open .pn{grid-template-rows:1fr}
+.pn>div{overflow:hidden}
+.pn .b{padding:0 20px 18px;color:#38465c}.pn p{margin:0 0 12px}
+.vt{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--mut)}
+.vt button{border:1px solid var(--ln);background:#fff;border-radius:99px;min-height:36px;padding:0 14px;font:600 13px "Public Sans";cursor:pointer;color:var(--ink)}
+mark{background:#ffe58f;color:inherit;border-radius:3px;padding:0 1px}
+.side{background:#fff;border:1px solid var(--ln);border-radius:18px;padding:22px;display:grid;gap:10px;position:sticky;top:20px}
+.side h2{margin:0;font-size:18px}.side p{margin:0;color:var(--mut);font-size:15px}
+.btn{border:1.5px solid var(--ac);background:#fff;color:var(--ac);border-radius:12px;min-height:46px;font:700 15px "Public Sans";cursor:pointer}.btn.p{background:var(--ac);color:#fff}
+.gh{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);font-weight:700;margin:18px 0 8px}
+.em{background:#fff;border:1px dashed #c3cde0;border-radius:18px;padding:30px;text-align:center;color:var(--mut)}
+.em .sg{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:12px 0}.em .sg button{border:1px solid var(--ln);background:var(--ti);color:var(--ac);border-radius:99px;min-height:44px;padding:0 14px;font:600 14px "Public Sans";cursor:pointer}
+button:focus-visible{outline:3px solid #2457ff66;outline-offset:2px}
+@media(max-width:820px){.ly{grid-template-columns:minmax(0,1fr)}.side{position:static}}
+@media(prefers-reduced-motion:reduce){.pn,.it .pl{transition:none}}
+</style></head><body><div class="w"><h1>How can we help?</h1><p class="sub">Search the Harbor Pay help centre or browse by topic.</p>
+<div class="sr"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><label for="q" style="position:absolute;left:-9999px">Search help</label><input id="q" type="search" placeholder="Search for refunds, fees, 2FA…" autocomplete="off"><kbd id="kb">/</kbd><button id="cl" hidden>Clear</button></div>
+<div class="ly"><div><div class="tb" role="tablist" aria-label="Categories" id="tb"></div><div id="pn"></div></div>
+<aside class="side"><h2>Still stuck?</h2><p>Our support team replies in under 2 hours, 7 days a week.</p><button class="btn p" id="cs">Contact support</button><button class="btn" id="lc">Start live chat</button><p id="cm" role="status" style="color:#0b7a4d;font-weight:600"></p></aside></div></div>
+<div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div>
+<script>
+const $=s=>document.querySelector(s);
+const C=[["Getting started","started",[["How do I create a Harbor Pay account?","Tap Sign up, enter your business email and verify it with the six-digit code. Setup takes about three minutes and you can start accepting test payments immediately."],["Do I need a business registration?","Sole traders can sign up with a personal ID. Registered companies add their registration number later to raise payout limits."],["How do I connect my website?","Use our plugin for popular shop builders or paste the checkout button snippet from Settings → Developers into your page."],["Can I try it before going live?","Yes. Test mode gives you sample cards and a sandbox dashboard. Switch to live mode when you're ready."]]],
+["Payments","payments",[["Which payment methods can customers use?","Cards, Apple Pay, Google Pay, bank transfer and buy-now-pay-later are available in most regions."],["How long do payouts take?","Standard payouts arrive in two working days. Instant payouts reach your bank within minutes for a small fee."],["How do I issue a refund?","Open the payment in your dashboard and choose Refund. Full and partial refunds are supported for 180 days."],["What is a chargeback?","A chargeback is when a customer disputes a payment with their bank. We'll notify you and help you submit evidence."],["Can I take recurring payments?","Yes. Create a subscription plan and Harbor Pay handles billing, retries and invoices automatically."]]],
+["Fees","fees",[["What does Harbor Pay cost?","1.4% plus 20 cents per European card payment and 2.4% plus 20 cents for international cards. There are no monthly fees."],["Are there fees for refunds?","We don't return the original processing fee on refunds, but we never add extra refund charges."],["Do you offer volume discounts?","Businesses processing over $80,000 a month can request custom pricing from our sales team."],["Is there a fee for chargebacks?","A $15 fee applies per chargeback, refunded if you win the dispute."]]],
+["Security","security",[["Is Harbor Pay PCI compliant?","Yes. We are certified PCI DSS Level 1, the highest level, and card details never touch your servers."],["How do I turn on two-factor authentication?","Go to Settings → Security → Two-factor and scan the QR code with an authenticator app. We also support passkeys."],["What happens if I spot fraud?","Freeze your account from the dashboard instantly and contact support. We investigate within the hour."],["Where is my data stored?","Customer and payment data is stored in EU data centres with encryption at rest and in transit."]]],
+["Account","account",[["How do I change my bank account?","Open Settings → Payouts, add the new account and verify the two small deposits we send. The switch takes one working day."],["Can I add teammates?","Yes. Invite teammates with Admin, Finance or Support roles from Settings → Team."],["How do I close my account?","Withdraw your balance, then choose Close account in Settings. Records are retained for seven years as required by law."]]]];
+let cat=0,openId=null,q="";const voted={};
+const say=m=>{const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)};
+const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const hl=s=>{if(!q)return esc(s);return esc(s).replace(new RegExp("("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","ig"),"<mark>$1</mark>")};
+function tabs(){const t=$("#tb");t.hidden=!!q;t.innerHTML="";C.forEach((c,i)=>{const b=document.createElement("button");b.id="tab-"+c[1];b.setAttribute("role","tab");b.setAttribute("aria-selected",i==cat);b.setAttribute("aria-controls","pn");b.tabIndex=i==cat?0:-1;b.innerHTML=`${c[0]}<small>${c[2].length}</small>`;b.onclick=()=>{cat=i;render()};b.onkeydown=e=>{let j=i;if(e.key=="ArrowRight")j=(i+1)%C.length;else if(e.key=="ArrowLeft")j=(i+C.length-1)%C.length;else if(e.key=="Home")j=0;else if(e.key=="End")j=C.length-1;else return;e.preventDefault();cat=j;render();$("#tab-"+C[j][1]).focus()};t.append(b)})}
+function item(c,k,ci){const id=c[1]+"-"+(k+1),it=c[2][k],d=document.createElement("div");d.className="it"+(openId==id?" open":"");d.id=id;d.innerHTML=`<h3><button aria-expanded="${openId==id}" aria-controls="a-${id}"><span>${hl(it[0])}</span><span class="pl" aria-hidden="true">+</span></button></h3><div class="pn" id="a-${id}" role="region" aria-labelledby=""><div><div class="b"><p>${hl(it[1])}</p><div class="vt"><span>Was this helpful?</span><button data-v="1">Yes</button><button data-v="0">No</button></div></div></div></div>`;const btn=d.querySelector("h3 button");d.querySelector(".pn").setAttribute("aria-labelledby","");btn.onclick=()=>{const o=openId==id;openId=o?null:id;if(!o)history.replaceState(null,"","#"+id);else history.replaceState(null,"",location.pathname);d.classList.toggle("open",!o);btn.setAttribute("aria-expanded",!o)};
+const vt=d.querySelector(".vt");const done=()=>{vt.innerHTML=`<span>${voted[id]=="1"?"Thanks for the feedback!":"Thanks. We'll work on improving this answer."}</span>`};if(voted[id])done();else vt.querySelectorAll("button").forEach(b=>b.onclick=()=>{voted[id]=b.dataset.v;done();say("Feedback recorded")});return d}
+function render(){tabs();const p=$("#pn");p.innerHTML="";if(q){const res=[];C.forEach((c,ci)=>c[2].forEach((it,k)=>{if((it[0]+" "+it[1]).toLowerCase().includes(q.toLowerCase()))res.push([ci,k])}));say(res.length+" results");if(!res.length){p.innerHTML=`<div class="em"><b>No results for “${esc(q)}”</b><div class="sg"><button>refund</button><button>fees</button><button>two-factor</button><button>payout</button></div>Can't find it? Contact support using the card on the right.</div>`;p.querySelectorAll(".sg button").forEach(b=>b.onclick=()=>{$("#q").value=b.textContent;q=b.textContent;$("#cl").hidden=false;render()});return}
+const ac=document.createElement("div");let last=-1;const wrap=[];res.forEach(([ci,k])=>{if(ci!=last){last=ci;const h=document.createElement("div");h.className="gh";h.textContent=C[ci][0];p.append(h);const a=document.createElement("div");a.className="ac";p.append(a);wrap[ci]=a}wrap[ci].append(item(C[ci],k,ci))});return}
+const c=C[cat];const h=document.createElement("div");h.className="ph";const allOpen=false;h.innerHTML=`<span>${c[2].length} articles in ${c[0]}</span><button id="ea">Expand all</button>`;p.append(h);p.setAttribute("role","tabpanel");p.setAttribute("aria-labelledby","tab-"+c[1]);const a=document.createElement("div");a.className="ac";c[2].forEach((_,k)=>a.append(item(c,k,cat)));p.append(a);
+const ea=$("#ea");ea.onclick=()=>{const items=[...a.querySelectorAll(".it")];const open=items.every(i=>i.classList.contains("open"));items.forEach(i=>{i.classList.toggle("open",!open);i.querySelector("h3 button").setAttribute("aria-expanded",!open)});ea.textContent=open?"Expand all":"Collapse all"}}
+$("#q").oninput=e=>{q=e.target.value.trim();$("#cl").hidden=!q;$("#kb").hidden=!!q;render()};
+$("#cl").onclick=()=>{$("#q").value="";q="";$("#cl").hidden=true;$("#kb").hidden=false;render();$("#q").focus()};
+document.addEventListener("keydown",e=>{if(e.key=="/"&&document.activeElement!=$("#q")){e.preventDefault();$("#q").focus()}else if(e.key=="Escape"&&document.activeElement==$("#q")&&q)$("#cl").click()});
+$("#cs").onclick=()=>{$("#cm").textContent="Support ticket draft opened. We'll reply within 2 hours."};$("#lc").onclick=()=>{$("#cm").textContent="Connecting you to a human… (demo)"};
+(function(){const h=location.hash.slice(1);if(h){const ci=C.findIndex(c=>h.startsWith(c[1]+"-"));if(ci>-1){cat=ci;openId=h}}render();if(openId){const el=document.getElementById(openId);el&&el.scrollIntoView({block:"center"})}})();
+</script></body></html>

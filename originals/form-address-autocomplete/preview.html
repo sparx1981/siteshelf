@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Address Form</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f6f3ee;color:#1d2a2f;font:16px/1.5 Inter,system-ui,sans-serif;min-height:100vh;display:grid;place-items:center;padding:24px 16px}
+.card{width:100%;max-width:560px;background:#fff;border-radius:16px;padding:32px;box-shadow:0 12px 40px rgba(29,42,47,.12)}
+h1{font:600 28px Fraunces,serif;margin:0 0 4px}p.sub{margin:0 0 24px;color:#5b6b70}
+label{display:block;font-size:13px;font-weight:600;margin:0 0 6px}
+input{width:100%;font:inherit;padding:11px 12px;border:1.5px solid #cfd8d6;border-radius:10px;background:#fff;color:inherit}
+input:focus{outline:3px solid rgba(15,118,110,.25);border-color:#0f766e}
+input[aria-invalid=true]{border-color:#b42318}
+.err{color:#b42318;font-size:12.5px;min-height:18px;margin-top:4px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px;margin-top:16px}
+.full{grid-column:1/-1}
+.combo{position:relative}
+ul.list{position:absolute;left:0;right:0;top:100%;margin:6px 0 0;padding:6px;list-style:none;background:#fff;border:1px solid #d9e2e0;border-radius:12px;box-shadow:0 14px 30px rgba(0,0,0,.14);z-index:5;max-height:260px;overflow:auto}
+li{padding:9px 10px;border-radius:8px;cursor:pointer;font-size:15px}li small{display:block;color:#6a7a7f}
+li[aria-selected=true]{background:#e3f3f1}
+mark{background:none;font-weight:700;color:#0f766e}
+.flash{animation:fl 1s}@keyframes fl{from{background:#d7f0ec}to{background:#fff}}
+.link{background:none;border:0;color:#0f766e;font:inherit;font-weight:600;cursor:pointer;padding:6px 0;text-decoration:underline}
+button.go{margin-top:18px;width:100%;padding:13px;border:0;border-radius:10px;background:#0f766e;color:#fff;font:600 16px Inter;cursor:pointer}
+button.go:hover{background:#0b5f58}
+.sum{margin-top:20px;padding:14px 16px;border-radius:12px;background:#f1f6f5;border:1px dashed #9cc7c2;font-size:14px;white-space:pre-line}
+.sum.ok{background:#e6f6ee;border-style:solid;border-color:#6bbf95}
+@media(max-width:520px){.grid{grid-template-columns:minmax(0,1fr)}.card{padding:22px}}
+@media(prefers-reduced-motion:reduce){.flash{animation:none}}
+</style></head><body><main class="card">
+<h1>Where should we deliver?</h1><p class="sub">Start typing and pick a match, or enter it by hand.</p>
+<form id="f" novalidate>
+<div class="combo"><label for="q">Find your address</label>
+<input id="q" role="combobox" aria-expanded="false" aria-controls="lb" aria-autocomplete="list" autocomplete="off" placeholder="e.g. 12 Larch">
+<ul class="list" id="lb" role="listbox" hidden></ul></div>
+<button type="button" class="link" id="man">Enter manually</button>
+<div id="fields" class="grid" hidden>
+<div class="full"><label for="st">Street</label><input id="st" autocomplete="address-line1"><div class="err" data-for="st"></div></div>
+<div><label for="ap">Apartment (optional)</label><input id="ap"><div class="err"></div></div>
+<div><label for="ci">City</label><input id="ci" autocomplete="address-level2"><div class="err" data-for="ci"></div></div>
+<div><label for="rg">Region</label><input id="rg"><div class="err" data-for="rg"></div></div>
+<div><label for="pc">Postcode</label><input id="pc" placeholder="AB12 3CD"><div class="err" data-for="pc"></div></div>
+</div>
+<button class="go" type="submit">Confirm address</button>
+<div class="sum" id="sum" aria-live="polite">Nothing entered yet.</div>
+</form></main>
+<script>
+const A=[["12 Larch Row","Fernbury","Northmere","FB4 2LR"],["12 Larkspur Close","Oakholt","Northmere","OH1 9QT"],["48 Larch Hill","Marrow Bay","Westfold","MB7 3XP"],["7 Quillon Street","Fernbury","Northmere","FB2 8NA"],["301 Quarry Lane","Tidewick","Eastmarsh","TW5 6DJ"],["19 Linden Wharf","Marrow Bay","Westfold","MB1 4HE"],["5 Lantern Yard","Oakholt","Northmere","OH3 7BB"],["88 Harbour Steps","Tidewick","Eastmarsh","TW2 1GF"]];
+const $=s=>document.querySelector(s),q=$("#q"),lb=$("#lb"),F=["st","ci","rg","pc"].map(i=>$("#"+i));
+let res=[],cur=-1;
+const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+function open(v){res=v.length<2?[]:A.filter(a=>a[0].toLowerCase().includes(v.toLowerCase())||a[1].toLowerCase().startsWith(v.toLowerCase()));cur=-1;
+lb.innerHTML=res.map((a,i)=>{let t=esc(a[0]),k=a[0].toLowerCase().indexOf(v.toLowerCase());if(k>-1)t=esc(a[0].slice(0,k))+"<mark>"+esc(a[0].slice(k,k+v.length))+"</mark>"+esc(a[0].slice(k+v.length));return`<li role="option" id="o${i}" data-i="${i}">${t}<small>${a[1]}, ${a[2]} ${a[3]}</small></li>`}).join("")||(v.length>1?'<li aria-disabled="true">No matches — try "Enter manually"</li>':"");
+lb.hidden=!lb.innerHTML;q.setAttribute("aria-expanded",!lb.hidden)}
+function mark(){lb.querySelectorAll("li[role=option]").forEach((l,i)=>l.setAttribute("aria-selected",i==cur));q.setAttribute("aria-activedescendant",cur>-1?"o"+cur:"")}
+function pick(i){const a=res[i];if(!a)return;$("#fields").hidden=false;[a[0],a[1],a[2],a[3]].forEach((v,j)=>{F[j].value=v;F[j].classList.remove("flash");void F[j].offsetWidth;F[j].classList.add("flash")});q.value=a[0];lb.hidden=true;q.setAttribute("aria-expanded","false");F.forEach(chk);}
+q.addEventListener("input",()=>open(q.value));
+q.addEventListener("keydown",e=>{if(lb.hidden)return;if(e.key=="ArrowDown"){e.preventDefault();cur=Math.min(res.length-1,cur+1);mark()}else if(e.key=="ArrowUp"){e.preventDefault();cur=Math.max(0,cur-1);mark()}else if(e.key=="Enter"&&cur>-1){e.preventDefault();pick(cur)}else if(e.key=="Escape"){lb.hidden=true;q.setAttribute("aria-expanded","false")}});
+lb.addEventListener("mousedown",e=>{const l=e.target.closest("li[data-i]");if(l){e.preventDefault();pick(+l.dataset.i)}});
+document.addEventListener("click",e=>{if(!e.target.closest(".combo")){lb.hidden=true}});
+$("#man").onclick=()=>{$("#fields").hidden=false;F[0].focus()};
+function chk(el){const e=document.querySelector(`.err[data-for=${el.id}]`),v=el.value.trim();let m="";if(!v)m="Required.";else if(el.id=="pc"&&!/^[A-Za-z]{2}\d{1,2}\s?\d[A-Za-z]{2}$/.test(v))m="Use a format like AB12 3CD.";e.textContent=m;el.setAttribute("aria-invalid",!!m);return!m}
+F.forEach(f=>f.addEventListener("blur",()=>chk(f)));
+$("#f").addEventListener("submit",e=>{e.preventDefault();$("#fields").hidden=false;const ok=F.map(chk).every(Boolean),s=$("#sum");
+if(ok){s.className="sum ok";s.textContent="Deliver to\n"+[F[0].value+($("#ap").value?", "+$("#ap").value:""),F[1].value+", "+F[2].value,F[3].value.toUpperCase()].join("\n")}else{s.className="sum";s.textContent="Please fix the highlighted fields.";F.find(f=>f.getAttribute("aria-invalid")=="true").focus()}});
+</script></body></html>

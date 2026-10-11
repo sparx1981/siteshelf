@@ -1,0 +1,11 @@
+Canvas & base: Warm cream #fff8ef background, ink #231a14, secondary #7a6a5c, accent tangerine #ff7a2f, accent teal #0f9d8a, deep brown #3a2417 for dark sections. Invented app "Kindle Habit" (a gentle habit tracker).
+
+Typography: "Bricolage Grotesque" (600,800) for headings clamp(38px,6vw,72px), "Figtree" (400,500,700) at 17px for body.
+
+Layout: Nav (logo, links, Download button). Hero in two columns: headline "Small habits, big glow", subcopy, two store badge buttons (App Store, Google Play made from CSS/text, no logos), rating line; right a CSS phone mockup (rounded rectangle, notch, status bar) with a live screen. Below hero a feature tab row (Streaks, Reminders, Insights) that swaps the phone screen content and an explanatory text block; a stats strip (4M users, 4.8 rating, 12 languages, 92% keep going); a testimonial pair; a dark download section with a QR-style grid pattern generated in JS and a "Send me a link" email field.
+
+Interaction: Tabs follow ARIA tab pattern with arrow keys; screen content transitions (slide/fade) and animates: Streaks shows a week row with ticking days and a flame counter incrementing; Reminders shows toggles list that actually toggle; Insights shows a small bar chart growing. Floating chips ("Day 12 🔥", "Time to stretch") bob gently. Email form validates and shows confirmation. Scroll reveal for sections.
+
+Responsive: Hero stacks, phone scales; tabs scroll horizontally.
+
+Rules: No libraries or external images, reduced-motion disables bobbing/reveal/transitions, hidden attribute respected, 44px targets, invented content only.

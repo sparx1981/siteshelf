@@ -1,0 +1,11 @@
+Canvas & base: Deep navy (#0b1220) full-height page with a faint dotted grid. Centre column 720px. Amber #f5b84b for the maintenance accent, green #34d399 for restored services.
+
+Typography: Space Grotesk for headings and numerals, IBM Plex Sans for body. Countdown in 56px tabular numerals.
+
+Layout: Wrench icon in a ring, heading "Back shortly", a four-unit countdown (hrs/min/sec), a progress bar with percentage, then a status card listing five services each with a coloured dot and state. A notify-me email form closes the page.
+
+Interaction: Countdown ticks every second to a target 47 minutes away. Progress advances with time; services flip from "Updating" to "Operational" in sequence and the page title updates to "Back soon (N/5 up)". When the countdown ends the heading changes to "We're back" and a reload button appears. Email form validates and confirms inline.
+
+Responsive: Countdown cells shrink to 64px wide on mobile; service rows stay single-line with truncation.
+
+Rules: Single HTML file, invented service names, no network calls, prefers-reduced-motion stops pulsing, aria-live=polite on status changes.

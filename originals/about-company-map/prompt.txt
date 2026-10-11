@@ -1,0 +1,11 @@
+Canvas & base: Light sand #f7f4ee, ink #1c1a17, secondary #6f6a60, map land #e6dfd1, map sea #f7f4ee with dotted grid, pins in accent coral #ff5a3c, pin halo rgba(255,90,60,.25), card white. Invented company "Lattice & Loom" with 6 offices.
+
+Typography: "Epilogue" (500,700,800) for headings clamp(36px,5vw,64px), "Inter" 16px body.
+
+Layout: Header intro (eyebrow "About us", headline, short paragraph), then a wide map card (16:9) with a simplified dot-matrix world map generated from a coarse bitmap (rows of strings rendered as small circles via JS into an SVG) and six pins (Lisbon, Toronto, Nairobi, Singapore, Melbourne, São Paulo) positioned by lon/lat; a legend list beside it with city, headcount and local time. Under the map: three stat blocks (people, countries, years) counting up, and a values list with numbered rows.
+
+Interaction: Hovering or focusing a pin (pins are buttons) pulses it and shows a card with city, team size, timezone and local time computed with Intl, plus a "Say hi" line; the legend rows highlight the matching pin and vice versa; arrow keys cycle pins; Escape closes the card; local times tick each minute; counters animate once when scrolled into view.
+
+Responsive: Legend moves under the map; pin card anchors to nearest edge to avoid overflow.
+
+Rules: No libraries or external images, hidden attribute respected, 44px pin hit areas, reduced-motion disables pulses and count-up, invented company only.

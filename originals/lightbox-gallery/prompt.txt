@@ -1,0 +1,11 @@
+Canvas & base: A gallery site on #111113 with ink #f4f2ee, secondary #9a978f, accent amber #e8b04a, lightbox backdrop rgba(8,8,10,.96). Invented photographer "Elin Marwood — Coastal Light". Photos are generated inline as SVG scenes (sky gradients, sun/moon, layered hills or waves, boats, cliffs) so no external images are needed; each has an invented title, location and aspect ratio.
+
+Typography: "Cormorant Garamond" (500,600) for title and captions at 20–48px; "Karla" (400,500,700) for UI at 14px.
+
+Layout: Header with name and nav, then category filter pills (All, Sea, Cliffs, Dusk, Fog). A masonry-like justified grid of 16 tiles with mixed aspect ratios (CSS columns or grid with row spans), each showing a caption on hover. The lightbox is a dialog covering the viewport with a top bar (counter, zoom, slideshow play, fullscreen, close), large image centre with previous and next arrows, a caption block (title, place, settings like "f/8 · 1/250s") and a bottom filmstrip of thumbnails.
+
+Interaction: Opening a tile launches the lightbox at that photo. Arrow keys navigate, Escape closes, + and - zoom, 0 resets, Space toggles slideshow (4s interval with a progress bar, paused on hover). Double-click or the zoom button toggles 2x, and when zoomed the image is draggable with pointer events. Touch swipe left or right changes photo. The filmstrip scrolls the active thumbnail into view. Filters respect the lightbox sequence (only filtered photos). Focus is trapped in the dialog and restored to the tile on close. A live region announces "Photo 3 of 16: title". Neighbouring photos are preloaded by simple state; no network needed.
+
+Responsive: The grid is 3 columns on desktop, 2 below 900px, 1 below 520px; the filmstrip hides on small heights; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Use native dialog with a fallback, visible focus, respect prefers-reduced-motion, invented names only.

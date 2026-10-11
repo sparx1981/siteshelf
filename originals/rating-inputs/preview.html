@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rating &amp; Slider Inputs — Form Controls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#2b2118;--mut:#86735e;--am:#f59e0b;--dp:#b45309;--bd:#f0e4d0;--fo:#7c3aed}
+*{box-sizing:border-box}
+body{margin:0;background:#fff8ef;color:var(--ink);font:600 16px/1.5 Nunito,system-ui,sans-serif;padding:30px 16px 70px}
+:focus-visible{outline:3px solid var(--fo);outline-offset:3px;border-radius:8px}
+.card{max-width:620px;margin:0 auto;background:#fff;border:1px solid var(--bd);border-radius:24px;padding:28px;box-shadow:0 18px 40px rgba(180,83,9,.08)}
+h1{font:800 26px/1.2 Nunito;margin:0 0 4px}.sub{color:var(--mut);margin:0 0 6px}
+.sec{padding:22px 0;border-top:1px solid var(--bd);margin-top:18px}
+.sec:first-of-type{border-top:0}
+.q{font-weight:800;margin:0 0 12px;display:block}
+.er{color:#dc2626;font-size:13.5px;margin-top:8px}
+/* stars */
+.stars{display:inline-flex;position:relative;gap:2px}
+.star{position:relative;width:44px;height:44px;cursor:pointer}
+.star svg{width:100%;height:100%;display:block}
+.star .bg{fill:#f3e8d4}.star .fg{fill:var(--am)}
+.stars input{position:absolute;opacity:0;width:0;height:0}
+.stars label.h{position:absolute;top:0;height:100%;width:50%;cursor:pointer;z-index:2}
+.stars label.h.l{left:0}.stars label.h.r{left:50%}
+.stars input:focus-visible+label{outline:3px solid var(--fo);outline-offset:-3px}
+.rv{margin-left:12px;font-weight:800;color:var(--dp);min-width:6ch}
+.row{display:flex;align-items:center;flex-wrap:wrap}
+/* emoji slider */
+.em{display:flex;align-items:center;gap:18px}
+.face{width:64px;height:64px;flex:none}
+.face circle.f{fill:#fde68a;transition:fill .3s}
+.em .cap{font-weight:800;color:var(--dp);min-width:90px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:99px;background:linear-gradient(90deg,var(--am) var(--p,50%),#f3e8d4 var(--p,50%));outline-offset:6px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:#fff;border:3px solid var(--am);cursor:grab;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--am);cursor:grab}
+.ticks{display:flex;justify-content:space-between;color:var(--mut);font-size:12.5px;margin-top:8px;padding:0 4px}
+/* nps */
+.nps{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:6px}
+.nps input{position:absolute;opacity:0;width:0;height:0}
+.nps label{display:grid;place-items:center;height:46px;border:2px solid var(--bd);border-radius:10px;cursor:pointer;font-weight:800;background:#fff}
+.nps label:hover{border-color:var(--am)}
+.nps input:checked+label{background:var(--am);border-color:var(--am);color:#2b1700}
+.nps input:focus-visible+label{outline:3px solid var(--fo);outline-offset:2px}
+.nps div{position:relative}
+.npsc{display:flex;justify-content:space-between;font-size:12.5px;color:var(--mut);margin-top:8px}
+/* range bubble */
+.rg{position:relative;padding-top:34px}
+.bub{position:absolute;top:0;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:8px;padding:2px 9px;font-size:13px;font-weight:800;white-space:nowrap;pointer-events:none}
+.bub::after{content:"";position:absolute;left:50%;bottom:-5px;margin-left:-5px;border:5px solid transparent;border-top-color:var(--ink);border-bottom:0}
+/* stepper & seg */
+.ctrls{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+.stp{display:inline-flex;align-items:center;border:2px solid var(--bd);border-radius:12px;overflow:hidden}
+.stp button{width:46px;height:46px;border:0;background:#fff7e6;font:800 22px Nunito;cursor:pointer;color:var(--dp)}
+.stp button:disabled{opacity:.35;cursor:not-allowed}
+.stp output{min-width:50px;text-align:center;font-weight:800}
+.seg{display:inline-flex;border:2px solid var(--bd);border-radius:12px;padding:3px;gap:3px;background:#fff}
+.seg input{position:absolute;opacity:0;width:0;height:0}
+.seg label{padding:9px 16px;border-radius:9px;cursor:pointer;font-weight:700;color:var(--mut)}
+.seg input:checked+label{background:var(--am);color:#2b1700}
+.seg input:focus-visible+label{outline:3px solid var(--fo);outline-offset:2px}
+textarea{width:100%;min-height:96px;border:2px solid var(--bd);border-radius:12px;padding:12px;font:600 15px Nunito;resize:vertical;color:var(--ink)}
+.cnt{text-align:right;font-size:12.5px;color:var(--mut)}
+.send{background:var(--am);color:#2b1700;border:0;border-radius:14px;padding:14px 28px;font:800 16px Nunito;cursor:pointer;min-height:48px;margin-top:6px}
+.send:hover{background:#fbab1f}
+.thanks{text-align:center;padding:20px 0}
+.thanks h2{font:800 26px Nunito;margin:10px 0}
+.thanks dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;text-align:left;max-width:360px;margin:16px auto;background:#fff8ef;padding:16px;border-radius:14px}
+.thanks dt{color:var(--mut)}.thanks dd{margin:0;font-weight:800}
+.ghost{background:none;border:2px solid var(--bd);border-radius:12px;padding:10px 18px;font:800 15px Nunito;cursor:pointer}
+@media(max-width:480px){.card{padding:20px}.nps{grid-template-columns:repeat(6,minmax(0,1fr))}.star{width:40px;height:40px}.em{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<form class="card" id="fm" novalidate>
+<h1>How was your box?</h1><p class="sub">Crumb &amp; Co. Bakery Box · takes about 30 seconds</p>
+<div class="sec"><span class="q" id="qs">Overall rating</span><div class="row"><div class="stars" role="radiogroup" aria-labelledby="qs" id="st"></div><span class="rv" id="rv" aria-live="polite">Not rated</span></div><div class="er" id="e1" hidden></div></div>
+<div class="sec"><label class="q" for="em">How did it feel?</label>
+<div class="em"><svg class="face" viewBox="0 0 64 64" aria-hidden="true"><circle class="f" id="fc" cx="32" cy="32" r="30"/><circle cx="23" cy="26" r="3.2" fill="#2b2118"/><circle cx="41" cy="26" r="3.2" fill="#2b2118"/><path id="mo" d="M20 42 Q32 50 44 42" fill="none" stroke="#2b2118" stroke-width="3.2" stroke-linecap="round"/></svg>
+<div style="flex:1;min-width:160px"><input id="em" type="range" min="0" max="4" step="1" value="2" aria-valuetext="Fine"><div class="ticks" aria-hidden="true"><span>Awful</span><span>Meh</span><span>Fine</span><span>Good</span><span>Joyful</span></div></div><span class="cap" id="ec" aria-hidden="true">Fine</span></div></div>
+<div class="sec"><span class="q" id="qn">How likely are you to recommend us?</span><div class="nps" role="radiogroup" aria-labelledby="qn" id="np"></div><div class="npsc"><span>Not likely</span><span>Very likely</span></div><div class="er" id="e2" hidden></div></div>
+<div class="sec"><label class="q" for="fr">Freshness on arrival</label><div class="rg"><span class="bub" id="bb">70%</span><input id="fr" type="range" min="0" max="100" value="70"></div><div class="ticks" aria-hidden="true"><span>Stale</span><span>Fresh</span><span>Still warm</span></div></div>
+<div class="sec"><div class="ctrls"><div><span class="q" id="qq">Boxes per month</span><div class="stp" role="group" aria-labelledby="qq"><button type="button" id="mi" aria-label="Decrease">−</button><output id="qo" aria-live="polite">1</output><button type="button" id="pl" aria-label="Increase">+</button></div></div>
+<div><span class="q" id="qz">Box size</span><div class="seg" role="radiogroup" aria-labelledby="qz"><input type="radio" name="sz" id="s1" value="Small"><label for="s1">Small</label><input type="radio" name="sz" id="s2" value="Regular" checked><label for="s2">Regular</label><input type="radio" name="sz" id="s3" value="Family"><label for="s3">Family</label></div></div></div></div>
+<div class="sec"><label class="q" for="cm">Anything we should know?</label><textarea id="cm" maxlength="240" placeholder="Loved the sourdough…"></textarea><div class="cnt"><span id="cc">0</span>/240</div></div>
+<button class="send" type="submit">Send feedback</button>
+</form>
+<section class="card thanks" id="th" hidden aria-live="polite"><svg width="56" height="56" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" fill="#fde68a"/><path d="M16 29l8 8 16-17" fill="none" stroke="#b45309" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg><h2>Thank you!</h2><p class="sub">Here's what we heard.</p><dl id="dl"></dl><button class="ghost" id="ed">Edit answers</button></section>
+<script>
+const $=s=>document.querySelector(s),mk=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+let rating=0,hover=0;
+const st=$('#st');
+for(let i=1;i<=5;i++){const s=mk('span','star');s.innerHTML=`<svg viewBox="0 0 24 24"><defs><clipPath id="c${i}"><rect class="clip" x="0" y="0" width="24" height="24"/></clipPath></defs><path class="bg" d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/><path class="fg" clip-path="url(#c${i})" d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>`;
+ [[i-.5,'l'],[i,'r']].forEach(([v,c])=>{const r=document.createElement('input');r.type='radio';r.name='rt';r.id='r'+v;r.value=v;r.setAttribute('aria-label',v+' out of 5 stars');
+  const l=mk('label','h '+c);l.htmlFor=r.id;l.onmouseenter=()=>{hover=v;draw()};l.onclick=e=>{if(rating===v){e.preventDefault();rating=0;r.checked=false;draw();say('Rating cleared')}};
+  r.onchange=()=>{rating=v;draw();$('#e1').hidden=true};s.append(r,l)});st.append(s)}
+st.onmouseleave=()=>{hover=0;draw()};
+const say=t=>{$('#rv').textContent=t};
+function draw(){const v=hover||rating;[...st.children].forEach((s,i)=>{const f=Math.max(0,Math.min(1,v-i));s.querySelector('.clip').setAttribute('width',24*f)});
+ $('#rv').textContent=v?v+' / 5':'Not rated'}
+draw();
+const faces=['Awful','Meh','Fine','Good','Joyful'],fc=['#fca5a5','#fdba74','#fde68a','#d9f99d','#86efac'],mp=['M20 46 Q32 36 44 46','M20 44 Q32 41 44 44','M20 42 Q32 46 44 42','M20 41 Q32 51 44 41','M18 40 Q32 56 46 40'];
+const em=$('#em');const emf=()=>{const v=+em.value;$('#ec').textContent=faces[v];$('#fc').style.fill=fc[v];$('#mo').setAttribute('d',mp[v]);em.setAttribute('aria-valuetext',faces[v]);em.style.setProperty('--p',v*25+'%')};em.oninput=emf;emf();
+const np=$('#np');for(let i=0;i<=10;i++){const d=mk('div');const r=document.createElement('input');r.type='radio';r.name='nps';r.id='n'+i;r.value=i;const l=mk('label',null,i);l.htmlFor=r.id;r.onchange=()=>{$('#e2').hidden=true};d.append(r,l);np.append(d)}
+const fr=$('#fr'),bb=$('#bb');function frf(){const v=+fr.value;fr.style.setProperty('--p',v+'%');bb.textContent=v+'%';bb.style.left=`calc(${v}% + ${(.5-v/100)*28}px)`}fr.oninput=frf;frf();
+let qty=1;const qo=$('#qo');function qf(){qo.textContent=qty;$('#mi').disabled=qty<=1;$('#pl').disabled=qty>=12}qf();
+function rep(btn,d){let t,iv;const go=()=>{qty=Math.max(1,Math.min(12,qty+d));qf()};
+ btn.addEventListener('pointerdown',e=>{go();t=setTimeout(()=>iv=setInterval(go,90),420)});['pointerup','pointerleave','pointercancel'].forEach(ev=>btn.addEventListener(ev,()=>{clearTimeout(t);clearInterval(iv)}));
+ btn.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();if(!e.repeat)go()}})}
+rep($('#mi'),-1);rep($('#pl'),1);
+$('#cm').oninput=e=>$('#cc').textContent=e.target.value.length;
+$('#fm').onsubmit=e=>{e.preventDefault();let bad=0;
+ if(!rating){const x=$('#e1');x.textContent='Please give an overall star rating.';x.hidden=false;bad=1}
+ const n=document.querySelector('[name=nps]:checked');if(!n){const x=$('#e2');x.textContent='Please pick a number from 0 to 10.';x.hidden=false;bad=bad||2}
+ if(bad){(bad===1?st.querySelector('input'):np.querySelector('input')).focus();return}
+ const v=+n.value,band=v>=9?'Promoter':v>=7?'Passive':'Detractor';
+ const rows=[['Rating',rating+' / 5'],['Feeling',faces[+em.value]],['Recommend',v+' · '+band],['Freshness',fr.value+'%'],['Quantity',qty+' × '+document.querySelector('[name=sz]:checked').value]];
+ const dl=$('#dl');dl.textContent='';rows.forEach(([a,b])=>{dl.append(mk('dt',null,a),mk('dd',null,b))});
+ $('#fm').hidden=true;$('#th').hidden=false;$('#th h2').tabIndex=-1;$('#th h2').focus()};
+$('#ed').onclick=()=>{$('#th').hidden=true;$('#fm').hidden=false;$('#fm').querySelector('input').focus()};
+</script></body></html>

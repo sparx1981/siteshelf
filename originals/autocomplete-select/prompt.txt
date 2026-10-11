@@ -1,0 +1,11 @@
+Canvas & base: A clean form page on #fafaf9 with white cards (1px #e7e5e4 border, 14px radius), ink #1c1917, secondary #78716c, accent blue #2563eb, tint #eff6ff, error #dc2626. Invented app "Parcelo Shipping".
+
+Typography: "Plus Jakarta Sans" (400,500,600,700) at 15px; headings 600.
+
+Layout: A centred 640px column with three cards, each a labelled field. 1) "Destination city" single-select combobox with a search icon, clear button and a listbox that highlights the matched substring in bold. 2) "Add tags" multi-select with removable chips inside the field, a listbox of suggestions excluding already chosen ones, and a "Create 'x'" option when no exact match exists. 3) "Country" grouped combobox with a "Recent" group on top and "All countries" below, each with an emoji-free flag-colour dot.
+
+Interaction: Implements the WAI-ARIA combobox pattern: input role="combobox" with aria-expanded, aria-controls, aria-activedescendant; the listbox has role="listbox" and options role="option" with aria-selected. ArrowDown/Up move the active option, Enter selects, Escape closes then clears, Home/End move within the list, Backspace in an empty multi-select removes the last chip. Typing filters instantly (case-insensitive, diacritic-insensitive). A "No results" row is announced. A live region announces the result count. Validation: submit shows an error under the field when empty. Selected values show in a summary line.
+
+Responsive: Lists never exceed 40vh and scroll; cards are full width at 390px with no horizontal overflow.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented data, real city and country names are acceptable.

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mobile Drawer Menu — Navigation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#1b1b1d;--mut:#6f6c66;--ac:#e8553d;--dr:#17171a}
+*{box-sizing:border-box}
+body{margin:0;background:#e9e6df;font:400 16px/1.5 'DM Sans',system-ui,sans-serif;color:var(--ink);min-height:100svh;display:grid;place-items:center;padding:20px}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.phone{width:390px;max-width:100%;height:780px;max-height:calc(100svh - 40px);border:10px solid #1b1b1d;border-radius:38px;background:#fbfaf7;position:relative;overflow:hidden;box-shadow:0 30px 70px rgba(27,27,29,.28)}
+.screen{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain}
+.screen.lock{overflow:hidden}
+.bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(251,250,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid #ece8df}
+.logo{font:400 24px 'DM Serif Display',serif;letter-spacing:-.01em}
+.logo i{color:var(--ac);font-style:normal}
+.ib{width:44px;height:44px;border:0;background:none;border-radius:12px;cursor:pointer;display:grid;place-items:center;color:var(--ink)}
+.ib:hover{background:#efece4}
+.right{display:flex;gap:2px}
+.hb{position:relative}
+.hb span{position:absolute;left:12px;right:12px;height:2px;background:currentColor;border-radius:2px;transition:transform .3s,opacity .2s,top .3s}
+.hb span:nth-child(1){top:15px}.hb span:nth-child(2){top:21px}.hb span:nth-child(3){top:27px}
+.hb[aria-expanded=true] span:nth-child(1){top:21px;transform:rotate(45deg)}
+.hb[aria-expanded=true] span:nth-child(2){opacity:0}
+.hb[aria-expanded=true] span:nth-child(3){top:21px;transform:rotate(-45deg)}
+.hero{padding:34px 20px 26px;background:linear-gradient(160deg,#f3d9c9,#f7e9d8)}
+.hero h1{font:400 40px/1.05 'DM Serif Display',serif;margin:0 0 10px}
+.hero p{margin:0 0 18px;color:#5a5750}
+.btn{background:var(--ink);color:#fff;border:0;border-radius:999px;padding:13px 22px;font:700 15px 'DM Sans';cursor:pointer;min-height:44px}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:18px 16px}
+.tile{border-radius:16px;aspect-ratio:1;padding:12px;display:flex;align-items:flex-end;font-weight:700;color:#fff}
+.t1{background:#3f6b5c}.t2{background:#c9833b}.t3{background:#7a5a8f}.t4{background:#b9473a}
+.foot{padding:20px;color:var(--mut);font-size:14px;border-top:1px solid #ece8df;margin-top:10px}
+.scrim{position:absolute;inset:0;background:rgba(10,10,12,.55);opacity:0;pointer-events:none;transition:opacity .3s;z-index:20}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:absolute;top:0;bottom:0;left:0;width:86%;background:var(--dr);color:#f4f1ea;z-index:30;transform:translateX(-102%);transition:transform .38s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;overflow:hidden;visibility:hidden}
+.drawer.on{transform:none;visibility:visible}
+.dh{display:flex;align-items:center;justify-content:space-between;padding:10px 14px 4px 20px}
+.dh .logo{color:#fff}
+.dh .ib{color:#fff}.dh .ib:hover{background:#26262b}
+.panels{position:relative;flex:1;overflow:hidden}
+.panel{position:absolute;inset:0;overflow-y:auto;padding:12px 20px 20px;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.panel.sub{transform:translateX(100%)}
+.panels.in .main{transform:translateX(-30%);opacity:.0;pointer-events:none}
+.panels.in .panel.sub.on{transform:none}
+.main{transition:transform .35s,opacity .3s}
+.nl{list-style:none;margin:0;padding:0}
+.nl li{opacity:0;transform:translateX(-14px)}
+.drawer.on .nl li{animation:li .45s forwards;animation-delay:calc(var(--i)*40ms + 120ms)}
+@keyframes li{to{opacity:1;transform:none}}
+.nl a,.nl button{display:flex;width:100%;justify-content:space-between;align-items:center;padding:12px 0;color:#fff;text-decoration:none;background:none;border:0;border-bottom:1px solid #2a2a30;font:400 28px 'DM Serif Display',serif;cursor:pointer;text-align:left}
+.nl a:hover,.nl button:hover{color:#ff8a73}
+.nl small{font:500 13px 'DM Sans';color:#8c8a86}
+.sub .nl a{font:500 18px 'DM Sans'}
+.back{display:flex;align-items:center;gap:8px;background:none;border:0;color:#b9b6ae;padding:10px 0;font:500 15px 'DM Sans';cursor:pointer;min-height:44px}
+.sub h2{font:400 30px 'DM Serif Display';margin:4px 0 8px}
+.promo{margin-top:22px;border-radius:16px;padding:16px;background:linear-gradient(135deg,#e8553d,#b9473a);color:#fff}
+.promo b{display:block;font:400 22px 'DM Serif Display'}
+.mini{display:flex;gap:16px;margin-top:20px;font-size:14px;color:#a9a69f;flex-wrap:wrap}
+.mini a{color:inherit;text-decoration:none}
+.toast{position:absolute;left:50%;bottom:20px;transform:translate(-50%,30px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;transition:.3s;z-index:40;white-space:nowrap}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:460px){body{padding:0;display:block}.phone{width:100%;height:100svh;max-height:none;border:0;border-radius:0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation-duration:.01s!important;animation-delay:0s!important}}
+</style></head><body>
+<div class="phone" id="ph">
+<div class="screen" id="pg">
+ <header class="bar"><span class="logo">Pebble<i>&amp;</i>Pine</span>
+  <div class="right"><button class="ib" aria-label="Cart, 2 items"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg></button>
+  <button class="ib hb" id="hb" aria-label="Menu" aria-expanded="false" aria-controls="dr"><span></span><span></span><span></span></button></div></header>
+ <main><section class="hero"><h1>Slow things, made to last.</h1><p>Small-batch homewares for quiet mornings.</p><button class="btn">Shop the autumn edit</button></section>
+ <div class="tiles"><div class="tile t1">Ceramics</div><div class="tile t2">Linen</div><div class="tile t3">Candles</div><div class="tile t4">Kitchen</div></div></main>
+ <footer class="foot">© Pebble &amp; Pine · Free returns for 60 days.</footer>
+</div>
+<div class="scrim" id="sc"></div>
+<aside class="drawer" id="dr" role="dialog" aria-modal="true" aria-label="Main menu">
+ <div class="dh"><span class="logo">Pebble&amp;Pine</span><button class="ib" id="cl" aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+ <div class="panels" id="pn">
+  <div class="panel main" id="mp"><ul class="nl">
+   <li style="--i:0"><button data-sub="shop" aria-haspopup="true">Shop <small>5 ›</small></button></li>
+   <li style="--i:1"><button data-sub="col" aria-haspopup="true">Collections <small>4 ›</small></button></li>
+   <li style="--i:2"><a href="#journal" data-go="Journal">Journal</a></li>
+   <li style="--i:3"><a href="#about" data-go="About">About</a></li></ul>
+   <div class="promo"><b>Free shipping</b>On orders over £60, until Sunday.</div>
+   <div class="mini"><a href="#acct" data-go="Account">Account</a><a href="#help" data-go="Help">Help</a><a href="#lang" data-go="Language">EN · GBP</a></div></div>
+  <div class="panel sub" id="sub-shop" aria-hidden="true"><button class="back" data-back>‹ Back</button><h2>Shop</h2><ul class="nl"><li style="--i:0"><a href="#" data-go="All products">All products</a></li><li style="--i:1"><a href="#" data-go="Ceramics">Ceramics</a></li><li style="--i:2"><a href="#" data-go="Linen">Linen</a></li><li style="--i:3"><a href="#" data-go="Candles">Candles</a></li><li style="--i:4"><a href="#" data-go="Gifts">Gifts</a></li></ul></div>
+  <div class="panel sub" id="sub-col" aria-hidden="true"><button class="back" data-back>‹ Back</button><h2>Collections</h2><ul class="nl"><li style="--i:0"><a href="#" data-go="Autumn edit">Autumn edit</a></li><li style="--i:1"><a href="#" data-go="Hearth">Hearth</a></li><li style="--i:2"><a href="#" data-go="Studio seconds">Studio seconds</a></li><li style="--i:3"><a href="#" data-go="Archive">Archive</a></li></ul></div>
+ </div>
+</aside>
+<div class="toast" id="ts" role="status"></div>
+</div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const hb=$('#hb'),dr=$('#dr'),sc=$('#sc'),pg=$('#pg'),pn=$('#pn');
+let isOpen=false,tt;
+const toast=t=>{const e=$('#ts');e.textContent=t;e.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('on'),1800)};
+function focusables(){const root=pn.classList.contains('in')?$('.sub.on'):$('#mp');return[$('#cl'),...root.querySelectorAll('a,button')].filter(e=>e.offsetParent!==null)}
+function setOpen(v,ret=true){isOpen=v;hb.setAttribute('aria-expanded',v);dr.classList.toggle('on',v);sc.classList.toggle('on',v);pg.classList.toggle('lock',v);
+  if(v){pg.setAttribute('inert','');pg.setAttribute('aria-hidden','true');setTimeout(()=>$('#mp a,#mp button').focus(),60)}
+  else{pg.removeAttribute('inert');pg.removeAttribute('aria-hidden');popSub(true);if(ret)hb.focus()}}
+function popSub(quick){pn.classList.remove('in');$$('.sub').forEach(s=>{s.classList.remove('on');s.setAttribute('aria-hidden','true')})}
+function pushSub(id,btn){const s=$('#sub-'+id);s.classList.add('on');s.setAttribute('aria-hidden','false');pn.classList.add('in');$('#mp').setAttribute('aria-hidden','true');setTimeout(()=>s.querySelector('.back').focus(),60);s._from=btn}
+hb.onclick=()=>setOpen(!isOpen);$('#cl').onclick=()=>setOpen(false);sc.onclick=()=>setOpen(false);
+$$('[data-sub]').forEach(b=>b.onclick=()=>pushSub(b.dataset.sub,b));
+$$('[data-back]').forEach(b=>b.onclick=()=>{const s=b.closest('.sub');popSub();$('#mp').removeAttribute('aria-hidden');setTimeout(()=>s._from&&s._from.focus(),60)});
+$$('[data-go]').forEach(a=>a.onclick=e=>{e.preventDefault();const n=a.dataset.go;setOpen(false);toast('Opened '+n)});
+document.addEventListener('keydown',e=>{if(!isOpen)return;
+  if(e.key==='Escape'){if(pn.classList.contains('in')){$('.sub.on .back').click()}else setOpen(false)}
+  if(e.key==='Tab'){const f=focusables();if(!f.length)return;const i=f.indexOf(document.activeElement);
+    if(e.shiftKey&&(i<=0)){e.preventDefault();f[f.length-1].focus()}else if(!e.shiftKey&&(i===f.length-1||i<0)){e.preventDefault();f[0].focus()}}});
+let sx=null;dr.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+dr.addEventListener('touchend',e=>{if(sx!=null&&e.changedTouches[0].clientX-sx<-60)setOpen(false);sx=null});
+dr.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse')dr._px=e.clientX});
+dr.addEventListener('pointerup',e=>{if(e.pointerType==='mouse'&&dr._px!=null&&e.clientX-dr._px<-80)setOpen(false);dr._px=null});
+</script></body></html>

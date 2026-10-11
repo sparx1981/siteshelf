@@ -1,0 +1,11 @@
+Canvas & base: A calm documentation page on #f7f6f2 with white panels (1px #e4e1d8 border, 14px radius), ink #1f2420, secondary #6a716b, accent forest #2f6b4f, tint #e6f0ea. Invented product "Fernwood Docs".
+
+Typography: "Source Serif 4" (600) for headings at clamp(28px,4vw,40px); "Inter" (400,500,600) for UI at 15px.
+
+Layout: A centred 920px column. Section 1 "Responsive trail": a breadcrumb in a panel with a resize handle (a range input labelled "Container width") so visitors can squeeze it; when crumbs do not fit, middle items collapse into an ellipsis button that opens a menu listing them. Section 2 "Siblings switcher": each crumb has a small chevron that opens a dropdown of sibling pages. Section 3 "Folder explorer": a two-column panel with a folder list on the left and a breadcrumb above it that updates as folders are opened.
+
+Interaction: The trail measures available width with ResizeObserver and collapses from the middle first, always keeping the first and last two crumbs. The overflow button has aria-haspopup and aria-expanded; the menu closes on Escape, outside click or selection and returns focus. Sibling dropdowns support arrow keys, Home and End. In the explorer, double-click or Enter opens a folder, the breadcrumb is clickable to go back up, and Backspace goes up one level. The current crumb has aria-current="page" and separators are CSS only so screen readers do not read them.
+
+Responsive: The trail is single-line with overflow handled by collapsing; the explorer stacks into one column below 640px. No horizontal overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, nav aria-label="Breadcrumb", respect prefers-reduced-motion, invented names only.

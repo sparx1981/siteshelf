@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lightbox Photo Gallery — Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#f4f2ee;--mut:#9a978f;--am:#e8b04a}
+*{box-sizing:border-box}
+body{margin:0;background:#111113;color:var(--ink);font:400 14px/1.5 Karla,system-ui,sans-serif;padding:28px clamp(14px,4vw,56px) 70px}
+body.noscroll{overflow:hidden}
+:focus-visible{outline:3px solid var(--am);outline-offset:3px}
+header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:6px}
+header h1{font:600 clamp(30px,5vw,48px)/1 'Cormorant Garamond',serif;margin:0}
+header span{color:var(--mut)}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 22px}
+.pill{border:1px solid #34332f;background:none;color:var(--mut);border-radius:99px;padding:8px 18px;font:700 13px Karla;cursor:pointer;min-height:40px}
+.pill[aria-pressed=true]{background:var(--am);border-color:var(--am);color:#241a05}
+.grid{columns:3;column-gap:14px}
+.t{break-inside:avoid;margin:0 0 14px;position:relative;display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;border-radius:6px;overflow:hidden}
+.t svg{display:block;width:100%;height:auto;transition:transform .5s}
+.t:hover svg{transform:scale(1.04)}
+.t .cp{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.72));text-align:left;opacity:0;transition:opacity .3s;color:#fff}
+.t:hover .cp,.t:focus-visible .cp{opacity:1}
+.cp b{display:block;font:600 20px 'Cormorant Garamond'}
+.cp small{color:#e0ddd5}
+dialog.lb{border:0;padding:0;margin:0;max-width:none;max-height:none;width:100vw;height:100vh;height:100dvh;background:rgba(8,8,10,.97);color:var(--ink);overflow:hidden}
+dialog.lb::backdrop{background:#000}
+.lbx{display:grid;grid-template-rows:auto minmax(0,1fr) auto auto;height:100%;position:relative}
+.top{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;gap:10px}
+.top .ct{font-weight:700;color:var(--mut)}
+.tb{display:flex;gap:6px}
+.ib{width:44px;height:44px;border:0;background:#1d1d20;color:var(--ink);border-radius:50%;cursor:pointer;font:700 18px Karla;display:grid;place-items:center}
+.ib:hover{background:#2a2a2f}
+.ib[aria-pressed=true]{background:var(--am);color:#241a05}
+.stage{position:relative;overflow:hidden;display:grid;place-items:center;touch-action:pan-y;min-height:0}
+.stage .im{max-width:100%;max-height:100%;width:auto;height:100%;aspect-ratio:var(--ar);cursor:zoom-in;user-select:none;touch-action:none;transition:transform .25s}
+.stage .im.z{cursor:grab;transition:none}
+.stage .im svg{width:100%;height:100%;display:block;pointer-events:none}
+.nv{position:absolute;top:50%;transform:translateY(-50%);z-index:3}
+.nv.p{left:12px}.nv.n{right:12px}
+.cap{padding:12px 20px 4px;text-align:center}
+.cap h2{font:600 28px 'Cormorant Garamond';margin:0}
+.cap p{margin:0;color:var(--mut)}
+.slbar{position:absolute;left:0;top:0;height:3px;background:var(--am);width:0;z-index:5}
+.fs{display:flex;gap:8px;overflow-x:auto;padding:10px 16px 16px;justify-content:safe center;scrollbar-width:thin}
+.fs button{flex:none;width:76px;height:52px;border:2px solid transparent;border-radius:6px;overflow:hidden;padding:0;cursor:pointer;opacity:.55;background:none}
+.fs button[aria-current=true]{border-color:var(--am);opacity:1}
+.fs svg{width:100%;height:100%;display:block}
+@media(max-width:900px){.grid{columns:2}}
+@media(max-width:520px){.grid{columns:1}}
+@media(max-height:560px){.fs{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header><h1>Coastal Light</h1><span>Elin Marwood · photographs from the north shore</span></header>
+<div class="pills" role="group" aria-label="Filter photos" id="pl"></div>
+<div class="grid" id="gd"></div>
+<dialog class="lb" id="lb" aria-label="Photo viewer"><div class="lbx"><div class="slbar" id="sb"></div>
+ <div class="top"><span class="ct" id="ct"></span><div class="tb"><button class="ib" id="zo" aria-label="Zoom out">−</button><button class="ib" id="zi" aria-label="Zoom in">+</button><button class="ib" id="pp" aria-label="Play slideshow" aria-pressed="false">▶</button><button class="ib" id="fs" aria-label="Full screen">⛶</button><button class="ib" id="cl" aria-label="Close viewer">✕</button></div></div>
+ <div class="stage" id="sg"><button class="ib nv p" id="pv" aria-label="Previous photo">‹</button><div class="im" id="im"></div><button class="ib nv n" id="nx" aria-label="Next photo">›</button></div>
+ <div class="cap"><h2 id="ch"></h2><p id="cs"></p></div>
+ <div class="fs" id="fl" role="list"></div></div></dialog>
+<div id="lv" aria-live="polite" style="position:absolute;left:-9999px"></div>
+<script>
+const $=s=>document.querySelector(s),mk=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+const NS='http://www.w3.org/2000/svg';
+const S=[['Low tide, Skerry Bay','Sea','Skerry Bay',1.5,['#f7c59f','#5b8fb9','#1e3a5f'],'wave','f/8 · 1/250s'],['The Long Stair','Cliffs','Marrow Head',.8,['#b7d3e6','#e0b78a','#4a3a30'],'cliff','f/11 · 1/125s'],['Last light on the pier','Dusk','Harrow Quay',1.4,['#ff9a62','#a83c5a','#2a1f45'],'pier','f/5.6 · 1/60s'],['Morning haar','Fog','Eddy Point',1.3,['#dfe5e8','#b9c6cd','#7c8c96'],'fog','f/9 · 1/200s'],['Two boats, one tide','Sea','Wren Harbour',1,['#9ad0e8','#2f7fa6','#12405f'],'boats','f/7.1 · 1/500s'],['Chalk and gorse','Cliffs','Pellam Down',1.5,['#a9d4f0','#e8e2c8','#5a7d3a'],'cliff','f/10 · 1/160s'],['Blue hour breakwater','Dusk','Stack Mole',.9,['#6a7fc8','#3a4a88','#161c3c'],'pier','f/4 · 1/30s'],['Sea smoke','Fog','Corran Sound',1.6,['#e8e0dc','#c1b5b4','#8b7f86'],'fog','f/8 · 1/320s'],['Kelp and glass','Sea','Tarn Cove',1.2,['#bfe6d4','#2f9a8c','#0f4a52'],'wave','f/6.3 · 1/400s'],['Needle rock','Cliffs','Gannet Stack',.75,['#f2d2b6','#c48a64','#4b2f2a'],'cliff','f/13 · 1/100s'],['Lantern hour','Dusk','Pike Lane Slip',1.3,['#ffc86a','#d9663f','#3b2147'],'boats','f/2.8 · 1/60s'],['Where the sky starts','Fog','Hallow Fen',1.7,['#f0ece4','#cfd6d6','#9fb0ab'],'fog','f/11 · 1/250s'],['Tidemark','Sea','Skerry Bay',1.4,['#e6d6b8','#74a7c4','#2b5977'],'wave','f/8 · 1/200s'],['Gull wall','Cliffs','Marrow Head',1.1,['#cfe0ec','#9aa6ae','#3e464d'],'cliff','f/9 · 1/320s'],['Ember sea','Dusk','Wren Harbour',1.5,['#ff7a45','#b83a4a','#2c1633'],'wave','f/6.3 · 1/125s'],['Slack water','Sea','Eddy Point',1.3,['#d4ecf5','#6fb0cc','#22607f'],'boats','f/10 · 1/320s']].map((a,i)=>({i,title:a[0],cat:a[1],place:a[2],ar:a[3],c:a[4],kind:a[5],ex:a[6]}));
+S.length=16;
+function art(p){const w=300,h=Math.round(300/p.ar),[c1,c2,c3]=p.c;const id='g'+p.i;let b='';
+ const sun=`<circle cx="${w*(.25+.5*((p.i*37)%10)/10)}" cy="${h*.34}" r="${h*.09}" fill="#fff" opacity=".85"/>`;
+ if(p.kind==='wave'){for(let k=0;k<4;k++){const y=h*(.55+k*.1);b+=`<path d="M0 ${y}q${w/8} -${8+k*2} ${w/4} 0t${w/4} 0t${w/4} 0t${w/4} 0V${h}H0z" fill="${k%2?c3:c2}" opacity="${.5+k*.15}"/>`}}
+ else if(p.kind==='cliff'){b=`<path d="M0 ${h}V${h*.45}L${w*.18} ${h*.3}L${w*.3} ${h*.5}L${w*.42} ${h*.62}V${h}z" fill="${c3}"/><path d="M${w*.5} ${h}V${h*.7}L${w*.7} ${h*.55}L${w} ${h*.4}V${h}z" fill="${c2}" opacity=".9"/><path d="M0 ${h*.86}Q${w/2} ${h*.8} ${w} ${h*.88}V${h}H0z" fill="${c1}" opacity=".6"/>`}
+ else if(p.kind==='pier'){b=`<rect y="${h*.62}" width="${w}" height="${h*.38}" fill="${c3}"/><rect x="${w*.1}" y="${h*.56}" width="${w*.8}" height="5" fill="#1a1020"/>`+[...Array(7)].map((_,k)=>`<rect x="${w*.14+k*w*.11}" y="${h*.56}" width="4" height="${h*.2}" fill="#1a1020"/>`).join('')+`<path d="M0 ${h*.68}h${w}" stroke="${c1}" stroke-width="2" opacity=".5"/>`}
+ else if(p.kind==='boats'){b=`<rect y="${h*.6}" width="${w}" height="${h*.4}" fill="${c2}"/><path d="M${w*.2} ${h*.62}h${w*.2}l-${w*.03} ${h*.07}h-${w*.14}z" fill="#f4f2ee"/><path d="M${w*.3} ${h*.62}V${h*.4}l${w*.08} ${h*.2}z" fill="${c1}"/><path d="M${w*.6} ${h*.68}h${w*.26}l-${w*.04} ${h*.08}h-${w*.18}z" fill="${c3}"/><path d="M${w*.74} ${h*.68}V${h*.5}l${w*.07} ${h*.18}z" fill="#f4f2ee"/>`}
+ else{for(let k=0;k<4;k++)b+=`<ellipse cx="${w*(.2+k*.25)}" cy="${h*(.5+k*.1)}" rx="${w*.5}" ry="${h*.1}" fill="${k%2?c2:c3}" opacity=".5"/>`;b+=`<path d="M0 ${h*.8}Q${w*.3} ${h*.7} ${w*.6} ${h*.78}T${w} ${h*.74}V${h}H0z" fill="${c3}" opacity=".7"/>`}
+ return `<svg xmlns="${NS}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${p.title}, ${p.place}"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs><rect width="${w}" height="${h}" fill="url(#${id})"/>${sun}${b}</svg>`}
+const cats=['All','Sea','Cliffs','Dusk','Fog'];let cat='All',list=S.slice(),idx=0,lastTile=null;
+const pl=$('#pl');cats.forEach(c=>{const b=mk('button','pill',c);b.setAttribute('aria-pressed',c==='All');b.onclick=()=>{cat=c;[...pl.children].forEach(x=>x.setAttribute('aria-pressed',x===b));draw()};pl.append(b)});
+function draw(){list=S.filter(p=>cat==='All'||p.cat===cat);const g=$('#gd');g.textContent='';
+ list.forEach((p,k)=>{const b=mk('button','t');b.innerHTML=art(p)+'<span class="cp"><b></b><small></small></span>';b.querySelector('b').textContent=p.title;b.querySelector('small').textContent=p.place+' · '+p.cat;b.setAttribute('aria-label','Open '+p.title);b.onclick=()=>open(k,b);g.append(b)});$('#lv').textContent=list.length+' photos shown'}
+const lb=$('#lb'),im=$('#im');let zoom=1,px=0,py=0,play=false,pt=null,pstart=0;
+function open(k,tile){lastTile=tile;idx=k;buildStrip();show();lb.showModal?lb.showModal():lb.setAttribute('open','');document.body.classList.add('noscroll');$('#cl').focus()}
+function close(){stop();lb.close?lb.close():lb.removeAttribute('open');document.body.classList.remove('noscroll');lastTile&&lastTile.isConnected&&lastTile.focus()}
+function buildStrip(){const f=$('#fl');f.textContent='';list.forEach((p,k)=>{const b=mk('button');b.innerHTML=art(p);b.setAttribute('role','listitem');b.setAttribute('aria-label','Show '+p.title);b.onclick=()=>{idx=k;show()};f.append(b)})}
+function show(){const p=list[idx];im.innerHTML=art(p);im.style.setProperty('--ar',p.ar);zoom=1;px=py=0;apply();$('#ch').textContent=p.title;$('#cs').textContent=p.place+' · '+p.ex;$('#ct').textContent=(idx+1)+' / '+list.length;
+ [...$('#fl').children].forEach((b,k)=>{b.setAttribute('aria-current',k===idx);if(k===idx)b.scrollIntoView({inline:'center',block:'nearest'})});$('#lv').textContent='Photo '+(idx+1)+' of '+list.length+': '+p.title;if(play)restartBar()}
+function go(d){idx=(idx+d+list.length)%list.length;show()}
+function apply(){im.classList.toggle('z',zoom>1);im.style.transform=`translate(${px}px,${py}px) scale(${zoom})`}
+function setZ(z){zoom=Math.max(1,Math.min(4,z));if(zoom===1)px=py=0;apply()}
+$('#pv').onclick=()=>go(-1);$('#nx').onclick=()=>go(1);$('#cl').onclick=close;$('#zi').onclick=()=>setZ(zoom+.5);$('#zo').onclick=()=>setZ(zoom-.5);
+im.ondblclick=()=>setZ(zoom>1?1:2);
+$('#fs').onclick=()=>{try{document.fullscreenElement?document.exitFullscreen():lb.requestFullscreen()}catch(e){}};
+function restartBar(){const b=$('#sb');clearTimeout(pt);b.style.transition='none';b.style.width='0';void b.offsetWidth;b.style.transition='width 4s linear';b.style.width='100%';pt=setTimeout(()=>go(1),4000)}
+function stop(){play=false;clearTimeout(pt);$('#sb').style.transition='none';$('#sb').style.width='0';$('#pp').setAttribute('aria-pressed','false');$('#pp').textContent='▶';$('#pp').setAttribute('aria-label','Play slideshow')}
+function toggle(){if(play){stop()}else{play=true;$('#pp').setAttribute('aria-pressed','true');$('#pp').textContent='❚❚';$('#pp').setAttribute('aria-label','Pause slideshow');restartBar()}}
+$('#pp').onclick=toggle;
+$('#sg').addEventListener('mouseenter',()=>{if(play){clearTimeout(pt);$('#sb').style.transition='none'}});$('#sg').addEventListener('mouseleave',()=>{if(play)restartBar()});
+lb.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(1)}else if(e.key==='ArrowLeft'){go(-1)}else if(e.key==='+'||e.key==='='){setZ(zoom+.5)}else if(e.key==='-'){setZ(zoom-.5)}else if(e.key==='0'){setZ(1)}else if(e.key===' '&&document.activeElement.tagName!=='BUTTON'){e.preventDefault();toggle()}});
+lb.addEventListener('cancel',e=>{e.preventDefault();close()});
+let drag=null;im.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY,px,py,moved:0};im.setPointerCapture(e.pointerId)});
+im.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;drag.moved=Math.max(drag.moved,Math.abs(dx));if(zoom>1){px=drag.px+dx;py=drag.py+dy;apply()}});
+im.addEventListener('pointerup',e=>{if(!drag)return;const dx=e.clientX-drag.x;if(zoom===1&&Math.abs(dx)>60)go(dx<0?1:-1);drag=null});
+im.addEventListener('pointercancel',()=>drag=null);
+draw();
+</script></body></html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Split Buttons &amp; Groups — Buttons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bd:#dcdfe4;--ink:#14171c;--mut:#5d6572;--ac:#4f46e5;--tint:#eef0ff;--ok:#15803d}
+*{box-sizing:border-box}
+body{margin:0;background:#f4f5f7;color:var(--ink);font:400 14px/1.5 Inter,system-ui,sans-serif;padding:32px 16px 60px}
+:focus-visible{outline:3px solid #a5a0ff;outline-offset:2px}
+.wrap{max-width:860px;margin:0 auto}
+h1{font:600 28px/1.2 Inter;margin:0 0 4px}.lead{color:var(--mut);margin:0 0 22px}
+.pn{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:18px;margin-bottom:16px}
+.pn h2{font:600 12px Inter;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:0 0 14px}
+.row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.res{margin-top:14px;font-size:13px;color:var(--mut);min-height:20px}.res b{color:var(--ink)}
+.btn{font:500 14px Inter;height:38px;padding:0 14px;border:1px solid var(--bd);background:#fff;border-radius:8px;cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:8px}
+.btn:hover{background:#f6f7f9}
+.split{position:relative;display:inline-flex}
+.split .main{background:var(--ac);border-color:var(--ac);color:#fff;border-radius:8px 0 0 8px;padding:0 16px}
+.split .main:hover{background:#4339d6}
+.split .chev{background:var(--ac);border-color:#3b33c4;color:#fff;border-radius:0 8px 8px 0;padding:0 10px;border-left:1px solid #7a73f0}
+.split .chev:hover{background:#4339d6}
+.menu{position:absolute;top:calc(100% + 6px);left:0;min-width:230px;background:#fff;border:1px solid var(--bd);border-radius:10px;box-shadow:0 14px 34px rgba(20,23,28,.15);padding:5px;z-index:10;margin:0;list-style:none}
+.menu button{display:flex;width:100%;gap:10px;align-items:center;text-align:left;padding:9px 10px;background:none;border:0;border-radius:6px;font:500 14px Inter;cursor:pointer}
+.menu button:hover,.menu button:focus-visible{background:var(--tint);color:var(--ac);outline:0}
+.menu small{display:block;color:var(--mut);font-weight:400;font-size:12px}
+.menu .ck{width:14px;color:var(--ac)}
+.seg{display:inline-flex;border:1px solid var(--bd);border-radius:9px;padding:3px;background:#f4f5f7;gap:2px}
+.seg button{height:32px;padding:0 14px;border:0;background:none;border-radius:6px;cursor:pointer;font:500 14px Inter;color:var(--mut)}
+.seg button[aria-checked=true],.seg button[aria-pressed=true]{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.15)}
+.seg.tg button[aria-pressed=true]{background:var(--tint);color:var(--ac);box-shadow:none}
+.tb{display:flex;gap:6px;align-items:center;border:1px solid var(--bd);border-radius:10px;padding:6px;overflow-x:auto;max-width:100%;scrollbar-width:thin}
+.tb .sep{width:1px;height:22px;background:var(--bd);flex:none;margin:0 4px}
+.tb .btn{border-color:transparent;height:34px;padding:0 10px;flex:none;color:var(--mut)}
+.tb .btn[aria-pressed=true],.tb .btn[aria-checked=true]{background:var(--tint);color:var(--ac)}
+.tb .btn:hover{background:#f0f1f4}
+.code{display:flex;align-items:center;gap:10px;background:#101319;color:#d9deea;border-radius:10px;padding:10px 12px;font:500 13px 'JetBrains Mono',monospace;margin-bottom:12px;min-width:0}
+.code code{flex:1;overflow-x:auto;white-space:nowrap;min-width:0}
+.cp{background:#222834;border:1px solid #333b4a;color:#d9deea;height:30px;border-radius:7px;padding:0 10px;cursor:pointer;font:500 12px Inter;display:inline-flex;gap:6px;align-items:center}
+.cp:hover{background:#2c3342}
+.cp.ok{color:#4ade80;border-color:#1f6b3d}
+.cp.sq{width:30px;padding:0;justify-content:center}
+.inl{background:none;border:0;color:var(--ac);cursor:pointer;font:500 13px Inter;text-decoration:underline;padding:4px}
+.inl.ok{color:var(--ok);text-decoration:none}
+@media(max-width:560px){.split{width:100%}.split .main{flex:1}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<h1>Tangent Docs toolbar kit</h1><p class="lead">Compound controls that behave like native ones.</p>
+
+<section class="pn"><h2>Split button</h2>
+ <div class="split" id="sp"><button class="btn main" id="spm">Publish</button><button class="btn chev" id="spc" aria-haspopup="menu" aria-expanded="false" aria-label="More publish options"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button></div>
+ <div class="res" id="r1" role="status">Choose an action — the button remembers it.</div></section>
+
+<section class="pn"><h2>Segmented &amp; toggle groups</h2>
+ <div class="row"><div class="seg" role="radiogroup" aria-label="View" id="vw"><button role="radio" aria-checked="true">List</button><button role="radio" aria-checked="false" tabindex="-1">Board</button><button role="radio" aria-checked="false" tabindex="-1">Calendar</button></div>
+ <div class="seg tg" role="group" aria-label="Text style" id="tx"><button aria-pressed="false"><b>B</b></button><button aria-pressed="false"><i>I</i></button><button aria-pressed="false"><u>U</u></button><button aria-pressed="false"><s>S</s></button></div></div>
+ <div class="res" id="r2" role="status">View: <b>List</b> · Style: <b>none</b></div></section>
+
+<section class="pn"><h2>Toolbar (roving tabindex)</h2>
+ <div class="tb" role="toolbar" aria-label="Formatting" id="tb">
+  <button class="btn" data-g="al" role="radio" aria-checked="true" aria-label="Align left">⟸ Left</button><button class="btn" data-g="al" role="radio" aria-checked="false" aria-label="Align centre">Centre</button><button class="btn" data-g="al" role="radio" aria-checked="false" aria-label="Align right">Right ⟹</button>
+  <span class="sep"></span>
+  <button class="btn" aria-pressed="false">• List</button><button class="btn" aria-pressed="false">1. List</button><button class="btn" aria-pressed="false">Quote</button>
+  <span class="sep"></span>
+  <button class="btn" id="hl" aria-haspopup="menu" aria-expanded="false">Heading: Body ▾</button>
+  <button class="btn" aria-label="More" id="mo" aria-haspopup="menu" aria-expanded="false" style="position:relative">⋯</button></div>
+ <div class="res" id="r3" role="status">Alignment: <b>left</b></div></section>
+
+<section class="pn"><h2>Copy button</h2>
+ <div class="code"><code>npm install @tangent/docs-kit</code><button class="cp sq" aria-label="Copy command" data-cp="npm install @tangent/docs-kit"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="5" width="9" height="9" rx="2"/><path d="M11 5V3a1 1 0 00-1-1H3a1 1 0 00-1 1v7a1 1 0 001 1h2"/></svg></button></div>
+ <div class="code"><code>import { Toolbar } from '@tangent/docs-kit'</code><button class="cp" data-cp="import { Toolbar } from '@tangent/docs-kit'"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="5" width="9" height="9" rx="2"/><path d="M11 5V3a1 1 0 00-1-1H3a1 1 0 00-1 1v7a1 1 0 001 1h2"/></svg><span>Copy</span></button></div>
+ <p>Share link: <code>tangent.example/d/8fk2a</code> <button class="inl" data-cp="https://tangent.example/d/8fk2a">Copy link</button></p></section>
+<div id="lv" aria-live="polite" style="position:absolute;left:-9999px"></div>
+</div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const say=t=>{const l=$('#lv');l.textContent='';setTimeout(()=>l.textContent=t,40)};
+let om=null;
+function closeM(r){if(om){om.m.remove();om.b.setAttribute('aria-expanded','false');const b=om.b;om=null;if(r)b.focus()}}
+document.addEventListener('click',e=>{if(om&&!om.m.contains(e.target)&&!om.b.contains(e.target))closeM()});
+function menu(btn,anchor,items,cur,pick){
+  if(om&&om.b===btn){closeM(true);return}closeM();
+  const m=document.createElement('ul');m.className='menu';m.setAttribute('role','menu');
+  items.forEach(([k,d])=>{const li=document.createElement('li');const b=document.createElement('button');b.setAttribute('role','menuitem');b.tabIndex=-1;
+    b.innerHTML='<span class="ck">'+(k===cur?'✓':'')+'</span><span><span></span>'+(d?'<small></small>':'')+'</span>';b.querySelector('span span').textContent=k;if(d)b.querySelector('small').textContent=d;
+    b.onclick=()=>{closeM(true);pick(k)};li.append(b);m.append(li)});
+  if(btn.closest('.tb')){document.body.append(m);const r=btn.getBoundingClientRect();m.style.position='fixed';m.style.top=(r.bottom+6)+'px';m.style.left=Math.max(8,Math.min(r.left,innerWidth-250))+'px'}else anchor.append(m);btn.setAttribute('aria-expanded','true');om={m,b:btn};
+  const bs=[...m.querySelectorAll('button')];(bs[items.findIndex(i=>i[0]===cur)]||bs[0]).focus();
+  m.onkeydown=e=>{const i=bs.indexOf(document.activeElement);
+   const go=n=>{e.preventDefault();bs[(n+bs.length)%bs.length].focus()};
+   if(e.key==='Escape'){e.preventDefault();closeM(true)}else if(e.key==='ArrowDown')go(i+1);else if(e.key==='ArrowUp')go(i-1);else if(e.key==='Home')go(0);else if(e.key==='End')go(bs.length-1);else if(e.key==='Tab')closeM()};
+}
+/* split */
+const acts=[['Publish now','Goes live immediately','Published just now.'],['Schedule…','Pick a date and time','Scheduled for 9:00 tomorrow.'],['Save as draft','Keep editing privately','Saved to drafts.'],['Export PDF','Download a copy','Exported Tangent-Doc.pdf.']];
+let ac=0;
+const run=()=>{$('#r1').innerHTML='<b></b> ';$('#r1 b').textContent=acts[ac][0].replace('…','');$('#r1').append(acts[ac][2]);say(acts[ac][2])};
+$('#spm').onclick=run;
+$('#spc').onclick=()=>menu($('#spc'),$('#sp'),acts.map(a=>[a[0],a[1]]),acts[ac][0],k=>{ac=acts.findIndex(a=>a[0]===k);$('#spm').textContent=k.replace('…','');run()});
+/* radio / toggle */
+function radio(root,onch){const bs=[...root.querySelectorAll('[role=radio]')];
+ const sel=b=>{bs.forEach(x=>{x.setAttribute('aria-checked',x===b);x.tabIndex=x===b?0:-1});b.focus();onch(b)};
+ bs.forEach(b=>{b.onclick=()=>sel(b);b.onkeydown=e=>{const i=bs.indexOf(b);let n=-1;
+  if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%bs.length;else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i-1+bs.length)%bs.length;else if(e.key==='Home')n=0;else if(e.key==='End')n=bs.length-1;
+  if(n>=0){e.preventDefault();sel(bs[n])}}})}
+const r2=()=>{const v=$('#vw [aria-checked=true]').textContent,s=$$('#tx [aria-pressed=true]').map(b=>b.textContent);$('#r2').innerHTML='View: <b></b> · Style: <b></b>';const bs=$$('#r2 b');bs[0].textContent=v;bs[1].textContent=s.join(', ')||'none'};
+radio($('#vw'),r2);$$('#tx button').forEach(b=>b.onclick=()=>{b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');r2()});
+/* toolbar roving */
+const tb=$('#tb');const items=()=>$$('#tb .btn');
+items().forEach((b,i)=>b.tabIndex=i?-1:0);
+tb.addEventListener('keydown',e=>{if(om)return;const it=items(),i=it.indexOf(document.activeElement);if(i<0)return;let n=-1;
+ if(e.key==='ArrowRight')n=(i+1)%it.length;else if(e.key==='ArrowLeft')n=(i-1+it.length)%it.length;else if(e.key==='Home')n=0;else if(e.key==='End')n=it.length-1;
+ if(n>=0){e.preventDefault();it.forEach(x=>x.tabIndex=-1);it[n].tabIndex=0;it[n].focus()}});
+tb.addEventListener('focusin',e=>{if(e.target.classList.contains('btn')){items().forEach(x=>x.tabIndex=-1);e.target.tabIndex=0}});
+const al=$$('#tb [data-g=al]');al.forEach(b=>b.onclick=()=>{al.forEach(x=>x.setAttribute('aria-checked',x===b));$('#r3').innerHTML='Alignment: <b></b>';$('#r3 b').textContent=b.getAttribute('aria-label').replace('Align ','').toLowerCase()});
+$$('#tb [aria-pressed]').forEach(b=>b.onclick=()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true'));
+let hv='Body';
+$('#hl').onclick=()=>menu($('#hl'),$('#hl').parentNode.parentNode.parentNode.querySelector('.tb')?$('#hl').parentNode:$('#hl').parentNode,[['Body'],['Heading 1'],['Heading 2'],['Heading 3']],hv,k=>{hv=k;$('#hl').textContent='Heading: '+k.replace('Heading ','H')+' ▾';$('#r3').textContent='Block style: '+k});
+$('#mo').onclick=()=>menu($('#mo'),$('#mo'),[['Insert table'],['Insert image'],['Clear formatting']],'',k=>{$('#r3').textContent=k+' (demo)'});
+/* copy */
+async function copy(t){try{await navigator.clipboard.writeText(t);return true}catch(e){try{const a=document.createElement('textarea');a.value=t;a.style.cssText='position:fixed;opacity:0';document.body.append(a);a.select();const ok=document.execCommand('copy');a.remove();return ok}catch(e2){return false}}}
+$$('[data-cp]').forEach(b=>b.onclick=async()=>{const ok=await copy(b.dataset.cp);const lab=b.querySelector('span');const old=b.innerHTML,ot=b.textContent;
+ b.classList.add('ok');if(b.classList.contains('sq'))b.innerHTML='<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l3 3 7-7"/></svg>';else if(lab)lab.textContent=ok?'Copied':'Press Ctrl+C';else b.textContent=ok?'Copied ✓':'Press Ctrl+C';
+ say(ok?'Copied to clipboard':'Copy failed');setTimeout(()=>{b.classList.remove('ok');b.innerHTML=old},1600)});
+</script></body></html>

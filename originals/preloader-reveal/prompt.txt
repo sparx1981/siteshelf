@@ -1,0 +1,11 @@
+Canvas & base: Preloader background #0b0b0c with ink #f2efe8; the revealed page is #f2efe8 with ink #0b0b0c and accent vermilion #ff4b2b. Invented studio "Kōdo Atelier".
+
+Typography: "Syne" (700,800) for the huge counter (clamp(80px,22vw,260px)) and headings; "Space Mono" (400) for labels and microcopy at 12px uppercase with letter-spacing .12em.
+
+Layout: A fixed full-viewport preloader containing the studio mark at top-left, a rotating status line at top-right ("Warming up…", "Loading type…", "Almost there…"), the percentage counter anchored bottom-left, and a thin 2px progress line along the bottom edge. Behind it the real page: nav, a big hero headline, a marquee strip and a small control bar with a transition select (Curtain, Wipe, Iris, Fade), a "Replay" button and a "Skip" link.
+
+Interaction: The counter eases from 0 to 100 over about 2.8 seconds with irregular steps (simulated asset loads), while the progress line and status line follow. At 100 the preloader transitions out using the chosen style: Curtain splits into two halves sliding up and down; Wipe slides up as one panel; Iris closes a circular clip-path; Fade crossfades. Then the hero headline lines rise in with a stagger. Replay re-shows the preloader; Skip finishes instantly. The preloader sets aria-busy on main, announces "Loaded" via a polite live region at the end, and returns focus to the hero heading. The page is non-scrollable while loading. Under prefers-reduced-motion the loader is skipped and the page shown directly with a short fade.
+
+Responsive: Counter scales with viewport; control bar wraps at 560px; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, invented names only.

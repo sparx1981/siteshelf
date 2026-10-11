@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Preloader &amp; Curtain Reveal — Loaders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#0b0b0c;--pap:#f2efe8;--ac:#ff4b2b}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--pap);color:var(--ink);font:400 16px/1.5 'Space Mono',monospace;min-height:100svh}
+body.lock{overflow:hidden;height:100svh}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+.lab{font:400 12px 'Space Mono';text-transform:uppercase;letter-spacing:.12em}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px clamp(16px,4vw,48px)}
+nav b{font:800 22px Syne}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+nav a{color:inherit;text-decoration:none}
+.hero{padding:6vh clamp(16px,4vw,48px) 30px}
+.hero h1{font:800 clamp(44px,11vw,150px)/.92 Syne;margin:0;letter-spacing:-.03em;outline:0}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln span{display:block;transform:translateY(0)}
+body.pre .hero h1 .ln span{transform:translateY(105%)}
+.hero h1 .ln span{transition:transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i)*90ms)}
+.hero h1 em{font-style:normal;color:var(--ac)}
+.hero p{max-width:46ch;margin-top:24px}
+.mq{background:var(--ink);color:var(--pap);overflow:hidden;white-space:nowrap;padding:14px 0;margin-top:30px;font:800 24px Syne}
+.mq div{display:inline-block;animation:mq 22s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+.ctl{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:24px clamp(16px,4vw,48px)}
+.ctl select,.ctl button{font:400 13px 'Space Mono';min-height:44px;padding:0 16px;border:2px solid var(--ink);background:var(--pap);color:var(--ink);cursor:pointer;border-radius:0}
+.ctl button{background:var(--ink);color:var(--pap)}
+.ctl a{color:inherit}
+#pre{position:fixed;inset:0;z-index:100;color:var(--pap);overflow:hidden}
+#pre .half{position:absolute;left:0;right:0;background:var(--ink);transition:transform .9s cubic-bezier(.7,0,.2,1)}
+#pre .h1{top:0;height:50.2%}#pre .h2{bottom:0;height:50.2%}
+#pre .ui{position:absolute;inset:0;z-index:2;padding:22px clamp(16px,4vw,48px);display:flex;flex-direction:column;justify-content:space-between;transition:opacity .4s}
+#pre .tp{display:flex;justify-content:space-between;gap:20px}
+#pre .tp b{font:800 20px Syne}
+#cnt{font:800 clamp(80px,22vw,260px)/.8 Syne;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+#cnt small{font-size:.25em;vertical-align:top;margin-left:.1em;color:var(--ac)}
+#bar{position:absolute;left:0;bottom:0;height:3px;background:var(--ac);width:0;z-index:3}
+#pre.curtain.go .h1{transform:translateY(-101%)}#pre.curtain.go .h2{transform:translateY(101%)}
+#pre.wipe .h1{height:100.5%}#pre.wipe .h2{display:none}
+#pre.wipe.go .h1{transform:translateY(-101%)}
+#pre.iris .h1{height:100.5%;clip-path:circle(150% at 50% 50%);transition:clip-path 1s cubic-bezier(.7,0,.2,1)}#pre.iris .h2{display:none}
+#pre.iris.go .h1{clip-path:circle(0 at 50% 50%)}
+#pre.fade .h1{height:100.5%;transition:opacity .8s}#pre.fade .h2{display:none}
+#pre.fade.go .h1{opacity:0}
+#pre.go .ui{opacity:0}
+#pre.gone{display:none}
+@media(max-width:560px){nav ul{display:none}.ctl>*{flex:1 1 100%}}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01s!important;animation:none!important}}
+</style></head><body class="pre lock">
+<div id="pre" class="curtain" role="status" aria-label="Loading"><div class="half h1"></div><div class="half h2"></div><div id="bar"></div>
+ <div class="ui"><div class="tp"><b>Kōdo Atelier</b><span class="lab" id="st">Warming up…</span></div><div id="cnt" aria-hidden="true">0<small>%</small></div></div></div>
+<main id="mn" aria-busy="true">
+ <nav><b>Kōdo</b><ul class="lab"><li><a href="#w">Work</a></li><li><a href="#s">Studio</a></li><li><a href="#c">Contact</a></li></ul></nav>
+ <section class="hero"><h1 id="h" tabindex="-1"><span class="ln" style="--i:0"><span>Digital craft</span></span><span class="ln" style="--i:1"><span>with a <em>slow</em></span></span><span class="ln" style="--i:2"><span>burn.</span></span></h1><p>A four-person studio making brand systems, sites and small tools for people who care how things feel.</p></section>
+ <div class="mq" aria-hidden="true"><div>Identity · Interfaces · Motion · Type · Identity · Interfaces · Motion · Type · Identity · Interfaces · Motion · Type · Identity · Interfaces · Motion · Type ·</div></div>
+ <div class="ctl"><label class="lab" for="tr">Transition</label><select id="tr"><option value="curtain">Curtain</option><option value="wipe">Wipe</option><option value="iris">Iris</option><option value="fade">Fade</option></select><button id="rp">Replay</button><a href="#" id="sk" class="lab">Skip loader</a></div>
+</main>
+<div id="lv" aria-live="polite" style="position:absolute;left:-9999px"></div>
+<script>
+const $=s=>document.querySelector(s);
+const pre=$('#pre'),cnt=$('#cnt'),bar=$('#bar'),st=$('#st');
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const msgs=['Warming up…','Loading type…','Fetching motion…','Almost there…'];
+let raf=0,t0=0,val=0,running=false,steps=[];
+function plan(){steps=[];let v=0;while(v<100){v=Math.min(100,v+3+Math.random()*14);steps.push(Math.round(v))}}
+function finish(){running=false;cancelAnimationFrame(raf);cnt.firstChild.nodeValue='100';bar.style.width='100%';
+ const T=$('#tr').value;pre.classList.add('go');
+ setTimeout(()=>{pre.classList.add('gone');document.body.classList.remove('pre','lock');$('#mn').setAttribute('aria-busy','false');$('#lv').textContent='';setTimeout(()=>{$('#lv').textContent='Loaded';$('#h').focus({preventScroll:true})},30)},rm?20:(T==='iris'?1000:T==='fade'?800:950));}
+function start(){cancelAnimationFrame(raf);const T=$('#tr').value;pre.className=T;pre.classList.remove('gone','go');document.body.classList.add('pre','lock');$('#mn').setAttribute('aria-busy','true');
+ if(rm){document.body.classList.remove('pre','lock');pre.classList.add('gone');$('#mn').setAttribute('aria-busy','false');return}
+ plan();val=0;t0=performance.now();running=true;bar.style.width='0';cnt.firstChild.nodeValue='0';
+ const tick=n=>{if(!running)return;const p=Math.min(1,(n-t0)/2800);const idx=Math.floor(p*steps.length);const target=p>=1?100:(steps[Math.max(0,idx-1)]||0);
+  val+=(target-val)*.2;if(p>=1)val=100;const v=Math.round(val);cnt.firstChild.nodeValue=v;bar.style.width=v+'%';st.textContent=msgs[Math.min(3,Math.floor(v/26))];
+  if(p>=1&&v>=100){finish();return}raf=requestAnimationFrame(tick)};raf=requestAnimationFrame(tick)}
+$('#rp').onclick=()=>{window.scrollTo(0,0);start()};
+$('#sk').onclick=e=>{e.preventDefault();if(running)finish()};
+pre.addEventListener('click',()=>{});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&running)finish()});
+start();
+</script></body></html>

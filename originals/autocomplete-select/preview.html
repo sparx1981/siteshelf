@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Autocomplete &amp; Multi-Select — Form Controls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#1c1917;--mut:#78716c;--ac:#2563eb;--tint:#eff6ff;--bd:#e7e5e4;--er:#dc2626}
+*{box-sizing:border-box}
+body{margin:0;background:#fafaf9;color:var(--ink);font:400 15px/1.5 'Plus Jakarta Sans',system-ui,sans-serif;padding:32px 16px 70px}
+.wrap{max-width:640px;margin:0 auto}
+h1{font:700 28px/1.2 'Plus Jakarta Sans';margin:0 0 4px}.lead{color:var(--mut);margin:0 0 22px}
+.card{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:20px;margin-bottom:16px}
+label.l{display:block;font-weight:600;margin-bottom:8px}
+.help{font-size:13px;color:var(--mut);margin-top:6px}
+.fld{position:relative}
+.box{display:flex;flex-wrap:wrap;gap:6px;align-items:center;border:1.5px solid #d6d3d1;border-radius:10px;padding:6px 10px;background:#fff;min-height:46px;cursor:text}
+.box:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px #bfdbfe}
+.box.err{border-color:var(--er)}
+.box input{border:0;outline:0;flex:1;min-width:90px;font:500 15px 'Plus Jakarta Sans';padding:6px 0;background:none}
+.ico{color:var(--mut);flex:none}
+.clr{border:0;background:#f5f5f4;width:26px;height:26px;border-radius:50%;cursor:pointer;color:var(--mut);font-size:16px;line-height:1}
+.clr:hover{background:#e7e5e4}
+.chip{display:inline-flex;align-items:center;gap:4px;background:var(--tint);color:#1d4ed8;border-radius:99px;padding:3px 4px 3px 12px;font-size:13px;font-weight:600}
+.chip button{border:0;background:none;color:inherit;width:22px;height:22px;border-radius:50%;cursor:pointer;font-size:15px;line-height:1}
+.chip button:hover{background:#dbeafe}
+.lb{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--bd);border-radius:12px;box-shadow:0 16px 36px rgba(28,25,23,.14);max-height:40vh;overflow-y:auto;z-index:20;margin:0;padding:6px;list-style:none}
+.lb [role=option]{padding:9px 10px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.lb [role=option].act{background:var(--tint)}
+.lb [role=option][aria-selected=true]{font-weight:700;color:var(--ac)}
+.lb mark{background:none;color:var(--ac);font-weight:700}
+.lb .sub{font-size:12.5px;color:var(--mut)}
+.lb .gh{padding:8px 10px 4px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:700}
+.lb .none{padding:12px 10px;color:var(--mut)}
+.lb .create{color:var(--ac);font-weight:600}
+.dot{width:12px;height:12px;border-radius:50%;flex:none;margin-right:10px}
+.er{color:var(--er);font-size:13px;margin-top:6px}
+.btn{background:var(--ac);color:#fff;border:0;border-radius:10px;padding:13px 22px;font:700 15px 'Plus Jakarta Sans';cursor:pointer;min-height:46px}
+.sum{margin-top:14px;padding:14px;background:#f5f5f4;border-radius:10px;font-size:14px}
+:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<h1>Create a shipment</h1><p class="lead">Parcelo Shipping — three combobox patterns.</p>
+<form id="f" novalidate>
+<div class="card"><label class="l" for="c1">Destination city</label><div class="fld" id="w1"><div class="box"><svg class="ico" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="7" cy="7" r="5"/><path d="M11 11l4 4"/></svg><input id="c1" role="combobox" aria-expanded="false" aria-controls="l1" aria-autocomplete="list" autocomplete="off" placeholder="Start typing a city…"><button type="button" class="clr" hidden aria-label="Clear city">×</button></div><ul class="lb" id="l1" role="listbox" aria-label="Cities" hidden></ul></div><div class="er" id="e1" hidden></div></div>
+<div class="card"><label class="l" for="c2">Parcel tags</label><div class="fld" id="w2"><div class="box" id="b2"><input id="c2" role="combobox" aria-expanded="false" aria-controls="l2" aria-autocomplete="list" autocomplete="off" placeholder="Add a tag…"></div><ul class="lb" id="l2" role="listbox" aria-label="Tags" aria-multiselectable="true" hidden></ul></div><p class="help">Type a new tag and press Enter to create it. Backspace removes the last one.</p></div>
+<div class="card"><label class="l" for="c3">Country</label><div class="fld" id="w3"><div class="box"><input id="c3" role="combobox" aria-expanded="false" aria-controls="l3" aria-autocomplete="list" autocomplete="off" placeholder="Choose a country"><button type="button" class="clr" hidden aria-label="Clear country">×</button></div><ul class="lb" id="l3" role="listbox" aria-label="Countries" hidden></ul></div></div>
+<button class="btn" type="submit">Create shipment</button>
+</form>
+<div class="sum" id="sm" hidden></div>
+<div id="lv" aria-live="polite" style="position:absolute;left:-9999px"></div>
+</div>
+<script>
+const $=s=>document.querySelector(s),mk=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const say=t=>{const l=$('#lv');l.textContent='';setTimeout(()=>l.textContent=t,40)};
+const hl=(el,txt,q)=>{if(!q){el.textContent=txt;return}const i=norm(txt).indexOf(norm(q));if(i<0){el.textContent=txt;return}
+ el.append(txt.slice(0,i));const m=mk('mark',null,txt.slice(i,i+q.length));el.append(m,txt.slice(i+q.length))};
+function combo(o){ // {input,list,items(q)->[{id,label,sub,group,create}],onPick,multi}
+ const inp=o.input,lb=o.list;let act=-1,rows=[],open=false;
+ const setOpen=v=>{open=v;lb.hidden=!v;inp.setAttribute('aria-expanded',v);if(!v){act=-1;inp.removeAttribute('aria-activedescendant')}};
+ const setAct=i=>{const os=[...lb.querySelectorAll('[role=option]')];os.forEach(x=>x.classList.remove('act'));act=i;if(i>=0&&os[i]){os[i].classList.add('act');inp.setAttribute('aria-activedescendant',os[i].id);os[i].scrollIntoView({block:'nearest'})}else inp.removeAttribute('aria-activedescendant')};
+ function render(){const q=inp.value.trim();rows=o.items(q);lb.textContent='';let g=null,n=0;
+  if(!rows.length){lb.append(Object.assign(mk('li','none','No results for “'+q+'”'),{role:'presentation'}));say('No results');return}
+  rows.forEach((r,i)=>{if(r.group&&r.group!==g){g=r.group;const h=mk('li','gh',g);h.setAttribute('role','presentation');lb.append(h)}
+   const li=mk('li');li.id=o.id+'-o'+i;li.setAttribute('role','option');li.setAttribute('aria-selected',!!r.selected);
+   const left=mk('span');if(r.dot){const d=mk('span','dot');d.style.background=r.dot;left.append(d)}
+   const lab=mk('span');if(r.create){lab.className='create';lab.textContent='Create “'+r.label+'”'}else hl(lab,r.label,q);left.append(lab);li.append(left);
+   if(r.sub)li.append(mk('span','sub',r.sub));
+   li.onmousedown=e=>{e.preventDefault();pick(i)};li.onmousemove=()=>{if(act!==i)setAct(i)};lb.append(li)});
+  say(rows.length+' result'+(rows.length===1?'':'s')+' available');setAct(0)}
+ function pick(i){const r=rows[i];if(!r)return;o.onPick(r);if(o.multi){inp.value='';render()}else setOpen(false)}
+ inp.addEventListener('input',()=>{setOpen(true);render();o.onInput&&o.onInput()});
+ inp.addEventListener('focus',()=>{if(o.openOnFocus){setOpen(true);render()}});
+ inp.addEventListener('blur',()=>setOpen(false));
+ inp.addEventListener('keydown',e=>{const n=rows.length;
+  if(e.key==='ArrowDown'){e.preventDefault();if(!open){setOpen(true);render()}else setAct(Math.min(n-1,act+1))}
+  else if(e.key==='ArrowUp'){e.preventDefault();if(open)setAct(Math.max(0,act-1))}
+  else if(e.key==='Home'&&open){e.preventDefault();setAct(0)}else if(e.key==='End'&&open){e.preventDefault();setAct(n-1)}
+  else if(e.key==='Enter'){if(open&&act>=0){e.preventDefault();pick(act)}}
+  else if(e.key==='Escape'){if(open){e.preventDefault();setOpen(false)}else if(inp.value){inp.value='';o.onInput&&o.onInput()}}
+  else if(e.key==='Backspace'&&!inp.value&&o.onBack)o.onBack()});
+ return{setOpen,render};
+}
+/* 1 city */
+const cities=['Amsterdam','Barcelona','Berlin','Bogotá','Brussels','Cape Town','Copenhagen','Dublin','Edinburgh','Florence','Geneva','Helsinki','Istanbul','Kraków','Lisbon','Ljubljana','Lyon','Madrid','Málaga','Marseille','Montréal','Munich','Nairobi','Oslo','Porto','Prague','Reykjavík','Rotterdam','São Paulo','Seville','Tallinn','Vienna','Zürich'];
+let city='';const i1=$('#c1'),x1=$('#w1 .clr');
+combo({id:'l1',input:i1,list:$('#l1'),items:q=>cities.filter(c=>!q||norm(c).includes(norm(q))).slice(0,8).map(c=>({id:c,label:c,selected:c===city,sub:'Hub'})),onPick:r=>{city=r.label;i1.value=city;x1.hidden=false;$('#e1').hidden=true;$('#w1 .box').classList.remove('err')},onInput:()=>{city='';x1.hidden=!i1.value},openOnFocus:false});
+x1.onclick=()=>{i1.value='';city='';x1.hidden=true;i1.focus()};
+/* 2 tags */
+const base=['Fragile','Perishable','Gift','Oversized','Signature required','Insured','Return label','Eco packaging','Priority','Hold at depot'];let tags=['Fragile'];
+const b2=$('#b2'),i2=$('#c2');
+function drawTags(){[...b2.querySelectorAll('.chip')].forEach(c=>c.remove());tags.forEach(t=>{const c=mk('span','chip',t);const x=mk('button',null,'×');x.type='button';x.setAttribute('aria-label','Remove '+t);x.onclick=()=>{tags=tags.filter(a=>a!==t);drawTags();say(t+' removed');i2.focus()};c.append(x);b2.insertBefore(c,i2)})}
+b2.onclick=()=>i2.focus();drawTags();
+combo({id:'l2',input:i2,list:$('#l2'),multi:true,openOnFocus:true,items:q=>{const r=base.filter(t=>!tags.includes(t)&&(!q||norm(t).includes(norm(q)))).map(t=>({label:t}));if(q&&!base.concat(tags).some(t=>norm(t)===norm(q)))r.push({label:q,create:true});return r},onPick:r=>{tags.push(r.label);drawTags();say(r.label+' added')},onBack:()=>{if(tags.length){const t=tags.pop();drawTags();say(t+' removed')}}});
+/* 3 country */
+const co=[['United Kingdom','#1d4ed8'],['Ireland','#16a34a'],['France','#2563eb'],['Germany','#111827'],['Spain','#dc2626'],['Italy','#15803d'],['Portugal','#b91c1c'],['Netherlands','#ea580c'],['Norway','#be123c'],['Sweden','#0ea5e9'],['Canada','#ef4444'],['Brazil','#22c55e'],['Kenya','#166534'],['Japan','#e11d48'],['Australia','#1e40af']];
+let recent=['Ireland','France'],country='';const i3=$('#c3'),x3=$('#w3 .clr');
+combo({id:'l3',input:i3,list:$('#l3'),openOnFocus:true,items:q=>{const m=n=>!q||norm(n).includes(norm(q));const rr=recent.filter(m).map(n=>({label:n,group:'Recent',dot:co.find(c=>c[0]===n)[1],selected:n===country}));const all=co.filter(c=>m(c[0])&&!recent.includes(c[0])).map(c=>({label:c[0],group:'All countries',dot:c[1],selected:c[0]===country}));return q?rr.concat(all):rr.concat(all)},
+ onPick:r=>{country=r.label;i3.value=country;x3.hidden=false;recent=[country,...recent.filter(a=>a!==country)].slice(0,3)},onInput:()=>{country='';x3.hidden=!i3.value}});
+x3.onclick=()=>{i3.value='';country='';x3.hidden=true;i3.focus()};
+$('#f').onsubmit=e=>{e.preventDefault();const s=$('#sm');
+ if(!city){const er=$('#e1');er.textContent='Please choose a destination city from the list.';er.hidden=false;$('#w1 .box').classList.add('err');i1.focus();say('Destination city is required');return}
+ s.hidden=false;s.textContent='';const b=mk('b',null,'Shipment ready: ');s.append(b,city+(country?', '+country:'')+' · tags: '+(tags.join(', ')||'none'));say('Shipment created')};
+</script></body></html>

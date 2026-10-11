@@ -1,0 +1,11 @@
+Canvas & base: A light workspace on #f4f5f7 with white panels (1px #dcdfe4 border, 12px radius), ink #14171c, secondary #5d6572, accent indigo #4f46e5, tint #eef0ff, success #15803d. Invented product "Tangent Docs".
+
+Typography: "Inter" (400,500,600) at 14px for controls; "JetBrains Mono" (500) for the code sample; page title 28px at weight 600.
+
+Layout: A centred 860px column with four labelled panels. 1) Split button: primary action "Publish" with an attached chevron opening a menu (Publish now, Schedule…, Save as draft, Export PDF). 2) Segmented controls: view toggle (List / Board / Calendar) as radio-style group, and a multi-select toggle group (Bold, Italic, Underline, Strike) with aria-pressed. 3) Toolbar: align left/centre/right (radio group), list buttons, a heading-level select button, and an overflow menu, using roving tabindex. 4) Copy button next to a code block with three variants (icon only, icon plus text, inline).
+
+Interaction: The split button's main part runs the last-chosen action; choosing from the menu updates its label and remembers the choice. Menu supports arrow keys, Escape, Home and End, and returns focus. Segmented radio groups use arrow keys with roving tabindex; toggle buttons use Space or Enter. The toolbar uses arrow keys across items with a single tab stop. Copy writes to the clipboard with try/catch fallback (select-and-execCommand), flips to a "Copied" state for 1.6 seconds and announces via a live region. A preview line shows the result of each action ("Scheduled for 9:00 tomorrow").
+
+Responsive: Panels stack; the toolbar scrolls horizontally inside itself below 560px without causing page overflow. No overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus rings, aria-haspopup/expanded, roles for groups, respect prefers-reduced-motion, invented names only.

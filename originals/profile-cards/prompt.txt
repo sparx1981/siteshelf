@@ -1,0 +1,11 @@
+Canvas & base: A soft canvas on #f3f1ec with white cards (1px #e6e2d9 border, 20px radius, shadow 0 1px 2px rgba(0,0,0,.04)), ink #1c1b1a, secondary #6c6862, accent teal #0f766e, tint #e3f2ef. Invented company "Lakeside Collective".
+
+Typography: "Fraunces" (600) for names at 20px and the page title at clamp(30px,5vw,46px); "Manrope" (400,500,700) for body at 14px.
+
+Layout: Page title and a toolbar with department filter chips (All, Design, Engineering, Support, Operations), a search input and a Grid/List segmented switch. The grid is repeat(auto-fill,minmax(240px,1fr)) of 12 cards. Each card has a 64px circular avatar with an invented gradient and initials, name, role, a location line, up to three skill chips, a follow button with count, and a hidden contact drawer sliding up from the card bottom (email, phone, "Message" button). List mode turns each card into a horizontal row.
+
+Interaction: Filter chips and the search input combine and update a result count in a live region; an empty state offers "Clear filters". Hovering or focusing a card, or tapping a "Contact" button, reveals the contact drawer; Escape closes it. Follow toggles aria-pressed, swaps the label to "Following" and adjusts the count by one with a short pop animation. Layout switch persists nothing but animates with a FLIP transition when motion is allowed. Cards are in a list with each name as a heading level 3.
+
+Responsive: The grid becomes one column at 520px; the toolbar wraps. No overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images (avatars are CSS gradients). Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented names only.

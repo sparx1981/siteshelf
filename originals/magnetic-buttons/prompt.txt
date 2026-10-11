@@ -1,0 +1,11 @@
+Canvas & base: A dark stage on #0d0d12 with a faint dot grid (radial-gradient 1px dots at 28px, #ffffff14). Ink #f5f5f7, secondary #9a9aa6, accents violet #8b5cf6, pink #ec4899, amber #fbbf24, mint #34d399. Invented studio "Polarpaw".
+
+Typography: "Space Grotesk" (500,700) throughout; labels 15px, headings clamp(30px,5vw,52px).
+
+Layout: A centred 1000px column with a heading and a control panel (two range sliders: Strength and Radius, plus a Magnetic on/off switch). Below, a 3×2 grid of cells (collapsing to 2×3 then 1 column), each with a caption and a different button: Magnetic pill, Ripple material button, Shine sweep, Hold-to-confirm, Arrow-slide CTA, and Outline-to-fill with a magnetic icon.
+
+Interaction: Magnetic buttons track pointer position within the Radius and translate toward it by Strength (inner label moves slightly more for parallax), springing back with a damped easing on leave; disabled for coarse pointers and reduced motion. Ripple spawns a circle at the click point and removes it on animationend. Shine is a pseudo-element gradient sweep on hover and focus-visible. Hold-to-confirm fills over 1.2s while pointer or Space is held and shows "Confirmed" with a tick; releasing early drains the fill. Arrow-slide animates the arrow out and a new one in. A small log under the grid shows the last action in a live region.
+
+Responsive: Cells stack and sliders become full width at 560px; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Buttons have at least 44px height, visible focus rings, keyboard parity for every effect, respect prefers-reduced-motion, invented names only.

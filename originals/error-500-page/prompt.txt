@@ -1,0 +1,11 @@
+Canvas & base: A calm page on #0f1720 with a subtle radial glow at the top (#1f3a5f33). Panel #16212e (1px #263648 border, 20px radius). Ink #e8eef5, secondary #8fa2b7, accent sky #4cc2ff, warning amber #ffb454, success #3ddc97, error #ff6b6b. Invented service "Skiff Cloud".
+
+Typography: "Sora" (600,700) for the headline at clamp(34px,6vw,60px); "IBM Plex Sans" (400,500) for body; "IBM Plex Mono" (500) for the incident reference.
+
+Layout: A centred 640px column. A small status pill ("We're on it"), an SVG illustration of a boat with a loose rope bobbing on waves, headline "Something broke on our side.", one line of reassurance, a retry panel showing "Retrying in 8s · attempt 2 of 5" with a progress bar and "Retry now" and "Cancel" buttons, a four-row checklist (Request received, Routing to a healthy server, Restoring your session, Back online) with states pending, working, done or failed, an incident reference chip with copy button, and a collapsed "Tell us what happened" form (textarea, email, send).
+
+Interaction: Simulated retry sequence with exponential backoff (4, 8, 16, 32 seconds, capped) driven by a visible countdown; "Retry now" runs an attempt immediately. Each attempt walks the checklist rows with delays; on attempt 3 a deterministic success shows a green "Back online" panel with a Continue button, otherwise it fails and backs off. Cancel pauses retries and changes the button to Resume. The reference ID (e.g. SK-7F3A-92C1) is generated once and copyable with try/catch. The report form validates the email and shows a thank-you inline. Announce status changes in a polite live region. Under prefers-reduced-motion the boat is static.
+
+Responsive: Buttons stack below 480px; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, invented names only.

@@ -1,0 +1,11 @@
+Canvas & base: A neutral stage on #e9e6df with a centred phone frame (390px wide, 780px tall, 38px radius, 10px #1b1b1d bezel). Inside, the app screen is #fbfaf7 with ink #1b1b1d, secondary #6f6c66, accent coral #e8553d and drawer background #17171a with light text. Invented brand "Pebble & Pine".
+
+Typography: "DM Serif Display" for the logo and drawer headings; "DM Sans" (400,500,700) for everything else. Drawer links are 28px, sub-links 18px.
+
+Layout: Inside the phone, a sticky top bar with logo, a cart button and a hamburger button, then a scrollable demo home page (hero, three product tiles, footer) so the menu overlay has something to cover. The drawer slides in from the left at 86% width with a scrim; header row with close button, primary links (Shop, Collections, Journal, About), a promo card, and a footer with account and language links.
+
+Interaction: The hamburger's three bars morph to an X with CSS transforms and aria-expanded updates. Opening locks background scroll within the phone, traps focus inside the drawer, moves focus to the first link, and closes on Escape, scrim tap or a swipe-left gesture. Links animate in with a 40ms stagger. "Shop" and "Collections" open a sub-panel that pushes in from the right with a Back row; the drawer height stays fixed and each panel scrolls independently. Focus returns to the hamburger on close. Selecting a link closes the drawer and shows the page name in a toast inside the phone.
+
+Responsive: On screens narrower than 460px the phone frame disappears and the demo fills the viewport. No horizontal overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, aria-controls and aria-expanded on the toggle, inert on the page behind when open, respect prefers-reduced-motion, invented names only.

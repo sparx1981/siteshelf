@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Breadcrumb Navigation — Navigation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#f7f6f2;--pn:#fff;--bd:#e4e1d8;--ink:#1f2420;--mut:#6a716b;--ac:#2f6b4f;--tint:#e6f0ea}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.55 Inter,system-ui,sans-serif;padding:32px 16px 64px}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px;border-radius:6px}
+.wrap{max-width:920px;margin:0 auto}
+h1{font:600 clamp(28px,4vw,40px)/1.1 'Source Serif 4',Georgia,serif;margin:0 0 6px}
+.lead{color:var(--mut);margin:0 0 28px}
+h2{font:600 13px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:34px 0 10px}
+.pn{background:var(--pn);border:1px solid var(--bd);border-radius:14px;padding:18px}
+.bc{display:flex;align-items:center;min-width:0;white-space:nowrap}
+.bc ol{display:flex;align-items:center;list-style:none;margin:0;padding:0;min-width:0;flex-wrap:nowrap}
+.bc li{display:flex;align-items:center;position:relative}
+.bc li+li::before{content:"";width:6px;height:6px;border-top:1.5px solid #aab0a8;border-right:1.5px solid #aab0a8;transform:rotate(45deg);margin:0 12px 0 6px}
+.bc a,.bc button.lk{color:var(--mut);text-decoration:none;font:500 15px Inter,sans-serif;background:none;border:0;padding:6px 8px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.bc a:hover,.bc button.lk:hover{background:var(--tint);color:var(--ac)}
+.bc [aria-current=page]{color:var(--ink);font-weight:600;padding:6px 8px;display:inline-block;overflow:hidden;text-overflow:ellipsis;max-width:200px}
+.ov{background:none;border:1px solid var(--bd);width:34px;height:30px;border-radius:8px;cursor:pointer;color:var(--mut);font-weight:700;letter-spacing:.1em}
+.ov:hover,.ov[aria-expanded=true]{background:var(--tint);color:var(--ac);border-color:#bcd6c8}
+.menu{position:absolute;top:calc(100% + 6px);left:0;z-index:20;background:#fff;border:1px solid var(--bd);border-radius:12px;box-shadow:0 14px 34px rgba(31,36,32,.14);padding:6px;min-width:190px;margin:0;list-style:none}
+.menu button,.menu a{display:block;width:100%;text-align:left;background:none;border:0;padding:9px 12px;border-radius:8px;font:500 14px Inter,sans-serif;color:var(--ink);cursor:pointer;text-decoration:none}
+.menu button:hover,.menu a:hover,.menu [aria-current=true]{background:var(--tint);color:var(--ac)}
+.menu li::before{display:none!important}
+.menu li{display:block}
+.sw{background:none;border:0;width:26px;height:28px;border-radius:6px;cursor:pointer;color:var(--mut);margin-left:-2px;display:inline-grid;place-items:center}
+.sw:hover,.sw[aria-expanded=true]{background:var(--tint);color:var(--ac)}
+.sw svg{width:12px;height:12px}
+.row{display:flex;gap:12px;align-items:center;margin-bottom:14px;font-size:13px;color:var(--mut)}
+.row input{flex:1;accent-color:var(--ac);min-width:0}
+#w1{overflow:visible}
+.holder{border:1px dashed #cfd4cb;border-radius:10px;padding:10px 12px;overflow:visible;position:relative}
+.ex{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:18px}
+.fl{display:flex;flex-direction:column;gap:2px}
+.fl button{display:flex;align-items:center;gap:10px;background:none;border:0;padding:9px 10px;border-radius:9px;cursor:pointer;font:500 14px Inter,sans-serif;color:var(--ink);text-align:left}
+.fl button:hover{background:var(--tint)}
+.fl button[aria-selected=true]{background:var(--tint);color:var(--ac)}
+.ic{width:18px;height:14px;border-radius:3px;background:#d9b66a;flex:none;position:relative}
+.ic::before{content:"";position:absolute;left:0;top:-3px;width:8px;height:4px;background:#d9b66a;border-radius:2px 2px 0 0}
+.ic.f{background:#c8cfc6;height:16px;width:13px}.ic.f::before{display:none}
+.main{min-width:0}
+.cont{border:1px solid var(--bd);border-radius:10px;padding:8px;min-height:180px;margin-top:12px}
+.hint{font-size:12.5px;color:var(--mut);margin-top:10px}
+kbd{background:#efede6;border:1px solid var(--bd);border-radius:5px;padding:1px 5px;font:500 12px Inter}
+#t2 ol{flex-wrap:wrap;row-gap:4px}
+@media(max-width:640px){.ex{grid-template-columns:minmax(0,1fr)}.bc [aria-current=page]{max-width:130px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body><div class="wrap">
+<h1>Fernwood Docs</h1><p class="lead">Three ways to show where you are, and let people climb back out.</p>
+
+<h2>1 · Responsive trail</h2>
+<div class="pn"><div class="row"><label for="rw">Container width</label><input id="rw" type="range" min="220" max="860" value="860" aria-describedby="rwv"><output id="rwv">860px</output></div>
+<div class="holder" id="h1"><nav class="bc" id="t1" aria-label="Breadcrumb"><ol></ol></nav></div></div>
+
+<h2>2 · Siblings switcher</h2>
+<div class="pn"><div class="holder"><nav class="bc" id="t2" aria-label="Breadcrumb with siblings"><ol></ol></nav></div><p class="hint">Use the small chevrons to hop to a sibling page. Arrow keys, <kbd>Home</kbd> and <kbd>End</kbd> work in the menu.</p></div>
+
+<h2>3 · Folder explorer</h2>
+<div class="pn"><nav class="bc" id="t3" aria-label="Folder path"><ol></ol></nav>
+<div class="cont"><div class="fl" id="fl" role="listbox" aria-label="Folder contents"></div></div>
+<p class="hint"><kbd>Enter</kbd> or double-click opens a folder · <kbd>Backspace</kbd> goes up one level.</p></div>
+<div class="sr" id="live" aria-live="polite" style="position:absolute;left:-9999px"></div>
+</div>
+<script>
+const $=s=>document.querySelector(s),live=$('#live');
+const say=t=>{live.textContent='';setTimeout(()=>live.textContent=t,50)};
+const path1=['Home','Guides','Deployment','Environments','Staging','Secrets','Rotation'];
+const mk=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e};
+let openMenu=null;
+function closeMenu(ret){if(openMenu){const{m,b}=openMenu;m.remove();b.setAttribute('aria-expanded','false');openMenu=null;if(ret)b.focus()}}
+document.addEventListener('click',e=>{if(openMenu&&!openMenu.m.contains(e.target)&&e.target!==openMenu.b)closeMenu()});
+function popMenu(btn,items,onPick,cur){
+  if(openMenu&&openMenu.b===btn){closeMenu(true);return}
+  closeMenu();
+  const m=mk('ul','menu');m.setAttribute('role','menu');
+  items.forEach((it,i)=>{const li=mk('li');const b=mk('button',null,it);b.setAttribute('role','menuitem');if(it===cur)b.setAttribute('aria-current','true');b.tabIndex=-1;b.onclick=()=>{closeMenu(true);onPick(it,i)};li.append(b);m.append(li)});
+  btn.parentNode.append(m);btn.setAttribute('aria-expanded','true');openMenu={m,b:btn};
+  const bs=[...m.querySelectorAll('button')];(bs.find(b=>b.getAttribute('aria-current'))||bs[0]).focus();
+  m.onkeydown=e=>{const i=bs.indexOf(document.activeElement);
+    if(e.key==='Escape'){e.preventDefault();closeMenu(true)}
+    else if(e.key==='ArrowDown'){e.preventDefault();bs[(i+1)%bs.length].focus()}
+    else if(e.key==='ArrowUp'){e.preventDefault();bs[(i-1+bs.length)%bs.length].focus()}
+    else if(e.key==='Home'){e.preventDefault();bs[0].focus()}
+    else if(e.key==='End'){e.preventDefault();bs[bs.length-1].focus()}
+    else if(e.key==='Tab')closeMenu()};
+}
+/* 1 responsive */
+let cur1=path1.length-1;
+function render1(){
+  const nav=$('#t1'),ol=nav.querySelector('ol');closeMenu();
+  const draw=hidden=>{ol.textContent='';
+    path1.slice(0,cur1+1).forEach((p,i)=>{
+      const last=i===cur1;
+      if(hidden&&i>=1&&i<hidden.to){ if(i===1){const li=mk('li');const b=mk('button','ov','…');b.setAttribute('aria-label','Show '+(hidden.to-1)+' hidden levels');b.setAttribute('aria-haspopup','menu');b.setAttribute('aria-expanded','false');
+          b.onclick=()=>popMenu(b,path1.slice(1,hidden.to),(v)=>{cur1=path1.indexOf(v);render1();say('Navigated to '+v)});li.append(b);ol.append(li)} return}
+      const li=mk('li');
+      if(last){const s=mk('span',null,p);s.setAttribute('aria-current','page');li.append(s)}
+      else{const a=mk('a',null,p);a.href='#'+p;a.onclick=e=>{e.preventDefault();cur1=i;render1();say('Navigated to '+p)};li.append(a)}
+      ol.append(li)});
+  };
+  draw(null);
+  const room=$('#h1').clientWidth-24;
+  const total=cur1+1;
+  for(let to=0;to<=total-3;to++){
+    if(ol.scrollWidth<=room)break;
+    draw({to:Math.max(2,to+2)});
+    if(to+2>=total-2)break;
+  }
+  if(ol.scrollWidth>room&&total>3)draw({to:total-2});
+  if(ol.scrollWidth>room&&total>3)draw({to:total-1});
+}
+const rw=$('#rw');rw.oninput=()=>{$('#h1').style.width=rw.value+'px';$('#rwv').textContent=rw.value+'px';render1()};
+new ResizeObserver(()=>render1()).observe($('#h1').parentNode);
+$('#h1').style.maxWidth='100%';
+/* 2 siblings */
+const tree={Home:['Home'],Guides:['Guides','Reference','Tutorials','Changelog'],Deployment:['Deployment','Getting started','Authentication','Webhooks','Limits'],Staging:['Staging','Production','Preview','Local']};
+const path2=['Guides','Deployment','Staging'];
+function render2(){
+  const ol=$('#t2 ol');closeMenu();ol.textContent='';
+  path2.forEach((p,i)=>{const li=mk('li');const last=i===path2.length-1;
+    if(last){const s=mk('span',null,p);s.setAttribute('aria-current','page');li.append(s)}else{const a=mk('a',null,p);a.href='#';a.onclick=e=>{e.preventDefault();path2.length=i+1;render2()};li.append(a)}
+    const sb=mk('button','sw');sb.innerHTML='<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4l4 4 4-4"/></svg>';
+    sb.setAttribute('aria-label','Siblings of '+p);sb.setAttribute('aria-haspopup','menu');sb.setAttribute('aria-expanded','false');
+    sb.onclick=()=>popMenu(sb,tree[p]||[p],v=>{path2[i]=v;path2.length=i+1;render2();say('Moved to '+v)},p);
+    li.append(sb);ol.append(li)});
+}
+/* 3 explorer */
+const fs={'':['Projects','Design','Notes','readme.txt'],Projects:['Orchard','Lantern','Brackish','plan.pdf'],Design:['Brand','Icons','Specs.fig'],Notes:['2026','ideas.md'],Orchard:['Sprints','Reviews','brief.docx'],Lantern:['Assets','roadmap.md'],Brand:['Logos','Colour.pdf']};
+let p3=[],sel=0;
+function items3(){return fs[p3[p3.length-1]||'']||[]}
+function render3(){
+  const ol=$('#t3 ol');ol.textContent='';
+  ['Drive',...p3].forEach((p,i)=>{const li=mk('li');const last=i===p3.length;
+    if(last){const s=mk('span',null,p);s.setAttribute('aria-current','page');li.append(s)}else{const a=mk('a',null,p);a.href='#';a.onclick=e=>{e.preventDefault();p3.length=i;sel=0;render3();say('Opened '+p)};li.append(a)}ol.append(li)});
+  const fl=$('#fl');fl.textContent='';const its=items3();
+  if(!its.length){fl.append(mk('p','hint','This folder is empty.'))}
+  its.forEach((n,i)=>{const isF=!n.includes('.');const b=mk('button');b.setAttribute('role','option');b.setAttribute('aria-selected',i===sel);b.tabIndex=i===sel?0:-1;
+    b.append(mk('span','ic'+(isF?'':' f')),mk('span',null,n));
+    b.onclick=()=>{sel=i;render3();fl.children[i]&&fl.children[i].focus()};b.ondblclick=()=>open3(i);fl.append(b)});
+}
+function open3(i){const n=items3()[i];if(n&&fs[n]!==undefined||(n&&!n.includes('.'))){p3.push(n);sel=0;render3();say('Opened '+n);$('#fl').children[0]&&$('#fl').children[0].focus()}}
+$('#fl').addEventListener('keydown',e=>{const n=items3().length;
+  if(e.key==='ArrowDown'){e.preventDefault();sel=Math.min(n-1,sel+1);render3();$('#fl').children[sel].focus()}
+  else if(e.key==='ArrowUp'){e.preventDefault();sel=Math.max(0,sel-1);render3();$('#fl').children[sel].focus()}
+  else if(e.key==='Enter'){e.preventDefault();open3(sel)}
+  else if(e.key==='Backspace'){e.preventDefault();if(p3.length){p3.pop();sel=0;render3();say('Up one level');$('#fl').children[0]&&$('#fl').children[0].focus()}}});
+render1();render2();render3();
+</script></body></html>

@@ -1,0 +1,11 @@
+Canvas & base: A warm page on #fff8ef with a white form card (max 620px, 1px #f0e4d0 border, 24px radius, soft shadow), ink #2b2118, secondary #86735e, accent amber #f59e0b, deep amber #b45309, accent for focus #7c3aed. Invented product "Crumb & Co. Bakery Box".
+
+Typography: "Nunito" (600,700,800) at 16px; card title 26px at 800.
+
+Layout: A single card titled "How was your box?" with sections separated by hairlines: (1) Overall rating with five SVG stars supporting half values; (2) "How did it feel?" an emoji-face slider with five labelled stops; (3) NPS scale of eleven buttons 0–10 with captions "Not likely" and "Very likely"; (4) "Freshness" custom range with a floating value bubble and tick marks; (5) Quantity stepper (− 1 +) and a Size segmented picker (Small, Regular, Family); (6) a comment textarea with counter, and a Send button.
+
+Interaction: Star rating is a radiogroup of ten half-step radios under the hood with arrow-key support, hover previews the value and clicking the same value again clears it. The emoji slider is a real input type=range with the face and caption changing per step. NPS buttons are radios styled as a row, and the chosen band (detractor, passive, promoter) is announced. The range bubble follows the thumb. The stepper has min 1, max 12 and long-press repeat. Send validates that stars and NPS are chosen, shows inline errors, and then replaces the form with a thank-you summary and a "Edit answers" button. Live region for changes.
+
+Responsive: The NPS row wraps to two lines (6 + 5) below 480px; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images (stars and faces are inline SVG). Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented names only.

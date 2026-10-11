@@ -1,0 +1,15 @@
+Canvas & base: Full-viewport hero, min-height 100svh, overflow hidden, position relative. Background #17101f (deep aubergine). Text #efe8f7. Secondary text #a99bbd. One warm accent #ffb347 (tungsten) used for the on-air lamp, the level bars, the play button and focus rings. Body margin 0. No shadows, no blur, border-radius 0 except the vinyl, its label and the lamp, which are circles. Hairlines are 1px solid rgba(239,232,247,0.18).
+
+Typography: Syne weight 800 for the headline and station name, DM Mono 400 and 500 for everything else. Headline clamp(52px, 8.6vw, 132px), line-height 0.92, letter-spacing -0.035em, uppercase. Mono text 13px, letter-spacing 0.06em, uppercase for labels and sentence case for the schedule titles.
+
+Vinyl (all CSS): a circle of diameter min(62vh, 46vw) positioned right: -6vw, vertically centred. Its surface is background: repeating-radial-gradient(circle, #0c0812 0 2px, #1d1428 2px 3px) with a conic-gradient sheen overlay (transparent 0deg, rgba(255,255,255,0.10) 30deg, transparent 70deg, transparent 180deg, rgba(255,255,255,0.08) 210deg, transparent 250deg). The label is a centred circle of 34% the diameter in #ffb347 with the text "NOCTURNE 88.4" in Syne 800 14px, plus a 6px hole in #17101f. The whole disc rotates 360 degrees in 7s linear infinite while playing, and animation-play-state is paused when not playing.
+
+Play state: a 56px circular button bottom-left of the hero content, border 1.5px solid #ffb347, containing a pause icon made of two 4px by 16px bars when playing and a triangle when paused (CSS only). Toggling it sets aria-pressed and a data-playing attribute on the hero. When playing, the vinyl spins and the level bars animate; when paused both stop. The page loads in the playing state. The button label for screen readers is "Pause" or "Play".
+
+Level bars: a row of 28 bars along the bottom edge, each 6px wide with a 4px gap, base height 6px, colour #ffb347, aligned to the bottom, animated with a scaleY keyframe between 0.15 and 1 on a 700ms to 1300ms ease-in-out infinite alternate cycle, with each bar given a different duration and negative delay so they never line up. Bars are 72px tall at full scale.
+
+Content overlay: padding 36px 56px 0, z-index 2. Top bar: "Nocturne Radio" in Syne 800 18px on the left; centre "Broadcasting from a flat above a launderette"; right an 10px #ffb347 lamp that pulses opacity 1 to 0.35 over 1.6s followed by "ON AIR". Headline lower-left: "Music for the hours nobody asked for." Under it, a schedule list max-width 460px with three rows separated by hairlines, each a flex row: time in #ffb347 ("00:00", "03:00", "05:30"), show title ("Midnight Sun with Ines Okoro", "The Long Fade", "Tea & Static"), and a right-aligned genre in #a99bbd ("Dub", "Ambient", "Folk").
+
+Responsive: below 800px shrink the vinyl to 70vw positioned right: -22vw, top 8vh with 0.55 opacity so text stays readable, hide the centre tagline, headline clamp(44px, 12vw, 80px), reduce padding to 24px 20px 0, show 18 bars.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Syne and DM Mono, no images, no libraries. Honour prefers-reduced-motion by starting paused.

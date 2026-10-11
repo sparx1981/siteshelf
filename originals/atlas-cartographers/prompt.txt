@@ -1,0 +1,13 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background #efe3c8 (aged paper) with an inline SVG feTurbulence grain at 8% opacity multiplied over it and a 24px inset border of 1px #3b2a1a with a second 1px border 6px further in (double map frame). Ink #3b2a1a, sea tint #cfdcd2, land #e6d3a8, accent vermilion #b8321f used only for the compass north needle and the place marker. Body margin 0.
+
+Typography: Cormorant Garamond (500, 600, italic 500) for the headline and place names, Work Sans (400, 500) for small captions. Headline clamp(44px, 6.4vw, 104px), weight 600, line-height 1, letter-spacing -0.01em. Place names italic 22px. Captions 12px uppercase letter-spacing 0.14em.
+
+Layout: inside the frame, a two-column grid 5fr / 6fr, padding 56px 72px. Left: caption "Est. 1887 · Edinburgh", headline "Maps that remember the coast.", paragraph 18px "Hand-drawn survey charts, reproduced on cotton paper and framed to order.", button "Browse the charts" as a 52px-tall rectangle with 1px ink border and ink fill on hover. Right: an SVG viewBox 0 0 600 560 showing a fictional coastline: a land path filled #e6d3a8 with 1.5px ink stroke, sea filled #cfdcd2 with hatched wave lines (repeated short horizontal strokes), a dashed ship route, and four place markers.
+
+Compass rose: a 120px eight-point compass at the bottom right of the map with a vermilion north needle. It rotates to point its north needle toward the pointer, with an 0.5s ease, and rests pointing up when the pointer leaves.
+
+Interaction: each place marker is a 10px vermilion ring with a label that fades in on hover or focus ("Port Alder", "The Skerries", "Cape Wrath Light", "Murrow Bay"), with a 1px leader line. Markers are keyboard focusable.
+
+Responsive: below 900px one column, map first at 90vw wide, frame inset 12px, padding 40px 24px.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Cormorant Garamond and Work Sans, no external images, no libraries. prefers-reduced-motion: compass does not rotate.

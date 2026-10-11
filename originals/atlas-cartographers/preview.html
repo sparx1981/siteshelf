@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atlas Cartographers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#3b2a1a;--sea:#cfdcd2;--land:#e6d3a8;--red:#b8321f}
+*{box-sizing:border-box}
+html,body{margin:0;background:#efe3c8;color:var(--ink);font:400 18px/1.5 'Work Sans',sans-serif}
+.hero{position:relative;min-height:100svh;padding:24px}
+.grain{position:fixed;inset:0;width:100%;height:100%;opacity:.08;mix-blend-mode:multiply;pointer-events:none}
+.frame{position:relative;min-height:calc(100svh - 48px);border:1px solid var(--ink);padding:6px}
+.in{min-height:calc(100svh - 62px);border:1px solid var(--ink);display:grid;grid-template-columns:5fr 6fr;gap:32px;padding:56px 72px;align-items:center}
+.cap{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:500}
+h1{font:600 clamp(44px,6.4vw,104px)/1 'Cormorant Garamond',serif;letter-spacing:-.01em;margin:20px 0 24px}
+.l p{margin:0 0 32px;max-width:440px}
+.btn{display:inline-flex;align-items:center;height:52px;padding:0 30px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:500;letter-spacing:.04em;transition:background .2s,color .2s}
+.btn:hover{background:var(--ink);color:#efe3c8}
+svg{width:100%;height:auto;max-height:78vh;display:block;overflow:visible}
+.mk{cursor:pointer;outline:none}
+.mk .lbl{opacity:0;transition:opacity .25s}
+.mk:hover .lbl,.mk:focus .lbl{opacity:1}
+.mk circle.r{fill:#efe3c8;stroke:var(--red);stroke-width:2.5}
+.mk:focus circle.r,.mk:hover circle.r{fill:var(--red)}
+.pn{font:italic 500 22px 'Cormorant Garamond',serif;fill:var(--ink)}
+#rose{transition:transform .5s ease;transform-origin:520px 470px;transform-box:view-box}
+@media(max-width:900px){.hero{padding:12px}.frame{min-height:calc(100svh - 24px)}.in{grid-template-columns:1fr;padding:40px 24px;min-height:calc(100svh - 38px)}.r{order:-1}}
+@media(prefers-reduced-motion:reduce){#rose{transition:none}}
+</style></head><body>
+<main class="hero">
+<svg class="grain" aria-hidden="true"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2"/><feColorMatrix values="0 0 0 0 .2  0 0 0 0 .15  0 0 0 0 .1  0 0 0 1 0"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+<div class="frame"><div class="in">
+<section class="l"><div class="cap">Est. 1887 · Edinburgh</div><h1>Maps that remember the coast.</h1><p>Hand-drawn survey charts, reproduced on cotton paper and framed to order.</p><a class="btn" href="#">Browse the charts</a></section>
+<section class="r">
+<svg viewBox="0 0 600 560" id="map" role="img" aria-label="Hand-drawn chart of a fictional coastline">
+<defs><pattern id="w" width="26" height="14" patternUnits="userSpaceOnUse"><path d="M2 8q5-5 10 0t10 0" fill="none" stroke="#3b2a1a" stroke-opacity=".28" stroke-width="1"/></pattern></defs>
+<rect x="0" y="0" width="600" height="560" fill="#cfdcd2"/><rect x="0" y="0" width="600" height="560" fill="url(#w)"/>
+<rect x="1" y="1" width="598" height="558" fill="none" stroke="#3b2a1a" stroke-width="2"/>
+<path d="M0 0H330C350 40 310 70 340 110C370 150 420 150 410 200C400 250 330 250 340 300C350 350 400 360 380 410C360 460 300 450 280 500C270 530 280 545 270 560H0Z" fill="#e6d3a8" stroke="#3b2a1a" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M60 90q40-30 90-10M80 200q50-30 120 0M50 330q60 30 130-10M110 440q40 20 90 0" fill="none" stroke="#3b2a1a" stroke-opacity=".35" stroke-dasharray="2 5"/>
+<path d="M200 120q30 40 20 70M150 260q40-20 90 10M190 380q20 30 60 20" fill="none" stroke="#3b2a1a" stroke-opacity=".4" stroke-width="1.2"/>
+<circle cx="470" cy="90" r="18" fill="#e6d3a8" stroke="#3b2a1a" stroke-width="1.2"/><circle cx="520" cy="140" r="11" fill="#e6d3a8" stroke="#3b2a1a" stroke-width="1.2"/><circle cx="440" cy="40" r="8" fill="#e6d3a8" stroke="#3b2a1a" stroke-width="1.2"/>
+<path d="M560 520C500 440 470 380 480 320C490 260 540 230 520 170" fill="none" stroke="#3b2a1a" stroke-width="1.4" stroke-dasharray="7 6"/>
+<g class="mk" tabindex="0"><circle class="r" cx="345" cy="130" r="6"/><g class="lbl"><path d="M351 126l40-30" stroke="#3b2a1a"/><text class="pn" x="394" y="96">Port Alder</text></g></g>
+<g class="mk" tabindex="0"><circle class="r" cx="470" cy="90" r="6"/><g class="lbl"><path d="M476 86l30-30" stroke="#3b2a1a"/><text class="pn" x="400" y="40" text-anchor="start" dx="110">The Skerries</text></g></g>
+<g class="mk" tabindex="0"><circle class="r" cx="344" cy="300" r="6"/><g class="lbl"><path d="M350 300l50 0" stroke="#3b2a1a"/><text class="pn" x="404" y="306">Cape Wrath Light</text></g></g>
+<g class="mk" tabindex="0"><circle class="r" cx="372" cy="420" r="6"/><g class="lbl"><path d="M378 424l40 30" stroke="#3b2a1a"/><text class="pn" x="402" y="476" dx="20">Murrow Bay</text></g></g>
+<g id="rose">
+<circle cx="520" cy="470" r="52" fill="#efe3c8" fill-opacity=".7" stroke="#3b2a1a"/><circle cx="520" cy="470" r="44" fill="none" stroke="#3b2a1a" stroke-width=".8"/>
+<path d="M520 420L528 462 520 470 512 462Z" fill="#b8321f"/><path d="M520 520L528 478 520 470 512 478Z" fill="#3b2a1a"/>
+<path d="M470 470L512 462 520 470 512 478Z M570 470L528 462 520 470 528 478Z" fill="#3b2a1a"/>
+<path d="M485 435L514 462 506 466ZM555 505L526 478 534 474ZM555 435L526 462 534 466ZM485 505L514 478 506 474Z" fill="#3b2a1a" fill-opacity=".5"/>
+<text x="520" y="412" text-anchor="middle" font-family="Work Sans" font-size="11" fill="#3b2a1a">N</text>
+</g>
+</svg>
+</section></div></div></main>
+<script>
+const rose=document.getElementById('rose'),svg=document.getElementById('map');
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+ addEventListener('pointermove',e=>{const r=rose.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
+  const a=Math.atan2(e.clientY-cy,e.clientX-cx)*180/Math.PI+90;rose.style.transform='rotate('+a+'deg)'});
+ document.addEventListener('pointerleave',()=>rose.style.transform='rotate(0deg)');
+}
+</script></body></html>

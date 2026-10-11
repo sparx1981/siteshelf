@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kiln &amp; Glaze</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#c7d2d4;--ink:#1d2a2e;--g:#7fb59f;--gd:#5f9a84}
+*{box-sizing:border-box;border-radius:0}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 'Hanken Grotesk',system-ui,sans-serif}
+.hero{position:relative;min-height:100svh;overflow:hidden}
+.speck{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:multiply;opacity:.07}
+.grid{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr;column-gap:56px;min-height:100svh;padding:36px 56px 40px}
+.top{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{font:400 24px/1 'Young Serif',Georgia,serif}
+.lbl{font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+.stamp{width:64px;height:64px;border:1.5px solid var(--ink);border-radius:50%!important;display:grid;place-items:center;text-align:center;font-size:11px;line-height:1.1;text-transform:uppercase;letter-spacing:.06em;font-weight:600;transform:rotate(-8deg)}
+h1{font:400 clamp(46px,6.4vw,96px)/1.02 'Young Serif',Georgia,serif;letter-spacing:-.02em;margin:64px 0 40px;max-width:9em}
+.list{border-top:1px solid rgba(29,42,46,.3)}
+.row{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;width:100%;height:84px;padding:0 4px 0 18px;border-bottom:1px solid rgba(29,42,46,.3);position:relative;cursor:pointer}
+.row:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:transparent}
+.row[aria-pressed="true"]:before{background:var(--g)}
+.row[aria-pressed="true"] .nm{color:var(--gd)}
+.row:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+.nm{font:400 30px/1.1 'Young Serif',Georgia,serif;display:block}
+.pr{font-weight:600}
+.stage{background:rgba(255,255,255,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px;min-height:0;margin-top:64px}
+.art{position:relative;width:min(100%,440px);aspect-ratio:1}
+.art svg{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .35s ease}
+.art svg.on{opacity:1}
+.cap{display:flex;gap:40px}
+.cap span{display:block;font-weight:500}
+@media(max-width:900px){.grid{grid-template-columns:1fr;grid-template-rows:auto auto auto;padding:24px 20px 32px}.mid{display:none}
+ .stage{order:2;height:46vh;margin-top:24px}h1{order:3;margin:32px 0 24px}.list{order:4}.top{order:1}
+ .art{width:min(100%,38vh)}}
+@media(prefers-reduced-motion:reduce){.art svg{transition:none}}
+</style></head><body>
+<section class="hero">
+<svg class="speck" aria-hidden="true"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0.05  0 0 0 0 0.07  0 0 0 0 0.08  0 0 0 9 -4.4"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+<div class="grid">
+  <div class="top"><span class="brand">Kiln &amp; Glaze</span><span class="lbl mid">Wheel-thrown in Leith, Edinburgh</span><span class="stamp">Open<br>Sat</span></div>
+  <div><h1>Made slowly, used daily.</h1>
+  <div class="list" id="list" role="group" aria-label="Pieces">
+    <button class="row" type="button" data-i="0" data-g="#7fb59f" data-d="#4f8f78" aria-pressed="true"><span><span class="nm">Tide Bowl</span><span class="lbl">Celadon</span></span><span class="pr">£48</span></button>
+    <button class="row" type="button" data-i="1" data-g="#b5472f" data-d="#8e341f" aria-pressed="false"><span><span class="nm">Tall Vase</span><span class="lbl">Iron Red</span></span><span class="pr">£96</span></button>
+    <button class="row" type="button" data-i="2" data-g="#d9c9a8" data-d="#8f7e55" aria-pressed="false"><span><span class="nm">Pouring Jug</span><span class="lbl">Oatmeal</span></span><span class="pr">£62</span></button>
+    <button class="row" type="button" data-i="3" data-g="#4e6e8e" data-d="#3a566f" aria-pressed="false"><span><span class="nm">Tea Cup</span><span class="lbl">Slate Blue</span></span><span class="pr">£28</span></button>
+    <button class="row" type="button" data-i="4" data-g="#6b7d3a" data-d="#506028" aria-pressed="false"><span><span class="nm">Dinner Plate</span><span class="lbl">Moss</span></span><span class="pr">£54</span></button>
+  </div></div>
+  <div class="stage"><div class="art" id="art">
+    <svg viewBox="0 0 300 300" class="on" aria-label="Wide bowl"><path d="M40 150 H260 C260 215 215 262 150 262 C85 262 40 215 40 150Z" fill="#7fb59f" stroke="#4f8f78" stroke-width="3"/><line x1="20" y1="262" x2="280" y2="262" stroke="#1d2a2e" stroke-width="2"/></svg>
+    <svg viewBox="0 0 300 300" aria-label="Tall vase"><path d="M128 40 H172 C170 80 172 100 200 140 C228 180 224 240 200 262 H100 C76 240 72 180 100 140 C128 100 130 80 128 40Z" fill="#b5472f" stroke="#8e341f" stroke-width="3"/><line x1="20" y1="262" x2="280" y2="262" stroke="#1d2a2e" stroke-width="2"/></svg>
+    <svg viewBox="0 0 300 300" aria-label="Pouring jug"><path d="M95 90 H205 L212 110 C226 150 224 240 200 262 H100 C76 240 74 150 88 110Z" fill="#d9c9a8" stroke="#8f7e55" stroke-width="3"/><path d="M212 120 C262 112 266 192 214 202" fill="none" stroke="#8f7e55" stroke-width="12" stroke-linecap="round"/><path d="M95 90 L70 78" stroke="#8f7e55" stroke-width="3" stroke-linecap="round"/><line x1="20" y1="262" x2="280" y2="262" stroke="#1d2a2e" stroke-width="2"/></svg>
+    <svg viewBox="0 0 300 300" aria-label="Tea cup"><path d="M100 150 H200 V215 C200 245 182 262 150 262 C118 262 100 245 100 215Z" fill="#4e6e8e" stroke="#3a566f" stroke-width="3"/><path d="M200 170 C238 166 238 222 198 224" fill="none" stroke="#3a566f" stroke-width="10" stroke-linecap="round"/><line x1="20" y1="262" x2="280" y2="262" stroke="#1d2a2e" stroke-width="2"/></svg>
+    <svg viewBox="0 0 300 300" aria-label="Dinner plate"><path d="M30 215 H270 C270 240 232 262 150 262 C68 262 30 240 30 215Z" fill="#6b7d3a" stroke="#506028" stroke-width="3"/><ellipse cx="150" cy="215" rx="120" ry="12" fill="#506028" opacity=".35"/><line x1="20" y1="262" x2="280" y2="262" stroke="#1d2a2e" stroke-width="2"/></svg>
+  </div>
+  <div class="cap"><div><span class="lbl">Glaze</span><span id="gl">Celadon</span></div><div><span class="lbl">Fired</span><span>1260°C</span></div></div></div>
+</div></section>
+<script>
+(function(){
+  var rows=[].slice.call(document.querySelectorAll('.row')),svgs=[].slice.call(document.querySelectorAll('#art svg')),gl=document.getElementById('gl'),root=document.documentElement;
+  function act(i){rows.forEach(function(r,k){r.setAttribute('aria-pressed',k===i)});svgs.forEach(function(s,k){s.classList.toggle('on',k===i)});
+    root.style.setProperty('--g',rows[i].dataset.g);root.style.setProperty('--gd',rows[i].dataset.d);gl.textContent=rows[i].querySelector('.lbl').textContent}
+  rows.forEach(function(r,i){r.addEventListener('mouseenter',function(){act(i)});r.addEventListener('focus',function(){act(i)});r.addEventListener('click',function(){act(i)});
+    r.addEventListener('keydown',function(e){if(e.key==='ArrowDown'){e.preventDefault();rows[(i+1)%rows.length].focus()}if(e.key==='ArrowUp'){e.preventDefault();rows[(i+rows.length-1)%rows.length].focus()}})});
+  act(0);
+})();
+</script></body></html>

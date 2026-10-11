@@ -1,0 +1,15 @@
+Canvas & base: Full-viewport hero, min-height 100svh, position relative, overflow hidden. Background #c7d2d4 (cool stoneware grey) with a speckle texture made from an inline SVG feTurbulence filter (baseFrequency 0.9, numOctaves 2, mixed to near-black at 7% opacity, mix-blend-mode multiply). Text #1d2a2e. Page accent: the glaze colour of whichever piece is active, never anything else. Body margin 0. No shadows, border-radius 0 except on the round "open" stamp.
+
+Typography: Young Serif for the headline and piece names, Hanken Grotesk (400, 500, 600) for everything else. Headline clamp(46px, 6.4vw, 96px), weight 400, line-height 1.02, letter-spacing -0.02em. Piece names 30px Young Serif. Body 16px / 1.5. Labels 12px uppercase, letter-spacing 0.1em, weight 600.
+
+Layout: a two-column grid, columns 1fr and 1fr, min-height 100svh, padding 36px 56px 40px, column gap 56px. Top bar spans both columns: "Kiln & Glaze" in Young Serif 24px on the left, "Wheel-thrown in Leith, Edinburgh" label in the middle, a 64px circular stamp on the right with a 1.5px solid #1d2a2e border reading "OPEN SAT" in 11px uppercase, rotated -8 degrees.
+
+Left column: the headline "Made slowly, used daily." at the top with 64px margin, then a list of five pieces as a button list. Each row is a full-width button, 84px tall, a 1px solid rgba(29,42,46,0.3) bottom border, flex between: left the piece name in Young Serif 30px and under it a label for its glaze; right the price in Hanken Grotesk 600. Rows: "Tide Bowl" / Celadon / £48, "Tall Vase" / Iron Red / £96, "Pouring Jug" / Oatmeal / £62, "Tea Cup" / Slate Blue / £28, "Dinner Plate" / Moss / £54. The active row has its name coloured in its glaze colour darkened 20 percent and a 4px bar in the glaze colour at its left edge. The first row is active on load.
+
+Right column (stage): a rounded-none panel filling the column height, background rgba(255,255,255,0.35). Centred inside, an SVG viewBox 0 0 300 300 containing the active piece drawn as a solid silhouette filled with its glaze colour (Celadon #7fb59f, Iron Red #b5472f, Oatmeal #d9c9a8, Slate Blue #4e6e8e, Moss #6b7d3a), with a 3px darker rim line, standing on a 2px #1d2a2e ground line at y 262. Draw five shapes: a wide bowl, a tall narrow-necked vase, a jug with a handle, a straight cup, a flat plate seen edge-on as a shallow dish. Crossfade between pieces over 350ms ease. Under the SVG show a caption: label "Glaze" and the glaze name, label "Fired" and "1260°C".
+
+Interaction: hovering or focusing a row (mouseenter and focus) makes it active; arrow up and down keys move focus between rows. Touch: tap to activate. Nothing else moves.
+
+Responsive: below 900px make the grid one column, stage first with height 46vh, list below, hide the middle top-bar label, padding 24px 20px 32px.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Young Serif and Hanken Grotesk, no external images, no libraries. Honour prefers-reduced-motion by removing the crossfade.

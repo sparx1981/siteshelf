@@ -1,0 +1,15 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background #060d1f (deep navy) with a radial gradient glow centred behind the rings: radial-gradient(circle at 68% 50%, rgba(64,224,208,0.14), transparent 55%). Text #e8eefc, muted #8a97b8, accent teal #40e0d0, secondary violet #8b7bff, tertiary coral #ff8a7a. Body margin 0, overflow hidden. No shadows, no gradients on text.
+
+Typography: Sora (500, 600, 700) for the headline and figures, IBM Plex Mono (400, 500) for labels and small data. Headline clamp(40px, 5.2vw, 80px), weight 600, line-height 1.05, letter-spacing -0.03em. Figure 56px Sora 700 with tabular-nums. Labels 12px IBM Plex Mono uppercase, letter-spacing 0.08em.
+
+Layout: two columns, 1fr and 1.1fr, padding 40px 64px, vertically centred. Top bar: wordmark "Orbit Ledger" in Sora 600 18px with a 10px teal dot, links Product, Pricing, Security in muted, and a 40px-tall pill button "Open account" with 1px teal border.
+
+Left column: eyebrow label "Business banking, in orbit", headline "Every pound, in its place.", a 18px muted paragraph "Pots for tax, payroll and profit that fill themselves the moment an invoice lands." and two buttons: solid teal "Start free" (text #060d1f) and a ghost "See how pots work".
+
+Right column: an SVG viewBox 0 0 600 600, three concentric circles centred at 300,300 with radii 120, 190, 260, stroke rgba(232,238,252,0.14) 1px, plus a 4px stroke arc on each in its colour covering 30 percent of the circumference. Each ring carries a 14px filled dot in its colour that orbits the centre: inner teal 18s, middle violet 28s, outer coral 40s, linear infinite, outer ring reversed direction. In the centre, label "Total balance" and the figure £48,210.50. Under each ring's dot, a small label chip ("Tax", "Payroll", "Profit") with the pot name and amount.
+
+Interaction: hovering or focusing a legend row below the rings (three rows: Tax £9,640.10, Payroll £21,300.00, Profit £17,270.40) pauses all orbits, brightens that ring's stroke to 100 percent and swaps the centre figure to that pot's amount with a 250ms count tween; leaving restores the total. On load the total counts up from 0 over 1.2 seconds.
+
+Responsive: below 960px stack the columns, rings first at 86vw square, padding 24px 20px, hide the nav links.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Sora and IBM Plex Mono, no external images, no libraries. prefers-reduced-motion: stop the orbits and show the final figure immediately.

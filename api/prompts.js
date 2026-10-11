@@ -1,7 +1,7 @@
 import { route, fail } from '../lib/http.js';
 import { db, enc } from '../lib/db.js';
 
-const LIST_COLS = 'id,title,category,description,type,thumbnail,animated_thumbnail,is_new,updated_at,created_at,prompt,original_prompt';
+const LIST_COLS = 'id,source,title,category,description,type,thumbnail,animated_thumbnail,is_new,updated_at,created_at,prompt,original_prompt';
 
 export default route({
   async GET(req) {

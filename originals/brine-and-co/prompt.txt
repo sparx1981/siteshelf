@@ -1,0 +1,13 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background #0f3d4c (deep harbour teal), text #fdf6e7 (oyster white), accent #ff7a45 (crab orange). Body margin 0. Flat design, no shadows, radius 0 except pill buttons.
+
+Typography: DM Serif Display for headline and dish names, Instrument Sans (400, 500, 600) for body and labels. Headline clamp(52px, 8vw, 132px), weight 400, line-height 0.95, letter-spacing -0.02em. Dish names 28px DM Serif Display. Body 16px / 1.5. Labels 12px uppercase, letter-spacing 0.12em, weight 600.
+
+Layout: top bar with "Brine & Co." in DM Serif Display 26px left, links Menu, Book, Find us, and a pill "Reserve" in orange (text #0f3d4c) on the right. Main area: two columns 1.1fr / 1fr, gap 56px, padding 32px 56px. Left: label "Fish house, Leith Docks", headline "Fresh off the boat, onto the plate.", paragraph "Day-boat catch from Pittenweem, cooked simply over fire or in a hot pan." Right: a tabbed menu card with 1px solid rgba(253,246,231,0.35) border, padding 28px. Tabs "Raw", "Fried", "Grill" as three text buttons with a 3px orange underline bar that slides between them (transform over 300ms). Under the tabs, a list of three dishes per tab, each row with the name in DM Serif Display 28px, a one-line description in muted rgba(253,246,231,0.7), and the price right-aligned in Instrument Sans 600. Dishes: Raw: Orkney Oysters 6 for £18, Cured Mackerel £11, Scallop Crudo £14. Fried: Haddock & Chips £16, Salt & Pepper Squid £12, Whitebait £9. Grill: Whole Sea Bream £26, Monkfish Skewer £22, Langoustines £28.
+
+Ticker: a full-width bar at the bottom, 52px tall, orange background, #0f3d4c text, a marquee of "TODAY'S CATCH · HADDOCK · MACKEREL · SCALLOPS · LANGOUSTINES · BREAM ·" repeated, scrolling left at 40px per second, seamless loop, pausing on hover.
+
+Interaction: tabs switch on click or arrow keys (role tablist), content crossfades in 200ms. First tab active on load.
+
+Responsive: below 900px one column, menu card below the text, padding 24px 20px, nav links hidden.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for DM Serif Display and Instrument Sans, no external images, no libraries. prefers-reduced-motion: ticker static, no slide transition.

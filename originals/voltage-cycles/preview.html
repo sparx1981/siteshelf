@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Voltage Cycles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Anton&display=swap" rel="stylesheet">
+<style>
+:root{--lime:#c6ff1a;--ink:#111}
+*{box-sizing:border-box;border-radius:0}
+html,body{margin:0;background:#f3f3ee;color:var(--ink);font:400 18px/1.5 Archivo,system-ui,sans-serif;overflow-x:hidden}
+.hero{min-height:100svh;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;gap:32px;padding:24px 40px}
+.top b{font-weight:600;font-size:18px;margin-right:auto}
+.top a{color:var(--ink);text-decoration:none;font-size:15px;font-weight:600}
+.top a.cta{background:var(--lime);height:44px;display:inline-flex;align-items:center;padding:0 22px}
+.row{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;padding:48px 40px;align-items:center;flex:1}
+h1{font:800 clamp(32px,4vw,60px)/1.05 Archivo;text-transform:uppercase;margin:0 0 20px}
+.row p{margin:0;max-width:460px}
+.card{border:1.5px solid var(--ink);padding:32px;max-width:440px;justify-self:end;width:100%;background:#fff}
+.lab{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;display:flex;justify-content:space-between}
+input[type=range]{width:100%;margin:18px 0 8px;accent-color:#111;height:32px}
+.dial{display:block;margin:0 auto;width:280px;max-width:100%}
+.big{font:400 72px Anton;text-anchor:middle}
+.u{font:600 12px Archivo;letter-spacing:.12em;text-anchor:middle;text-transform:uppercase}
+.strip{background:var(--lime);height:56px;display:flex}
+.strip div{flex:1;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.06em;border-left:1px solid var(--ink)}
+.strip div:first-child{border-left:0}
+.mark{font:400 clamp(96px,20vw,340px)/.85 Anton;text-transform:uppercase;color:transparent;-webkit-text-stroke:2px var(--ink);text-align:center;white-space:nowrap;padding:12px 0 0;overflow:hidden}
+@media(max-width:800px){.top a:not(.cta){display:none}.top{padding:16px 20px}.row{grid-template-columns:1fr;padding:32px 20px;gap:28px}.card{justify-self:stretch;max-width:none;padding:24px}.strip{height:auto;flex-wrap:wrap}.strip div{flex:1 1 50%;height:48px;border-top:1px solid var(--ink)}.strip div:nth-child(odd){border-left:0}.strip div:nth-child(-n+2){border-top:0}}
+</style></head><body>
+<main class="hero">
+<div class="top"><b>Voltage Cycles</b><a href="#">Models</a><a href="#">Range</a><a href="#">Service</a><a class="cta" href="#">Test ride</a></div>
+<div class="row"><div><h1>Go further on one charge.</h1><p>The V2 commuter: 120 km of real-world range, 4 hour full charge, 16.8 kg.</p></div>
+<div class="card"><div class="lab"><span>Battery size</span><span id="wh">500 Wh</span></div>
+<input id="sl" type="range" min="0" max="4" step="1" value="2" aria-label="Battery size">
+<svg class="dial" viewBox="0 0 280 170" role="img" aria-label="Estimated range"><path d="M20 150A120 120 0 0 1 260 150" fill="none" stroke="#e2e2da" stroke-width="22"/><path id="arc" d="M20 150A120 120 0 0 1 260 150" fill="none" stroke="#c6ff1a" stroke-width="22" pathLength="100" stroke-dasharray="0 100"/><path d="M20 150A120 120 0 0 1 260 150" fill="none" stroke="#111" stroke-width="1.5" transform="translate(0 0)" opacity="0"/><text class="big" x="140" y="136" id="km">120</text><text class="u" x="140" y="160">km estimated range</text></svg></div></div>
+<div class="strip"><div>250 W motor</div><div>16.8 kg</div><div>IP65</div><div>2 year warranty</div></div>
+<div class="mark" aria-hidden="true">Voltage</div>
+</main>
+<script>
+const W=[300,400,500,600,700],sl=document.getElementById('sl'),arc=document.getElementById('arc'),km=document.getElementById('km'),wh=document.getElementById('wh');
+let cur=0,raf;const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function paint(v){km.textContent=Math.round(v);arc.setAttribute('stroke-dasharray',(Math.max(0,(v-72)/(168-72))*88+8)+' 100')}
+function go(){const to=W[sl.value]*.24;wh.textContent=W[sl.value]+' Wh';cancelAnimationFrame(raf);
+ if(calm){cur=to;paint(to);return}
+ const f=cur,t0=performance.now();(function s(t){const k=Math.min(1,(t-t0)/300);cur=f+(to-f)*(1-Math.pow(1-k,3));paint(cur);if(k<1)raf=requestAnimationFrame(s)})(t0)}
+sl.addEventListener('input',go);cur=72;go();
+</script></body></html>

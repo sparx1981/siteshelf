@@ -1,0 +1,13 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background #fff4e0 (warm cream) with a very faint dotted grid made from radial-gradient(#e8d5b0 1px, transparent 1.5px) at 28px spacing. Text #2b2118. Accent colours used only on the planes and the button: tomato #ff5a36, sky #3aa6ff, sun #ffc933, leaf #3fbf7f. Body margin 0, overflow hidden, cursor default.
+
+Typography: Fraunces (600, 800, optical size auto) for the headline, Figtree (400, 500, 700) for everything else. Headline clamp(48px, 8vw, 128px), weight 800, line-height 0.95, letter-spacing -0.03em, centred, with the word "fly" in tomato italic. Body 20px / 1.5 centred, max-width 520px.
+
+Layout: everything centred in a column at 100svh. Top bar: "Hangar 9" wordmark in Fraunces 800 22px left, "Paper aeroplane school for grown-ups" in Figtree 14px right. Centre: eyebrow "Saturdays, 10am", headline "Learn to make it fly.", paragraph "Four folds, one afternoon, and a plane that actually goes where you point it.", then a 56px-tall rounded button "Book a seat" in tomato with white text, 700, radius 28px, and a hard 4px 4px 0 #2b2118 offset shadow that flattens on hover.
+
+Planes: five small SVG paper planes (36px wide, flat two-tone triangles in the four accent colours plus ink outline 2px) in a fixed layer behind the text, pointer-events none. They flock toward the cursor: each plane eases toward a target offset around the pointer (different offsets per plane, spread 60 to 160px), rotating to face its direction of travel, using requestAnimationFrame with a lerp factor between 0.04 and 0.09 per plane so they trail naturally. With no pointer movement for 2 seconds they drift in a slow figure-eight around the viewport centre instead.
+
+Interaction: clicking anywhere launches a new plane from the click point that glides in a straight line off the nearest screen edge over 1.4 seconds with a slight sine wobble, then is removed. Maximum 12 planes alive.
+
+Responsive: below 700px headline clamp already shrinks, top bar subtitle hidden, planes reduce to 28px; touch moves the target.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Fraunces and Figtree, no external images, no libraries. prefers-reduced-motion: planes stay still in a fixed arc and clicks do nothing.

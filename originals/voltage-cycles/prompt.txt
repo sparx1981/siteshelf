@@ -1,0 +1,13 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background #f3f3ee (off white), text #111. One accent: electric lime #c6ff1a, used as fills only, always with #111 text on top. Body margin 0, overflow-x hidden. No gradients, no shadows, radius 0 everywhere except the dial.
+
+Typography: Archivo (400, 600, 800, with width axis not required) for body, Anton for the oversized wordmark. Wordmark "VOLTAGE" in Anton, font-size clamp(96px, 20vw, 340px), line-height 0.85, uppercase, transparent fill with 2px #111 text-stroke (-webkit-text-stroke), spanning the full width at the bottom of the hero. Headline in Archivo 800 clamp(32px, 4vw, 60px), line-height 1.05, uppercase. Labels 12px Archivo 600 uppercase letter-spacing 0.12em.
+
+Layout: grid with a top bar, a content row and the wordmark. Top bar: "Voltage Cycles" 600 18px left, links Models, Range, Service, and a lime rectangle button "Test ride" 44px tall on the right. Content row: left column headline "Go further on one charge." and paragraph 18px "The V2 commuter: 120 km of real-world range, 4 hour full charge, 16.8 kg.", right column a card with a 1.5px #111 border and 32px padding containing: label "Battery size", a range slider (input type range, 2 to 6 steps, representing 300, 400, 500, 600, 700 Wh), and a semicircle SVG dial 280px wide showing estimated range in km with a thick lime arc, the number in Anton 72px, "km" label.
+
+Interaction: moving the slider updates the arc length and number with a 300ms tween. Estimated range = 24 km per 100 Wh, from 72 km at 300 Wh to 168 km at 700 Wh. The default is 500 Wh, 120 km.
+
+Spec strip: a lime full-width bar 56px tall above the wordmark with four items separated by 1px #111 dividers: "250 W motor", "16.8 kg", "IP65", "2 year warranty".
+
+Responsive: below 800px one column, card full width, wordmark clamp keeps it to 100vw, top bar links hidden.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Archivo and Anton, no external images, no libraries. prefers-reduced-motion: no tween, jump to value.

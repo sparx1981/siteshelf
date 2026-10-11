@@ -1,0 +1,13 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background a vertical gradient from #1b1740 at the top to #3b2a63 at 60 percent to #c46b7a at the bottom (dusk), text #f6efe9, muted rgba(246,239,233,0.68). Twenty small star dots (1 to 2px, white at 30 to 70 percent opacity) scattered in the upper half, twinkling with staggered 4 to 8 second opacity animations. Body margin 0, overflow hidden.
+
+Typography: Instrument Serif (regular and italic) for the headline and phase label, Albert Sans (400, 500) for everything else. Headline clamp(44px, 6vw, 92px), line-height 1.02, weight 400, centred, with "quiet" in italic. Phase label 40px Instrument Serif italic. Body 18px / 1.55.
+
+Layout: centred single column, text-align centre, padding 32px 24px. Top: "Quiet Hours" in Instrument Serif 26px left and a small 40px-tall pill "Get the app" right. Centre column: headline "Find your quiet hour.", paragraph "A four-minute wind-down that slows your breathing and your thoughts, ready whenever the day is not.", a 56px pill button "Begin now" (background #f6efe9, text #1b1740) and below it the breathing circle 260px.
+
+Breathing circle: a 260px circle at centre of its box with a radial gradient (#ffd6c9 centre to rgba(255,214,201,0.15) edge) and a 1px rgba(246,239,233,0.4) ring that sits 24px outside it. It follows the 4-7-8 pattern in a loop of 19 seconds: inhale 4s scaling from 0.55 to 1, hold 7s at 1, exhale 8s back to 0.55. Inside the circle centre the phase label ("Breathe in", "Hold", "Breathe out") and a countdown number in Albert Sans 500 18px muted that counts down each phase. Drive it with JavaScript timestamps so the label and number match the scale exactly.
+
+Interaction: clicking "Begin now" or the circle toggles pause and resume; when paused, the label reads "Paused" and the circle holds its size. aria-live polite on the phase label.
+
+Responsive: circle shrinks to 72vw max 260px; headline clamps. Layout is already single column.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Instrument Serif and Albert Sans, no external images, no libraries. prefers-reduced-motion: no twinkling and no scaling; the circle sits at 0.8 and only the label and countdown change.

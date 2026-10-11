@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quiet Hours</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Albert+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;color:#f6efe9;font:400 18px/1.55 'Albert Sans',system-ui,sans-serif;background:#3b2a63}
+.hero{position:relative;min-height:100svh;overflow:hidden;background:linear-gradient(180deg,#1b1740 0%,#3b2a63 60%,#c46b7a 100%);display:flex;flex-direction:column;align-items:center;text-align:center;padding:32px 24px}
+.top{position:relative;z-index:2;width:100%;display:flex;justify-content:space-between;align-items:center}
+.top b{font:400 26px 'Instrument Serif',serif}
+.pill{height:40px;padding:0 20px;border:1px solid rgba(246,239,233,.5);border-radius:20px;display:inline-flex;align-items:center;font-size:14px;color:inherit;text-decoration:none}
+.col{position:relative;z-index:2;margin:auto;max-width:640px;display:flex;flex-direction:column;align-items:center;padding:24px 0}
+h1{font:400 clamp(44px,6vw,92px)/1.02 'Instrument Serif',serif;margin:0 0 20px;letter-spacing:-.01em}
+h1 em{font-style:italic}
+.col p{margin:0 0 28px;color:rgba(246,239,233,.68)}
+.go{height:56px;padding:0 36px;border:0;border-radius:28px;background:#f6efe9;color:#1b1740;font:500 17px 'Albert Sans';cursor:pointer}
+.orbwrap{margin-top:44px;width:min(72vw,260px);aspect-ratio:1;position:relative;cursor:pointer;border:0;background:none;padding:0;color:inherit}
+.ring{position:absolute;inset:-24px;border-radius:50%;border:1px solid rgba(246,239,233,.4)}
+.orb{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,#ffd6c9 0%,rgba(255,214,201,.15) 100%);transform:scale(.55);will-change:transform}
+.txt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.ph{font:italic 400 40px/1.1 'Instrument Serif',serif;color:#2a1f4d}
+.n{font-weight:500;font-size:18px;color:rgba(42,31,77,.7)}
+.st{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;animation:tw 6s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.3}50%{opacity:.8}}
+@media(prefers-reduced-motion:reduce){.st{animation:none}}
+</style></head><body>
+<main class="hero" id="h">
+<div class="top"><b>Quiet Hours</b><a class="pill" href="#">Get the app</a></div>
+<div class="col"><h1>Find your <em>quiet</em> hour.</h1><p>A four-minute wind-down that slows your breathing and your thoughts, ready whenever the day is not.</p>
+<button class="go" id="go">Begin now</button>
+<button class="orbwrap" id="ow" aria-label="Breathing guide, click to pause or resume"><span class="ring"></span><span class="orb" id="orb"></span><span class="txt"><span class="ph" id="ph" aria-live="polite">Breathe in</span><span class="n" id="n">4</span></span></button></div>
+</main>
+<script>
+const h=document.getElementById('h');
+for(let i=0;i<20;i++){const s=document.createElement('i');s.className='st';s.style.left=(Math.random()*100)+'%';s.style.top=(Math.random()*45)+'%';const z=1+Math.random();s.style.width=s.style.height=z+'px';s.style.animationDuration=(4+Math.random()*4)+'s';s.style.animationDelay=(-Math.random()*6)+'s';s.style.opacity=.3+Math.random()*.4;h.appendChild(s)}
+const orb=document.getElementById('orb'),ph=document.getElementById('ph'),n=document.getElementById('n');
+const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const P=[['Breathe in',4],['Hold',7],['Breathe out',8]],T=19;
+let paused=false,elapsed=0,last=performance.now();
+function frame(now){const dt=now-last;last=now;if(!paused)elapsed=(elapsed+dt/1000)%T;
+ let t=elapsed,i=0;while(t>=P[i][1]){t-=P[i][1];i++}
+ const d=P[i][1],k=t/d;let sc=i==0?.55+.45*ease(k):i==1?1:1-.45*ease(k);
+ orb.style.transform='scale('+(calm?.8:sc)+')';
+ if(!paused){ph.textContent=P[i][0];n.textContent=Math.ceil(d-t)}
+ requestAnimationFrame(frame)}
+const ease=k=>k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+function tog(){paused=!paused;if(paused){ph.textContent='Paused'}document.getElementById('go').textContent=paused?'Resume':'Begin now'}
+document.getElementById('go').addEventListener('click',tog);document.getElementById('ow').addEventListener('click',tog);
+requestAnimationFrame(frame);
+</script></body></html>

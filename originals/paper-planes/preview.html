@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hangar 9 Paper Planes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff4e0;color:#2b2118;font:400 20px/1.5 Figtree,system-ui,sans-serif;overflow:hidden}
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;text-align:center;background-image:radial-gradient(#e8d5b0 1px,transparent 1.5px);background-size:28px 28px}
+.top{position:relative;z-index:2;width:100%;display:flex;justify-content:space-between;align-items:center;padding:28px 40px}
+.top b{font:800 22px Fraunces,serif}.top span{font-size:14px}
+.mid{position:relative;z-index:2;margin:auto;padding:0 20px 60px}
+.eb{font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+h1{font:800 clamp(48px,8vw,128px)/.95 Fraunces,serif;letter-spacing:-.03em;margin:0 0 24px}
+h1 em{color:#ff5a36;font-style:italic}
+p{max-width:520px;margin:0 auto 32px}
+.btn{display:inline-block;height:56px;line-height:56px;padding:0 34px;border-radius:28px;background:#ff5a36;color:#fff;font-weight:700;text-decoration:none;box-shadow:4px 4px 0 #2b2118;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(4px,4px);box-shadow:0 0 0 #2b2118}
+#sky{position:fixed;inset:0;z-index:1;pointer-events:none}
+.pl{position:absolute;left:0;top:0;width:36px;height:24px;margin:-12px 0 0 -18px;will-change:transform}
+@media(max-width:700px){.top span{display:none}.top{padding:20px}.pl{width:28px;height:19px;margin:-9px 0 0 -14px}}
+</style></head><body>
+<main class="hero">
+<div class="top"><b>Hangar 9</b><span>Paper aeroplane school for grown-ups</span></div>
+<div class="mid"><div class="eb">Saturdays, 10am</div><h1>Learn to make it <em>fly.</em></h1><p>Four folds, one afternoon, and a plane that actually goes where you point it.</p><a class="btn" href="#">Book a seat</a></div>
+</main>
+<div id="sky"></div>
+<script>
+const cols=['#ff5a36','#3aa6ff','#ffc933','#3fbf7f','#ff5a36'];
+const sky=document.getElementById('sky');
+const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function mk(c){const d=document.createElement('div');d.className='pl';
+ d.innerHTML='<svg viewBox="0 0 36 24" width="100%" height="100%"><path d="M1 12 35 1 24 23 17 14z" fill="'+c+'" stroke="#2b2118" stroke-width="2" stroke-linejoin="round"/><path d="M17 14 35 1 20 17z" fill="#2b2118" opacity=".22"/></svg>';
+ sky.appendChild(d);return d}
+let W=innerWidth,H=innerHeight,px=W/2,py=H/2,last=0;
+addEventListener('resize',()=>{W=innerWidth;H=innerHeight});
+addEventListener('pointermove',e=>{px=e.clientX;py=e.clientY;last=performance.now()});
+const offs=[[-120,-70],[110,-100],[-150,60],[130,80],[0,-150]];
+const flock=cols.map((c,i)=>({el:mk(c),x:W/2+offs[i][0],y:H/2+offs[i][1],a:0,k:.04+i*.012,o:offs[i]}));
+function put(p){p.el.style.transform='translate('+p.x+'px,'+p.y+'px) rotate('+p.a+'rad)'}
+if(still){flock.forEach((p,i)=>{p.x=W/2+(i-2)*90;p.y=H*0.78-Math.abs(i-2)*26;p.a=-.2+(i-2)*.12;put(p)})}
+else{(function f(t){const idle=t-last>2000;
+ flock.forEach((p,i)=>{let tx,ty;
+  if(idle){const s=t/2600+i*1.2;tx=W/2+Math.sin(s)*W*.3;ty=H/2+Math.sin(s*2)*H*.18}
+  else{tx=px+p.o[0];ty=py+p.o[1]}
+  const nx=p.x+(tx-p.x)*p.k,ny=p.y+(ty-p.y)*p.k,dx=nx-p.x,dy=ny-p.y;
+  if(Math.hypot(dx,dy)>.15){const a=Math.atan2(dy,dx),d=Math.atan2(Math.sin(a-p.a),Math.cos(a-p.a));p.a+=d*.12}
+  p.x=nx;p.y=ny;put(p)});
+ requestAnimationFrame(f)})(0)}
+let live=0;
+addEventListener('pointerdown',e=>{if(still||live>=12||e.target.closest('a'))return;live++;
+ const el=mk(cols[Math.floor(Math.random()*4)]);
+ const sx=e.clientX,sy=e.clientY,d=[[sx,0],[W-sx,1],[sy,2],[H-sy,3]].sort((a,b)=>a[0]-b[0])[0][1];
+ const dir=[[0,-1],[1,0],[0,1],[-1,0]][d],dist=Math.max(W,H),t0=performance.now(),ang=Math.atan2(dir[1],dir[0]);
+ (function s(t){const k=(t-t0)/1400;if(k>=1){el.remove();live--;return}
+  const w=Math.sin(k*9)*18,x=sx+dir[0]*dist*k*k*0.9-dir[1]*w,y=sy+dir[1]*dist*k*k*0.9+dir[0]*w;
+  el.style.transform='translate('+x+'px,'+y+'px) rotate('+(ang+Math.cos(k*9)*.18)+'rad)';requestAnimationFrame(s)})(t0)});
+</script></body></html>

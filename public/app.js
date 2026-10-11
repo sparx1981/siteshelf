@@ -92,7 +92,8 @@ async function viewLibrary() {
   const cats = [...new Set(library.map((p) => p.category).filter(Boolean))].sort();
   const cat = h('select', { id: 'cat', 'aria-label': 'Category' }, h('option', { value: '', text: 'All categories' }), cats.map((c) => h('option', { value: c, text: c })));
   const only = h('select', { id: 'only', 'aria-label': 'Filter' },
-    h('option', { value: '', text: 'Everything' }), h('option', { value: 'new', text: 'New' }), h('option', { value: 'edited', text: 'Edited by me' }));
+    h('option', { value: '', text: 'Everything' }), h('option', { value: 'original', text: 'SiteShelf originals' }), h('option', { value: 'sceneai', text: 'From SceneAI' }),
+    h('option', { value: 'new', text: 'New' }), h('option', { value: 'edited', text: 'Edited by me' }));
   const grid = h('div', { class: 'grid' });
   const count = h('span', { class: 'muted' });
 
@@ -101,7 +102,8 @@ async function viewLibrary() {
     const rows = library.filter((p) =>
       (!q || `${p.title} ${p.description || ''}`.toLowerCase().includes(q)) &&
       (!cat.value || p.category === cat.value) &&
-      (only.value !== 'new' || p.is_new) && (only.value !== 'edited' || p.edited));
+      (only.value !== 'new' || p.is_new) && (only.value !== 'edited' || p.edited) &&
+      (only.value !== 'original' || p.source === 'siteshelf') && (only.value !== 'sceneai' || p.source === 'sceneai'));
     count.textContent = `${rows.length} of ${library.length}`;
     grid.replaceChildren(...(rows.length ? rows.map(card) : [h('div', { class: 'empty-state', style: 'grid-column:1/-1', text: library.length ? 'Nothing matches those filters.' : 'The library is empty. Press Sync now to fetch the free prompts.' })]));
   };
@@ -124,6 +126,7 @@ function card(p) {
       h('p', { text: p.description || '' }),
       h('div', { class: 'card-foot' },
         p.is_new ? h('span', { class: 'pill new', text: 'New' }) : null,
+        p.source === 'siteshelf' ? h('span', { class: 'pill ok', text: 'Original' }) : null,
         p.edited ? h('span', { class: 'pill edited', text: 'Edited' }) : null,
         p.category ? h('span', { class: 'pill', text: p.category }) : null,
         h('span', { class: 'pill', text: `${Math.round(p.length / 100) / 10}k chars` }))));
@@ -259,6 +262,7 @@ async function viewDetail(id) {
   }
 
   try { preview = (await api(`/api/preview?id=${id}`)).preview; } catch { /* no preview yet */ }
+  if (preview) leftTab = 'generated';
   drawLeftTabs(); drawLeft(); drawRightTabs(); drawRight();
 
   app.replaceChildren(

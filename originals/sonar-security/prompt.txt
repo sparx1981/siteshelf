@@ -1,0 +1,13 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background #040806 with a faint 40px grid of 1px rgba(80,255,150,0.05) lines and a vignette (radial-gradient transparent centre to rgba(0,0,0,0.6) edges). Text #c9f7dc, muted #6f9a83, phosphor green #4dff9a, warning amber #ffb020, critical #ff4d5e. Body margin 0, overflow hidden. Scanline overlay: repeating-linear-gradient 0 to 3px at 3 percent opacity, pointer-events none.
+
+Typography: JetBrains Mono (400, 500, 700) for everything numeric and for labels, Schibsted Grotesk (500, 700) for the headline and buttons. Headline clamp(40px, 5vw, 76px), weight 700, line-height 1.02, letter-spacing -0.025em. Mono labels 12px uppercase, letter-spacing 0.1em.
+
+Layout: top bar with "SONAR" wordmark (Schibsted Grotesk 700 20px, with a pulsing 8px green dot), links Platform, Threat intel, Pricing, and a button "Book a demo" (1px green border, transparent, text green). Two columns 1fr / 1fr, padding 40px 56px, centred vertically. Left: label "Autonomous threat detection", headline "See the attack before it lands.", paragraph "Sonar watches every endpoint and cloud account, and isolates the breach in under a second.", buttons "Start free trial" (solid green, #040806 text) and "Watch the demo" (ghost). Under the buttons a row of three stats in mono: "0.8s mean time to isolate", "12k endpoints per tenant", "SOC 2 Type II".
+
+Right: a radar 480px square: concentric circles at 20, 40, 60, 80, 100 percent radius (1px rgba(77,255,154,0.25)), crosshair lines, a rotating conic-gradient sweep (conic-gradient(from 0deg, rgba(77,255,154,0.45), transparent 60deg), border-radius 50%) rotating 4 seconds per turn linearly. Blips: eight 8px dots at fixed polar positions; each lights (opacity 1 plus an expanding ring) at the moment the sweep passes it, then fades over 2.5 seconds. Colours: five green, two amber, one critical red.
+
+Event log below the radar: a 6-row mono list, newest on top. Each time the sweep hits a blip, push an entry "HH:MM:SS  ENDPOINT-xxxx  <event>" coloured by severity. Events from a fixed list ("port scan blocked", "credential stuffing", "lateral movement isolated", "malware quarantined", "geo anomaly", "policy drift"). Keep 6 rows. A counter "Threats neutralised today" ticks up by one per critical or amber hit from 4,812.
+
+Responsive: below 960px stack, radar 86vw square, log below, padding 24px 20px.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for JetBrains Mono and Schibsted Grotesk, no external images, no libraries. prefers-reduced-motion: stop the sweep, light all blips statically, and populate the log once.

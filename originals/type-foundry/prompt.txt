@@ -1,0 +1,11 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background #f1efe9 (paper), text #14130f, accent #e8452c used only for the slider thumbs and the selected glyph. 1px #14130f rules divide areas. Body margin 0. No shadows, no radius.
+
+Typography: Bricolage Grotesque (variable, weight axis 200 to 800, optical size auto) for the specimen, Geist Mono (400, 500) for labels and values. The specimen word is contenteditable, default "Hamburgefonts", font-size clamp(64px, 13vw, 220px), line-height 0.95, letter-spacing -0.03em, weight driven by a CSS variable --w (default 500). Labels 12px Geist Mono uppercase letter-spacing 0.08em.
+
+Layout: top bar with "Mica Type" wordmark left, "Specimen no. 07 / Bricolage" label centre, "Licence" link right, 1px bottom rule, 20px 40px padding. Under it a controls row (1px bottom rule, 20px 40px padding) with three labelled sliders in a row: Weight (200 to 800, step 1), Size (64 to 220, step 1) and Tracking (-6 to 6 in tenths, mapped to em/100); each shows its live numeric value right-aligned in Geist Mono. Main area: the editable specimen filling the width with 40px side padding. Bottom: a glyph grid of 36 characters (A to Z then 0 to 9) laid out in 12 columns by 3 rows on desktop, each cell square with 1px rules, character at 36px using the current weight; the hovered or focused cell turns accent background with white text and the character name shows in a label bar under the grid.
+
+Interaction: sliders update --w, font-size and letter-spacing live on input. Clicking a glyph cell appends that character to the specimen. Double-click the specimen to select all.
+
+Responsive: below 800px the glyph grid becomes 6 columns, controls stack into three rows, top bar centre label hidden, specimen clamp keeps it on one or two lines.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Bricolage Grotesque (wght 200..800) and Geist Mono, no external images, no libraries. prefers-reduced-motion has no effect (nothing animates).

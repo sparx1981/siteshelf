@@ -1,0 +1,13 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background #0b0a14 with three large blurred radial blobs (violet #7c5cff, cyan #35d0ff, magenta #ff5ca8, each 520px, blur 90px, opacity 0.35) that drift slowly on 22, 30 and 26 second alternating loops. Text #f2f0ff, muted rgba(242,240,255,0.62), glass surfaces rgba(255,255,255,0.06) with 1px rgba(255,255,255,0.14) borders and backdrop-filter blur(18px). Body margin 0, overflow hidden.
+
+Typography: Onest (400, 500, 600, 700) for everything, Geist Mono (400) for the chat's timestamp and code. Headline clamp(44px, 6vw, 92px), weight 600, line-height 1.02, letter-spacing -0.035em, centred; the second line "that thinks with you" has a gradient text fill from #a99bff to #6fe0ff. Body 19px / 1.5.
+
+Layout: centred column. Top bar with "Lumen" wordmark (a 22px glowing circle plus text), links Product, Developers, Pricing, and a glass pill "Sign in". Pill badge "New: Lumen 3 is here" above the headline. Headline "An assistant that thinks with you." paragraph "Ask in plain words. Lumen reads your docs, writes the first draft and shows its working." Two buttons: white "Try Lumen free" and glass "Talk to sales". Below, a glass chat panel 720px wide max, radius 22px, padding 20px.
+
+Chat panel: header row with three tiny window dots and the title "New chat". A user bubble (right, violet fill) with the question and an assistant bubble (left, glass) that types its answer character by character at 28ms per character with a blinking caret, then holds 2 seconds. Three suggestion chips under the panel: "Summarise my meeting notes", "Draft a launch email", "Explain this error". Clicking a chip swaps the question and restarts typing with that chip's canned answer. Auto-cycles through the three every 12 seconds if the user has not clicked.
+
+Canned content: Chip 1 answer: "Three decisions, two owners, one risk. Ship the beta on the 14th, Priya owns the migration, Sam owns the docs. The risk is the vendor API limit, so I have drafted a fallback." Chip 2: "Subject: We are live. Hi all, today we are opening Lumen to everyone. Here is what is new, what is next, and how to get started in under two minutes." Chip 3: "That error means the token expired before the request finished. Refresh it before the call, or raise the timeout to 30 seconds."
+
+Responsive: below 700px the headline clamps down, nav links hidden, chat panel full width with padding 16px.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Onest and Geist Mono, no external images, no libraries. prefers-reduced-motion: no blob drift, show the full answer immediately, no auto-cycling.

@@ -1,0 +1,13 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background a sky colour switching between day #8fd3ff and night #1b1f4a (300ms colour transition), text #1b1b2f. Ground strip #6b4a2f with a grass top #4fae52. Body margin 0, overflow hidden, image-rendering pixelated on the canvas.
+
+Typography: DM Mono throughout. The headline gets a chunky retro look from DM Mono 700 uppercase with text-shadow 4px 4px 0 rgba(0,0,0,0.25), letter-spacing 0.02em, clamp(32px, 6vw, 84px), line-height 1.1. Body DM Mono 400 16px / 1.6.
+
+Layout: top bar with a 24px pixel flower icon and "Pixel Garden" wordmark left, links Game, Devlog, Press kit, a day/night toggle button (40px square, 3px border, shows a sun or moon drawn with CSS box-shadows) right. Centre column: headline "Grow something small.", paragraph "A cosy gardening game about patience, snails and very small fences. Out on Switch and PC this spring.", pixel button "Wishlist on Steam" (56px tall, background #ff7a59, text #fff, 4px solid #1b1b2f border, 6px 6px 0 #1b1b2f shadow, active state moves 4px).
+
+Garden canvas: a full-width canvas anchored to the bottom, 200px tall, drawn at a low internal resolution (width/4 by 50 cells) and scaled up with image-rendering pixelated so each cell is 4 CSS px. The ground is the bottom 10 cells. Clicking or tapping the canvas plants a seed at that x position; the plant grows through 5 stages over about 6 seconds (stem, two leaves, bud, flower) in one of five flower colours chosen at random. Maximum 40 plants; the oldest is removed beyond that. Two clouds drift slowly in the sky, and a snail crawls along the ground left to right in 40 seconds then loops. At night, stars appear (random fixed positions) and flowers get a faint glow.
+
+Interaction: day/night toggle changes the sky, clouds go dim, stars appear. Keyboard: pressing Space plants a seed at a random x.
+
+Responsive: below 700px the canvas is 160px tall and the headline clamps; wordmark stays.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for DM Mono, no external images, no libraries. prefers-reduced-motion: plants appear at full growth, the snail and clouds stay still.

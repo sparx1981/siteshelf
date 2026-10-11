@@ -1,0 +1,15 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background #ffd23f (sunflower yellow), text #1a1a1a. Secondary colours: ink #1a1a1a, cream #fff8e1, pink #ff5c8a for key press states. Body margin 0, overflow hidden. Hard offset shadows only (6px 6px 0 #1a1a1a), 3px solid #1a1a1a borders on cards and keys.
+
+Typography: Rubik (500, 700, 800) for the headline, Karla (400, 700) for body. Headline clamp(44px, 7vw, 112px), weight 800, line-height 0.95, letter-spacing -0.02em, text-wrap balance. Body 20px / 1.5. Key labels 14px Karla 700.
+
+Layout: top bar with "Jam Session" in Rubik 800 24px with a small eighth-note glyph, links Lessons, Teachers, Pricing, and a cream pill button "Free first lesson" with 3px border. Main: centred column, max-width 960px. Headline "Play your first song today.", paragraph "One-to-one piano lessons for adults who always meant to start. No scales on day one, we promise.", then a keyboard card.
+
+Keyboard card: cream background, 3px border, 6px offset shadow, padding 24px, containing one octave and a bit: 10 white keys (C D E F G A B C D E) and 7 black keys, built from absolutely positioned divs. White keys 64px wide by 200px tall, black keys 40px by 120px. Each shows its computer key below (A S D F G H J K L ;) for white keys and (W E T Y U O P) for black keys. Pressed keys turn pink with the key translating 3px down.
+
+Sound: Web Audio API, an oscillator per note (triangle wave) through a gain envelope (attack 10ms, decay to 0 over 900ms) at standard equal-temperament frequencies from C4 (261.63 Hz). The AudioContext is created on the first user gesture. Notes can overlap.
+
+Interaction: pointerdown on a key plays it (and slide across keys while pressed to glissando), release stops visual state. Computer keys map as listed; holding does not retrigger. A caption below says "Tap the keys or use A S D F G H J K L on your keyboard".
+
+Responsive: below 700px the keyboard scales via CSS variable --kw to fit 94vw (key width = calc((94vw - 48px) / 10)), black keys scale proportionally, heights 150px and 90px.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Rubik and Karla, no external images, no libraries, no audio files. prefers-reduced-motion: no key translation.

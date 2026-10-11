@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mica Type Specimen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--w:500;--ink:#14130f;--acc:#e8452c}
+*{box-sizing:border-box;border-radius:0}
+html,body{margin:0;background:#f1efe9;color:var(--ink);font:400 14px/1.4 'Geist Mono',monospace}
+.hero{min-height:100svh;display:flex;flex-direction:column}
+.bar{display:grid;grid-template-columns:1fr auto 1fr;padding:20px 40px;border-bottom:1px solid var(--ink);align-items:center;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+.bar b{font:700 20px 'Bricolage Grotesque',sans-serif;text-transform:none;letter-spacing:-.02em}
+.bar a{justify-self:end;color:inherit}
+.ctl{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding:20px 40px;border-bottom:1px solid var(--ink)}
+.ctl label{display:flex;justify-content:space-between;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.ctl input{width:100%;margin:10px 0 0;accent-color:var(--acc)}
+.spec{flex:1;padding:32px 40px;font-family:'Bricolage Grotesque',sans-serif;font-weight:var(--w);font-size:140px;line-height:.95;letter-spacing:-.03em;outline:none;word-break:break-word;display:flex;align-items:center}
+.spec span{display:block;width:100%;outline:none}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--ink);margin:0 40px}
+.g{aspect-ratio:1;border:0;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:none;font:var(--w) 36px 'Bricolage Grotesque',sans-serif;color:var(--ink);cursor:pointer;padding:0}
+.g:hover,.g:focus-visible{background:var(--acc);color:#fff;outline:none}
+.name{padding:12px 40px 24px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;height:48px}
+@media(max-width:800px){.bar{grid-template-columns:1fr auto;padding:16px 20px}.bar span{display:none}.ctl{grid-template-columns:1fr;gap:14px;padding:16px 20px}.spec{padding:24px 20px}.grid{grid-template-columns:repeat(6,1fr);margin:0 20px}.name{padding:12px 20px 24px}}
+</style></head><body>
+<main class="hero">
+<div class="bar"><b>Mica Type</b><span>Specimen no. 07 / Bricolage</span><a href="#">Licence</a></div>
+<div class="ctl">
+<div><label for="w"><span>Weight</span><span id="wv">500</span></label><input id="w" type="range" min="200" max="800" value="500"></div>
+<div><label for="s"><span>Size</span><span id="sv">140</span></label><input id="s" type="range" min="64" max="220" value="140"></div>
+<div><label for="t"><span>Tracking</span><span id="tv">-3.0</span></label><input id="t" type="range" min="-60" max="60" value="-30"></div></div>
+<div class="spec" id="sp"><span id="tx" contenteditable="true" spellcheck="false" aria-label="Editable specimen">Hamburgefonts</span></div>
+<div class="grid" id="g"></div>
+<div class="name" id="nm">&nbsp;</div>
+</main>
+<script>
+const r=document.documentElement.style,sp=document.getElementById('sp'),tx=document.getElementById('tx');
+const set=()=>{const w=+w_.value,s=+s_.value,t=+t_.value/1000*1;r.setProperty('--w',w);sp.style.fontSize=s+'px';sp.style.letterSpacing=(t/1*1)+'em';wv.textContent=w;sv.textContent=s;tv.textContent=(t_.value/10).toFixed(1)};
+const w_=document.getElementById('w'),s_=document.getElementById('s'),t_=document.getElementById('t');
+[w_,s_,t_].forEach(e=>e.addEventListener('input',set));
+// tracking: -6..6 tenths -> em/100 per step; map value/1000 em
+const g=document.getElementById('g'),nm=document.getElementById('nm');
+const N={};'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.split('').forEach(c=>{const b=document.createElement('button');b.className='g';b.textContent=c;b.setAttribute('aria-label','Add '+c);
+ const show=()=>nm.textContent='U+'+c.charCodeAt(0).toString(16).toUpperCase().padStart(4,'0')+' · '+(c>='0'&&c<='9'?'Digit '+c:'Latin capital '+c);
+ b.addEventListener('mouseenter',show);b.addEventListener('focus',show);b.addEventListener('click',()=>{tx.textContent+=c});g.appendChild(b)});
+tx.addEventListener('dblclick',()=>{const rg=document.createRange();rg.selectNodeContents(tx);const s=getSelection();s.removeAllRanges();s.addRange(rg)});
+set();
+</script></body></html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sable Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1b1b1a;--mut:#7a766d;--acc:#d4411e}
+*{box-sizing:border-box;border-radius:0}
+html,body{margin:0;background:#e9e6df;color:var(--ink);font:400 16px/1.5 'Instrument Sans',system-ui,sans-serif}
+.hero{min-height:100svh;display:flex;flex-direction:column}
+.bar{display:grid;grid-template-columns:1fr auto 1fr;padding:24px 48px;border-bottom:1px solid var(--ink);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.bar span:last-child{text-align:right}
+.cols{flex:1;display:grid;grid-template-columns:1fr 1fr}
+.l{padding:48px}
+h1{font:400 56px/1.05 'Instrument Sans';letter-spacing:-.03em;margin:0 0 40px;max-width:560px}
+h1 em{font:italic 400 1.08em 'Instrument Serif',serif;letter-spacing:-.01em}
+.row{display:flex;justify-content:space-between;align-items:baseline;width:100%;background:none;border:0;border-top:1px solid var(--ink);padding:12px 0;color:var(--ink);text-align:left;cursor:pointer;font:inherit;transition:padding .2s}
+.row:last-child{border-bottom:1px solid var(--ink)}
+.row .n{font-size:14px;color:var(--mut);font-variant-numeric:tabular-nums;width:48px;flex:none}
+.row .t{font:500 44px/1.1 'Instrument Sans';letter-spacing:-.03em;flex:1}
+.row .y{font-size:14px;color:var(--mut)}
+.row.on{padding-left:12px}.row.on .n{color:var(--acc)}
+.row:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+.r{border-left:1px solid var(--ink);padding:40px 48px;display:flex;flex-direction:column;justify-content:center}
+svg{width:100%;height:auto;max-height:60vh}
+.dr{transition:opacity .3s}
+.cap{display:flex;justify-content:space-between;margin-top:12px;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.ds{color:var(--mut);margin-top:6px;font-size:15px}
+@media(max-width:900px){.bar{grid-template-columns:1fr auto;padding:16px 20px}.bar span:nth-child(2){display:none}.cols{grid-template-columns:1fr}.l{padding:24px 20px;order:2}.r{order:1;border-left:0;border-bottom:1px solid var(--ink);padding:24px 20px}h1{font-size:36px}.row .t{font-size:30px}.row .y{display:none}}
+@media(prefers-reduced-motion:reduce){.row,.dr{transition:none}}
+</style></head><body>
+<main class="hero">
+<div class="bar"><span>Sable Studio</span><span>Architecture &amp; interiors, Glasgow</span><span>Index (06)</span></div>
+<div class="cols"><section class="l"><h1>Buildings that listen to the <em>weather.</em></h1><div id="ix"></div></section>
+<section class="r"><svg viewBox="0 0 600 500" id="sv" role="img" aria-label="Line elevation of the selected project"><g id="dg" class="dr"></g></svg><div class="cap"><span id="pn"></span><span>Scale 1:200</span></div><div class="ds" id="pd"></div></section></div>
+</main>
+<script>
+const P=[
+['Linn House','Fife, 2024','Mono-pitch timber house facing the estuary.','7.2 m',
+ '<path d="M110 400V240L490 170V400M110 400H490M110 240H490M250 400V300H330V400M370 300H450V340H370Z"/>',[490,170]],
+['Harbour Library','Troon, 2023','Low reading hall with a rhythm of tall windows.','5.4 m',
+ '<path d="M60 400V250H540V400M60 250L90 230H510L540 250"/><path d="M100 400V280M140 400V280M180 400V280M220 400V280M260 400V280M300 400V280M340 400V280M380 400V280M420 400V280M460 400V280"/><path d="M80 280H500"/>',[540,230]],
+['Tannery Lofts','Glasgow, 2023','Three-stepped warehouse conversion with new roof terraces.','14.0 m',
+ '<path d="M90 400V240H220V180H350V120H480V400M90 400H480M220 240V400M350 180V400M120 280H190M120 320H190M250 230H320M250 270H320M250 310H320M380 170H450M380 210H450M380 250H450M380 290H450"/>',[480,120]],
+['Corrie Chapel','Arran, 2022','Steep gable and a single slot window towards the sea.','9.6 m',
+ '<path d="M200 400V240L300 120L400 240V400M200 400H400M283 400V200H317V400M300 120V90M290 100H310"/><path d="M150 400V330H200M400 330H450V400"/>',[400,120]],
+['Kelp Sauna','Oban, 2022','A small sloping-roof box that sits at the tide line.','3.1 m',
+ '<path d="M200 400V300L400 270V400M200 400H400M230 400V320H280V400M320 310H370V350H320Z"/><path d="M130 400H470M380 270V250M390 250H370"/>',[400,270]],
+['Orchard Pavilion','Perth, 2021','Butterfly roof on four slim posts, open on every side.','4.2 m',
+ '<path d="M110 280L300 320L490 280M110 280V250L300 290L490 250V280M150 320V400M270 330V400M330 330V400M450 320V400M110 400H490"/><path d="M110 250L300 290L490 250"/>',[490,250]]];
+const ix=document.getElementById('ix'),dg=document.getElementById('dg'),pn=document.getElementById('pn'),pd=document.getElementById('pd');
+const rows=P.map((p,i)=>{const b=document.createElement('button');b.className='row';b.innerHTML='<span class="n">0'+(i+1)+'</span><span class="t">'+p[0]+'</span><span class="y">'+p[1]+'</span>';
+ b.addEventListener('mouseenter',()=>sel(i));b.addEventListener('focus',()=>sel(i));
+ b.addEventListener('keydown',e=>{if(e.key=='ArrowDown'){e.preventDefault();rows[(i+1)%6].focus()}if(e.key=='ArrowUp'){e.preventDefault();rows[(i+5)%6].focus()}});
+ ix.appendChild(b);return b});
+let cur=-1;
+function sel(i){if(i===cur)return;cur=i;rows.forEach((r,j)=>r.classList.toggle('on',j==i));const p=P[i];
+ dg.style.opacity=0;setTimeout(()=>{
+  const x=p[5][0]+24;
+  dg.innerHTML='<g fill="none" stroke="#1b1b1a" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">'+p[4]+'</g><line x1="40" y1="400" x2="560" y2="400" stroke="#1b1b1a" stroke-width="1.5"/><g stroke="#d4411e" stroke-width="1" fill="none"><path d="M'+x+' 400V'+p[5][1]+'M'+(x-5)+' 400H'+(x+5)+'M'+(x-5)+' '+p[5][1]+'H'+(x+5)+'"/></g><text x="'+(x+8)+'" y="'+((400+p[5][1])/2)+'" font-family="Instrument Sans" font-size="13" fill="#d4411e">'+p[3]+'</text>';
+  pn.textContent=p[0];pd.textContent=p[2];dg.style.opacity=1},matchMedia('(prefers-reduced-motion:reduce)').matches?0:150)}
+sel(0);
+</script></body></html>

@@ -1,0 +1,12 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background #e9e6df (concrete), text #1b1b1a, muted #7a766d. One accent #d4411e used only on the active project number and a 1px dimension line. 1px #1b1b1a hairlines. Body margin 0. No shadows, no radius, no gradients.
+
+Typography: Instrument Sans (400, 500) for everything, Instrument Serif italic for one word in the headline only. Index rows 44px Instrument Sans 500, letter-spacing -0.03em. Labels 12px uppercase letter-spacing 0.08em. Body 16px / 1.5.
+
+Layout: top bar with "Sable Studio" left, "Architecture & interiors, Glasgow" centre, "Index (06)" right, 24px 48px padding with a 1px bottom hairline. Two columns 1fr / 1fr under it, full remaining height. Left column, padding 48px: the headline "Buildings that listen to the *weather*." in 56px weight 400 with "weather" in Instrument Serif italic, then the project index list: six rows, each a button with 1px top hairline, flex between: left a two-digit number (01 to 06) in muted 14px mono-like tabular numerals, the project name at 44px; right the year and place in muted 14px. Projects: 01 Linn House, Fife, 2024; 02 Harbour Library, Troon, 2023; 03 Tannery Lofts, Glasgow, 2023; 04 Corrie Chapel, Arran, 2022; 05 Kelp Sauna, Oban, 2022; 06 Orchard Pavilion, Perth, 2021.
+Right column: a drawing panel with a 1px hairline left border containing an SVG viewBox 0 0 600 500 showing a line elevation drawing (stroke #1b1b1a 1.5px, no fill) of the active project on a ground line at y 400, plus a 1px accent horizontal dimension line with end ticks and a label of its height in metres. Draw six simple elevations: a mono-pitch house, a long low library with a rhythm of vertical windows, a stepped warehouse block, a chapel with a steep gable and a tall slot window, a small sauna box with a sloping roof and a door, a pavilion with a butterfly roof on four posts. Under the drawing show the project name, "Scale 1:200", and a one-line description in muted text.
+
+Interaction: hover or focus on a row makes it active (number turns accent, row indents 12px with a 200ms ease) and crossfades the drawing over 300ms. Arrow keys move focus. First row active on load.
+
+Responsive: below 900px one column, drawing first at 60vw height, index below, padding 24px 20px, hide the middle top-bar text.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Instrument Sans and Instrument Serif, no external images, no libraries. prefers-reduced-motion: no indent or fade transitions.

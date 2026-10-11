@@ -1,0 +1,13 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background a CSS variable --bg (default #fbe9e4 blush), text #3a1f2b, accent --ac (default #d6456b). Colour themes selectable via the picker: Peony (bg #fbe9e4, accent #d6456b), Lavender (bg #ece6f7, accent #7a5cc4), Sunflower (bg #fdf1c9, accent #e0891a), Eucalyptus (bg #e3eee6, accent #3f8a62). Background and accent transition over 600ms. Body margin 0, overflow hidden.
+
+Typography: Cormorant Garamond (500, 600, italic 500) for headings, Mulish (400, 600, 700) for UI. Headline clamp(52px, 8vw, 128px), weight 500, line-height 0.95, letter-spacing -0.02em with "bloom" in italic accent colour. Body 18px / 1.6.
+
+Layout: top bar with "Bloom & Stem" in Cormorant 600 28px, links Bouquets, Weddings, Subscriptions and an accent pill "Order flowers" (white text). Left-aligned content at 56px: label "Same-day delivery, Bath", headline "Flowers that bloom on arrival.", paragraph, then the picker: label "Pick a bouquet" and four round 56px swatches (the four themes), each with a 3px ring when selected and the theme name shown under the selected one.
+
+Petals: a full-viewport canvas behind the text. 60 petals, each an ellipse (6 to 14px wide, aspect 1.7) in the accent colour at random opacity 0.35 to 0.85, falling at 20 to 60 px/s with a sine sway and slow rotation. Wrap to the top when leaving the bottom. The pointer repels petals within 120px: petals receive an impulse away from the pointer that decays over about 1 second. Petal colour follows the selected theme (accent plus two lighter tints).
+
+Interaction: choosing a swatch changes the theme and the petal colours at once. Keyboard: the swatches are radio buttons, arrow keys switch.
+
+Responsive: below 700px content padding 24px, petals reduced to 36, headline clamps.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Cormorant Garamond and Mulish, no external images, no libraries. prefers-reduced-motion: petals are static, scattered once, no repulsion.

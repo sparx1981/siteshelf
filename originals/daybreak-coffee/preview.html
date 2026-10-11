@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daybreak Coffee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300;1,9..144,600&family=Albert+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#2a1810;color:#f5e9d8;font:400 18px/1.5 'Albert Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums}
+.hero{min-height:100svh;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;gap:30px;padding:24px 56px}
+.top b{font:600 26px Fraunces,serif;margin-right:auto}
+.top a{color:#f5e9d8;text-decoration:none;font-size:15px}
+.top a.p{background:#e8a34a;color:#2a1810;font-weight:600;height:40px;padding:0 22px;border-radius:20px;display:inline-flex;align-items:center}
+.main{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:32px 56px;align-items:center}
+.lab{font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:#e8a34a}
+h1{font:300 clamp(44px,6vw,96px)/1.02 Fraunces,serif;letter-spacing:-.02em;margin:16px 0 20px}
+h1 em{font-style:italic;font-weight:600;color:#e8a34a}
+.l p{color:rgba(245,233,216,.65);max-width:460px;margin:0 0 28px}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chips span{font-size:13px;border:1px solid rgba(245,233,216,.2);border-radius:999px;padding:6px 14px}
+.card{background:#38231a;border:1px solid rgba(245,233,216,.14);border-radius:20px;padding:28px;max-width:520px;justify-self:end;width:100%}
+.lbl{font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:rgba(245,233,216,.65);margin-bottom:10px}
+.seg{display:flex;gap:6px;margin-bottom:22px}
+.seg button{flex:1;height:44px;border:1px solid rgba(245,233,216,.2);background:none;color:#f5e9d8;border-radius:10px;font:500 15px 'Albert Sans';cursor:pointer}
+.seg button[aria-pressed=true]{background:#e8a34a;color:#2a1810;border-color:#e8a34a;font-weight:600}
+.step{display:flex;align-items:center;gap:6px;margin-bottom:22px}
+.step button{width:44px;height:44px;border-radius:10px;border:1px solid rgba(245,233,216,.2);background:none;color:#f5e9d8;font-size:22px;cursor:pointer}
+.step output{min-width:56px;text-align:center;font:600 26px Fraunces}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.res div{background:rgba(0,0,0,.2);border-radius:12px;padding:14px}
+.res b{display:block;font:600 36px/1.1 Fraunces}
+.res small{color:rgba(245,233,216,.65);font-size:14px}
+.go{position:relative;width:100%;height:52px;border:0;border-radius:12px;background:#f5e9d8;color:#2a1810;font:600 17px 'Albert Sans';cursor:pointer;overflow:hidden}
+.pr{position:absolute;left:0;bottom:0;height:3px;background:#e8a34a;width:0}
+@media(max-width:960px){.top{padding:20px}.top a:not(.p){display:none}.main{grid-template-columns:1fr;padding:24px 20px;gap:32px}.card{justify-self:stretch;max-width:none}.res b{font-size:30px}}
+</style></head><body>
+<main class="hero">
+<div class="top"><b>Daybreak</b><a href="#">Beans</a><a href="#">Subscribe</a><a href="#">Brew guides</a><a class="p" href="#">Shop beans</a></div>
+<div class="main"><section class="l"><div class="lab">Small-batch roasters, Bristol</div><h1>Good mornings start <em>slowly.</em></h1><p>Single-origin beans roasted twice a week. Brew them properly with our calculator.</p><div class="chips"><span>Roasted Tue + Fri</span><span>Compostable bags</span><span>Free UK delivery</span></div></section>
+<section class="card"><div class="lbl">Method</div><div class="seg" id="seg"></div>
+<div class="lbl">Cups</div><div class="step"><button id="mn" aria-label="Fewer cups">−</button><output id="cu">2</output><button id="pl" aria-label="More cups">+</button></div>
+<div class="res"><div><b id="rc">0</b><small>g coffee</small></div><div><b id="rw">0</b><small>g water</small></div><div><b id="rt">0:00</b><small>brew time</small></div></div>
+<button class="go" id="go"><span id="gl">Start brew</span><i class="pr" id="pr"></i></button></section></div>
+</main>
+<script>
+const M=[{n:'V60',r:16,t:180,cup:250},{n:'French press',r:15,t:240,cup:250},{n:'Espresso',r:2,t:28,cup:36}];
+let m=0,c=2,tm=null,left=0;
+const $=id=>document.getElementById(id),seg=$('seg');
+M.forEach((x,i)=>{const b=document.createElement('button');b.textContent=x.n;b.addEventListener('click',()=>{m=i;stop();upd()});seg.appendChild(b)});
+const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+function calc(){const x=M[m];if(m==2)return{c:c*18,w:c*36};const w=c*x.cup;return{c:Math.round(w/x.r*10)/10,w}}
+function upd(){[...seg.children].forEach((b,i)=>b.setAttribute('aria-pressed',i==m));$('cu').textContent=c;const r=calc();
+ $('rc').textContent=r.c.toFixed(1);$('rw').textContent=r.w;$('rt').textContent=fmt(M[m].t);if(!tm)$('gl').textContent='Start brew'}
+$('mn').onclick=()=>{c=Math.max(1,c-1);stop();upd()};$('pl').onclick=()=>{c=Math.min(8,c+1);stop();upd()};
+function stop(){clearInterval(tm);tm=null;$('pr').style.width='0';$('gl').textContent='Start brew'}
+$('go').onclick=()=>{if(tm){stop();upd();return}
+ left=M[m].t;const total=left,calm=matchMedia('(prefers-reduced-motion:reduce)').matches,t0=performance.now();
+ $('gl').textContent=fmt(left);
+ tm=setInterval(()=>{const e=(performance.now()-t0)/1000;left=Math.max(0,Math.ceil(total-e));$('gl').textContent=fmt(left);
+  $('pr').style.width=(Math.min(1,calm?Math.floor(e)/total:e/total)*100)+'%';
+  if(left<=0){clearInterval(tm);tm=null;$('gl').textContent='Enjoy.';setTimeout(()=>{if(!tm){$('pr').style.width='0';$('gl').textContent='Start brew'}},3000)}},calm?1000:100)};
+upd();
+</script></body></html>

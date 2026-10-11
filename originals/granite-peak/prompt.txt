@@ -1,0 +1,13 @@
+Canvas & base: Full-viewport hero, min-height 100svh, overflow hidden, background a vertical gradient from #f6b98a (dawn peach) at the top through #f7dcc0 at 35 percent to #cfe0e6 (cold sky) at the bottom, text #12202b. Five mountain ridge layers drawn as SVG paths, back to front: #b7a3b3, #8c7f9e, #5f6b88, #3c4d68, #1e2d42 (nearest). Cream #fff6ea for the button text. Body margin 0.
+
+Typography: Familjen Grotesk (500, 700) for the headline, Outfit (300, 400, 500) for everything else. Headline clamp(52px, 9vw, 150px), weight 700, line-height 0.92, letter-spacing -0.035em, uppercase, colour #12202b with mix-blend-mode multiply so it dips into the ridges. Body 20px Outfit 300.
+
+Layout: top bar with "Granite Peak" in Familjen Grotesk 700 22px and a small triangle logo mark, links Shop, Guides, Stores, and a 44px pill "Basket (0)" outlined 1.5px. Headline positioned at 18 percent from the top, left aligned at 56px, text "Climb the long way." on two lines, paragraph beneath "Waterproof shells and packs, repaired for life." and a 56px pill button "Shop the shell" in #12202b with cream text. Ridges fill the bottom 62 percent of the hero, full width, preserveAspectRatio none, each taller and darker toward the front, each slightly wider than the viewport (120 percent) so shifting never shows an edge.
+
+Parallax: on pointer move the five layers translate horizontally by depth factors 6, 12, 22, 36, 54 px times the pointer's normalised x offset (-1 to 1) and vertically by a third of that, eased with requestAnimationFrame lerp 0.08. On touch devices without a pointer, use the scroll position instead, or device tilt if available. Two translucent cloud bands (rgba(255,255,255,0.35) rounded blobs) drift slowly left to right between ridges 2 and 3, 90 seconds per loop.
+
+Interaction: the button lifts 2px on hover. Nothing else.
+
+Responsive: below 700px headline left padding 24px, ridges taller (70 percent), nav links hidden.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Familjen Grotesk and Outfit, no external images, no libraries. prefers-reduced-motion: no parallax movement, no cloud drift.

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sonar Security</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Schibsted+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#4dff9a;--a:#ffb020;--r:#ff4d5e;--mut:#6f9a83}
+*{box-sizing:border-box}
+html,body{margin:0;background:#040806;color:#c9f7dc;font:400 16px/1.5 'Schibsted Grotesk',system-ui,sans-serif;overflow-x:hidden}
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr;gap:0 40px;padding:40px 56px;background:radial-gradient(circle,transparent 45%,rgba(0,0,0,.6) 100%),linear-gradient(rgba(80,255,150,.05) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(80,255,150,.05) 1px,transparent 1px) 0 0/40px 40px,#040806}
+.hero::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px);pointer-events:none}
+nav{grid-column:1/3;display:flex;align-items:center;gap:30px}
+.mk{font:700 20px 'Schibsted Grotesk';letter-spacing:.08em;display:flex;align-items:center;gap:10px;margin-right:auto}
+.mk i{width:8px;height:8px;border-radius:50%;background:var(--g);animation:pl 1.6s infinite}
+@keyframes pl{50%{opacity:.25}}
+nav a{color:var(--mut);text-decoration:none;font-size:14px}
+nav a.d{color:var(--g);border:1px solid var(--g);padding:9px 18px;font-weight:500}
+.l{align-self:center}
+.lab,.mono{font:500 12px 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;color:var(--g)}
+h1{font:700 clamp(40px,5vw,76px)/1.02 'Schibsted Grotesk';letter-spacing:-.025em;margin:18px 0 20px}
+.l p{color:var(--mut);max-width:480px;margin:0 0 28px;font-size:18px}
+.btn{display:inline-block;padding:14px 26px;font-weight:700;text-decoration:none;border:1px solid var(--g);margin-right:10px;color:var(--g)}
+.b1{background:var(--g);color:#040806}
+.st{display:flex;gap:28px;margin-top:36px;flex-wrap:wrap}
+.st div{font:400 12px 'JetBrains Mono',monospace;color:var(--mut);max-width:130px}
+.st b{display:block;font:700 22px 'JetBrains Mono';color:#c9f7dc}
+.r{align-self:center;display:flex;flex-direction:column;align-items:center;gap:20px}
+.rad{position:relative;width:min(480px,100%);aspect-ratio:1;border-radius:50%}
+.rad .ci{position:absolute;border-radius:50%;border:1px solid rgba(77,255,154,.25);left:50%;top:50%;transform:translate(-50%,-50%)}
+.rad .xh{position:absolute;background:rgba(77,255,154,.25)}
+.sw{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(77,255,154,.45),transparent 60deg);animation:sp 4s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.bl{position:absolute;width:8px;height:8px;margin:-4px;border-radius:50%;opacity:0}
+.bl::after{content:'';position:absolute;inset:-4px;border:1px solid currentColor;border-radius:50%;opacity:0}
+.bl.hit{animation:hit 2.5s ease-out forwards}
+.bl.hit::after{animation:rg 1.2s ease-out}
+@keyframes hit{0%{opacity:1}100%{opacity:0}}
+@keyframes rg{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(4)}}
+.log{width:min(480px,100%);font:400 12px/1.7 'JetBrains Mono',monospace;min-height:140px}
+.log div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cnt{width:min(480px,100%);display:flex;justify-content:space-between;border-top:1px solid rgba(77,255,154,.25);padding-top:10px}
+.cnt b{font:700 16px 'JetBrains Mono';color:var(--g)}
+@media(max-width:960px){.hero{grid-template-columns:1fr;padding:24px 20px;gap:28px}nav,.l,.r{grid-column:1}nav a:not(.d){display:none}nav{order:-2}.r{order:-1}}
+@media(prefers-reduced-motion:reduce){.sw{animation:none}.mk i{animation:none}.bl{opacity:1}}
+</style></head><body>
+<main class="hero">
+<nav><span class="mk"><i></i>SONAR</span><a href="#">Platform</a><a href="#">Threat intel</a><a href="#">Pricing</a><a class="d" href="#">Book a demo</a></nav>
+<section class="l"><div class="lab">Autonomous threat detection</div><h1>See the attack before it lands.</h1><p>Sonar watches every endpoint and cloud account, and isolates the breach in under a second.</p><a class="btn b1" href="#">Start free trial</a><a class="btn" href="#">Watch the demo</a>
+<div class="st"><div><b>0.8s</b>mean time to isolate</div><div><b>12k</b>endpoints per tenant</div><div><b>SOC 2</b>Type II</div></div></section>
+<section class="r"><div class="rad" id="rad" role="img" aria-label="Radar showing detected threats"></div><div class="cnt"><span class="mono">Threats neutralised today</span><b id="cn">4,812</b></div><div class="log" id="log" aria-live="off"></div></section>
+</main>
+<script>
+const rad=document.getElementById('rad'),log=document.getElementById('log'),cn=document.getElementById('cn');
+[20,40,60,80,100].forEach(p=>{const c=document.createElement('div');c.className='ci';c.style.width=c.style.height=p+'%';rad.appendChild(c)});
+['left:50%;top:0;width:1px;height:100%','top:50%;left:0;height:1px;width:100%'].forEach(s=>{const x=document.createElement('div');x.className='xh';x.style.cssText=s;rad.appendChild(x)});
+const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(!calm){const s=document.createElement('div');s.className='sw';rad.appendChild(s)}
+const EV=['port scan blocked','credential stuffing','lateral movement isolated','malware quarantined','geo anomaly','policy drift'];
+const COL={g:'#4dff9a',a:'#ffb020',r:'#ff4d5e'};
+const B=[[35,20,'g'],[110,45,'g'],[150,70,'a'],[200,30,'g'],[235,85,'r'],[280,55,'g'],[320,78,'a'],[355,40,'g']].map(([ang,rad_,s],i)=>{
+ const el=document.createElement('div');el.className='bl';el.style.color=el.style.background=COL[s];
+ const a=ang*Math.PI/180,r=rad_/100*50;el.style.left=(50+Math.sin(a)*r)+'%';el.style.top=(50-Math.cos(a)*r)+'%';rad.appendChild(el);return{el,ang,s,i,hit:-1}});
+let n=4812;
+function entry(b){const d=new Date(),t=[d.getHours(),d.getMinutes(),d.getSeconds()].map(x=>String(x).padStart(2,'0')).join(':');
+ const row=document.createElement('div');row.style.color=COL[b.s];
+ row.textContent=t+'  ENDPOINT-'+(1000+((b.i*977+Math.floor(Math.random()*9000))%9000))+'  '+EV[Math.floor(Math.random()*EV.length)];
+ log.prepend(row);while(log.children.length>6)log.lastChild.remove();
+ if(b.s!=='g'){n++;cn.textContent=n.toLocaleString('en-GB')}}
+if(calm){B.forEach(b=>entry(b))}
+else{const t0=performance.now();let prev=0;(function f(t){const deg=((t-t0)/4000*360)%360;
+ B.forEach(b=>{const crossed=prev<=deg?(b.ang>prev&&b.ang<=deg):(b.ang>prev||b.ang<=deg);
+  if(crossed){b.el.classList.remove('hit');void b.el.offsetWidth;b.el.classList.add('hit');entry(b)}});
+ prev=deg;requestAnimationFrame(f)})(t0)}
+</script></body></html>

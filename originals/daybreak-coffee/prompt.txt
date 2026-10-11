@@ -1,0 +1,13 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background #2a1810 (roast brown), text #f5e9d8 (crema), muted rgba(245,233,216,0.65), accent #e8a34a (caramel). Cards use #38231a with a 1px rgba(245,233,216,0.14) border and 20px radius. Body margin 0.
+
+Typography: Fraunces (300, 600, italic 300, opsz auto) for the headline, Albert Sans (400, 500, 600) for UI, tabular-nums for all numbers. Headline clamp(44px, 6vw, 96px), weight 300 with "slowly" in italic 600 caramel, line-height 1.02, letter-spacing -0.02em. Body 18px / 1.5. Labels 12px uppercase letter-spacing 0.1em.
+
+Layout: top bar with "Daybreak" in Fraunces 600 26px left and links Beans, Subscribe, Brew guides and a caramel pill "Shop beans" (text #2a1810). Two columns 1fr / 1fr, gap 56px, padding 32px 56px, centred. Left: label "Small-batch roasters, Bristol", headline "Good mornings start slowly.", paragraph "Single-origin beans roasted twice a week. Brew them properly with our calculator." and a row of three small stat chips ("Roasted Tue + Fri", "Compostable bags", "Free UK delivery").
+
+Right: the calculator card, padding 28px. Row 1: label "Method" and three segmented buttons: "V60" (1:16, 3:00), "French press" (1:15, 4:00), "Espresso" (1:2, 0:28). The selected button has caramel background and dark text. Row 2: label "Cups" and a stepper (- / number / +) from 1 to 8, each cup 250ml for V60 and French press, 36 ml out for espresso (double shot) . Results grid of three tiles: "Coffee" in grams, "Water" in grams, "Time" in m:ss, each number in Fraunces 40px, units in muted 14px. A full-width 52px button "Start brew" turns into a countdown "2:41" with a thin caramel progress bar under it; clicking again resets. When the countdown reaches zero show "Enjoy." for 3 seconds.
+
+Maths: V60 and French press water = cups x 250 g, coffee = water / ratio, rounded to 0.1 g for coffee and whole grams for water. Espresso: coffee 18 g per double, water out = 36 g; ignore cups beyond 1 by multiplying (cups x 18 g, cups x 36 g).
+
+Responsive: below 960px one column, padding 24px 20px, nav links hidden.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Fraunces and Albert Sans, no external images, no libraries. prefers-reduced-motion: progress bar steps per second rather than animating.

@@ -1,0 +1,11 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background #f4efe6 (undyed linen), text #2a2622, muted #8a8176. Look cards use five fabric colours: #c8553d (terracotta), #6b7a5e (sage), #e3b04b (saffron), #3e4a63 (indigo), #d9b9a6 (clay). Body margin 0, overflow hidden. 1px #2a2622 rules. No shadows.
+
+Typography: Newsreader (300, 400, italic 300) for headings, Public Sans (400, 500, 600) for UI. Headline clamp(48px, 7vw, 112px), weight 300, line-height 1, letter-spacing -0.025em with "Autumn" in italic. Look numbers 12px Public Sans uppercase letter-spacing 0.12em. Counter in Newsreader 64px.
+
+Layout: top bar with "Linen & Loom" wordmark in Newsreader 400 24px, links Women, Men, Journal and "Bag (0)", padding 24px 48px. Headline block at the left, 48px padding: label "Lookbook 07", headline "Autumn, undyed and unhurried.", short paragraph and a text link "Shop the collection →". Below it, filling the lower half, a horizontal strip of six look cards: each card 300px wide by 52vh tall, margin-right 24px, background one of the five fabric colours (cycling), containing a drawn garment silhouette in a slightly darker tone made from SVG (a long coat, a wide-leg trouser, a knit, a shirt dress, an overshirt, a scarf), the look number "Look 01" top left and the piece name and price bottom left in cream or ink depending on contrast. A 1px rule and a counter sit bottom right: "02 / 06" updating with scroll position.
+
+Interaction: the strip scrolls horizontally by mouse wheel (translate vertical wheel into horizontal), drag with pointer (grab cursor, grabbing while dragging, inertia ending over 600ms), and arrow keys when focused. The card closest to the left edge is "active": its garment scales to 1.04 and the counter updates. Cards snap softly.
+
+Responsive: below 800px headline above the strip, cards 72vw wide by 46vh tall, native touch scroll with scroll-snap-type x mandatory.
+
+Rules: one HTML file, inline CSS and JS, one Google Fonts link for Newsreader and Public Sans, no external images, no libraries. prefers-reduced-motion: no inertia or scale.

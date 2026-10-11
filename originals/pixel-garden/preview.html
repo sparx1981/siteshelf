@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pixel Garden</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;font:400 16px/1.6 'DM Mono',monospace;color:#1b1b2f;overflow:hidden}
+.hero{position:relative;min-height:100svh;background:#8fd3ff;transition:background .3s,color .3s;display:flex;flex-direction:column}
+.hero.night{background:#1b1f4a;color:#f4f0ff}
+.top{position:relative;z-index:3;display:flex;align-items:center;gap:26px;padding:20px 40px}
+.top b{font-weight:500;font-size:18px;display:flex;gap:10px;align-items:center;margin-right:auto;letter-spacing:.02em}
+.fl{width:6px;height:6px;background:#ff7a59;box-shadow:6px 0 #ff7a59,-6px 0 #ff7a59,0 6px #ff7a59,0 -6px #ff7a59,0 0 0 0 #ffd23f;position:relative;margin:0 6px}
+.top a{color:inherit;text-decoration:none;font-size:14px}
+#tg{width:40px;height:40px;border:3px solid currentColor;background:none;cursor:pointer;color:inherit;position:relative;padding:0}
+#tg i{position:absolute;left:12px;top:12px;width:4px;height:4px;background:#ffd23f;box-shadow:4px 0 #ffd23f,8px 0 #ffd23f,0 4px #ffd23f,4px 4px #ffd23f,8px 4px #ffd23f,0 8px #ffd23f,4px 8px #ffd23f,8px 8px #ffd23f}
+.night #tg i{background:#e8e4ff;box-shadow:4px 0 #e8e4ff,0 4px #e8e4ff,0 8px #e8e4ff,4px 8px #e8e4ff,8px 8px #e8e4ff,8px 4px #1b1f4a,4px 4px #1b1f4a}
+.col{position:relative;z-index:2;margin:auto;max-width:720px;text-align:center;padding:0 24px 220px}
+h1{font:700 clamp(32px,6vw,84px)/1.1 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.02em;text-shadow:4px 4px 0 rgba(0,0,0,.25);margin:0 0 20px}
+.col p{margin:0 auto 30px;max-width:560px}
+.btn{display:inline-flex;align-items:center;height:56px;padding:0 30px;background:#ff7a59;color:#fff;border:4px solid #1b1b2f;box-shadow:6px 6px 0 #1b1b2f;font:500 17px 'DM Mono',monospace;text-decoration:none;cursor:pointer}
+.btn:active{transform:translate(4px,4px);box-shadow:2px 2px 0 #1b1b2f}
+canvas{position:absolute;left:0;bottom:0;width:100%;height:200px;image-rendering:pixelated;z-index:1;cursor:crosshair}
+@media(max-width:700px){canvas{height:160px}.col{padding-bottom:180px}.top{padding:16px 20px}.top a.l{display:none}}
+</style></head><body>
+<main class="hero" id="h">
+<div class="top"><b><span class="fl"></span>Pixel Garden</b><a class="l" href="#">Game</a><a class="l" href="#">Devlog</a><a class="l" href="#">Press kit</a><button id="tg" aria-label="Toggle day and night"><i></i></button></div>
+<div class="col"><h1>Grow something small.</h1><p>A cosy gardening game about patience, snails and very small fences. Out on Switch and PC this spring.</p><a class="btn" href="#">Wishlist on Steam</a></div>
+<canvas id="c" aria-label="Click to plant a flower"></canvas>
+</main>
+<script>
+const cv=document.getElementById('c'),x=cv.getContext('2d'),h=document.getElementById('h');
+const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let CW,CH,night=false;const S=4;
+function size(){CW=Math.ceil(cv.clientWidth/S);CH=Math.ceil(cv.clientHeight/S);cv.width=CW;cv.height=CH}
+size();addEventListener('resize',size);
+const COL=['#ff5c8a','#ffd23f','#b57bff','#ff7a59','#ffffff'];
+const stars=Array.from({length:30},()=>[Math.random(),Math.random()*.55]);
+let plants=[];
+function plant(px){plants.push({x:Math.round(px),c:COL[Math.floor(Math.random()*5)],t0:performance.now()});if(plants.length>40)plants.shift()}
+cv.addEventListener('pointerdown',e=>{const r=cv.getBoundingClientRect();plant((e.clientX-r.left)/S)});
+addEventListener('keydown',e=>{if(e.code==='Space'&&e.target===document.body){e.preventDefault();plant(Math.random()*CW)}});
+document.getElementById('tg').onclick=()=>{night=!night;h.classList.toggle('night',night)};
+const G=10;
+function R(px,py,w,hh,c){x.fillStyle=c;x.fillRect(Math.round(px),Math.round(py),w,hh)}
+function draw(now){x.clearRect(0,0,CW,CH);
+ if(night)stars.forEach(s=>{x.globalAlpha=.5+.5*Math.sin(now/600+s[0]*40);R(s[0]*CW,s[1]*CH,1,1,'#fff')});x.globalAlpha=1;
+ const cc=night?'#4a4f8a':'#ffffff';
+ [[.2,8,.004],[.62,16,.003]].forEach(([p,y,sp])=>{const cx=((p*CW+(calm?0:now*sp*10))%(CW+40))-20;R(cx,y,14,4,cc);R(cx+3,y-3,8,3,cc);R(cx+10,y+2,8,3,cc)});
+ R(0,CH-G,CW,G,'#6b4a2f');R(0,CH-G,CW,2,'#4fae52');
+ for(let i=0;i<CW;i+=7){R(i,CH-G-1,1,1,'#4fae52')}
+ plants.forEach(p=>{const g=calm?1:Math.min(1,(now-p.t0)/6000),st=Math.floor(g*4.999);const bx=p.x,by=CH-G;
+  const sh=[4,8,12,15,18][st];for(let k=0;k<sh;k++)R(bx,by-k-1,1,1,'#2f8f46');
+  if(st>=1){R(bx-2,by-3,2,1,'#3ccf6a');R(bx+1,by-4,2,1,'#3ccf6a')}
+  if(st>=3){R(bx-1,by-sh-2,3,2,p.c)}
+  if(st>=4){if(night){x.globalAlpha=.25;R(bx-4,by-sh-4,9,7,p.c);x.globalAlpha=1}R(bx-2,by-sh-3,5,1,p.c);R(bx-1,by-sh-4,3,1,p.c);R(bx-1,by-sh-1,3,1,p.c);R(bx-2,by-sh-2,5,1,p.c);R(bx,by-sh-2,1,1,'#ffd23f')}});
+ const sx=calm?CW*.4:((now/40000)%1)*(CW+20)-10,sy=CH-G-1;
+ R(sx,sy-3,6,3,'#c8a77a');R(sx+1,sy-5,4,2,'#a8815a');R(sx-3,sy-1,3,1,'#d9c9a8');R(sx-3,sy-2,1,1,'#d9c9a8');
+ requestAnimationFrame(draw)}
+requestAnimationFrame(draw);
+if(calm){[.18,.3,.45,.58,.7,.83].forEach(f=>plant(f*CW))}else{[.2,.5,.8].forEach((f,i)=>setTimeout(()=>plant(f*CW),400+i*700))}
+</script></body></html>

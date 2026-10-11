@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bloom &amp; Stem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbe9e4;--ac:#d6456b;--ink:#3a1f2b}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.6 Mulish,system-ui,sans-serif;transition:background .6s}
+.hero{position:relative;min-height:100svh;overflow:hidden;background:var(--bg);transition:background .6s;display:flex;flex-direction:column}
+canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.top{position:relative;z-index:2;display:flex;align-items:center;gap:30px;padding:24px 56px}
+.top b{font:600 28px 'Cormorant Garamond',serif;margin-right:auto}
+.top a{color:var(--ink);text-decoration:none;font-size:15px;font-weight:600}
+.top a.p{background:var(--ac);color:#fff;border-radius:999px;height:44px;padding:0 24px;display:inline-flex;align-items:center;transition:background .6s}
+.main{position:relative;z-index:2;margin:auto 0;padding:24px 56px 56px;max-width:900px}
+.lab{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--ac);transition:color .6s}
+h1{font:500 clamp(52px,8vw,128px)/.95 'Cormorant Garamond',serif;letter-spacing:-.02em;margin:14px 0 20px}
+h1 em{font-style:italic;color:var(--ac);transition:color .6s}
+.main p{max-width:460px;margin:0 0 32px}
+.pk{font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:12px}
+.sw{display:flex;gap:16px}
+.sw label{position:relative;cursor:pointer}
+.sw input{position:absolute;opacity:0}
+.sw span{display:block;width:56px;height:56px;border-radius:50%;background:var(--c);border:3px solid transparent;box-shadow:inset 0 0 0 3px var(--bg);transition:border-color .2s}
+.sw input:checked+span{border-color:var(--ink)}
+.sw input:focus-visible+span{outline:2px solid var(--ink);outline-offset:3px}
+.tn{margin-top:12px;font:italic 500 22px 'Cormorant Garamond',serif;height:28px}
+@media(max-width:700px){.top{padding:18px 24px}.top a:not(.p){display:none}.main{padding:16px 24px 40px}}
+</style></head><body>
+<main class="hero" id="h"><canvas id="c" aria-hidden="true"></canvas>
+<div class="top"><b>Bloom &amp; Stem</b><a href="#">Bouquets</a><a href="#">Weddings</a><a href="#">Subscriptions</a><a class="p" href="#">Order flowers</a></div>
+<div class="main"><div class="lab">Same-day delivery, Bath</div><h1>Flowers that <em>bloom</em> on arrival.</h1><p>Seasonal bouquets from growers within thirty miles, hand-tied this morning and at your door by dinner.</p>
+<div class="pk" id="pl">Pick a bouquet</div><div class="sw" role="radiogroup" aria-labelledby="pl" id="sw"></div><div class="tn" id="tn"></div></div>
+</main>
+<script>
+const T=[{n:'Peony',bg:'#fbe9e4',ac:'#d6456b'},{n:'Lavender',bg:'#ece6f7',ac:'#7a5cc4'},{n:'Sunflower',bg:'#fdf1c9',ac:'#e0891a'},{n:'Eucalyptus',bg:'#e3eee6',ac:'#3f8a62'}];
+const cv=document.getElementById('c'),x=cv.getContext('2d'),rs=document.documentElement.style;
+const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let W,H,dpr=Math.min(2,devicePixelRatio||1),theme=0,mx=-999,my=-999;
+function size(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
+size();addEventListener('resize',size);
+addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
+addEventListener('pointerleave',()=>{mx=my=-999});
+const N=innerWidth<700?36:60;
+const P=Array.from({length:N},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,w:6+Math.random()*8,o:.35+Math.random()*.5,v:20+Math.random()*40,ph:Math.random()*6.28,sw:15+Math.random()*25,r:Math.random()*6.28,rv:(Math.random()-.5)*1.5,k:Math.floor(Math.random()*3),ix:0,iy:0}));
+function tints(a){const c=parseInt(a.slice(1),16),r=c>>16,g=c>>8&255,b=c&255,m=t=>`rgb(${Math.round(r+(255-r)*t)},${Math.round(g+(255-g)*t)},${Math.round(b+(255-b)*t)})`;return[a,m(.35),m(.6)]}
+let tn=tints(T[0].ac);
+function pick(i){theme=i;rs.setProperty('--bg',T[i].bg);rs.setProperty('--ac',T[i].ac);tn=tints(T[i].ac);document.getElementById('tn').textContent=T[i].n}
+const sw=document.getElementById('sw');
+T.forEach((t,i)=>{const l=document.createElement('label');l.innerHTML='<input type="radio" name="b" aria-label="'+t.n+'"'+(i==0?' checked':'')+'><span style="--c:'+t.ac+'"></span>';l.querySelector('input').addEventListener('change',()=>pick(i));sw.appendChild(l)});
+pick(0);
+let last=performance.now();
+function draw(now){const dt=Math.min(.05,(now-last)/1000);last=now;x.clearRect(0,0,W,H);
+ P.forEach(p=>{
+  if(!calm){p.y+=p.v*dt;p.ph+=dt;p.r+=p.rv*dt;
+   const dx=p.x-mx,dy=p.y-my,d=Math.hypot(dx,dy);
+   if(d<120&&d>0){const f=(1-d/120)*260;p.ix+=dx/d*f*dt*6;p.iy+=dy/d*f*dt*6}
+   p.x+=p.ix*dt;p.y+=p.iy*dt;p.ix*=Math.pow(.05,dt);p.iy*=Math.pow(.05,dt);
+   if(p.y>H+20){p.y=-20;p.x=Math.random()*W}}
+  const px=p.x+(calm?0:Math.sin(p.ph)*p.sw);
+  x.save();x.translate(px,p.y);x.rotate(p.r);x.globalAlpha=p.o;x.fillStyle=tn[p.k];x.beginPath();x.ellipse(0,0,p.w,p.w/1.7,0,0,6.283);x.fill();x.restore()});
+ if(!calm)requestAnimationFrame(draw)}
+requestAnimationFrame(draw);
+if(calm){document.getElementById('sw').addEventListener('change',()=>requestAnimationFrame(draw))}
+</script></body></html>

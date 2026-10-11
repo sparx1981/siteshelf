@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Granite Peak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;color:#12202b;font:300 20px/1.5 Outfit,system-ui,sans-serif;background:#cfe0e6}
+.hero{position:relative;min-height:100svh;overflow:hidden;background:linear-gradient(180deg,#f6b98a 0%,#f7dcc0 35%,#cfe0e6 100%)}
+.top{position:absolute;z-index:3;top:0;left:0;right:0;display:flex;align-items:center;gap:28px;padding:24px 56px}
+.top b{font:700 22px 'Familjen Grotesk';margin-right:auto;display:flex;align-items:center;gap:10px}
+.top b i{width:0;height:0;border:9px solid transparent;border-bottom:15px solid #12202b;border-top:0}
+.top a{color:#12202b;text-decoration:none;font-weight:500;font-size:15px}
+.top a.p{border:1.5px solid #12202b;border-radius:22px;height:44px;padding:0 20px;display:inline-flex;align-items:center}
+.txt{position:absolute;z-index:3;left:56px;top:18%;max-width:900px}
+h1{font:700 clamp(52px,9vw,150px)/.92 'Familjen Grotesk';letter-spacing:-.035em;text-transform:uppercase;margin:0 0 24px;mix-blend-mode:multiply}
+.txt p{margin:0 0 28px}
+.btn{display:inline-flex;align-items:center;height:56px;padding:0 34px;border-radius:28px;background:#12202b;color:#fff6ea;font:500 17px Outfit;text-decoration:none;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.ridges{position:absolute;left:0;right:0;bottom:0;height:62%;z-index:1}
+.ridges svg{position:absolute;left:-10%;width:120%;height:100%;overflow:visible}
+.ly{will-change:transform}
+.cloud ellipse{fill:rgba(255,255,255,.35)}
+.cloud{animation:dr 90s linear infinite}
+.c2{animation-duration:70s;animation-direction:reverse}
+@keyframes dr{from{transform:translateX(-300px)}to{transform:translateX(500px)}}
+@media(max-width:700px){.top{padding:18px 24px}.top a:not(.p){display:none}.txt{left:24px;right:24px;top:16%}.ridges{height:70%}}
+@media(prefers-reduced-motion:reduce){.cloud{animation:none}}
+</style></head><body>
+<main class="hero">
+<div class="top"><b><i></i>Granite Peak</b><a href="#">Shop</a><a href="#">Guides</a><a href="#">Stores</a><a class="p" href="#">Basket (0)</a></div>
+<div class="txt"><h1>Climb the<br>long way.</h1><p>Waterproof shells and packs, repaired for life.</p><a class="btn" href="#">Shop the shell</a></div>
+<div class="ridges"><svg viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true"><g class="ly" data-d="6"><path d="M-100 900 L-100 389 L-5 347 L105 367 L200 337 L311 323 L406 428 L517 427 L612 297 L722 385 L817 400 L928 260 L1023 360 L1134 287 L1229 359 L1340 321 L1434 414 L1545 322 L1560 900Z" fill="#b7a3b3"/></g><g class="ly" data-d="12"><path d="M-100 900 L-100 479 L-5 376 L105 376 L200 331 L311 448 L406 461 L517 360 L612 384 L722 442 L817 379 L928 424 L1023 362 L1134 477 L1229 467 L1340 328 L1434 441 L1545 450 L1560 900Z" fill="#8c7f9e"/></g><g class="cloud c1"><ellipse cx="300" cy="380" rx="260" ry="28"/><ellipse cx="520" cy="400" rx="180" ry="20"/><ellipse cx="900" cy="370" rx="300" ry="30"/></g><g class="ly" data-d="22"><path d="M-100 900 L-100 494 L-5 394 L105 401 L200 537 L311 395 L406 452 L517 561 L612 389 L722 518 L817 518 L928 485 L1023 462 L1134 545 L1229 442 L1340 403 L1434 477 L1545 411 L1560 900Z" fill="#5f6b88"/></g><g class="cloud c2"><ellipse cx="300" cy="400" rx="260" ry="28"/><ellipse cx="520" cy="420" rx="180" ry="20"/><ellipse cx="900" cy="390" rx="300" ry="30"/></g><g class="ly" data-d="36"><path d="M-100 900 L-100 594 L-5 492 L105 486 L200 503 L311 515 L406 511 L517 649 L612 553 L722 607 L817 535 L928 576 L1023 564 L1134 557 L1229 562 L1340 509 L1434 493 L1545 591 L1560 900Z" fill="#3c4d68"/></g><g class="ly" data-d="54"><path d="M-100 900 L-100 687 L-5 688 L105 675 L200 698 L311 668 L406 692 L517 725 L612 689 L722 727 L817 727 L928 698 L1023 624 L1134 672 L1229 674 L1340 619 L1434 632 L1545 661 L1560 900Z" fill="#1e2d42"/></g></svg></div>
+</main>
+<script>
+const L=[...document.querySelectorAll('.ly')];const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let tx=0,ty=0,cx=0,cy=0;
+if(!calm){
+ addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;tx=(e.clientX/innerWidth-.5)*2;ty=(e.clientY/innerHeight-.5)*2});
+ addEventListener('scroll',()=>{tx=Math.min(1,scrollY/innerHeight)*2-1},{passive:true});
+ addEventListener('deviceorientation',e=>{if(e.gamma!=null)tx=Math.max(-1,Math.min(1,e.gamma/30))});
+ (function f(){cx+=(tx-cx)*.08;cy+=(ty-cy)*.08;L.forEach(l=>{const d=+l.dataset.d;l.style.transform='translate('+(cx*d)+'px,'+(cy*d/3)+'px)'});requestAnimationFrame(f)})();
+}
+</script></body></html>

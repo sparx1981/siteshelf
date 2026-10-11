@@ -1,0 +1,11 @@
+Canvas & base: Cream paper #f8f3ea with a faint ruled texture via repeating-linear-gradient, ink #241f19, secondary #7a6f60, accent ink-blue #243b9c, highlight marker #ffe58a. Invented company "Wren & Lodge" (a small furniture maker).
+
+Typography: "Newsreader" (400,500,600 and italics) for the letter at 20px/1.7 with a 5-line drop cap, "Work Sans" (500,600) for labels at 13px uppercase.
+
+Layout: 680px letter column centred, with a sticky left margin on wide screens (>1000px) containing a vertical progress line and the current section name; header with date and "A letter from the workshop"; body of five paragraphs interleaved with a pull quote and a "Milestones" list (year, event) that reveals on scroll; a principles section of four numbered lines where hovering or focusing highlights with a marker-style background; a signature block with handwriting-style SVG path that draws on scroll.
+
+Interaction: IntersectionObserver reveals milestones sequentially, updates the progress line and current-section label, and draws the signature path; principles toggle a short explanation on click (aria-expanded); "Print this letter" button calls window.print with print styles; keyboard friendly.
+
+Responsive: Margin note hidden under 1000px; letter font 18px under 600px.
+
+Rules: No libraries or external images, hidden attribute respected, reduced-motion shows everything without animation, 44px buttons, invented names only.

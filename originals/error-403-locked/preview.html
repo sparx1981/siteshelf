@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>403 — Vaultline Docs</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#eef0f6;--mut:#98a0b8;--am:#ffb020;--rd:#ff5d6c;--ok:#46d39a}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:repeating-linear-gradient(135deg,#ffffff05 0 2px,transparent 2px 14px),#151821;color:var(--ink);font:16px/1.55 Sora,system-ui,sans-serif;display:grid;place-items:center;padding:32px 16px}
+main{width:100%;max-width:560px;display:grid;gap:18px;text-align:center;justify-items:center}
+.lk{width:150px;height:170px;background:none;border:0;cursor:pointer;padding:0;border-radius:20px}
+.lk svg{width:100%;height:100%;overflow:visible}
+.sh{fill:none;stroke:#aab2c8;stroke-width:12;stroke-linecap:round;transform-origin:42px 70px;transition:transform .5s cubic-bezier(.3,1.5,.5,1)}
+.open .sh{transform:translate(0,-14px) rotate(-28deg)}
+.bd{fill:var(--am)}.ok .bd{fill:var(--ok)}.denied .bd{fill:var(--rd)}
+.rat{animation:rt .5s}
+@keyframes rt{20%{transform:rotate(-8deg)}40%{transform:rotate(8deg)}60%{transform:rotate(-5deg)}80%{transform:rotate(5deg)}}
+h1{margin:0;font:700 clamp(84px,22vw,120px)/1 Sora;color:transparent;-webkit-text-stroke:2px #ffffff55;letter-spacing:-.04em}
+h2{margin:0;font-size:26px}
+p{margin:0;color:var(--mut)}p b{color:var(--ink)}
+.pn{width:100%;background:#1d2130;border:1px solid #2b3148;border-radius:18px;padding:20px;text-align:left;display:grid;gap:12px}
+label{font-weight:600;font-size:14px}
+select,textarea{width:100%;font:inherit;font-size:15px;background:#12151e;color:var(--ink);border:1.5px solid #343c58;border-radius:12px;padding:0 12px;min-height:48px}
+textarea{padding:10px 12px;min-height:90px;resize:vertical}
+select:focus,textarea:focus{outline:none;border-color:var(--am);box-shadow:0 0 0 4px #ffb02033}
+[aria-invalid=true]{border-color:var(--rd)!important}
+.er{color:#ff9aa4;font-size:13px;min-height:18px}
+.cn{text-align:right;font-size:13px;color:var(--mut)}
+.btn{border:0;background:var(--am);color:#2a1c00;border-radius:12px;min-height:50px;font:700 16px Sora;cursor:pointer;padding:0 22px}
+.btn.g{background:#ffffff14;color:var(--ink)}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.row a,.row button{color:var(--mut);background:none;border:1px solid #343c58;border-radius:99px;min-height:44px;padding:0 16px;font:600 14px Sora;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
+.row a:hover,.row button:hover{color:var(--ink);border-color:#fff6}
+.st{display:grid;gap:12px;list-style:none;padding:0;margin:0}
+.st li{display:flex;gap:12px;align-items:center;color:var(--mut)}
+.st i{width:26px;height:26px;border-radius:50%;border:2px solid #343c58;display:grid;place-items:center;font-style:normal;font-size:13px;flex:none}
+.st li.on{color:var(--ink)}.st li.on i{border-color:var(--am);color:var(--am)}
+.st li.dn i{background:var(--ok);border-color:var(--ok);color:#06231a}
+.to{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#2b1318;border:1px solid var(--rd);color:#ffc4ca;padding:10px 18px;border-radius:99px;font-weight:600;z-index:20}
+.sp{width:14px;height:14px;border:2px solid #ffb02055;border-top-color:var(--am);border-radius:50%;animation:s .8s linear infinite}
+@keyframes s{to{transform:rotate(360deg)}}
+button:focus-visible,a:focus-visible,.lk:focus-visible{outline:3px solid var(--am);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><main>
+<button class="lk" id="lk" aria-label="Locked padlock. Press to try opening"><svg viewBox="0 0 84 100" id="sv" class="denied"><path class="sh" d="M18 52V34a24 24 0 0 1 48 0v18"/><rect class="bd" x="6" y="50" width="72" height="46" rx="12"/><circle cx="42" cy="68" r="6" fill="#151821"/><rect x="39.500" y="70" width="5" height="12" rx="2.500" fill="#151821"/></svg></button>
+<h1 aria-hidden="true">403</h1><h2 id="h2">This area is locked</h2>
+<p id="msg">You don't have permission to open <b>Q3 Board Pack</b>. It's owned by <b>Dana Whitlock</b> and shared with the finance group only.</p>
+<section class="pn" id="rq" aria-label="Request access"><form id="f" novalidate style="display:grid;gap:12px"><div><label for="rs">Why do you need access?</label><select id="rs" aria-describedby="e1"><option value="">Choose a reason…</option><option>I'm preparing the board update</option><option>I'm auditing the figures</option><option>I was asked by the owner</option><option>Other</option></select><div class="er" id="e1" role="alert"></div></div>
+<div><label for="ms">Message to the owner</label><textarea id="ms" maxlength="200" aria-describedby="e2 cn" placeholder="Add a little context…"></textarea><div class="er" id="e2" role="alert"></div><div class="cn" id="cn">0 / 200</div></div>
+<button class="btn" id="sd">Request access</button></form>
+<div id="tk" hidden style="display:grid;gap:14px"><ol class="st" id="st" aria-label="Request progress"><li class="dn"><i>✓</i>Request sent</li><li id="s2"><i>2</i>Owner notified</li><li id="s3"><i>3</i>Decision</li></ol><button class="btn g" id="cx">Cancel request</button><button class="btn" id="od" hidden>Open document</button></div></section>
+<div class="row"><button id="bk">← Go back</button><a href="#">Switch account</a><a href="#">Contact admin</a><button id="ty">Try anyway</button></div></main>
+<div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div>
+<script>
+const $=s=>document.querySelector(s);let timers=[],unlocked=false;
+function say(m){const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)}
+function toast(m){document.querySelectorAll(".to").forEach(x=>x.remove());const t=document.createElement("div");t.className="to";t.setAttribute("role","status");t.textContent=m;document.body.append(t);setTimeout(()=>t.remove(),2000)}
+function rattle(){if(unlocked){toast("Already unlocked for you.");return}const s=$("#sv");s.classList.remove("rat");void s.getBoundingClientRect();s.classList.add("rat");toast("Still denied: you need access first.");say("Still denied")}
+$("#lk").onclick=rattle;$("#ty").onclick=rattle;
+$("#bk").onclick=()=>{if(history.length>1)history.back();else toast("Nothing to go back to in this demo.")};
+$("#ms").oninput=e=>{$("#cn").textContent=e.target.value.length+" / 200";e.target.removeAttribute("aria-invalid");$("#e2").textContent=""};$("#rs").onchange=e=>{e.target.removeAttribute("aria-invalid");$("#e1").textContent=""};
+$("#f").onsubmit=e=>{e.preventDefault();let ok=true;if(!$("#rs").value){$("#rs").setAttribute("aria-invalid","true");$("#e1").textContent="Choose a reason";ok=false}if($("#ms").value.trim().length<10){$("#ms").setAttribute("aria-invalid","true");$("#e2").textContent="Please write at least 10 characters";ok=false}if(!ok){(document.querySelector("[aria-invalid]")).focus();return}
+$("#f").hidden=true;$("#tk").hidden=false;$("#tk").style.display="grid";$("#h2").textContent="Request sent";$("#msg").innerHTML="We've asked <b>Dana Whitlock</b> to approve your access. You can leave this page open.";const sv=$("#sv");sv.classList.remove("denied");say("Request sent");
+timers.push(setTimeout(()=>{$("#s2").className="dn";$("#s2").firstChild.textContent="✓";$("#s3").className="on";$("#s3").firstChild.innerHTML='<span class="sp"></span>';say("Owner notified")},1500));
+timers.push(setTimeout(()=>{$("#s3").className="dn";$("#s3").firstChild.textContent="✓";$("#s3").lastChild.textContent="Approved by Dana Whitlock";sv.classList.add("open","ok");unlocked=true;$("#h2").textContent="Access granted";$("#msg").innerHTML="Dana approved your request. <b>Q3 Board Pack</b> is ready.";$("#od").hidden=false;$("#cx").hidden=true;$("#lk").setAttribute("aria-label","Unlocked padlock");say("Access granted");$("#od").focus()},3500))};
+$("#cx").onclick=()=>{timers.forEach(clearTimeout);timers=[];$("#tk").hidden=true;$("#f").hidden=false;$("#sv").classList.add("denied");$("#h2").textContent="This area is locked";$("#msg").innerHTML="You don't have permission to open <b>Q3 Board Pack</b>. It's owned by <b>Dana Whitlock</b> and shared with the finance group only.";$("#s2").className="";$("#s2").firstChild.textContent="2";$("#s3").className="";$("#s3").firstChild.textContent="3";say("Request cancelled")};
+$("#od").onclick=()=>toast("Opening document… (demo)");
+</script></body></html>

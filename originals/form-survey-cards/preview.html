@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sprout &amp; Sons — Feedback Survey</title>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16241f;--mut:#5e6f67;--mi:#2ee6a6;--co:#ff7a59}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#0f2a24;color:var(--ink);font:16px/1.5 "Instrument Sans",system-ui,sans-serif;display:grid;place-items:center;padding:56px 14px 24px}
+.pb{position:fixed;left:0;top:0;right:0;height:6px;background:#ffffff1a}.pb i{display:block;height:100%;background:var(--mi);width:0;transition:width .4s}
+.c{width:100%;max-width:640px;background:#f7f4ec;border-radius:24px;padding:36px;overflow:hidden;position:relative;box-shadow:0 30px 70px #0006}
+.q{animation:in .35s}
+@keyframes in{from{opacity:0;transform:translateX(24px)}}
+.q.back{animation-name:inb}@keyframes inb{from{opacity:0;transform:translateX(-24px)}}
+.n{color:var(--mut);font-weight:600;font-size:14px;margin-bottom:8px}
+h1{font:400 clamp(24px,5vw,32px)/1.2 "Young Serif",serif;margin:0 0 20px}
+.op{display:grid;gap:10px}
+.op label{display:flex;align-items:center;gap:12px;border:1.5px solid #cfd8d2;border-radius:12px;padding:0 14px;min-height:52px;cursor:pointer;background:#fff;transition:.15s}
+.op label:hover{border-color:#16241f}
+.op input{position:absolute;opacity:0}
+.op kbd{font:600 13px "Instrument Sans";border:1.5px solid #cfd8d2;border-radius:6px;min-width:26px;height:26px;display:grid;place-items:center;color:var(--mut);flex:none}
+.op label:has(input:checked){border-color:#16241f;background:#dcfbee}
+.op label:has(input:checked) kbd{background:#16241f;color:#fff;border-color:#16241f}
+.op label:has(input:focus-visible){outline:3px solid #16241f;outline-offset:2px}
+.sc{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:6px}
+.sc label{min-height:48px;padding:0;justify-content:center}
+.sc span{font-weight:700}
+.sl{display:flex;justify-content:space-between;color:var(--mut);font-size:13px;margin-top:8px}
+textarea,input[type=email]{width:100%;font:inherit;font-size:18px;border:0;border-bottom:2px solid #16241f;background:transparent;padding:10px 2px;resize:none;min-height:56px}
+textarea{min-height:110px}
+textarea:focus,input[type=email]:focus{outline:none;border-color:#12a874}
+.er{color:#c4411f;font-weight:600;margin-top:10px;min-height:24px}
+.shake{animation:sh .35s}@keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.ft{display:flex;gap:12px;align-items:center;margin-top:20px}
+.ok{background:#16241f;color:#fff;border:0;border-radius:12px;padding:0 24px;min-height:48px;font:600 16px inherit;font-family:inherit;cursor:pointer}
+.bk{background:none;border:1.5px solid #cfd8d2;border-radius:12px;min-height:48px;padding:0 18px;font:600 15px inherit;font-family:inherit;cursor:pointer;color:var(--ink)}
+.hint{color:var(--mut);font-size:14px}
+button:focus-visible{outline:3px solid #12a874;outline-offset:2px}
+.rv{display:grid;gap:10px;margin-bottom:6px}
+.rv div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;background:#fff;border-radius:12px;padding:10px 14px;align-items:center}
+.rv small{color:var(--mut);display:block}.rv b{font-weight:500;overflow-wrap:anywhere}
+.rv button{border:0;background:none;color:#0b7a56;font:600 14px inherit;font-family:inherit;cursor:pointer;min-height:44px;text-decoration:underline}
+.ty{text-align:center;display:grid;gap:12px;justify-items:center}
+.ty .nps{font:400 64px/1 "Young Serif";color:#0b7a56}
+@media(max-width:600px){.c{padding:22px 18px}.hint.k{display:none}.sc{grid-template-columns:repeat(6,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><div class="pb"><i id="pb"></i></div><div class="c" id="c"></div><div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div>
+<script>
+const $=s=>document.querySelector(s);
+const Q=[{k:"src",t:"How did you first hear about Sprout & Sons?",type:"one",req:1,o:["A friend or family","Social media","A search engine","A magazine or podcast"]},
+{k:"plants",t:"Which plants have you ordered from us?",type:"multi",req:1,o:["Succulents","Ferns","Herbs","Hanging plants"],h:"Choose all that apply"},
+{k:"nps",t:"How likely are you to recommend us to a friend?",type:"scale",req:1},
+{k:"imp",t:"What's one thing we could do better?",type:"text",req:0},
+{k:"email",t:"Want a reply? Leave your email (optional).",type:"email",req:0}];
+let i=0,A={},review=false,done=false,dir=1,fromReview=false;
+function say(m){const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)}
+function prog(){const n=Object.keys(A).filter(k=>A[k]!=null&&A[k]!==""&&!(Array.isArray(A[k])&&!A[k].length)).length;$("#pb").style.width=(done?100:n/Q.length*100)+"%"}
+function render(){prog();const c=$("#c");if(done)return thanks();if(review)return rev();const q=Q[i];c.innerHTML=`<div class="q ${dir<0?"back":""}"><div class="n">${i+1} / ${Q.length}${q.req?"":" · optional"}</div><h1 id="h" tabindex="-1"></h1><div id="in"></div><div class="er" id="er" role="alert"></div><div class="ft"><button class="bk" id="bk" ${i==0&&!fromReview?"hidden":""}>Back</button><button class="ok" id="ok">${i==Q.length-1?"Review":"OK"}</button><span class="hint k">press <b>Enter ↵</b></span></div></div>`;$("#h").textContent=q.t;const w=$("#in");const L="ABCD";
+if(q.type=="one"||q.type=="multi"){w.className="op";w.setAttribute("role",q.type=="one"?"radiogroup":"group");w.setAttribute("aria-labelledby","h");q.o.forEach((o,j)=>{const l=document.createElement("label");const t=q.type=="one"?"radio":"checkbox";l.innerHTML=`<input type="${t}" name="a" value="${o}"><kbd>${L[j]}</kbd><span></span>`;l.lastChild.textContent=o;const inp=l.querySelector("input");if(q.type=="one"?A[q.k]==o:(A[q.k]||[]).includes(o))inp.checked=true;inp.onchange=()=>{A[q.k]=q.type=="one"?o:[...w.querySelectorAll("input:checked")].map(x=>x.value);$("#er").textContent="";prog();if(q.type=="one")setTimeout(next,350)};w.append(l)});if(q.h){const p=document.createElement("div");p.className="hint";p.textContent=q.h;w.after(p)}}
+else if(q.type=="scale"){w.innerHTML='<div class="sc" role="radiogroup" aria-labelledby="h"></div><div class="sl"><span>Not at all likely</span><span>Extremely likely</span></div>';const g=w.firstChild;for(let n=0;n<=10;n++){const l=document.createElement("label");l.innerHTML=`<input type="radio" name="a" value="${n}"><span>${n}</span>`;const inp=l.querySelector("input");if(A[q.k]===n)inp.checked=true;inp.onchange=()=>{A[q.k]=n;$("#er").textContent="";prog();setTimeout(next,350)};g.append(l)}}
+else if(q.type=="text"){w.innerHTML='<label class="sr" for="t" style="position:absolute;width:1px;height:1px;overflow:hidden">Your answer</label><textarea id="t" placeholder="Type your answer here…"></textarea>';const t=$("#t");t.value=A[q.k]||"";t.oninput=()=>{A[q.k]=t.value;prog()};t.onkeydown=e=>{if(e.key=="Enter"&&!e.shiftKey){e.preventDefault();next()}}}
+else{w.innerHTML='<label for="t" style="position:absolute;width:1px;height:1px;overflow:hidden">Email</label><input id="t" type="email" placeholder="name@example.com" autocomplete="email">';const t=$("#t");t.value=A[q.k]||"";t.oninput=()=>{A[q.k]=t.value;prog()}}
+$("#ok").onclick=next;const bk=$("#bk");bk.onclick=()=>{if(fromReview){fromReview=false;review=true}else{dir=-1;i--}render()};
+const f=w.querySelector("input:checked,textarea,input[type=email]")||w.querySelector("input");(f||$("#h")).focus({preventScroll:true})}
+function next(){const q=Q[i],v=A[q.k];const empty=v==null||v===""||(Array.isArray(v)&&!v.length);if(q.req&&empty){$("#er").textContent="Please choose an answer to continue.";$("#c").classList.remove("shake");void $("#c").offsetWidth;$("#c").classList.add("shake");say("Please choose an answer");return}
+if(q.type=="email"&&v&&!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v)){$("#er").textContent="That email doesn't look right.";return}
+dir=1;if(fromReview){fromReview=false;review=true}else if(i<Q.length-1)i++;else review=true;render()}
+function rev(){const c=$("#c");c.innerHTML=`<div class="q"><div class="n">Review</div><h1 id="h" tabindex="-1">Look good?</h1><div class="rv" id="rv"></div><div class="ft"><button class="bk" id="bk">Back</button><button class="ok" id="sub">Submit</button></div></div>`;Q.forEach((q,j)=>{const a=A[q.k],t=Array.isArray(a)?a.join(", "):a==null||a===""?"—":a;const d=document.createElement("div");d.innerHTML=`<div><small></small><b></b></div><button>Edit</button>`;d.querySelector("small").textContent=q.t;d.querySelector("b").textContent=t;d.querySelector("button").setAttribute("aria-label","Edit answer: "+q.t);d.querySelector("button").onclick=()=>{review=false;fromReview=true;i=j;render()};$("#rv").append(d)});$("#bk").onclick=()=>{review=false;i=Q.length-1;dir=-1;render()};$("#sub").onclick=()=>{done=true;render();say("Thank you")};$("#h").focus({preventScroll:true})}
+function thanks(){const n=A.nps,cat=n>=9?"Promoter":n>=7?"Passive":"Detractor";$("#c").innerHTML=`<div class="ty q"><div class="nps">${n}</div><h1 id="h" tabindex="-1">Thank you!</h1><p>You scored us ${n}/10, which puts you in the <b>${cat}</b> group.${A.email?" We'll reply to "+A.email.replace(/</g,"&lt;")+".":""}</p><button class="ok" id="rs">Start over</button></div>`;$("#rs").onclick=()=>{A={};i=0;done=false;review=false;render()};$("#h").focus({preventScroll:true})}
+document.addEventListener("keydown",e=>{if(done||review||e.target.tagName=="TEXTAREA"||e.target.type=="email"||e.metaKey||e.ctrlKey)return;const q=Q[i];if(e.key=="Enter"){if(e.target.tagName!="BUTTON"){e.preventDefault();next()}return}const w=$("#in");if((q.type=="one"||q.type=="multi")){const j="abcd".indexOf(e.key.toLowerCase());if(j>-1&&q.o[j]){e.preventDefault();const inp=w.querySelectorAll("input")[j];inp.checked=q.type=="one"?true:!inp.checked;inp.dispatchEvent(new Event("change"))}}else if(q.type=="scale"&&/^\d$/.test(e.key)){e.preventDefault();const inp=w.querySelectorAll("input")[+e.key];inp.checked=true;inp.dispatchEvent(new Event("change"))}});
+render();
+</script></body></html>

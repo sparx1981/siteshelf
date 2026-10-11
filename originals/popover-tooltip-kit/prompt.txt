@@ -1,0 +1,11 @@
+Canvas & base: Light #f5f7fb page with a bordered stage grid of triggers, tooltip dark #101828 with white text, popover white with #e4e7ec border and shadow, accent blue #2563eb, ink #101828, secondary #667085. Invented UI "Anchor".
+
+Typography: "Inter" (400,500,600) at 14px.
+
+Layout: Intro, then four demo cards: (1) Placement — a centre button and four placement selectors (top, right, bottom, left); (2) Edge collision — triggers pinned to corners of a scroll box that prove the tooltip flips/shifts to stay in view; (3) Rich popover — a "Share" button opening a popover with a link field, copy button and permission select, click-to-toggle, focus moves inside, Escape and outside click close and return focus; (4) Interactive tooltip — hover card on an avatar showing profile summary with a Follow button that remains open while pointer moves between trigger and card.
+
+Interaction: Positioning implemented by measuring trigger and content rects, choosing preferred side, flipping if insufficient space, then clamping on the cross axis with an arrow offset that still points at the trigger; show delay 300ms on hover, 0ms on focus, hide delay 150ms; aria-describedby for tooltips, aria-expanded and aria-controls for popovers; tooltips are position:fixed in a body-level layer; scroll or resize recalculates; touch devices open on tap.
+
+Responsive: Cards stack; popover max-width 92vw.
+
+Rules: No libraries or external images, hidden attribute respected, 44px triggers, reduced-motion removes fade/slide.

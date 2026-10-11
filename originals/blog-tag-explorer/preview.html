@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Field Notes — Blog Tag Explorer</title>
+<link href="https://fonts.googleapis.com/css2?family=Literata:wght@400;600;700&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1f1a14;--mut:#7a6e5e;--ln:#eadfce;--ac:#e2552b;--ti:#f3e9da}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#faf7f2;color:var(--ink);font:15px/1.5 Figtree,system-ui,sans-serif}
+.w{max-width:1100px;margin:0 auto;padding:28px 18px 60px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}
+h1{font:700 30px/1.1 Literata,serif;margin:0}h1 small{display:block;font:500 13px Figtree;color:var(--mut);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.bm{border:1.5px solid var(--ink);background:#fff;border-radius:99px;min-height:44px;padding:0 16px;font:700 14px Figtree;cursor:pointer;color:var(--ink);display:flex;gap:8px;align-items:center}
+.bm b{background:var(--ac);color:#fff;border-radius:99px;min-width:22px;padding:0 6px;text-align:center;font-size:12px}
+.ct{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+input,select{font:inherit;border:1.5px solid var(--ln);border-radius:12px;background:#fff;min-height:46px;padding:0 14px;color:var(--ink)}
+input{flex:1;min-width:200px}
+input:focus,select:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 4px #e2552b22}
+.cl{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+.tg{border:1px solid var(--ln);background:var(--ti);border-radius:99px;min-height:44px;padding:0 14px;cursor:pointer;color:var(--ink);font-family:inherit;font-weight:500}
+.tg small{opacity:.6;margin-left:6px}
+.tg[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tg:disabled{opacity:.4;cursor:not-allowed}
+.clr{border:0;background:none;color:var(--ac);font:700 14px Figtree;cursor:pointer;min-height:44px;text-decoration:underline}
+.sm{color:var(--mut);margin-bottom:14px}
+.g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cd{background:#fff;border:1px solid var(--ln);border-radius:16px;padding:18px;display:grid;gap:8px;align-content:start;position:relative}
+.cd h2{font:600 18px/1.25 Literata,serif;margin:0;padding-right:44px}.cd p{margin:0;color:#4d4437}
+.cd mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px}
+.tl{display:flex;gap:6px;flex-wrap:wrap}.tl span{background:var(--ti);border-radius:99px;padding:0 10px;font-size:12px;color:#5e5342}
+.mt{display:flex;gap:10px;color:var(--mut);font-size:13px}
+.st{position:absolute;right:8px;top:8px;width:44px;height:44px;border:0;background:none;font-size:22px;cursor:pointer;color:#c5b9a5}
+.st[aria-pressed=true]{color:var(--ac)}
+.em{text-align:center;color:var(--mut);padding:50px 0}
+.em button{margin:4px}
+.ov{position:fixed;inset:0;background:#1f1a1480;z-index:40}
+.dr{position:fixed;right:0;top:0;bottom:0;width:380px;max-width:100%;background:#fff;z-index:41;padding:20px;display:flex;flex-direction:column;gap:12px;box-shadow:-16px 0 40px #0003;animation:s .22s}
+@keyframes s{from{transform:translateX(30px);opacity:0}}
+.dr h2{font:700 22px Literata,serif;margin:0;display:flex;justify-content:space-between;align-items:center}
+.dr ul{list-style:none;margin:0;padding:0;overflow:auto;flex:1}
+.dr li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;border-bottom:1px solid var(--ln);padding:10px 0}
+.dr li b{font:600 15px Literata,serif;display:block}.dr li small{color:var(--mut)}
+.dr button.rm{border:0;background:none;color:var(--ac);text-decoration:underline;font:700 13px Figtree;cursor:pointer;min-height:44px}
+.xx{border:0;background:var(--ti);border-radius:50%;width:44px;height:44px;font-size:18px;cursor:pointer}
+button:focus-visible,.tg:focus-visible{outline:3px solid #e2552b88;outline-offset:2px}
+@media(max-width:900px){.g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.g{grid-template-columns:minmax(0,1fr)}h1{font-size:24px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head><body><div class="w"><header><h1><small>Corvid &amp; Co</small>Field Notes</h1><button class="bm" id="bm" aria-haspopup="dialog">Reading list <b id="bc">0</b></button></header>
+<div class="ct"><label for="q" style="position:absolute;left:-9999px">Search posts</label><input id="q" type="search" placeholder="Search posts…"><label for="so" style="position:absolute;left:-9999px">Sort</label><select id="so"><option value="n">Newest first</option><option value="o">Oldest first</option><option value="s">Shortest read</option></select></div>
+<div class="cl" id="cl" role="group" aria-label="Filter by tag"></div><div class="sm" id="sm" role="status"></div><div class="g" id="g"></div><div id="dw"></div></div>
+<script>
+const $=s=>document.querySelector(s);
+const T=["design","writing","tools","process","code","climate","travel","craft","books","careers"];
+const P=[["Why we draw before we type","Sketching a page on paper for five minutes changes everything about how we build it afterwards.",["design","process"],"2026-09-30",5],["The case for boring tools","Our best projects used the dullest stack we could find. Here's why that keeps working.",["tools","code","process"],"2026-09-22",7],["Slow notes from the Faroe Islands","A week of ferries, fog and an unexpected lesson in leaving things unplanned.",["travel","writing"],"2026-09-15",9],["Typesetting by hand, again","We bought a tiny letterpress and learned how much a single sort teaches about spacing.",["craft","design"],"2026-09-08",6],["A short guide to better changelogs","What readers actually want from release notes, with five small rewrites.",["writing","tools"],"2026-08-30",4],["Reading list: autumn","Six books we kept returning to this season, and the one we abandoned.",["books"],"2026-08-24",3],["Carbon notes for small studios","How a six-person team measured its footprint without hiring a consultant.",["climate","process"],"2026-08-17",11],["Hiring for curiosity","Interview questions that surface how people learn rather than what they know.",["careers","process"],"2026-08-09",8],["Refactoring a design system in public","Two months, forty components and the one decision we'd reverse.",["design","code","tools"],"2026-08-01",12],["The quiet joy of a good README","Documentation as a kindness to your future self.",["writing","code"],"2026-07-25",4],["Night train to Vienna","Notes on slow travel, sleeper cabins and writing with no wifi.",["travel","writing"],"2026-07-18",7],["Ceramics for people who code","What throwing pots taught us about iteration and failure.",["craft","code"],"2026-07-10",6],["Career ladders without the ladder","A lattice model for growth that doesn't force everyone into management.",["careers"],"2026-07-02",10],["Notes on reading slowly","Why we stopped tracking pages and started tracking afternoons.",["books","writing"],"2026-06-26",5],["Offsetting is not a plan","What we do instead, and why it's less tidy than a certificate.",["climate"],"2026-06-18",8],["Our favourite pencil","An absurdly detailed comparison of eleven pencils and one fountain pen.",["tools","craft"],"2026-06-10",3],["Design critique that doesn't bruise","A protocol for feedback sessions that people actually look forward to.",["design","careers","process"],"2026-06-02",9],["Mountains, mapped by hand","Drawing a trail map from memory and what it revealed about attention.",["travel","craft"],"2026-05-26",6]].map((p,i)=>({id:i,t:p[0],e:p[1],tags:p[2],d:p[3],r:p[4]}));
+let sel=new Set(),q="",sort="n",saved=new Set(),last=null;
+const say=m=>{const l=$("#sm");l.textContent=m};
+const fmt=d=>new Date(d+"T00:00").toLocaleDateString("en",{month:"short",day:"numeric",year:"numeric"});
+const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+function hl(s){if(!q)return esc(s);const re=new RegExp("("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","ig");return esc(s).replace(re,"<mark>$1</mark>")}
+const match=(p,tags)=>[...tags].every(t=>p.tags.includes(t))&&(!q||(p.t+" "+p.e).toLowerCase().includes(q.toLowerCase()));
+function res(){let r=P.filter(p=>match(p,sel));r.sort((a,b)=>sort=="n"?b.d.localeCompare(a.d)||a.id-b.id:sort=="o"?a.d.localeCompare(b.d)||a.id-b.id:a.r-b.r||a.id-b.id);return r}
+function tags(){const cl=$("#cl");cl.innerHTML="";T.forEach(t=>{const n=P.filter(p=>match(p,new Set([...sel,t]))).length;const b=document.createElement("button");b.className="tg";b.setAttribute("aria-pressed",sel.has(t));b.disabled=!sel.has(t)&&n==0;b.innerHTML=`${t}<small>${sel.has(t)?P.filter(p=>match(p,sel)).length:n}</small>`;const cnt=P.filter(p=>p.tags.includes(t)).length;b.style.fontSize=(13+cnt*.6)+"px";b.onclick=()=>{sel.has(t)?sel.delete(t):sel.add(t);render()};cl.append(b)});if(sel.size||q){const c=document.createElement("button");c.className="clr";c.textContent="Clear filters";c.onclick=()=>{sel.clear();q="";$("#q").value="";render()};cl.append(c)}}
+function cards(){const r=res(),g=$("#g");g.innerHTML="";say(r.length+(r.length==1?" post":" posts")+(sel.size?" tagged "+[...sel].join(" + "):""));if(!r.length){g.innerHTML='<div class="em" style="grid-column:1/-1">No posts match. Try removing a tag or searching for something broader.</div>';return}
+r.forEach(p=>{const c=document.createElement("article");c.className="cd";c.innerHTML=`<button class="st" aria-pressed="${saved.has(p.id)}" aria-label="Save “${esc(p.t)}” to reading list">${saved.has(p.id)?"★":"☆"}</button><h2>${hl(p.t)}</h2><p>${hl(p.e)}</p><div class="tl">${p.tags.map(t=>`<span>${t}</span>`).join("")}</div><div class="mt"><span>${fmt(p.d)}</span><span>${p.r} min read</span></div>`;c.querySelector(".st").onclick=e=>{saved.has(p.id)?saved.delete(p.id):saved.add(p.id);const b=e.currentTarget;b.setAttribute("aria-pressed",saved.has(p.id));b.textContent=saved.has(p.id)?"★":"☆";cnt();$("#sm").textContent=saved.has(p.id)?"Saved to reading list":"Removed from reading list"};g.append(c)})}
+function cnt(){$("#bc").textContent=saved.size;if($(".dr"))drawer(true)}
+function render(){tags();cards()}
+$("#q").oninput=e=>{q=e.target.value.trim();render()};$("#so").onchange=e=>{sort=e.target.value;cards()};
+function drawer(keep){const w=$("#dw");if(!keep)last=document.activeElement;w.innerHTML="";const o=document.createElement("div");o.className="ov";o.onclick=close;const d=document.createElement("aside");d.className="dr";d.setAttribute("role","dialog");d.setAttribute("aria-modal","true");d.setAttribute("aria-label","Reading list");const items=P.filter(p=>saved.has(p.id));const tot=items.reduce((s,p)=>s+p.r,0);
+d.innerHTML=`<h2>Reading list <button class="xx" aria-label="Close">×</button></h2><div class="sm">${items.length?items.length+" saved · about "+tot+" min total":"Nothing saved yet. Tap the star on a post."}</div><ul></ul>`;items.forEach(p=>{const li=document.createElement("li");li.innerHTML=`<div><b></b><small>${p.r} min · ${fmt(p.d)}</small></div><button class="rm">Remove</button>`;li.querySelector("b").textContent=p.t;li.querySelector(".rm").setAttribute("aria-label","Remove "+p.t);li.querySelector(".rm").onclick=()=>{saved.delete(p.id);cards();cnt()};d.querySelector("ul").append(li)});
+w.append(o,d);if(!keep)d.querySelector(".xx").focus();d.querySelector(".xx").onclick=close;d.onkeydown=e=>{if(e.key=="Escape")close();if(e.key=="Tab"){const f=[...d.querySelectorAll("button")],i=f.indexOf(document.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();f.at(-1).focus()}else if(!e.shiftKey&&i==f.length-1){e.preventDefault();f[0].focus()}}}}
+function close(){$("#dw").innerHTML="";(last||$("#bm")).focus()}
+$("#bm").onclick=()=>drawer();render();
+</script></body></html>

@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Marlowe Display — Type Specimen</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#141414;--mut:#75716a;--ln:#d9d5cb;--ac:#e8431f;--w:600;--st:normal;--ps:20px;--pl:1.5;--pc:1;--pa:left}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f7f5f0;color:var(--ink);font:400 16px/1.5 Fraunces,Georgia,serif}
+.w{max-width:1100px;margin:0 auto;padding:28px 20px 80px}
+.lb{font:500 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:28px}
+h1{margin:0;font:700 clamp(40px,8vw,84px)/.95 Fraunces;letter-spacing:-.03em}
+.f{font-style:var(--st)}
+.big{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:24px;border-bottom:1px solid var(--ln);padding-bottom:28px}
+.gl{font:var(--st) var(--w) clamp(160px,32vw,320px)/1 Fraunces;text-align:center;background:#fff;border:1px solid var(--ln);border-radius:6px;display:grid;place-items:center;min-height:300px;overflow:hidden}
+.gl span{display:block;transition:transform .25s}.gl span.p{transform:scale(.92)}
+.in{display:grid;gap:12px;align-content:start}
+.in dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font:400 14px "IBM Plex Mono",monospace}.in dt{color:var(--mut)}.in dd{margin:0}
+.ct{display:grid;gap:8px}
+.ct label{display:flex;justify-content:space-between}
+input[type=range]{width:100%;accent-color:var(--ac);min-height:36px}
+.bt{border:1.5px solid var(--ink);background:none;border-radius:99px;min-height:44px;padding:0 18px;font:500 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;color:var(--ink)}
+.bt[aria-pressed=true]{background:var(--ink);color:#fff}
+.bt:focus-visible,.g button:focus-visible,input:focus-visible,[contenteditable]:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+section{padding:28px 0;border-bottom:1px solid var(--ln)}
+.g{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:0;border:1px solid var(--ln);margin-top:12px;background:#fff}
+.g button{aspect-ratio:1;border:0;border-right:1px solid var(--ln);border-bottom:1px solid var(--ln);background:#fff;font:var(--st) var(--w) 30px Fraunces;cursor:pointer;color:var(--ink);min-height:44px}
+.g button:hover{background:#fbeee9}.g button[aria-pressed=true]{background:var(--ink);color:#fff}
+.wl{display:grid}
+.wl div{display:grid;grid-template-columns:70px minmax(0,1fr);align-items:baseline;gap:12px;border-top:1px solid var(--ln);padding:6px 0}
+.wl span.t{font:var(--st) var(--wd) clamp(30px,6vw,64px)/1.1 Fraunces;overflow-wrap:anywhere}
+.ps div.r{display:grid;grid-template-columns:50px minmax(0,1fr);gap:12px;align-items:baseline;border-top:1px solid var(--ln);padding:6px 0}
+.ps .tx{font:var(--st) var(--w) var(--sz)/1.15 Fraunces;overflow-wrap:anywhere;outline-offset:4px}
+.pg{column-count:var(--pc);column-gap:32px;font:var(--st) 400 var(--ps)/var(--pl) Fraunces;text-align:var(--pa);margin-top:12px;max-width:100%}
+.ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:12px}
+@media(max-width:700px){.big{grid-template-columns:minmax(0,1fr)}.g{grid-template-columns:repeat(8,minmax(0,1fr))}.pg{column-count:1!important}.wl div{grid-template-columns:48px minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){.gl span{transition:none}}
+</style></head><body><div class="w">
+<header><div><div class="lb">Type specimen · v2.1</div><h1 class="f">Marlowe Display</h1></div><div style="text-align:right"><div class="lb">Designed by Ines Calloway</div><div class="lb">9 weights · roman &amp; italic</div></div></header>
+<div class="big"><div class="gl" id="gl" role="img" aria-label="Selected glyph"><span id="gc">Rg</span></div>
+<div class="in"><dl><dt>Glyph</dt><dd id="gn">R</dd><dt>Unicode</dt><dd id="gu">U+0052</dd><dt>Category</dt><dd id="gk">Uppercase</dd></dl>
+<div class="ct"><label for="wr" class="lb">Weight <output id="wo">600</output></label><input id="wr" type="range" min="300" max="900" step="100" value="600"></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="bt" id="it" aria-pressed="false">Italic</button><button class="bt" id="cg">Copy glyph</button></div></div></div>
+<section><div class="lb">Glyphs — arrow keys to move, Enter to select</div><div class="g" id="g" role="grid" aria-label="Glyph grid"></div></section>
+<section><div class="lb">Weights</div><div class="wl" id="wl"></div></section>
+<section class="ps"><div class="lb">Pangram — click to edit</div><div id="ps"></div></section>
+<section><div class="lb">Paragraph</div><div class="ctl"><div class="ct"><label for="pz" class="lb">Size <output id="pzo">20px</output></label><input id="pz" type="range" min="12" max="40" value="20"></div><div class="ct"><label for="pl" class="lb">Leading <output id="plo">1.5</output></label><input id="pl" type="range" min="1" max="2" step="0.05" value="1.5"></div><div class="ct"><label for="pc" class="lb">Columns <output id="pco">1</output></label><input id="pc" type="range" min="1" max="3" value="1"></div><div class="ct"><span class="lb">Align</span><div style="display:flex;gap:6px" id="al"><button class="bt" aria-pressed="true" data-a="left">Left</button><button class="bt" aria-pressed="false" data-a="justify">Justify</button></div></div></div>
+<p class="pg" id="pg">Typography is the craft of endowing human language with a durable visual form. A good typeface does its work quietly: it carries the writer's voice to the reader without asking to be noticed. Look closely at the curve of a lowercase a, the bite where a stem meets a bowl, the way an italic leans without losing its balance. These small decisions repeat across thousands of words, and together they set the temperature of a page. Set a paragraph at the size you would actually use, read it for a minute, and ask whether you would still be comfortable at the end of a chapter.</p></section>
+<div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div></div>
+<script>
+const $=s=>document.querySelector(s),R=document.documentElement.style;
+const CH="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&?!@#%$€£§¶†‡*()[]{}/\\|<>=+-–—_.,:;“”‘’«»ÆæŒœßÞþÐð".split("").slice(0,108);
+let sel=0,w=600;
+function kind(c){return/[A-Z]/.test(c)?"Uppercase":/[a-z]/.test(c)?"Lowercase":/[0-9]/.test(c)?"Figure":"Punctuation / symbol"}
+function pick(i,focus){sel=i;const c=CH[i];$("#gc").textContent=c=="R"?"Rg":c;$("#gc").className="p";setTimeout(()=>$("#gc").className="",30);$("#gn").textContent=c;$("#gu").textContent="U+"+c.codePointAt(0).toString(16).toUpperCase().padStart(4,"0");$("#gk").textContent=kind(c);document.querySelectorAll("#g button").forEach((b,j)=>{b.setAttribute("aria-pressed",j==i);b.tabIndex=j==i?0:-1});if(focus)document.querySelectorAll("#g button")[i].focus()}
+CH.forEach((c,i)=>{const b=document.createElement("button");b.textContent=c;b.setAttribute("aria-label","Glyph "+c);b.setAttribute("role","gridcell");b.onclick=()=>pick(i);b.onkeydown=e=>{const cols=innerWidth<=700?8:12;let n=i;if(e.key=="ArrowRight")n=i+1;else if(e.key=="ArrowLeft")n=i-1;else if(e.key=="ArrowDown")n=i+cols;else if(e.key=="ArrowUp")n=i-cols;else if(e.key=="Home")n=0;else if(e.key=="End")n=CH.length-1;else return;e.preventDefault();if(n>=0&&n<CH.length)pick(n,true)};$("#g").append(b)});
+pick(17);
+$("#wr").oninput=e=>{w=+e.target.value;$("#wo").textContent=w;R.setProperty("--w",w)};
+$("#it").onclick=()=>{const on=$("#it").getAttribute("aria-pressed")!="true";$("#it").setAttribute("aria-pressed",on);R.setProperty("--st",on?"italic":"normal")};
+$("#cg").onclick=async()=>{try{await navigator.clipboard.writeText(CH[sel])}catch(e){}$("#cg").textContent="Copied ✓";setTimeout(()=>$("#cg").textContent="Copy glyph",1400)};
+[300,400,500,600,700,800,900].forEach(x=>{const d=document.createElement("div");d.style.setProperty("--wd",x);d.innerHTML=`<span class="lb">${x}</span><span class="t">Marlowe Display</span>`;$("#wl").append(d)});
+const PAN="Sphinx of black quartz, judge my vow";const rows=[];
+[12,18,24,36,60,96].forEach((s,i)=>{const r=document.createElement("div");r.className="r";r.innerHTML=`<span class="lb">${s}</span><div class="tx" style="--sz:${s}px" ${i==2?'contenteditable="true" spellcheck="false" role="textbox" aria-label="Editable pangram"':'aria-hidden="true"'}></div>`;const t=r.querySelector(".tx");t.textContent=PAN;rows.push(t);$("#ps").append(r)});
+rows[2].oninput=()=>rows.forEach(t=>{if(t!==rows[2])t.textContent=rows[2].textContent});
+[["pz","pzo","--ps","px"],["pl","plo","--pl",""],["pc","pco","--pc",""]].forEach(([i,o,v,u])=>$("#"+i).oninput=e=>{$("#"+o).textContent=e.target.value+u;R.setProperty(v,e.target.value+u)});
+document.querySelectorAll("#al button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#al button").forEach(x=>x.setAttribute("aria-pressed",x==b));R.setProperty("--pa",b.dataset.a)});
+</script></body></html>

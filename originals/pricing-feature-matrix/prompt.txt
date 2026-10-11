@@ -1,0 +1,11 @@
+Canvas & base: White #ffffff page with #f6f7fb section tints, ink #111827, secondary #6b7280, borders #e5e7eb, accent indigo #4f46e5 with tint #eef2ff, tick green #16a34a, cross grey #c4c9d4. Invented product "Beacon Analytics" with plans Free, Pro, Business, Enterprise.
+
+Typography: "DM Sans" (400,500,700) at 15px; plan names 18px 700; prices 30px 700.
+
+Layout: Heading, controls row (Monthly/Yearly toggle, "Show differences only" switch). A table: header row with plan cards (name, price, CTA button, "Most popular" badge on Pro), then grouped rows: Usage (Events/month, Projects, Seats, Data retention), Analytics (Funnels, Cohorts, SQL access, Custom dashboards), Security (SSO, Audit log, Data residency), Support (Email, Priority chat, Dedicated manager). Cells show ticks, dashes or values.
+
+Interaction: Toggle changes prices (yearly −20%); differences-only hides rows where all plans match; header row sticky within the page scroll (sticky top with z-index) while the table body scrolls with the page; hovering a column highlights it (class on cells via data-col); Group headers collapse/expand with aria-expanded; on narrow screens a segmented control picks which two plans to compare and others hide.
+
+Responsive: Under 760px show 2 plans at a time with the picker; table never overflows.
+
+Rules: Real table markup with scope attributes, no libraries or external images, hidden attribute respected, 44px targets, reduced motion, invented content.

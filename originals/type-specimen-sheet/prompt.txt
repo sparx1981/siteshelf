@@ -1,0 +1,11 @@
+Canvas & base: Paper #f7f5f0, ink #141414, secondary #75716a, rules #d9d5cb, accent vermilion #e8431f. Specimen of one family (use "Fraunces" as the invented typeface "Marlowe Display" with weights 300–900).
+
+Typography: Fraunces (300–900, italic), labels in "IBM Plex Mono" 12px uppercase.
+
+Layout: Masthead (family name, designer line, version), a giant glyph viewer (300px "Rg") beside a selected-glyph panel (name, unicode U+XXXX, width), a glyph grid of ~96 characters (A–Z, a–z, 0–9, punctuation) where hover previews and click selects, a weight ladder (300…900 each showing the family name at that weight with label), a pangram editor row at 12/18/24/36/60/96px sizes sharing one editable text, and a paragraph tester with controls for size, leading, column count and alignment.
+
+Interaction: Grid cells are buttons; clicking updates the giant glyph with a quick scale animation and shows U+ code; arrow keys navigate the grid (roving tabindex, 12 columns); the pangram text editing syncs all sizes (contenteditable on the first, others mirror); italic toggle applies to all sections; weight slider drives the giant glyph; paragraph controls update via CSS variables; copy glyph button copies the character.
+
+Responsive: Grid uses 8 columns under 700px; the giant glyph shrinks.
+
+Rules: No libraries or external images, hidden attribute respected, 44px controls where interactive, reduced-motion disables scale animation.

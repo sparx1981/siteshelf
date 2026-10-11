@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Beacon Analytics — Plan Comparison</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111827;--mut:#6b7280;--ln:#e5e7eb;--ac:#4f46e5;--ti:#eef2ff;--ok:#16a34a}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#fff;color:var(--ink);font:15px/1.5 "DM Sans",system-ui,sans-serif}
+.w{max-width:1040px;margin:0 auto;padding:40px 16px 80px}
+h1{margin:0 0 6px;font-size:34px;letter-spacing:-.02em}.sub{color:var(--mut);margin:0 0 20px}
+.ct{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
+.tg{display:flex;background:#f1f2f6;border-radius:99px;padding:4px}
+.tg button{border:0;background:none;border-radius:99px;padding:0 18px;min-height:44px;font:700 14px "DM Sans";cursor:pointer;color:var(--mut)}
+.tg button[aria-pressed=true]{background:#fff;color:var(--ink);box-shadow:0 1px 4px #0002}
+.sw{display:flex;gap:10px;align-items:center;min-height:44px;cursor:pointer;font-weight:500}
+.sw input{appearance:none;width:42px;height:24px;border-radius:99px;background:#d1d5db;position:relative;cursor:pointer;transition:.2s;flex:none}
+.sw input::after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}
+.sw input:checked{background:var(--ac)}.sw input:checked::after{left:21px}
+.sw input:focus-visible,button:focus-visible{outline:3px solid #4f46e566;outline-offset:2px}
+.pk{display:none;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.pk button{border:1px solid var(--ln);background:#fff;border-radius:99px;min-height:44px;padding:0 16px;font:700 14px "DM Sans";cursor:pointer}
+.pk button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed}
+thead th{position:sticky;top:0;z-index:5;background:#fff;vertical-align:top;padding:16px 10px;text-align:left;border-bottom:2px solid var(--ln)}
+thead th:first-child{width:26%}
+.pn{font-size:18px;font-weight:700;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.bd{background:var(--ac);color:#fff;font-size:11px;border-radius:99px;padding:1px 8px;text-transform:uppercase;letter-spacing:.05em}
+.pr{font-size:30px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}.pr small{font-size:13px;color:var(--mut);font-weight:400}
+.cta{margin-top:8px;width:100%;border:1.5px solid var(--ink);background:#fff;color:var(--ink);border-radius:10px;min-height:44px;font:700 14px "DM Sans";cursor:pointer}
+.rec .cta{background:var(--ac);border-color:var(--ac);color:#fff}
+th.rec,td.rec{background:var(--ti)}
+td,tbody th{padding:12px 10px;border-bottom:1px solid var(--ln);text-align:left;font-weight:400;vertical-align:middle}
+td{text-align:center}
+tbody th{font-weight:500}
+tr.g th{background:#f6f7fb;padding:0;border-bottom:1px solid var(--ln)}
+tr.g button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;padding:0 10px;min-height:44px;font-weight:700;cursor:pointer}
+tr.g button:focus-visible{outline:3px solid var(--ac);outline-offset:-3px}
+tr.g td{background:#f6f7fb;padding:0}
+.hl{background:#f6f7fb}.hl.rec{background:#e4e8ff}
+.t{color:var(--ok);font-weight:700;font-size:18px}.x{color:#c4c9d4;font-size:18px}
+@media(max-width:760px){.pk{display:flex}thead th:first-child{width:34%}.pr{font-size:22px}.pn{font-size:16px}h1{font-size:26px}.tg button{padding:0 12px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="w"><h1>Compare Beacon plans</h1><p class="sub">Start free. Upgrade when your team outgrows it.</p>
+<div class="ct"><div class="tg" role="group" aria-label="Billing"><button aria-pressed="true" data-b="m">Monthly</button><button aria-pressed="false" data-b="y">Yearly <span style="color:#16a34a">−20%</span></button></div><label class="sw"><input type="checkbox" id="df" role="switch"> Show differences only</label></div>
+<div class="pk" role="group" aria-label="Plans to compare" id="pk"></div>
+<table id="tb"><caption style="position:absolute;left:-9999px">Plan comparison</caption><thead id="th"></thead><tbody id="bd"></tbody></table>
+<div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div></div>
+<script>
+const $=s=>document.querySelector(s);
+const P=[["Free",0],["Pro",29],["Business",79],["Enterprise",null]];
+const G=[["Usage",[["Events per month",["10K","1M","10M","Unlimited"]],["Projects",["1","5","25","Unlimited"]],["Team seats",["1","5","25","Unlimited"]],["Data retention",["30 days","1 year","3 years","Custom"]]]],
+["Analytics",[["Funnels",[1,1,1,1]],["Cohorts",[0,1,1,1]],["SQL access",[0,0,1,1]],["Custom dashboards",[0,1,1,1]]]],
+["Security",[["Single sign-on (SSO)",[0,0,1,1]],["Audit log",[0,0,1,1]],["Data residency",[0,0,0,1]]]],
+["Support",[["Email support",[1,1,1,1]],["Priority chat",[0,1,1,1]],["Dedicated manager",[0,0,0,1]]]]];
+let yearly=false,diff=false,shown=[1,2];const col=new Set();let closed=new Set();
+const say=m=>{const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)};
+const small=()=>innerWidth<=760;
+function vis(i){return!small()||shown.includes(i)}
+function cell(v){return v===1?'<span class="t" aria-label="Included">✓</span>':v===0?'<span class="x" aria-label="Not included">—</span>':v}
+function render(){const th=$("#th");th.innerHTML="<tr><th scope='col'><span class='sr' style='position:absolute;left:-9999px'>Feature</span></th>"+P.map((p,i)=>vis(i)?`<th scope="col" data-c="${i}" class="${i==1?"rec":""}"><div class="pn">${p[0]}${i==1?'<span class="bd">Popular</span>':""}</div><div class="pr">${p[1]===null?"Custom":"$"+Math.round(p[1]*(yearly?.8:1))}<small>${p[1]===null?"":" /mo"}</small></div><button class="cta">${p[1]===0?"Start free":p[1]===null?"Contact sales":"Choose "+p[0]}</button></th>`:"").join("")+"</tr>";
+const b=$("#bd");b.innerHTML="";G.forEach(([g,rows],gi)=>{const items=rows.filter(r=>!diff||new Set(r[1].map(String)).size>1);if(!items.length)return;const tr=document.createElement("tr");tr.className="g";const n=P.filter((_,i)=>vis(i)).length;tr.innerHTML=`<th scope="rowgroup" colspan="${n+1}"><button aria-expanded="${!closed.has(g)}"><span>${g}</span><span aria-hidden="true">${closed.has(g)?"+":"−"}</span></button></th>`;tr.querySelector("button").onclick=()=>{closed.has(g)?closed.delete(g):closed.add(g);render()};b.append(tr);if(closed.has(g))return;items.forEach(r=>{const t=document.createElement("tr");t.innerHTML=`<th scope="row">${r[0]}</th>`+r[1].map((v,i)=>vis(i)?`<td data-c="${i}" class="${i==1?"rec":""}">${cell(v)}</td>`:"").join("");b.append(t)})});
+document.querySelectorAll("[data-c]").forEach(e=>{e.onmouseenter=()=>hi(+e.dataset.c);e.onmouseleave=()=>hi(-1)});
+const pk=$("#pk");pk.innerHTML="";P.forEach((p,i)=>{const bt=document.createElement("button");bt.textContent=p[0];bt.setAttribute("aria-pressed",shown.includes(i));bt.onclick=()=>{if(shown.includes(i)){if(shown.length>1)shown=shown.filter(x=>x!=i)}else{shown=[...shown,i].slice(-2)}render();say("Comparing "+shown.map(x=>P[x][0]).join(" and "))};pk.append(bt)})}
+function hi(c){document.querySelectorAll("td[data-c]").forEach(e=>e.classList.toggle("hl",+e.dataset.c==c))}
+document.querySelectorAll(".tg button").forEach(b=>b.onclick=()=>{yearly=b.dataset.b=="y";document.querySelectorAll(".tg button").forEach(x=>x.setAttribute("aria-pressed",x==b));render();say(yearly?"Yearly prices":"Monthly prices")});
+$("#df").onchange=e=>{diff=e.target.checked;render();say(diff?"Showing differences only":"Showing all features")};
+addEventListener("resize",()=>{clearTimeout(render.t);render.t=setTimeout(render,120)});render();
+</script></body></html>

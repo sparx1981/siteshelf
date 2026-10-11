@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Grainhouse — Giant Wordmark Footer</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111110;--cr:#f4f1ea;--mut:#a39f94;--lime:#d4ff3f}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;font:15px/1.5 Archivo,system-ui,sans-serif;background:var(--cr);color:var(--ink)}
+.pg{min-height:70vh;display:grid;place-items:center;text-align:center;padding:40px 20px}
+.pg h1{font:900 clamp(32px,6vw,64px)/1 Archivo;margin:0 0 8px;letter-spacing:-.02em}.pg p{color:#6b675d;margin:0}
+footer{background:var(--ink);color:var(--cr);padding:56px 24px 0;overflow:hidden;position:relative}
+.in{max-width:1200px;margin:0 auto}
+.cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-bottom:40px}
+.cols h2{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--mut);margin:0 0 10px;font-weight:600}
+.cols ul{list-style:none;margin:0;padding:0}
+.cols a{color:var(--cr);text-decoration:none;display:inline-flex;align-items:center;min-height:36px;position:relative}
+.cols a::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background:var(--lime);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.cols a:hover::after,.cols a:focus-visible::after{transform:scaleX(1)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:4px}
+.meta{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-top:1px solid #ffffff22;padding:16px 0;color:var(--mut)}
+.clk{display:flex;gap:8px;align-items:center;font-variant-numeric:tabular-nums}.clk i{width:8px;height:8px;border-radius:50%;background:var(--lime);animation:p 2s infinite}
+@keyframes p{50%{opacity:.25}}
+.lang{display:flex;border:1px solid #ffffff33;border-radius:99px;padding:3px}
+.lang button{border:0;background:none;color:var(--cr);min-height:38px;padding:0 14px;border-radius:99px;font:600 13px Archivo;cursor:pointer}.lang button[aria-pressed=true]{background:var(--cr);color:var(--ink)}
+.top{border:1px solid #ffffff33;background:none;color:var(--cr);border-radius:99px;min-height:44px;padding:0 18px;font:600 13px Archivo;cursor:pointer}.top:hover{background:var(--lime);color:#111;border-color:var(--lime)}
+.wm{--x:50%;--y:50%;font-weight:900;font-stretch:100%;line-height:.78;white-space:nowrap;text-transform:uppercase;letter-spacing:-.03em;margin:8px 0 -.12em;user-select:none;background:radial-gradient(circle 220px at var(--x) var(--y),var(--lime),#3a3a36 70%);-webkit-background-clip:text;background-clip:text;color:transparent;text-align:center}
+@media(max-width:700px){.cols{grid-template-columns:repeat(2,minmax(0,1fr))}footer{padding:40px 16px 0}}
+@media(prefers-reduced-motion:reduce){.clk i{animation:none}.cols a::after{transition:none}}
+</style></head><body><div class="pg"><div><h1>Scroll to the footer</h1><p>The wordmark is the whole point.</p></div></div>
+<footer><div class="in"><div class="cols" id="cols"></div>
+<div class="meta"><div class="clk"><i></i><span id="ck">Lisbon 00:00:00</span></div><div class="lang" role="group" aria-label="Language"><button aria-pressed="true" data-l="en">EN</button><button aria-pressed="false" data-l="pt">PT</button></div><span id="cp">© 2026 Grainhouse Studio</span><button class="top" id="top">Back to top ↑</button></div>
+<div class="wm" id="wm" aria-label="Grainhouse" role="img">GRAINHOUSE</div></div></footer>
+<script>
+const $=s=>document.querySelector(s);
+const T={en:{c:[["Studio",["About","Process","Careers","Contact"]],["Work",["Case studies","Packaging","Identity","Websites"]],["Journal",["Notes","Newsletter","Podcast","Press"]],["Elsewhere",["Instagram","Are.na","LinkedIn","GitHub"]]],cp:"© 2026 Grainhouse Studio",top:"Back to top ↑"},
+pt:{c:[["Estúdio",["Sobre","Processo","Carreiras","Contacto"]],["Trabalho",["Casos","Embalagem","Identidade","Websites"]],["Diário",["Notas","Newsletter","Podcast","Imprensa"]],["Noutros sítios",["Instagram","Are.na","LinkedIn","GitHub"]]],cp:"© 2026 Estúdio Grainhouse",top:"Voltar ao topo ↑"}};
+function cols(l){$("#cols").innerHTML=T[l].c.map(([h,ls])=>`<nav aria-label="${h}"><h2>${h}</h2><ul>${ls.map(x=>`<li><a href="#">${x}</a></li>`).join("")}</ul></nav>`).join("");$("#cp").textContent=T[l].cp;$("#top").textContent=T[l].top;document.documentElement.lang=l}
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".lang button").forEach(x=>x.setAttribute("aria-pressed",x==b));cols(b.dataset.l)});cols("en");
+const wm=$("#wm");function fit(){wm.style.fontSize="100px";const c=wm.parentElement.clientWidth,s=document.createElement("span");s.style.cssText="position:absolute;visibility:hidden;white-space:nowrap;font:inherit;letter-spacing:inherit;text-transform:inherit";s.textContent=wm.textContent;wm.append(s);const w=s.getBoundingClientRect().width;s.remove();wm.style.fontSize=Math.floor(100*c/w)+"px"}
+new ResizeObserver(fit).observe(wm.parentElement);fit();document.fonts&&document.fonts.ready.then(fit);
+const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+wm.parentElement.addEventListener("pointermove",e=>{const r=wm.getBoundingClientRect();wm.style.setProperty("--x",e.clientX-r.left+"px");wm.style.setProperty("--y",e.clientY-r.top+"px")});
+if(!rm&&matchMedia("(hover:none)").matches){let t=0;(function f(){t+=.01;wm.style.setProperty("--x",(50+45*Math.sin(t))+"%");requestAnimationFrame(f)})()}
+function ck(){if(document.hidden)return;$("#ck").textContent="Lisbon "+new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Lisbon",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date())}
+ck();setInterval(ck,1000);
+$("#top").onclick=()=>scrollTo({top:0,behavior:rm?"auto":"smooth"});
+</script></body></html>

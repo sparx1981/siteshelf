@@ -1,0 +1,11 @@
+Canvas & base: Soft lilac page #f1eefb, chat window 560px wide with white surface, 24px radius and shadow, header band #2d1b69 with an avatar dot, user bubbles #5b3df5 with white text, bot bubbles #f3f1fb with ink #1b1535, secondary #6f6890. Invented company "Nimbus Mail" and bot "Pip".
+
+Typography: "Nunito" (400,600,800) at 15px.
+
+Layout: Header (Pip, "Usually answers instantly" with a green dot), a scrolling message list, a row of suggested question chips above the composer, and a composer (input + Send). Opening message from Pip with 4 chips.
+
+Interaction: Clicking a chip or sending text adds the user bubble, shows a typing indicator (three bouncing dots) for ~900ms, then the best matching answer (keyword scoring over 10 FAQ entries on billing, storage, import, security, teams, mobile, cancellation) with 2 follow-up chips; unknown questions get a fallback offering "Talk to a person" which adds a handoff card with a fake ticket number; each bot answer has Helpful / Not helpful buttons (aria-pressed) that respond with a short thank-you; list auto-scrolls to newest and respects reduced-motion; Enter sends, Shift+Enter ignored; Clear chat button resets; messages in role=log with aria-live.
+
+Responsive: Window becomes full-height under 600px.
+
+Rules: No libraries or external images, hidden attribute respected, 44px targets, reduced-motion disables bounce and smooth scroll, invented content.

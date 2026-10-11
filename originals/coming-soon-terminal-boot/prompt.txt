@@ -1,0 +1,11 @@
+Canvas & base: Black #070a07 CRT-style screen with subtle scanlines (repeating-linear-gradient overlay) and a soft green radial vignette, phosphor green #4ade80 text, dim green #2f8f55, amber #fbbf24 for warnings, cyan #67e8f9 for links. Invented product "Parsec OS".
+
+Typography: "VT323" at 22px (fallback monospace 18px), cursor block blinks.
+
+Layout: A centred terminal window (max 760px, 70vh) with a title bar (three dots, "parsec@launch: ~"), output area and prompt line "visitor@parsec:~$". An ASCII-style logo block built from text.
+
+Interaction: On load, boot lines type out character by character (skipped instantly by pressing any key or clicking), ending with a launch countdown line that updates live (days hh:mm:ss) in an element that keeps updating. Commands: help, about, launch (shows date and countdown), notify <email> (validates and prints confirmation), theme green|amber|ice (changes colours), clear, whoami, sudo (jokes). Up/Down arrow cycles history, Tab completes command names, Ctrl+L clears. Clicking the window focuses the input. Output region is role=log with aria-live=off during boot then polite.
+
+Responsive: Font reduces to 18px under 600px; window uses 100% width.
+
+Rules: No libraries or external images, reduced-motion disables typing and blink (prints at once), hidden attribute respected, input 16px minimum, invented content only.

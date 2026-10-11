@@ -1,0 +1,11 @@
+Canvas & base: Slate #151821 page with a faint diagonal hatch, panel #1d2130, ink #eef0f6, secondary #98a0b8, accent amber #ffb020, accent red #ff5d6c, success #46d39a. Invented workspace "Vaultline Docs".
+
+Typography: "Sora" (400,600,700) at 16px, big "403" 120px weight 700 with outline stroke.
+
+Layout: Centred 560px stack: SVG padlock illustration (CSS-animated shackle), "403" numeral, headline "This area is locked", body copy naming the restricted document ("Q3 Board Pack") and the owner, then a panel with "Request access" form (reason select, message textarea with 200-char counter, Send request), secondary actions Go back / Switch account / Contact admin, and below a status stepper (Requested → Owner notified → Decision) hidden until submitted.
+
+Interaction: Clicking the padlock or the "Try anyway" link makes it rattle and shows a "Still denied" toast; submit validates reason and message min 10 chars, then animates the shackle opening, shows the stepper advancing automatically (owner notified after 1.5s, then "Approved by Dana Whitlock" after 3.5s with the lock open and a green state) and an Open document button; Cancel request reverts; announce each stage.
+
+Responsive: Padlock and numerals scale; form full width.
+
+Rules: No libraries or external images, hidden attribute respected, 44px targets, reduced-motion removes rattle/animation but states still change.

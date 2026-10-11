@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Anchor — Tooltip &amp; Popover Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#101828;--mut:#667085;--ln:#e4e7ec;--ac:#2563eb}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f5f7fb;color:var(--ink);font:14px/1.5 Inter,system-ui,sans-serif;padding:32px 16px 60px}
+.w{max-width:900px;margin:0 auto;display:grid;gap:18px}
+h1{margin:0;font-size:26px}.sub{color:var(--mut);margin:0}
+.g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.cd{background:#fff;border:1px solid var(--ln);border-radius:16px;padding:18px;display:grid;gap:12px;align-content:start}
+.cd h2{margin:0;font-size:15px}.cd p{margin:0;color:var(--mut)}
+.b{border:1px solid #cfd4dc;background:#fff;border-radius:10px;min-height:44px;padding:0 16px;font:600 14px Inter;color:var(--ink);cursor:pointer}
+.b:hover{border-color:var(--ac)}.b.p{background:var(--ac);border-color:var(--ac);color:#fff}
+.b:focus-visible,.pl button:focus-visible,select:focus-visible,input:focus-visible,.av:focus-visible{outline:3px solid #2563eb66;outline-offset:2px}
+.pl{display:flex;gap:6px;flex-wrap:wrap}.pl button{border:1px solid var(--ln);background:#f9fafb;border-radius:99px;min-height:44px;padding:0 14px;font:600 13px Inter;cursor:pointer;text-transform:capitalize}.pl button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ctr{display:grid;place-items:center;min-height:120px;background:repeating-linear-gradient(45deg,#f5f7fb 0 8px,#fff 8px 16px);border-radius:12px}
+.bx{position:relative;height:190px;overflow:auto;border:1px dashed #b8c0cc;border-radius:12px}
+.bx .in{position:relative;height:420px}
+.bx .in .b{position:absolute}
+.tp{position:fixed;z-index:100;background:#101828;color:#fff;font-size:13px;font-weight:500;padding:6px 10px;border-radius:8px;max-width:240px;pointer-events:none;animation:f .12s}
+.ar{position:absolute;width:10px;height:10px;background:inherit;transform:rotate(45deg);border-radius:2px}
+@keyframes f{from{opacity:0}}
+.po{position:fixed;z-index:100;background:#fff;border:1px solid var(--ln);box-shadow:0 18px 40px #10182822;border-radius:14px;padding:16px;width:300px;max-width:92vw;animation:f .12s}
+.po .ar{background:#fff;border:1px solid var(--ln)}
+.po .arc{position:absolute;inset:0;pointer-events:none}
+.po label{font-weight:600;font-size:13px;display:block;margin-bottom:4px}
+.po input,.po select{width:100%;font:inherit;border:1px solid #cfd4dc;border-radius:8px;min-height:44px;padding:0 10px;background:#fff}
+.po .r{display:flex;gap:8px;margin-bottom:12px}.po .r input{flex:1;min-width:0}
+.hc{display:flex;gap:10px;align-items:center}
+.av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;font-weight:700;display:grid;place-items:center;border:0;cursor:pointer;font-family:Inter}
+.hv{display:grid;gap:8px}.hv b{font-size:15px}.hv span{color:var(--mut)}
+@media(max-width:700px){.g{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head><body><div class="w"><div><h1>Anchor</h1><p class="sub">Tooltips and popovers that never fall off the screen.</p></div>
+<div class="g"><section class="cd"><h2>Placement</h2><p>Pick a preferred side. It flips if there's no room.</p><div class="pl" role="group" aria-label="Preferred side" id="pl"></div><div class="ctr"><button class="b" id="c1" data-tip="Saved to your drafts">Hover or focus me</button></div></section>
+<section class="cd"><h2>Edge collisions</h2><p>Scroll this box. Tooltips shift and flip to stay visible.</p><div class="bx"><div class="in"><button class="b" style="left:6px;top:6px" data-tip="Top-left corner, so I open to the right" data-side="left">TL</button><button class="b" style="right:6px;top:6px" data-tip="Top-right corner, shifted to stay inside the page" data-side="right">TR</button><button class="b" style="left:6px;top:200px" data-tip="Mid-left" data-side="left">ML</button><button class="b" style="right:6px;bottom:6px" data-tip="Bottom-right, I flip upward when there's no space below" data-side="bottom">BR</button></div></div></section>
+<section class="cd"><h2>Rich popover</h2><p>Click to open. Escape or an outside click closes it.</p><div><button class="b p" id="sh" aria-haspopup="dialog" aria-expanded="false" aria-controls="po1">Share…</button></div></section>
+<section class="cd"><h2>Hover card</h2><p>Move the pointer onto the card. It stays open.</p><div class="hc"><button class="av" id="hv" aria-describedby="" aria-label="Profile preview for Maya Okafor">MO</button><span>Reviewed by <b>Maya Okafor</b></span></div></section></div></div>
+<div id="layer"></div><div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div>
+<script>
+const $=s=>document.querySelector(s),L=$("#layer");const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function place(el,tr,pref,gap=10){const a=el.querySelector(":scope>.ar");el.style.left="0";el.style.top="0";const t=tr.getBoundingClientRect(),w=el.offsetWidth,h=el.offsetHeight,vw=innerWidth,vh=innerHeight,m=8;
+const sp={top:t.top-m,bottom:vh-t.bottom-m,left:t.left-m,right:vw-t.right-m},need={top:h+gap,bottom:h+gap,left:w+gap,right:w+gap};
+const opp={top:"bottom",bottom:"top",left:"right",right:"left"};let s=pref;if(sp[s]<need[s]&&sp[opp[s]]>=need[opp[s]])s=opp[s];else if(sp[s]<need[s]){const best=Object.keys(sp).sort((x,y)=>sp[y]-need[y]-(sp[x]-need[x]))[0];s=best}
+let x,y;if(s=="top"||s=="bottom"){x=t.left+t.width/2-w/2;y=s=="top"?t.top-h-gap:t.bottom+gap;x=Math.max(m,Math.min(vw-w-m,x))}else{y=t.top+t.height/2-h/2;x=s=="left"?t.left-w-gap:t.right+gap;y=Math.max(m,Math.min(vh-h-m,y))}
+el.style.left=x+"px";el.style.top=y+"px";el.dataset.side=s;
+if(a){const c=a.style;c.left=c.top=c.right=c.bottom="";if(s=="top"||s=="bottom"){const cx=Math.max(10,Math.min(w-20,t.left+t.width/2-x-5));c.left=cx+"px";c[s=="top"?"bottom":"top"]="-5px"}else{const cy=Math.max(10,Math.min(h-20,t.top+t.height/2-y-5));c.top=cy+"px";c[s=="left"?"right":"left"]="-5px"}
+if(el.classList.contains("po")){a.style.borderWidth="0";a.style.borderStyle="solid";a.style.borderColor="var(--ln)";const bw="1px";if(s=="top"){a.style.borderRightWidth=bw;a.style.borderBottomWidth=bw}if(s=="bottom"){a.style.borderLeftWidth=bw;a.style.borderTopWidth=bw}if(s=="left"){a.style.borderRightWidth=bw;a.style.borderTopWidth=bw}if(s=="right"){a.style.borderLeftWidth=bw;a.style.borderBottomWidth=bw}}}}
+// tooltips
+let tip=null,tt,ht,cur=null,pref="top",uid=0;
+function showTip(tr){clearTimeout(ht);if(cur==tr&&tip)return;hideTip(true);cur=tr;tip=document.createElement("div");tip.className="tp";tip.setAttribute("role","tooltip");tip.id="tip"+ ++uid;tip.textContent=tr.dataset.tip;tip.style.animation=rm?"none":"";tip.innerHTML+='<span class="ar"></span>';L.append(tip);tr.setAttribute("aria-describedby",tip.id);place(tip,tr,tr.dataset.side||(tr.id=="c1"?pref:"top"))}
+function hideTip(now){clearTimeout(tt);const f=()=>{if(tip){tip.remove();tip=null}if(cur){cur.removeAttribute("aria-describedby");cur=null}};if(now)f();else{clearTimeout(ht);ht=setTimeout(f,150)}}
+document.querySelectorAll("[data-tip]").forEach(tr=>{tr.addEventListener("pointerenter",e=>{if(e.pointerType=="touch")return;clearTimeout(tt);tt=setTimeout(()=>showTip(tr),300)});tr.addEventListener("pointerleave",()=>hideTip());tr.addEventListener("focus",()=>showTip(tr));tr.addEventListener("blur",()=>hideTip(true));tr.addEventListener("click",e=>{if(matchMedia("(hover:none)").matches){cur==tr&&tip?hideTip(true):showTip(tr)}})});
+document.addEventListener("keydown",e=>{if(e.key=="Escape"){hideTip(true);closeAll()}});
+["top","right","bottom","left"].forEach(s=>{const b=document.createElement("button");b.textContent=s;b.setAttribute("aria-pressed",s==pref);b.onclick=()=>{pref=s;document.querySelectorAll("#pl button").forEach(x=>x.setAttribute("aria-pressed",x==b));const c=$("#c1");hideTip(true);c.focus();showTip(c)};$("#pl").append(b)});
+// popovers
+let open=null;
+function closeAll(refocus){if(open){open.el.remove();open.tr.setAttribute("aria-expanded","false");const t=open.tr;open=null;if(refocus!==false)t.focus()}}
+function pop(tr,html,pref,hover){closeAll(false);const el=document.createElement("div");el.className="po";el.setAttribute("role","dialog");el.id="po1";el.innerHTML=html+'<span class="ar"></span>';L.append(el);tr.setAttribute("aria-expanded","true");open={el,tr};place(el,tr,pref);return el}
+$("#sh").onclick=()=>{if(open&&open.tr==$("#sh")){closeAll();return}const el=pop($("#sh"),'<div class="r"><div style="flex:1;min-width:0"><label for="lk">Link</label><input id="lk" readonly value="https://anchor.example/s/q3-plan"></div></div><div style="display:flex;gap:8px;align-items:end"><div style="flex:1"><label for="pm">Who can view</label><select id="pm"><option>Anyone with the link</option><option>Team only</option><option>Invited people</option></select></div><button class="b p" id="cpy">Copy</button></div>',"bottom");el.setAttribute("aria-label","Share this page");$("#cpy").onclick=async()=>{try{await navigator.clipboard.writeText($("#lk").value)}catch(e){}$("#cpy").textContent="Copied";$("#live").textContent="Link copied";setTimeout(()=>$("#cpy")&&($("#cpy").textContent="Copy"),1400)};$("#lk").focus();$("#lk").select()};
+document.addEventListener("pointerdown",e=>{if(open&&!open.el.contains(e.target)&&!open.tr.contains(e.target)&&open.tr.id!="hv")closeAll(false)});
+// hover card
+let hct;const hv=$("#hv");
+function hcOpen(){clearTimeout(hct);if(open&&open.tr==hv)return;const el=pop(hv,'<div class="hv"><div class="hc"><span class="av" style="cursor:default" aria-hidden="true">MO</span><div><b>Maya Okafor</b><br><span>Staff engineer · Lagos</span></div></div><span>Writes about distributed systems and tiny, readable tools. 2.4K followers.</span><button class="b p" id="fl">Follow</button></div>',"top");el.setAttribute("aria-label","Maya Okafor profile");el.onpointerenter=()=>clearTimeout(hct);el.onpointerleave=hcClose;$("#fl").onclick=()=>{$("#fl").textContent="Following ✓";$("#live").textContent="Following Maya"}}
+function hcClose(){hct=setTimeout(()=>{if(open&&open.tr==hv)closeAll(false)},200)}
+hv.addEventListener("pointerenter",e=>{if(e.pointerType=="touch")return;clearTimeout(hct);hct=setTimeout(hcOpen,300)});hv.addEventListener("pointerleave",()=>{clearTimeout(hct);hcClose()});hv.addEventListener("focus",hcOpen);hv.addEventListener("click",()=>{open&&open.tr==hv?closeAll(false):hcOpen()});
+hv.addEventListener("keydown",e=>{if(e.key=="Tab"&&!e.shiftKey&&open&&open.tr==hv){e.preventDefault();$("#fl").focus()}});
+function re(){if(tip&&cur)place(tip,cur,cur.dataset.side||(cur.id=="c1"?pref:"top"));if(open)place(open.el,open.tr,open.tr.id=="sh"?"bottom":"top")}
+addEventListener("resize",re);addEventListener("scroll",re,true);
+</script></body></html>

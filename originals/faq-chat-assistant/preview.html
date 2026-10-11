@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nimbus Mail Help — Chat FAQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f1eefb;font:15px/1.5 Nunito,system-ui,sans-serif;color:#1b1535;min-height:100vh;display:grid;place-items:center;padding:24px 12px}
+.w{width:100%;max-width:560px;height:min(720px,calc(100vh - 48px));background:#fff;border-radius:24px;box-shadow:0 24px 60px #2d1b6930;display:flex;flex-direction:column;overflow:hidden}
+.hd{background:#2d1b69;color:#fff;padding:14px 18px;display:flex;align-items:center;gap:12px}
+.av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#ffb86b,#ff6b9a);display:grid;place-items:center;font-weight:800;color:#2d1b69}
+.hd b{display:block}.hd small{opacity:.8;display:flex;gap:6px;align-items:center}.hd small i{width:8px;height:8px;border-radius:50%;background:#4ade80}
+.hd button{margin-left:auto;background:#ffffff22;color:#fff;border:0;border-radius:99px;padding:0 14px;min-height:44px;font:700 13px Nunito;cursor:pointer}
+.lg{flex:1;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:10px}
+.m{max-width:84%;padding:10px 14px;border-radius:18px;overflow-wrap:anywhere;animation:in .25s}
+@keyframes in{from{opacity:0;transform:translateY(6px)}}
+.m.b{background:#f3f1fb;border-bottom-left-radius:6px;align-self:flex-start}
+.m.u{background:#5b3df5;color:#fff;border-bottom-right-radius:6px;align-self:flex-end}
+.fb{display:flex;gap:6px;margin-top:8px}
+.fb button{border:1px solid #d9d3f5;background:#fff;border-radius:99px;min-height:32px;padding:0 12px;font:600 12px Nunito;cursor:pointer;color:#4a3f7a}
+.fb button[aria-pressed=true]{background:#5b3df5;color:#fff;border-color:#5b3df5}
+.ty{align-self:flex-start;background:#f3f1fb;border-radius:18px;padding:12px 16px;display:flex;gap:4px}
+.ty i{width:7px;height:7px;border-radius:50%;background:#8b80c4;animation:bn 1s infinite}.ty i:nth-child(2){animation-delay:.15s}.ty i:nth-child(3){animation-delay:.3s}
+@keyframes bn{50%{transform:translateY(-5px)}}
+.tk{background:#ecfdf3;border:1px solid #a6e9c1;color:#0b5c33;border-radius:14px;padding:12px 14px;align-self:flex-start;max-width:84%}
+.ch{display:flex;gap:8px;overflow-x:auto;padding:8px 18px}
+.ch button{flex:none;border:1.5px solid #cfc6f5;background:#fff;color:#4328c9;border-radius:99px;padding:0 14px;min-height:44px;font:700 14px Nunito;cursor:pointer}
+.ch button:hover{background:#f3f1fb}
+form{display:flex;gap:8px;padding:10px 14px 14px;border-top:1px solid #eee9fb}
+input{flex:1;min-width:0;font:inherit;font-size:16px;border:1.5px solid #ddd6f7;border-radius:99px;padding:0 18px;min-height:48px}
+input:focus{outline:none;border-color:#5b3df5;box-shadow:0 0 0 4px #5b3df522}
+.sd{border:0;background:#5b3df5;color:#fff;border-radius:99px;padding:0 22px;min-height:48px;font:800 15px Nunito;cursor:pointer}
+button:focus-visible{outline:3px solid #5b3df5;outline-offset:2px}
+@media(max-width:600px){body{padding:0}.w{height:100vh;border-radius:0;max-width:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head><body><div class="w"><div class="hd"><div class="av" aria-hidden="true">P</div><div><b>Pip · Nimbus Mail help</b><small><i></i>Usually answers instantly</small></div><button id="cl">Clear chat</button></div>
+<div class="lg" id="lg" role="log" aria-live="polite" aria-label="Conversation"></div>
+<div class="ch" id="ch" role="group" aria-label="Suggested questions"></div>
+<form id="f"><label for="q" style="position:absolute;width:1px;height:1px;overflow:hidden">Ask a question</label><input id="q" placeholder="Ask about billing, storage, import…" autocomplete="off"><button class="sd">Send</button></form></div>
+<script>
+const $=s=>document.querySelector(s);
+const KB=[["How much does Nimbus Mail cost?","billing price cost plan pay subscription monthly annual","Nimbus Mail starts free with 5 GB. Plus is $4 a month and Team is $9 per person. Paying yearly saves 20%.",["Can I get a refund?","How much storage do I get?"]],
+["How much storage do I get?","storage space gb size quota full","Free accounts get 5 GB, Plus gets 100 GB and Team gets 1 TB per person. Attachments over 25 MB are shared as links.",["How much does Nimbus Mail cost?","Is my mail secure?"]],
+["How do I import old email?","import migrate move transfer gmail outlook old","Go to Settings → Import, choose your old provider and sign in. Most inboxes of 10,000 messages take under an hour.",["Is my mail secure?","Is there a mobile app?"]],
+["Is my mail secure?","secure security encrypt privacy safe two factor 2fa","Mail is encrypted in transit and at rest, and you can turn on two-factor sign-in under Settings → Security. We never scan your messages for ads.",["How do I import old email?","How do teams work?"]],
+["How do teams work?","team teams shared invite members colleagues admin","Team plans give everyone a shared calendar, shared folders and an admin console. Invite people by email from Settings → Team.",["How much does Nimbus Mail cost?","Is there a mobile app?"]],
+["Is there a mobile app?","mobile app ios android phone iphone","Yes, Nimbus Mail is on iOS and Android with push notifications, offline drafts and a swipe-to-snooze inbox.",["Is my mail secure?","How do I cancel?"]],
+["How do I cancel?","cancel cancellation close delete account stop leave","Open Settings → Billing → Cancel plan. You keep access until the end of the period and can export everything first.",["Can I get a refund?","How do I import old email?"]],
+["Can I get a refund?","refund money back charge charged","Yes. If you cancel within 30 days of your first payment we refund it in full, no questions asked.",["How do I cancel?","How much does Nimbus Mail cost?"]]];
+const SUG=[KB[0][0],KB[1][0],KB[2][0],KB[3][0]];
+const lg=$("#lg"),ch=$("#ch");let busy=false;
+const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function scroll(){lg.scrollTo({top:lg.scrollHeight,behavior:rm?"auto":"smooth"})}
+function msg(t,c){const d=document.createElement("div");d.className="m "+c;d.textContent=t;lg.append(d);scroll();return d}
+function chips(a){ch.innerHTML="";a.forEach(t=>{const b=document.createElement("button");b.textContent=t;b.onclick=()=>ask(t);ch.append(b)})}
+function best(q){const w=q.toLowerCase().match(/[a-z0-9]+/g)||[];let b=null,s=0;KB.forEach(k=>{let n=0;const kw=k[1].split(" ");w.forEach(x=>{if(x.length>2&&kw.some(y=>y==x||(x.length>3&&(y.startsWith(x)||x.startsWith(y)))))n++});if(n>s){s=n;b=k}});return b}
+function ask(q){q=q.trim();if(!q||busy)return;busy=true;msg(q,"u");$("#q").value="";chips([]);const t=document.createElement("div");t.className="ty";t.setAttribute("aria-label","Pip is typing");t.innerHTML="<i></i><i></i><i></i>";lg.append(t);scroll();
+setTimeout(()=>{t.remove();const k=best(q);if(k){const d=msg(k[2],"b");const fb=document.createElement("div");fb.className="fb";fb.innerHTML='<button aria-pressed="false">👍 Helpful</button><button aria-pressed="false">👎 Not helpful</button>';fb.querySelectorAll("button").forEach((b,i)=>b.onclick=()=>{fb.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x==b));fb.insertAdjacentHTML("afterend","")||0;if(!fb.nextSibling){const r=document.createElement("div");r.style.cssText="margin-top:6px;font-size:13px;color:#6f6890";r.textContent=i?"Thanks. I'll pass that on to the team.":"Glad that helped!";fb.after(r)}});d.append(fb);chips(k[3])}
+else{const d=msg("I'm not sure about that one yet. I can connect you with a person, or you can try one of these.","b");const b=document.createElement("button");b.className="sd";b.style.cssText="margin-top:8px;min-height:44px;display:block";b.textContent="Talk to a person";b.onclick=()=>{b.disabled=true;const c=document.createElement("div");c.className="tk";c.textContent="Ticket #NM-"+(40000+Math.floor(Math.random()*9999))+" opened. A teammate will email you within 2 hours.";lg.append(c);scroll()};d.append(b);chips(SUG)}busy=false},rm?100:900)}
+$("#f").onsubmit=e=>{e.preventDefault();ask($("#q").value)};
+function reset(){lg.innerHTML="";msg("Hi, I'm Pip! Ask me anything about Nimbus Mail, or pick a question below.","b");chips(SUG)}
+$("#cl").onclick=reset;reset();
+</script></body></html>

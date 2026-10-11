@@ -1,0 +1,11 @@
+Canvas & base: Page content area #f4f1ea above, footer on ink #111110 with off-white text #f4f1ea, secondary #a39f94, accent lime #d4ff3f. Invented studio "Grainhouse".
+
+Typography: "Archivo" variable (400,600,900, width 62–125 where available) for the wordmark sized to fit the container with fitText logic (JS measures and sets font-size so "GRAINHOUSE" spans 100% width); "Archivo" 15px for links.
+
+Layout: A short placeholder page area ("Scroll to the footer"), then the footer: top row with newsletter-free link columns (Studio, Work, Journal, Elsewhere), a meta row (local time in Lisbon updating each second with a tiny live dot, language toggle EN/PT, © line, back to top), and the huge wordmark across the bottom clipped slightly by the page edge.
+
+Interaction: Wordmark uses a radial-gradient mask following the pointer (CSS variables) to reveal lime inside the letters; on touch it animates a slow auto sweep; fitText re-runs on resize via ResizeObserver; language toggle swaps link labels between English and Portuguese (aria-pressed); the clock formats with Intl and pauses when the tab is hidden; Back to top smooth-scrolls (instant with reduced motion).
+
+Responsive: Columns become 2x2 under 700px; meta row wraps.
+
+Rules: No libraries or external images, hidden attribute respected, 44px targets, reduced-motion disables sweep and smooth scroll, invented content.

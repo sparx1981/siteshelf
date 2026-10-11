@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Parsec OS — Coming Soon</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{--g:#4ade80;--d:#2f8f55;--bg:#070a07}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(900px 500px at 50% 40%,#10281a,var(--bg));display:grid;place-items:center;padding:20px 12px;font:22px/1.25 VT323,"Courier New",monospace;color:var(--g)}
+.w{width:100%;max-width:760px;height:min(640px,78vh);border:1px solid var(--d);border-radius:10px;background:#050805;box-shadow:0 0 50px color-mix(in srgb,var(--g) 18%,transparent);display:flex;flex-direction:column;overflow:hidden;position:relative}
+.w::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(transparent 0 2px,#00000030 2px 3px);pointer-events:none}
+.tb{display:flex;gap:8px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--d);color:var(--d);font-size:18px}
+.tb i{width:11px;height:11px;border-radius:50%;background:var(--d)}.tb span{margin-left:8px}
+.o{flex:1;overflow:auto;padding:12px 16px;cursor:text;text-shadow:0 0 6px color-mix(in srgb,var(--g) 60%,transparent)}
+.o div{white-space:pre-wrap;overflow-wrap:anywhere;min-height:1.25em}
+.w .am{color:#fbbf24}.w .cy{color:#67e8f9}.w .dm{color:var(--d)}
+pre{margin:0 0 8px;font:inherit;line-height:1;font-size:inherit;white-space:pre;overflow:hidden}
+.pr{display:flex;gap:8px;padding:8px 16px 14px;align-items:center}
+.pr label{white-space:nowrap}
+.pr input{flex:1;min-width:0;background:none;border:0;color:var(--g);font:inherit;font-size:max(22px,16px);caret-color:var(--g);outline:none;text-shadow:inherit}
+.cr{display:inline-block;width:.6em;height:1em;background:var(--g);vertical-align:-2px;animation:b 1s steps(1) infinite}
+@keyframes b{50%{opacity:0}}
+::selection{background:var(--g);color:#000}
+@media(max-width:600px){body{font-size:18px}pre{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.cr{animation:none}}
+</style></head><body><div class="w" id="w"><div class="tb" aria-hidden="true"><i></i><i></i><i></i><span>parsec@launch: ~</span></div>
+<div class="o" id="o" role="log" aria-live="off" aria-label="Terminal output"></div>
+<form class="pr" id="f" autocomplete="off"><label for="i">visitor@parsec:~$</label><input id="i" spellcheck="false" autocapitalize="off" aria-label="Terminal command input" disabled></form></div>
+<script>
+const $=s=>document.querySelector(s),o=$("#o"),inp=$("#i");
+const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const L=new Date(Date.now()+34*864e5+5*36e5+1234e3);
+let skip=rm,booted=false,hist=[],hi=0,cd=[];
+const LOGO=`  ____                            ___  ____
+ |  _ \\ __ _ _ __ ___  ___  ___  / _ \\/ ___|
+ | |_) / _\` | '__/ __|/ _ \\/ __|| | | \\___ \\
+ |  __/ (_| | |  \\__ \\  __/ (__ | |_| |___) |
+ |_|   \\__,_|_|  |___/\\___|\\___| \\___/|____/`;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function add(t,c){const d=document.createElement("div");if(c)d.className=c;d.textContent=t;o.append(d);o.scrollTop=o.scrollHeight;return d}
+async function type(t,c){const d=add("",c);if(skip){d.textContent=t;o.scrollTop=o.scrollHeight;return d}for(const ch of t){if(skip){d.textContent=t;break}d.textContent+=ch;await sleep(ch==" "?8:14)}o.scrollTop=o.scrollHeight;return d}
+function cdTxt(){let r=Math.max(0,L-Date.now())/1000|0;const d=r/86400|0,h=r%86400/3600|0,m=r%3600/60|0,s=r%60,p=n=>String(n).padStart(2,"0");return `${d}d ${p(h)}:${p(m)}:${p(s)}`}
+async function boot(){const p=document.createElement("pre");p.textContent=LOGO;p.setAttribute("aria-label","Parsec OS");o.append(p);
+const lines=[["BIOS v2.4 ........................ OK",""],["Memory check: 64K ................ OK",""],["Loading kernel modules ........... OK",""],["Connecting to the future ......... WARN","am"],["Launch sequence initialised.","cy"]];
+for(const[t,c]of lines){await type(t,c);if(!skip)await sleep(150)}
+const d=add("");const upd=()=>d.textContent="T-minus "+cdTxt();upd();setInterval(upd,1000);
+await type("Type 'help' to see what you can do.","dm");booted=true;inp.disabled=false;inp.focus();o.setAttribute("aria-live","polite")}
+function skipBoot(){skip=true}
+addEventListener("keydown",e=>{if(!booted&&e.key!="Tab")skipBoot()});o.addEventListener("click",()=>{if(!booted)skipBoot();inp.focus()});
+const CMDS=["help","about","launch","notify","theme","clear","whoami","sudo"];
+const TH={green:["#4ade80","#2f8f55","#070a07"],amber:["#fbbf24","#a16d0b","#0a0803"],ice:["#7dd3fc","#3b82a6","#04080a"]};
+function run(raw){const line=raw.trim();add("visitor@parsec:~$ "+raw,"dm");if(!line)return;hist.push(line);hi=hist.length;const[c,...a]=line.split(/\s+/);const A=a.join(" ");
+switch(c.toLowerCase()){case"help":add("Commands:\n  about            what is Parsec OS\n  launch           launch date and countdown\n  notify <email>   get a launch email\n  theme <name>     green | amber | ice\n  whoami           who are you?\n  clear            clear the screen");break;
+case"about":add("Parsec OS is a calm, keyboard-first operating layer for people who live in terminals. Fast boot, honest defaults and a package manager that explains itself.");break;
+case"launch":add("Launch date: "+L.toDateString(),"cy");add("T-minus "+cdTxt());break;
+case"notify":if(/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(A))add("Subscribed "+A+". Expect one email, on launch day.","cy");else add("error: usage: notify you@example.com","am");break;
+case"theme":if(TH[A]){const t=TH[A];const r=document.documentElement.style;r.setProperty("--g",t[0]);r.setProperty("--d",t[1]);r.setProperty("--bg",t[2]);add("Theme set to "+A)}else add("error: choose green, amber or ice","am");break;
+case"whoami":add("visitor — an early and welcome one.");break;case"sudo":add("visitor is not in the sudoers file. This incident will be reported to Santa.","am");break;
+case"clear":o.innerHTML="";break;default:add("command not found: "+c+". Try 'help'.","am")}o.scrollTop=o.scrollHeight}
+$("#f").onsubmit=e=>{e.preventDefault();const v=inp.value;inp.value="";run(v)};
+inp.onkeydown=e=>{if(e.key=="ArrowUp"){e.preventDefault();if(hi>0)inp.value=hist[--hi]}else if(e.key=="ArrowDown"){e.preventDefault();hi=Math.min(hist.length,hi+1);inp.value=hist[hi]||""}else if(e.key=="Tab"){e.preventDefault();const m=CMDS.filter(c=>c.startsWith(inp.value.toLowerCase()));if(inp.value&&m.length==1)inp.value=m[0]+" ";else if(m.length>1)add(m.join("  "),"dm")}else if(e.key.toLowerCase()=="l"&&e.ctrlKey){e.preventDefault();o.innerHTML=""}};
+boot();
+</script></body></html>

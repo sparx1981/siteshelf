@@ -1,0 +1,11 @@
+Canvas & base: Deep green #0f2a24 page, card #f7f4ec with 24px radius, ink #16241f, secondary #5e6f67, accent mint #2ee6a6, accent coral #ff7a59 for errors/highlights. Invented survey "Greenhouse feedback" for a plant delivery service "Sprout & Sons".
+
+Typography: "Young Serif" for questions at 32px, "Instrument Sans" (400,500,600) at 16px.
+
+Layout: Fixed progress bar at top; centred 640px card containing question number, question text, input area (single choice with lettered options A–D, multi-select, 1–10 rating scale, short text, email), a hint line ("press Enter ↵"), Back and OK buttons. Questions: 1 single choice (how did you hear), 2 multi (which plants), 3 rating 0–10 (recommend), 4 long text (what would improve), 5 email (optional), then a review list with Edit links, then thank-you.
+
+Interaction: Letter keys A–D select options, Enter advances, number keys 0–9 pick ratings, Shift+Enter in textarea inserts newline and Enter advances; validation errors for required questions with shake animation and aria-live message; slide/fade transitions between questions (instant under reduced motion); progress bar shows answered/total; review screen lets jumping back to a question and returning to review; Submit shows thank-you with computed summary (NPS category) and Restart.
+
+Responsive: Card full-width under 600px; keys hint hidden on touch.
+
+Rules: No libraries or external images, hidden attribute respected, focus moves to the new question heading or first control, 44px targets, native radio/checkbox semantics.

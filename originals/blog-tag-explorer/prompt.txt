@@ -1,0 +1,11 @@
+Canvas & base: Warm paper #faf7f2, cards white with #eadfce border, ink #1f1a14, secondary #7a6e5e, accent persimmon #e2552b, tag tint #f3e9da. Invented blog "Field Notes by Corvid & Co" with 18 invented posts.
+
+Typography: "Literata" (400,600,700) for titles, "Figtree" (400,500,700) for UI at 15px.
+
+Layout: Header with title and a bookmark button showing the reading-list count. Controls: search input, sort select (Newest, Oldest, Shortest read), tag cloud of 10 tags sized by frequency as toggle buttons with counts. Result grid of post cards (title, excerpt, tags, date, read time, bookmark star). A right drawer lists saved posts with remove buttons and total reading time.
+
+Interaction: Tags multi-select with AND logic; counts on unselected tags reflect how many posts would remain; search matches title and excerpt with <mark> highlights; "Clear filters" appears when active; empty state with suggestions; bookmark toggles with aria-pressed and updates header count and drawer; drawer opens with focus management, Escape closes; results announce count; sorting is stable.
+
+Responsive: Grid 3→2→1 columns; drawer full-width on mobile.
+
+Rules: No libraries or external images, hidden attribute respected, 44px targets, reduced-motion, invented content only.

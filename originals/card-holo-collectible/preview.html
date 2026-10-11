@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Holographic Collectible Card — Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+:root{--shine:.8;--c1:#ff8a3d;--c2:#ffd23d;--bg1:#2a1560;--bg2:#6a2f9a}
+body{margin:0;min-height:100vh;background:radial-gradient(800px 600px at 70% 40%,#3a2a7a,transparent 70%),#120d24;color:#efeaff;font:400 16px/1.55 Outfit,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #ffd86b;outline-offset:4px}
+.w{max-width:1100px;margin:0 auto;padding:44px 24px;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:56px;align-items:center;min-height:100vh}
+.eb{font:600 12px Unbounded;letter-spacing:.14em;text-transform:uppercase;color:#ffd86b;margin:0 0 14px}
+h1{font:700 clamp(32px,4.8vw,54px)/1.08 Unbounded,sans-serif;margin:0 0 16px;letter-spacing:-.02em}.lead{color:#c3b8e6;max-width:40ch;margin:0 0 22px;font-size:18px}
+.th{display:flex;gap:12px;margin-bottom:16px;border:0;padding:0}
+.th label{position:relative;display:block}.th input{position:absolute;opacity:0;width:1px;height:1px}
+.th span.m{display:grid;place-items:center;width:74px;height:104px;border-radius:10px;border:2px solid #4a3b8a;background:linear-gradient(160deg,var(--t1),var(--t2));cursor:pointer;transition:transform .2s,border-color .2s;overflow:hidden;position:relative}
+.th span.m:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.4) 48%,transparent 62%);transform:translateX(-100%);transition:transform .6s}.th label:hover span.m:after{transform:translateX(100%)}
+.th input:checked+span.m{border-color:#ffd86b;transform:translateY(-4px)}.th input:focus-visible+span.m{outline:3px solid #ffd86b;outline-offset:3px}
+.th svg{width:46px;height:46px}.th b{position:absolute;bottom:4px;font:600 9px Unbounded;letter-spacing:.04em}
+.ri{color:#ffd86b;font-weight:600;font-size:15px;margin:0 0 6px}.tip{color:#9d90cc;font-size:14px;margin:0 0 16px}
+.ct{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.bt{all:unset;box-sizing:border-box;cursor:pointer;padding:11px 20px;border-radius:999px;border:1.5px solid #8a79d0;font-weight:600;min-height:44px}.bt:hover{background:rgba(255,255,255,.1)}.bt:focus-visible{outline:3px solid #ffd86b;outline-offset:3px}
+.sl{display:flex;gap:10px;align-items:center;font-weight:500}input[type=range]{accent-color:#ffd86b;width:130px;height:28px}
+.st{perspective:1100px;display:grid;place-items:center;padding:20px 0;position:relative}
+.st:after{content:"";position:absolute;bottom:0;width:70%;height:30px;background:radial-gradient(ellipse,rgba(0,0,0,.5),transparent 70%);filter:blur(6px)}
+.cd{all:unset;box-sizing:border-box;display:block;position:relative;width:min(340px,86vw);aspect-ratio:5/7;cursor:pointer;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(calc(var(--ry,0deg) + var(--fl,0deg)));will-change:transform;touch-action:pan-y;font-size:calc(min(340px,86vw)/340*14px)}
+.cd.idle{animation:fl 6s ease-in-out infinite}@keyframes fl{50%{translate:0 -8px}}
+.cd:focus-visible{outline:3px solid #ffd86b;outline-offset:8px;border-radius:22px}
+.fa,.bk{position:absolute;inset:0;border-radius:18px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.fa{background:linear-gradient(135deg,#e8c36a,#fff0b8 45%,#d9a93e);padding:3.2%;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+.in{position:relative;height:100%;background:#fbf4e2;border-radius:10px;color:#2a1f12;padding:3.5% 4.5%;display:flex;flex-direction:column;gap:2.2%;overflow:hidden}
+.hd{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.hd b{font:700 1.6em/1 Unbounded}.hd span{font:600 1.1em Unbounded;color:#c4492f}.hd small{font:600 .7em Outfit;color:#6a5a3d;display:block;letter-spacing:.06em;text-transform:uppercase}
+.art{position:relative;height:42%;border-radius:8px;overflow:hidden;border:2px solid #d9a93e;background:linear-gradient(160deg,var(--bg1),var(--bg2));flex:none}.art svg{position:absolute;inset:0;width:100%;height:100%}
+.at{display:grid;gap:3px;flex:1;min-height:0}.at div{display:flex;gap:8px;align-items:center;border-bottom:1px dotted #c9b88c;padding-bottom:3px}.at i{display:flex;gap:2px;flex:none;min-width:34px}.at i u{width:11px;height:11px;border-radius:50%;background:var(--c1);box-shadow:inset 0 0 0 1px rgba(0,0,0,.3);text-decoration:none}.at em{font:600 1.05em Outfit;font-style:normal;flex:1}.at b{font:700 1.3em Unbounded}.at p{margin:0;font-size:.82em;color:#5b4c33;grid-column:1/-1}
+.ww{display:flex;justify-content:space-between;font-size:.78em;font-weight:600;color:#5b4c33;border-top:1.5px solid #d9a93e;padding-top:4px}
+.fo{position:absolute;inset:0;pointer-events:none;border-radius:18px;mix-blend-mode:color-dodge;opacity:calc(var(--shine)*var(--fi,.7));background:linear-gradient(115deg,#ff0080,#ff8c00,#ffe600,#00ff9d,#00b8ff,#7a5cff,#ff0080);background-size:300% 300%;background-position:calc(var(--mx,.5)*100%) calc(var(--my,.5)*100%);filter:brightness(.7) contrast(1.4)}
+.sp{position:absolute;inset:0;pointer-events:none;border-radius:18px;background:radial-gradient(circle at 20% 30%,#fff 0 1px,transparent 2px) 0 0/18px 18px,radial-gradient(circle at 70% 60%,#fff 0 1px,transparent 2px) 0 0/26px 26px;mix-blend-mode:overlay;opacity:calc(var(--shine)*.55);background-position:calc(var(--mx,.5)*30px) calc(var(--my,.5)*30px)}
+.gl{position:absolute;inset:0;pointer-events:none;border-radius:18px;background:radial-gradient(circle at calc(var(--mx,.5)*100%) calc(var(--my,.5)*100%),rgba(255,255,255,.75),transparent 45%);mix-blend-mode:soft-light;opacity:calc(var(--shine)*.9)}
+.bk{transform:rotateY(180deg);background:linear-gradient(135deg,#1c1450,#3a2a7a);border:7px solid #e8c36a;color:#efeaff;padding:6%;display:flex;flex-direction:column;gap:3%}
+.bk svg.em{width:34%;margin:0 auto}.bk h2{font:700 1.3em Unbounded;margin:0;text-align:center}
+.bk dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0;font-size:.95em}.bk dt{color:#ffd86b;font-weight:600}.bk dd{margin:0}.bk p{margin:0;font-size:.85em;color:#cfc4f0;font-style:italic}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:900px){.w{grid-template-columns:minmax(0,1fr);gap:20px;padding:32px 16px;min-height:0}.st{order:-1}}
+@media (prefers-reduced-motion:reduce){.cd,.cd.idle{animation:none!important;transition:none}.th span.m:after{display:none}}
+</style></head><body>
+<div class="w"><div><p class="eb">Moonfield Cards</p><h1>A card that catches the light.</h1><p class="lead">Tilt the card with your pointer and the foil follows. Press Enter to turn it over.</p>
+<fieldset class="th" id="th" aria-label="Choose a card" style="min-width:0"></fieldset>
+<p class="ri" id="ri">Ultra Rare · 012 / 150</p><p class="tip">Keyboard: focus the card, then use the arrow keys to tilt it.</p>
+<div class="ct"><button class="bt" id="fp" type="button">Flip card</button><label class="sl">Shine <input type="range" id="sh" min="0" max="100" value="80" aria-label="Foil shine"></label></div></div>
+<div class="st"><button class="cd idle" id="cd" type="button" aria-pressed="false"><span class="fa" id="fa"></span><span class="bk" id="bk"></span></button></div></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,root=document.documentElement;
+var K=[{n:'Embermoth',hp:70,t:'Fire · Stage 1',c1:'#ff8a3d',bg:['#2a1560','#7a2fa0'],rar:'Ultra Rare · 012 / 150',at:[['Ash Flutter',2,'30','Flip a coin. If heads, the target is dazzled.'],['Cinder Storm',3,'90','Discard an energy from this creature.']],w:['Water ×2','Grass −20','Retreat ●●'],h:'0.8 m',wt:'3.1 kg',hb:'Warm cliffs',dc:'Ines Calloway',lore:'It drifts toward lanterns and leaves a trail of warm ash that the fishermen call moonlight.',art:'<path d="M150 90c-40-50-100-40-110 10 20 20 60 10 80-5-10 40 10 70 30 70s40-30 30-70c20 15 60 25 80 5-10-50-70-60-110-10z" fill="#ff8a3d"/><path d="M150 90c-20-30-50-30-62 0 14 10 36 6 50-4-6 26 0 44 12 44s18-18 12-44c14 10 36 14 50 4-12-30-42-30-62 0z" fill="#ffd23d"/><circle cx="140" cy="100" r="5" fill="#2a1560"/><circle cx="160" cy="100" r="5" fill="#2a1560"/>'},
+{n:'Tidefox',hp:60,t:'Water · Basic',c1:'#4cb8ff',bg:['#06324f','#1a7fa8'],rar:'Rare Holo · 048 / 150',at:[['Splash Dash',1,'20','Move this creature to the bench.'],['Riptide',3,'80','Heal 20 damage from this creature.']],w:['Grass ×2','Fire −20','Retreat ●'],h:'0.6 m',wt:'5.4 kg',hb:'Rock pools',dc:'Callum Brightside',lore:'Its tail leaves ripples that stay on the water long after it has gone, and sailors steer by them.',art:'<path d="M70 130c0-40 30-60 70-60l30-30 6 34c26 6 44 24 44 56 0 30-26 44-76 44s-74-14-74-44z" fill="#4cb8ff"/><path d="M200 120q40 0 50 30-30 4-50-6z" fill="#e8f6ff"/><circle cx="170" cy="94" r="6" fill="#06324f"/><path d="M60 170q40 10 100 0t100 0" stroke="#e8f6ff" stroke-width="5" fill="none"/>'},
+{n:'Pebblewyrm',hp:90,t:'Earth · Stage 2',c1:'#9bc46a',bg:['#233a1c','#6f8f3a'],rar:'Holo · 097 / 150',at:[['Gravel Coil',2,'40','This creature takes 10 less damage next turn.'],['Landslide',4,'120','Discard the top 2 cards of your deck.']],w:['Air ×2','Fire −30','Retreat ●●●'],h:'4.2 m',wt:'210 kg',hb:'Quiet quarries',dc:'Hanne Vogel',lore:'It sleeps so still that moss grows on its back, and walkers have been known to picnic on it.',art:'<path d="M40 150c20-70 80-90 130-60 40-30 90-10 100 50-30 10-50-6-80 6-40 16-100 20-150 4z" fill="#8a9a6a"/><circle cx="180" cy="104" r="8" fill="#233a1c"/><path d="M60 140q40-30 80-10M110 118q30-20 60-6" stroke="#6f8f3a" stroke-width="6" fill="none"/><circle cx="90" cy="110" r="10" fill="#9bc46a"/><circle cx="130" cy="100" r="8" fill="#9bc46a"/>'}];
+var cur=0,card=$('#cd'),live=$('#live'),th=$('#th');
+th.innerHTML=K.map(function(k,i){return '<label><input type="radio" name="cc" value="'+i+'"'+(i===0?' checked':'')+' aria-label="'+k.n+'"><span class="m" style="--t1:'+k.bg[0]+';--t2:'+k.bg[1]+'"><svg viewBox="0 0 300 220" aria-hidden="true">'+k.art+'</svg><b>'+k.n.toUpperCase()+'</b></span></label>'}).join('');
+function build(i){var k=K[i];root.style.setProperty('--c1',k.c1);root.style.setProperty('--bg1',k.bg[0]);root.style.setProperty('--bg2',k.bg[1]);$('#ri').textContent=k.rar;
+ $('#fa').innerHTML='<span class="in"><span class="hd"><span><small>'+k.t+'</small><b>'+k.n+'</b></span><span>HP '+k.hp+'</span></span><span class="art"><svg viewBox="0 0 300 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="60" cy="40" r="2" fill="#fff"/><circle cx="240" cy="30" r="2" fill="#fff"/><circle cx="260" cy="90" r="1.5" fill="#fff"/><circle cx="30" cy="110" r="1.5" fill="#fff"/><circle cx="220" cy="56" r="16" fill="#fff" opacity=".18"/>'+k.art+'</svg></span><span class="at">'+k.at.map(function(a){var d='';for(var j=0;j<a[1];j++)d+='<u></u>';return '<div><i aria-hidden="true">'+d+'</i><em>'+a[0]+'</em><b>'+a[2]+'</b><p>'+a[3]+'</p></div>'}).join('')+'</span><span class="ww"><span>Weak: '+k.w[0]+'</span><span>Resist: '+k.w[1]+'</span><span>'+k.w[2]+'</span></span></span><span class="fo" aria-hidden="true"></span><span class="sp" aria-hidden="true"></span><span class="gl" aria-hidden="true"></span>';
+ $('#bk').innerHTML='<svg class="em" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="30" fill="#ffd86b"/><circle cx="50" cy="36" r="26" fill="#2a1f5a"/></svg><h2>'+k.n+'</h2><dl><dt>Height</dt><dd>'+k.h+'</dd><dt>Weight</dt><dd>'+k.wt+'</dd><dt>Habitat</dt><dd>'+k.hb+'</dd><dt>Found by</dt><dd>'+k.dc+'</dd></dl><p>'+k.lore+'</p>';
+ card.setAttribute('aria-label',k.n+', '+k.t+', '+k.hp+' hit points. Attacks: '+k.at.map(function(a){return a[0]+' '+a[2]}).join(', ')+'. Press Enter to flip.')}
+build(0);
+var tx=0,ty=0,cx=0,cy=0,flip=0,fl=0,raf=0,hov=false,mx=.5,my=.5;
+function apply(){card.style.setProperty('--rx',cx.toFixed(2)+'deg');card.style.setProperty('--ry',cy.toFixed(2)+'deg');card.style.setProperty('--fl',fl.toFixed(1)+'deg');card.style.setProperty('--mx',mx.toFixed(3));card.style.setProperty('--my',my.toFixed(3));var d=Math.hypot(mx-.5,my-.5);card.style.setProperty('--fi',(.5+d*.9).toFixed(2))}
+function loop(){cx+=(tx-cx)*.12;cy+=(ty-cy)*.12;fl+=((flip?180:0)-fl)*.12;apply();if(Math.abs(tx-cx)>.02||Math.abs(ty-cy)>.02||Math.abs((flip?180:0)-fl)>.2)raf=requestAnimationFrame(loop);else{raf=0}}
+function kick(){if(!raf)raf=requestAnimationFrame(loop)}
+card.addEventListener('pointermove',function(e){if(reduce)return;var r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;mx=Math.max(0,Math.min(1,x));my=Math.max(0,Math.min(1,y));tx=(.5-my)*32;ty=(mx-.5)*32;card.classList.remove('idle');kick()});
+card.addEventListener('pointerleave',function(){tx=0;ty=0;mx=.5;my=.5;kick();if(!reduce)setTimeout(function(){if(!tx&&!ty)card.classList.add('idle')},800)});
+function doFlip(){flip=!flip;card.setAttribute('aria-pressed',flip?'true':'false');live.textContent=flip?'Card turned over':'Card front';if(reduce){fl=flip?180:0;apply()}else kick()}
+card.addEventListener('click',doFlip);$('#fp').addEventListener('click',doFlip);
+card.addEventListener('keydown',function(e){var s=6,k=e.key;if(k==='ArrowLeft'){e.preventDefault();ty=Math.max(-16,ty-s);mx=.5+ty/32;card.classList.remove('idle');kick()}else if(k==='ArrowRight'){e.preventDefault();ty=Math.min(16,ty+s);mx=.5+ty/32;card.classList.remove('idle');kick()}else if(k==='ArrowUp'){e.preventDefault();tx=Math.min(16,tx+s);my=.5-tx/32;card.classList.remove('idle');kick()}else if(k==='ArrowDown'){e.preventDefault();tx=Math.max(-16,tx-s);my=.5-tx/32;card.classList.remove('idle');kick()}else if(k==='Escape'){tx=ty=0;mx=my=.5;kick()}});
+th.addEventListener('change',function(e){cur=+e.target.value;var c=card;c.style.transition='opacity .15s';c.style.opacity='0';setTimeout(function(){build(cur);flip=0;fl=0;apply();c.style.opacity='1';live.textContent=K[cur].n+' card'},150);setTimeout(function(){c.style.transition=''},400)});
+$('#sh').addEventListener('input',function(){root.style.setProperty('--shine',this.value/100)});
+if(reduce){mx=.35;my=.3;cy=-6;cx=4;apply();card.classList.remove('idle')}else{mx=.62;my=.32;tx=8;ty=-10;apply();kick();setTimeout(function(){mx=.5;my=.5;tx=0;ty=0;kick()},2400)}
+})();
+</script></body></html>

@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fanned Card Stack — Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(700px 500px at 70% 30%,#1d6b70,transparent 70%),radial-gradient(rgba(255,255,255,.04) 1px,transparent 1.5px) 0 0/22px 22px,#0f3b3f;color:#eaf6f2;font:400 16px/1.55 Karla,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #ff6b57;outline-offset:3px}
+.w{max-width:1120px;margin:0 auto;padding:56px 24px;display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:40px;align-items:center;min-height:100vh}
+.eb{font:700 13px Karla;letter-spacing:.16em;text-transform:uppercase;color:#ff9a8a;margin:0 0 12px}
+h1{font:700 clamp(36px,5.4vw,62px)/1 Fraunces,serif;margin:0 0 16px;letter-spacing:-.02em}.lead{color:#b8d9d2;max-width:40ch;font-size:18px;margin:0 0 22px}
+.ct{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.bt{all:unset;box-sizing:border-box;cursor:pointer;padding:11px 20px;border-radius:999px;border:1.5px solid #6fb3aa;color:#eaf6f2;font-weight:700;min-height:44px;transition:background .2s,color .2s}
+.bt:hover{background:rgba(255,255,255,.1)}.bt[aria-pressed=true]{background:#ff6b57;border-color:#ff6b57;color:#1a0a07}.bt:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.tp{color:#b8d9d2;font-size:15px;margin:0}.tp b{color:#fff}
+.hint{color:#8fc0b8;font-size:14px;margin-top:8px}
+.sw{width:520px;height:440px;position:relative}
+.stage{position:absolute;inset:0;transform-origin:50% 50%}
+.pc{all:unset;box-sizing:border-box;position:absolute;left:50%;top:50%;width:300px;height:200px;margin:-100px 0 0 -150px;border-radius:14px;background:#fbf5e6;border:1px solid #e0d3b3;box-shadow:0 14px 30px -12px rgba(0,0,0,.6);cursor:pointer;overflow:hidden;transform-origin:50% 140%;transform:translate(var(--dx,0),var(--dy,0)) rotate(var(--r,0deg));transition:transform .52s cubic-bezier(.3,1.2,.5,1),box-shadow .3s;transition-delay:calc(var(--n)*40ms);color:#2b2418}
+.fan .pc{transform:translate(0,0) rotate(var(--f,0deg))}
+.fan .pc:hover,.fan .pc:focus-visible{transform:translate(0,-22px) rotate(var(--f,0deg));transition-delay:0s;box-shadow:0 24px 40px -14px rgba(0,0,0,.7)}
+.pc:focus-visible{outline:3px solid #ff6b57;outline-offset:3px}
+.pc svg.ar{position:absolute;left:0;top:0;width:100%;height:150px;display:block}
+.pc .cp{position:absolute;left:0;right:0;bottom:0;height:50px;padding:8px 16px;display:flex;justify-content:space-between;align-items:center;background:#fbf5e6;border-top:1px dashed #d9cba7}
+.pc .cp b{font:700 21px Fraunces,serif;letter-spacing:-.01em}.pc .cp i{font:italic 500 13px Karla;color:#7a6b4d}
+.pc .st{position:absolute;right:10px;top:10px;width:38px;height:46px;background:#fff7e0;border:2px dotted #d78b5a;display:grid;place-items:center;font:700 9px Karla;color:#c46a38;transform:rotate(4deg);padding:2px;text-align:center;line-height:1.1}
+.pc .pm{position:absolute;right:42px;top:6px;width:54px;height:54px;border-radius:50%;border:2px solid rgba(80,60,30,.45);display:grid;place-items:center;font:700 7px Karla;color:rgba(80,60,30,.6);transform:rotate(-12deg);letter-spacing:.06em;text-align:center}
+.pc.lift{animation:lift .5s cubic-bezier(.3,1.4,.5,1)}@keyframes lift{from{box-shadow:0 30px 50px -10px rgba(0,0,0,.7)}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:900px){.w{grid-template-columns:minmax(0,1fr);gap:20px;padding:36px 16px;min-height:0}.sw{width:100%;max-width:520px;margin:0 auto}}
+@media (max-width:600px){.sw{height:330px}.stage{inset:auto;left:50%;top:50%;width:520px;height:440px;margin:-220px 0 0 -260px;transform:scale(.68)}}
+@media (prefers-reduced-motion:reduce){.pc{transition:none!important;animation:none!important}}
+</style></head><body>
+<div class="w"><div><p class="eb">Wayfarer Postcards</p><h1>Five places, one pile.</h1><p class="lead">Hover the stack and it fans like a hand of cards. Pick one and it jumps to the top.</p>
+<div class="ct"><button class="bt" id="fn" type="button" aria-pressed="false">Fan out</button><button class="bt" id="sk" type="button">Stack</button></div><p class="tp" aria-hidden="true">Top card: <b id="tc">Heron Bay</b></p><p class="hint">Arrow keys move between cards when fanned.</p></div>
+<div class="sw"><div class="stage" id="stage" role="group" aria-label="Postcards"></div></div></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var D=[['Kestrel Point','Lighthouse at first light','#9ad2e6','#f4c36a','<path d="M120 150V70l12-30h12l12 30v80z" fill="#fff"/><path d="M126 70h36M128 100h32M126 130h36" stroke="#c4492f" stroke-width="10"/><rect x="124" y="30" width="28" height="14" fill="#333"/><path d="M0 130q70-40 140 0t160-10v30H0z" fill="#3f8aa3"/>'],
+['Lantern Cove','Harbour lights at dusk','#f2a98f','#2a3a6e','<path d="M0 120q60-24 120 0t180-6v36H0z" fill="#26325f"/><path d="M60 118l8-40h24l8 40z" fill="#7a4b2a"/><path d="M80 78V40M80 40l24 30" stroke="#f5e2b0" stroke-width="3" fill="none"/><circle cx="220" cy="50" r="22" fill="#ffd27a"/>'],
+['Saltmarsh','Reeds and a heron','#d8e6b4','#7fa05a','<path d="M20 150c4-60 6-80 4-100M44 150c2-50 4-70 2-90M70 150c-2-40-4-60-8-80M240 150c4-60 6-80 4-100M264 150c2-50 4-70 2-90" stroke="#5d7c3a" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="150" cy="104" rx="22" ry="12" fill="#e9eef2"/><path d="M168 98q22-24 30-2" stroke="#e9eef2" stroke-width="5" fill="none"/><path d="M140 114l-4 36M156 114l2 36" stroke="#8a6a3a" stroke-width="3"/>'],
+['Wren Valley','Hills in three greens','#f3e7c2','#8ec17a','<path d="M0 110Q70 40 140 100T300 70V150H0z" fill="#8ec17a"/><path d="M0 130Q90 80 170 120T300 110V150H0z" fill="#5da05a"/><path d="M0 146Q100 118 190 140T300 134V150H0z" fill="#3f7f48"/><circle cx="240" cy="40" r="18" fill="#fff3b0"/>'],
+['Heron Bay','Sunset over still water','#ff9f6b','#7a2f6a','<circle cx="150" cy="96" r="42" fill="#ffd27a"/><rect y="104" width="300" height="46" fill="#5b2a6e"/><path d="M100 112h100M120 124h60M110 136h80" stroke="#ffd27a" stroke-width="3" opacity=".7"/><path d="M40 70l10-6 10 6M60 56l8-5 8 5" stroke="#3a1a4a" stroke-width="3" fill="none"/>']];
+var order=[0,1,2,3,4],fanned=false,stage=$('#stage'),live=$('#live'),cards=[];
+var ROT=[-6,3,-2,5,-3],DX=[-4,3,-2,4,0],DY=[3,-2,2,-1,0];
+D.forEach(function(d,i){var c=document.createElement('button');c.type='button';c.className='pc';c.dataset.i=i;
+ c.innerHTML='<svg class="ar" viewBox="0 0 300 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="300" height="150" fill="'+d[2]+'"/><circle cx="60" cy="40" r="0" fill="none"/>'+d[4]+'</svg><span class="st" aria-hidden="true">WAY<br>FARER<br>1st</span><span class="pm" aria-hidden="true">PENNICK<br>BAY<br>'+(10+i*3)+' SEP</span><span class="cp"><b>'+d[0]+'</b><i>'+d[1]+'</i></span>';
+ c.addEventListener('click',function(){bring(i)});
+ c.addEventListener('keydown',function(e){var pos=order.indexOf(i),n=null;if(e.key==='ArrowRight')n=Math.min(4,pos+1);else if(e.key==='ArrowLeft')n=Math.max(0,pos-1);else if(e.key==='Home')n=0;else if(e.key==='End')n=4;if(n!==null){e.preventDefault();setFan(true);cards[order[n]].focus()}else if(e.key==='Escape'){setFan(false)}});
+ stage.appendChild(c);cards.push(c)});
+function layout(){order.forEach(function(ci,pos){var c=cards[ci];c.style.zIndex=pos+1;c.style.setProperty('--n',pos);c.style.setProperty('--r',ROT[pos]+'deg');c.style.setProperty('--dx',DX[pos]+'px');c.style.setProperty('--dy',DY[pos]+'px');c.style.setProperty('--f',((pos-2)*14)+'deg');c.setAttribute('aria-label',D[ci][0]+' postcard, position '+(5-pos)+' of 5'+(pos===4?', top card':''))});$('#tc').textContent=D[order[4]][0]}
+function setFan(v){fanned=v;stage.classList.toggle('fan',v)}
+function bring(i){var pos=order.indexOf(i);if(pos===order.length-1){return}
+ var before=cards.map(function(c){return c.getBoundingClientRect()});
+ order.splice(pos,1);order.push(i);
+ layout();
+ if(!reduce){cards.forEach(function(c,k){var a=before[k],b=c.getBoundingClientRect();var dx=a.left-b.left,dy=a.top-b.top;if(Math.abs(dx)>1||Math.abs(dy)>1){c.animate([{translate:dx+'px '+dy+'px'},{translate:'0 0'}],{duration:420,easing:'cubic-bezier(.3,1.2,.5,1)'})}});cards[i].classList.remove('lift');void cards[i].offsetWidth;cards[i].classList.add('lift')}
+ live.textContent='Top card: '+D[i][0]}
+var hov=false;
+if(matchMedia('(hover:hover)').matches){stage.addEventListener('mouseenter',function(){setFan(true);$('#fn').setAttribute('aria-pressed','true')});stage.addEventListener('mouseleave',function(){if(!pinned){setFan(false);$('#fn').setAttribute('aria-pressed','false')}})}
+var pinned=false;
+stage.addEventListener('focusin',function(){if(!fanned)setFan(true)});
+stage.addEventListener('focusout',function(e){if(!stage.contains(e.relatedTarget)&&!pinned)setFan(false)});
+stage.addEventListener('click',function(e){if(!matchMedia('(hover:hover)').matches&&!fanned){setFan(true);e.stopPropagation()}},true);
+$('#fn').addEventListener('click',function(){pinned=!pinned;setFan(pinned);this.setAttribute('aria-pressed',pinned)});
+$('#sk').addEventListener('click',function(){pinned=false;setFan(false);$('#fn').setAttribute('aria-pressed','false')});
+layout();
+if(!reduce)setTimeout(function(){if(!fanned)setFan(true);setTimeout(function(){if(!pinned&&!stage.matches(':hover')&&!stage.contains(document.activeElement))setFan(false)},2600)},400);
+})();
+</script></body></html>

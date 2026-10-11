@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3D Keycap Buttons — Buttons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+:root{--u:64px;--top:#d8d1be;--side:#b6ae96;--leg:#2a2a2a;--ac:#e0662f;--acs:#a8451a;--acl:#fff;--glow:transparent;--g2:transparent}
+body{margin:0;min-height:100vh;background:radial-gradient(600px 400px at 20% 0,rgba(90,100,150,.35),transparent 70%),linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px) 0 0/32px 32px,#14161c;color:#e8eaf2;font:400 15px/1.55 "Space Grotesk",system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #ffb020;outline-offset:3px}
+.w{max-width:1100px;margin:0 auto;padding:44px 20px 56px}
+.eb{font:700 13px "Space Grotesk";letter-spacing:.16em;text-transform:uppercase;color:#ffb020;margin:0 0 10px}
+h1{font:700 clamp(34px,5.6vw,60px)/1.02 "Space Grotesk";margin:0 0 10px;letter-spacing:-.025em}.lead{margin:0 0 22px;color:#a9afc4;font-size:17px;max-width:52ch}
+.rd{background:#0d0f13;border:1px solid #2d3140;border-radius:14px;padding:14px 18px;font:500 17px/1.5 "JetBrains Mono",monospace;min-height:84px;margin-bottom:14px;white-space:pre-wrap;overflow-wrap:anywhere;color:#e8eaf2}
+.rd .cr{display:inline-block;width:.6em;height:1.1em;background:#ffb020;vertical-align:-3px;animation:bl 1s steps(2) infinite}@keyframes bl{50%{opacity:0}}
+.ct{display:flex;justify-content:space-between;color:#8890aa;font:400 13px "JetBrains Mono",monospace;margin-bottom:14px}
+.pl{background:#1d2029;border:1px solid #2d3140;border-radius:24px;padding:calc(var(--u)*.4);box-shadow:inset 0 2px 8px rgba(0,0,0,.5),0 30px 60px -30px #000;display:grid;gap:calc(var(--u)*.16);justify-items:center;overflow:hidden}
+.r{display:flex;gap:calc(var(--u)*.12);justify-content:center;width:100%}
+.k{all:unset;box-sizing:border-box;position:relative;width:calc(var(--u)*var(--w,1));height:var(--u);flex:none;cursor:pointer;-webkit-tap-highlight-color:transparent;margin-bottom:calc(var(--u)*.12)}
+.k .sd{position:absolute;left:0;right:0;top:calc(var(--u)*.12);bottom:calc(var(--u)*-.12);border-radius:calc(var(--u)*.16);background:var(--s,var(--side));box-shadow:0 calc(var(--u)*.12) calc(var(--u)*.16) rgba(0,0,0,.55)}
+.k .tp{position:absolute;inset:0 calc(var(--u)*.05) calc(var(--u)*.04);border-radius:calc(var(--u)*.16);background:linear-gradient(160deg,color-mix(in srgb,var(--t,var(--top)) 100%,#fff 14%),var(--t,var(--top)));display:grid;place-items:center;font:700 calc(var(--u)*.34)/1 "Space Grotesk";color:var(--l,var(--leg));transform:translateY(calc(var(--u)*-.06));transition:transform .12s cubic-bezier(.3,1.6,.5,1),box-shadow .2s;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),inset 0 -2px 4px rgba(0,0,0,.12),0 0 calc(var(--u)*.4) var(--glow);text-shadow:0 0 calc(var(--u)*.2) var(--g2)}
+.k.dn .tp,.k:active .tp{transform:translateY(calc(var(--u)*.08));transition-duration:.06s}
+.k:focus-visible{outline:3px solid #ffb020;outline-offset:3px;border-radius:calc(var(--u)*.2)}
+.k.ac{--t:var(--ac);--s:var(--acs);--l:var(--acl)}
+.k small{font:600 calc(var(--u)*.2) "Space Grotesk";letter-spacing:.06em}
+.th{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.th fieldset{border:0;margin:0;padding:0;display:flex;gap:8px;align-items:center}.th legend{float:left;margin-right:10px;color:#a9afc4;padding:0}
+.th label{position:relative}.th input{position:absolute;opacity:0;width:1px;height:1px}.th span{display:block;padding:9px 16px;border-radius:999px;border:1.5px solid #3a3f55;color:#cfd3e6;font-weight:600;cursor:pointer;min-height:40px}.th input:checked+span{background:#e8eaf2;color:#14161c;border-color:#e8eaf2}.th input:focus-visible+span{outline:3px solid #ffb020;outline-offset:3px}
+.cl{all:unset;box-sizing:border-box;cursor:pointer;padding:9px 16px;border-radius:999px;border:1.5px solid #3a3f55;color:#cfd3e6;font-weight:600;margin-left:auto;min-height:40px}.cl:hover{border-color:#ffb020;color:#ffb020}.cl:focus-visible{outline:3px solid #ffb020;outline-offset:3px}
+[data-th=neon]{--top:#101216;--side:#06070a;--leg:#19e6ff;--ac:#1a0b17;--acs:#06070a;--acl:#ff3ea5;--glow:rgba(25,230,255,.35);--g2:rgba(25,230,255,.8)}
+[data-th=neon] .k.ac .tp{--glow:rgba(255,62,165,.5);--g2:rgba(255,62,165,.9)}
+[data-th=paper]{--top:#f3f3f0;--side:#cfcfc8;--leg:#23252b;--ac:#3a6df0;--acs:#2347b0;--acl:#fff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:900px){:root{--u:min(64px,calc((100vw - 92px)/11.6))}.pl{padding:calc(var(--u)*.3)}.rd{font-size:15px}}
+@media (prefers-reduced-motion:reduce){.k .tp{transition:none!important}.cr{animation:none!important}}
+</style></head><body data-th="retro">
+<div class="w"><p class="eb">Clackworks</p><h1>Keys with real weight.</h1><p class="lead">Click the keys or type on your own keyboard. Every cap sinks, springs back and writes into the readout.</p>
+<div class="rd" id="rd" role="log" aria-live="off" aria-label="Typed text"><span id="tx"></span><i class="cr" aria-hidden="true"></i></div>
+<div class="ct"><span id="cnt">Keys pressed: 0</span><span id="sh">Shift: off</span></div>
+<div class="pl" id="pl" role="group" aria-label="Keyboard"></div>
+<div class="th"><fieldset><legend>Keycaps</legend><label><input type="radio" name="th" value="retro" checked><span>Retro</span></label><label><input type="radio" name="th" value="neon"><span>Neon</span></label><label><input type="radio" name="th" value="paper"><span>Paper</span></label></fieldset><button class="cl" id="cl" type="button">Clear</button></div></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var rows=[[['Q'],['W'],['E'],['R'],['T'],['Y'],['U'],['I'],['O'],['P']],[['A'],['S'],['D'],['F'],['G'],['H'],['J'],['K'],['L'],['Enter',1.7,'ac','Enter']],[['Shift',1.7,'','Shift'],['Z'],['X'],['C'],['V'],['B'],['N'],['M'],[',',1,'',','],['.',1,'','.']],[['Space',7,'','space']]];
+var text='',count=0,caps=false,keys={};
+var pl=$('#pl');
+rows.forEach(function(r){var d=document.createElement('div');d.className='r';r.forEach(function(k){var b=document.createElement('button');b.type='button';b.className='k'+(k[2]?' '+k[2]:'');b.style.setProperty('--w',k[1]||1);var name=k[0],leg=k[3]||name;b.setAttribute('aria-label',name==='Space'?'Space':name);b.dataset.k=name;b.innerHTML='<span class="sd"></span><span class="tp" aria-hidden="true">'+((leg.length>1)?'<small>'+leg.toUpperCase()+'</small>':leg)+'</span>';d.appendChild(b);keys[name.toUpperCase()]=b;if(name===',')keys[',']=b;if(name==='.')keys['.']=b});pl.appendChild(d)});
+function render(){$('#tx').textContent=text;$('#cnt').textContent='Keys pressed: '+count;$('#sh').textContent='Shift: '+(caps?'on':'off');[].forEach.call(pl.querySelectorAll('.k'),function(b){var n=b.dataset.k;if(n.length===1&&/[A-Z]/.test(n)){b.querySelector('.tp').textContent=caps?n:n.toLowerCase()}})}
+function type(n,fromKey){count++;
+ if(n==='Space')text+=' ';else if(n==='Enter')text+='\n';else if(n==='Shift'){caps=!caps;render();return}else if(n==='BACKSPACE'){text=text.slice(0,-1)}else text+=(caps||/[,.]/.test(n))?n:n.toLowerCase();
+ if(text.length>140)text=text.slice(-140);render();var w=text.split(/\s+/).filter(Boolean);if(n==='Space'&&w.length)$('#live').textContent=w[w.length-1]}
+function press(b){b.classList.add('dn')}function rel(b){b.classList.remove('dn')}
+pl.addEventListener('pointerdown',function(e){var b=e.target.closest('.k');if(!b)return;press(b);b._ptr=1;b.setPointerCapture&&0;type(b.dataset.k)});
+['pointerup','pointerleave','pointercancel'].forEach(function(n){pl.addEventListener(n,function(e){var b=e.target.closest&&e.target.closest('.k');if(b&&!b._kb)rel(b)},true)});
+pl.addEventListener('keydown',function(e){var b=e.target.closest('.k');if(!b)return;if(e.key==='Enter'||e.key===' '){e.preventDefault();e.stopPropagation();if(e.repeat)return;b._kb=1;press(b);type(b.dataset.k)}});
+pl.addEventListener('keyup',function(e){var b=e.target.closest('.k');if(!b)return;if(e.key==='Enter'||e.key===' '){b._kb=0;rel(b)}});
+pl.addEventListener('click',function(e){e.preventDefault()});
+var held={};
+document.addEventListener('keydown',function(e){if(e.target.closest&&e.target.closest('.k'))return;if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)||e.ctrlKey||e.metaKey||e.altKey)return;if(e.repeat)return;
+ var k=e.key,n=null;if(k===' ')n='Space';else if(k==='Enter')n='Enter';else if(k==='Shift')n='Shift';else if(k==='Backspace')n='BACKSPACE';else if(/^[a-zA-Z,.]$/.test(k))n=k.toUpperCase();if(!n)return;
+ if(n==='BACKSPACE'){var en=keys.ENTER;en.classList.add('dn');setTimeout(function(){en.classList.remove('dn')},120);type(n);e.preventDefault();return}
+ var b=keys[n.toUpperCase()];if(!b)return;if(k===' '||k==='Enter')e.preventDefault();held[k]=b;press(b);type(n==='SHIFT'?'Shift':n)});
+document.addEventListener('keyup',function(e){var b=held[e.key];if(b){rel(b);delete held[e.key]}});
+document.querySelectorAll('[name=th]').forEach(function(r){r.addEventListener('change',function(){document.body.dataset.th=r.value})});
+$('#cl').addEventListener('click',function(){text='';count=0;render()});
+render();
+if(!reduce){var demo='hello keys',i=0,pressed=[];(function d(){if(i>=demo.length||document.activeElement&&document.activeElement.closest&&document.activeElement.closest('.k'))return;var ch=demo[i++],n=ch===' '?'Space':ch.toUpperCase(),b=keys[n.toUpperCase()];if(b){press(b);type(n);setTimeout(function(){rel(b)},110)}setTimeout(d,150)})()}
+})();
+</script></body></html>

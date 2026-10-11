@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Spinning Border Cards — Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+*{box-sizing:border-box}[hidden]{display:none!important}
+:root{--g1:#7c5cff;--g2:#19e6c9;--g3:#ff6bd6;--dur:4s;--bw:2px}
+body{margin:0;min-height:100vh;background:radial-gradient(800px 500px at 20% -5%,rgba(75,47,208,.5),transparent 70%),radial-gradient(700px 450px at 90% 5%,rgba(11,168,160,.35),transparent 70%),#08080f;color:#f1f2ff;font:400 16px/1.55 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.w{max-width:1120px;margin:0 auto;padding:52px 24px 72px}
+.eb{font:700 13px Sora;letter-spacing:.16em;text-transform:uppercase;color:var(--g2);margin:0 0 10px}
+h1{font:800 clamp(36px,5.8vw,66px)/1 Sora,sans-serif;margin:0 0 12px;letter-spacing:-.03em;max-width:14ch}.lead{margin:0 0 24px;color:#a5a8c8;font-size:18px;max-width:50ch}
+.cb{display:flex;gap:22px;align-items:center;flex-wrap:wrap;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:12px 18px;margin-bottom:26px}
+.cb fieldset{border:0;margin:0;padding:0;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.cb legend{float:left;margin-right:10px;font-weight:600;padding:0}
+.ch label{position:relative}.ch input{position:absolute;opacity:0;width:1px;height:1px}.ch span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1.5px solid #3a3d5e;font-weight:600;cursor:pointer;min-height:40px;transition:background .2s,border-color .2s}.ch span:before{content:"";width:14px;height:14px;border-radius:50%;background:conic-gradient(var(--x1),var(--x2),var(--x3),var(--x1))}
+.ch input:checked+span{background:#1e2038;border-color:#fff}.ch input:focus-visible+span{outline:3px solid #fff;outline-offset:3px}
+.rg{display:flex;gap:10px;align-items:center;font-weight:600}.rg output{font:600 13px Sora;min-width:44px;color:var(--g2)}input[type=range]{accent-color:var(--g1);width:130px;height:28px}
+.sw{display:flex;gap:10px;align-items:center;font-weight:600;cursor:pointer}.sw input{position:absolute;opacity:0;width:1px;height:1px}.sw i{width:44px;height:26px;border-radius:13px;background:#3a3d5e;position:relative;transition:background .2s;flex:none}.sw i:after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}.sw input:checked+i{background:var(--g1)}.sw input:checked+i:after{transform:translateX(18px)}.sw input:focus-visible+i{outline:3px solid #fff;outline-offset:3px}
+.g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.cd{position:relative;border:var(--bw) solid transparent;border-radius:22px;background:linear-gradient(#12131f,#12131f) padding-box,conic-gradient(from var(--a),var(--g1),var(--g2),var(--g3),var(--g1)) border-box;padding:24px;display:flex;flex-direction:column;gap:12px;animation:spin var(--dur) linear infinite;animation-play-state:paused;transition:transform .3s cubic-bezier(.3,1.3,.5,1);isolation:isolate;min-width:0}
+.cd:before{content:"";position:absolute;inset:-2px;border-radius:24px;background:conic-gradient(from var(--a),var(--g1),var(--g2),var(--g3),var(--g1));filter:blur(22px);opacity:.14;z-index:-1;transition:opacity .4s}
+.cd:hover,.cd:focus-within,.spin .cd{animation-play-state:running}.cd:hover:before,.cd:focus-within:before,.spin .cd:before{opacity:.5}
+.cd:hover,.cd:focus-within{transform:translateY(-4px)}
+@keyframes spin{to{--a:360deg}}
+.cd.big{grid-column:span 2}
+.ic{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,rgba(124,92,255,.25),rgba(25,230,201,.2));display:grid;place-items:center;transition:transform .3s cubic-bezier(.3,1.5,.5,1)}.cd:hover .ic,.cd:focus-within .ic{transform:rotate(6deg) scale(1.06)}
+.ic svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cd h2{font:700 22px Sora;margin:6px 0 0;letter-spacing:-.01em}.cd p{margin:0;color:#a5a8c8}
+.pr{font:700 15px Sora;color:#fff}.pr b{color:var(--g2)}
+.cd a{margin-top:auto;color:#fff;text-decoration:none;font-weight:600;display:inline-flex;gap:6px;align-items:center;padding:6px 0;min-height:36px;align-self:flex-start}.cd a:hover{text-decoration:underline;text-underline-offset:4px}
+.nf{font-size:14px;color:#ffd27a;margin:-10px 0 18px}
+.nospy .cd{animation:none;background:linear-gradient(#12131f,#12131f) padding-box,conic-gradient(var(--g1),var(--g2),var(--g3),var(--g1)) border-box}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:980px){.g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.g{grid-template-columns:minmax(0,1fr)}.cd.big{grid-column:auto}.w{padding:32px 16px 48px}}
+@media (prefers-reduced-motion:reduce){.cd{animation:none!important;--a:40deg}.sw,.rg.sp{display:none}}
+</style></head><body>
+<div class="w"><p class="eb">Prismcraft</p><h1>Borders that never sit still.</h1><p class="lead">Hover any card, or tab to it, and the colour starts to orbit the edge. Nothing moves until you ask.</p>
+<p class="nf" id="nf" hidden>Your browser cannot animate registered properties, so the borders stay still.</p>
+<div class="cb" role="group" aria-label="Controls"><fieldset class="ch"><legend>Palette</legend>
+<label><input type="radio" name="pa" value="aurora" checked><span style="--x1:#7c5cff;--x2:#19e6c9;--x3:#ff6bd6">Aurora</span></label><label><input type="radio" name="pa" value="ember"><span style="--x1:#ff8a3d;--x2:#ff3d6e;--x3:#ffd23d">Ember</span></label><label><input type="radio" name="pa" value="glacier"><span style="--x1:#6ee7ff;--x2:#7aa2ff;--x3:#e8f7ff">Glacier</span></label></fieldset>
+<div class="rg sp"><label for="sp">Speed</label><input id="sp" type="range" min="1.5" max="8" step=".5" value="4"><output id="spo" for="sp">4s</output></div>
+<div class="rg"><label for="bw">Thickness</label><input id="bw" type="range" min="1" max="5" step="1" value="2"><output id="bwo" for="bw">2px</output></div>
+<label class="sw"><input type="checkbox" id="as"><i></i>Always spin</label></div>
+<div class="g" id="g"></div></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var root=document.documentElement;
+var PA={aurora:['#7c5cff','#19e6c9','#ff6bd6'],ember:['#ff8a3d','#ff3d6e','#ffd23d'],glacier:['#6ee7ff','#7aa2ff','#e8f7ff']};
+var C=[['Colour systems','Palettes with roles, ratios and contrast baked in, exported as tokens.','<circle cx="9" cy="10" r="5"/><circle cx="15" cy="10" r="5"/><circle cx="12" cy="15" r="5"/>',1],['Motion library','Forty easing curves and timing recipes, tested at 60 frames.','<path d="M3 17c4 0 4-10 9-10s5 10 9 10"/>'],['Icon sets','Nine hundred icons in three weights, drawn on a 24px grid.','<rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><circle cx="16.5" cy="16.5" r="3.5"/>'],['Type pairing','Hand-picked pairs with matched scales and fluid sizing.','<path d="M4 19L10 5l6 14M6.5 14h7M16 12h4M18 12v7"/>'],['Layout grids','Responsive grids with named areas and sensible gutters.','<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 9v12"/>'],['Handoff kit','Specs, tokens and notes your developers will thank you for.','<path d="M5 12h14M13 6l6 6-6 6"/>']];
+$('#g').innerHTML=C.map(function(c,i){return '<article class="cd'+(c[3]?' big':'')+'" tabindex="-1"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true">'+c[2]+'</svg></div><h2>'+c[0]+'</h2><p>'+c[1]+'</p>'+(c[3]?'<p class="pr">From <b>£19</b> / month</p>':'')+'<a href="#">Explore '+c[0].toLowerCase()+' <span aria-hidden="true">→</span></a></article>'}).join('');
+document.querySelectorAll('[name=pa]').forEach(function(r){r.addEventListener('change',function(){var p=PA[r.value];root.style.setProperty('--g1',p[0]);root.style.setProperty('--g2',p[1]);root.style.setProperty('--g3',p[2])})});
+$('#sp').addEventListener('input',function(){root.style.setProperty('--dur',this.value+'s');$('#spo').textContent=this.value+'s'});
+$('#bw').addEventListener('input',function(){root.style.setProperty('--bw',this.value+'px');$('#bwo').textContent=this.value+'px'});
+$('#as').addEventListener('change',function(){$('#g').classList.toggle('spin',this.checked)});
+var ok=true;try{ok=window.CSS&&CSS.supports&&CSS.supports('(--a: 0deg)')&&('registerProperty' in CSS||CSS.supports('animation-timeline:auto')||true)&&CSS.supports('background','conic-gradient(from 0deg,red,blue)')}catch(e){ok=false}
+if(!(window.CSS&&CSS.registerProperty)){ok=false}
+if(!ok){document.body.classList.add('nospy');$('#nf').hidden=false}
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches&&ok){$('#as').checked=true;$('#g').classList.add('spin');setTimeout(function(){if($('#as').checked&&!window._u){}},0)}
+else if(matchMedia('(prefers-reduced-motion:reduce)').matches){}
+})();
+</script></body></html>

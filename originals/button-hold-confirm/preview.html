@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hold To Confirm Button — Buttons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.4px) 0 0/26px 26px,#0e1116;color:#e9edf3;font:500 15px/1.55 Manrope,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #fff;outline-offset:3px;box-shadow:0 0 0 6px #0e1116}
+.w{max-width:1100px;margin:0 auto;padding:48px 24px 64px}
+.eb{font:800 13px Manrope;letter-spacing:.16em;text-transform:uppercase;color:#ff4d5e;margin:0 0 10px}
+h1{font:800 clamp(34px,5.4vw,58px)/1.02 Manrope;margin:0 0 10px;letter-spacing:-.03em;max-width:18ch}.lead{margin:0 0 22px;color:#9aa6b6;font-size:17px;max-width:52ch}
+.cb{display:flex;gap:24px;align-items:center;flex-wrap:wrap;background:#171c24;border:1px solid #2a313c;border-radius:16px;padding:12px 18px;margin-bottom:18px}
+.rg{display:flex;gap:10px;align-items:center;font-weight:700}.rg output{font:500 13px "IBM Plex Mono",monospace;min-width:62px;color:#ffb020}
+input[type=range]{accent-color:#ff4d5e;width:150px;height:28px}
+.sw{display:flex;gap:10px;align-items:center;font-weight:700;cursor:pointer}.sw input{position:absolute;opacity:0;width:1px;height:1px}.sw i{width:44px;height:26px;border-radius:13px;background:#3a4452;position:relative;transition:background .2s;flex:none}.sw i:after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}.sw input:checked+i{background:#2dd4a6}.sw input:checked+i:after{transform:translateX(18px)}.sw input:focus-visible+i{outline:3px solid #fff;outline-offset:3px}
+.g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.pn{background:#171c24;border:1px solid #2a313c;border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.pn h2{font:800 19px Manrope;margin:0}.pn p{margin:0;color:#9aa6b6;font-size:14px;flex:1}
+.hb{all:unset;box-sizing:border-box;position:relative;overflow:hidden;isolation:isolate;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;height:72px;width:100%;max-width:360px;padding:0 16px 0 22px;border-radius:18px;background:#232a35;border:1.5px solid var(--c);color:#fff;touch-action:none;user-select:none;-webkit-user-select:none;transition:transform .15s,box-shadow .2s}
+.hb:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.hb .fl{position:absolute;left:0;top:0;bottom:0;width:100%;background:var(--c);opacity:.28;transform:scaleX(0);transform-origin:left;z-index:-1}
+.hb .tx{display:grid;text-align:left;min-width:0}.hb .tx b{font:800 17px Manrope;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hb .tx small{font:500 12.5px "IBM Plex Mono",monospace;color:#b7c1ce}
+.hb svg.rn{width:44px;height:44px;flex:none;transform:rotate(-90deg)}.hb .tr{fill:none;stroke:rgba(255,255,255,.16);stroke-width:4}.hb .pg{fill:none;stroke:var(--c);stroke-width:4;stroke-linecap:round;stroke-dasharray:113.1;stroke-dashoffset:113.1}
+.hb .ic{position:absolute;right:23px;top:50%;width:22px;height:22px;margin-top:-11px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.hb.on{transform:scale(.98);box-shadow:0 0 calc(10px + 34px*var(--p,0)) rgba(255,77,94,calc(.15 + .5*var(--p,0)))}
+.hb.fire{animation:fl .5s}@keyframes fl{0%{background:var(--c)}100%{background:#232a35}}
+.hb.done{border-color:#2dd4a6}.hb.done .pg{stroke:#2dd4a6}
+.sg{display:flex;gap:6px;align-items:center;color:#9aa6b6;font:500 12.5px "IBM Plex Mono",monospace}
+.lg{background:#171c24;border:1px solid #2a313c;border-radius:20px;padding:18px 22px}
+.lg h2{display:flex;justify-content:space-between;align-items:center;font:800 17px Manrope;margin:0 0 10px}
+.lg button{all:unset;cursor:pointer;color:#9aa6b6;font:600 13px Manrope;text-decoration:underline;text-underline-offset:3px;padding:6px 4px}.lg button:focus-visible{outline:3px solid #fff}
+.lg ol{list-style:none;margin:0;padding:0;font:400 13px "IBM Plex Mono",monospace;display:grid;gap:6px;max-height:140px;overflow:auto}.lg li{display:flex;gap:12px}.lg time{color:#6f7c8d}.lg .ok{color:#2dd4a6}.lg .no{color:#ffb020}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,16px);background:#232a35;border:1px solid #3a4452;color:#fff;padding:10px 12px 10px 20px;border-radius:999px;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:30;display:flex;gap:14px;align-items:center}.toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}.toast button{all:unset;cursor:pointer;color:#2dd4a6;font-weight:800;padding:6px 12px;border-radius:999px}.toast button:hover{background:rgba(45,212,166,.15)}.toast button:focus-visible{outline:3px solid #fff}
+dialog{border:1px solid #3a4452;background:#171c24;color:#e9edf3;border-radius:20px;padding:26px;max-width:min(420px,92vw)}dialog::backdrop{background:rgba(0,0,0,.65)}
+dialog h2{margin:0 0 8px;font:800 20px Manrope}dialog p{margin:0 0 20px;color:#9aa6b6}.da{display:flex;gap:10px;justify-content:flex-end}.da button{all:unset;cursor:pointer;padding:11px 20px;border-radius:12px;font-weight:800;border:1.5px solid #4a5666;min-height:44px;box-sizing:border-box}.da .cf{background:#ff4d5e;border-color:#ff4d5e;color:#1a0306}.da button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:860px){.g{grid-template-columns:minmax(0,1fr)}.w{padding:32px 16px 48px}}
+@media (prefers-reduced-motion:reduce){.hb,.hb.on{transition:none;transform:none;box-shadow:none}.hb.fire{animation:none}}
+</style></head><body>
+<div class="w"><p class="eb">Bunkerline</p><h1>Some buttons should make you mean it.</h1><p class="lead">Press and hold to confirm an action you cannot easily undo. Let go early and nothing happens.</p>
+<div class="cb" role="group" aria-label="Controls"><div class="rg"><label for="ht">Hold time</label><input id="ht" type="range" min="500" max="2500" step="100" value="1200"><output id="hto" for="ht">1.2 s</output></div><label class="sw"><input type="checkbox" id="alt"><i></i>Use click and confirm instead of hold</label></div>
+<div class="g" id="g">
+<section class="pn" aria-labelledby="t1"><h2 id="t1">Delete project</h2><p>Permanently removes “atlas-api”, its 14 deployments and all environment variables.</p><button class="hb" id="h1" style="--c:#ff4d5e" data-name="Delete project" data-done="atlas-api deleted" type="button"></button></section>
+<section class="pn" aria-labelledby="t2"><h2 id="t2">Publish to production</h2><p>Sends the staged build of “harbour-site” to the live domain for all visitors.</p><button class="hb" id="h2" style="--c:#ffb020" data-name="Publish site" data-done="harbour-site published" type="button"></button></section>
+<section class="pn" aria-labelledby="t3"><h2 id="t3">Reset all settings</h2><p>Restores every team preference to its default. Members and billing are not touched.</p><button class="hb" id="h3" style="--c:#2dd4a6" data-name="Reset settings" data-done="Settings reset" type="button"></button></section>
+</div>
+<section class="lg" aria-labelledby="lh"><h2 id="lh">Activity <button type="button" id="cl">Clear log</button></h2><ol id="ol" aria-live="off"></ol></section></div>
+<dialog id="dg" aria-labelledby="dt"><h2 id="dt">Are you sure?</h2><p id="dp"></p><div class="da"><button type="button" id="dc" autofocus>Cancel</button><button type="button" class="cf" id="dk">Confirm</button></div></dialog>
+<div class="toast" id="toast" role="status"><span id="tt"></span><button type="button" id="un">Undo</button></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var ICON={h1:'<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/>',h2:'<path d="M12 3c3 3 4 7 3 12H9c-1-5 0-9 3-12zM9 15l-4 3 1-5M15 15l4 3-1-5M12 17v4"/>',h3:'<path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5M18 3v4h-4M6 21v-4h4"/>'};
+var dur=1200,alt=false,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,live=$('#live');
+function hint(){return alt?'Click to review':'Hold for '+(dur/1000).toFixed(1)+' s'}
+var hbs=['h1','h2','h3'].map(function(id){var b=$('#'+id);b.innerHTML='<span class="fl"></span><span class="tx"><b>'+b.dataset.name+'</b><small></small></span><svg class="rn" viewBox="0 0 44 44" aria-hidden="true"><circle class="tr" cx="22" cy="22" r="18"/><circle class="pg" cx="22" cy="22" r="18"/></svg><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">'+ICON[id]+'</svg>';return {b:b,fl:b.querySelector('.fl'),pg:b.querySelector('.pg'),sm:b.querySelector('small'),lb:b.querySelector('b'),p:0,raf:0,t0:0,holding:false,done:false,last:0}});
+function setHints(){hbs.forEach(function(h){if(!h.holding&&!h.done)h.sm.textContent=hint()})}setHints();
+function draw(h,p){h.p=p;h.b.style.setProperty('--p',p);h.pg.style.strokeDashoffset=113.1*(1-p);h.fl.style.transform='scaleX('+p+')'}
+function log(txt,c){var li=document.createElement('li');var d=new Date(),f=function(x){return('0'+x).slice(-2)};li.innerHTML='<time>'+f(d.getHours())+':'+f(d.getMinutes())+':'+f(d.getSeconds())+'</time><span class="'+c+'">'+txt+'</span>';$('#ol').insertBefore(li,$('#ol').firstChild)}
+function start(h){if(h.holding||h.done||alt)return;h.holding=true;h.t0=performance.now();h.last=0;h.b.classList.add('on');h.lb.textContent='Keep holding…';cancelAnimationFrame(h.raf);
+ (function f(t){if(!h.holding)return;var p=Math.min(1,(t-h.t0)/dur);draw(h,p);var q=Math.floor(p*4);if(q>h.last&&p<1){h.last=q;live.textContent='Hold to confirm, '+(q*25)+' percent'}if(p>=1)finish(h);else h.raf=requestAnimationFrame(f)})(h.t0)}
+function cancel(h){if(!h.holding)return;h.holding=false;cancelAnimationFrame(h.raf);var p=h.p;h.b.classList.remove('on');h.lb.textContent=h.b.dataset.name;log('Cancelled early at '+Math.round(p*100)+'% — '+h.b.dataset.name,'no');live.textContent='Cancelled';
+ var t0=performance.now(),from=p,d=reduce?1:250;(function f(t){var k=Math.min(1,(t-t0)/d);draw(h,from*(1-k));if(k<1)requestAnimationFrame(f)})(t0)}
+function finish(h){h.holding=false;h.done=true;h.b.classList.remove('on');h.b.classList.add('fire','done');h.lb.textContent='Done';h.sm.textContent=h.b.dataset.done;log(h.b.dataset.done,'ok');live.textContent=h.b.dataset.done;toast(h);setTimeout(function(){h.b.classList.remove('fire')},600);setTimeout(function(){reset(h)},3200)}
+function reset(h){h.done=false;h.b.classList.remove('done');h.lb.textContent=h.b.dataset.name;draw(h,0);setHints()}
+var tm,cur=null;function toast(h){cur=h;$('#tt').textContent=h.b.dataset.done+'.';$('#toast').classList.add('on');clearTimeout(tm);tm=setTimeout(function(){$('#toast').classList.remove('on')},4000)}
+$('#un').addEventListener('click',function(){if(cur){reset(cur);log('Undone — '+cur.b.dataset.done,'no');live.textContent='Undone'}$('#toast').classList.remove('on')});
+hbs.forEach(function(h){var b=h.b;
+ b.addEventListener('pointerdown',function(e){if(e.button>0)return;if(alt)return;e.preventDefault();b.focus({preventScroll:true});start(h)});
+ ['pointerup','pointerleave','pointercancel'].forEach(function(n){b.addEventListener(n,function(){if(h.holding)cancel(h)})});
+ b.addEventListener('keydown',function(e){if((e.key===' '||e.key==='Enter')&&!alt){e.preventDefault();if(!e.repeat)start(h)}});
+ b.addEventListener('keyup',function(e){if((e.key===' '||e.key==='Enter')&&h.holding)cancel(h)});
+ b.addEventListener('blur',function(){if(h.holding)cancel(h)});
+ b.addEventListener('click',function(e){if(alt&&!h.done){var dg=$('#dg');$('#dp').textContent='This will do the following: '+h.b.dataset.name+'.';dg._h=h;dg.showModal()}});
+ b.addEventListener('contextmenu',function(e){e.preventDefault()})});
+$('#dc').addEventListener('click',function(){$('#dg').close()});
+$('#dk').addEventListener('click',function(){var h=$('#dg')._h;$('#dg').close();if(h)finish(h)});
+$('#ht').addEventListener('input',function(){dur=+this.value;$('#hto').textContent=(dur/1000).toFixed(1)+' s';setHints()});
+$('#alt').addEventListener('change',function(){alt=this.checked;hbs.forEach(function(h){if(h.holding)cancel(h)});setHints();hbs.forEach(function(h){if(!h.done)h.sm.textContent=hint()})});
+$('#cl').addEventListener('click',function(){$('#ol').innerHTML=''});
+if(!reduce)setTimeout(function(){var h=hbs[0];if(h.holding||h.done)return;h.t0=performance.now();h.holding=true;h.b.classList.add('on');h.lb.textContent='Keep holding…';var D=2200;(function f(t){if(!h.holding)return;var p=Math.min(.62,(t-h.t0)/D);draw(h,p);if(p<.62)requestAnimationFrame(f)})(h.t0);setTimeout(function(){if(h.holding&&h.p>.5){h.holding=false;h.b.classList.remove('on');h.lb.textContent=h.b.dataset.name;draw(h,0)}},3200)},300);
+})();
+</script></body></html>

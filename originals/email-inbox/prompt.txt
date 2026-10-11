@@ -1,0 +1,11 @@
+Canvas & base: A calm productivity inbox on #f6f7f9 with white panes (1px #e3e6ec dividers), ink #1c2230, secondary #667087, accent blue #2f6bff, unread weight 700, starred gold #f2b01e. Invented client "Postwise" and invented senders and companies only.
+
+Typography: "DM Sans" (400, 500, 700) at 14px for everything, subject lines 15px, sender names 600. Message body 15px/1.65. Timestamps tabular-nums in secondary colour.
+
+Layout: Three panes in a 100svh app shell. Left rail (220px): Compose button, folders (Inbox with unread count, Starred, Sent, Drafts, Archive, Trash) and two labels with colour dots. Middle (360px): search field, a toolbar with select-all checkbox plus bulk actions (Archive, Delete, Mark read) that appear when rows are checked, and the message list: checkbox, star, sender, subject, preview, time, unread dot. Right: the reading pane with subject, sender avatar and address, date, action buttons (Reply, Archive, Delete, Mark unread), the body, and an inline reply box that expands.
+
+Interaction: Clicking a row opens it and marks it read. Folders filter the list; search filters by sender, subject and body. Archive and Delete move the message and show a toast with Undo for 5 seconds. Star toggles. Bulk actions apply to checked rows. Reply opens a textarea with Send, which adds a message to Sent and shows a toast. Keyboard: j and k move selection, Enter opens, e archives, # deletes, s stars, r focuses reply, / focuses search, u marks unread, Esc closes the reply or clears search. The list is a listbox with aria-activedescendant. Seed 14 invented messages.
+
+Responsive: Below 900px the left rail becomes a slide-over menu; below 700px the list and reading pane are separate screens with a Back button. No horizontal overflow at 390px.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images (avatars are coloured initials). Add [hidden]{display:none!important}. Escape all rendered text, respect prefers-reduced-motion, visible focus, invented names only.

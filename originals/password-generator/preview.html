@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Password Generator — Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&family=Sora:wght@500;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#0f1419;--pn:#171d25;--bd:#28313d;--ink:#e6edf3;--mut:#8b98a8;--ac:#3ddc97;--wa:#f5b942;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(900px 400px at 50% -10%,rgba(61,220,151,.12),transparent),var(--bg);color:var(--ink);font:500 15px/1.5 'Sora',system-ui,sans-serif;padding:32px 16px;min-height:100svh}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.app{max-width:720px;margin:0 auto}
+.brand{font:700 20px 'Sora',sans-serif;display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.brand i{width:24px;height:24px;border-radius:7px;background:linear-gradient(135deg,var(--ac),#1fa7d4)}
+.pn{background:var(--pn);border:1px solid var(--bd);border-radius:16px;padding:22px}
+.pw{display:flex;gap:10px;align-items:center;background:#0b1015;border:1px solid var(--bd);border-radius:12px;padding:14px 14px 14px 18px}
+#pw{flex:1;min-width:0;font:500 clamp(22px,4vw,34px)/1.35 'Fira Mono',monospace;letter-spacing:.04em;overflow-wrap:anywhere;word-break:break-all;min-height:46px;display:flex;align-items:center}
+#pw span{white-space:pre-wrap}
+.d{color:var(--ac)}.s{color:var(--wa)}
+.ib{width:46px;height:46px;border-radius:10px;border:1px solid var(--bd);background:#1c242e;color:var(--ink);cursor:pointer;font-size:18px;flex:none;transition:border-color .2s,transform .3s}
+.ib:hover{border-color:var(--ac)}
+#rg:hover{transform:rotate(180deg)}
+.mt{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:16px 0 6px}
+.mt i{height:6px;border-radius:3px;background:#28313d;transition:background .3s}
+.sl{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--mut)}
+.sl b{color:var(--ink)}
+hr{border:0;border-top:1px solid var(--bd);margin:20px 0}
+.lab{display:block;color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.seg{display:inline-flex;background:#0b1015;border:1px solid var(--bd);border-radius:10px;padding:3px;margin-bottom:18px}
+.seg button{background:none;border:0;color:var(--mut);padding:8px 18px;border-radius:8px;cursor:pointer;font:600 14px 'Sora',sans-serif;min-height:40px}
+.seg button[aria-pressed=true]{background:#232d39;color:var(--ink)}
+.rg{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.rg input[type=range]{flex:1;min-width:0;accent-color:var(--ac);height:44px}
+.rg output{font:500 22px 'Fira Mono',monospace;min-width:44px;text-align:right;font-variant-numeric:tabular-nums}
+.sw{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.t{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#0b1015;border:1px solid var(--bd);border-radius:10px;padding:10px 14px;min-height:48px;cursor:pointer}
+.t input{position:absolute;opacity:0;pointer-events:none}
+.t .k{width:38px;height:22px;border-radius:99px;background:#2b3542;position:relative;flex:none;transition:background .2s}
+.t .k:after{content:"";position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .2s}
+.t input:checked+.k{background:var(--ac)}
+.t input:checked+.k:after{transform:translateX(16px)}
+.t input:focus-visible+.k{outline:3px solid var(--ac);outline-offset:2px}
+.t.dis{opacity:.55;cursor:not-allowed}
+.ck{display:flex;gap:10px;align-items:center;margin-top:12px;cursor:pointer;min-height:36px}
+.ck input{width:18px;height:18px;accent-color:var(--ac)}
+select{background:#0b1015;border:1px solid var(--bd);color:var(--ink);border-radius:10px;padding:0 12px;min-height:44px;font:500 14px 'Sora',sans-serif}
+h2{font:700 14px 'Sora',sans-serif;margin:24px 0 10px;color:var(--mut);text-transform:uppercase;letter-spacing:.1em}
+.hs{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.hs li{display:flex;align-items:center;gap:10px;background:#0b1015;border:1px solid var(--bd);border-radius:10px;padding:6px 6px 6px 14px}
+.hs code{flex:1;min-width:0;font:400 15px 'Fira Mono',monospace;overflow-wrap:anywhere}
+.hs button{background:none;border:1px solid var(--bd);color:var(--mut);border-radius:8px;padding:0 12px;min-height:38px;cursor:pointer;font:600 12px 'Sora',sans-serif}
+.hs button:hover{color:var(--ink);border-color:var(--ac)}
+.foot{margin:18px 0 0;color:var(--mut);font-size:13px;text-align:center}
+.live{position:absolute;left:-9999px}
+@media(max-width:640px){.sw{grid-template-columns:minmax(0,1fr)}.pn{padding:16px}.pw{padding:10px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="app"><div class="brand"><i></i>Vaultsmith</div>
+<main class="pn">
+<div class="pw"><div id="pw" aria-label="Generated password"></div><button class="ib" id="cp" type="button" aria-label="Copy password">⧉</button><button class="ib" id="rg" type="button" aria-label="Generate a new password">↻</button></div>
+<div class="mt" id="mt"><i></i><i></i><i></i><i></i></div><div class="sl"><span id="sl"></span><span id="en"></span></div>
+<hr>
+<div class="seg" role="group" aria-label="Mode"><button type="button" data-m="r" aria-pressed="true">Random</button><button type="button" data-m="p" aria-pressed="false">Passphrase</button></div>
+<div id="rm">
+<span class="lab" id="ll">Length</span><div class="rg"><input type="range" id="len" min="8" max="64" value="20" aria-labelledby="ll"><output id="lo" for="len">20</output></div>
+<div class="sw" id="sw"></div>
+<label class="ck"><input type="checkbox" id="am"> Avoid look-alikes (0 O l 1 I)</label>
+<label class="ck"><input type="checkbox" id="sl2" checked> Start with a letter</label></div>
+<div id="pm" hidden>
+<span class="lab" id="lw">Words</span><div class="rg"><input type="range" id="wc" min="3" max="8" value="4" aria-labelledby="lw"><output id="wo" for="wc">4</output></div>
+<label class="lab" for="sp">Separator</label><select id="sp"><option value="-">Hyphen (-)</option><option value=".">Dot (.)</option><option value=" ">Space</option><option value="_">Underscore (_)</option></select>
+<label class="ck"><input type="checkbox" id="cap" checked> Capitalise words</label><label class="ck"><input type="checkbox" id="nu"> Add a number</label></div>
+<h2>Recent</h2><ul class="hs" id="hs"></ul>
+<p class="foot">Generated locally in your browser. Nothing is sent or stored.</p>
+</main><div class="live" id="lv" aria-live="polite"></div></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var SETS=[['lo','Lowercase','abcdefghijklmnopqrstuvwxyz',1],['up','Uppercase','ABCDEFGHIJKLMNOPQRSTUVWXYZ',1],['nu','Numbers','0123456789',1],['sy','Symbols','!@#$%^&*()-_=+[]{};:,.?/',1]];
+var WORDS='able acid aloe amber anchor apple arrow atlas badge basil beach birch bison blaze bloom brick brook cabin cedar cider cliff cloud clover comet coral crane creek crest daisy delta denim dune eagle ember fable falcon fern field finch flint forge frost garnet glade grove harbor hazel heron hollow indigo iris ivory jade jolly kettle lagoon lantern lemon lilac linen lunar maple marble meadow mint moss nectar oak olive onyx opal orchid otter paddle pearl pebble pine plum pond quartz quill raven reef ridge river robin saffron sage sand shore silver slate spruce stone summit swift thistle thyme tulip valley velvet violet walnut willow wren yarrow zephyr'.split(' ');
+var mode='r',hist=[],cur='';
+function rnd(n){var m=Math.floor(4294967296/n)*n,a=new Uint32Array(1);do{crypto.getRandomValues(a)}while(a[0]>=m);return a[0]%n}
+function pick(s){return s[rnd(s.length)]}
+function sw(){$('#sw').innerHTML=SETS.map(function(s,i){return '<label class="t" data-i="'+i+'"><span>'+s[1]+'</span><input type="checkbox" '+(s[3]?'checked':'')+' data-i="'+i+'" aria-label="'+s[1]+'"><span class="k"></span></label>'}).join('');lock()}
+function lock(){var on=SETS.filter(function(s){return s[3]}).length;document.querySelectorAll('#sw .t').forEach(function(l,i){var last=on===1&&SETS[i][3];l.classList.toggle('dis',last);l.querySelector('input').disabled=last;l.title=last?'At least one character type must stay on.':''})}
+function pool(){var am=$('#am').checked,p='';SETS.forEach(function(s){if(s[3])p+=s[2]});if(am)p=p.replace(/[0Ol1I]/g,'');return p}
+function gen(){var out,bits;
+ if(mode==='r'){var L=+$('#len').value,am=$('#am').checked,sets=SETS.filter(function(s){return s[3]}).map(function(s){return am?s[2].replace(/[0Ol1I]/g,''):s[2]}).filter(Boolean),p=pool(),a=[];
+  sets.forEach(function(s){a.push(pick(s))});while(a.length<L)a.push(pick(p));
+  for(var i=a.length-1;i>0;i--){var j=rnd(i+1),t=a[i];a[i]=a[j];a[j]=t}
+  if($('#sl2').checked&&!/[A-Za-z]/.test(a[0])){var k=a.findIndex(function(c){return /[A-Za-z]/.test(c)});if(k>0){var t2=a[0];a[0]=a[k];a[k]=t2}}
+  out=a.slice(0,L).join('');bits=L*Math.log2(p.length||1)}
+ else{var n=+$('#wc').value,w=[];for(var q=0;q<n;q++){var x=pick(WORDS);w.push($('#cap').checked?x[0].toUpperCase()+x.slice(1):x)}
+  if($('#nu').checked)w.push(String(rnd(90)+10));out=w.join($('#sp').value);bits=n*Math.log2(WORDS.length)+($('#nu').checked?Math.log2(90):0)}
+ return[out,bits]}
+function crack(b){var g=Math.pow(2,b)/2/1e10;if(g<1)return 'instantly';var u=[['seconds',60],['minutes',60],['hours',24],['days',365],['years',1000],['thousand years',1000],['million years',1000],['billion years',1e9]];var v=g;for(var i=0;i<u.length;i++){if(v<u[i][1]||i===u.length-1)return v>=1e6&&i===u.length-1?'longer than the age of the universe':'about '+Math.round(v)+' '+u[i][0];v/=u[i][1]}}
+function esc(c){return c==='<'?'&lt;':c==='&'?'&amp;':c}
+function paint(res){cur=res[0];
+ $('#pw').innerHTML='<span>'+cur.split('').map(function(c){return /\d/.test(c)?'<b class="d" style="font-weight:500">'+c+'</b>':/[^A-Za-z0-9]/.test(c)?'<b class="s" style="font-weight:500">'+esc(c)+'</b>':esc(c)}).join('')+'</span>';
+ var b=res[1],lv=b<40?0:b<60?1:b<80?2:3,lab=['Weak','Fair','Strong','Excellent'][lv],col=['#ff6b6b','#f5b942','#9bdc5a','#3ddc97'][lv];
+ $('#mt').querySelectorAll('i').forEach(function(i,k){i.style.background=k<=lv?col:''});
+ $('#sl').innerHTML='Strength: <b style="color:'+col+'">'+lab+'</b> · cracking would take '+crack(b);$('#en').textContent=Math.round(b)+' bits of entropy'}
+function make(save){if(save&&cur){hist.unshift(cur);hist=hist.slice(0,5);rh()}paint(gen())}
+function rh(){$('#hs').innerHTML=hist.length?hist.map(function(h,i){return '<li><code data-i="'+i+'" data-m="1">'+'•'.repeat(Math.min(h.length,28))+'</code><button type="button" data-r="'+i+'" aria-pressed="false">Reveal</button><button type="button" data-c="'+i+'">Copy</button></li>'}).join(''):'<li style="color:var(--mut);padding:10px 14px;display:block">Passwords you replace show up here, masked.</li>'}
+function copy(t,btn){try{navigator.clipboard.writeText(t).catch(function(){})}catch(e){}$('#lv').textContent='Copied to clipboard';if(btn){var o=btn.textContent;btn.textContent='✓';setTimeout(function(){btn.textContent=o},1400)}}
+$('#cp').addEventListener('click',function(){copy(cur,this)});
+$('#rg').addEventListener('click',function(){make(true)});
+$('#len').addEventListener('input',function(){$('#lo').textContent=this.value;make(false)});
+$('#wc').addEventListener('input',function(){$('#wo').textContent=this.value;make(false)});
+['am','sl2','cap','nu','sp'].forEach(function(id){$('#'+id).addEventListener('change',function(){make(false)})});
+$('#sw').addEventListener('change',function(e){var i=+e.target.dataset.i;SETS[i][3]=e.target.checked?1:0;lock();make(false)});
+document.querySelector('.seg').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;mode=b.dataset.m;this.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});$('#rm').hidden=mode!=='r';$('#pm').hidden=mode!=='p';make(false)});
+$('#hs').addEventListener('click',function(e){var r=e.target.closest('[data-r]'),c=e.target.closest('[data-c]');
+ if(r){var i=+r.dataset.r,code=r.parentNode.querySelector('code'),on=r.getAttribute('aria-pressed')!=='true';code.textContent=on?hist[i]:'•'.repeat(Math.min(hist[i].length,28));r.setAttribute('aria-pressed',on);r.textContent=on?'Hide':'Reveal'}
+ if(c)copy(hist[+c.dataset.c],c)});
+document.addEventListener('keydown',function(e){if(/INPUT|SELECT|TEXTAREA|BUTTON/.test(document.activeElement.tagName)||e.metaKey||e.ctrlKey)return;if(e.key==='r'||e.key==='R')make(true);if(e.key==='c'||e.key==='C')copy(cur,$('#cp'))});
+sw();rh();make(false);
+})();
+</script></body></html>

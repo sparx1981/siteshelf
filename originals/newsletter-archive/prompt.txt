@@ -1,0 +1,11 @@
+Canvas & base: A warm editorial archive on #f7f2e9 paper with ink #1d1a16, secondary #6d655a, rules #d9d0bf and accent vermilion #c8402a. Invented publication "The Slow Dispatch", a weekly letter on craft, cities and small tools. Cards are flat with 1px rules, no shadows.
+
+Typography: "Playfair Display" (700, 900 italic) for the masthead and issue titles, "Source Serif 4" (400, 600) for body and "DM Sans" (500, 700) for labels at 12px uppercase tracking .1em. Masthead clamp(44px,9vw,104px).
+
+Layout: Centered masthead with issue count and a thin double rule. Below it a featured card for the latest issue (large title, deck, topic tag, date, reading time, "Read issue" link) beside a sticky subscribe card. Then a toolbar with a search field and topic chips (All, Craft, Cities, Tools, Notes), then issues grouped under year headings in a two-column list: issue number in large italic numerals, title, one-line summary, date, reading time.
+
+Interaction: Search filters live across title and summary and wraps matches in mark; chips filter by topic and combine with search; a count line reads "Showing 14 of 38 issues" in an aria-live region; empty state offers a "Clear filters" button. Issues the visitor opens (click) are remembered in localStorage and shown with a small tick and muted title. The subscribe form validates the email on blur and submit, shows an inline error, then a friendly confirmation with the address echoed. Press / to focus search.
+
+Responsive: Below 820px the featured card and subscribe card stack, the issue list becomes one column and chips scroll horizontally without causing page overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Label every control, visible focus ring, wrap localStorage in try/catch, respect prefers-reduced-motion. Invented names only; generate the 38 issues in JS from a small list of title fragments.

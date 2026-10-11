@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tic-Tac-Toe vs Computer — Games</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#fff4e6;--nv:#1f2a44;--tile:#2b3858;--x:#ff7a59;--o:#5bc8f5;--gold:#ffd166;--ink:#1f2a44}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:600 16px/1.4 'Nunito',system-ui,sans-serif;padding:24px 16px;min-height:100svh}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.app{max-width:520px;margin:0 auto;text-align:center}
+h1{font:800 clamp(32px,8vw,48px)/1 'Baloo 2',sans-serif;margin:0 0 14px;letter-spacing:-.01em}
+h1 span{color:var(--x)}
+.sc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.sc div{background:#fff;border:2px solid #f1dfc4;border-radius:14px;padding:8px 6px}
+.sc small{display:block;font:700 12px 'Nunito',sans-serif;text-transform:uppercase;letter-spacing:.08em;color:#7a6f5e}
+.sc b{font:800 32px/1.1 'Baloo 2',sans-serif;font-variant-numeric:tabular-nums}
+.sc .x b{color:var(--x)}.sc .o b{color:#1e9cd0}
+.md{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.seg{display:inline-flex;background:#fff;border:2px solid #f1dfc4;border-radius:12px;padding:3px}
+.seg button{background:none;border:0;padding:8px 16px;border-radius:9px;font:700 15px 'Nunito',sans-serif;cursor:pointer;min-height:40px;color:var(--ink)}
+.seg button[aria-pressed=true]{background:var(--nv);color:#fff}
+select{border:2px solid #f1dfc4;background:#fff;border-radius:12px;padding:0 12px;min-height:44px;font:700 15px 'Nunito',sans-serif;color:var(--ink)}
+#st{font:800 24px 'Baloo 2',sans-serif;min-height:40px;margin:6px 0}
+.bw{position:relative;width:min(88vw,420px);margin:0 auto}
+.bd{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;background:var(--nv);padding:10px;border-radius:22px;aspect-ratio:1}
+.c{background:var(--tile);border:0;border-radius:14px;cursor:pointer;position:relative;min-width:44px;min-height:44px;transition:background .15s}
+.c:hover:not([data-f]){background:#364570}
+.c[data-f]{cursor:default}
+.c svg{width:68%;height:68%;position:absolute;inset:16%}
+.c svg path,.c svg circle{fill:none;stroke-width:12;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0;animation:dr .35s ease-out}
+.c .xm{stroke:var(--x)}.c .om{stroke:var(--o)}
+@keyframes dr{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.c.win{background:#3b4a78;box-shadow:inset 0 0 0 3px var(--gold)}
+.ln{position:absolute;inset:0;pointer-events:none;width:100%;height:100%}
+.ln line{stroke:var(--gold);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:1;animation:dr .45s .1s ease-out both}
+.act{display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.btn{background:var(--nv);color:#fff;border:0;border-radius:12px;padding:0 20px;min-height:46px;font:700 15px 'Nunito',sans-serif;cursor:pointer}
+.btn.g{background:#fff;color:var(--ink);border:2px solid #f1dfc4}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:hover:not(:disabled){filter:brightness(1.15)}
+@media(prefers-reduced-motion:reduce){.c svg path,.c svg circle,.ln line{animation:none}*{transition:none!important}}
+</style></head><body>
+<div class="app"><h1>Noughts <span>&amp;</span> Co.</h1>
+<div class="sc"><div class="x"><small id="n1">You</small><b id="s1">0</b></div><div><small>Draws</small><b id="s0">0</b></div><div class="o"><small id="n2">Computer</small><b id="s2">0</b></div></div>
+<div class="md"><div class="seg" role="group" aria-label="Mode"><button type="button" data-m="cpu" aria-pressed="true">vs Computer</button><button type="button" data-m="pvp" aria-pressed="false">vs Friend</button></div>
+<label id="dw"><span style="position:absolute;left:-9999px">Difficulty</span><select id="df"><option value="e">Easy</option><option value="m">Medium</option><option value="h" selected>Unbeatable</option></select></label></div>
+<div id="st" role="status" aria-live="polite"></div>
+<div class="bw"><div class="bd" id="bd" role="grid" aria-label="Game board"></div><svg class="ln" id="ln" viewBox="0 0 3 3" aria-hidden="true"></svg></div>
+<div class="act"><button class="btn g" id="un" type="button">Undo</button><button class="btn" id="nw" type="button">New game</button><button class="btn g" id="rs" type="button">Reset scores</button></div></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+var b,turn,over,mode='cpu',diff='h',starter='X',hist,busy=false,focus=0,sc={1:0,0:0,2:0};
+try{sc=Object.assign(sc,JSON.parse(localStorage.getItem('nc-sc')||'{}'))}catch(e){}
+function win(bd){for(var i=0;i<8;i++){var l=L[i];if(bd[l[0]]&&bd[l[0]]===bd[l[1]]&&bd[l[1]]===bd[l[2]])return{p:bd[l[0]],l:l}}return null}
+function empt(bd){var r=[];for(var i=0;i<9;i++)if(!bd[i])r.push(i);return r}
+function mm(bd,pl,a,be,d){var w=win(bd);if(w)return w.p==='O'?10-d:d-10;var e=empt(bd);if(!e.length)return 0;
+ if(pl==='O'){var m=-99;for(var i=0;i<e.length;i++){bd[e[i]]='O';m=Math.max(m,mm(bd,'X',a,be,d+1));bd[e[i]]=null;a=Math.max(a,m);if(be<=a)break}return m}
+ var m2=99;for(var j=0;j<e.length;j++){bd[e[j]]='X';m2=Math.min(m2,mm(bd,'O',a,be,d+1));bd[e[j]]=null;be=Math.min(be,m2);if(be<=a)break}return m2}
+function best(){var e=empt(b),bs=-99,mv=[];e.forEach(function(i){b[i]='O';var s=mm(b,'X',-99,99,1);b[i]=null;if(s>bs){bs=s;mv=[i]}else if(s===bs)mv.push(i)});return mv[Math.floor(Math.random()*mv.length)]}
+function find(pl){var e=empt(b);for(var i=0;i<e.length;i++){b[e[i]]=pl;var w=win(b);b[e[i]]=null;if(w)return e[i]}return -1}
+function ai(){var e=empt(b);if(diff==='h')return best();if(diff==='m'){var m=find('O');if(m<0)m=find('X');if(m>=0)return m}return e[Math.floor(Math.random()*e.length)]}
+function mark(p){return p==='X'?'<svg viewBox="0 0 100 100" aria-hidden="true"><path class="xm" pathLength="1" d="M18 18L82 82M82 18L18 82"/></svg>':'<svg viewBox="0 0 100 100" aria-hidden="true"><circle class="om" pathLength="1" cx="50" cy="50" r="33"/></svg>'}
+function names(){return mode==='cpu'?['You','Computer']:['Player 1','Player 2']}
+function status(t){$('#st').textContent=t}
+function draw(w){var h='';for(var i=0;i<9;i++){var r=Math.floor(i/3)+1,c=i%3+1;h+='<button class="c'+(w&&w.l.indexOf(i)>-1?' win':'')+'" role="gridcell" data-i="'+i+'" tabindex="'+(i===focus?0:-1)+'"'+(b[i]?' data-f="1" aria-disabled="true"':'')+' aria-label="Row '+r+', column '+c+', '+(b[i]?b[i]==='X'?'cross':'nought':'empty')+'">'+(b[i]?mark(b[i]):'')+'</button>'}
+ $('#bd').innerHTML=h;$('#ln').innerHTML=w?'<line pathLength="1" x1="'+((w.l[0]%3)+.5)+'" y1="'+(Math.floor(w.l[0]/3)+.5)+'" x2="'+((w.l[2]%3)+.5)+'" y2="'+(Math.floor(w.l[2]/3)+.5)+'"/>':'';
+ $('#un').disabled=!hist.length||busy;$('#s1').textContent=sc[1];$('#s0').textContent=sc[0];$('#s2').textContent=sc[2]}
+function nm(){var n=names();$('#n1').textContent=n[0];$('#n2').textContent=n[1];$('#dw').hidden=mode!=='cpu'}
+function fresh(){b=Array(9).fill(null);hist=[];over=false;busy=false;turn=starter;focus=4;nm();draw();turnMsg();if(mode==='cpu'&&turn==='O')cpu()}
+function turnMsg(){var n=names();status(mode==='cpu'?(turn==='X'?'Your turn':'Computer is thinking…'):n[turn==='X'?0:1]+'’s turn ('+turn+')')}
+function end(){var w=win(b);if(!w&&empt(b).length)return false;over=true;busy=false;var n=names();
+ if(w){var k=w.p==='X'?1:2;sc[k]++;status(mode==='cpu'?(w.p==='X'?'You win!':'Computer wins this one.'):n[k-1]+' wins!')}else{sc[0]++;status('It’s a draw.')}
+ try{localStorage.setItem('nc-sc',JSON.stringify(sc))}catch(e){}
+ starter=starter==='X'?'O':'X';draw(w);return true}
+function place(i,p){b[i]=p;hist.push({i:i,p:p})}
+function cpu(){busy=true;draw();setTimeout(function(){var i=ai();place(i,'O');busy=false;turn='X';if(!end()){turnMsg();draw()}},diff==='h'?350:250)}
+$('#bd').addEventListener('click',function(e){var c=e.target.closest('.c');if(!c||over||busy)return;var i=+c.dataset.i;if(b[i])return;focus=i;
+ place(i,turn);if(end())return;turn=turn==='X'?'O':'X';turnMsg();if(mode==='cpu'){cpu()}else draw()});
+$('#bd').addEventListener('keydown',function(e){var d={ArrowRight:1,ArrowLeft:-1,ArrowDown:3,ArrowUp:-3}[e.key];if(!d)return;e.preventDefault();var r=Math.floor(focus/3),c=focus%3;
+ if(e.key==='ArrowRight')c=(c+1)%3;if(e.key==='ArrowLeft')c=(c+2)%3;if(e.key==='ArrowDown')r=(r+1)%3;if(e.key==='ArrowUp')r=(r+2)%3;focus=r*3+c;
+ document.querySelectorAll('.c').forEach(function(x,i){x.tabIndex=i===focus?0:-1});document.querySelector('.c[data-i="'+focus+'"]').focus()});
+$('#un').addEventListener('click',function(){if(busy||!hist.length||over)return;var n=mode==='cpu'?2:1;while(n--&&hist.length){var h=hist.pop();b[h.i]=null;turn=h.p}
+ if(mode==='cpu')turn='X';turnMsg();draw()});
+$('#nw').addEventListener('click',fresh);
+$('#rs').addEventListener('click',function(){sc={1:0,0:0,2:0};try{localStorage.removeItem('nc-sc')}catch(e){}starter='X';fresh()});
+document.querySelector('.seg').addEventListener('click',function(e){var x=e.target.closest('button');if(!x)return;mode=x.dataset.m;this.querySelectorAll('button').forEach(function(y){y.setAttribute('aria-pressed',y===x)});starter='X';fresh()});
+$('#df').addEventListener('change',function(){diff=this.value;fresh()});
+document.addEventListener('keydown',function(e){if((e.key==='n'||e.key==='N')&&!/SELECT|INPUT/.test(document.activeElement.tagName))fresh()});
+fresh();
+})();
+</script></body></html>

@@ -1,0 +1,11 @@
+Canvas & base: A friendly pocket tool on a soft #eef3f1 background with a white card (1px #d6e0dc border, 20px radius, subtle shadow). Ink #12211c, secondary #566a62, accent teal #0f8a73. Invented brand "Metrolane".
+
+Typography: "Nunito Sans" (400, 600, 800) for UI, "Fira Code" (500) for the numeric fields at 28px. Category tabs 14px 700.
+
+Layout: Centered 640px card. Top row of category tabs (Length, Mass, Temperature, Volume, Speed). Under it two stacked panels, From and To, each with a large numeric input and a unit select, with a circular swap button overlapping the gap. A result line below in words ("1 mile = 1.609 kilometres"). A precision stepper (2 to 8 decimals). Then a "Common values" table of five rows for the current unit pair, and a "Recent" list of the last five conversions that can be clicked to restore.
+
+Interaction: Typing in either field converts live to the other; changing a unit recalculates from the From side. Conversion goes through a base unit per category, temperature uses explicit formulas with Celsius, Fahrenheit and Kelvin. Invalid or empty input shows a gentle hint and clears the other field. Results trim trailing zeros and use thousands separators via Intl.NumberFormat with fallback. Swap exchanges units and values. Recent entries are saved after 800 ms of inactivity and stored in localStorage (try/catch). Tabs use roving tabindex with arrow keys.
+
+Responsive: Single column always; the card shrinks to 100% width below 640px, inputs stay at least 44px tall, no overflow at 390px.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Label every control, aria-live result line, respect prefers-reduced-motion, invented names only.

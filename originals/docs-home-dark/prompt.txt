@@ -1,0 +1,11 @@
+Canvas & base: A dark docs home on #0b0d12 with panels #12151d (1px #232836 border, 14px radius), ink #e8ebf3, secondary #8d96ab, accent electric teal #2de2c4 with a soft radial glow behind the hero. Invented product "Quillstream", a real-time events API.
+
+Typography: "Space Grotesk" (500, 700) for headings, "Inter" (400, 500) for body, "JetBrains Mono" (400, 500) for code. Hero h1 clamp(36px,6vw,64px) with tight tracking.
+
+Layout: Top nav with logo, links (Guides, API reference, SDKs, Changelog), a version switcher (v3, v2) and a GitHub-style star pill. Hero with headline "Ship real-time features in an afternoon", a large search field with a "/" hint and results panel, and a quick-start card with tabs (Node, Python, cURL) showing a code sample with a Copy button. Below: six guide cards in a 3-column grid (icon, title, blurb, read-time), an "Explore by role" row of pills, and a compact API status strip with three services and uptime numbers.
+
+Interaction: Pressing / or Cmd/Ctrl+K focuses search; typing filters a built-in index of 18 doc pages with highlighted matches, arrow keys move through results, Enter opens (shows a toast), Escape closes. Tabs use roving tabindex with arrow keys; Copy writes to clipboard in try/catch and shows "Copied" for 1.6s. Version switcher is a menu button with aria-expanded that changes the code sample's version string.
+
+Responsive: Guide grid goes 3, 2, then 1 column; nav links collapse into a menu button below 760px; code blocks scroll inside their own container so the page never overflows at 390px.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus rings, aria roles for tabs and listbox, prefers-reduced-motion respected, invented names only.

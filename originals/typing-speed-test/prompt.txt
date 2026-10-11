@@ -1,0 +1,11 @@
+Canvas & base: A focused dark-on-warm typing game on #1c1b19 with a card on #262420 (1px #3a3732 border, 18px radius). Ink #ece6d9, untyped text #7a7468, correct #ece6d9, wrong #ef6a5b, caret/accent amber #f2b84b. Invented name "Keystone Sprint".
+
+Typography: "JetBrains Mono" (400, 500) for the passage at clamp(20px,3vw,28px) with line-height 1.8 and "Outfit" (500, 700) for UI. Stats use tabular numerals at 44px.
+
+Layout: Header with brand and personal best pill. A settings row with segmented controls for Time (15, 30, 60 s) and Words (Common, Code, Quotes). The centre card shows live stats (time left, WPM, accuracy), the passage in a fixed-height box showing three lines with the current line scrolling, and a hint "Start typing to begin". A restart button and Esc/Tab hint beneath. When time ends the card is replaced by a results panel with WPM, accuracy, characters (correct/wrong), best-so-far comparison and "Try again" and "Share" (copy text).
+
+Interaction: A hidden text input captures keystrokes so mobile keyboards work; clicking the passage focuses it. Each typed character marks the matching span correct or wrong, backspace reverts, and the caret is a blinking amber bar on the current character (static under reduced motion). The timer starts on first key. WPM = correct characters / 5 / minutes elapsed. Accuracy = correct typed / total typed. Tab then Enter restarts, Esc resets. Personal best per duration is stored in localStorage (try/catch). Passage words are generated from a built-in list with a seeded shuffle.
+
+Responsive: The card is full width below 700px, stats wrap into three small tiles, segmented controls wrap, and nothing overflows at 390px.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, aria-live announcement of the final result, prefers-reduced-motion respected, invented names only.

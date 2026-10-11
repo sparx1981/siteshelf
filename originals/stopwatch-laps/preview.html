@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stopwatch &amp; Lap Timer — Widgets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#0e1013;--pn:#171a1f;--bd:#262b33;--ink:#f1f3f6;--mut:#8a93a1;--ac:#b6f23c;--red:#ff5c5c;--fast:#3ddc97;--slow:#ff8f5c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.5 'Chakra Petch',system-ui,sans-serif;padding:28px 16px;min-height:100svh}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+.card{max-width:520px;margin:0 auto;background:var(--pn);border:1px solid var(--bd);border-radius:24px;padding:24px}
+.brand{font:700 14px 'Chakra Petch',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);text-align:center;margin-bottom:14px}
+.tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:#0e1013;border:1px solid var(--bd);border-radius:12px;padding:3px;margin-bottom:22px}
+.tabs button{background:none;border:0;color:var(--mut);padding:10px;border-radius:9px;cursor:pointer;font:700 15px 'Chakra Petch',sans-serif;min-height:44px}
+.tabs button[aria-selected=true]{background:#232830;color:var(--ink)}
+.dial{position:relative;width:min(78vw,340px);aspect-ratio:1;margin:0 auto}
+.dial svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.dial circle{fill:none;stroke-width:6}
+.tr{stroke:#262b33}
+.pg{stroke:var(--ac);stroke-linecap:round}
+.ct{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#rd{font:500 clamp(48px,12vw,84px)/1 'Roboto Mono',monospace;font-variant-numeric:tabular-nums;letter-spacing:-.03em;white-space:nowrap}
+#rd small{opacity:.6;font-size:.55em;letter-spacing:0}
+#ll{color:var(--mut);margin-top:8px;font:500 18px 'Roboto Mono',monospace;font-variant-numeric:tabular-nums;min-height:27px}
+.flash{animation:fl .5s 3}
+@keyframes fl{50%{background:rgba(255,92,92,.25)}}
+.dial.flash{border-radius:50%}
+.btns{display:flex;justify-content:space-between;gap:16px;margin:26px auto 0;max-width:340px}
+.rb{width:78px;height:78px;border-radius:50%;border:2px solid transparent;font:700 15px 'Chakra Petch',sans-serif;cursor:pointer;background:#262b33;color:var(--ink);min-width:64px;min-height:64px}
+.rb:disabled{opacity:.4;cursor:not-allowed}
+.rb.go{background:rgba(182,242,60,.16);color:var(--ac);border-color:var(--ac)}
+.rb.stop{background:rgba(255,92,92,.16);color:var(--red);border-color:var(--red)}
+.cdset{display:flex;justify-content:center;gap:14px;margin:22px 0 0}
+.cdset div{display:flex;flex-direction:column;align-items:center;gap:6px}
+.cdset button{width:44px;height:36px;border-radius:8px;border:1px solid var(--bd);background:#0e1013;color:var(--ink);cursor:pointer;font-size:14px}
+.cdset output{font:500 28px 'Roboto Mono',monospace;font-variant-numeric:tabular-nums}
+.cdset small{color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+.laps{margin-top:26px;border-top:1px solid var(--bd)}
+table{width:100%;border-collapse:collapse;font:500 16px 'Roboto Mono',monospace;font-variant-numeric:tabular-nums}
+th{font:700 11px 'Chakra Petch',sans-serif;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);text-align:right;padding:10px 6px}
+th:first-child,td:first-child{text-align:left}
+td{padding:10px 6px;text-align:right;border-bottom:1px solid #20242b}
+tr.f td{color:var(--fast)}tr.s td{color:var(--slow)}
+tr.new td{animation:nw .8s}
+@keyframes nw{from{background:rgba(182,242,60,.25)}to{background:transparent}}
+.em{color:var(--mut);padding:20px 0;text-align:center;font:500 14px 'Chakra Petch',sans-serif}
+.ft{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+.cp{background:none;border:1px solid var(--bd);color:var(--ink);border-radius:10px;padding:0 16px;min-height:44px;cursor:pointer;font:700 14px 'Chakra Petch',sans-serif}
+.cp:hover{border-color:var(--ac)}
+.hint{color:var(--mut);font-size:13px}
+kbd{border:1px solid var(--bd);border-radius:5px;padding:0 6px;font:500 12px 'Roboto Mono',monospace}
+.live{position:absolute;left:-9999px}
+@media(prefers-reduced-motion:reduce){.flash,tr.new td{animation:none}*{transition:none!important}}
+</style></head><body>
+<main class="card"><div class="brand">Splitwise Timing</div>
+<div class="tabs" role="tablist" aria-label="Mode"><button role="tab" id="tw" aria-selected="true" aria-controls="pn" tabindex="0">Stopwatch</button><button role="tab" id="tc" aria-selected="false" aria-controls="pn" tabindex="-1">Countdown</button></div>
+<div id="pn" role="tabpanel">
+<div class="dial" id="dl"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="tr" cx="50" cy="50" r="46"/><circle class="pg" id="pg" cx="50" cy="50" r="46" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/></svg>
+<div class="ct"><div id="rd" role="timer" aria-label="Elapsed time">00:00<small>.00</small></div><div id="ll"></div></div></div>
+<div class="cdset" id="cs" hidden></div>
+<div class="btns"><button class="rb" id="lp" type="button" disabled>Lap</button><button class="rb go" id="go" type="button" aria-label="Start">Start</button></div>
+<div class="laps" id="lw"><table><thead><tr><th scope="col">Lap</th><th scope="col">Lap time</th><th scope="col">Total</th></tr></thead><tbody id="tb"></tbody></table><div class="em" id="em">Laps you record will appear here.</div></div>
+<div class="ft"><button class="cp" id="cp" type="button">Copy results</button><span class="hint"><kbd>Space</kbd> start/stop · <kbd>L</kbd> lap · <kbd>R</kbd> reset</span></div></div>
+<div class="live" id="lv" aria-live="polite"></div></main>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var mode='sw',run=false,t0=0,acc=0,laps=[],lastLap=0,raf=0,cd=[0,5,0],tgt=0,aud=null;
+var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+function now(){return performance.now()}
+function el(){return acc+(run?now()-t0:0)}
+function p2(n){return String(n).padStart(2,'0')}
+function f(ms,cs){var t=Math.max(0,Math.floor(ms/10)),c=t%100,s=Math.floor(t/100)%60,m=Math.floor(t/6000)%60,h=Math.floor(t/360000);return(h?h+':'+p2(m):p2(m))+':'+p2(s)+(cs===false?'':'.'+p2(c))}
+function html(ms){var t=Math.max(0,Math.floor(ms/10)),c=t%100,s=Math.floor(t/100)%60,m=Math.floor(t/6000)%60,h=Math.floor(t/360000);return(h?h+':'+p2(m):p2(m))+':'+p2(s)+'<small>.'+p2(c)+'</small>'}
+function show(){var e=el();
+ if(mode==='sw'){$('#rd').innerHTML=html(e);$('#pg').setAttribute('stroke-dashoffset',String(100-((e%60000)/600)));$('#ll').textContent=laps.length||run?'Lap '+(laps.length+1)+'  '+f(e-lastLap):''}
+ else{var left=Math.max(0,tgt-e);$('#rd').innerHTML=html(left);$('#pg').setAttribute('stroke-dashoffset',String(100-(tgt?left/tgt*100:0)));$('#ll').textContent='';
+  if(run&&left<=0){stop(true);done()}}}
+function loop(){show();if(run)raf=requestAnimationFrame(loop)}
+function start(){if(mode==='cd'&&!run){if(!tgt||acc>=tgt){tgt=(cd[0]*3600+cd[1]*60+cd[2])*1000;acc=0}if(tgt<=0){$('#lv').textContent='Set a time first.';return}}
+ run=true;t0=now();$('#go').textContent='Stop';$('#go').className='rb stop';$('#go').setAttribute('aria-label','Stop');$('#lp').disabled=mode!=='sw';$('#lp').textContent='Lap';$('#lv').textContent=mode==='sw'?'Started':'Countdown started';cancelAnimationFrame(raf);loop();cs()}
+function stop(silent){if(!run)return;acc+=now()-t0;run=false;cancelAnimationFrame(raf);$('#go').textContent=mode==='cd'&&acc<tgt?'Resume':'Start';$('#go').className='rb go';$('#go').setAttribute('aria-label','Start');$('#lp').textContent='Reset';$('#lp').disabled=false;if(!silent)$('#lv').textContent='Stopped at '+f(mode==='sw'?acc:tgt-acc);show()}
+function reset(){run=false;cancelAnimationFrame(raf);acc=0;laps=[];lastLap=0;tgt=0;$('#go').textContent='Start';$('#go').className='rb go';$('#lp').textContent='Lap';$('#lp').disabled=true;$('#dl').classList.remove('flash');tbl(false);show();cs();$('#lv').textContent='Reset'}
+function lap(){if(!run||mode!=='sw')return;var e=el();laps.unshift({n:laps.length+1,l:e-lastLap,t:e});lastLap=e;tbl(true);$('#lv').textContent='Lap '+laps[0].n+' '+f(laps[0].l)}
+function tbl(nw){var fa=null,sl=null;if(laps.length>=3){fa=laps.reduce(function(a,b){return b.l<a.l?b:a});sl=laps.reduce(function(a,b){return b.l>a.l?b:a})}
+ $('#tb').innerHTML=laps.map(function(l,i){return '<tr class="'+(l===fa?'f ':'')+(l===sl?'s ':'')+(nw&&i===0?'new':'')+'"><td>'+p2(l.n)+(l===fa?' ▲':l===sl?' ▼':'')+'</td><td>'+f(l.l)+'</td><td>'+f(l.t)+'</td></tr>'}).join('');$('#em').hidden=laps.length>0;$('#lw').hidden=mode!=='sw'}
+function beep(){if(rm)return;try{aud=aud||new(window.AudioContext||window.webkitAudioContext)();var o=aud.createOscillator(),g=aud.createGain();o.frequency.value=880;g.gain.value=.08;o.connect(g);g.connect(aud.destination);o.start();o.stop(aud.currentTime+.25)}catch(e){}}
+function done(){$('#rd').innerHTML='Time<small>!</small>';$('#lv').textContent='Time is up';$('#dl').classList.add('flash');beep();$('#go').textContent='Start';$('#lp').textContent='Reset'}
+function cs(){var c=$('#cs');c.hidden=!(mode==='cd'&&!run&&acc===0);if(c.hidden)return;var n=['Hours','Minutes','Seconds'];c.innerHTML=[0,1,2].map(function(i){return '<div><button type="button" data-i="'+i+'" data-d="1" aria-label="Increase '+n[i].toLowerCase()+'">▲</button><output aria-label="'+n[i]+'">'+p2(cd[i])+'</output><button type="button" data-i="'+i+'" data-d="-1" aria-label="Decrease '+n[i].toLowerCase()+'">▼</button><small>'+n[i]+'</small></div>'}).join('')}
+$('#cs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var i=+b.dataset.i,mx=i===0?23:59;cd[i]=(cd[i]+ +b.dataset.d+mx+1)%(mx+1);tgt=(cd[0]*3600+cd[1]*60+cd[2])*1000;cs();show()});
+$('#go').addEventListener('click',function(){run?stop():start()});
+$('#lp').addEventListener('click',function(){run?lap():reset()});
+function setMode(m){mode=m;$('#tw').setAttribute('aria-selected',m==='sw');$('#tc').setAttribute('aria-selected',m==='cd');$('#tw').tabIndex=m==='sw'?0:-1;$('#tc').tabIndex=m==='cd'?0:-1;run=false;cancelAnimationFrame(raf);acc=0;laps=[];lastLap=0;tgt=m==='cd'?(cd[0]*3600+cd[1]*60+cd[2])*1000:0;$('#go').textContent='Start';$('#go').className='rb go';$('#lp').textContent=m==='sw'?'Lap':'Reset';$('#lp').disabled=true;$('#lp').hidden=false;$('#dl').classList.remove('flash');tbl(false);$('#cp').hidden=m!=='sw';cs();show()}
+$('.tabs').addEventListener('click',function(e){var b=e.target.closest('[role=tab]');if(b)setMode(b.id==='tw'?'sw':'cd')});
+$('.tabs').addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();var m=mode==='sw'?'cd':'sw';setMode(m);$(m==='sw'?'#tw':'#tc').focus()}});
+$('#cp').addEventListener('click',function(){var t='Lap\tLap time\tTotal\n'+laps.slice().reverse().map(function(l){return l.n+'\t'+f(l.l)+'\t'+f(l.t)}).join('\n');try{navigator.clipboard.writeText(t).catch(function(){})}catch(e){}this.textContent='Copied';var b=this;setTimeout(function(){b.textContent='Copy results'},1600)});
+document.addEventListener('keydown',function(e){if(e.metaKey||e.ctrlKey||e.altKey)return;var t=document.activeElement.tagName;if(e.key===' '&&t!=='BUTTON'){e.preventDefault();run?stop():start()}
+ else if((e.key==='l'||e.key==='L')&&run)lap();else if((e.key==='r'||e.key==='R')&&!run)reset()});
+document.addEventListener('visibilitychange',function(){if(run)show()});
+setMode('sw');
+})();
+</script></body></html>

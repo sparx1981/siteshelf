@@ -1,0 +1,11 @@
+Canvas & base: A playful modern board on #fff4e6 with a deep navy #1f2a44 board panel, tiles #2b3858, X in coral #ff7a59, O in sky #5bc8f5, strike line in gold #ffd166. Invented game "Noughts & Co.".
+
+Typography: "Baloo 2" (600, 800) for headings and marks, "Nunito" (600, 700) for UI. Marks are drawn as SVG strokes, not text.
+
+Layout: Header with title and a scoreboard of three tiles (You / Draws / Computer or Player 1 / Draws / Player 2) showing tabular numerals. Mode controls: segmented (vs Computer, vs Friend) and a difficulty select (Easy, Medium, Unbeatable) shown only in computer mode. A centred 3x3 grid of large square buttons with a status line above ("Your turn", "Computer is thinking…", "You win!"). Beneath: Undo, New game and Reset scores buttons.
+
+Interaction: Click or tap to place. Computer plays O. Easy picks random, Medium blocks and wins immediately otherwise random, Unbeatable uses full minimax with alpha-beta and a short 350 ms think delay. Marks draw in with a stroke-dashoffset animation, the winning triple glows and a gold line strikes through it. Starting player alternates each game. Undo reverts the last human move and the computer reply. Arrow keys move focus around the grid (roving tabindex), Enter or Space places, N starts a new game. Scores persist in localStorage (try/catch). The status line is aria-live and each cell has an aria-label like "Row 2, column 3, empty".
+
+Responsive: The board is min(88vw, 420px) square, buttons stay at least 44px, nothing overflows at 390px.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Respect prefers-reduced-motion (marks appear instantly), visible focus, invented names only.

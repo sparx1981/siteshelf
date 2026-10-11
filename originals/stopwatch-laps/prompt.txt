@@ -1,0 +1,11 @@
+Canvas & base: A sleek instrument panel on #0e1013 with a #171a1f card (1px #262b33 border, 24px radius), ink #f1f3f6, secondary #8a93a1, accent lime #b6f23c, stop red #ff5c5c, fastest #3ddc97, slowest #ff8f5c. Invented brand "Splitwise Timing".
+
+Typography: "Chakra Petch" (500, 700) for UI and "Roboto Mono" (500) for the readout at clamp(48px,12vw,96px) with tabular-nums; centiseconds dimmed to 60% opacity.
+
+Layout: A centred 520px card. Mode tabs (Stopwatch, Countdown). Large circular SVG progress ring (diameter min(78vw,340px)) with the readout centred inside and the current lap time beneath it. Under the ring a row of two round buttons: Lap/Reset on the left and Start/Stop on the right (Start is lime, Stop is red). Below, the laps table with columns Lap, Lap time, Total; fastest lap tinted green and slowest tinted orange once there are three or more laps. A "Copy results" button and a keyboard hint line.
+
+Interaction: Timing uses performance.now with requestAnimationFrame so it stays accurate, and continues correctly after tab switches. The ring fills over 60 seconds and restarts each minute. Space starts or stops, L records a lap while running, R resets while stopped. Laps are prepended to the table with a short highlight. Countdown mode has hour, minute and second steppers, counts down to zero with a visual flash and a soft beep via WebAudio (skipped under reduced motion and only after user interaction), then shows "Time". Copy results copies tab-separated rows with try/catch. Announce start, stop and lap via a polite live region (not every frame).
+
+Responsive: The card is full width below 560px and the buttons stay at least 64px; no overflow at 390px.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, aria-label on buttons, respect prefers-reduced-motion, invented names only.

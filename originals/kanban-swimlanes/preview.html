@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kanban Swimlanes — App UI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#f3f4f8;--ink:#1b2033;--mut:#646b82;--bd:#e0e3ec;--ac:#4b4fe0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 14px/1.45 'Inter',system-ui,sans-serif}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.bar{position:sticky;top:0;z-index:5;background:rgba(243,244,248,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd);padding:12px 16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.bar h1{font:700 18px 'Inter',sans-serif;margin:0 8px 0 0}
+.bar h1 span{color:var(--mut);font-weight:500}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--bd);background:#fff;border-radius:99px;padding:6px 12px;font:600 13px 'Inter',sans-serif;cursor:pointer;min-height:36px;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sp{flex:1}
+.btn{border:1px solid var(--bd);background:#fff;border-radius:8px;padding:8px 14px;font:600 13px 'Inter',sans-serif;cursor:pointer;min-height:36px;color:var(--ink)}
+.btn:hover{border-color:var(--ac)}
+.scroll{overflow-x:auto;padding:16px}
+.board{min-width:940px;display:grid;grid-template-columns:132px repeat(4,minmax(0,1fr));gap:10px}
+.ch{font:700 12px 'Inter',sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);padding:6px 4px;display:flex;align-items:center;gap:8px}
+.ch i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.ch .ct{margin-left:auto;font-variant-numeric:tabular-nums;background:#e8eaf3;border-radius:99px;padding:2px 9px;color:var(--ink)}
+.ch.over .ct{background:#fbe3b4;color:#7a4b00}
+.ch .ov{font-size:10px;background:#e09a1f;color:#fff;border-radius:4px;padding:1px 5px;letter-spacing:.04em}
+.lane{display:contents}
+.lh{grid-column:1/-1;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--bd);border-radius:10px;padding:0 4px;margin-top:6px;position:sticky;left:0}
+.lh button{all:unset;cursor:pointer;display:flex;align-items:center;gap:10px;padding:10px;font:700 15px 'Inter',sans-serif;flex:1;min-height:44px;border-radius:8px}
+.lh button:focus-visible{outline:3px solid var(--ac)}
+.lh .car{transition:transform .2s;display:inline-block}
+.lh button[aria-expanded=false] .car{transform:rotate(-90deg)}
+.lh small{color:var(--mut);font-weight:500}
+.lh form{display:flex;gap:6px;padding:6px}
+.lh input{font:400 13px 'Inter',sans-serif;border:1px solid var(--bd);border-radius:8px;padding:7px 10px;width:180px;min-height:34px;color:var(--ink)}
+.lt{font:600 12px 'Inter',sans-serif;color:var(--mut);padding:10px 4px;writing-mode:horizontal-tb}
+.cell{background:#e9ebf3;border-radius:10px;min-height:96px;padding:8px;display:flex;flex-direction:column;gap:8px;min-width:0;transition:background .15s,outline-color .15s;outline:2px solid transparent;outline-offset:-2px}
+.cell.ok{outline-color:var(--ac);background:#e0e1fb}
+.cell.kb{outline-color:var(--ac);background:#dcdeff}
+.card{background:#fff;border:1px solid var(--bd);border-radius:8px;padding:10px;cursor:grab;touch-action:none;box-shadow:0 1px 2px rgba(27,32,51,.05);user-select:none}
+.card:hover{border-color:#c9cde0}
+.card.pick{outline:3px solid var(--ac);box-shadow:0 8px 20px rgba(75,79,224,.3)}
+.card.drag{opacity:.35}
+.ghost{position:fixed;pointer-events:none;z-index:50;width:200px;transform:rotate(2deg);box-shadow:0 14px 28px rgba(27,32,51,.28);opacity:.95;background:#fff;border:1px solid var(--ac);border-radius:8px;padding:10px}
+.card b{display:block;font-weight:600;margin-bottom:8px}
+.cf{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--mut)}
+.lb{border-radius:4px;padding:1px 7px;font-weight:600;font-size:11px}
+.av{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:700;color:#fff;margin-left:auto}
+.pts{font-variant-numeric:tabular-nums;background:#eef0f7;border-radius:99px;padding:1px 8px;font-weight:600;color:var(--ink)}
+.live{position:absolute;left:-9999px}
+.hint{padding:0 16px 24px;color:var(--mut);font-size:13px}
+kbd{background:#fff;border:1px solid var(--bd);border-bottom-width:2px;border-radius:4px;padding:0 5px;font:600 12px 'Inter',sans-serif}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="bar"><h1>Lanewise <span>· Sprint 14</span></h1>
+<div class="chips" id="fl" role="group" aria-label="Filter by assignee"></div><span class="sp"></span>
+<button class="btn" id="tg" type="button">Collapse all</button></div>
+<div class="scroll"><div class="board" id="bd"></div></div>
+<p class="hint"><kbd>Space</kbd> pick up or drop a card · <kbd>←</kbd><kbd>→</kbd><kbd>↑</kbd><kbd>↓</kbd> move between cells · <kbd>Esc</kbd> cancel. Doing allows 4 cards and Review allows 3; going over is flagged, not blocked.</p>
+<div class="live" id="lv" aria-live="assertive"></div>
+<script>
+(function(){
+var cols=[{n:'To do',c:'#8a90a6',w:0},{n:'Doing',c:'#e09a1f',w:4},{n:'Review',c:'#8a4fe0',w:3},{n:'Done',c:'#1f9d6b',w:0}];
+var lanes=['Design','Web','Platform'];
+var P={MK:['Mira K.','#4b4fe0'],JO:['Joss O.','#d9486e'],TA:['Tarek A.','#1f9d6b'],LB:['Lena B.','#e09a1f']};
+var lbc={Bug:['#fde2e2','#8f1d1d'],Feature:['#e2e5ff','#2c2fa0'],Chore:['#e9ecf2','#444b63'],Research:['#f0e2fb','#5b2a8f']};
+var data=[];(function(){var raw=[
+['Refresh icon set',0,0,'MK','Chore',3],['Empty-state illustrations',0,0,'MK','Feature',5],['Colour token audit',0,1,'JO','Research',2],['Dark mode contrast pass',0,2,'MK','Bug',3],['Onboarding tooltips',0,3,'JO','Feature',5],
+['Filter bar bug on Safari',1,0,'TA','Bug',2],['Invite teammates modal',1,1,'LB','Feature',5],['Keyboard shortcuts sheet',1,1,'TA','Feature',3],['Profile page redesign',1,1,'LB','Feature',8],['Settings search',1,2,'TA','Feature',3],['Footer links',1,3,'LB','Chore',1],['404 page copy',1,3,'JO','Chore',1],
+['Rate limit headers',2,0,'TA','Chore',2],['Move to queue workers',2,1,'LB','Feature',8],['Audit log export',2,2,'TA','Feature',5],['Index slow queries',2,2,'LB','Research',3],['Rotate staging secrets',2,3,'TA','Chore',2],['Add retry backoff',1,1,'TA','Bug',2]];
+raw.forEach(function(a,i){data.push({id:i+1,t:a[0],l:a[1],c:a[2],p:a[3],k:a[4],s:a[5]})})})();
+var nid=100,filt=null,collapsed={},pick=null;
+var $=function(s){return document.querySelector(s)};
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function say(t){$('#lv').textContent='';setTimeout(function(){$('#lv').textContent=t},30)}
+function chips(){var h='<button class="chip" type="button" aria-pressed="'+(filt===null)+'" data-f="">Everyone</button>';
+ Object.keys(P).forEach(function(k){h+='<button class="chip" type="button" aria-pressed="'+(filt===k)+'" data-f="'+k+'"><span class="av" style="margin:0;background:'+P[k][1]+';width:20px;height:20px;font-size:9px">'+k+'</span>'+P[k][0]+'</button>'});$('#fl').innerHTML=h}
+function cardH(x){var lc=lbc[x.k];return '<div class="card'+(pick===x.id?' pick':'')+'" tabindex="0" role="button" aria-label="'+esc(x.t)+', '+x.k+', '+x.s+' points, '+P[x.p][0]+', in '+cols[x.c].n+'" data-id="'+x.id+'"><b>'+esc(x.t)+'</b><div class="cf"><span class="lb" style="background:'+lc[0]+';color:'+lc[1]+'">'+x.k+'</span><span class="pts">'+x.s+' pt</span><span class="av" style="background:'+P[x.p][1]+'" title="'+P[x.p][0]+'">'+x.p+'</span></div></div>'}
+function vis(x){return !filt||x.p===filt}
+function render(keepFocus){
+ var fid=keepFocus&&document.activeElement&&document.activeElement.dataset?document.activeElement.dataset.id:null;
+ var h='<div></div>';
+ cols.forEach(function(c,ci){var n=data.filter(function(x){return x.c===ci}).length;var over=c.w&&n>c.w;
+  h+='<div class="ch'+(over?' over':'')+'"><i style="background:'+c.c+'"></i>'+c.n+(over?'<span class="ov">OVER LIMIT</span>':'')+'<span class="ct" aria-label="'+n+(c.w?' of '+c.w:'')+' cards">'+n+(c.w?' / '+c.w:'')+'</span></div>'});
+ lanes.forEach(function(ln,li){var all=data.filter(function(x){return x.l===li});var open=!collapsed[li];
+  h+='<div class="lane"><div class="lh"><button type="button" aria-expanded="'+open+'" data-l="'+li+'"><span class="car" aria-hidden="true">▾</span>'+ln+' <small>'+all.length+' cards · '+all.reduce(function(a,b){return a+b.s},0)+' pts</small></button><form data-add="'+li+'"><label class="live" for="a'+li+'">Add card to '+ln+'</label><input id="a'+li+'" placeholder="Add a card…" maxlength="50"><button class="btn" type="submit">Add</button></form></div>';
+  if(open){h+='<div class="lt">'+ln+'</div>';cols.forEach(function(c,ci){h+='<div class="cell" data-l="'+li+'" data-c="'+ci+'" role="group" aria-label="'+ln+', '+c.n+'">'+all.filter(function(x){return x.c===ci&&vis(x)}).map(cardH).join('')+'</div>'})}
+  h+='</div>'});
+ $('#bd').innerHTML=h;
+ if(fid){var el=$('.card[data-id="'+fid+'"]');if(el)el.focus()}
+}
+$('#fl').addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(!b)return;filt=b.dataset.f||null;chips();render()});
+$('#tg').addEventListener('click',function(){var any=lanes.some(function(_,i){return !collapsed[i]});lanes.forEach(function(_,i){collapsed[i]=any});this.textContent=any?'Expand all':'Collapse all';render()});
+$('#bd').addEventListener('click',function(e){var b=e.target.closest('button[data-l]');if(b&&b.closest('.lh')){collapsed[b.dataset.l]=!collapsed[b.dataset.l];render();var nb=$('button[data-l="'+b.dataset.l+'"]');if(nb)nb.focus()}});
+$('#bd').addEventListener('submit',function(e){var f=e.target.closest('form[data-add]');if(!f)return;e.preventDefault();var inp=f.querySelector('input');var t=inp.value.trim();if(!t)return;var li=+f.dataset.add;
+ data.push({id:++nid,t:t,l:li,c:0,p:'MK',k:'Feature',s:2});collapsed[li]=false;render();say('Added '+t+' to '+lanes[li]+', To do');var nf=$('#a'+li);if(nf)nf.focus()});
+// pointer drag
+var drag=null;
+$('#bd').addEventListener('pointerdown',function(e){var c=e.target.closest('.card');if(!c||e.button>0)return;var id=+c.dataset.id;var r=c.getBoundingClientRect();
+ drag={id:id,sx:e.clientX,sy:e.clientY,el:c,on:false,ox:e.clientX-r.left,oy:e.clientY-r.top}});
+window.addEventListener('pointermove',function(e){if(!drag)return;
+ if(!drag.on){if(Math.hypot(e.clientX-drag.sx,e.clientY-drag.sy)<6)return;drag.on=true;drag.el.classList.add('drag');var g=drag.el.cloneNode(true);g.className='ghost';g.removeAttribute('tabindex');document.body.appendChild(g);drag.g=g}
+ drag.g.style.left=(e.clientX-drag.ox)+'px';drag.g.style.top=(e.clientY-drag.oy)+'px';
+ var t=document.elementFromPoint(e.clientX,e.clientY);var cell=t&&t.closest?t.closest('.cell'):null;
+ document.querySelectorAll('.cell.ok').forEach(function(x){x.classList.remove('ok')});if(cell){cell.classList.add('ok');drag.cell=cell}else drag.cell=null});
+function end(){if(!drag)return;if(drag.g)drag.g.remove();var d=drag;drag=null;if(!d.on)return;
+ if(d.cell){var x=data.filter(function(y){return y.id===d.id})[0];x.l=+d.cell.dataset.l;x.c=+d.cell.dataset.c;say(x.t+' moved to '+lanes[x.l]+', '+cols[x.c].n)}
+ render()}
+window.addEventListener('pointerup',end);window.addEventListener('pointercancel',end);
+// keyboard
+$('#bd').addEventListener('keydown',function(e){var c=e.target.closest('.card');if(!c)return;var id=+c.dataset.id;var x=data.filter(function(y){return y.id===id})[0];
+ if(e.key===' '||e.key==='Enter'){e.preventDefault();if(pick===id){pick=null;say('Dropped '+x.t+' in '+lanes[x.l]+', '+cols[x.c].n)}else{pick=id;say('Picked up '+x.t+'. Use arrow keys to move, space to drop.')}render(true);return}
+ if(e.key==='Escape'&&pick===id){pick=null;say('Cancelled');render(true);return}
+ if(pick===id&&e.key.indexOf('Arrow')===0){e.preventDefault();var l=x.l,cc=x.c;
+  if(e.key==='ArrowLeft')cc=Math.max(0,cc-1);if(e.key==='ArrowRight')cc=Math.min(3,cc+1);
+  var nl=l;if(e.key==='ArrowUp'){do{nl--}while(nl>=0&&collapsed[nl]);if(nl<0)nl=l}
+  if(e.key==='ArrowDown'){do{nl++}while(nl<lanes.length&&collapsed[nl]);if(nl>=lanes.length)nl=l}
+  x.l=nl;x.c=cc;say(x.t+' now in '+lanes[nl]+', '+cols[cc].n);render(true)}});
+chips();render();
+})();
+</script></body></html>

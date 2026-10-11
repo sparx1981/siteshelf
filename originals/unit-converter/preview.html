@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unit Converter — Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#eef3f1;--ink:#12211c;--mut:#566a62;--bd:#d6e0dc;--ac:#0f8a73}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 'Nunito Sans',system-ui,sans-serif;padding:32px 16px;min-height:100svh}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.card{max-width:640px;margin:0 auto;background:#fff;border:1px solid var(--bd);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(18,33,28,.07)}
+.brand{font:800 20px 'Nunito Sans',sans-serif;display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.brand i{width:22px;height:22px;border-radius:6px;background:var(--ac);display:inline-block}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:14px;scrollbar-width:none}
+.tab{flex:none;border:1px solid var(--bd);background:#fff;border-radius:99px;padding:8px 16px;font:700 14px 'Nunito Sans',sans-serif;cursor:pointer;min-height:40px;color:var(--ink)}
+.tab[aria-selected=true]{background:var(--ac);border-color:var(--ac);color:#fff}
+.pn{background:#f4f8f6;border:1px solid var(--bd);border-radius:14px;padding:14px 16px}
+.pn label.l{display:block;font:700 12px 'Nunito Sans',sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:6px}
+.pn .r{display:flex;gap:10px;align-items:center}
+.pn input{flex:1;min-width:0;border:0;background:transparent;font:500 28px 'Fira Code',monospace;color:var(--ink);padding:4px 0;min-height:48px;outline:0;border-bottom:2px solid transparent}
+.pn input:focus{border-bottom-color:var(--ac)}
+.pn select{font:700 15px 'Nunito Sans',sans-serif;border:1px solid var(--bd);border-radius:10px;padding:0 10px;min-height:44px;background:#fff;color:var(--ink);max-width:48%}
+.sw{display:grid;place-items:center;height:0;position:relative;z-index:2}
+.sw button{width:44px;height:44px;border-radius:50%;border:3px solid #fff;background:var(--ac);color:#fff;font-size:18px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.18);transition:transform .25s}
+.sw button:hover{transform:rotate(180deg)}
+.gap{height:10px}
+.res{font:800 18px 'Nunito Sans',sans-serif;margin:20px 0 4px;min-height:28px}
+.hint{color:var(--mut);font-size:14px;min-height:20px;margin:0}
+.pr{display:flex;align-items:center;gap:10px;margin:14px 0;color:var(--mut);font-size:14px}
+.pr button{width:36px;height:36px;border-radius:8px;border:1px solid var(--bd);background:#fff;cursor:pointer;font-weight:800;font-size:16px;color:var(--ink)}
+.pr b{min-width:20px;text-align:center;color:var(--ink);font-variant-numeric:tabular-nums}
+h2{font:800 13px 'Nunito Sans',sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin:22px 0 8px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+td{padding:8px 4px;border-bottom:1px solid #edf1ef;font-size:15px}
+td:last-child{text-align:right;font-family:'Fira Code',monospace;font-weight:500}
+.rec{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.rec button{width:100%;text-align:left;background:#f4f8f6;border:1px solid transparent;border-radius:10px;padding:10px 14px;font:600 14px 'Nunito Sans',sans-serif;cursor:pointer;min-height:44px;color:var(--ink)}
+.rec button:hover{border-color:var(--ac)}
+.live{position:absolute;left:-9999px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<main class="card"><div class="brand"><i></i>Metrolane</div>
+<div class="tabs" role="tablist" aria-label="Category" id="tb"></div>
+<div class="pn"><label class="l" for="a">From</label><div class="r"><input id="a" inputmode="decimal" autocomplete="off" value="1"><label class="live" for="ua">From unit</label><select id="ua"></select></div></div>
+<div class="sw"><button id="sw" type="button" aria-label="Swap units">⇅</button></div><div class="gap"></div>
+<div class="pn"><label class="l" for="b">To</label><div class="r"><input id="b" inputmode="decimal" autocomplete="off"><label class="live" for="ub">To unit</label><select id="ub"></select></div></div>
+<p class="res" id="rs" aria-live="polite"></p><p class="hint" id="ht"></p>
+<div class="pr"><span id="pl">Decimal places</span><button type="button" id="pm" aria-label="Fewer decimal places">−</button><b id="pv" aria-labelledby="pl">4</b><button type="button" id="pp" aria-label="More decimal places">+</button></div>
+<h2>Common values</h2><table><tbody id="cv"></tbody></table>
+<h2>Recent</h2><ul class="rec" id="rc"></ul>
+</main>
+<script>
+(function(){
+var C={
+Length:{base:'m',u:{Millimetre:.001,Centimetre:.01,Metre:1,Kilometre:1000,Inch:.0254,Foot:.3048,Yard:.9144,Mile:1609.344},d:['Metre','Foot']},
+Mass:{u:{Milligram:1e-6,Gram:.001,Kilogram:1,Tonne:1000,Ounce:.028349523125,Pound:.45359237,Stone:6.35029318},d:['Kilogram','Pound']},
+Temperature:{t:1,u:{Celsius:1,Fahrenheit:1,Kelvin:1},d:['Celsius','Fahrenheit']},
+Volume:{u:{Millilitre:.001,Litre:1,'Cubic metre':1000,Teaspoon:.00492892159,Tablespoon:.0147867648,'Fluid ounce (US)':.0295735296,'Cup (US)':.2365882365,'Pint (US)':.473176473,'Gallon (US)':3.785411784},d:['Litre','Gallon (US)']},
+Speed:{u:{'Metres/second':1,'Kilometres/hour':1/3.6,'Miles/hour':.44704,Knot:.514444444,'Feet/second':.3048},d:['Kilometres/hour','Miles/hour']}};
+var $=function(s){return document.querySelector(s)};
+var cat='Length',prec=4,hist=[],timer;
+try{hist=JSON.parse(localStorage.getItem('ml-hist')||'[]')}catch(e){}
+function toK(v,u){return u==='Celsius'?v+273.15:u==='Fahrenheit'?(v-32)*5/9+273.15:v}
+function fromK(k,u){return u==='Celsius'?k-273.15:u==='Fahrenheit'?(k-273.15)*9/5+32:k}
+function conv(v,f,t){var c=C[cat];if(c.t)return fromK(toK(v,f),t);return v*c.u[f]/c.u[t]}
+function fmt(n){if(!isFinite(n))return '';var r=+n.toFixed(prec);if(r===0&&n!==0)r=+n.toPrecision(2);try{return new Intl.NumberFormat('en-GB',{maximumFractionDigits:Math.max(prec,8)}).format(r)}catch(e){return String(r)}}
+function raw(n){return isFinite(n)?String(+n.toFixed(prec)):''}
+function num(s){s=s.replace(/,/g,'').trim();return s!==''&&/^-?\d*\.?\d+(e-?\d+)?$/i.test(s)?parseFloat(s):NaN}
+function opts(sel,cur){var h='';Object.keys(C[cat].u).forEach(function(k){h+='<option'+(k===cur?' selected':'')+'>'+k+'</option>'});sel.innerHTML=h}
+function tabs(){$('#tb').innerHTML=Object.keys(C).map(function(k){return '<button class="tab" role="tab" aria-selected="'+(k===cat)+'" tabindex="'+(k===cat?0:-1)+'" data-c="'+k+'">'+k+'</button>'}).join('')}
+function setCat(k){cat=k;tabs();opts($('#ua'),C[k].d[0]);opts($('#ub'),C[k].d[1]);$('#a').value='1';calc('a')}
+function calc(from){var A=$('#a'),B=$('#b'),ua=$('#ua').value,ub=$('#ub').value;
+ var src=from==='b'?B:A,dst=from==='b'?A:B,us=from==='b'?ub:ua,ud=from==='b'?ua:ub;
+ var v=num(src.value);
+ if(isNaN(v)){dst.value='';$('#rs').textContent='';$('#ht').textContent=src.value.trim()===''?'Type a number to convert.':'That doesn’t look like a number — try something like 12.5 or -40.';tbl();return}
+ $('#ht').textContent='';var r=conv(v,us,ud);dst.value=raw(r);
+ var a=from==='b'?r:v,b=from==='b'?v:r;
+ $('#rs').textContent=fmt(a)+' '+ua.toLowerCase()+' = '+fmt(b)+' '+ub.toLowerCase();tbl();
+ clearTimeout(timer);timer=setTimeout(function(){save(cat,fmt(a)+' '+ua,fmt(b)+' '+ub,ua,ub,a)},800)}
+function tbl(){var ua=$('#ua').value,ub=$('#ub').value;$('#cv').innerHTML=[1,5,10,50,100].map(function(v){return '<tr><td>'+v+' '+ua.toLowerCase()+'</td><td>'+fmt(conv(v,ua,ub))+' '+ub.toLowerCase()+'</td></tr>'}).join('')}
+function save(c,l,r,ua,ub,v){if(!isFinite(v))return;var s=l+' → '+r;hist=hist.filter(function(h){return h.s!==s});hist.unshift({s:s,c:c,ua:ua,ub:ub,v:v});hist=hist.slice(0,5);try{localStorage.setItem('ml-hist',JSON.stringify(hist))}catch(e){}rec()}
+function rec(){$('#rc').innerHTML=hist.length?hist.map(function(h,i){return '<li><button type="button" data-i="'+i+'">'+h.s.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</button></li>'}).join(''):'<li style="color:var(--mut);font-size:14px">Conversions you make appear here.</li>'}
+$('#tb').addEventListener('click',function(e){var b=e.target.closest('.tab');if(b)setCat(b.dataset.c)});
+$('#tb').addEventListener('keydown',function(e){var k=Object.keys(C),i=k.indexOf(cat),d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(!d)return;e.preventDefault();setCat(k[(i+d+k.length)%k.length]);$('#tb .tab[aria-selected=true]').focus()});
+$('#a').addEventListener('input',function(){calc('a')});$('#b').addEventListener('input',function(){calc('b')});
+$('#ua').addEventListener('change',function(){calc('a')});$('#ub').addEventListener('change',function(){calc('a')});
+$('#sw').addEventListener('click',function(){var a=$('#ua').value,b=$('#ub').value,v=$('#b').value;$('#ua').value=b;$('#ub').value=a;if(v!==''&&!isNaN(num(v)))$('#a').value=v;calc('a')});
+$('#pm').addEventListener('click',function(){prec=Math.max(2,prec-1);$('#pv').textContent=prec;calc('a')});
+$('#pp').addEventListener('click',function(){prec=Math.min(8,prec+1);$('#pv').textContent=prec;calc('a')});
+$('#rc').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var h=hist[+b.dataset.i];cat=h.c;tabs();opts($('#ua'),h.ua);opts($('#ub'),h.ub);$('#a').value=String(h.v);calc('a')});
+tabs();opts($('#ua'),'Metre');opts($('#ub'),'Foot');$('#a').value='1';calc('a');rec();
+})();
+</script></body></html>

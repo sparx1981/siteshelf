@@ -1,0 +1,11 @@
+Canvas & base: A tidy utility on #f5f6f8 with a white tool card (1px #dde0e6 border, 16px radius). The live preview panel takes the chosen foreground and background colours. Ink #14171f, secondary #5d6475, accent #0b6bcb. Invented brand "Hueproof".
+
+Typography: "Manrope" (500, 700, 800) for UI and "IBM Plex Mono" (500) for hex values. The ratio is shown at clamp(56px,10vw,96px) 800 weight with tabular numerals, followed by ":1".
+
+Layout: Two columns at 1000px max. Left: two colour rows (Text colour, Background colour), each with a native colour input, a hex text field and a small swatch label, with a circular swap button between them; below, a "Suggest a fix" button and a list of presets (6 pairs). Right: a large ratio readout with a verdict line (Excellent, Good, Poor, Fail), a 2x3 grid of result badges (Normal text AA 4.5, AAA 7, Large text AA 3, AAA 4.5, UI components AA 3, Graphics AA 3) showing Pass or Fail with icons not just colour, and a preview card rendered in the chosen colours with heading, body text, a button and a link.
+
+Interaction: Colours update everything live. Hex fields accept 3 or 6 digits with or without #, show an error state for invalid input and keep the last valid colour. Ratio uses WCAG relative luminance with sRGB linearisation. Swap exchanges colours. Suggest a fix darkens or lightens the text colour in small HSL lightness steps until it reaches 4.5:1 against the background and announces the change; if already passing it says so. Presets apply on click. Ratio changes are announced via an aria-live polite region.
+
+Responsive: Below 820px stack to one column with the ratio first; badges stay two columns down to 390px without overflow.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Label every control, use text plus icon for pass/fail, respect prefers-reduced-motion, invented names only.

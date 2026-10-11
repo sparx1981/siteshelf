@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dark Docs Home — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#0b0d12;--pn:#12151d;--bd:#232836;--ink:#e8ebf3;--mut:#8d96ab;--ac:#2de2c4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 'Inter',system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+nav{display:flex;align-items:center;gap:20px;height:64px;position:relative;z-index:20}
+.logo{font:700 20px 'Space Grotesk',sans-serif;display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo i{width:22px;height:22px;border-radius:7px;background:conic-gradient(from 200deg,#2de2c4,#2d7be2,#2de2c4)}
+.nl{display:flex;gap:4px;margin-left:12px}
+.nl a{color:var(--mut);text-decoration:none;font-size:15px;padding:8px 12px;border-radius:8px}
+.nl a:hover{color:var(--ink);background:#1a1e29}
+.sp{flex:1}
+.vs{position:relative}
+.vb,.mb{background:var(--pn);border:1px solid var(--bd);color:var(--ink);border-radius:8px;padding:7px 12px;font:500 14px 'Inter',sans-serif;cursor:pointer;min-height:40px}
+.vm{position:absolute;right:0;top:46px;background:var(--pn);border:1px solid var(--bd);border-radius:10px;padding:6px;min-width:150px;z-index:30;box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.vm button{display:block;width:100%;text-align:left;background:none;border:0;color:var(--ink);padding:9px 12px;border-radius:6px;cursor:pointer;font:400 14px 'Inter',sans-serif;min-height:40px}
+.vm button:hover,.vm button[aria-checked=true]{background:#1c212d}
+.vm button[aria-checked=true]{color:var(--ac)}
+.mb{display:none}
+.hero{position:relative;text-align:center;padding:64px 0 40px}
+.hero:before{content:"";position:absolute;left:50%;top:-80px;width:min(900px,100vw);height:520px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(45,226,196,.22),transparent);pointer-events:none}
+.pill{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--bd);background:var(--pn);border-radius:99px;padding:5px 14px;font-size:13px;color:var(--mut)}
+.pill b{color:var(--ac);font-weight:500}
+h1{font:700 clamp(36px,6vw,64px)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.03em;margin:20px auto 14px;max-width:760px;position:relative}
+.hero>p{color:var(--mut);max-width:560px;margin:0 auto 28px;position:relative;font-size:18px}
+.sw{max-width:620px;margin:0 auto;position:relative;text-align:left}
+.sb{display:flex;align-items:center;gap:10px;background:var(--pn);border:1px solid #2f3547;border-radius:14px;padding:0 14px;box-shadow:0 0 0 0 rgba(45,226,196,0);transition:box-shadow .2s,border-color .2s}
+.sb:focus-within{border-color:var(--ac);box-shadow:0 0 0 4px rgba(45,226,196,.15),0 0 40px rgba(45,226,196,.18)}
+.sb input{flex:1;background:none;border:0;outline:0;color:var(--ink);font:400 17px 'Inter',sans-serif;padding:16px 0;min-width:0}
+.sb kbd{font:500 12px 'JetBrains Mono',monospace;color:var(--mut);border:1px solid var(--bd);border-radius:6px;padding:2px 8px}
+.res{position:absolute;left:0;right:0;top:62px;background:var(--pn);border:1px solid var(--bd);border-radius:14px;padding:6px;z-index:15;max-height:340px;overflow:auto;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+.res li{list-style:none}
+.res ul{margin:0;padding:0}
+.res [role=option]{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:9px;cursor:pointer}
+.res [role=option][aria-selected=true]{background:#1c2230}
+.res small{color:var(--mut);margin-left:auto;font-size:12px;white-space:nowrap}
+.res mark{background:rgba(45,226,196,.22);color:var(--ac);border-radius:3px}
+.res .none{padding:18px;color:var(--mut);text-align:center}
+.qs{margin:36px auto 0;max-width:760px;background:var(--pn);border:1px solid var(--bd);border-radius:16px;text-align:left;position:relative;overflow:hidden}
+.tabs{display:flex;border-bottom:1px solid var(--bd);padding:0 8px;align-items:center}
+.tab{background:none;border:0;color:var(--mut);padding:14px 14px;font:500 14px 'Inter',sans-serif;cursor:pointer;border-bottom:2px solid transparent;min-height:48px}
+.tab[aria-selected=true]{color:var(--ink);border-bottom-color:var(--ac)}
+.cp{margin-left:auto;background:#1c2230;border:1px solid var(--bd);color:var(--ink);border-radius:8px;padding:6px 12px;font:500 13px 'Inter',sans-serif;cursor:pointer;min-height:34px}
+.cp:hover{border-color:var(--ac)}
+pre{margin:0;padding:20px;overflow-x:auto;font:400 14px/1.7 'JetBrains Mono',monospace;color:#cfd6e6;tab-size:2}
+.k{color:#7aa2ff}.s{color:#7ee2a8}.c{color:#6b7488}.f{color:#ffcf70}
+.sec{padding:56px 0 0}
+.sec h2{font:700 28px 'Space Grotesk',sans-serif;letter-spacing:-.02em;margin:0 0 20px}
+.gr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.gc{background:var(--pn);border:1px solid var(--bd);border-radius:14px;padding:22px;text-decoration:none;transition:border-color .2s,transform .2s;display:block}
+.gc:hover{border-color:#3a4258;transform:translateY(-2px)}
+.gc .ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:rgba(45,226,196,.12);color:var(--ac);font-size:20px;margin-bottom:14px}
+.gc h3{font:700 18px 'Space Grotesk',sans-serif;margin:0 0 6px}
+.gc p{margin:0 0 12px;color:var(--mut);font-size:15px}
+.gc small{color:var(--ac);font-size:13px}
+.roles{display:flex;gap:10px;flex-wrap:wrap}
+.roles a{border:1px solid var(--bd);border-radius:99px;padding:9px 18px;text-decoration:none;color:var(--mut);font-size:15px;min-height:40px}
+.roles a:hover{color:var(--ink);border-color:var(--ac)}
+.st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:14px;overflow:hidden}
+.st div{background:var(--pn);padding:18px 22px;display:flex;align-items:center;gap:12px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--ac);box-shadow:0 0 10px var(--ac)}
+.st b{font-weight:500}.st span{color:var(--mut);margin-left:auto;font:400 13px 'JetBrains Mono',monospace}
+footer{padding:56px 0 40px;color:var(--mut);font-size:14px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1c2230;border:1px solid var(--ac);padding:12px 20px;border-radius:12px;z-index:50;font-size:14px}
+@media(max-width:900px){.gr{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.nl{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--pn);border:1px solid var(--bd);border-radius:12px;padding:8px;margin:0}.nl.open{display:flex}.mb{display:block}.st{grid-template-columns:minmax(0,1fr)}.hero{padding-top:40px}}
+@media(max-width:560px){.gr{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="wrap">
+<nav><a class="logo" href="#"><i></i>Quillstream</a>
+<div class="nl" id="nl"><a href="#">Guides</a><a href="#">API reference</a><a href="#">SDKs</a><a href="#">Changelog</a></div><span class="sp"></span>
+<div class="vs"><button class="vb" id="vb" aria-haspopup="true" aria-expanded="false" type="button">v3.2 ▾</button><div class="vm" id="vm" role="menu" hidden><button role="menuitemradio" aria-checked="true" data-v="3.2">v3.2 (latest)</button><button role="menuitemradio" aria-checked="false" data-v="2.9">v2.9</button></div></div>
+<button class="mb" id="mb" type="button" aria-expanded="false" aria-controls="nl">Menu</button></nav>
+<section class="hero"><span class="pill"><b>New</b> Replay API is generally available</span>
+<h1>Ship real-time features in an afternoon</h1>
+<p>Guides, references and copy-paste examples for the Quillstream events API.</p>
+<div class="sw"><div class="sb"><span aria-hidden="true">🔎</span><label for="q" class="sr" style="position:absolute;left:-9999px">Search the docs</label><input id="q" type="text" role="combobox" aria-expanded="false" aria-controls="lb" aria-autocomplete="list" placeholder="Search the docs…" autocomplete="off"><kbd>/</kbd></div>
+<div class="res" id="res" hidden><ul id="lb" role="listbox" aria-label="Search results"></ul></div></div>
+<div class="qs"><div class="tabs" role="tablist" aria-label="Quick start language"><button class="tab" role="tab" id="t0" aria-selected="true" aria-controls="cd" tabindex="0">Node</button><button class="tab" role="tab" id="t1" aria-selected="false" aria-controls="cd" tabindex="-1">Python</button><button class="tab" role="tab" id="t2" aria-selected="false" aria-controls="cd" tabindex="-1">cURL</button><button class="cp" id="cp" type="button">Copy</button></div>
+<pre id="cd" role="tabpanel" aria-labelledby="t0" tabindex="0"></pre></div></section>
+<section class="sec"><h2>Start with a guide</h2><div class="gr" id="gr"></div></section>
+<section class="sec"><h2>Explore by role</h2><div class="roles"><a href="#">Backend engineer</a><a href="#">Mobile developer</a><a href="#">Data engineer</a><a href="#">Platform / SRE</a><a href="#">Product manager</a></div></section>
+<section class="sec"><h2>Service status</h2><div class="st"><div><i class="dot"></i><b>Ingest API</b><span>99.99%</span></div><div><i class="dot"></i><b>Streams</b><span>99.98%</span></div><div><i class="dot"></i><b>Replay</b><span>99.95%</span></div></div></section>
+<footer>© Quillstream, an invented example product. Built for developers who read the docs first.</footer>
+</div>
+<div class="toast" id="ts" role="status" hidden></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var ver='3.2';
+function code(i){var v=ver;
+ if(i===0)return '<span class="c">// npm i @quillstream/client@'+v+'</span>\n<span class="k">import</span> { Quill } <span class="k">from</span> <span class="s">"@quillstream/client"</span>;\n\n<span class="k">const</span> q = <span class="k">new</span> <span class="f">Quill</span>({ key: process.env.QS_KEY });\n<span class="k">await</span> q.<span class="f">publish</span>(<span class="s">"orders.created"</span>, { id: <span class="s">"ord_204"</span>, total: <span class="f">42.5</span> });\n\nq.<span class="f">subscribe</span>(<span class="s">"orders.*"</span>, (evt) => console.<span class="f">log</span>(evt.type, evt.data));';
+ if(i===1)return '<span class="c"># pip install quillstream=='+v+'</span>\n<span class="k">import</span> os\n<span class="k">from</span> quillstream <span class="k">import</span> Quill\n\nq = <span class="f">Quill</span>(key=os.environ[<span class="s">"QS_KEY"</span>])\nq.<span class="f">publish</span>(<span class="s">"orders.created"</span>, {<span class="s">"id"</span>: <span class="s">"ord_204"</span>, <span class="s">"total"</span>: <span class="f">42.5</span>})\n\n<span class="k">for</span> evt <span class="k">in</span> q.<span class="f">subscribe</span>(<span class="s">"orders.*"</span>):\n    <span class="f">print</span>(evt.type, evt.data)';
+ return '<span class="c"># Publish an event with API v'+v+'</span>\ncurl -X POST https://api.quillstream.example/v'+v.split('.')[0]+'/events \\\n  -H <span class="s">"Authorization: Bearer $QS_KEY"</span> \\\n  -H <span class="s">"Content-Type: application/json"</span> \\\n  -d <span class="s">\'{"type":"orders.created","data":{"id":"ord_204","total":42.5}}\'</span>'}
+var cur=0;
+function paint(){$('#cd').innerHTML=code(cur);$('#cd').setAttribute('aria-labelledby','t'+cur);for(var i=0;i<3;i++){var t=$('#t'+i);t.setAttribute('aria-selected',i===cur);t.tabIndex=i===cur?0:-1}}
+document.querySelector('.tabs').addEventListener('click',function(e){var t=e.target.closest('.tab');if(t){cur=+t.id.slice(1);paint()}});
+document.querySelector('.tabs').addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(!d)return;e.preventDefault();cur=(cur+d+3)%3;paint();$('#t'+cur).focus()});
+$('#cp').addEventListener('click',function(){var b=this,t=$('#cd').textContent;try{navigator.clipboard.writeText(t).catch(function(){})}catch(e){}b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1600)});
+var vb=$('#vb'),vm=$('#vm');
+vb.addEventListener('click',function(){var o=vm.hidden;vm.hidden=!o;vb.setAttribute('aria-expanded',o);if(o)vm.querySelector('[aria-checked=true]').focus()});
+vm.addEventListener('click',function(e){var b=e.target.closest('[data-v]');if(!b)return;ver=b.dataset.v;vm.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-checked',x===b)});vb.textContent='v'+ver+' ▾';vm.hidden=true;vb.setAttribute('aria-expanded',false);vb.focus();paint()});
+vm.addEventListener('keydown',function(e){var bs=[].slice.call(vm.querySelectorAll('button')),i=bs.indexOf(document.activeElement);if(e.key==='ArrowDown'){e.preventDefault();bs[(i+1)%bs.length].focus()}if(e.key==='ArrowUp'){e.preventDefault();bs[(i-1+bs.length)%bs.length].focus()}if(e.key==='Escape'){vm.hidden=true;vb.setAttribute('aria-expanded',false);vb.focus()}});
+$('#mb').addEventListener('click',function(){var o=$('#nl').classList.toggle('open');this.setAttribute('aria-expanded',o)});
+var G=[['⚡','Quick start','Publish and receive your first event in five minutes.','5 min read'],['🔐','Authentication','API keys, scoped tokens and rotating secrets safely.','8 min read'],['🔁','Replay and retention','Rewind a stream and rebuild state from history.','10 min read'],['📡','Webhooks','Deliver events to your endpoints with signed retries.','7 min read'],['🧪','Testing locally','Run the emulator and write deterministic tests.','6 min read'],['📈','Scaling streams','Partitions, ordering guarantees and backpressure.','12 min read']];
+$('#gr').innerHTML=G.map(function(g){return '<a class="gc" href="#"><div class="ic" aria-hidden="true">'+g[0]+'</div><h3>'+g[1]+'</h3><p>'+g[2]+'</p><small>'+g[3]+' →</small></a>'}).join('');
+var IDX=[['Quick start','Guides'],['Authentication','Guides'],['API keys','Guides'],['Scoped tokens','Reference'],['Publish an event','Reference'],['Subscribe to a stream','Reference'],['Replay API','Reference'],['Retention policies','Guides'],['Webhooks','Guides'],['Webhook signatures','Reference'],['Retries and backoff','Guides'],['Rate limits','Reference'],['Error codes','Reference'],['Node SDK','SDKs'],['Python SDK','SDKs'],['Local emulator','Guides'],['Partitions and ordering','Guides'],['Migrating from v2','Guides']];
+var res=$('#res'),lb=$('#lb'),q=$('#q'),sel=0,hits=[];
+function esc(s){return s.replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+function search(){var v=q.value.trim().toLowerCase();if(!v){close();return}
+ hits=IDX.filter(function(x){return x[0].toLowerCase().indexOf(v)>-1});sel=0;res.hidden=false;q.setAttribute('aria-expanded',true);
+ if(!hits.length){lb.innerHTML='<li class="none" role="presentation">No pages match “'+esc(q.value)+'”</li>';return}
+ lb.innerHTML=hits.map(function(h,i){var t=h[0],k=t.toLowerCase().indexOf(v);var m=esc(t.slice(0,k))+'<mark>'+esc(t.slice(k,k+v.length))+'</mark>'+esc(t.slice(k+v.length));
+  return '<li role="option" id="o'+i+'" aria-selected="'+(i===0)+'" data-i="'+i+'">'+m+'<small>'+h[1]+'</small></li>'}).join('');q.setAttribute('aria-activedescendant','o0')}
+function close(){res.hidden=true;q.setAttribute('aria-expanded',false);q.removeAttribute('aria-activedescendant')}
+function mark(){lb.querySelectorAll('[role=option]').forEach(function(o,i){o.setAttribute('aria-selected',i===sel)});var o=$('#o'+sel);if(o){q.setAttribute('aria-activedescendant','o'+sel);o.scrollIntoView({block:'nearest'})}}
+function toast(t){var e=$('#ts');e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){e.hidden=true},2000)}
+function open(i){if(!hits[i])return;toast('Opening “'+hits[i][0]+'”…');close();q.value=''}
+q.addEventListener('input',search);
+q.addEventListener('keydown',function(e){if(res.hidden||!hits.length){if(e.key==='Escape')close();return}
+ if(e.key==='ArrowDown'){e.preventDefault();sel=(sel+1)%hits.length;mark()}else if(e.key==='ArrowUp'){e.preventDefault();sel=(sel-1+hits.length)%hits.length;mark()}else if(e.key==='Enter'){e.preventDefault();open(sel)}else if(e.key==='Escape'){close()}});
+lb.addEventListener('mousemove',function(e){var o=e.target.closest('[role=option]');if(o&&+o.dataset.i!==sel){sel=+o.dataset.i;mark()}});
+lb.addEventListener('click',function(e){var o=e.target.closest('[role=option]');if(o)open(+o.dataset.i)});
+document.addEventListener('keydown',function(e){if((e.key==='/'&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName))||((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k')){e.preventDefault();q.focus()}});
+document.addEventListener('click',function(e){var p=e.composedPath();if(p.indexOf(res)<0&&p.indexOf(q)<0)close();if(p.indexOf(vm)<0&&p.indexOf(vb)<0&&!vm.hidden){vm.hidden=true;vb.setAttribute('aria-expanded',false)}});
+paint();
+})();
+</script></body></html>

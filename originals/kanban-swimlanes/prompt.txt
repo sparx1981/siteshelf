@@ -1,0 +1,11 @@
+Canvas & base: A crisp project tool on #f3f4f8 with white lanes (1px #e0e3ec border, 12px radius), ink #1b2033, secondary #646b82, accent indigo #4b4fe0. Status colours: To do #8a90a6, Doing #e09a1f, Review #8a4fe0, Done #1f9d6b. Invented product "Lanewise", sprint "Sprint 14".
+
+Typography: "Inter" (400, 500, 600, 700) throughout at 14px; lane titles 15px 700; column headers 12px 700 uppercase tracking .06em; tabular numerals for counts.
+
+Layout: Sticky top bar with sprint name, a filter by assignee chips row and an "Expand all / Collapse all" button. Beneath, a grid whose first row holds four column headers (To do, Doing with WIP limit 4, Review with WIP limit 3, Done) with live counts "3 / 4". Each swimlane (Design, Web, Platform) is a collapsible band with a summary count, containing one cell per column holding cards. A card shows title, a coloured label, an avatar made of initials and an estimate in points.
+
+Interaction: Drag cards between cells with pointer events (ghost follows pointer, valid drop cells highlight); also keyboard: focus a card, press Space to pick up, arrows to move between cells, Space to drop, Escape to cancel, with an aria-live announcement. When a column's total exceeds its WIP limit the header turns amber with a "Over limit" badge but the drop is still allowed. Each lane has a quick-add field creating a card in To do. Assignee chips filter cards across all lanes. Lane headers toggle collapse with aria-expanded.
+
+Responsive: Below 900px the board scrolls horizontally inside its own container, the lane label stays sticky on the left, and the page itself never scrolls sideways at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus rings, prefers-reduced-motion respected, invented names only.

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Email Inbox — App UI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#f6f7f9;--ink:#1c2230;--mut:#667087;--bd:#e3e6ec;--ac:#2f6bff;--st:#f2b01e}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 14px/1.45 'DM Sans',system-ui,sans-serif;overflow:hidden}
+:focus-visible{outline:2px solid var(--ac);outline-offset:-2px}
+button{font-family:inherit;color:inherit}
+.shell{display:grid;grid-template-columns:220px minmax(0,360px) minmax(0,1fr);height:100svh;background:#fff}
+.rail{background:var(--bg);border-right:1px solid var(--bd);padding:16px 12px;display:flex;flex-direction:column;gap:4px;overflow:auto}
+.logo{font:700 18px 'DM Sans',sans-serif;padding:4px 10px 14px;display:flex;gap:8px;align-items:center}
+.logo i{width:20px;height:20px;border-radius:6px;background:var(--ac)}
+.cmp{background:var(--ac);color:#fff;border:0;border-radius:10px;min-height:44px;font-weight:700;cursor:pointer;margin-bottom:10px}
+.fo{display:flex;align-items:center;gap:10px;background:none;border:0;padding:0 12px;min-height:40px;border-radius:8px;cursor:pointer;text-align:left;width:100%;font-weight:500}
+.fo:hover{background:#eceef3}
+.fo[aria-current=true]{background:#e4ebff;color:#1f4fd1;font-weight:700}
+.fo b{margin-left:auto;font-size:12px}
+.lbh{font:700 11px 'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);padding:14px 12px 4px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.mid{border-right:1px solid var(--bd);display:flex;flex-direction:column;min-width:0;min-height:0}
+.sr{padding:12px;border-bottom:1px solid var(--bd);display:flex;gap:8px}
+.sr button{display:none;border:1px solid var(--bd);background:#fff;border-radius:8px;min-width:44px;min-height:44px;cursor:pointer}
+.sr input{flex:1;min-width:0;border:1px solid var(--bd);border-radius:10px;padding:0 12px;min-height:44px;font:400 14px 'DM Sans',sans-serif;background:var(--bg)}
+.tb{display:flex;align-items:center;gap:6px;padding:6px 12px;border-bottom:1px solid var(--bd);min-height:48px;flex-wrap:wrap}
+.tb input{width:18px;height:18px;accent-color:var(--ac)}
+.tb button{border:1px solid var(--bd);background:#fff;border-radius:8px;padding:0 10px;min-height:34px;cursor:pointer;font-size:13px;font-weight:500}
+.tb .n{margin-left:auto;color:var(--mut);font-size:13px}
+.ls{flex:1;overflow:auto;margin:0;padding:0;list-style:none}
+.rw{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;gap:2px 10px;align-items:center;padding:10px 12px;border-bottom:1px solid #eef0f4;cursor:pointer;position:relative}
+.rw:hover{background:#f8f9fb}
+.rw.sel{background:#eaf0ff}
+.rw.act{box-shadow:inset 3px 0 0 var(--ac)}
+.rw input{width:18px;height:18px;accent-color:var(--ac)}
+.st{background:none;border:0;font-size:18px;color:#c3c8d4;cursor:pointer;width:32px;height:32px;line-height:1}
+.st[aria-pressed=true]{color:var(--st)}
+.fr{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;gap:6px;align-items:center}
+.tm{font-size:12px;color:var(--mut);font-variant-numeric:tabular-nums}
+.sj{grid-column:3/5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:15px}
+.pv{grid-column:3/5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--mut);font-size:13px}
+.rw.un .fr,.rw.un .sj{font-weight:700}
+.un-d{width:8px;height:8px;border-radius:50%;background:var(--ac);flex:none}
+.empty{padding:40px 20px;text-align:center;color:var(--mut)}
+.rd{display:flex;flex-direction:column;min-width:0;min-height:0;overflow:auto}
+.rd .none{margin:auto;color:var(--mut);text-align:center;padding:20px}
+.rh{padding:20px 28px 0}
+.back{display:none;border:1px solid var(--bd);background:#fff;border-radius:8px;min-height:44px;padding:0 14px;cursor:pointer;margin:12px 16px 0;font-weight:500}
+.rh h2{font:700 22px/1.3 'DM Sans',sans-serif;margin:0 0 14px;overflow-wrap:anywhere}
+.who{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.av{width:40px;height:40px;border-radius:50%;color:#fff;display:grid;place-items:center;font-weight:700;flex:none}
+.who small{color:var(--mut);display:block}
+.ac{display:flex;gap:6px;flex-wrap:wrap;padding:0 28px 12px;border-bottom:1px solid var(--bd)}
+.ac button{border:1px solid var(--bd);background:#fff;border-radius:8px;padding:0 14px;min-height:38px;cursor:pointer;font-weight:500}
+.ac button:hover{border-color:var(--ac)}
+.bodyt{padding:20px 28px;font-size:15px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere}
+.rp{margin:0 28px 28px;border:1px solid var(--bd);border-radius:12px;padding:14px}
+.rp textarea{width:100%;min-height:90px;border:0;resize:vertical;font:400 15px/1.5 'DM Sans',sans-serif;outline:0;color:var(--ink)}
+.rp .r{display:flex;gap:8px;justify-content:flex-end}
+.rp .r button{border:0;background:var(--ac);color:#fff;border-radius:8px;min-height:40px;padding:0 18px;font-weight:700;cursor:pointer}
+.rp .r .g{background:#eef0f4;color:var(--ink)}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:10px;padding:10px 16px;display:flex;gap:16px;align-items:center;z-index:60;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.toast button{background:none;border:0;color:#9db8ff;font-weight:700;cursor:pointer;min-height:36px}
+.scrim{position:fixed;inset:0;background:rgba(10,15,30,.45);z-index:40}
+@media(max-width:900px){.shell{grid-template-columns:minmax(0,340px) minmax(0,1fr)}.rail{position:fixed;left:0;top:0;bottom:0;width:260px;z-index:50;transform:translateX(-100%);transition:transform .2s;box-shadow:10px 0 30px rgba(0,0,0,.15)}.rail.open{transform:none}.sr button{display:block}}
+@media(max-width:700px){.shell{grid-template-columns:minmax(0,1fr)}.rd{display:none}.shell.read .mid{display:none}.shell.read .rd{display:flex}.back{display:block}.rh,.ac,.bodyt{padding-left:16px;padding-right:16px}.rp{margin:0 16px 24px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="shell" id="sh">
+<nav class="rail" id="rl" aria-label="Folders"><div class="logo"><i></i>Postwise</div><button class="cmp" id="cm" type="button">Compose</button><div id="fo"></div><div class="lbh">Labels</div><button class="fo" type="button"><span class="dot" style="background:#2fb36b"></span>Clients</button><button class="fo" type="button"><span class="dot" style="background:#e0662f"></span>Travel</button></nav>
+<section class="mid" aria-label="Messages"><div class="sr"><button type="button" id="mn" aria-label="Open folders">☰</button><label class="live" style="position:absolute;left:-9999px" for="q">Search mail</label><input id="q" type="search" placeholder="Search mail  ( / )"></div>
+<div class="tb"><input type="checkbox" id="all" aria-label="Select all messages"><span id="bk" hidden><button data-b="a" type="button">Archive</button> <button data-b="d" type="button">Delete</button> <button data-b="r" type="button">Mark read</button></span><span class="n" id="cn"></span></div>
+<ul class="ls" id="ls" role="listbox" aria-label="Messages" tabindex="0"></ul></section>
+<article class="rd" id="rd" aria-live="polite"></article>
+</div><div id="tz"></div><div id="sc" class="scrim" hidden></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var COL=['#2f6bff','#e0662f','#2fb36b','#8a4fe0','#d9486e','#0f8a9d'];
+var M=[
+['Ines Calderwood','ines@harbourline.example','Q3 roadmap: your comments',1,'Hi,\n\nThanks for the thoughtful notes on the roadmap draft. I have folded most of them in. Two items I want to talk through before Friday:\n\n1. Moving the analytics export earlier\n2. Splitting the onboarding work across two sprints\n\nCould you spare twenty minutes tomorrow? Mornings work best for me.\n\nInes','09:42'],
+['Tobias Wren','tobias@pinegate.example','Invoice 2041 is overdue',1,'Hello,\n\nA quick reminder that invoice 2041 for the brand workshop was due last Tuesday. If it has already been paid please ignore this note and accept my thanks.\n\nBest,\nTobias','09:10'],
+['Amara Okonkwo','amara@loomhouse.example','Photos from Saturday',0,'The photos from the studio open day are finally sorted. I picked the best forty and put them in the shared album. The one by the kiln is my favourite.\n\nSee you at the next one!\nAmara','Yesterday'],
+['Skylark Rail','tickets@skylark.example','Your booking: Leeds to Oban',0,'Your journey is confirmed.\n\nOutbound: Fri 17 Oct, 08:14 Leeds to Glasgow Queen Street\nConnection: 12:20 Glasgow to Oban\nSeat: Coach C, 42 (window)\n\nHave a lovely trip.','Yesterday'],
+['Marcus Delacroix','marcus@fennelworks.example','Re: Logo variations',1,'These are really close. Could we try the second mark with a heavier stroke, and the colour from option three? I will send my final pick once I have seen it on a mug mock-up.\n\nThanks,\nMarcus','Yesterday'],
+['Priya Venkataraman','priya@oakridge.example','Welcome aboard!',0,'We are delighted you are joining the team on Monday. Your laptop will be on your desk, along with a short guide to the first week. Lunch is on us.\n\nPriya','Tue'],
+['Northwind Cafe','hello@northwindcafe.example','Your loyalty card is full',0,'Congratulations! Your tenth coffee is on the house. Show this email at the counter any weekday before 11am.\n\nSee you soon,\nThe Northwind team','Tue'],
+['Gideon Marsh','gideon@brightkiln.example','Quote for the packaging run',1,'Please find our quote below for 2,000 units in kraft board with a single-colour print.\n\nUnit price: £0.84\nLead time: 3 weeks\nTooling: £120 one-off\n\nHappy to adjust quantities.\n\nGideon','Mon'],
+['Elsie Thornbury','elsie@wrenandfield.example','Book club: next pick',0,'Votes are in and the next pick is the tide-pool memoir. We meet on the 24th at my place. Bring snacks, not opinions about the ending.\n\nElsie','Mon'],
+['Duncan Ashby','duncan@stoneharbor.example','Thursday stand-up moved',1,'Heads up: Thursday\'s stand-up moves to 10:30 because of the office fire drill. Same room, same terrible biscuits.\n\nDuncan','Sun'],
+['Lumen Library','noreply@lumenlibrary.example','Items due in 3 days',0,'You have two items due on Wednesday: "Field Notes on Moss" and "The Quiet Bridge". Renew online or at the desk.','Sun'],
+['Yuki Tanabe','yuki@sunpressworks.example','Proofs attached',1,'Here are the proofs for the zine. Please check page 7 closely; I think the caption is off by a line. We can still change anything until Wednesday noon.\n\nYuki','Sat'],
+['Fenwick Gardens','news@fenwick.example','Autumn planting guide',0,'Now is the time for bulbs. Our short guide covers tulips, alliums and the underrated snake\'s head fritillary, with depth and spacing for each.','Sat'],
+['Rowan Pike','rowan@tidalstudio.example','Coffee next week?',1,'It has been ages. Free for coffee Wednesday or Thursday afternoon? I owe you a story about the ferry.\n\nRowan','Fri']];
+var msgs=M.map(function(m,i){return{id:i+1,f:m[0],e:m[1],s:m[2],un:!!m[3],b:m[4],t:m[5],star:i%5===1,fo:'inbox',c:COL[i%6]}});
+var FO=[['inbox','Inbox'],['starred','Starred'],['sent','Sent'],['drafts','Drafts'],['archive','Archive'],['trash','Trash']];
+var fo='inbox',sel=null,chk={},q='',nid=100;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function inF(m){return fo==='starred'?m.star&&m.fo!=='trash':m.fo===fo}
+function list(){var l=msgs.filter(inF);if(q){var x=q.toLowerCase();l=l.filter(function(m){return (m.f+m.s+m.b).toLowerCase().indexOf(x)>-1})}return l}
+function rail(){$('#fo').innerHTML=FO.map(function(f){var n=f[0]==='inbox'?msgs.filter(function(m){return m.fo==='inbox'&&m.un}).length:0;return '<button class="fo" type="button" data-f="'+f[0]+'"'+(f[0]===fo?' aria-current="true"':'')+'>'+f[1]+(n?'<b>'+n+'</b>':'')+'</button>'}).join('')}
+function ls(){var l=list();$('#cn').textContent=l.length+' message'+(l.length===1?'':'s');
+ $('#ls').innerHTML=l.length?l.map(function(m){return '<li class="rw'+(m.un?' un':'')+(sel===m.id?' sel act':'')+'" role="option" id="m'+m.id+'" aria-selected="'+(sel===m.id)+'" data-id="'+m.id+'"><input type="checkbox" data-k="'+m.id+'" '+(chk[m.id]?'checked':'')+' aria-label="Select message from '+esc(m.f)+'"><button class="st" type="button" data-s="'+m.id+'" aria-pressed="'+m.star+'" aria-label="Star">'+(m.star?'★':'☆')+'</button><span class="fr">'+(m.un?'<i class="un-d"></i>':'')+esc(m.f)+'</span><span class="tm">'+m.t+'</span><span class="sj">'+esc(m.s)+'</span><span class="pv">'+esc(m.b.replace(/\s+/g,' ').slice(0,90))+'</span></li>'}).join(''):'<li class="empty" role="presentation">Nothing here.</li>';
+ var n=Object.keys(chk).filter(function(k){return chk[k]}).length;$('#bk').hidden=!n;$('#all').checked=l.length>0&&l.every(function(m){return chk[m.id]});
+ if(sel)$('#ls').setAttribute('aria-activedescendant','m'+sel);else $('#ls').removeAttribute('aria-activedescendant')}
+function read(){var m=msgs.filter(function(x){return x.id===sel})[0];
+ if(!m){$('#rd').innerHTML='<div class="none">Select a message to read it.</div>';return}
+ $('#rd').innerHTML='<button class="back" id="bkb" type="button">← Back</button><div class="rh"><h2>'+esc(m.s)+'</h2><div class="who"><span class="av" style="background:'+m.c+'">'+esc(m.f.split(' ').map(function(w){return w[0]}).join('').slice(0,2))+'</span><div><b>'+esc(m.f)+'</b><small>&lt;'+esc(m.e)+'&gt; · '+m.t+'</small></div></div></div><div class="ac"><button type="button" data-a="reply">Reply</button><button type="button" data-a="archive">Archive</button><button type="button" data-a="trash">Delete</button><button type="button" data-a="unread">Mark unread</button></div><div class="bodyt">'+esc(m.b)+'</div><div class="rp" id="rp" hidden><label for="rt" style="position:absolute;left:-9999px">Reply to '+esc(m.f)+'</label><textarea id="rt" placeholder="Write your reply…"></textarea><div class="r"><button class="g" type="button" data-a="cancel">Cancel</button><button type="button" data-a="send">Send</button></div></div>'}
+function all(){rail();ls();read()}
+function open(id){sel=id;var m=msgs.filter(function(x){return x.id===id})[0];if(m)m.un=false;$('#sh').classList.add('read');all();var e=$('#m'+id);if(e)e.scrollIntoView({block:'nearest'})}
+function toast(t,undo){var z=$('#tz');z.innerHTML='<div class="toast" role="status"><span>'+esc(t)+'</span>'+(undo?'<button type="button" id="ud">Undo</button>':'')+'</div>';clearTimeout(toast.t);toast.t=setTimeout(function(){z.innerHTML=''},5000);if(undo)$('#ud').onclick=function(){undo();z.innerHTML='';all()}}
+function move(ids,to,label){var prev=ids.map(function(id){var m=msgs.filter(function(x){return x.id===id})[0];var o={m:m,fo:m.fo};m.fo=to;return o});
+ var cur=list();if(ids.indexOf(sel)>-1){sel=cur.length?cur[0].id:null;if(!sel)$('#sh').classList.remove('read')}ids.forEach(function(i){delete chk[i]});all();
+ toast(label+(ids.length>1?' '+ids.length+' messages':' message'),function(){prev.forEach(function(p){p.m.fo=p.fo})})}
+$('#fo').addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(!b)return;fo=b.dataset.f;sel=null;chk={};$('#rl').classList.remove('open');$('#sc').hidden=true;$('#sh').classList.remove('read');all()});
+$('#ls').addEventListener('click',function(e){var s=e.target.closest('[data-s]');if(s){var m=msgs.filter(function(x){return x.id===+s.dataset.s})[0];m.star=!m.star;ls();return}
+ var k=e.target.closest('[data-k]');if(k){chk[k.dataset.k]=k.checked;ls();return}
+ var r=e.target.closest('.rw');if(r)open(+r.dataset.id)});
+$('#all').addEventListener('change',function(){var on=this.checked;list().forEach(function(m){chk[m.id]=on});ls()});
+$('#bk').addEventListener('click',function(e){var b=e.target.closest('[data-b]');if(!b)return;var ids=Object.keys(chk).filter(function(k){return chk[k]}).map(Number);
+ if(b.dataset.b==='r'){ids.forEach(function(i){msgs.filter(function(x){return x.id===i})[0].un=false});chk={};all()}else move(ids,b.dataset.b==='a'?'archive':'trash',b.dataset.b==='a'?'Archived':'Deleted')});
+$('#rd').addEventListener('click',function(e){var a=e.target.closest('[data-a]');if(a){var m=msgs.filter(function(x){return x.id===sel})[0],v=a.dataset.a;
+ if(v==='reply'){$('#rp').hidden=false;$('#rt').focus()}
+ else if(v==='cancel')$('#rp').hidden=true;
+ else if(v==='archive')move([sel],'archive','Archived');
+ else if(v==='trash')move([sel],'trash','Deleted');
+ else if(v==='unread'){m.un=true;all();toast('Marked as unread')}
+ else if(v==='send'){var t=$('#rt').value.trim();if(!t){$('#rt').focus();return}msgs.unshift({id:++nid,f:'To: '+m.f,e:m.e,s:'Re: '+m.s.replace(/^Re: /,''),un:false,b:t,t:'Just now',star:false,fo:'sent',c:m.c});$('#rp').hidden=true;all();toast('Reply sent')}return}
+ if(e.target.id==='bkb'){$('#sh').classList.remove('read')}});
+$('#q').addEventListener('input',function(){q=this.value.trim();ls()});
+$('#cm').addEventListener('click',function(){toast('Compose is not part of this demo')});
+$('#mn').addEventListener('click',function(){$('#rl').classList.add('open');$('#sc').hidden=false});
+$('#sc').addEventListener('click',function(){$('#rl').classList.remove('open');this.hidden=true});
+document.addEventListener('keydown',function(e){var t=document.activeElement.tagName;if(e.key==='Escape'){if(!$('#rp')||$('#rp').hidden){if(q){q='';$('#q').value='';ls()}}else{$('#rp').hidden=true}return}
+ if(/INPUT|TEXTAREA/.test(t)&&!(t==='INPUT'&&document.activeElement.type==='checkbox'))return;if(e.metaKey||e.ctrlKey)return;
+ var l=list(),i=l.findIndex(function(m){return m.id===sel});
+ if(e.key==='/'){e.preventDefault();$('#q').focus()}
+ else if(e.key==='j'){if(l.length)open(l[Math.min(l.length-1,i+1)].id)}
+ else if(e.key==='k'){if(l.length)open(l[Math.max(0,i-1)].id)}
+ else if(e.key==='Enter'&&sel&&t!=='BUTTON'){open(sel)}
+ else if(e.key==='e'&&sel)move([sel],'archive','Archived');
+ else if(e.key==='#'&&sel)move([sel],'trash','Deleted');
+ else if(e.key==='s'&&sel){var m=msgs.filter(function(x){return x.id===sel})[0];m.star=!m.star;ls()}
+ else if(e.key==='u'&&sel){var m2=msgs.filter(function(x){return x.id===sel})[0];m2.un=true;all()}
+ else if(e.key==='r'&&sel){e.preventDefault();var b=document.querySelector('[data-a=reply]');if(b)b.click()}});
+sel=1;msgs[0].un=false;all();
+})();
+</script></body></html>

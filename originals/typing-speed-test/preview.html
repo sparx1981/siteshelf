@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Typing Speed Test — Games</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#1c1b19;--pn:#262420;--bd:#3a3732;--ink:#ece6d9;--dim:#7a7468;--bad:#ef6a5b;--ac:#f2b84b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.5 'Outfit',system-ui,sans-serif;min-height:100svh;padding:24px 16px}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+.app{max-width:860px;margin:0 auto}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.brand{font:700 22px 'Outfit',sans-serif;display:flex;align-items:center;gap:10px}
+.brand i{width:26px;height:26px;border-radius:7px;background:var(--ac);display:grid;place-items:center;color:#1c1b19;font:500 14px 'JetBrains Mono',monospace;font-style:normal}
+.pb{border:1px solid var(--bd);border-radius:99px;padding:5px 14px;color:var(--dim);font-size:14px}
+.pb b{color:var(--ac);font-variant-numeric:tabular-nums}
+.set{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+.seg{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.seg>span{color:var(--dim);font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+.seg div{display:flex;background:var(--pn);border:1px solid var(--bd);border-radius:10px;padding:3px}
+.seg button{background:none;border:0;color:var(--dim);padding:8px 14px;border-radius:8px;cursor:pointer;font:500 15px 'Outfit',sans-serif;min-height:40px}
+.seg button[aria-pressed=true]{background:#38342c;color:var(--ink)}
+.card{background:var(--pn);border:1px solid var(--bd);border-radius:18px;padding:28px}
+.stats{display:flex;gap:36px;margin-bottom:20px;flex-wrap:wrap}
+.stat small{display:block;color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+.stat b{font:500 44px/1.1 'JetBrains Mono',monospace;font-variant-numeric:tabular-nums}
+.stat.t b{color:var(--ac)}
+.box{position:relative;height:calc(1.8em*3 + 4px);overflow:hidden;font:400 clamp(20px,3vw,28px)/1.8 'JetBrains Mono',monospace;cursor:text;color:var(--dim)}
+.box:focus-within{outline:0}
+#txt{position:relative;transition:transform .15s;word-break:normal;overflow-wrap:anywhere}
+#txt span.c{color:var(--ink)}
+#txt span.w{color:var(--bad);text-decoration:underline;text-decoration-thickness:2px}
+#txt span.cur{position:relative}
+#txt span.cur:before{content:"";position:absolute;left:-1px;top:.25em;bottom:.25em;width:3px;background:var(--ac);border-radius:2px;animation:bl 1s steps(2) infinite}
+.box.idle #txt span.cur:before{animation:none}
+@keyframes bl{50%{opacity:0}}
+.in{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hint{margin:14px 0 0;color:var(--dim);font-size:14px}
+.row{display:flex;gap:12px;align-items:center;margin-top:22px;flex-wrap:wrap}
+.btn{background:var(--ac);color:#1c1b19;border:0;border-radius:10px;padding:0 22px;min-height:46px;font:700 16px 'Outfit',sans-serif;cursor:pointer}
+.btn.g{background:transparent;color:var(--ink);border:1px solid var(--bd)}
+.btn:hover{filter:brightness(1.1)}
+kbd{font:500 12px 'JetBrains Mono',monospace;border:1px solid var(--bd);border-radius:5px;padding:1px 6px;color:var(--dim)}
+.rs h2{margin:0 0 4px;font:700 26px 'Outfit',sans-serif}
+.rs .big{display:flex;gap:40px;flex-wrap:wrap;margin:18px 0}
+.rs .big b{font:500 clamp(52px,12vw,88px)/1 'JetBrains Mono',monospace;color:var(--ac);font-variant-numeric:tabular-nums;display:block}
+.rs .big small{color:var(--dim);text-transform:uppercase;letter-spacing:.1em;font-size:12px}
+.rs p{margin:4px 0;color:#c9c2b3}
+.nb{display:inline-block;background:var(--ac);color:#1c1b19;border-radius:6px;padding:2px 10px;font-size:13px;font-weight:700;margin-left:8px}
+.live{position:absolute;left:-9999px}
+@media(max-width:700px){.card{padding:18px}.stats{gap:20px}.stat b{font-size:32px}}
+@media(prefers-reduced-motion:reduce){#txt{transition:none}#txt span.cur:before{animation:none}}
+</style></head><body>
+<div class="app">
+<header><div class="brand"><i>k</i>Keystone Sprint</div><div class="pb">Personal best (<span id="pd">30</span>s): <b id="pbv">—</b></div></header>
+<div class="set"><div class="seg"><span id="lt">Time</span><div role="group" aria-labelledby="lt" id="gt"></div></div><div class="seg"><span id="lw">Words</span><div role="group" aria-labelledby="lw" id="gw"></div></div></div>
+<div class="card" id="play"><div class="stats"><div class="stat t"><small>Time left</small><b id="tl">30</b></div><div class="stat"><small>WPM</small><b id="wp">0</b></div><div class="stat"><small>Accuracy</small><b id="ac">100%</b></div></div>
+<div class="box idle" id="bx"><div id="txt" aria-hidden="true"></div></div>
+<label for="in" class="live">Type the passage shown</label><input class="in" id="in" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+<p class="hint" id="hn">Click the text and start typing to begin.</p>
+<div class="row"><button class="btn g" id="rs" type="button">Restart</button><span style="color:var(--dim);font-size:14px"><kbd>Esc</kbd> to reset</span></div></div>
+<div class="card rs" id="rsl" hidden><h2>Time’s up<span class="nb" id="nb" hidden>New best</span></h2><div class="big"><div><b id="rw">0</b><small>Words per minute</small></div><div><b id="ra">0%</b><small>Accuracy</small></div></div><p id="rd"></p><p id="rb"></p><div class="row"><button class="btn" id="again" type="button">Try again</button><button class="btn g" id="sh" type="button">Copy result</button></div></div>
+<div class="live" id="lv" aria-live="assertive"></div>
+</div>
+<script>
+(function(){
+var W={Common:'the of and to in is that it was for on are as with his they at be this from have or by one had not but what all were when we there can an your which their said if do will each about how up out them then she many some so these would other into has more her two like him see time could no make than first been its who now people my made over did down only way find use may water long little very after words called just where most know get through back much before go good new write our used me man too any day same right look think also around another came come work three word must because does part even place well such here take why help put different away again off went old number great tell men say small every found still between name should home big give air line set own under read last never us left end along while might next sound below saw something thought both few those always looked show large often together asked house don\'t world going want school important until form food keep children feet land side without boy once animals life enough took sometimes four head above kind began almost live page got earth need far hand high year mother light country father let night picture being study second soon story since white ever paper hard near sentence better best across during today however sure knew try told young sun thing whole hear example heard several change answer room sea against top turned learn point city play toward five using himself usually'.split(' '),
+Code:'const let function return async await import export class extends new this null true false undefined map filter reduce push pop slice splice for while if else switch case break continue try catch throw finally typeof instanceof Promise fetch JSON parse stringify console log string number boolean array object module require default static public private interface type enum yield delete void'.split(' '),
+Quotes:'make it work then make it right then make it fast; simplicity is the ultimate sophistication; well begun is half done; the best time to start was yesterday; small steps every day beat giant leaps once; fortune favours the prepared mind; measure twice and cut once; slow is smooth and smooth is fast; done is better than perfect; what we do daily shapes who we become'.split(' ')};
+var $=function(s){return document.querySelector(s)};
+var dur=30,set='Common',txt=[],pos=0,typed=0,good=0,bad=0,start=0,tm=null,running=false,done=false,tick=null;
+var best={};try{best=JSON.parse(localStorage.getItem('ks-best')||'{}')}catch(e){}
+function seg(id,list,cur,fn){$(id).innerHTML=list.map(function(x){return '<button type="button" aria-pressed="'+(String(x)===String(cur))+'" data-v="'+x+'">'+x+(id==='#gt'?'s':'')+'</button>'}).join('');$(id).onclick=function(e){var b=e.target.closest('button');if(b){fn(b.dataset.v)}}}
+function build(){seg('#gt',[15,30,60],dur,function(v){dur=+v;reset()});seg('#gw',['Common','Code','Quotes'],set,function(v){set=v;reset()})}
+function rng(s){return function(){s=(s*1664525+1013904223)>>>0;return s/4294967296}}
+function gen(){var r=rng((Date.now()&0xffff)+7),w=W[set],out=[];for(var i=0;i<130;i++)out.push(w[Math.floor(r()*w.length)]);return out.join(' ')}
+function mk(){$('#txt').innerHTML=txt.map(function(c,i){return '<span data-i="'+i+'">'+(c===' '?' ':c.replace('<','&lt;'))+'</span>'}).join('');paintCur();scroll()}
+function paintCur(){var o=$('#txt .cur');if(o)o.classList.remove('cur');var n=$('#txt').children[pos];if(n)n.classList.add('cur')}
+function scroll(){var n=$('#txt').children[pos];if(!n)return;var lh=parseFloat(getComputedStyle($('#txt')).lineHeight)||40;var line=Math.floor(n.offsetTop/lh);$('#txt').style.transform='translateY('+(-Math.max(0,line-1)*lh)+'px)'}
+function pbShow(){$('#pd').textContent=dur;$('#pbv').textContent=best[dur]?best[dur]+' WPM':'—'}
+function reset(){clearInterval(tick);running=false;done=false;pos=0;typed=good=bad=0;txt=gen().split('');$('#in').value='';$('#tl').textContent=dur;$('#wp').textContent='0';$('#ac').textContent='100%';$('#play').hidden=false;$('#rsl').hidden=true;$('#bx').classList.add('idle');$('#hn').textContent='Click the text and start typing to begin.';build();mk();pbShow();$('#in').focus()}
+function stats(){var el=Math.max((Date.now()-start)/60000,1/600);var wpm=Math.round(good/5/el);var acc=typed?Math.round(good/typed*100):100;return[wpm,acc]}
+function upd(){var s=stats();$('#wp').textContent=s[0];$('#ac').textContent=s[1]+'%';var left=Math.max(0,dur-Math.floor((Date.now()-start)/1000));$('#tl').textContent=left}
+function begin(){running=true;start=Date.now();$('#bx').classList.remove('idle');$('#hn').textContent='Keep going — backspace fixes mistakes.';tick=setInterval(function(){upd();if(Date.now()-start>=dur*1000)finish()},200)}
+function finish(){clearInterval(tick);running=false;done=true;upd();var s=stats();$('#play').hidden=true;$('#rsl').hidden=false;$('#rw').textContent=s[0];$('#ra').textContent=s[1]+'%';
+ $('#rd').textContent=good+' correct and '+bad+' wrong characters typed in '+dur+' seconds.';
+ var nb=!best[dur]||s[0]>best[dur];var prev=best[dur];if(nb&&s[0]>0){best[dur]=s[0];try{localStorage.setItem('ks-best',JSON.stringify(best))}catch(e){}}
+ $('#nb').hidden=!(nb&&s[0]>0);$('#rb').textContent=nb&&s[0]>0?(prev?'Up from '+prev+' WPM. Nice work.':'First score on the board for '+dur+' seconds.'):'Your best for '+dur+' seconds is '+best[dur]+' WPM.';
+ $('#lv').textContent='Time is up. '+s[0]+' words per minute at '+s[1]+' percent accuracy.';pbShow();$('#again').focus()}
+$('#in').addEventListener('input',function(e){if(done)return;var v=this.value;
+ if(v.length>pos){for(var i=pos;i<v.length;i++){if(!running)begin();var ch=$('#txt').children[i];if(!ch)break;typed++;if(v[i]===txt[i]){good++;ch.className='c'}else{bad++;ch.className='w'}}pos=v.length}
+ else if(v.length<pos){for(var j=pos-1;j>=v.length;j--){var c=$('#txt').children[j];if(c){if(c.className==='c')good--;else bad--;typed--;c.className=''}}pos=v.length}
+ if(pos>txt.length-20){var add=(' '+gen()).split('');var n0=txt.length;txt=txt.concat(add);var fr=document.createDocumentFragment();add.forEach(function(c,k){var sp=document.createElement('span');sp.dataset.i=n0+k;sp.textContent=c;fr.appendChild(sp)});$('#txt').appendChild(fr)}
+ paintCur();scroll();if(running)upd()});
+$('#in').addEventListener('keydown',function(e){if(e.key==='Escape'){e.preventDefault();reset()}});
+$('#bx').addEventListener('click',function(){$('#in').focus()});
+$('#rs').addEventListener('click',reset);$('#again').addEventListener('click',reset);
+$('#sh').addEventListener('click',function(){var t='I typed '+$('#rw').textContent+' WPM at '+$('#ra').textContent+' accuracy on Keystone Sprint ('+dur+'s, '+set+').';try{navigator.clipboard.writeText(t)}catch(e){}this.textContent='Copied';var b=this;setTimeout(function(){b.textContent='Copy result'},1600)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&done)reset()});
+reset();
+})();
+</script></body></html>

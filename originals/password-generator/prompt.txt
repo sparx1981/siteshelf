@@ -1,0 +1,11 @@
+Canvas & base: A security-minded dark card on #0f1419 with a #171d25 panel (1px #28313d border, 16px radius), ink #e6edf3, secondary #8b98a8, accent mint #3ddc97, warning amber #f5b942, danger #ff6b6b. Invented brand "Vaultsmith".
+
+Typography: "Sora" (500, 700) for UI and "Fira Mono" (400, 500) for the password at clamp(22px,4vw,34px) with letter-spacing .04em and per-class colouring (letters ink, digits mint, symbols amber).
+
+Layout: A single 720px panel. At the top the generated password in a large box with Copy and Regenerate icon buttons. Below, a strength meter (four segments plus a label and an entropy figure in bits, plus an estimated crack-time phrase). Then controls: Mode segmented control (Random, Passphrase), a length slider (8 to 64) with number readout, or for Passphrase a word-count slider (3 to 8) with separator select, character-set switches (Lowercase, Uppercase, Numbers, Symbols), checkboxes for "Avoid look-alikes (0 O l 1 I)" and "Start with a letter". A history list of the last five passwords, masked by default with a Reveal toggle each.
+
+Interaction: Any control change regenerates immediately using crypto.getRandomValues with unbiased rejection sampling and guarantees at least one character from every enabled set. Entropy = length x log2(pool size) for Random and words x log2(list size) for Passphrase. At least one set must stay on: the last remaining switch is disabled with a tooltip explaining why. Copy uses the clipboard in try/catch, announces "Copied" via aria-live and shows a check icon. History is held in memory only and never stored. Keyboard: R regenerates, C copies when focus is not in a field.
+
+Responsive: Below 640px the controls stack, the password wraps with overflow-wrap:anywhere, and nothing overflows at 390px.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Label every control, visible focus, respect prefers-reduced-motion, invented names only. Include the line "Generated locally in your browser. Nothing is sent or stored."

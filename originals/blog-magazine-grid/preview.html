@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Quarterly Post</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#fffdf9;color:#141414;font:15px/1.55 "Libre Franklin",system-ui,sans-serif}
+.mh{border-top:8px solid #141414;padding:14px 24px;max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;border-bottom:1px solid #141414}
+.mh b{font:800 34px "Playfair Display",serif}.mh nav{display:flex;gap:18px;font-size:14px;font-weight:600}.mh nav a{color:inherit;text-decoration:none}.mh small{color:#6b6b6b}
+main{max-width:1160px;margin:0 auto;padding:28px 24px 60px}
+.top{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:32px;margin-bottom:36px}
+.ft{display:block;color:inherit;text-decoration:none}.ft .art{height:340px;border-radius:6px}.ft h1{font:800 clamp(30px,4vw,46px)/1.08 "Playfair Display",serif;margin:16px 0 8px}.ft p{font-size:18px;color:#3a3a3a;margin:0 0 8px}
+.mt{font-size:13px;color:#6b6b6b}.cat{color:#e63e1c;font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.1em}
+a:focus-visible,button:focus-visible{outline:3px solid #e63e1c;outline-offset:2px}
+.mr{border-left:1px solid #e6e1d6;padding-left:28px}.mr h2{font:800 22px "Playfair Display";margin:0 0 10px}
+.tabs{display:flex;gap:4px;margin-bottom:10px}.tabs button{all:unset;cursor:pointer;padding:6px 14px;font-weight:700;font-size:13px;border-bottom:3px solid transparent}.tabs button[aria-selected=true]{border-color:#e63e1c}.tabs button:focus-visible{outline:3px solid #e63e1c}
+ol{margin:0;padding:0;list-style:none;counter-reset:n}ol li{counter-increment:n;display:grid;grid-template-columns:34px minmax(0,1fr);padding:12px 0;border-bottom:1px solid #eee8da}ol li:before{content:counter(n);font:800 26px "Playfair Display";color:#e63e1c}ol a{color:inherit;text-decoration:none;font-weight:700}ol a:hover{text-decoration:underline}
+.pl{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}.pl button{all:unset;cursor:pointer;padding:6px 16px;border:1.5px solid #141414;border-radius:99px;font-weight:600;font-size:14px}.pl button[aria-pressed=true]{background:#141414;color:#fff}.pl button:focus-visible{outline:3px solid #e63e1c;outline-offset:2px}
+.gd{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 24px;align-items:start}
+.cd{display:block;color:inherit;text-decoration:none;transition:transform .2s}.cd:hover{transform:translateY(-4px)}.cd .art{border-radius:6px;height:var(--h,170px)}.cd:nth-child(3n+1) .art{--h:240px}.cd h3{font:700 21px/1.2 "Playfair Display",serif;margin:12px 0 6px}
+.cd:hover h3{text-decoration:underline}
+.lm{display:block;margin:36px auto 0;padding:13px 34px;border:2px solid #141414;background:#fff;font:700 15px "Libre Franklin";cursor:pointer;border-radius:99px}.lm:hover:not(:disabled){background:#141414;color:#fff}.lm:disabled{opacity:.4;cursor:default}
+.em{grid-column:1/-1;text-align:center;color:#6b6b6b;padding:30px}
+@media(max-width:900px){.top{grid-template-columns:minmax(0,1fr)}.mr{border-left:0;padding-left:0}.gd{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.gd{grid-template-columns:minmax(0,1fr)}.cd .art{--h:180px!important}.ft .art{height:220px}}
+@media(prefers-reduced-motion:reduce){.cd{transition:none}.cd:hover{transform:none}}
+</style></head><body>
+<header class="mh"><b>The Quarterly Post</b><nav aria-label="Sections"><a href="#">Ideas</a><a href="#">Culture</a><a href="#">Travel</a><a href="#">Food</a></nav><small id="dt"></small></header>
+<main><section class="top"><a class="ft" href="#" aria-label="Featured: The last night ferry"><div class="art" style="background:linear-gradient(135deg,#0f2a4a,#e63e1c 70%,#f6c177)"></div><div class="cat" style="margin-top:14px">Feature · Travel</div><h1>The last night ferry across the strait</h1><p>A winter crossing with fishermen, students and one very patient cat.</p><div class="mt">By Elena Marsh · 14 min read</div></a>
+<aside class="mr"><h2>Most read</h2><div class="tabs" role="tablist" id="tb"></div><ol id="ml" role="tabpanel" aria-live="polite"></ol></aside></section>
+<div class="pl" id="pl" role="group" aria-label="Categories"></div><div class="gd" id="gd"></div><button class="lm" id="lm">Load more stories</button></main>
+<script>
+const $=i=>document.getElementById(i);$("dt").textContent=new Date().toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric",year:"numeric"});
+const A=[["Ideas","Why we stopped measuring productivity","Noor Aziz","6","#2d3a8c","#8ea0ff"],["Food","The case for slow bread","Marco Ellis","8","#9a4b12","#f2b46a"],["Culture","A small town's last record shop","Ines Calder","9","#6a1b4d","#f08fc0"],["Travel","Three days on the Dolomites high route","Tomas Lund","12","#1c5e55","#8ee0cf"],["Ideas","What cities forget to plan for","Priya Rao","7","#444","#bbb"],["Culture","The quiet return of the paper map","Leo Hart","5","#7a2e1b","#f5a58c"],["Food","Fermentation for the impatient","Yuki Sato","6","#3f6212","#bef264"],["Travel","A slow train through the Balkans","Mara Vega","11","#1e40af","#93c5fd"],["Ideas","Rethinking the four-day week","Sam Okoye","8","#5b21b6","#d8b4fe"],["Culture","Why we still go to cinemas","Beth Rowe","7","#831843","#fbcfe8"],["Food","A grandmother's soup, reconsidered","Ana Pires","5","#92400e","#fcd34d"],["Travel","Camping where the road ends","Jon Reyes","10","#134e4a","#5eead4"],["Ideas","The long case for boredom","Eli Frost","6","#1f2937","#9ca3af"],["Culture","Inside the last hand-set print shop","Isla Moore","13","#7f1d1d","#fca5a5"],["Food","The spice drawer audit","Dina Park","4","#7c2d12","#fdba74"],["Travel","Lisbon by tram, without a map","Cal Nunez","7","#075985","#7dd3fc"],["Ideas","Notes on doing less, better","Ravi Shah","5","#3730a3","#a5b4fc"],["Culture","Radio plays are back","Maya Lowe","8","#701a75","#f0abfc"]];
+const ML={Today:["The last night ferry across the strait","Why we stopped measuring productivity","The case for slow bread","What cities forget to plan for","A small town's last record shop"],Week:["Three days on the Dolomites high route","The quiet return of the paper map","Fermentation for the impatient","A slow train through the Balkans","The long case for boredom"],All:["The last night ferry across the strait","Inside the last hand-set print shop","Notes on doing less, better","Radio plays are back","Camping where the road ends"]};
+let cat="All",shown=6;
+$("tb").innerHTML=Object.keys(ML).map((k,i)=>`<button role="tab" id="t${i}" aria-selected="${!i}" tabindex="${i?-1:0}" data-k="${k}">${k=="All"?"All time":k=="Week"?"This week":"Today"}</button>`).join("");
+function tab(k){document.querySelectorAll("#tb button").forEach(b=>{const s=b.dataset.k==k;b.setAttribute("aria-selected",s);b.tabIndex=s?0:-1});$("ml").innerHTML=ML[k].map(t=>`<li><a href="#">${t}</a></li>`).join("")}
+$("tb").addEventListener("click",e=>{const b=e.target.closest("button");if(b)tab(b.dataset.k)});
+$("tb").addEventListener("keydown",e=>{const bs=[...document.querySelectorAll("#tb button")],i=bs.findIndex(b=>b==document.activeElement);if(e.key=="ArrowRight"||e.key=="ArrowLeft"){const n=bs[(i+(e.key=="ArrowRight"?1:-1)+bs.length)%bs.length];n.focus();tab(n.dataset.k)}});tab("Today");
+const cats=["All",...new Set(A.map(a=>a[0]))];$("pl").innerHTML=cats.map(c=>`<button data-c="${c}" aria-pressed="${c=="All"}">${c}</button>`).join("");
+function list(){return A.filter(a=>cat=="All"||a[0]==cat)}
+function draw(focusIdx){const l=list(),v=l.slice(0,shown);$("gd").innerHTML=v.map((a,i)=>`<a class="cd" href="#" data-n="${i}"><div class="art" style="background:linear-gradient(140deg,${a[4]},${a[5]})"></div><div class="cat" style="margin-top:10px">${a[0]}</div><h3>${a[1]}</h3><div class="mt">By ${a[2]} · ${a[3]} min read</div></a>`).join("")||'<div class="em">No stories yet.</div>';
+$("lm").disabled=shown>=l.length;$("lm").textContent=shown>=l.length?"You're all caught up":"Load more stories";if(focusIdx!=null)$("gd").children[focusIdx]?.focus()}
+$("pl").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;cat=b.dataset.c;shown=6;document.querySelectorAll("#pl button").forEach(x=>x.setAttribute("aria-pressed",x==b));draw()});
+$("lm").onclick=()=>{const old=shown;shown+=6;draw(old)};
+document.getElementById("gd").addEventListener("click",e=>{if(e.target.closest("a"))e.preventDefault()});
+draw();
+</script></body></html>

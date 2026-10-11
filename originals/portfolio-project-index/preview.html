@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Selected Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Unbounded:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#0e0e0e;color:#ecebe6;font:16px/1.5 "Hanken Grotesk",system-ui,sans-serif;padding:0 28px 80px}
+.tp{display:flex;justify-content:space-between;padding:22px 0;font-size:14px}.tp a{color:inherit}
+h1{font:400 clamp(22px,3.4vw,38px)/1.25 Unbounded,sans-serif;max-width:900px;margin:40px 0 36px}h1 b{color:#c8f169;font-weight:600}
+.ct{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:18px}.ct button{all:unset;cursor:pointer;padding:6px 15px;border:1px solid #3a3a3a;border-radius:99px;font-size:14px}.ct button[aria-pressed=true]{background:#ecebe6;color:#0e0e0e;border-color:#ecebe6}
+.ct .so{margin-left:auto}button:focus-visible,.rw:focus-visible{outline:3px solid #c8f169;outline-offset:2px}
+ul{list-style:none;margin:0;padding:0;border-top:1px solid #2a2a2a}
+.rw{all:unset;box-sizing:border-box;display:grid;grid-template-columns:56px minmax(0,1fr) 160px 70px;gap:12px;align-items:baseline;width:100%;padding:20px 0;border-bottom:1px solid #2a2a2a;cursor:pointer;transition:opacity .25s,color .25s}
+.rw b{font:500 clamp(24px,3.8vw,48px)/1.1 "Hanken Grotesk";letter-spacing:-.02em}.rw span{color:#8f8e88;font-size:14px}.rw span.y{text-align:right}
+ul.dim .rw{opacity:.35}ul.dim .rw.on{opacity:1;color:#c8f169}ul.dim .rw.on span{color:#c8f169}
+li{animation:fi .45s both;animation-delay:calc(var(--i)*40ms)}@keyframes fi{from{opacity:0;transform:translateY(8px)}}
+.pv{position:fixed;left:0;top:0;width:280px;height:340px;border-radius:10px;overflow:hidden;pointer-events:none;opacity:0;transition:opacity .2s;z-index:5;will-change:transform}
+.pv.show{opacity:1}.pv i{position:absolute}
+.il{display:none;height:200px;border-radius:10px;overflow:hidden;margin:0 0 18px;position:relative}.il i{position:absolute}
+.il.open{display:block}
+.to{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#c8f169;color:#0e0e0e;padding:10px 18px;border-radius:99px;font-weight:600;font-size:14px;z-index:9}
+@media(max-width:700px){.rw{grid-template-columns:36px minmax(0,1fr) auto}.rw span.d{grid-column:2;grid-row:2}.rw span.y{grid-row:1;grid-column:3}}
+@media(prefers-reduced-motion:reduce){li{animation:none}.rw,.pv{transition:none}}
+</style></head><body>
+<div class="tp"><span>Kiln &amp; Co. — design studio</span><a href="#">hello@kiln.example</a></div>
+<h1>We design <b>brands, sites and products</b> for companies that make things people keep.</h1>
+<div class="ct" id="ct" role="group" aria-label="Filter"></div><ul id="ls"></ul><div class="pv" id="pv" aria-hidden="true"></div><div class="to" id="to" hidden role="status"></div>
+<script>
+const P=[["Alder Coffee","Brand","2026","#1d3b2a","#e9d8a6","circle"],["Fathom Banking","Product","2026","#0b3a6e","#74b3ff","bars"],["Loom & Thread","Web","2025","#7a2230","#f6b8c0","wave"],["Parallel Studios","Motion","2025","#3a1d6e","#c4a8ff","tri"],["Northlight","Brand","2025","#14463f","#a7f3d0","circle"],["Mosaic Travel","Web","2024","#8a4b0f","#ffd08a","bars"],["Quill Notes","Product","2024","#262626","#f0f0f0","wave"],["Ember Festival","Motion","2024","#7c1d1d","#ffb199","tri"],["Tern Outdoors","Web","2023","#134e3a","#c8f169","circle"],["Paper Moon","Brand","2023","#1f2a5c","#ffd6a5","wave"]];
+const C=["All","Web","Brand","Motion","Product"];let cat="All",dir=-1,pos={x:0,y:0},tg={x:0,y:0},cur=null,openRow=null;const $=i=>document.getElementById(i),rm=matchMedia("(prefers-reduced-motion:reduce)").matches,fine=()=>matchMedia("(hover:hover) and (min-width:900px)").matches;
+$("ct").innerHTML=C.map(c=>`<button data-c="${c}" aria-pressed="${c=="All"}">${c}</button>`).join("")+'<button class="so" id="so" aria-label="Toggle year order">Year ↓</button>';
+function art(p){const[,,,a,b,s]=p,sh=s=="circle"?`<i style="width:200px;height:200px;border-radius:50%;background:${b};right:-40px;top:-30px"></i><i style="width:90px;height:90px;border-radius:50%;background:${a};filter:brightness(1.4);left:30px;bottom:30px"></i>`:s=="bars"?[0,1,2,3,4].map(i=>`<i style="left:${24+i*48}px;bottom:0;width:30px;height:${60+i*38}px;background:${b};opacity:${.5+i*.12}"></i>`).join(""):s=="wave"?`<i style="left:-40px;right:-40px;bottom:-60px;height:200px;border-radius:50%;background:${b}"></i><i style="left:20px;right:-120px;bottom:-110px;height:200px;border-radius:50%;background:${a};filter:brightness(1.5);opacity:.6"></i>`:`<i style="left:40px;top:30px;border-left:90px solid transparent;border-right:90px solid transparent;border-bottom:160px solid ${b}"></i><i style="right:20px;bottom:30px;width:80px;height:80px;background:${a};filter:brightness(1.6);transform:rotate(20deg)"></i>`;return`<div style="position:absolute;inset:0;background:${a}">${sh}</div>`}
+function draw(){const l=P.map((p,i)=>({p,i})).filter(x=>cat=="All"||x.p[1]==cat).sort((a,b)=>(a.p[2]-b.p[2])*dir||a.i-b.i);
+$("ls").className="";$("ls").innerHTML=l.map(({p,i},k)=>`<li style="--i:${k}"><button class="rw" data-i="${i}" aria-expanded="false"><span>${String(k+1).padStart(2,"0")}</span><b>${p[0]}</b><span class="d">${p[1]}</span><span class="y">${p[2]}</span></button><div class="il" aria-hidden="true">${art(p)}</div></li>`).join("");
+$("so").textContent=dir<0?"Year ↓":"Year ↑";openRow=null;hide()}
+function show(r){if(!fine()){return}cur=r;$("pv").innerHTML=art(P[+r.dataset.i]);$("pv").classList.add("show");$("ls").classList.add("dim");document.querySelectorAll(".rw").forEach(x=>x.classList.toggle("on",x==r))}
+function hide(){cur=null;$("pv").classList.remove("show");$("ls").classList.remove("dim");document.querySelectorAll(".rw.on").forEach(x=>x.classList.remove("on"))}
+$("ls").addEventListener("pointerover",e=>{const r=e.target.closest(".rw");if(r&&e.pointerType!="touch")show(r)});$("ls").addEventListener("pointerleave",hide);
+$("ls").addEventListener("focusin",e=>{const r=e.target.closest(".rw");if(r)show(r)});$("ls").addEventListener("focusout",hide);
+document.addEventListener("pointermove",e=>{tg.x=e.clientX+24;tg.y=e.clientY-170});
+function loop(){pos.x+=(tg.x-pos.x)*(rm?1:.15);pos.y+=(tg.y-pos.y)*(rm?1:.15);$("pv").style.transform=`translate(${pos.x}px,${Math.max(8,Math.min(innerHeight-348,pos.y))}px) rotate(${rm?0:(tg.x-pos.x)*.02}deg)`;requestAnimationFrame(loop)}loop();
+$("ls").addEventListener("click",e=>{const r=e.target.closest(".rw");if(!r)return;if(!fine()){const il=r.nextElementSibling,o=il.classList.contains("open");document.querySelectorAll(".il.open").forEach(x=>x.classList.remove("open"));document.querySelectorAll(".rw").forEach(x=>x.setAttribute("aria-expanded","false"));if(!o){il.classList.add("open");r.setAttribute("aria-expanded","true")}}
+const t=$("to");t.textContent=P[+r.dataset.i][0]+": case study coming soon";t.hidden=false;clearTimeout(t._t);t._t=setTimeout(()=>t.hidden=true,1800)});
+$("ct").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;if(b.id=="so"){dir=-dir;draw();return}cat=b.dataset.c;document.querySelectorAll("#ct [data-c]").forEach(x=>x.setAttribute("aria-pressed",x==b));draw()});
+draw();
+</script></body></html>

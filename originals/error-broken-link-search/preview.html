@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f5f7fb;color:#151a30;font:16px/1.55 "Plus Jakarta Sans",system-ui,sans-serif;padding:48px 20px}
+.w{max-width:760px;margin:0 auto;text-align:center}
+.n{font:800 clamp(80px,18vw,150px)/1 "Plus Jakarta Sans";color:transparent;-webkit-text-stroke:3px #4f46e5;letter-spacing:.02em}
+h1{font-size:30px;margin:6px 0 10px}p.s{color:#5b6280;margin:0 0 16px}
+.pc{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #ffd0d9;border-radius:10px;padding:6px 8px 6px 14px;margin-bottom:28px;max-width:100%}
+.pc span{color:#e11d48;font:500 15px "Fira Code",monospace}.pc input{border:0;outline:0;font:500 15px "Fira Code",monospace;color:#e11d48;background:none;min-width:0;width:260px;max-width:100%}.pc:focus-within{box-shadow:0 0 0 3px rgba(225,29,72,.2)}
+.pn{background:#fff;border-radius:16px;padding:20px;text-align:left;box-shadow:0 6px 22px rgba(21,26,48,.07);margin-bottom:18px}.pn h2{font-size:15px;margin:0 0 10px}
+ul{list-style:none;margin:0;padding:0}li a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:11px 12px;border-radius:10px;text-decoration:none;color:inherit;align-items:center}
+li a:hover,li a.on{background:#eef0ff}a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #4f46e5;outline-offset:1px}
+li b{display:block}li small{color:#6c7392;font:12.5px "Fira Code",monospace}.pt{font-weight:800;font-size:13px;color:#4f46e5;background:#e5e7ff;padding:3px 10px;border-radius:99px}
+.sr{display:flex;gap:8px;border:1.5px solid #d8dcef;border-radius:12px;padding:0 14px;margin-bottom:8px}.sr:focus-within{border-color:#4f46e5}.sr input{flex:1;border:0;outline:0;padding:12px 0;font:inherit;background:none;min-width:0}
+.em{color:#6c7392;padding:10px 12px}.cn{font-size:13px;color:#6c7392;margin:4px 0 8px}
+details summary{cursor:pointer;font-weight:600;color:#4f46e5}details form{margin-top:12px;display:grid;gap:10px}
+details input,details textarea{padding:10px 12px;border:1.5px solid #d8dcef;border-radius:10px;font:inherit;width:100%}.rb{padding:11px;border:0;border-radius:10px;background:#4f46e5;color:#fff;font:700 15px "Plus Jakarta Sans";cursor:pointer}
+.er{color:#e11d48;font-size:13px;min-height:18px}.ok{background:#e8f8ef;color:#136a3a;padding:12px 14px;border-radius:10px}
+.to{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#151a30;color:#fff;padding:10px 18px;border-radius:99px;font-size:14px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><main class="w"><div class="n" aria-hidden="true">404</div><h1>We couldn't find that page</h1><p class="s">It may have moved, or the link has a typo. Try editing the path below.</p>
+<div class="pc"><span>example.dev</span><input id="pa" value="/docs/gettng-started" aria-label="Requested path" spellcheck="false"></div>
+<section class="pn"><h2>Did you mean…</h2><ul id="sg"></ul></section>
+<section class="pn"><h2><label for="q">Search the docs</label></h2><div class="sr"><input id="q" type="search" placeholder="Search pages…"></div><div class="cn" id="cn" aria-live="polite"></div><ul id="rs" role="listbox" aria-label="Search results"></ul></section>
+<section class="pn" style="text-align:left"><details id="dt"><summary>Report this broken link</summary><form id="rf" novalidate><input id="em" type="email" aria-label="Your email (optional)" placeholder="Your email (optional)"><textarea id="nt" rows="3" aria-label="Where did you find the link?" placeholder="Where did you find the link?"></textarea><div class="er" id="er" role="alert"></div><button class="rb">Send report</button></form><div class="ok" id="ok" hidden role="status">Thanks — we've logged this link and will fix it soon.</div></details></section></main><div class="to" id="to" hidden role="status"></div>
+<script>
+const S=[["Getting started","/docs/getting-started"],["Installation","/docs/installation"],["Configuration","/docs/configuration"],["Authentication guide","/docs/guides/authentication"],["API reference","/docs/api"],["Webhooks","/docs/api/webhooks"],["Rate limits","/docs/api/rate-limits"],["CLI commands","/docs/cli"],["Deployment","/docs/deployment"],["Troubleshooting","/docs/troubleshooting"],["Changelog","/changelog"],["Pricing","/pricing"]];
+const $=i=>document.getElementById(i);
+function lev(a,b){const m=a.length,n=b.length,d=Array.from({length:m+1},(_,i)=>[i,...Array(n).fill(0)]);for(let j=1;j<=n;j++)d[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]==b[j-1]?0:1));return d[m][n]}
+const sim=(a,b)=>Math.round((1-lev(a.toLowerCase(),b.toLowerCase())/Math.max(a.length,b.length))*100);
+function row(t,p,pt,on){return`<li><a href="#" class="${on?"on":""}" data-p="${p}"><span><b>${t}</b><small>${p}</small></span>${pt!=null?`<span class="pt">${pt}%</span>`:""}</a></li>`}
+function sug(){const v=$("pa").value.trim()||"/";const r=S.map(s=>[s,sim(v,s[1])]).sort((a,b)=>b[1]-a[1]).slice(0,3);$("sg").innerHTML=r.map((x,i)=>row(x[0][0],x[0][1],x[1],i==0)).join("")}
+let cur=-1;
+function srch(){const q=$("q").value.trim().toLowerCase();cur=-1;const l=q?S.filter(s=>(s[0]+" "+s[1]).toLowerCase().includes(q)):[];$("rs").innerHTML=l.length?l.map(s=>row(s[0],s[1])).join(""):(q?'<li class="em">No pages match “'+q.replace(/</g,"&lt;")+'”.</li>':"");$("cn").textContent=q?l.length+(l.length==1?" result":" results"):""}
+function toast(m){const t=$("to");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,1800)}
+$("pa").oninput=sug;$("q").oninput=srch;
+$("q").addEventListener("keydown",e=>{const a=[...$("rs").querySelectorAll("a")];if(!a.length)return;if(e.key=="ArrowDown"||e.key=="ArrowUp"){e.preventDefault();cur=(cur+(e.key=="ArrowDown"?1:-1)+a.length)%a.length;a.forEach((x,i)=>x.classList.toggle("on",i==cur))}else if(e.key=="Enter"&&cur>-1){e.preventDefault();toast("Opening "+a[cur].dataset.p)}});
+document.addEventListener("click",e=>{const a=e.target.closest("li a");if(a){e.preventDefault();toast("Opening "+a.dataset.p)}});
+$("rf").addEventListener("submit",e=>{e.preventDefault();const v=$("em").value.trim();if(v&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){$("er").textContent="That email doesn't look right.";$("em").focus();return}$("er").textContent="";$("rf").hidden=true;$("ok").hidden=false});
+sug();
+</script></body></html>

@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sales Funnel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f1f4f8;color:#111a2e;font:14px/1.5 Inter,system-ui,sans-serif}
+.tb{background:#fff;border-bottom:1px solid #e3e8f0;padding:14px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}.tb h1{font:800 20px Manrope;margin:0;margin-right:auto}
+.tabs{display:flex;background:#eef1f7;border-radius:10px;padding:3px}.tabs button{all:unset;cursor:pointer;padding:6px 14px;border-radius:8px;font-weight:600;font-size:13px}.tabs button[aria-pressed=true]{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+select{padding:7px 10px;border:1px solid #d6dce8;border-radius:8px;font:inherit;background:#fff}
+button:focus-visible,select:focus-visible,th button:focus-visible{outline:3px solid #4338ca;outline-offset:2px}
+main{max-width:1180px;margin:0 auto;padding:22px 24px 40px}
+.kp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:18px}
+.k{background:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 2px 10px rgba(17,26,46,.05)}.k small{color:#667491;font-weight:600}.k b{display:block;font:800 28px/1.2 Manrope;font-variant-numeric:tabular-nums}.k i{font-style:normal;font-size:12px;font-weight:700}.up{color:#0f9d6c}.dn{color:#d1365a}
+.gr{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px}
+.cd{background:#fff;border-radius:14px;padding:20px;box-shadow:0 2px 10px rgba(17,26,46,.05)}.cd h2{font:800 17px Manrope;margin:0 0 14px}
+.fn{display:grid;gap:4px}.st{all:unset;display:grid;grid-template-columns:minmax(0,1fr) 70px;gap:10px;align-items:center;cursor:pointer;border-radius:10px;padding:2px}
+.st:focus-visible{outline:3px solid #4338ca}.st[aria-pressed=true]{background:#eef0ff}
+.bw{height:46px;background:#f4f6fa;border-radius:8px;display:flex;justify-content:center}.br{height:100%;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font:800 14px Manrope;transition:width .6s;min-width:100px;white-space:nowrap}
+.mt{text-align:right;font-size:12px;color:#667491}.mt b{display:block;font:800 15px Manrope;color:#111a2e}
+.cv{text-align:center;font-size:12px;color:#667491;margin:-1px 0}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:420px}th,td{text-align:left;padding:9px 8px;border-bottom:1px solid #eef1f6;white-space:nowrap}th{font-size:12px;color:#667491}th button{all:unset;cursor:pointer;font-weight:600}td.n{font-variant-numeric:tabular-nums;font-weight:600}
+.pill{padding:2px 9px;border-radius:99px;font-size:12px;font-weight:600;background:#eef0ff;color:#3730a3}
+.em{padding:24px;text-align:center;color:#667491}.sm{color:#667491;margin:0 0 12px}
+@media(max-width:960px){.gr{grid-template-columns:minmax(0,1fr)}.kp{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.br{transition:none}}
+</style></head><body>
+<div class="tb"><h1>Pipeline overview</h1><div class="tabs" role="group" aria-label="Period" id="pt"><button data-p="30" aria-pressed="true">30 days</button><button data-p="90" aria-pressed="false">90 days</button><button data-p="365" aria-pressed="false">Year</button></div><label><span style="position:absolute;left:-9999px">Region</span><select id="rg"><option value="all">All regions</option><option value="emea">EMEA</option><option value="amer">Americas</option><option value="apac">APAC</option></select></label></div>
+<main><div class="kp" id="kp"></div><div class="gr"><section class="cd"><h2>Funnel</h2><p class="sm" id="sm" aria-live="polite"></p><div class="fn" id="fn"></div></section><section class="cd"><h2 id="th">Top deals</h2><div class="tw"><table><thead><tr><th>Company</th><th>Stage</th><th><button id="sv" aria-label="Sort by value">Value ↕</button></th><th><button id="sd" aria-label="Sort by close date">Close ↕</button></th></tr></thead><tbody id="tbd"></tbody></table></div></section></div></main>
+<script>
+const ST=["Leads","Qualified","Proposal","Negotiation","Won"],COL=["#4338ca","#4f46e5","#2563eb","#0ea5e9","#14b8a6"];
+const base={emea:[420,248,131,74,41],amer:[560,320,176,98,57],apac:[300,168,84,45,24]};const per={30:1/3,90:1,365:3.6};
+const D=[["Orbital Foods","Won","emea",84000,"2026-10-02"],["Pine & Quarry","Negotiation","amer",126000,"2026-10-28"],["Lumen Retail","Proposal","apac",58000,"2026-11-05"],["Harbor Freight Co.","Negotiation","emea",212000,"2026-10-24"],["Tallow Labs","Qualified","amer",34000,"2026-11-19"],["Kestrel Health","Proposal","amer",98000,"2026-11-02"],["Ridgeway Bank","Won","amer",310000,"2026-09-29"],["Mosaic Travel","Qualified","apac",42000,"2026-12-01"],["Northwind Gear","Leads","emea",21000,"2026-12-14"],["Sable Studios","Won","apac",67000,"2026-10-05"],["Ferrous Works","Proposal","emea",76000,"2026-11-11"],["Aurora Cloud","Leads","amer",29000,"2026-12-20"]];
+let period=30,region="all",stage=null,sort=["v",1];const $=i=>document.getElementById(i),usd=n=>n>=1e6?"$"+(n/1e6).toFixed(2)+"M":n>=1e3?"$"+Math.round(n/1e3)+"K":"$"+Math.round(n),rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function counts(){const r=region=="all"?["emea","amer","apac"]:[region];return ST.map((_,i)=>Math.round(r.reduce((s,k)=>s+base[k][i],0)*per[period]))}
+function kpis(c){const won=c[4],avgv=region=="all"?118000:region=="emea"?104000:region=="amer"?126000:92000,pipe=(c[1]+c[2]+c[3])*avgv/3.2,win=won/c[1]*100,cy=region=="apac"?52:region=="emea"?41:44;return[["Pipeline value",usd(pipe),"+8.2%",1],["Win rate",win.toFixed(1)+"%",win>16?"+1.4 pts":"−0.6 pts",win>16],["Avg deal size",usd(avgv),"+3.1%",1],["Sales cycle",cy+" days","−2 days",1]]}
+function draw(){const c=counts(),max=c[0],k=kpis(c);
+$("kp").innerHTML=k.map(x=>`<div class="k"><small>${x[0]}</small><b>${x[1]}</b><i class="${x[3]?"up":"dn"}">${x[2]} vs prior</i></div>`).join("");
+$("fn").innerHTML=c.map((n,i)=>{const w=Math.max(18,n/max*100),cv=i?Math.round(n/c[i-1]*100):100;return(i?`<div class="cv" aria-hidden="true">▼ ${cv}% convert</div>`:"")+`<button class="st" data-i="${i}" aria-pressed="${stage===i}" aria-label="${ST[i]}: ${n} deals${i?", "+cv+"% conversion":""}"><div class="bw"><div class="br" style="width:${w}%;background:${COL[i]}">${ST[i]}</div></div><div class="mt"><b>${n}</b>deals</div></button>`}).join("");
+$("sm").textContent=`${c[0]} leads became ${c[4]} wins (${(c[4]/c[0]*100).toFixed(1)}% overall).`+(stage!=null?` Showing ${ST[stage]} deals.`:"");
+let l=D.filter(d=>(region=="all"||d[2]==region)&&(stage==null||d[1]==ST[stage]));l.sort((a,b)=>sort[0]=="v"?(b[3]-a[3])*sort[1]:a[4].localeCompare(b[4])*sort[1]);
+$("th").textContent=stage!=null?`${ST[stage]} deals`:"Top deals";
+$("tbd").innerHTML=l.length?l.map(d=>`<tr><td>${d[0]}</td><td><span class="pill">${d[1]}</span></td><td class="n">${usd(d[3])}</td><td>${new Date(d[4]).toLocaleDateString(undefined,{month:"short",day:"numeric"})}</td></tr>`).join(""):'<tr><td colspan="4" class="em">No deals at this stage for this region.</td></tr>'}
+$("pt").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;period=+b.dataset.p;document.querySelectorAll("#pt button").forEach(x=>x.setAttribute("aria-pressed",x==b));draw()});
+$("rg").onchange=()=>{region=$("rg").value;draw()};
+$("fn").addEventListener("click",e=>{const b=e.target.closest(".st");if(!b)return;const i=+b.dataset.i;stage=stage===i?null:i;draw();$("fn").querySelector(`.st[data-i="${i}"]`).focus()});
+$("sv").onclick=()=>{sort=["v",sort[0]=="v"?-sort[1]:1];draw()};$("sd").onclick=()=>{sort=["d",sort[0]=="d"?-sort[1]:1];draw()};
+draw();
+</script></body></html>

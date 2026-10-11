@@ -1,0 +1,11 @@
+Canvas & base: Warm white (#fffdf9) page with a thick black top rule and masthead. Ink #141414, accent vermilion #e63e1c. Cover art drawn as CSS gradient blocks.
+
+Typography: Playfair Display 800 for headlines, Libre Franklin for meta and body.
+
+Layout: Masthead with date and nav. Featured story spans two columns with a tall art block and a large headline; beside it a "Most read" panel with Today / Week / All tabs listing numbered stories. Below, a 3-column article grid with alternating tall and short cards, category pills and read times.
+
+Interaction: Category pills filter the grid; the Most read tabs swap lists with arrow-key support (role=tablist); "Load more" appends six articles from a prepared list and moves focus to the first new card, then disables when exhausted. Cards lift on hover.
+
+Responsive: Featured stacks over the sidebar under 900px; grid goes 2 then 1 column.
+
+Rules: Single HTML file, invented articles and authors, prefers-reduced-motion, headings in correct order.

@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Careers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#fbf7f0;color:#1d2a24;font:16px/1.6 Figtree,system-ui,sans-serif}
+.hero{background:#12372a;color:#f4efe3;padding:72px 24px 56px}.in{max-width:1000px;margin:0 auto}
+.k{color:#e9a487;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:13px}
+h1{font:400 clamp(34px,5vw,56px)/1.1 "Young Serif",serif;margin:10px 0 28px;max-width:760px}
+.sts{display:flex;gap:44px;flex-wrap:wrap}.sts b{display:block;font:400 38px "Young Serif"}.sts span{color:#c3d3c9;font-size:14px}
+.pk{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:1000px;margin:-30px auto 0;padding:0 24px}
+.pc{background:#fff;border-radius:14px;padding:20px;box-shadow:0 8px 24px rgba(18,55,42,.1)}.pc i{display:block;width:34px;height:34px;background:#d1603d;margin-bottom:12px}.pc h3{margin:0 0 4px;font-size:17px}.pc p{margin:0;font-size:14px;color:#566860}
+.rl{max-width:1000px;margin:64px auto;padding:0 24px}.rl h2{font:400 34px "Young Serif";margin:0 0 18px}
+.tl{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.tl input[type=search]{flex:1;min-width:180px;padding:10px 14px;border:1.5px solid #d9d2c3;border-radius:10px;font:inherit;background:#fff}
+button,input{font-family:inherit}.cp{all:unset;cursor:pointer;padding:7px 15px;border:1.5px solid #d9d2c3;border-radius:99px;font-size:14px;font-weight:600;background:#fff}.cp[aria-pressed=true]{background:#12372a;color:#fff;border-color:#12372a}
+.cp:focus-visible,input:focus-visible,.rb:focus-visible,.ap:focus-visible,.lk:focus-visible{outline:3px solid #d1603d;outline-offset:2px}
+.sw{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer;margin-left:auto}
+.cn{color:#566860;font-size:14px;margin-bottom:8px}
+.ro{background:#fff;border-radius:14px;margin-bottom:10px;border:1px solid #ece6d8}
+.rb{all:unset;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr) 24px;gap:12px;align-items:center;width:100%;padding:18px 20px;cursor:pointer}
+.rb b{font-size:17px}.rb span{color:#566860;font-size:14px}.rb:after{content:"+";font-size:22px;text-align:right;transition:transform .25s}.rb[aria-expanded=true]:after{transform:rotate(45deg)}
+.dt{padding:0 20px 20px;max-width:720px}.dt ul{padding-left:20px;margin:8px 0 14px}.ap{padding:11px 22px;border:0;border-radius:10px;background:#d1603d;color:#fff;font:600 15px Figtree;cursor:pointer}
+.ok{background:#e6f3ea;border-radius:10px;padding:12px 14px;color:#1c5a34}
+.em{text-align:center;padding:34px 0;color:#566860}.lk{all:unset;cursor:pointer;color:#d1603d;font-weight:600;text-decoration:underline}
+@media(max-width:860px){.pk{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.pk{grid-template-columns:minmax(0,1fr)}.rb{grid-template-columns:minmax(0,1fr) 24px}.rb span{grid-column:1}.rb:after{grid-column:2;grid-row:1}.sw{margin-left:0}.sts{gap:24px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header class="hero"><div class="in"><div class="k">Tallow &amp; Pine</div><h1>We make candles, and a calm place to work.</h1><div class="sts"><div><b>46</b><span>people in 9 countries</span></div><div><b>4-day</b><span>week since 2024</span></div><div><b>11 yrs</b><span>average tenure</span></div></div></div></header>
+<section class="pk"><div class="pc"><i style="border-radius:50%"></i><h3>Four-day week</h3><p>Fridays are ours. Same pay.</p></div><div class="pc"><i style="border-radius:4px"></i><h3>Learning budget</h3><p>€1,500 a year for anything curious.</p></div><div class="pc"><i style="clip-path:polygon(50% 0,100% 100%,0 100%)"></i><h3>Real time off</h3><p>30 days plus public holidays.</p></div><div class="pc"><i style="border-radius:50% 0"></i><h3>Remote-first</h3><p>Hubs in Leeds and Porto.</p></div></section>
+<section class="rl"><h2>Open roles</h2><div class="tl"><input type="search" id="q" aria-label="Search roles" placeholder="Search roles…"><div id="ch" role="group" aria-label="Department" style="display:flex;gap:8px;flex-wrap:wrap"></div><label class="sw"><input type="checkbox" id="rm"> Remote only</label></div><div class="cn" id="cn" aria-live="polite"></div><div id="ls"></div></section>
+<script>
+const R=[["Senior Backend Engineer","Engineering","Remote (EU)","Full-time","Own the order and inventory services behind our shop. You'll work in Go and Postgres alongside a team of five.",["5+ years building services","Strong SQL","Calm incident habits"]],["Frontend Engineer","Engineering","Leeds","Full-time","Build fast, accessible storefront experiences with a small design-engineering team.",["Solid HTML/CSS/JS","Eye for detail","Care for accessibility"]],["Product Designer","Design","Remote (UK)","Full-time","Shape the checkout and subscription flows from research to shipped pixels.",["Portfolio with shipped work","Comfortable prototyping","Writes well"]],["Brand Designer","Design","Porto","Contract","Design packaging and seasonal campaigns for a loyal audience.",["Strong typographic sense","Print production knowledge"]],["Fulfilment Lead","Operations","Leeds","Full-time","Run the studio floor: pouring, packing and shipping, with a team of eleven.",["Led a small team","Lean mindset","Comfortable on your feet"]],["Supply Planner","Operations","Remote (EU)","Part-time","Forecast demand and plan wax, wick and vessel orders with suppliers.",["Spreadsheet confidence","Negotiation skills"]],["Customer Care Specialist","Support","Remote (Global)","Full-time","Be the warm, helpful voice for customers by email and chat.",["Excellent written English","Empathy under pressure"]],["Support Team Lead","Support","Porto","Full-time","Coach a growing support team and shape our service standards.",["2+ years leading support","Data-informed coaching"]]];
+const D=["All","Engineering","Design","Operations","Support"];let dep="All",open=-1,done=new Set();const $=i=>document.getElementById(i);
+$("ch").innerHTML=D.map(d=>`<button class="cp" data-d="${d}" aria-pressed="${d=="All"}">${d}</button>`).join("");
+function draw(){const q=$("q").value.trim().toLowerCase(),rm=$("rm").checked;const l=R.map((r,i)=>({r,i})).filter(({r})=>(dep=="All"||r[1]==dep)&&(!rm||r[2].startsWith("Remote"))&&(!q||(r[0]+" "+r[1]+" "+r[2]).toLowerCase().includes(q)));
+$("cn").textContent=l.length+(l.length==1?" open role":" open roles");
+$("ls").innerHTML=l.length?l.map(({r,i})=>`<div class="ro"><h3 style="margin:0"><button class="rb" aria-expanded="${open==i}" aria-controls="d${i}" data-i="${i}"><b>${r[0]}</b><span>${r[1]}</span><span>${r[2]} · ${r[3]}</span></button></h3><div class="dt" id="d${i}" ${open==i?"":"hidden"}><p>${r[4]}</p><b>You might be a fit if you have</b><ul>${r[5].map(x=>"<li>"+x+"</li>").join("")}</ul>${done.has(i)?'<div class="ok" role="status">Thanks! We’ve noted your interest and will email you within a week.</div>':`<button class="ap" data-a="${i}">Apply for this role</button>`}</div></div>`).join(""):'<div class="em">No roles match. <button class="lk" id="cl">Clear filters</button> or <button class="lk" id="gn">send a general application</button>.</div>';
+document.querySelectorAll(".cp").forEach(b=>b.setAttribute("aria-pressed",b.dataset.d==dep))}
+$("ch").addEventListener("click",e=>{const b=e.target.closest(".cp");if(b){dep=b.dataset.d;open=-1;draw()}});$("q").oninput=()=>{open=-1;draw()};$("rm").onchange=()=>{open=-1;draw()};
+$("ls").addEventListener("click",e=>{const b=e.target.closest(".rb"),a=e.target.closest(".ap");if(b){const i=+b.dataset.i;open=open==i?-1:i;draw();$("ls").querySelector(`.rb[data-i="${i}"]`).focus()}if(a){done.add(+a.dataset.a);draw()}if(e.target.id=="cl"){dep="All";$("q").value="";$("rm").checked=false;draw()}if(e.target.id=="gn"){$("cn").textContent="General applications: careers@tallow.example"}});
+draw();
+</script></body></html>

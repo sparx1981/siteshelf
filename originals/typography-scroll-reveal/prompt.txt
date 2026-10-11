@@ -1,0 +1,11 @@
+Canvas & base: Near-black (#0c0c0f) page. Unrevealed words at 18% opacity (#fff), revealed words at 100%; keywords pick up a coloured underline sweep (#ff6b4a, #ffd166, #6ee7b7).
+
+Typography: Instrument Serif at clamp(32px,5.5vw,76px) for the statement; Inter for the small progress counter and eyebrow.
+
+Layout: Intro screen with eyebrow and scroll cue; then a 300vh section containing a sticky, vertically centred paragraph of ~60 words; a closing section with a large heading.
+
+Interaction: Scroll progress through the section maps to the number of words revealed (opacity transition per word); keywords underline when their word is lit; a fixed counter shows "NN%"; reduced-motion users get all words fully visible with no scroll tie. Keyboard users can press Space/PageDown to scroll naturally; the paragraph is a real text node group so screen readers read it once.
+
+Responsive: Font-size scales; sticky height adjusts with 100svh.
+
+Rules: Single HTML file, invented manifesto, use requestAnimationFrame, aria-hidden counter, prefers-reduced-motion.

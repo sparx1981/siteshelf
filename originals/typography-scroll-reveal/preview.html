@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Manifesto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#0c0c0f;color:#fff;font:16px/1.5 Inter,system-ui,sans-serif}
+.in{height:100vh;height:100svh;display:grid;place-items:center;text-align:center;padding:24px}.in small{letter-spacing:.2em;text-transform:uppercase;color:#8d8d99}.in h1{font:400 clamp(40px,8vw,110px)/1 "Instrument Serif",serif;margin:14px 0 24px}.cue{color:#8d8d99;font-size:14px;animation:b 1.8s infinite}@keyframes b{50%{transform:translateY(8px)}}
+.sc{height:300vh;position:relative}.st{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;padding:0 clamp(20px,8vw,120px)}
+.tx{font:400 clamp(30px,5.4vw,76px)/1.12 "Instrument Serif",serif;margin:0;max-width:1100px}
+.w{opacity:.18;transition:opacity .35s;position:relative;display:inline}.w.on{opacity:1}
+.k{background:linear-gradient(var(--c),var(--c)) 0 100%/0 .09em no-repeat;transition:background-size .6s .1s}.k.on{background-size:100% .09em}
+.cn{position:fixed;right:20px;bottom:18px;font:600 13px Inter;color:#8d8d99;letter-spacing:.1em}
+.en{height:100vh;display:grid;place-items:center;text-align:center;padding:24px}.en h2{font:400 clamp(36px,7vw,96px)/1 "Instrument Serif";margin:0}.en p{color:#8d8d99}
+@media(prefers-reduced-motion:reduce){.w{opacity:1;transition:none}.k{background-size:100% .09em;transition:none}.cue{animation:none}.sc{height:auto}.st{position:static;height:auto;padding:80px clamp(20px,8vw,120px)}.cn{display:none}}
+</style></head><body>
+<section class="in"><div><small>Manifesto</small><h1>What we believe</h1><div class="cue">Scroll ↓</div></div></section>
+<section class="sc" id="sc"><div class="st"><p class="tx" id="tx"></p></div></section>
+<section class="en"><div><h2>Make it last.</h2><p>Thanks for reading all the way down.</p></div></section>
+<div class="cn" id="cn" aria-hidden="true">0%</div>
+<script>
+const T="We believe good tools should feel quiet. They should be [built] to last, repaired instead of replaced, and [honest] about what they cost. We would rather ship one thing [carefully] than ten things quickly, and we measure success by how rarely you have to think about us.";
+const tx=document.getElementById("tx");let n=0;
+tx.innerHTML=T.split(/\s+/).map(w=>{const k=/^\[.+\]/.test(w),t=w.replace(/[\[\]]/g,""),c=["#ff6b4a","#ffd166","#6ee7b7"][n%3];if(k)n++;return`<span class="w${k?" k":""}" style="${k?`--c:${c}`:""}">${t}</span>`}).join(" ");
+const W=[...tx.querySelectorAll(".w")],sc=document.getElementById("sc"),cn=document.getElementById("cn"),rm=matchMedia("(prefers-reduced-motion:reduce)").matches;let tick=false,last=-1;
+function upd(){tick=false;if(rm)return;const r=sc.getBoundingClientRect(),p=Math.min(1,Math.max(0,-r.top/(r.height-innerHeight))),c=Math.round(p*W.length*1.0);if(c!==last){W.forEach((w,i)=>w.classList.toggle("on",i<c));last=c}cn.textContent=Math.round(p*100)+"%"}
+addEventListener("scroll",()=>{if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});addEventListener("resize",upd);upd();
+</script></body></html>

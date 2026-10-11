@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cart Drawer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#faf9f6;color:#1c1b19;font:15px/1.5 "Instrument Sans",system-ui,sans-serif}body.lock{overflow:hidden}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;border-bottom:1px solid #e8e5dd}header b{font:400 28px "Instrument Serif"}
+.cb{all:unset;cursor:pointer;position:relative;padding:8px 14px;border:1.5px solid #1c1b19;border-radius:99px;font-weight:600}.cb:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #1f5e4a;outline-offset:2px}
+.bg{position:absolute;top:-8px;right:-8px;min-width:22px;height:22px;border-radius:99px;background:#c2410c;color:#fff;font-size:12px;display:grid;place-items:center;padding:0 5px}.bg.bump{animation:bp .3s}@keyframes bp{50%{transform:scale(1.4)}}
+.gr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;max-width:1100px;margin:32px auto;padding:0 24px}
+.p{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.art{height:170px;display:grid;place-items:center}.art i{width:62px;height:62px;border-radius:var(--r);background:rgba(255,255,255,.7);box-shadow:0 8px 20px rgba(0,0,0,.15)}
+.p div.in{padding:14px}.p h2{font-size:16px;margin:0}.p small{color:#7c776b}.pr{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-weight:600}
+.add{padding:8px 14px;border:0;border-radius:8px;background:#1f5e4a;color:#fff;font:600 14px "Instrument Sans";cursor:pointer}.add:hover{background:#174a3a}
+.ov{position:fixed;inset:0;background:rgba(28,27,25,.5);z-index:10;opacity:0;pointer-events:none;transition:opacity .25s}.ov.show{opacity:1;pointer-events:auto}
+.dw{position:fixed;top:0;right:0;bottom:0;width:400px;max-width:100%;background:#fff;z-index:11;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column}.dw.show{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid #eee}.dh h2{font:400 26px "Instrument Serif";margin:0}.x{all:unset;cursor:pointer;font-size:24px;width:36px;height:36px;text-align:center;border-radius:50%}.x:focus-visible{outline:3px solid #1f5e4a}
+.sp{padding:14px 22px;background:#f3f7f4;font-size:14px}.pb{height:6px;background:#dde8e1;border-radius:9px;margin-top:8px;overflow:hidden}.pb i{display:block;height:100%;background:#1f5e4a;width:0;transition:width .4s}
+.ls{flex:1;overflow:auto;padding:6px 22px}.li{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:12px;padding:14px 0;border-bottom:1px solid #f0eee8}
+.li .art{height:64px;border-radius:10px}.li .art i{width:26px;height:26px}.li b{display:block}.li small{color:#7c776b}
+.st{display:inline-flex;align-items:center;border:1px solid #ddd;border-radius:8px;margin-top:6px}.st button{all:unset;cursor:pointer;width:30px;height:28px;text-align:center}.st span{min-width:24px;text-align:center}.st button:disabled{opacity:.3;cursor:default}
+.rmv{all:unset;cursor:pointer;color:#7c776b;font-size:13px;text-decoration:underline;display:block;margin-top:6px;text-align:right}
+.em{padding:50px 0;text-align:center;color:#7c776b}
+.ft{padding:16px 22px;border-top:1px solid #eee}.pm{display:flex;gap:8px}.pm input{flex:1;min-width:0;padding:9px 11px;border:1.5px solid #ddd;border-radius:8px;font:inherit;text-transform:uppercase}
+.pm button{padding:9px 14px;border:1.5px solid #1c1b19;background:#fff;border-radius:8px;font:600 14px "Instrument Sans";cursor:pointer}.pe{font-size:13px;min-height:20px;margin:4px 0 8px;color:#b91c1c}.pe.ok{color:#1f5e4a}
+.tt div{display:flex;justify-content:space-between;padding:3px 0}.tt .t{font-weight:700;font-size:18px;border-top:1px solid #eee;margin-top:6px;padding-top:8px}
+.co{width:100%;margin-top:10px;padding:13px;border:0;border-radius:10px;background:#1c1b19;color:#fff;font:600 16px "Instrument Sans";cursor:pointer}.co:disabled{opacity:.4;cursor:default}
+.ut{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#1c1b19;color:#fff;border-radius:10px;padding:10px 16px;z-index:20;display:flex;gap:14px;align-items:center}.ut button{all:unset;cursor:pointer;color:#8fe0bf;font-weight:600;text-decoration:underline}.ut button:focus-visible{outline:2px solid #fff}
+@media(max-width:900px){.gr{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:480px){.gr{grid-template-columns:minmax(0,1fr)}header{padding:14px 16px}.dw{width:100%}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body><header><b>Fieldhouse</b><button class="cb" id="cb" aria-haspopup="dialog">Cart<span class="bg" id="bg">0</span></button></header>
+<div class="gr" id="gr"></div><div class="ov" id="ov"></div>
+<aside class="dw" id="dw" role="dialog" aria-modal="true" aria-labelledby="dt" aria-hidden="true"><div class="dh"><h2 id="dt">Your cart</h2><button class="x" id="x" aria-label="Close cart">×</button></div>
+<div class="sp" id="sp"></div><div class="ls" id="ls"></div>
+<div class="ft"><div class="pm"><input id="pc" aria-label="Promo code" placeholder="Promo code"><button id="pa">Apply</button></div><div class="pe" id="pe" role="status"></div><div class="tt" id="tt" aria-live="polite"></div><button class="co" id="co">Checkout</button></div></aside>
+<div id="ut"></div>
+<script>
+const PR=[["Waxed field jacket","Olive",14800,"#9ab08a","14px"],["Merino crew","Oat",8900,"#e5d3b3","50%"],["Canvas tote","Natural",3400,"#d8c7a2","8px"],["Leather card holder","Tan",4600,"#c79a6d","20px"],["Wool beanie","Charcoal",2800,"#8b8f96","50%"],["Enamel mug","Cream",2200,"#e8e4d6","30%"],["Trail socks (2)","Moss",2400,"#7f9a7a","10px"],["Linen shirt","Sand",9600,"#dccdae","4px"]].slice(0,4);
+let cart=[],promo=null;const $=i=>document.getElementById(i),$$=(c,i)=>$(c);const usd=c=>"$"+(c/100).toFixed(2);let last=null,undo=null;
+$("gr").innerHTML=PR.map((p,i)=>`<article class="p"><div class="art" style="background:${p[3]};--r:${p[4]}"><i></i></div><div class="in"><h2>${p[0]}</h2><small>${p[1]}</small><div class="pr"><span>${usd(p[2])}</span><button class="add" data-i="${i}" aria-label="Add ${p[0]} to cart">Add</button></div></div></article>`).join("");
+function totals(){const sub=cart.reduce((s,l)=>s+PR[l.i][2]*l.q,0),dis=promo?Math.round(sub*.1):0,after=sub-dis,ship=!cart.length||after>=7500?0:695;return{sub,dis,ship,tot:after+ship,after}}
+function render(){const n=cart.reduce((s,l)=>s+l.q,0);$("bg").textContent=n;const t=totals();
+$("sp").innerHTML=t.after>=7500?"🎉 You've unlocked <b>free shipping</b>":`You're <b>${usd(7500-t.after)}</b> away from free shipping<div class="pb"><i style="width:${Math.min(100,t.after/75)}%"></i></div>`;
+if(t.after>=7500)$("sp").innerHTML+='<div class="pb"><i style="width:100%"></i></div>';
+$("ls").innerHTML=cart.length?cart.map((l,k)=>{const p=PR[l.i];return`<div class="li"><div class="art" style="background:${p[3]};--r:${p[4]}"><i></i></div><div><b>${p[0]}</b><small>${p[1]}</small><div class="st"><button data-d="-1" data-k="${k}" aria-label="Decrease quantity of ${p[0]}"${l.q<=1?" disabled":""}>−</button><span aria-live="polite">${l.q}</span><button data-d="1" data-k="${k}" aria-label="Increase quantity of ${p[0]}"${l.q>=9?" disabled":""}>+</button></div></div><div><b>${usd(p[2]*l.q)}</b><button class="rmv" data-r="${k}" aria-label="Remove ${p[0]}">Remove</button></div></div>`}).join(""):'<div class="em">Your cart is empty.</div>';
+$("tt").innerHTML=`<div><span>Subtotal</span><span>${usd(t.sub)}</span></div>${t.dis?`<div><span>Promo (10%)</span><span>−${usd(t.dis)}</span></div>`:""}<div><span>Shipping</span><span>${t.ship?usd(t.ship):"Free"}</span></div><div class="t"><span>Total</span><span>${usd(t.tot)}</span></div>`;$("co").disabled=!cart.length}
+function open(){last=document.activeElement;$("dw").classList.add("show");$("ov").classList.add("show");$("dw").setAttribute("aria-hidden","false");document.body.classList.add("lock");$("x").focus()}
+function close(){$("dw").classList.remove("show");$("ov").classList.remove("show");$("dw").setAttribute("aria-hidden","true");document.body.classList.remove("lock");last&&last.focus()}
+$("cb").onclick=open;$("x").onclick=close;$("ov").onclick=close;
+$("gr").addEventListener("click",e=>{const b=e.target.closest(".add");if(!b)return;const i=+b.dataset.i,l=cart.find(c=>c.i==i);if(l)l.q=Math.min(9,l.q+1);else cart.push({i,q:1});render();$("bg").classList.remove("bump");void $("bg").offsetWidth;$("bg").classList.add("bump");last=b;open()});
+$("ls").addEventListener("click",e=>{const s=e.target.closest("[data-d]"),r=e.target.closest("[data-r]");if(s){const l=cart[+s.dataset.k];l.q=Math.max(1,Math.min(9,l.q+ +s.dataset.d));render();const nb=$("ls").querySelector(`[data-d="${s.dataset.d}"][data-k="${s.dataset.k}"]`);nb&&!nb.disabled&&nb.focus()}
+if(r){const k=+r.dataset.r,l=cart.splice(k,1)[0];render();clearTimeout(undo);$("ut").innerHTML=`<div class="ut" role="status">Removed ${PR[l.i][0]} <button id="ub">Undo</button></div>`;$("ub").onclick=()=>{cart.splice(k,0,l);render();$("ut").innerHTML=""};undo=setTimeout(()=>$("ut").innerHTML="",5000)}});
+$("pa").onclick=()=>{const v=$("pc").value.trim().toUpperCase(),pe=$("pe");if(v=="WELCOME10"){promo=v;pe.textContent="Code applied — 10% off.";pe.className="pe ok"}else{promo=null;pe.textContent=v?"That code isn't valid.":"Enter a code first.";pe.className="pe"}render()};
+$("pc").addEventListener("keydown",e=>{if(e.key=="Enter")$("pa").click()});
+document.addEventListener("keydown",e=>{if(!$("dw").classList.contains("show"))return;if(e.key=="Escape")close();if(e.key=="Tab"){const f=[...$("dw").querySelectorAll("button:not(:disabled),input")],a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement==a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement==z){e.preventDefault();a.focus()}}});
+$("co").onclick=()=>{$("pe").textContent="Checkout is disabled in this preview.";$("pe").className="pe"};
+cart=[{i:0,q:1}];render();
+</script></body></html>

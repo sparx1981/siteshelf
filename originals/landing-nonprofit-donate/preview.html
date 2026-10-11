@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Springwell — Give clean water</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#fdf8f1;color:#1c2b29;font:16px/1.6 "Nunito Sans",system-ui,sans-serif}
+.hero{background:#0b4f4a;color:#eaf6f3;padding:28px 24px 70px}.in{max-width:1080px;margin:0 auto}
+.nv{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}.nv b{font:800 24px Fraunces}.nv span{color:#a7d4cd;font-size:14px}
+.hg{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:start}
+h1{font:800 clamp(36px,5vw,58px)/1.05 Fraunces,serif;margin:0 0 16px}.hg p.l{font-size:19px;color:#c6e4de;margin:0 0 28px;max-width:520px}
+.pg{max-width:520px}.pg .tr{height:14px;border-radius:99px;background:#17655f;overflow:hidden}.pg .tr i{display:block;height:100%;width:0;background:#f2a900;border-radius:99px;transition:width 1s}
+.pg .ln{display:flex;justify-content:space-between;margin-top:8px;font-size:15px}.pg b{font-size:22px}
+.dc{background:#fff;color:#1c2b29;border-radius:20px;padding:26px;box-shadow:0 20px 50px rgba(0,0,0,.25);position:sticky;top:16px}
+.dc h2{font:800 22px Fraunces;margin:0 0 14px}
+.sg{display:grid;grid-template-columns:1fr 1fr;background:#efe9dd;border-radius:12px;padding:4px;margin-bottom:16px}.sg button{all:unset;text-align:center;cursor:pointer;padding:9px;border-radius:9px;font-weight:700}.sg button[aria-pressed=true]{background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+.ps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:10px}.ps button{all:unset;text-align:center;cursor:pointer;padding:12px 0;border:2px solid #e3dccd;border-radius:12px;font-weight:800}.ps button[aria-pressed=true]{border-color:#0b4f4a;background:#e5f3f0}
+button:focus-visible,input:focus-visible{outline:3px solid #f2a900;outline-offset:2px}
+.cu{display:flex;align-items:center;border:2px solid #e3dccd;border-radius:12px;padding:0 14px;margin-bottom:6px}.cu:focus-within{border-color:#0b4f4a}.cu input{flex:1;min-width:0;border:0;outline:0;padding:12px 6px;font:800 18px "Nunito Sans";background:none}
+.er{color:#b42318;font-size:13px;min-height:20px}
+.im{background:#fff7de;border-radius:10px;padding:10px 12px;font-size:14px;margin:6px 0 12px}
+.fe{display:flex;gap:8px;align-items:center;font-size:14px;margin-bottom:14px;cursor:pointer}
+.go{width:100%;padding:15px;border:0;border-radius:12px;background:#f2a900;color:#2b1d00;font:800 17px "Nunito Sans";cursor:pointer}.go:hover{background:#dd9900}
+.ty{text-align:center;padding:20px 0}.ty h3{font:800 24px Fraunces;margin:0 0 6px}.ty button{margin-top:10px;background:none;border:0;color:#0b4f4a;font-weight:700;text-decoration:underline;cursor:pointer}
+.ns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:1080px;margin:-34px auto 0;padding:0 24px;position:relative}
+.n{background:#fff;border-radius:16px;padding:20px 24px;box-shadow:0 8px 24px rgba(11,79,74,.1)}.n b{display:block;font:800 36px Fraunces;color:#0b4f4a}.n span{color:#566a67;font-size:14px}
+.st{max-width:1080px;margin:60px auto;padding:0 24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.sc{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)}.sc .art{height:180px;position:relative;background:linear-gradient(160deg,#7fd0c7,#0b4f4a)}.sc .art i{position:absolute;border-radius:50%;background:rgba(255,255,255,.25)}
+.sc div.t{padding:18px 22px}.sc h3{font:800 20px Fraunces;margin:0 0 6px}.sc p{margin:0;color:#4a5e5b}
+footer{text-align:center;padding:30px;background:#0b4f4a;color:#a7d4cd;font-size:14px}
+@media(max-width:860px){.hg{grid-template-columns:minmax(0,1fr)}.dc{position:static}.ns{grid-template-columns:minmax(0,1fr);margin-top:20px}.st{grid-template-columns:minmax(0,1fr)}.hero{padding-bottom:40px}}
+@media(max-width:480px){.ps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header class="hero"><div class="in"><div class="nv"><b>Springwell</b><span>Registered charity · est. 2009</span></div>
+<div class="hg"><div><h1>Clean water, one village at a time</h1><p class="l">Every well we build serves a community for decades. Give once or monthly and see where your gift goes.</p>
+<div class="pg"><div class="tr" role="progressbar" aria-label="Fundraising progress" aria-valuemin="0" aria-valuemax="100" id="pb"><i id="pf"></i></div><div class="ln"><span><b id="rs">$0</b> raised</span><span id="gl">of $60,000 · <span id="bk"></span> backers</span></div></div></div>
+<div class="dc" id="dc"><div id="fm"><h2>Make a gift</h2><div class="sg" role="group" aria-label="Frequency"><button data-f="o" aria-pressed="true">One-time</button><button data-f="m" aria-pressed="false">Monthly</button></div>
+<div class="ps" id="ps" role="group" aria-label="Amount"></div><div class="cu"><span>$</span><input id="cu" inputmode="decimal" aria-label="Custom amount" placeholder="Other amount"></div><div class="er" id="er" role="alert"></div>
+<div class="im" id="im" aria-live="polite"></div><label class="fe"><input type="checkbox" id="fe"> Cover the 4% processing fee</label><button class="go" id="go"></button></div>
+<div class="ty" id="ty" hidden role="status"><h3>Thank you ♥</h3><p id="tm"></p><button id="ag">Give again</button></div></div></div></div></header>
+<section class="ns"><div class="n"><b>412</b><span>wells built across 9 regions</span></div><div class="n"><b>186,000</b><span>people with safe water</span></div><div class="n"><b>96%</b><span>of gifts go straight to projects</span></div></section>
+<section class="st"><article class="sc"><div class="art"><i style="width:120px;height:120px;right:20px;top:-30px"></i><i style="width:60px;height:60px;left:40px;bottom:20px"></i></div><div class="t"><h3>Amara’s walk is now four minutes</h3><p>Her village used to fetch water from a river two hours away. Now the well sits beside the school.</p></div></article>
+<article class="sc"><div class="art" style="background:linear-gradient(160deg,#f6c25b,#c8571b)"><i style="width:100px;height:100px;left:30px;top:20px"></i><i style="width:170px;height:170px;right:-30px;bottom:-60px"></i></div><div class="t"><h3>A clinic with a tap</h3><p>Reliable water meant the Kilu clinic could open a maternity ward for the first time.</p></div></article></section>
+<footer>© 2026 Springwell. Gifts in this demo are not processed.</footer>
+<script>
+const $=i=>document.getElementById(i),GOAL=60000,BASE=41250,BK0=1384;let raised=BASE,bk=BK0,freq="o",amt=30;
+const PS=[15,30,60,120];$("ps").innerHTML=PS.map(v=>`<button data-v="${v}" aria-pressed="${v==30}">$${v}</button>`).join("");
+const usd=n=>"$"+n.toLocaleString(undefined,{maximumFractionDigits:2,minimumFractionDigits:n%1?2:0});
+function total(){return Math.round(amt*($("fe").checked?1.04:1)*100)/100}
+function upd(){const v=amt||0,p=Math.round(v/10);$("im").textContent=v>=5?`${usd(v)}${freq=="m"?" a month":""} gives ${Math.max(1,Math.round(v/10))} ${Math.round(v/10)<=1?"person":"people"} clean water for a year${freq=="m"?", every year you give":""}.`:"Choose an amount to see your impact.";$("go").textContent=v>=5?`Give ${usd(total())}${freq=="m"?" monthly":""}`:"Give";}
+function bar(){const p=Math.min(100,raised/GOAL*100);$("pf").style.width=p+"%";$("pb").setAttribute("aria-valuenow",Math.round(p));$("rs").textContent=usd(raised);$("bk").textContent=bk.toLocaleString()}
+document.querySelectorAll(".sg button").forEach(b=>b.onclick=()=>{freq=b.dataset.f;document.querySelectorAll(".sg button").forEach(x=>x.setAttribute("aria-pressed",x==b));upd()});
+$("ps").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;amt=+b.dataset.v;$("cu").value="";$("er").textContent="";document.querySelectorAll("#ps button").forEach(x=>x.setAttribute("aria-pressed",x==b));upd()});
+$("cu").oninput=()=>{const v=parseFloat($("cu").value);amt=isNaN(v)?0:v;document.querySelectorAll("#ps button").forEach(x=>x.setAttribute("aria-pressed",false));$("er").textContent="";upd()};
+$("fe").onchange=upd;
+$("go").onclick=()=>{if(!amt||amt<5){$("er").textContent="Please enter at least $5.";$("cu").focus();return}const t=total();raised+=t;bk++;bar();$("fm").hidden=true;$("ty").hidden=false;$("tm").textContent=`Your ${usd(t)}${freq=="m"?" monthly":""} gift is on its way to a village well.`;$("ag").focus()};
+$("ag").onclick=()=>{$("ty").hidden=true;$("fm").hidden=false;$("go").focus()};
+bar();$("pf").style.width="0";requestAnimationFrame(()=>requestAnimationFrame(bar));upd();
+</script></body></html>

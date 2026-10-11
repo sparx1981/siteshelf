@@ -1,0 +1,11 @@
+Canvas & base: Light cool page (#f5f7fb), centred 760px column. Accent indigo #4f46e5, subtle red #e11d48 for the "not found" path chip.
+
+Typography: Geist-like stack via "Plus Jakarta Sans"; 120px "404" in outline style, 18px body, monospace path chip in "Fira Code".
+
+Layout: Big outlined 404, headline "We couldn't find that page", the requested path shown in a chip, then a "Did you mean…" list of up to three fuzzy-matched pages (title, path, match %), a search field filtering the full sitemap live, and a collapsible "Report this broken link" form.
+
+Interaction: The page reads a simulated path (/docs/gettng-started) with an editable chip so users can try other typos; suggestions recompute by Levenshtein-style similarity; arrow keys move through results; Enter opens (shows a toast). The report form validates an optional email and shows a thank-you.
+
+Responsive: Single column; 404 scales with clamp.
+
+Rules: Single HTML file, invented docs sitemap, no network, prefers-reduced-motion, aria-live on result counts.

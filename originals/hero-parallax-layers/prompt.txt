@@ -1,0 +1,11 @@
+Canvas & base: 100vh hero with a dusk sky gradient (#1d1b4b to #f4a261 at the horizon), five CSS clip-path mountain layers in deepening blue-greys, a mist band and a dark pine foreground. After the hero, a short light content section.
+
+Typography: Cormorant Garamond 700 headline at clamp(48px,9vw,120px), Karla for the subline and button.
+
+Layout: Headline "Beyond the ridge" centred, subline, "Plan your route" button; scroll hint at the bottom. Layers are absolutely positioned and sized wider than the viewport so they can move.
+
+Interaction: Scrolling translates each layer at a different rate (sky slowest, foreground fastest) and fades the headline; pointer movement adds a subtle horizontal shift per layer (desktop only). Headline letters rise in on load. Uses requestAnimationFrame throttling.
+
+Responsive: Layer heights scale with vw; pointer effect disabled on touch; headline wraps to two lines.
+
+Rules: Single HTML file, pure CSS shapes, prefers-reduced-motion disables parallax and reveal, text contrast checked over the sky.

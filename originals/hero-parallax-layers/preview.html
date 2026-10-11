@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Beyond the ridge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:smooth}body{margin:0;font-family:Karla,system-ui,sans-serif;background:#f7f2ea;color:#241f1a}
+.hero{position:relative;height:100vh;min-height:560px;overflow:hidden;background:linear-gradient(#1d1b4b 0%,#4a3b7a 40%,#d9728a 72%,#f4a261 100%)}
+.ly{position:absolute;left:-10%;width:120%;will-change:transform}
+.st{top:0;height:100%;background:radial-gradient(2px 2px at 20% 18%,#fff9,transparent),radial-gradient(1.5px 1.5px at 62% 10%,#fff8,transparent),radial-gradient(2px 2px at 82% 26%,#fff7,transparent),radial-gradient(1.5px 1.5px at 38% 30%,#fff7,transparent)}
+.sun{bottom:34%;left:50%;width:min(26vw,260px);aspect-ratio:1;margin-left:calc(min(26vw,260px)/-2);border-radius:50%;background:radial-gradient(#ffe6a8,#f9b872 60%,transparent 72%)}
+.m{bottom:0;height:46vh}.m1{background:#5a5a8a;clip-path:polygon(0 100%,0 62%,12% 44%,22% 58%,34% 30%,46% 52%,58% 36%,70% 56%,84% 34%,100% 58%,100% 100%)}
+.m2{height:40vh;background:#46467a;clip-path:polygon(0 100%,0 56%,10% 70%,24% 40%,38% 64%,52% 28%,66% 60%,80% 42%,92% 64%,100% 50%,100% 100%)}
+.m3{height:34vh;background:#31345f;clip-path:polygon(0 100%,0 66%,14% 46%,28% 68%,44% 38%,58% 66%,72% 44%,88% 70%,100% 54%,100% 100%)}
+.mist{bottom:18%;height:18vh;background:linear-gradient(transparent,rgba(255,235,230,.35),transparent);filter:blur(6px)}
+.m4{height:26vh;background:#1f2442;clip-path:polygon(0 100%,0 52%,18% 70%,34% 48%,52% 74%,70% 50%,86% 72%,100% 46%,100% 100%)}
+.fg{bottom:0;height:20vh;background:#0f1226;clip-path:polygon(0 100%,0 40%,3% 20%,6% 40%,9% 10%,12% 40%,16% 24%,19% 48%,24% 30%,30% 52%,100% 52%,100% 100%)}
+.fg2{bottom:0;height:22vh;background:#0f1226;clip-path:polygon(0 100%,0 54%,60% 54%,64% 30%,67% 50%,70% 6%,73% 46%,77% 24%,80% 50%,85% 20%,88% 46%,92% 14%,95% 40%,100% 22%,100% 100%)}
+.tx{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:0 20px;z-index:3;will-change:transform,opacity}
+h1{font:700 clamp(48px,9vw,120px)/.95 "Cormorant Garamond",serif;margin:0 0 18px;text-shadow:0 4px 30px rgba(20,10,50,.45)}
+h1 span{display:inline-block;animation:up .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*45ms)}@keyframes up{from{transform:translateY(60%);opacity:0}}
+.tx p{font-size:clamp(16px,2vw,20px);max-width:520px;margin:0 0 26px;text-shadow:0 2px 12px rgba(20,10,50,.5)}
+.btn{display:inline-block;padding:14px 30px;border-radius:99px;background:#fff;color:#241f1a;font-weight:600;text-decoration:none}.btn:focus-visible{outline:3px solid #ffd59a;outline-offset:3px}
+.sc{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:#fff;font-size:13px;letter-spacing:.14em;text-transform:uppercase;z-index:3;opacity:.85}
+.nx{max-width:760px;margin:0 auto;padding:90px 24px;font-size:20px;line-height:1.7}.nx h2{font:700 44px "Cormorant Garamond";margin:0 0 14px}
+@media(max-width:560px){.m{height:40vh}}
+@media(prefers-reduced-motion:reduce){h1 span{animation:none}.ly,.tx{transform:none!important}html{scroll-behavior:auto}}
+</style></head><body>
+<section class="hero" id="hero"><div class="ly st" data-s="0.05"></div><div class="ly sun" data-s="0.1"></div><div class="ly m m1" data-s="0.2"></div><div class="ly m m2" data-s="0.32"></div><div class="ly m m3" data-s="0.46"></div><div class="ly mist" data-s="0.52"></div><div class="ly m m4" data-s="0.62"></div><div class="ly fg" data-s="0.8"></div><div class="ly fg2" data-s="0.95"></div>
+<div class="tx" id="tx"><h1 id="h" aria-label="Beyond the ridge"></h1><p>Guided alpine routes for people who prefer the quiet side of the mountain.</p><a class="btn" href="#next">Plan your route</a></div><div class="sc">Scroll</div></section>
+<section class="nx" id="next"><h2>Routes for every pace</h2><p>From gentle valley loops to three-day high traverses, each route is mapped, graded and reviewed by local guides who walk it every season.</p></section>
+<script>
+const h=document.getElementById("h");let i=0;h.innerHTML="Beyond the ridge".split(" ").map(w=>`<span style="display:inline-block;white-space:nowrap" aria-hidden="true">${[...w].map(c=>`<span style="--i:${i++}">${c}</span>`).join("")}</span>`).join(" ");
+const L=[...document.querySelectorAll(".ly")],tx=document.getElementById("tx"),rm=matchMedia("(prefers-reduced-motion:reduce)").matches,fine=matchMedia("(pointer:fine)").matches;let y=0,mx=0,tick=false;
+function draw(){tick=false;if(rm)return;L.forEach(l=>{const s=+l.dataset.s;l.style.transform=`translate3d(${mx*s*30}px,${y*s*.5}px,0)`});const f=Math.max(0,1-y/(innerHeight*.55));tx.style.opacity=f;tx.style.transform=`translateY(${y*.35}px)`}
+function req(){if(!tick){tick=true;requestAnimationFrame(draw)}}
+addEventListener("scroll",()=>{y=Math.min(scrollY,innerHeight*1.2);req()},{passive:true});
+if(fine)addEventListener("pointermove",e=>{mx=(e.clientX/innerWidth-.5)*2;req()});
+draw();
+</script></body></html>

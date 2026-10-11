@@ -1,0 +1,11 @@
+Canvas & base: Cool grey (#f1f4f8) app shell with a white top bar. Card surfaces white, 14px radius. Funnel palette runs indigo #4338ca to teal #14b8a6.
+
+Typography: Manrope for headings and numerals, Inter for table text; tabular numerals on all figures.
+
+Layout: Top bar with title, period tabs (30d / 90d / Year) and a region select. Row of 4 KPIs (Pipeline value, Win rate, Avg deal size, Cycle days). Main grid: left SVG funnel of five stages with width proportional to count and conversion % between stages; right "Top deals" table.
+
+Interaction: Period and region change recompute all numbers from a prepared dataset with animated count-up; clicking a funnel stage highlights it and filters the deals table to that stage (click again to clear). Table headers sort by value or close date. Keyboard operable stage buttons.
+
+Responsive: Grid stacks under 960px; table scrolls horizontally inside its card.
+
+Rules: Single HTML file, invented companies, no libraries, prefers-reduced-motion skips count-up, aria-live summary.

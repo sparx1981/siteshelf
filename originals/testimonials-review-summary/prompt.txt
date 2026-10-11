@@ -1,0 +1,11 @@
+Canvas & base: White page, content 960px wide. Star gold #f5a524, accent ink #0f172a, soft panels #f6f7fb.
+
+Typography: Public Sans; 56px average score, 14px review text with 1.6 line height.
+
+Layout: Left summary card: big average, star row, "from 12 reviews", five distribution bars (5→1) as buttons. Right column: filter chips from review keywords, sort select (Newest, Highest, Lowest, Most helpful), and a review list with avatar initials, stars, title, body with Read more, date and "Helpful (n)".
+
+Interaction: Clicking a bar filters to that star rating (toggles off on second click); chips combine with the rating filter; sort re-orders with a fade; Read more expands long reviews; Helpful toggles and increments; an empty state offers "Clear filters". Result count is announced.
+
+Responsive: Summary stacks above the list under 800px.
+
+Rules: Single HTML file, invented product and reviewers, aria-pressed on bars/chips, prefers-reduced-motion.

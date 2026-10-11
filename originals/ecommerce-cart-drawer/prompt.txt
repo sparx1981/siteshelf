@@ -1,0 +1,11 @@
+Canvas & base: Off-white storefront (#faf9f6) with a four-product grid; cart is a 400px right drawer over a dim overlay. Ink #1c1b19, accent forest #1f5e4a, sale tag #c2410c.
+
+Typography: Instrument Sans for UI; Instrument Serif for the store name and drawer title.
+
+Layout: Header with store name and cart button showing a count badge. Product cards with CSS-drawn art, name, price, Add button. Drawer: title, free-shipping progress ("$18 away from free shipping"), line items (art, name, variant, stepper, price, remove), promo field, subtotal/discount/shipping/total, and Checkout button.
+
+Interaction: Add opens the drawer and increments the badge (with a small bump). Steppers clamp 1–9; removing a line shows an Undo toast for 5 seconds. Promo code WELCOME10 applies 10% off, other codes show an error. Free shipping at $75. Escape/overlay closes; focus is trapped and restored.
+
+Responsive: Drawer becomes full width under 480px; grid is 2 then 1 column.
+
+Rules: Single HTML file, invented products, prices computed in cents, aria-live totals, prefers-reduced-motion disables slide and bump.

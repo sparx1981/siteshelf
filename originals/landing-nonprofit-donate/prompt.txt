@@ -1,0 +1,11 @@
+Canvas & base: Warm paper (#fdf8f1) with a deep teal hero (#0b4f4a) and a marigold accent (#f2a900). Cards white with 16px radius.
+
+Typography: Fraunces for headlines, Nunito Sans for body and the widget.
+
+Layout: Split hero: left headline "Clean water, one village at a time", subline and goal progress (raised vs target with backers count); right sticky donation card. Below: three impact numbers, two short story cards with CSS-drawn art, and a footer strip.
+
+Interaction: The widget has a One-time / Monthly segmented control; preset amounts (15/30/60/120) plus a custom field; the impact line updates ("$30 gives 3 people clean water for a year", monthly says "per month"); cover-the-fees checkbox adds 4%; the button label reflects the total. Submit validates the amount (min 5) and shows a thank-you panel and bumps the progress bar with animation.
+
+Responsive: Hero stacks, donation card moves above stories; presets go 2x2.
+
+Rules: Single HTML file, invented charity "Springwell", no real payment handling, prefers-reduced-motion, aria-live on impact line.

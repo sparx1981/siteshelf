@@ -1,0 +1,11 @@
+Canvas & base: Off-black (#0e0e0e) page, off-white text (#ecebe6), thin hairline rules (#2a2a2a). Accent lime #c8f169 for the active row.
+
+Typography: Unbounded for the intro line, Hanken Grotesk for rows; row titles 40px (clamp 24–48px) in medium weight.
+
+Layout: Top bar with name and email link. Intro statement. Filter chips (All, Web, Brand, Motion, Product) and a sort toggle (Year ↓/↑). Index list: each row has number, title, discipline and year separated by hairlines.
+
+Interaction: On desktop, hovering or keyboard focusing a row fades other rows to 35% and shows a 280x340 floating preview (gradient art with unique shapes per project) that follows the pointer with smooth lerp; rows tilt text colour to lime. On touch screens the preview appears inline inside the tapped row (accordion). Filters and sort re-render with a staggered fade. Clicking a row shows a toast "Case study coming soon".
+
+Responsive: Row meta collapses under the title at 700px; the floating preview is disabled under 900px in favour of inline.
+
+Rules: Single HTML file, invented studio and projects, prefers-reduced-motion removes lerp and stagger.

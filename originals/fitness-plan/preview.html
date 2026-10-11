@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Workout Planner — App UI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#101114;--cd:#1a1c21;--ln:#2a2d35;--tx:#f3f4f6;--mut:#9aa1ad;--li:#c6f432;--or:#ff7a2f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 15px/1.5 'Barlow',sans-serif;font-variant-numeric:tabular-nums}
+:focus-visible{outline:3px solid var(--li);outline-offset:2px}
+.w{max-width:1100px;margin:0 auto;padding:22px 20px 90px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.lg{font:700 24px 'Barlow Condensed';text-transform:uppercase;letter-spacing:.04em}.lg i{color:var(--li);font-style:normal}
+.chip{background:#2a2112;color:#ffb066;border-radius:999px;padding:5px 14px;font-weight:600;font-size:14px}
+.wk{display:grid;grid-template-columns:repeat(7,minmax(70px,1fr));gap:8px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px;margin-bottom:20px}
+.dy{scroll-snap-align:start;background:var(--cd);border:1px solid var(--ln);border-radius:14px;padding:10px 6px;text-align:center;cursor:pointer;color:var(--tx);font:inherit;min-height:74px;position:relative}
+.dy small{display:block;color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.dy b{display:block;font:700 18px 'Barlow Condensed';text-transform:uppercase;margin-top:2px}
+.dy[aria-pressed=true]{background:var(--li);color:#11140a;border-color:var(--li)}.dy[aria-pressed=true] small{color:#3a4a05}
+.dy.dn:after{content:'✓';position:absolute;top:4px;right:8px;color:var(--li);font-weight:700}.dy.dn[aria-pressed=true]:after{color:#11140a}
+.g{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;align-items:start}
+.cd{background:var(--cd);border:1px solid var(--ln);border-radius:18px;padding:20px;min-width:0}
+.hd h1{font:700 clamp(34px,6vw,52px)/1 'Barlow Condensed';text-transform:uppercase;margin:0}
+.hd p{margin:6px 0 12px;color:var(--mut)}
+.tg{display:flex;gap:6px;flex-wrap:wrap}.tg span{background:#262932;border-radius:999px;padding:3px 12px;font-size:13px}
+.pb{height:8px;background:#2a2d35;border-radius:4px;margin:16px 0 4px;overflow:hidden}.pb i{display:block;height:100%;background:var(--li);width:0;transition:width .3s}
+.ex{margin-top:14px;display:grid;gap:12px}
+.xc{background:#14161a;border:1px solid var(--ln);border-radius:16px;padding:16px}
+.xt{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
+.xt h3{margin:0;font:700 22px 'Barlow Condensed';text-transform:uppercase;letter-spacing:.02em}.xt small{color:var(--mut)}
+.wt{display:flex;align-items:center;gap:6px}.wt button{width:40px;height:40px;border-radius:10px;border:1px solid #3a3e48;background:#1f2229;color:var(--tx);font-size:20px;cursor:pointer}
+.wt output{min-width:70px;text-align:center;font:700 20px 'Barlow Condensed'}
+.sets{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.sp{min-width:64px;height:48px;border-radius:12px;border:1.5px solid #3a3e48;background:transparent;color:var(--tx);font:600 15px 'Barlow';cursor:pointer;padding:0 12px}
+.sp[aria-pressed=true]{background:var(--li);border-color:var(--li);color:#11140a}
+.btn{background:var(--li);color:#11140a;border:0;border-radius:12px;padding:14px 22px;font:700 17px 'Barlow Condensed';text-transform:uppercase;letter-spacing:.06em;cursor:pointer;min-height:48px}
+.btn.o{background:transparent;color:var(--tx);border:1px solid #3a3e48}
+.side{display:grid;gap:16px;position:sticky;top:16px}
+.rg{position:relative;width:180px;height:180px;margin:6px auto 12px}.rg svg{transform:rotate(-90deg);width:100%;height:100%}
+.rg circle{transition:stroke-dashoffset 1s linear}
+.rg b{position:absolute;inset:0;display:grid;place-items:center;font:700 52px 'Barlow Condensed'}
+.rg.done{animation:pl 1s 2}
+@keyframes pl{50%{transform:scale(1.06)}}
+.pre{display:flex;gap:6px;justify-content:center;margin-bottom:12px}.pre button{background:#1f2229;border:1px solid #3a3e48;color:var(--tx);border-radius:999px;padding:6px 14px;font:600 14px 'Barlow';cursor:pointer;min-height:36px}.pre button[aria-pressed=true]{border-color:var(--or);color:var(--or)}
+.tc{display:flex;gap:8px;justify-content:center}
+h2{font:700 15px 'Barlow Condensed';text-transform:uppercase;letter-spacing:.1em;color:var(--mut);margin:0 0 12px}
+.bars{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;height:110px;align-items:end}
+.bars div{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;height:100%;font-size:12px;color:var(--mut)}
+.bars i{display:block;width:100%;background:#333844;border-radius:6px 6px 2px 2px;min-height:4px}.bars .on i{background:var(--li)}
+.rec{text-align:center;padding:28px 10px}.rec h3{font:700 28px 'Barlow Condensed';text-transform:uppercase;margin:0 0 8px}.rec li{text-align:left;margin:6px 0}
+dialog{background:var(--cd);color:var(--tx);border:1px solid var(--ln);border-radius:20px;padding:26px;width:min(420px,calc(100vw - 24px))}
+dialog::backdrop{background:rgba(0,0,0,.7)}
+dialog h2{font:700 30px 'Barlow Condensed';color:var(--tx);letter-spacing:.02em;margin-bottom:14px}
+.st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:18px}.st div{background:#14161a;border-radius:12px;padding:12px;text-align:center}.st b{display:block;font:700 28px 'Barlow Condensed'}.st span{font-size:12px;color:var(--mut)}
+.sr{position:absolute;left:-9999px}
+@media(max-width:900px){.g{grid-template-columns:minmax(0,1fr)}.side{position:static}.w{padding-bottom:130px}.rt{position:fixed;left:0;right:0;bottom:0;z-index:20;border-radius:18px 18px 0 0;padding:10px 16px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center}.rt h2,.rt .pre{display:none}.rt .rg{width:64px;height:64px;margin:0}.rt .rg b{font-size:22px}.rt .tc{justify-content:flex-end}}
+@media(max-width:520px){.w{padding-left:14px;padding-right:14px}.sp{min-width:56px}}
+@media(prefers-reduced-motion:reduce){.rg.done{animation:none}.rg circle,.pb i{transition:none}}
+</style></head><body>
+<div class="w">
+<div class="top"><div class="lg">Iron<i>leaf</i></div><span class="chip" id="stk">🔥 3 day streak</span></div>
+<div class="wk" id="wk" role="group" aria-label="Week plan"></div>
+<div class="g"><main class="cd" id="mn"></main>
+<aside class="side"><div class="cd rt"><h2>Rest timer</h2><div class="rg" id="rg"><svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="88" fill="none" stroke="#2a2d35" stroke-width="12"/><circle id="rc" cx="100" cy="100" r="88" fill="none" stroke="#ff7a2f" stroke-width="12" stroke-linecap="round" stroke-dasharray="552.9" stroke-dashoffset="0"/></svg><b id="tm" role="timer">1:30</b></div><div class="pre" id="pre" role="group" aria-label="Rest length"></div><div class="tc"><button class="btn" id="tp" type="button">Start</button><button class="btn o" id="ts" type="button">Skip</button></div></div>
+<div class="cd"><h2>Weekly volume (kg)</h2><div class="bars" id="bars"></div></div></aside></div></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<dialog id="dl"><h2>Session complete</h2><div class="st"><div><b id="sv">0</b><span>kg volume</span></div><div><b id="ss">0</b><span>sets</span></div><div><b id="sm">0</b><span>minutes</span></div></div><div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn o" type="button" id="dc">Keep training</button><button class="btn" type="button" id="dsv">Save workout</button></div></dialog>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var DN=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+var PL=[{t:'Push',m:['Chest','Shoulders','Triceps'],e:[['Barbell bench press',4,8,60],['Incline dumbbell press',3,10,22.5],['Overhead press',3,8,35],['Lateral raise',3,12,8],['Cable triceps pushdown',3,12,25]]},
+{t:'Pull',m:['Back','Biceps'],e:[['Pull-up',4,6,0],['Barbell row',4,8,55],['Seated cable row',3,10,45],['Face pull',3,15,20],['Dumbbell curl',3,12,12]]},
+{t:'Legs',m:['Quads','Hamstrings','Glutes'],e:[['Back squat',4,6,80],['Romanian deadlift',3,8,70],['Walking lunge',3,12,16],['Leg curl',3,12,35],['Standing calf raise',4,15,50]]},
+{t:'Rest',m:[],e:[]},
+{t:'Upper',m:['Chest','Back','Arms'],e:[['Dumbbell bench press',4,10,26],['Chin-up',3,8,0],['Arnold press',3,10,16],['Cable fly',3,12,12],['Hammer curl',3,12,14]]},
+{t:'Lower',m:['Quads','Glutes','Core'],e:[['Front squat',4,6,60],['Hip thrust',4,8,80],['Bulgarian split squat',3,10,14],['Hanging knee raise',3,12,0]]},
+{t:'Rest',m:[],e:[]}];
+var today=(new Date().getDay()+6)%7,sel=Math.min(today,2);if(PL[sel].t==='Rest')sel=0;
+var S;try{S=JSON.parse(localStorage.getItem('il-v1'))}catch(e){}
+if(!S)S={done:{0:true,1:true,2:false},vol:[5200,4800,0,0,0,0,0],st:3,w:{}};
+function save(){try{localStorage.setItem('il-v1',JSON.stringify(S))}catch(e){}}
+var run=PL.map(function(p){return p.e.map(function(x){return{w:x[3],s:[]}})});
+var rest=90,left=90,tmr=null,run2=false,t0=Date.now();
+function dayKey(i,x){return i+'-'+x}
+function wk(){$('wk').innerHTML=PL.map(function(p,i){return'<button type="button" class="dy'+(S.done[i]?' dn':'')+'" data-d="'+i+'" aria-pressed="'+(i===sel)+'"><small>'+DN[i]+'</small><b>'+p.t+'</b><span class="sr">'+(S.done[i]?', completed':'')+'</span></button>'}).join('');
+ $('stk').textContent='🔥 '+S.st+' day streak'}
+function sets(i){return run[i].reduce(function(s,x){return s+x.s.length},0)}
+function main(){
+ var p=PL[sel],m=$('mn');
+ if(!p.e.length){m.innerHTML='<div class="rec"><h3>Rest day</h3><p style="color:#9aa1ad">Recovery is where the gains happen. Try a gentle routine today.</p><ul style="max-width:300px;margin:12px auto 0"><li>10 minutes of easy walking</li><li>Hip flexor stretch, 2 × 45 s each side</li><li>Thoracic rotations, 10 each side</li><li>Drink water and sleep well</li></ul></div>';return}
+ var total=p.e.reduce(function(s,x){return s+x[1]},0),dn=sets(sel);
+ m.innerHTML='<div class="hd"><h1>'+p.t+' day</h1><p>About '+(p.e.length*9+5)+' minutes · '+total+' sets</p><div class="tg">'+p.m.map(function(x){return'<span>'+x+'</span>'}).join('')+'</div><div class="pb" role="progressbar" aria-valuemin="0" aria-valuemax="'+total+'" aria-valuenow="'+dn+'" aria-label="Session progress"><i style="width:'+dn/total*100+'%"></i></div><small style="color:#9aa1ad">'+dn+' of '+total+' sets done</small></div><div class="ex">'+
+ p.e.map(function(x,i){var r=run[sel][i];return'<div class="xc"><div class="xt"><div><h3>'+x[0]+'</h3><small>'+x[1]+' × '+x[2]+' · last time '+(x[3]?(x[3]-2.5)+' kg':'bodyweight')+'</small></div><div class="wt"><button type="button" data-w="-2.5" data-x="'+i+'" aria-label="Decrease weight for '+x[0]+'">−</button><output>'+(r.w?r.w+' kg':'BW')+'</output><button type="button" data-w="2.5" data-x="'+i+'" aria-label="Increase weight for '+x[0]+'">+</button></div></div><div class="sets">'+
+  Array.apply(null,Array(x[1])).map(function(_,k){var on=r.s.indexOf(k)>=0;return'<button type="button" class="sp" data-x="'+i+'" data-k="'+k+'" aria-pressed="'+on+'" aria-label="'+x[0]+' set '+(k+1)+' of '+x[1]+'">'+(on?'✓ ':'')+x[2]+' reps</button>'}).join('')+'</div></div>'}).join('')+'</div><div style="display:flex;justify-content:flex-end;margin-top:18px"><button class="btn" id="fin" type="button">Finish workout</button></div>';
+ $('fin').onclick=finish;
+}
+function bars(){var mx=Math.max.apply(null,S.vol.concat([6000]));$('bars').innerHTML=S.vol.map(function(v,i){return'<div class="'+(i===sel?'on':'')+'" title="'+DN[i]+': '+v+' kg"><i style="height:'+Math.max(4,v/mx*80)+'px"></i>'+DN[i][0]+'</div>'}).join('')}
+function vol(i){var p=PL[i];return run[i].reduce(function(s,x,k){return s+x.s.length*p.e[k][2]*x.w},0)}
+$('mn').addEventListener('click',function(e){
+ var w=e.target.closest('[data-w]');if(w){var r=run[sel][+w.dataset.x];r.w=Math.max(0,r.w+ +w.dataset.w);var y=scrollY;main();var nb=document.querySelector('[data-w="'+w.dataset.w+'"][data-x="'+w.dataset.x+'"]');if(nb)nb.focus({preventScroll:true});return}
+ var b=e.target.closest('.sp');if(!b)return;var x=+b.dataset.x,k=+b.dataset.k,r2=run[sel][x],ix=r2.s.indexOf(k);
+ if(ix>=0)r2.s.splice(ix,1);else{r2.s.push(k);startRest($('live'),PL[sel].e[x][0]+' set '+(k+1)+' done')}
+ main();var nb2=document.querySelector('.sp[data-x="'+x+'"][data-k="'+k+'"]');if(nb2)nb2.focus({preventScroll:true});bars();
+});
+function fmt(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+function ring(){$('tm').textContent=fmt(left);$('rc').style.strokeDashoffset=552.9*(1-left/rest)}
+function stop(){clearInterval(tmr);tmr=null;run2=false;$('tp').textContent='Start'}
+function startRest(live,msg){stop();left=rest;$('rg').classList.remove('done');run2=true;$('tp').textContent='Pause';ring();if(msg)live.textContent=msg+'. Rest started, '+rest+' seconds.';tmr=setInterval(tick,1000)}
+function tick(){left--;ring();if(left<=0){stop();left=0;ring();if(!RM)$('rg').classList.add('done');$('live').textContent='Rest over. Next set when you are ready.'}}
+$('tp').onclick=function(){if(run2){clearInterval(tmr);tmr=null;run2=false;this.textContent='Resume'}else{if(left<=0)left=rest;run2=true;this.textContent='Pause';ring();tmr=setInterval(tick,1000)}};
+$('ts').onclick=function(){stop();left=rest;ring();$('rg').classList.remove('done')};
+$('pre').innerHTML=[60,90,120].map(function(s){return'<button type="button" data-s="'+s+'" aria-pressed="'+(s===rest)+'">'+s+' s</button>'}).join('');
+$('pre').onclick=function(e){var b=e.target.closest('[data-s]');if(!b)return;rest=+b.dataset.s;left=rest;stop();ring();[].forEach.call($('pre').children,function(c){c.setAttribute('aria-pressed',c===b)})};
+$('wk').onclick=function(e){var b=e.target.closest('.dy');if(!b)return;sel=+b.dataset.d;wk();main();bars()};
+function finish(){var d=sets(sel);$('sv').textContent=Math.round(vol(sel)).toLocaleString('en-GB');$('ss').textContent=d;$('sm').textContent=Math.max(1,Math.round((Date.now()-t0)/60000)+PL[sel].e.length*6);$('dl').showModal()}
+$('dc').onclick=function(){$('dl').close()};
+$('dsv').onclick=function(){S.vol[sel]=Math.round(vol(sel));if(!S.done[sel]){S.done[sel]=true;S.st++}save();$('dl').close();wk();bars();$('live').textContent='Workout saved.';var nb=document.querySelector('.dy[data-d="'+sel+'"]');if(nb)nb.focus()};
+wk();main();bars();ring();
+})();
+</script></body></html>

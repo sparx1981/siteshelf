@@ -1,0 +1,11 @@
+Canvas & base: A romantic, airy invitation on warm ivory #faf6ef with deep olive #3d4a34, blush #e9c9bd and gold #b8935a accents, hairline borders #e4dccb. Soft paper grain via layered gradients (no images). Delicate botanical line illustrations drawn as inline SVG (leaves and sprigs). Invented couple "Imogen & Rafael", date 14 June 2027, venue "Hollin Court Gardens".
+
+Typography: "Cormorant Garamond" (400, 500, 600, italic 400) for names and headings (names clamp(52px,10vw,110px)); "Jost" (300, 400, 500) for small caps labels, body and form fields. Labels 12px uppercase letter-spacing .22em.
+
+Layout: Full-height hero with names, date, venue and a countdown (days, hours, minutes). Sections: Our day (timeline of ceremony, drinks, dinner, dancing with times), The venue (address, a simple SVG map sketch, parking and travel tips), Accommodation, FAQ in disclosures, and an RSVP card. The RSVP is a three-step form with a progress indicator: 1 Attendance (Joyfully accept / Regretfully decline) and your name, 2 Guests (add up to three guests with names and meal choice: Lamb, Sea bass, Wild mushroom wellington) and dietary notes, 3 Review and send. Success state shows a confirmation card with a summary and an "Add to calendar" link (a generated .ics blob).
+
+Interaction: Countdown updates every second (static under reduced motion). Form validates each step before continuing, with inline errors and focus moved to the first error; Back keeps entered data; steps announce via aria-live. Decline skips the guest step. Submit shows the confirmation (no network). Sections fade up on scroll with IntersectionObserver unless reduced motion.
+
+Responsive: Single column below 720px, timeline becomes vertical; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Labels on all fields, radio groups with fieldset and legend, 4.5:1 contrast. Invented names only.

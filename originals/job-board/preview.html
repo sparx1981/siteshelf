@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Job Board — App UI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#172033;--mut:#5d6b82;--line:#e3e8ef;--acc:#0d9488;--accd:#0f766e}
+*{box-sizing:border-box}
+body{margin:0;background:#f5f7fa;color:var(--ink);font:400 15px/1.55 'Plus Jakarta Sans',sans-serif}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:2px}
+.nav{max-width:1200px;margin:0 auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:20px;letter-spacing:-.02em}
+.nav i{color:var(--acc);font-style:normal}
+.hero{max-width:1200px;margin:0 auto;padding:10px 24px 26px}
+h1{font:800 clamp(28px,4.5vw,40px)/1.1 'Plus Jakarta Sans';letter-spacing:-.03em;margin:0 0 18px}
+.sr{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) auto;gap:10px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px;box-shadow:0 10px 30px -18px rgba(23,32,51,.3)}
+.sr input,.sr select{border:0;background:#f5f7fa;border-radius:10px;padding:13px 14px;font:inherit;min-width:0;width:100%}
+.btn{background:var(--acc);color:#fff;border:0;border-radius:10px;padding:12px 24px;font:700 15px 'Plus Jakarta Sans';cursor:pointer;min-height:46px}
+.btn:hover{background:var(--accd)}
+.btn.o{background:#fff;color:var(--ink);border:1px solid #cdd5e0}
+.body{max-width:1200px;margin:0 auto;padding:0 24px 60px;display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px}
+.side{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;align-self:start;display:grid;gap:22px}
+.side h3{font:700 13px 'Plus Jakarta Sans';text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:0 0 10px}
+.side label{display:flex;gap:10px;align-items:center;padding:5px 0;cursor:pointer;font-size:14.5px}
+.side input[type=checkbox],.side input[type=radio]{width:18px;height:18px;accent-color:var(--acc)}
+.side input[type=range]{width:100%;accent-color:var(--acc)}
+.tabs{display:flex;gap:6px;margin-bottom:12px}
+.tab{background:none;border:0;padding:8px 14px;border-radius:999px;font:700 14px 'Plus Jakarta Sans';cursor:pointer;color:var(--mut)}
+.tab[aria-selected=true]{background:var(--ink);color:#fff}
+.hd{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.hd select{border:1px solid #cdd5e0;border-radius:8px;padding:8px 10px;font:inherit;background:#fff}
+.job{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:start;margin-bottom:12px;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.job:hover{border-color:#b7c2d1;box-shadow:0 8px 24px -16px rgba(23,32,51,.4)}
+.lo{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:17px}
+.job h2{font:700 17px 'Plus Jakarta Sans';margin:0}
+.job h2 button{all:unset;cursor:pointer}
+.job h2 button:focus-visible{outline:3px solid #2f7de1;outline-offset:3px;border-radius:4px}
+.cm{color:var(--mut);font-size:13.5px;margin:2px 0 8px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.p{border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:600;background:#eef2f7;color:#3b4a63}
+.p.t{background:#d9f4ef;color:#0f766e}
+.sal{font-weight:700;margin-left:4px}
+.rt{display:grid;gap:8px;justify-items:end;text-align:right;color:var(--mut);font-size:13px}
+.st{width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:20px;cursor:pointer;color:#a9b3c3}
+.st[aria-pressed=true]{color:#f59e0b;border-color:#f6d58b;background:#fffaf0}
+.empty{background:#fff;border:1px dashed #c4cedd;border-radius:14px;padding:48px 20px;text-align:center;color:var(--mut)}
+.empty h2{margin:0 0 6px;color:var(--ink);font-size:20px}
+.fb{display:none}
+.panel{border:0;padding:0;margin:0 0 0 auto;height:100dvh;max-height:none;width:min(560px,100vw);background:#fff;color:var(--ink);animation:sl .25s}
+.panel::backdrop{background:rgba(23,32,51,.5)}
+@keyframes sl{from{transform:translateX(40px);opacity:0}}
+.pc{padding:26px 28px 100px;overflow:auto;height:100%}
+.pc h2{font:800 26px/1.2 'Plus Jakarta Sans';margin:14px 0 4px;letter-spacing:-.02em}
+.pc h3{font:700 15px 'Plus Jakarta Sans';margin:22px 0 6px}
+.pc ul{margin:0;padding-left:20px;color:#33415a}.pc li{margin:3px 0}
+.x{float:right;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:18px;cursor:pointer}
+.ap{position:absolute;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:16px 28px;display:flex;gap:10px}
+.ap .btn{flex:1}
+.sheet-x{display:none}
+@media(max-width:900px){
+ .body{grid-template-columns:minmax(0,1fr)}
+ .fb{display:inline-flex}
+ .side{display:none}
+ .side.open{display:grid;position:fixed;inset:auto 0 0 0;z-index:30;border-radius:18px 18px 0 0;max-height:80dvh;overflow:auto;box-shadow:0 -20px 60px rgba(0,0,0,.35)}
+ .sheet-x{display:block}
+ .sr{grid-template-columns:minmax(0,1fr)}
+ .panel{width:100vw;height:100dvh}
+}
+@media(max-width:560px){.job{grid-template-columns:auto minmax(0,1fr)}.rt{grid-column:1/-1;grid-auto-flow:column;justify-content:space-between;justify-items:start;align-items:center;text-align:left}.nav,.hero,.body{padding-left:16px;padding-right:16px}}
+@media(prefers-reduced-motion:reduce){.panel{animation:none}.job{transition:none}}
+</style></head><body>
+<div class="nav"><span>hire<i>well</i></span></div>
+<div class="hero"><h1>Find work you will like</h1>
+<form class="sr" id="sf" role="search"><label class="sr-only" for="q" style="position:absolute;left:-9999px">Keyword</label><input id="q" type="search" placeholder="Job title or company"><label for="loc" style="position:absolute;left:-9999px">Location</label><select id="loc"><option value="">Anywhere</option><option>London</option><option>Manchester</option><option>Bristol</option><option>Edinburgh</option><option>Remote</option></select><button class="btn" type="submit">Search</button></form></div>
+<div class="body">
+<aside class="side" id="side" aria-label="Filters"><button class="btn o sheet-x" type="button" id="fx">Close filters</button>
+<div><h3>Job type</h3><label><input type="checkbox" name="ty" value="Full-time">Full-time</label><label><input type="checkbox" name="ty" value="Part-time">Part-time</label><label><input type="checkbox" name="ty" value="Contract">Contract</label><label><input type="checkbox" id="rem">Remote only</label></div>
+<div><h3>Minimum salary: <span id="sv">£0k</span></h3><input type="range" id="sal" min="0" max="100" step="5" value="0" aria-label="Minimum salary in thousands"></div>
+<div><h3>Experience</h3><label><input type="radio" name="ex" value="" checked>Any</label><label><input type="radio" name="ex" value="Junior">Junior</label><label><input type="radio" name="ex" value="Mid">Mid-level</label><label><input type="radio" name="ex" value="Senior">Senior</label></div>
+<button class="btn o" type="button" id="clr">Clear all</button></aside>
+<main><div class="tabs" role="tablist"><button class="tab" role="tab" id="t1" aria-selected="true">All jobs</button><button class="tab" role="tab" id="t2" aria-selected="false">Saved (<span id="sc">0</span>)</button></div>
+<div class="hd"><b id="cnt" role="status" aria-live="polite"></b><div style="display:flex;gap:8px"><button class="btn o fb" type="button" id="fo">Filters</button><label style="position:absolute;left:-9999px" for="so">Sort</label><select id="so"><option value="new">Newest</option><option value="sal">Salary high–low</option></select></div></div>
+<div id="list"></div></main></div>
+<dialog class="panel" id="pn" aria-labelledby="pt"><div class="pc" id="pc"></div></dialog>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var C=['#0d9488','#6366f1','#e11d48','#d97706','#0284c7','#7c3aed','#059669','#c2410c'];
+var J=[
+['Product Designer','Fernlight Studio','London','Full-time',58,75,'Mid',1,['Figma','Systems'],false],
+['Frontend Engineer','Tidepool Labs','Remote','Full-time',65,90,'Senior',2,['React','A11y'],true],
+['UX Researcher','Marlow Health','Manchester','Contract',45,60,'Mid',3,['Interviews','Surveys'],false],
+['Customer Success Lead','Kestrel Cloud','Bristol','Full-time',48,62,'Senior',3,['SaaS','Onboarding'],false],
+['Junior Illustrator','Paper Kite Books','Edinburgh','Part-time',22,28,'Junior',4,['Procreate','Editorial'],false],
+['Data Analyst','Orchard Retail','London','Full-time',42,55,'Junior',5,['SQL','Dashboards'],false],
+['Backend Engineer','Ironbridge Pay','Remote','Full-time',70,95,'Senior',6,['Go','Postgres'],true],
+['Content Designer','Lantern Learning','Bristol','Contract',50,65,'Mid',7,['UX writing','Docs'],false],
+['Motion Designer','Halcyon Games','Manchester','Full-time',40,52,'Mid',8,['After Effects','3D'],false],
+['Operations Manager','Greenway Foods','Edinburgh','Full-time',52,68,'Senior',9,['Logistics','People'],false]
+].map(function(a,i){return{id:i,t:a[0],c:a[1],l:a[2],ty:a[3],lo:a[4],hi:a[5],ex:a[6],age:a[7],tg:a[8],rem:a[9]||a[2]==='Remote'}});
+var saved=[];try{saved=JSON.parse(localStorage.getItem('hw-saved')||'[]')}catch(e){}
+var view='all',last=null;
+function sv(){try{localStorage.setItem('hw-saved',JSON.stringify(saved))}catch(e){}}
+function ago(d){return d<2?'Today':d<7?d+' days ago':Math.round(d/7)+' weeks ago'}
+function flt(){
+ var q=$('q').value.toLowerCase().trim(),lc=$('loc').value,ty=[].slice.call(document.querySelectorAll('[name=ty]:checked')).map(function(x){return x.value}),rm=$('rem').checked,mn=+$('sal').value,ex=document.querySelector('[name=ex]:checked').value;
+ var r=J.filter(function(j){return(view==='all'||saved.indexOf(j.id)>=0)&&(!q||(j.t+' '+j.c).toLowerCase().indexOf(q)>=0)&&(!lc||j.l===lc)&&(!ty.length||ty.indexOf(j.ty)>=0)&&(!rm||j.rem)&&j.hi>=mn&&(!ex||j.ex===ex)});
+ var s=$('so').value;r.sort(function(a,b){return s==='sal'?b.hi-a.hi:a.age-b.age});return r;
+}
+function ini(c){return c.split(' ').map(function(w){return w[0]}).join('').slice(0,2)}
+function render(){
+ var r=flt();$('sv').textContent='£'+$('sal').value+'k';$('sc').textContent=saved.length;
+ $('cnt').textContent=r.length+' job'+(r.length===1?'':'s');
+ $('list').innerHTML=r.length?r.map(function(j){var on=saved.indexOf(j.id)>=0;
+  return'<article class="job" data-id="'+j.id+'"><div class="lo" style="background:'+C[j.id%8]+'" aria-hidden="true">'+ini(j.c)+'</div><div style="min-width:0"><h2><button type="button" data-open="'+j.id+'">'+j.t+'</button></h2><div class="cm">'+j.c+' · '+j.l+'</div><div class="tags"><span class="p t">'+j.ty+'</span><span class="p">'+j.ex+'</span>'+j.tg.map(function(t){return'<span class="p">'+t+'</span>'}).join('')+'<span class="sal">£'+j.lo+'k–£'+j.hi+'k</span></div></div><div class="rt"><button class="st" type="button" data-save="'+j.id+'" aria-pressed="'+on+'" aria-label="Save '+j.t+' at '+j.c+'">'+(on?'★':'☆')+'</button><span>'+ago(j.age)+'</span></div></article>'}).join('')
+ :'<div class="empty"><h2>'+(view==='saved'&&!saved.length?'Nothing saved yet':'No jobs match')+'</h2><p>'+(view==='saved'&&!saved.length?'Tap the star on a job to keep it here.':'Try widening your filters.')+'</p>'+(view==='all'?'<button class="btn" type="button" id="ce">Clear filters</button>':'')+'</div>';
+ var ce=$('ce');if(ce)ce.onclick=clear;
+}
+function clear(){$('q').value='';$('loc').value='';[].forEach.call(document.querySelectorAll('[name=ty]'),function(x){x.checked=false});$('rem').checked=false;$('sal').value=0;document.querySelector('[name=ex][value=""]').checked=true;render()}
+$('clr').onclick=clear;
+$('sf').onsubmit=function(e){e.preventDefault();render()};
+['q','loc','so','sal','rem'].forEach(function(i){$(i).addEventListener('input',render)});
+$('side').addEventListener('change',render);
+$('list').addEventListener('click',function(e){
+ var s=e.target.closest('[data-save]');
+ if(s){e.stopPropagation();var id=+s.dataset.save,i=saved.indexOf(id);if(i>=0)saved.splice(i,1);else saved.push(id);sv();render();var nb=document.querySelector('[data-save="'+id+'"]');if(nb&&view==='all')nb.focus();return}
+ var o=e.target.closest('[data-open]')||(e.target.closest('.job')&&e.target.closest('.job').querySelector('[data-open]'));if(o)open(+o.dataset.open,o);
+});
+function tab(v){view=v;$('t1').setAttribute('aria-selected',v==='all');$('t2').setAttribute('aria-selected',v==='saved');render()}
+$('t1').onclick=function(){tab('all')};$('t2').onclick=function(){tab('saved')};
+var applied={};
+function open(id,el){
+ var j=J[id];last=el;
+ $('pc').innerHTML='<button class="x" type="button" id="px" aria-label="Close">✕</button><div class="lo" style="background:'+C[id%8]+'" aria-hidden="true">'+ini(j.c)+'</div><h2 id="pt">'+j.t+'</h2><div class="cm">'+j.c+' · '+j.l+' · '+j.ty+' · £'+j.lo+'k–£'+j.hi+'k</div><h3>About the role</h3><p style="margin:0;color:#33415a">Join a small, friendly team at '+j.c+' and shape how people experience our products. You will work closely with colleagues across the business and have real ownership from day one.</p><h3>What you will do</h3><ul><li>Plan and deliver your own projects from idea to launch</li><li>Share work early and often with the wider team</li><li>Help improve how we work together</li></ul><h3>What we are looking for</h3><ul><li>Experience at '+j.ex.toLowerCase()+' level in a similar role</li><li>Clear, kind communication</li><li>Curiosity about '+j.tg.join(' and ').toLowerCase()+'</li></ul><h3>Benefits</h3><ul><li>25 days holiday plus bank holidays</li><li>Flexible hours and a learning budget</li><li>Private health cover</li></ul><div class="ap"><button class="btn o" type="button" id="ps">'+(saved.indexOf(id)>=0?'Saved ★':'Save ☆')+'</button><button class="btn" type="button" id="pa">'+(applied[id]?'Applied ✓':'Apply now')+'</button></div>';
+ $('pn').showModal();$('px').focus();
+ $('px').onclick=function(){$('pn').close()};
+ $('pa').onclick=function(){applied[id]=true;this.textContent='Applied ✓'};
+ $('ps').onclick=function(){var i=saved.indexOf(id);if(i>=0)saved.splice(i,1);else saved.push(id);sv();this.textContent=i>=0?'Save ☆':'Saved ★';render()};
+}
+$('pn').addEventListener('click',function(e){if(e.target===this)this.close()});
+$('pn').addEventListener('close',function(){if(last&&document.body.contains(last))last.focus();else{var b=document.querySelector('[data-open]');if(b)b.focus()}});
+function sheet(o){$('side').classList.toggle('open',o);if(o)$('fx').focus()}
+$('fo').onclick=function(){sheet(true)};$('fx').onclick=function(){sheet(false);$('fo').focus()};
+render();
+})();
+</script></body></html>

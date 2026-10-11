@@ -1,0 +1,11 @@
+Canvas & base: A confident, warm education page on cream #fff9f0 with deep ink #1c1b29, plum #4a2c7a, tangerine #ff8a3d and mint #5fd1a8 accents; cards white with 1px #efe4d2 borders and 20px radius. Illustrations are CSS/SVG shapes only (a stylised laptop, floating badges, simple instructor avatar made from shapes). Invented course "Colour for Designers" taught by "Priya Nair-Walsh", brand "Studio School".
+
+Typography: "Young Serif" (400) for display headings (clamp(40px,6.5vw,76px)) and "Outfit" (400, 500, 600) for body and UI. Section heads 40px; lesson titles 16px 500.
+
+Layout: Sticky slim nav (logo, anchor links, Enrol button). Hero: eyebrow pill ("Starts 3 November · 6 weeks"), headline, subline, two buttons (Enrol now, Watch preview) and trust row (4.9 rating, 3,200 students, lifetime access) beside a layered illustration. Then: "What you will learn" grid of 6 outcome cards, curriculum accordion of 6 modules each listing 4–5 lessons with durations and preview badges, instructor card with bio and stats, pricing card (£149, struck-through £229, offer countdown, feature list, Enrol button, 30-day guarantee) sticky beside the curriculum on desktop, reviews carousel with 5 reviews, and FAQ.
+
+Interaction: Accordion modules open with animated height (one or several open), with an Expand all / Collapse all button and a running total of lessons and hours. The offer countdown ticks (hours:minutes:seconds) and shows "Offer ended" at zero. Reviews carousel has previous/next buttons, dots, swipe, and keyboard arrows, pausing autoplay on hover/focus and never autoplaying under reduced motion. The preview button opens a native dialog with a fake video player (play/pause toggling a progress bar). Enrol shows a toast.
+
+Responsive: Pricing card moves above the curriculum on mobile; hero stacks; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Accordion buttons use aria-expanded and aria-controls; carousel is a labelled region with live updates off while autoplaying. Invented names only.

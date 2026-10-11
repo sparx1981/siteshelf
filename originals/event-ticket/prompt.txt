@@ -1,0 +1,11 @@
+Canvas & base: A bold night-out look on #0d0b14 with neon accents magenta #ff3d9a, violet #7c5cff and lime #c7f464, surfaces #17141f with borders #2a2536, text #f4f2fa, secondary #a39db8. Ticket confirmation is light paper #fff8ec with perforated edges. Invented festival "Lowtide Sessions", 3 nights, at an invented venue "The Boiler Room".
+
+Typography: "Syne" (700, 800) for headlines (clamp(44px,9vw,110px), uppercase, tight leading .92), "Manrope" (400, 500, 700) for body, "Space Mono" (400, 700) for prices, codes and the timer.
+
+Layout: Hero with a giant event name, date and venue, a marquee row of artist names (CSS animation) and a Buy tickets button. Lineup section with three night cards. Tickets section: four tiers (Day pass, Weekend, VIP, Camping add-on) each with price, perks list, availability bar ("Only 38 left") and a quantity stepper (0-8). A sticky order summary (bottom bar on mobile) showing lines, a booking fee of 8%, total, a "Hold expires in 09:59" timer and a Checkout button.
+
+Interaction: Steppers update the summary live; Checkout is disabled until something is selected; the hold timer starts on first selection and shows an expired state with a Restart button. Checkout opens a native dialog with name and email (validated) and Pay; success replaces it with a ticket-style confirmation per ticket including a deterministic QR-like grid drawn in SVG from the order ID and a Download/print button (window.print with print styles). Marquee pauses on hover and under reduced motion.
+
+Responsive: Below 900px the summary becomes a fixed bottom bar with expandable details; hero text scales; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Steppers use buttons with aria-labels and an output element; announce totals in an aria-live region. Invented names and artists only.

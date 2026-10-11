@@ -1,0 +1,11 @@
+Canvas & base: A clean developer-friendly page on #fcfcfd with ink #111318, secondary #656b78, hairlines #e7e9ee. Tag colours: New #0a7d4f on #dff6ea, Improved #1d4ed8 on #e0e9ff, Fixed #b45309 on #fdecd2, Breaking #b42318 on #fde4e1. Accent indigo #4f46e5. Invented product "Gridwork".
+
+Typography: "Geist"-like feel using "Inter Tight" (400, 500, 600, 700) for headings and "Inter" (400, 500) for body, "JetBrains Mono" (400, 500) for version numbers and dates. Page title 40px 700 tracking -.03em; release titles 24px 600.
+
+Layout: Max-width 1040px, two columns. A sticky left rail (180px) lists versions (v2.8, v2.7, ...) with dates, and highlights the one in view; on mobile it becomes a horizontally scrolling chip row pinned under the header. The main column has the page header ("Changelog", a one-line intro, filter chips: All, New, Improved, Fixed, Breaking, and a subscribe email field) followed by release cards. Each release has a version badge, date, title, a one-sentence summary, a list of changes each with a coloured tag, and a "Show details" disclosure with a code snippet or a small inline illustration made with CSS.
+
+Interaction: Filter chips show or hide individual changes (and hide releases with none), with a count on each chip and an empty state. The rail highlights the release in view using IntersectionObserver and scrolls smoothly on click (instant under reduced motion). Details disclosures animate height. Subscribe validates the email and shows an inline confirmation. A "Copy link" button on each release copies a hash URL (try/catch) and shows a tick.
+
+Responsive: Below 820px the rail becomes the chip row; cards go full width; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Use article and time elements, aria-pressed on chips, aria-live count of visible changes. Invented names only.

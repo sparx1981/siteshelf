@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Product Changelog — Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#111318;--mut:#656b78;--line:#e7e9ee;--acc:#4f46e5}
+*{box-sizing:border-box}
+html{scroll-padding-top:24px}
+body{margin:0;background:#fcfcfd;color:var(--ink);font:400 16px/1.6 'Inter',sans-serif}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:2px}
+.top{max-width:1040px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center}
+.lg{font:700 19px 'Inter Tight';display:flex;gap:9px;align-items:center}.lg i{width:20px;height:20px;border-radius:5px;background:var(--acc);display:grid;grid-template-columns:1fr 1fr;gap:2px;padding:3px}.lg i:before,.lg i:after{content:'';background:#fff;border-radius:1px}
+.top a{color:var(--mut);text-decoration:none;font-size:14px}
+.wrap{max-width:1040px;margin:0 auto;padding:20px 24px 80px;display:grid;grid-template-columns:180px minmax(0,1fr);gap:48px}
+.rail{position:sticky;top:24px;align-self:start}
+.rail ul{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.rail a{display:block;padding:7px 14px;margin-left:-2px;border-left:2px solid transparent;color:var(--mut);text-decoration:none;font:500 14px 'JetBrains Mono'}
+.rail a small{display:block;font:400 12px 'Inter';color:#9096a3}
+.rail a.on{border-color:var(--acc);color:var(--ink)}
+h1{font:700 clamp(32px,5vw,42px)/1.1 'Inter Tight';letter-spacing:-.03em;margin:0 0 10px}
+.in{color:var(--mut);max-width:52ch;margin:0 0 24px}
+.bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;margin-bottom:34px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid #d6d9e0;background:#fff;border-radius:999px;padding:6px 14px;font:500 14px 'Inter';cursor:pointer;color:var(--ink);min-height:36px}
+.chip span{color:var(--mut);margin-left:6px;font-family:'JetBrains Mono';font-size:12px}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}.chip[aria-pressed=true] span{color:#c8ccd6}
+.sub{display:flex;gap:6px}
+.sub input{border:1px solid #d6d9e0;border-radius:8px;padding:8px 12px;font:inherit;font-size:14px;width:200px;min-width:0}
+.sub input[aria-invalid=true]{border-color:#b42318}
+.sub button{background:var(--acc);color:#fff;border:0;border-radius:8px;padding:8px 14px;font:500 14px 'Inter';cursor:pointer;min-height:38px}
+.msg{font-size:13px;color:var(--mut);width:100%;min-height:18px;text-align:right}
+.rel{padding:6px 0 44px;border-bottom:1px solid var(--line);margin-bottom:40px}
+.meta{display:flex;gap:12px;align-items:center;margin-bottom:8px;font:500 13px 'JetBrains Mono';color:var(--mut)}
+.ver{background:#eef0ff;color:var(--acc);border-radius:6px;padding:2px 9px;font-weight:500}
+.cp{margin-left:auto;background:none;border:0;color:var(--mut);cursor:pointer;font:500 13px 'Inter';padding:6px 8px;border-radius:6px}.cp:hover{background:#f1f2f5}
+h2{font:600 clamp(22px,3vw,26px)/1.2 'Inter Tight';margin:0 0 6px;letter-spacing:-.02em}
+.sm{color:var(--mut);margin:0 0 18px}
+.ch{list-style:none;padding:0;margin:0 0 14px;display:grid;gap:10px}
+.ch li{display:flex;gap:12px;align-items:baseline}
+.tag{flex:none;width:76px;text-align:center;font:600 11.5px 'Inter';letter-spacing:.04em;text-transform:uppercase;border-radius:6px;padding:2px 0}
+.t-new{background:#dff6ea;color:#0a7d4f}.t-imp{background:#e0e9ff;color:#1d4ed8}.t-fix{background:#fdecd2;color:#b45309}.t-brk{background:#fde4e1;color:#b42318}
+details{border:1px solid var(--line);border-radius:12px;background:#fff}
+summary{cursor:pointer;padding:12px 16px;font-weight:500;font-size:14.5px;list-style:none;display:flex;justify-content:space-between}
+summary::-webkit-details-marker{display:none}summary:after{content:'+';font-size:18px;color:var(--mut)}details[open] summary:after{content:'–'}
+.dt{padding:0 16px 16px;display:grid;gap:12px}
+pre{margin:0;background:#12141a;color:#e6e8ef;border-radius:10px;padding:14px 16px;font:13px/1.65 'JetBrains Mono';overflow-x:auto}
+pre b{color:#8fd6a8;font-weight:500}pre i{color:#9aa3ff;font-style:normal}
+.ill{height:120px;border-radius:10px;background:linear-gradient(135deg,#eef0ff,#fdf2f8);display:grid;place-items:center}
+.ill div{display:flex;gap:8px}.ill span{width:54px;height:54px;border-radius:12px;background:#fff;box-shadow:0 6px 16px -6px rgba(79,70,229,.45);display:grid;place-items:center;font:600 18px 'Inter Tight';color:var(--acc)}
+.empty{padding:50px 0;text-align:center;color:var(--mut)}
+@media(max-width:820px){
+ .wrap{grid-template-columns:minmax(0,1fr);gap:0;padding:0 16px 60px}
+ .rail{position:sticky;top:0;z-index:5;background:#fcfcfd;margin:0 -16px 18px;padding:10px 16px;border-bottom:1px solid var(--line)}
+ .rail ul{display:flex;gap:8px;overflow-x:auto;border:0}.rail a{border:1px solid #d6d9e0;border-radius:999px;padding:6px 14px;margin:0;white-space:nowrap}.rail a small{display:none}.rail a.on{background:var(--ink);color:#fff}
+ .top{padding:16px}.sub{width:100%}.sub input{flex:1;width:auto}.msg{text-align:left}
+ .tag{width:70px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
+</style></head><body>
+<header class="top"><div class="lg"><i aria-hidden="true"></i>Gridwork</div><a href="#">Back to app →</a></header>
+<div class="wrap">
+<nav class="rail" aria-label="Versions"><ul id="rail"></ul></nav>
+<main><h1>Changelog</h1><p class="in">New features, improvements and fixes in Gridwork, newest first.</p>
+<div class="bar"><div class="chips" id="chips" role="group" aria-label="Filter changes"></div><form class="sub" id="sf" novalidate><label class="sr" for="se" style="position:absolute;left:-9999px">Email</label><input id="se" type="email" placeholder="Email for release notes"><button>Subscribe</button></form><div class="msg" id="sm" role="status"></div></div>
+<div id="rels"></div><div class="empty" id="em" hidden>No changes match this filter.</div></main></div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var T={new:['New','t-new'],imp:['Improved','t-imp'],fix:['Fixed','t-fix'],brk:['Breaking','t-brk']};
+var R=[
+{v:'2.8',id:'v2-8',d:'2026-09-30',t:'Pivot tables and shared views',s:'Summarise any sheet in two clicks and share the exact view you are looking at.',c:[['new','Pivot tables with drag-and-drop rows, columns and values.'],['new','Shareable views keep filters, sort and column widths in the link.'],['imp','Column resizing is smoother on large sheets.'],['fix','Pasting from spreadsheets no longer drops leading zeros.']],code:'<i>POST</i> /v2/views\n{ <b>"sheet"</b>: "sh_42", <b>"filters"</b>: [{ "col": "region", "eq": "North" }] }'},
+{v:'2.7',id:'v2-7',d:'2026-09-02',t:'Faster imports',s:'CSV imports are now up to four times faster and show real progress.',c:[['imp','Import progress bar with row counts and an estimated time.'],['imp','Larger file limit of 250 MB.'],['fix','Dates in DD/MM/YYYY format are detected correctly.'],['brk','The legacy /v1/import endpoint has been removed. Use /v2/imports.']],ill:['CSV','→','⚡','→','✓']},
+{v:'2.6',id:'v2-6',d:'2026-08-12',t:'Comments and mentions',s:'Talk about the data where it lives.',c:[['new','Cell comments with @mentions and email notifications.'],['new','Resolve and reopen threads.'],['imp','Keyboard shortcut cheatsheet, opened with ?.'],['fix','Undo now restores formatting as well as values.']],code:'<i>@maya</i> can you check <b>B14</b>? It looks off versus last quarter.'},
+{v:'2.5',id:'v2-5',d:'2026-07-08',t:'Dark mode',s:'A dark theme that follows your system setting or can be chosen manually.',c:[['new','Dark theme with an Auto option.'],['imp','Higher contrast for selected cells and focus rings.'],['fix','Charts keep their colours when switching themes.']],ill:['☀','⇄','☾']}];
+function fmt(d){return new Date(d+'T12:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}
+var f='all';
+$('rail').innerHTML=R.map(function(r){return'<li><a href="#'+r.id+'" data-id="'+r.id+'">v'+r.v+'<small>'+new Date(r.d+'T12:00').toLocaleDateString('en-GB',{day:'numeric',month:'short'})+'</small></a></li>'}).join('');
+$('rels').innerHTML=R.map(function(r){
+ return'<article class="rel" id="'+r.id+'"><div class="meta"><span class="ver">v'+r.v+'</span><time datetime="'+r.d+'">'+fmt(r.d)+'</time><button class="cp" type="button" data-l="'+r.id+'">Copy link</button></div><h2>'+r.t+'</h2><p class="sm">'+r.s+'</p><ul class="ch">'+
+ r.c.map(function(c){return'<li data-k="'+c[0]+'"><span class="tag '+T[c[0]][1]+'">'+T[c[0]][0]+'</span><span>'+c[1]+'</span></li>'}).join('')+'</ul><details><summary>Show details</summary><div class="dt">'+
+ (r.code?'<pre>'+r.code+'</pre>':'<div class="ill" aria-hidden="true"><div>'+r.ill.map(function(x,i){return i%2?'<b style="align-self:center;color:#8b8fa3">'+x+'</b>':'<span>'+x+'</span>'}).join('')+'</div></div>')+'<p style="margin:0;color:#656b78;font-size:14.5px">Rolled out to all workspaces. Admins can find the settings under Workspace, Features.</p></div></details></article>'}).join('');
+function count(k){var n=0;R.forEach(function(r){r.c.forEach(function(c){if(k==='all'||c[0]===k)n++})});return n}
+function chips(){var ks=['all','new','imp','fix','brk'];$('chips').innerHTML=ks.map(function(k){return'<button type="button" class="chip" data-f="'+k+'" aria-pressed="'+(k===f)+'">'+(k==='all'?'All':T[k][0])+'<span>'+count(k)+'</span></button>'}).join('')}
+function apply(){
+ var vis=0;[].forEach.call(document.querySelectorAll('.rel'),function(el){var n=0;[].forEach.call(el.querySelectorAll('.ch li'),function(li){var s=f==='all'||li.dataset.k===f;li.hidden=!s;if(s)n++});el.hidden=!n;vis+=n});
+ [].forEach.call(document.querySelectorAll('#rail li'),function(li,i){li.hidden=document.getElementById(R[i].id).hidden});
+ $('em').hidden=vis>0;chips();$('sm').textContent=$('sm').dataset.s||'';
+}
+$('chips').addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(b){f=b.dataset.f;apply();var nb=document.querySelector('[data-f="'+f+'"]');if(nb)nb.focus()}});
+$('rail').addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;e.preventDefault();var el=$(a.dataset.id);el.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'})});
+if('IntersectionObserver' in window){
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){[].forEach.call(document.querySelectorAll('#rail a'),function(a){var on=a.dataset.id===e.target.id;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')})}})},{rootMargin:'-20% 0px -70% 0px'});
+ [].forEach.call(document.querySelectorAll('.rel'),function(e){io.observe(e)});
+}
+document.addEventListener('click',function(e){var b=e.target.closest('.cp');if(!b)return;var u=location.href.split('#')[0]+'#'+b.dataset.l;
+ try{navigator.clipboard.writeText(u).then(function(){b.textContent='Copied ✓'},function(){b.textContent='Copy failed'})}catch(x){b.textContent='Copy failed'}
+ setTimeout(function(){b.textContent='Copy link'},1600)});
+$('sf').onsubmit=function(e){e.preventDefault();var v=$('se').value.trim(),ok=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
+ $('se').setAttribute('aria-invalid',!ok);$('sm').dataset.s=ok?'Thanks. We will email release notes to '+v+'.':'Please enter a valid email address.';$('sm').textContent=$('sm').dataset.s;if(ok)$('se').value=''};
+chips();apply();
+})();
+</script></body></html>

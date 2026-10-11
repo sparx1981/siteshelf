@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Property Listing — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@500;600&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#1d2330;--mut:#667085;--ln:#e8e4dc;--acc:#0f5e63;--clay:#c46a3d}
+*{box-sizing:border-box}
+body{margin:0;background:#fbfaf8;color:var(--ink);font:400 16px/1.65 'DM Sans',sans-serif}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:3px}
+.top{max-width:1200px;margin:0 auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.lg{font:600 20px 'Fraunces';letter-spacing:-.01em}.lg i{color:var(--clay);font-style:normal}
+.top a{color:var(--ink);text-decoration:none;font-weight:500;font-size:14.5px}
+.w{max-width:1200px;margin:0 auto;padding:0 24px 80px}
+.gal{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1fr);gap:10px;height:min(520px,60vw);margin-bottom:28px}
+.sc{border:0;padding:0;margin:0;cursor:pointer;border-radius:14px;overflow:hidden;position:relative;display:block;width:100%;height:100%;background:#ddd}
+.sc svg{width:100%;height:100%;display:block}
+.th{display:grid;grid-template-rows:repeat(4,minmax(0,1fr));gap:10px;min-height:0}
+.all{position:absolute;right:12px;bottom:12px;background:#fff;border:0;border-radius:999px;padding:9px 16px;font:700 14px 'DM Sans';cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25);min-height:40px}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:44px;align-items:start}
+.pr{font:600 clamp(34px,5vw,48px)/1 'Fraunces';letter-spacing:-.02em}
+.ad{color:var(--mut);margin:6px 0 18px;font-size:17px}
+.fc{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}.fc span{background:#fff;border:1px solid var(--ln);border-radius:12px;padding:10px 16px;font-weight:500}.fc b{font:600 20px 'Fraunces'}
+h2{font:600 26px 'Fraunces';margin:34px 0 12px}
+.ds p{margin:0 0 12px;color:#394150}.ds .more{max-height:3.4em;overflow:hidden;transition:max-height .3s}.ds .more.o{max-height:30em}
+.lk{background:none;border:0;color:var(--acc);font:700 15px 'DM Sans';cursor:pointer;padding:6px 0;text-decoration:underline;text-underline-offset:3px}
+.ft{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;list-style:none;margin:0;padding:0}.ft li:before{content:'✓';color:var(--acc);font-weight:700;margin-right:10px}
+.tabs{display:flex;gap:6px;margin-bottom:12px}.tab{border:1px solid #d6d1c5;background:#fff;border-radius:999px;padding:8px 18px;font:700 14px 'DM Sans';cursor:pointer;min-height:40px}.tab[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.fp{background:#fff;border:1px solid var(--ln);border-radius:14px;padding:16px}.fp svg{width:100%;height:auto;display:block}
+.nb{list-style:none;margin:0;padding:0;display:grid;gap:8px}.nb li{display:flex;justify-content:space-between;border-bottom:1px solid var(--ln);padding:8px 0}.nb span:last-child{color:var(--mut)}
+.side{position:sticky;top:16px;display:grid;gap:18px}
+.card{background:#fff;border:1px solid var(--ln);border-radius:18px;padding:22px;box-shadow:0 20px 40px -30px rgba(29,35,48,.4)}
+.card h3{font:600 20px 'Fraunces';margin:0 0 12px}
+.mo{font:600 34px 'Fraunces'}.mo small{font:400 14px 'DM Sans';color:var(--mut)}
+label.f{display:flex;justify-content:space-between;font-weight:500;font-size:14px;margin:14px 0 4px}
+input[type=range]{width:100%;accent-color:var(--acc);height:32px}
+input[type=text],input[type=email],textarea,input[type=number]{width:100%;border:1.5px solid #d6d1c5;border-radius:10px;padding:11px 12px;font:inherit;background:#fff}
+input[aria-invalid=true]{border-color:#b3261e}.er{color:#b3261e;font-size:13px;min-height:0}
+.ds2{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:6px 0}
+.ds2 label{border:1.5px solid #d6d1c5;border-radius:10px;text-align:center;padding:8px 2px;cursor:pointer;font-size:13px;line-height:1.3;position:relative}.ds2 input{position:absolute;opacity:0}.ds2 label:has(input:checked){background:var(--acc);color:#fff;border-color:var(--acc)}.ds2 label:has(input:focus-visible){outline:3px solid #2f7de1;outline-offset:2px}
+.ds2 b{display:block;font-size:16px}
+.btn{width:100%;background:var(--clay);color:#fff;border:0;border-radius:12px;padding:14px;font:700 16px 'DM Sans';cursor:pointer;margin-top:14px;min-height:48px}.btn:hover{background:#ad5a31}
+.hr{background:#fff;border:1px solid #d6d1c5;border-radius:999px;width:44px;height:44px;font-size:20px;cursor:pointer;color:#999}.hr[aria-pressed=true]{color:#d9381e}
+.ok{text-align:center;padding:10px 0}.ok h3{margin-bottom:6px}
+dialog.lb{border:0;padding:0;max-width:none;max-height:none;width:100vw;height:100dvh;background:rgba(10,12,16,.94);color:#fff}
+dialog.lb::backdrop{background:none}
+.lbi{height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:16px}
+.lbi .bar{display:flex;justify-content:space-between;align-items:center}
+.lbi .stage{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;min-height:0}
+.lbi .img{height:100%;max-height:70vh;border-radius:12px;overflow:hidden;min-height:0}.lbi svg{width:100%;height:100%}
+.nv{width:48px;height:48px;border-radius:50%;border:1px solid #fff5;background:#0008;color:#fff;font-size:22px;cursor:pointer}
+.cap{text-align:center;padding:10px;color:#d4d8e0}
+@media(max-width:900px){
+ .cols{grid-template-columns:minmax(0,1fr);gap:0}.side{position:static;margin-top:30px}
+ .gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;height:auto;gap:8px;margin:0 -24px 24px;padding:0 24px}
+ .gal .sc{flex:0 0 86%;scroll-snap-align:start;aspect-ratio:16/10;height:auto}.th{display:contents}
+ .gal .sc.hid{display:block}
+ .all{display:none}.ft{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:520px){.top,.w{padding-left:16px;padding-right:16px}.gal{margin:0 -16px 24px;padding:0 16px}.ds2{grid-template-columns:repeat(4,minmax(0,1fr))}.lbi .stage{grid-template-columns:minmax(0,1fr)}.nv{position:absolute;bottom:80px}.nv.p{left:16px}.nv.n{right:16px}}
+@media(prefers-reduced-motion:reduce){.ds .more{transition:none}}
+</style></head><body>
+<header class="top"><div class="lg">Alder<i>&amp;</i>Finch</div><a href="tel:+441632960000">01632 960 000</a></header>
+<div class="w">
+<div class="gal" id="gal"></div>
+<div class="cols"><div>
+<div style="display:flex;justify-content:space-between;align-items:start;gap:12px"><div><div class="pr">£625,000</div><p class="ad">14 Wren Lane, Harbourside, BS1 4QR</p></div><button class="hr" id="hr" aria-pressed="false" aria-label="Save this home">♥</button></div>
+<div class="fc"><span><b>3</b> beds</span><span><b>2</b> baths</span><span><b>1,240</b> sq ft</span><span>Freehold</span><span>EPC B</span></div>
+<section class="ds"><p>A light-filled three-bedroom townhouse moments from the harbour, finished with care and ready to move into.</p><div class="more" id="mr"><p>The open-plan ground floor brings together a generous living room, a kitchen with a central island and French doors onto a south-facing garden. Upstairs are three bedrooms, including a principal suite with a dressing area and en-suite shower room.</p><p>Solid oak floors, high ceilings and original sash windows run throughout, and the home is warmed by an efficient air-source heat pump.</p></div><button class="lk" id="rm" aria-expanded="false">Read more</button></section>
+<h2>Features</h2><ul class="ft"><li>South-facing garden</li><li>Air-source heat pump</li><li>Solid oak floors</li><li>Off-street parking</li><li>Dressing area</li><li>Cycle store</li></ul>
+<h2>Floor plan</h2><div class="tabs" role="tablist" aria-label="Floor plan"><button class="tab" role="tab" id="t0" aria-selected="true" aria-controls="fp">Ground</button><button class="tab" role="tab" id="t1" aria-selected="false" tabindex="-1" aria-controls="fp">First</button></div><div class="fp" id="fp" role="tabpanel" aria-labelledby="t0"></div>
+<h2>Around the area</h2><ul class="nb"><li><span>Harbourside Station</span><span>6 min walk</span></li><li><span>Wren Lane Primary School</span><span>4 min walk</span></li><li><span>The Saturday Market</span><span>9 min walk</span></li><li><span>Millpond Park</span><span>11 min walk</span></li></ul>
+</div>
+<aside class="side"><div class="card"><h3>Monthly estimate</h3><div class="mo" id="mo"></div>
+<label class="f" for="dp"><span>Deposit</span><b id="dv"></b></label><input type="range" id="dp" min="5" max="50" step="5" value="15" aria-describedby="mo">
+<label class="f" for="rt"><span>Interest rate (%)</span></label><input type="number" id="rt" min="0.5" max="12" step="0.1" value="4.5">
+<p style="font-size:12.5px;color:var(--mut);margin:10px 0 0">25-year repayment mortgage. For illustration only.</p></div>
+<div class="card" id="vc"><h3>Request a viewing</h3><form id="fm" novalidate><div role="radiogroup" aria-label="Preferred date" class="ds2" id="dts"></div>
+<label class="f" for="nm" style="margin-top:12px">Name</label><input id="nm" type="text" autocomplete="name"><div class="er" id="e1"></div>
+<label class="f" for="em">Email</label><input id="em" type="email" autocomplete="email"><div class="er" id="e2"></div>
+<label class="f" for="ms">Message (optional)</label><textarea id="ms" rows="3"></textarea>
+<button class="btn" type="submit">Request viewing</button></form></div></aside></div></div>
+<dialog class="lb" id="lb" aria-label="Photo gallery"><div class="lbi"><div class="bar"><b id="ct"></b><button class="nv" id="lx" aria-label="Close" style="width:44px;height:44px">✕</button></div><div class="stage"><button class="nv p" id="lp" aria-label="Previous photo">‹</button><div class="img" id="li" role="img"></div><button class="nv n" id="ln" aria-label="Next photo">›</button></div><div class="cap" id="cp"></div></div></dialog>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var P=[
+['Living room','<rect width="800" height="500" fill="#efe6d8"/><rect y="340" width="800" height="160" fill="#c9a87c"/><rect x="520" y="70" width="200" height="230" fill="#f9f3e6" stroke="#fff" stroke-width="8"/><path d="M520 70L720 300M720 70L520 300" stroke="#fff" stroke-width="4" opacity=".6"/><polygon points="520,300 720,300 640,500 380,500" fill="#fff8d8" opacity=".5"/><rect x="90" y="260" width="320" height="110" rx="26" fill="#0f5e63"/><rect x="70" y="290" width="46" height="100" rx="18" fill="#0c4c50"/><rect x="384" y="290" width="46" height="100" rx="18" fill="#0c4c50"/><rect x="170" y="380" width="170" height="44" rx="8" fill="#a77b4f"/><circle cx="160" cy="130" r="40" fill="#c46a3d" opacity=".85"/>'],
+['Kitchen','<rect width="800" height="500" fill="#f3efe8"/><rect y="360" width="800" height="140" fill="#b89b78"/><rect x="40" y="90" width="720" height="150" fill="#fff"/><g fill="#0f5e63"><rect x="40" y="250" width="720" height="90"/></g><rect x="40" y="244" width="720" height="10" fill="#d9d2c5"/><rect x="230" y="320" width="340" height="110" rx="6" fill="#e9e3d6"/><rect x="230" y="310" width="340" height="16" fill="#c46a3d"/><g fill="#d9d2c5"><circle cx="300" cy="190" r="10"/><circle cx="420" cy="190" r="10"/><circle cx="540" cy="190" r="10"/></g><g fill="#2c3240"><rect x="290" y="280" width="8" height="30" rx="3"/><rect x="480" y="268" width="22" height="42" rx="4"/></g>'],
+['Principal bedroom','<rect width="800" height="500" fill="#e8ecef"/><rect y="370" width="800" height="130" fill="#bfa27c"/><rect x="170" y="190" width="460" height="190" rx="14" fill="#fff"/><rect x="150" y="120" width="500" height="120" rx="12" fill="#c46a3d"/><rect x="190" y="230" width="190" height="70" rx="14" fill="#f1ddd0"/><rect x="420" y="230" width="190" height="70" rx="14" fill="#f1ddd0"/><rect x="600" y="70" width="140" height="170" fill="#fcf8ec" stroke="#fff" stroke-width="6"/><circle cx="90" cy="300" r="28" fill="#0f5e63"/><rect x="82" y="320" width="16" height="60" fill="#8d6b47"/>'],
+['Garden at dusk','<defs><linearGradient id="gd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b3d73"/><stop offset=".6" stop-color="#e58b6a"/><stop offset="1" stop-color="#f6c88d"/></linearGradient></defs><rect width="800" height="500" fill="url(#gd)"/><circle cx="600" cy="300" r="46" fill="#ffe8b0"/><rect y="330" width="800" height="170" fill="#2f5d45"/><rect y="400" width="800" height="100" fill="#264c39"/><path d="M80 330c20-80 70-110 110-40 30-60 90-40 90 40z" fill="#173d2b"/><rect x="330" y="360" width="150" height="14" fill="#8a6a45"/><rect x="345" y="374" width="10" height="40" fill="#6d5236"/><rect x="455" y="374" width="10" height="40" fill="#6d5236"/><g fill="#ffe8a8"><circle cx="120" cy="250" r="5"/><circle cx="160" cy="236" r="5"/><circle cx="200" cy="248" r="5"/></g>'],
+['Exterior','<defs><linearGradient id="ex" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bcd6ea"/><stop offset="1" stop-color="#eaf2f6"/></linearGradient></defs><rect width="800" height="500" fill="url(#ex)"/><rect y="400" width="800" height="100" fill="#8aa882"/><rect x="170" y="130" width="460" height="280" fill="#d9b38c"/><polygon points="150,140 400,40 650,140" fill="#4b4f5c"/><g fill="#fdf7e8" stroke="#fff" stroke-width="5"><rect x="220" y="190" width="90" height="100"/><rect x="490" y="190" width="90" height="100"/><rect x="220" y="320" width="90" height="70"/><rect x="490" y="320" width="90" height="70"/></g><rect x="352" y="300" width="96" height="110" rx="4" fill="#0f5e63"/><circle cx="436" cy="360" r="5" fill="#f0c36b"/><path d="M700 410c10-70 50-90 70-30 10-40 40-30 30 30z" fill="#4c7c55"/>']
+];
+var CAP=P.map(function(p){return p[0]});
+function svg(i,lab){return'<svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="'+(lab||CAP[i])+'">'+P[i][1]+'</svg>'}
+var g='';P.forEach(function(p,i){g+=(i===0?'<div class="sc" style="position:relative"><button type="button" class="sc" data-i="0" aria-label="Open photo 1: '+p[0]+'">'+svg(0).replace('role="img"','aria-hidden="true"')+'</button><button class="all" type="button" data-i="0">View all 5 photos</button></div>':i===1?'<div class="th"><button type="button" class="sc" data-i="1" aria-label="Open photo 2: '+p[0]+'">'+svg(1)+'</button>':'<button type="button" class="sc" data-i="'+i+'" aria-label="Open photo '+(i+1)+': '+p[0]+'">'+svg(i)+'</button>')});
+$('gal').innerHTML=g+'</div>';
+$('gal').querySelectorAll('svg').forEach(function(s){s.setAttribute('aria-hidden','true');s.removeAttribute('role');s.removeAttribute('aria-label')});
+var cur=0,trig=null,lb=$('lb');
+function lbShow(){$('li').innerHTML=svg(cur);$('li').setAttribute('aria-label',CAP[cur]);$('li').firstChild.removeAttribute('role');$('ct').textContent=(cur+1)+' / '+P.length;$('cp').textContent=CAP[cur]}
+$('gal').addEventListener('click',function(e){var b=e.target.closest('[data-i]');if(!b)return;cur=+b.dataset.i;trig=b;lbShow();lb.showModal();$('lx').focus()});
+$('lp').onclick=function(){cur=(cur+P.length-1)%P.length;lbShow()};$('ln').onclick=function(){cur=(cur+1)%P.length;lbShow()};$('lx').onclick=function(){lb.close()};
+lb.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')$('lp').click();if(e.key==='ArrowRight')$('ln').click()});
+lb.addEventListener('close',function(){if(trig)trig.focus()});
+$('rm').onclick=function(){var o=$('mr').classList.toggle('o');this.setAttribute('aria-expanded',o);this.textContent=o?'Read less':'Read more'};
+$('hr').onclick=function(){var p=this.getAttribute('aria-pressed')==='true';this.setAttribute('aria-pressed',!p)};
+var FP=[
+ '<svg viewBox="0 0 600 340" role="img" aria-label="Ground floor plan: living room, kitchen and hall"><g fill="none" stroke="#1d2330" stroke-width="3"><rect x="10" y="10" width="580" height="320"/><path d="M330 10V330M330 190H590M200 330V250H330"/></g><g font-family="DM Sans" font-size="15" fill="#1d2330"><text x="130" y="140" text-anchor="middle">Living room</text><text x="130" y="160" text-anchor="middle" fill="#667085" font-size="12">5.2 × 4.6 m</text><text x="460" y="90" text-anchor="middle">Kitchen</text><text x="460" y="110" text-anchor="middle" fill="#667085" font-size="12">4.4 × 3.8 m</text><text x="460" y="270" text-anchor="middle">Garden room</text><text x="265" y="300" text-anchor="middle">Hall</text></g></svg>',
+ '<svg viewBox="0 0 600 340" role="img" aria-label="First floor plan: three bedrooms and two bathrooms"><g fill="none" stroke="#1d2330" stroke-width="3"><rect x="10" y="10" width="580" height="320"/><path d="M260 10V200M260 200H10M420 10V330M420 170H590"/></g><g font-family="DM Sans" font-size="15" fill="#1d2330"><text x="135" y="100" text-anchor="middle">Principal bedroom</text><text x="135" y="120" text-anchor="middle" fill="#667085" font-size="12">4.8 × 3.9 m</text><text x="340" y="100" text-anchor="middle">En-suite</text><text x="505" y="90" text-anchor="middle">Bedroom 2</text><text x="505" y="260" text-anchor="middle">Bedroom 3</text><text x="135" y="270" text-anchor="middle">Landing &amp; bathroom</text></g></svg>'];
+function tab(i){$('fp').innerHTML=FP[i];[0,1].forEach(function(j){$('t'+j).setAttribute('aria-selected',j===i);$('t'+j).tabIndex=j===i?0:-1});$('fp').setAttribute('aria-labelledby','t'+i)}
+[0,1].forEach(function(i){$('t'+i).onclick=function(){tab(i)};$('t'+i).onkeydown=function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();var j=1-i;tab(j);$('t'+j).focus()}}});
+tab(0);
+function est(){var pr=625000,d=+$('dp').value,r=(+$('rt').value||0)/1200,L=pr*(1-d/100),n=300,m=r===0?L/n:L*r/(1-Math.pow(1+r,-n));
+ $('dv').textContent=d+'% (£'+Math.round(pr*d/100).toLocaleString('en-GB')+')';$('mo').innerHTML='£'+Math.round(m).toLocaleString('en-GB')+' <small>/ month</small>'}
+$('dp').oninput=est;$('rt').oninput=est;est();
+var days=[];for(var i=1;i<=4;i++){var d=new Date();d.setDate(d.getDate()+i);days.push(d)}
+$('dts').innerHTML=days.map(function(d,i){return'<label><input type="radio" name="dt" value="'+i+'"'+(i===0?' checked':'')+'><b>'+d.getDate()+'</b>'+d.toLocaleDateString('en-GB',{weekday:'short'})+'</label>'}).join('');
+$('fm').onsubmit=function(e){e.preventDefault();var n=$('nm').value.trim(),m=$('em').value.trim(),bn=n.length<2,bm=!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m);
+ $('e1').textContent=bn?'Please enter your name.':'';$('nm').setAttribute('aria-invalid',bn);$('e2').textContent=bm?'Please enter a valid email.':'';$('em').setAttribute('aria-invalid',bm);
+ if(bn){$('nm').focus();return}if(bm){$('em').focus();return}
+ var dd=days[+document.querySelector('[name=dt]:checked').value].toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+ $('vc').innerHTML='<div class="ok" tabindex="-1" id="okk"><h3>Viewing requested</h3><p style="margin:0;color:var(--mut)">Thanks '+n.split(' ')[0].replace(/[<&>]/g,'')+'. We will confirm '+dd+' by email shortly.</p></div>';$('okk').focus()};
+})();
+</script></body></html>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Habit Tracker — App UI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#2b2620;--mut:#7a6f62;--line:#e9e1d4}
+*{box-sizing:border-box}
+body{margin:0;background:#f6f1ea;color:var(--ink);font:400 15px/1.5 'Nunito Sans',sans-serif}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:2px}
+.wrap{max-width:960px;margin:0 auto;padding:28px 20px 56px}
+.top{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:flex-end;justify-content:space-between;margin-bottom:22px}
+h1{font:700 clamp(26px,4vw,32px)/1.1 'Bricolage Grotesque',sans-serif;margin:0}
+.date{color:var(--mut);margin:4px 0 0}
+.ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font:700 14px 'Nunito Sans',sans-serif;cursor:pointer;min-height:42px;color:var(--ink)}
+.btn:hover{border-color:#cdbfa8}.btn.p{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn.ic{width:42px;padding:0}
+.main{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:20px;align-items:start}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 6px 20px -12px rgba(80,60,30,.3);min-width:0}
+.hd,.hb{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px;align-items:center;padding:12px 18px}
+.hd{border-bottom:1px solid var(--line);font:700 12px 'Nunito Sans';text-transform:uppercase;color:var(--mut);letter-spacing:.06em}
+.days{display:grid;grid-template-columns:repeat(7,40px);gap:6px;text-align:center}
+.hb+.hb{border-top:1px solid var(--line)}
+.nm{display:flex;gap:12px;align-items:center;min-width:0}
+.em{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:20px;background:color-mix(in srgb,var(--c) 16%,#fff)}
+.nm b{font:600 16px 'Nunito Sans';overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nm small{display:block;color:var(--mut);font-size:12.5px}
+.ck{width:40px;height:40px;border-radius:50%;border:2px solid #ddd2c0;background:#fff;cursor:pointer;display:grid;place-items:center;padding:0;color:#fff;font-size:18px;transition:background .15s,border-color .15s}
+.ck[aria-pressed=true]{background:var(--c);border-color:var(--c)}
+.ck[aria-pressed=true]:after{content:'✓';font-weight:800}
+.ck.pop{animation:pop .3s}
+@keyframes pop{50%{transform:scale(1.25)}}
+.ck.today{box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 30%,transparent)}
+.ck[aria-disabled=true]{opacity:.35;cursor:default}
+.ck.ro{cursor:default}
+.st{font:700 14px 'Bricolage Grotesque';background:#fff3e0;color:#b4570a;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.st.z{background:#f3eee6;color:var(--mut)}
+.more{background:none;border:0;cursor:pointer;width:32px;height:32px;border-radius:8px;font-size:18px;color:var(--mut)}
+.more:hover{background:#f3eee6}
+.side{position:sticky;top:16px;padding:20px;display:grid;gap:16px;justify-items:center;text-align:center}
+.ring{position:relative;width:150px;height:150px}
+.ring svg{transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font:700 34px 'Bricolage Grotesque'}
+.ring circle{transition:stroke-dashoffset .5s}
+.msg{margin:0;color:var(--mut);min-height:44px}
+.bars{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:end;height:80px;width:100%}
+.bars div{background:#efe7d9;border-radius:6px;min-height:6px;position:relative}
+.bars i{position:absolute;left:0;right:0;bottom:-18px;font:700 11px 'Nunito Sans';color:var(--mut);font-style:normal}
+.menu{position:fixed;z-index:20;background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.menu button{display:block;width:100%;text-align:left;background:none;border:0;padding:10px 16px;border-radius:8px;font:600 14px 'Nunito Sans';cursor:pointer;min-height:40px}
+.menu button:hover{background:#f6f1ea}
+dialog{border:1px solid var(--line);border-radius:20px;padding:24px;width:min(420px,calc(100vw - 24px));background:#fff;color:var(--ink)}
+dialog::backdrop{background:rgba(43,38,32,.5)}
+dialog h2{font:700 22px 'Bricolage Grotesque';margin:0 0 14px}
+dialog label{display:block;font-weight:700;font-size:13px;margin:14px 0 6px}
+dialog input[type=text]{width:100%;padding:11px 12px;border:1.5px solid #d9ccb6;border-radius:10px;font:inherit}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts button{width:44px;height:44px;border-radius:12px;border:2px solid var(--line);background:#fff;font-size:20px;cursor:pointer}
+.opts button[aria-pressed=true]{border-color:var(--ink)}
+.opts.cl button{border-radius:50%;background:var(--c)}
+.acts{display:flex;justify-content:flex-end;gap:8px;margin-top:20px}
+#toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;display:flex;gap:14px;align-items:center;z-index:40;max-width:calc(100vw - 24px)}
+#toast button{background:none;border:0;color:#ffd48a;font:700 14px 'Nunito Sans';cursor:pointer}
+.empty{padding:36px;text-align:center;color:var(--mut)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:820px){.main{grid-template-columns:minmax(0,1fr)}.side{position:static;order:-1;grid-template-columns:auto minmax(0,1fr);text-align:left;justify-items:start;align-items:center}.ring{width:110px;height:110px}.ring b{font-size:26px}.bars{grid-column:1/-1;margin-bottom:14px}}
+@media(max-width:600px){
+ .hd,.hb{grid-template-columns:minmax(0,1fr);gap:10px;padding:14px}
+ .hd .stc,.hd .dh{display:none}
+ .days{grid-template-columns:repeat(7,minmax(0,1fr))}
+ .ck{width:100%;max-width:40px;height:auto;aspect-ratio:1;margin:0 auto}
+ .hb .tr{display:flex;justify-content:space-between;align-items:center}
+}
+@media(prefers-reduced-motion:reduce){.ck.pop{animation:none}.ring circle,.ck{transition:none}}
+</style></head><body>
+<div class="wrap">
+<div class="top"><div><h1 id="gr">Good morning</h1><p class="date" id="dt"></p></div>
+<div class="ctl"><button class="btn ic" id="pv" aria-label="Previous week">‹</button><button class="btn" id="tw">This week</button><button class="btn ic" id="nx" aria-label="Next week">›</button><button class="btn p" id="add">+ Add habit</button></div></div>
+<div class="main">
+<section class="card" aria-label="Habits"><div class="hd"><span>Habit</span><span class="days dh" id="dh"></span><span class="stc">Streak</span></div><div id="list"></div></section>
+<aside class="card side" aria-label="Today"><div class="ring"><svg width="150" height="150" viewBox="0 0 150 150" style="width:100%;height:100%"><circle cx="75" cy="75" r="62" fill="none" stroke="#efe7d9" stroke-width="14"/><circle id="rg" cx="75" cy="75" r="62" fill="none" stroke="#5fa37a" stroke-width="14" stroke-linecap="round" stroke-dasharray="389.6" stroke-dashoffset="389.6"/></svg><b id="rt">0/0</b></div><div><p class="msg" id="ms"></p></div><div class="bars" id="bars" aria-label="Completion by day"></div></aside>
+</div></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<dialog id="dlg"><form method="dialog" id="fm"><h2>New habit</h2><label for="hn">Name</label><input type="text" id="hn" maxlength="28" required placeholder="e.g. Stretch for 10 minutes"><label id="el">Icon</label><div class="opts" id="eo" role="group" aria-labelledby="el"></div><label id="cl">Colour</label><div class="opts cl" id="co" role="group" aria-labelledby="cl"></div><div class="acts"><button class="btn" type="button" id="cn">Cancel</button><button class="btn p" type="submit">Add</button></div></form></dialog>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var COL=['#ef6f5e','#5fa37a','#4c9be8','#9b6bd1','#f0a93b'],EMO=['🏃','📖','💧','🧘','🥗','😴','✍️','🎸'];
+var DN=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],DL=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+function ds(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+var now=new Date();now.setHours(12,0,0,0);var TODAY=ds(now);
+function mon(d){var x=new Date(d);x.setDate(x.getDate()-((x.getDay()+6)%7));return x}
+function seed(){
+ var s=7;function r(){s=(s*9301+49297)%233280;return s/233280}
+ var hs=[{id:1,n:'Morning run',e:'🏃',c:0,p:.7},{id:2,n:'Read 20 pages',e:'📖',c:2,p:.8},{id:3,n:'Drink 2L water',e:'💧',c:1,p:.6},{id:4,n:'Meditate',e:'🧘',c:3,p:.5},{id:5,n:'Journal',e:'✍️',c:4,p:.55}];
+ var log={};hs.forEach(function(h){var a=[];for(var i=1;i<=56;i++){var d=new Date(now);d.setDate(d.getDate()-i);if(r()<h.p)a.push(ds(d))}
+  if(h.id===2){for(var j=1;j<=6;j++){var d2=new Date(now);d2.setDate(d2.getDate()-j);a.push(ds(d2))}}log[h.id]=a});
+ return{habits:hs.map(function(h){return{id:h.id,n:h.n,e:h.e,c:h.c}}),log:log,arch:[]};
+}
+var S;try{S=JSON.parse(localStorage.getItem('tm-v1'))}catch(e){}
+if(!S||!S.habits)S=seed();
+function save(){try{localStorage.setItem('tm-v1',JSON.stringify(S))}catch(e){}}
+var wk=mon(now),sel={e:0,c:0};
+function wdays(){var a=[];for(var i=0;i<7;i++){var d=new Date(wk);d.setDate(d.getDate()+i);a.push(d)}return a}
+function done(h,d){return S.log[h.id].indexOf(d)>=0}
+function streak(h){var d=new Date(now),n=0;if(!done(h,ds(d)))d.setDate(d.getDate()-1);while(done(h,ds(d))){n++;d.setDate(d.getDate()-1)}return n}
+function msg(p){return p===1?'All done today. Lovely work!':p>=.5?'Past halfway. Keep the momentum.':p>0?'A good start. One more?':'A fresh day. Pick the easiest habit first.'}
+function render(){
+ var h=now.getHours();$('gr').textContent=h<12?'Good morning':h<18?'Good afternoon':'Good evening';
+ $('dt').textContent=now.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+ var wd=wdays();
+ $('dh').innerHTML=wd.map(function(d,i){return'<span>'+DN[i][0]+'<span class="sr">'+DL[i]+'</span></span>'}).join('');
+ $('dh').style.display='';
+ var L=$('list');
+ if(!S.habits.length){L.innerHTML='<div class="empty">No habits yet. Add your first one.</div>'}else
+ L.innerHTML=S.habits.map(function(hb){
+  var col=COL[hb.c],st=streak(hb);
+  return'<div class="hb" style="--c:'+col+'" data-id="'+hb.id+'"><div class="nm"><span class="em" aria-hidden="true">'+hb.e+'</span><div style="min-width:0"><b>'+esc(hb.n)+'</b><small>'+st+' day streak</small></div></div>'+
+  '<div class="tr"><div class="days">'+wd.map(function(d,i){var k=ds(d),fut=k>TODAY,on=done(hb,k);
+   return'<button type="button" class="ck'+(k===TODAY?' today':'')+'" data-d="'+k+'" aria-pressed="'+on+'"'+(fut?' aria-disabled="true"':'')+' aria-label="'+esc(hb.n)+', '+DL[i]+(on?', done':'')+'"></button>'}).join('')+'</div></div>'+
+  '<div class="tr" style="display:flex;gap:6px;align-items:center;justify-content:flex-end"><span class="st'+(st?'':' z')+'">'+(st?'🔥 '+st:'–')+'</span><button class="more" type="button" data-more="'+hb.id+'" aria-label="Options for '+esc(hb.n)+'" aria-haspopup="menu">⋯</button></div></div>'}).join('');
+ stats();
+}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function stats(){
+ var tot=S.habits.length,dn=S.habits.filter(function(h){return done(h,TODAY)}).length,p=tot?dn/tot:0;
+ $('rt').textContent=dn+'/'+tot;$('rg').style.strokeDashoffset=389.6*(1-p);$('ms').textContent=tot?msg(p):'Add a habit to begin.';
+ $('bars').innerHTML=wdays().map(function(d,i){var k=ds(d),c=S.habits.filter(function(h){return done(h,k)}).length;var f=tot?c/tot:0;
+  return'<div title="'+DL[i]+': '+c+'/'+tot+'" style="height:'+Math.max(6,f*80)+'px;background:'+(k===TODAY?'#5fa37a':'#d9ccb6')+'"><i>'+DN[i][0]+'</i></div>'}).join('');
+}
+$('list').addEventListener('click',function(e){
+ var b=e.target.closest('.ck');
+ if(b){if(b.getAttribute('aria-disabled')==='true')return;var row=b.closest('.hb'),h=S.habits.filter(function(x){return x.id==row.dataset.id})[0],k=b.dataset.d,a=S.log[h.id],i=a.indexOf(k);
+  if(i>=0)a.splice(i,1);else a.push(k);save();var y=window.scrollY;render();
+  var nb=document.querySelector('.hb[data-id="'+h.id+'"] .ck[data-d="'+k+'"]');if(nb){nb.focus({preventScroll:true});if(!RM&&i<0){nb.classList.add('pop')}}
+  $('live').textContent=h.n+(i>=0?' unmarked':' done')+' for '+k;return}
+ var m=e.target.closest('[data-more]');if(m)openMenu(m);
+});
+var menu=null;
+function closeMenu(){if(menu){menu.remove();menu=null}}
+function openMenu(btn){
+ closeMenu();var id=+btn.dataset.more,r=btn.getBoundingClientRect();
+ menu=document.createElement('div');menu.className='menu';menu.setAttribute('role','menu');menu.style.top=(r.bottom+4)+'px';menu.style.left=Math.max(8,Math.min(innerWidth-168,r.right-160))+'px';menu.style.width='160px';
+ menu.innerHTML='<button role="menuitem" data-a="rn">Rename</button><button role="menuitem" data-a="ar">Archive</button>';
+ document.body.appendChild(menu);menu.firstChild.focus();
+ menu.addEventListener('click',function(e){var a=e.target.dataset.a;if(!a)return;closeMenu();var h=S.habits.filter(function(x){return x.id===id})[0];
+  if(a==='rn'){var n=prompt('Rename habit',h.n);if(n&&n.trim()){h.n=n.trim().slice(0,28);save();render()}}
+  else{var ix=S.habits.indexOf(h);S.habits.splice(ix,1);save();render();toast('“'+h.n+'” archived',function(){S.habits.splice(ix,0,h);save();render()})}});
+ menu.addEventListener('keydown',function(e){if(e.key==='Escape'){closeMenu();btn.focus()}if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();var bs=[].slice.call(menu.querySelectorAll('button')),i=bs.indexOf(document.activeElement);bs[(i+(e.key==='ArrowDown'?1:bs.length-1))%bs.length].focus()}});
+}
+document.addEventListener('click',function(e){if(menu&&!e.target.closest('.menu')&&!e.target.closest('[data-more]'))closeMenu()});
+var tt;function toast(m,undo){var t=$('toast');if(t)t.remove();t=document.createElement('div');t.id='toast';t.innerHTML='<span>'+esc(m)+'</span>'+(undo?'<button type="button">Undo</button>':'');document.body.appendChild(t);
+ if(undo)t.querySelector('button').onclick=function(){undo();t.remove()};clearTimeout(tt);tt=setTimeout(function(){t.remove()},5000)}
+$('pv').onclick=function(){wk.setDate(wk.getDate()-7);render()};$('nx').onclick=function(){wk.setDate(wk.getDate()+7);render()};$('tw').onclick=function(){wk=mon(now);render()};
+var dlg=$('dlg');
+function opts(){$('eo').innerHTML=EMO.map(function(e,i){return'<button type="button" aria-pressed="'+(i===sel.e)+'" data-e="'+i+'" aria-label="Icon '+e+'">'+e+'</button>'}).join('');
+ $('co').innerHTML=COL.map(function(c,i){return'<button type="button" style="--c:'+c+'" aria-pressed="'+(i===sel.c)+'" data-c="'+i+'" aria-label="Colour '+(i+1)+'"></button>'}).join('')}
+$('add').onclick=function(){sel={e:0,c:0};$('hn').value='';opts();dlg.showModal();$('hn').focus()};
+$('eo').onclick=function(e){var b=e.target.closest('[data-e]');if(b){sel.e=+b.dataset.e;opts()}};
+$('co').onclick=function(e){var b=e.target.closest('[data-c]');if(b){sel.c=+b.dataset.c;opts()}};
+$('cn').onclick=function(){dlg.close()};
+$('fm').onsubmit=function(){var n=$('hn').value.trim();if(!n)return;var id=Date.now();S.habits.push({id:id,n:n,e:EMO[sel.e],c:sel.c});S.log[id]=[];save();render()};
+render();
+})();
+</script></body></html>

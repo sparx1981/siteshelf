@@ -1,0 +1,11 @@
+Canvas & base: A tidy workspace on #f4f5f9 with a faint dot grid (radial-gradient 1px dots #d9dce6 at 22px). Node cards are white (1px #e0e3ec border, 14px radius, subtle shadow), with a coloured left edge by department: Product #7c5cff, Engineering #0ea5e9, Design #f472b6, Operations #f59e0b, People #10b981. Ink #181b2a, secondary #6a7188. Connectors are 2px #b8bdd0 lines with rounded elbows. Invented company "Kestrel Works", 20 people.
+
+Typography: "Manrope" (500, 600, 700, 800) for names and UI; "Inter" (400, 500) for small details. Node name 15px 700, role 13px.
+
+Layout: Toolbar with a search field, department legend chips (click to filter-highlight), Expand all / Collapse all, and zoom controls (-, 100%, +). The chart canvas scrolls and pans in both directions and shows a top-down tree: the CEO at the top, four leads beneath, and team members below those. Each node shows an avatar (initials on a coloured circle), name, role and a small badge with the number of direct reports and a chevron to collapse. Selecting a node opens a right-hand detail card (below on mobile) with name, role, department, team size, email, location and "Reports to".
+
+Interaction: Click the chevron or press Enter/Space to collapse a branch; arrow keys move focus (Up to parent, Down to first child, Left/Right to siblings) following the ARIA tree pattern with roving tabindex; Home/End jump to root and last visible node. Search matches name or role, highlights matches, expands ancestors and scrolls the first match into view; clearing restores the previous state. Zoom scales with CSS transform from 60% to 140%. Connectors are drawn with CSS pseudo-elements on a nested list (no JS layout), so the layout stays correct when branches collapse.
+
+Responsive: On narrow screens the chart is horizontally scrollable within its own container (the page itself must not overflow at 390px) and the detail card stacks below.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. The tree uses role=tree, treeitem, group, aria-expanded and aria-selected. Invented names only.

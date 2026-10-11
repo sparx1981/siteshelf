@@ -1,0 +1,11 @@
+Canvas & base: An energetic dark training app on #101114 with cards #1a1c21 (1px #2a2d35 borders, 18px radius), text #f3f4f6, secondary #9aa1ad. Accent electric lime #c6f432 on dark ink #11140a, supporting orange #ff7a2f for the rest timer and coral #ff5c7a for alerts. Invented app "Ironleaf".
+
+Typography: "Barlow Condensed" (600, 700) uppercase for headings and big numbers (workout name clamp(34px,6vw,52px)), "Barlow" (400, 500, 600) for body. Numbers use tabular-nums.
+
+Layout: Header with greeting and streak chip. A horizontal week strip (Mon–Sun) showing workout type on each day (Push, Pull, Legs, Rest, ...) with the selected day highlighted and completed days ticked. Main area: the day's session card with title, duration estimate and muscle tags; a list of five exercise cards, each showing name, target (e.g. 4 × 8 at 60 kg), a row of set pills to tick, and last-time info. Right column (stacked on mobile): rest timer ring card with presets (60, 90, 120 s), start/pause/skip, and a weekly volume bar chart with the current day highlighted.
+
+Interaction: Ticking a set starts the rest timer automatically (configurable preset) and updates session progress. The ring animates with SVG stroke-dashoffset and the page title is not changed. Timer end triggers a gentle pulse and an aria-live announcement ("Rest over, set 3 next"). Weight can be edited per exercise with +/- 2.5 kg buttons. "Finish workout" opens a dialog with total volume, sets done, time taken (simulated), and a Save button that marks the day complete and updates the chart and streak. Rest day shows a recovery card with stretches instead. State in memory and localStorage (try/catch). Reduced motion removes the pulse and ring easing.
+
+Responsive: Week strip scrolls horizontally with snap on mobile; two columns collapse to one with the timer sticky at the bottom as a compact bar; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Set pills are buttons with aria-pressed and descriptive labels; timer has role=timer. Invented names only.

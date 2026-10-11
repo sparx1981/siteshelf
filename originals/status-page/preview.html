@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Service Status Page — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#14202e;--mut:#5b6b7c;--line:#e1e7ee;--ok:#16a34a;--dg:#f59e0b;--out:#dc2626;--mt:#3b82f6;--nd:#d5dce4}
+*{box-sizing:border-box}
+body{margin:0;background:#f7f9fb;color:var(--ink);font:400 15px/1.55 'IBM Plex Sans',sans-serif}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:2px}
+.w{max-width:860px;margin:0 auto;padding:0 20px 56px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 0}
+.lg{font-weight:600;font-size:18px;display:flex;gap:10px;align-items:center}.lg i{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#1d4ed8,#38bdf8);display:block}
+.btn{background:var(--ink);color:#fff;border:0;border-radius:8px;padding:10px 16px;font:500 14px 'IBM Plex Sans';cursor:pointer;min-height:42px}
+.btn.s{background:#fff;color:var(--ink);border:1px solid #cbd5df}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;min-width:0}
+.ban{padding:24px 26px;display:flex;gap:16px;align-items:center;border-left:6px solid var(--ok);margin-bottom:26px}
+.ban.dg{border-left-color:var(--dg)}
+.ban .ic{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;background:var(--ok)}
+.ban.dg .ic{background:var(--dg)}
+.ban h1{font:600 clamp(20px,3.5vw,26px)/1.2 'IBM Plex Sans';margin:0}
+.ban p{margin:2px 0 0;color:var(--mut)}
+h2{font:600 18px 'IBM Plex Sans';margin:30px 0 12px}
+.sv{padding:18px 22px}.sv+.sv{border-top:1px solid var(--line)}
+.sh{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.sh b{font-weight:500;font-size:16px}
+.rt{display:flex;gap:12px;align-items:center}
+.up{font:500 13px 'IBM Plex Mono';color:var(--mut)}
+.pill{font-size:12.5px;font-weight:600;padding:2px 10px;border-radius:999px;display:inline-flex;gap:6px;align-items:center}
+.pill:before{content:'';width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.ok{background:#dcfce7;color:#166534}.pill.dg{background:#fef3c7;color:#92400e}.pill.out{background:#fee2e2;color:#991b1b}.pill.mt{background:#dbeafe;color:#1e40af}
+.bars{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:2px;height:34px;position:relative}
+.bar{background:var(--ok);border:0;padding:0;border-radius:2px;cursor:pointer;min-width:0}
+.bar.dg{background:var(--dg)}.bar.out{background:var(--out)}.bar.mt{background:var(--mt)}.bar.nd{background:var(--nd)}
+.bar:hover,.bar:focus-visible{filter:brightness(.85);outline-offset:1px}
+.ax{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin-top:6px}
+.tip{position:absolute;bottom:42px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:8px 12px;border-radius:8px;font-size:12.5px;white-space:nowrap;pointer-events:none;z-index:3;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.tip b{font:500 12.5px 'IBM Plex Mono';display:block}
+.day{margin-bottom:22px}
+.day h3{font:500 13px 'IBM Plex Mono';color:var(--mut);margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.inc{padding:16px 20px;margin-bottom:10px}
+.inc summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+.inc summary::-webkit-details-marker{display:none}
+.inc summary b{font-weight:600;font-size:16px;flex:1 1 220px}
+.id{font:400 12px 'IBM Plex Mono';color:var(--mut)}
+.tl{list-style:none;margin:14px 0 0;padding:0 0 0 18px;border-left:2px solid var(--line)}
+.tl li{position:relative;margin-bottom:12px}
+.tl li:before{content:'';position:absolute;left:-24px;top:7px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--mut)}
+.tl li.r:before{border-color:var(--ok);background:var(--ok)}
+.tl strong{font-weight:600}.tl time{font:400 12px 'IBM Plex Mono';color:var(--mut);margin-left:8px}
+.tl p{margin:2px 0 0;color:#33455a;font-size:14.5px}
+footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between;align-items:center;color:var(--mut);font-size:13px}
+.sw{display:flex;align-items:center;gap:10px;cursor:pointer}
+.sw button{width:40px;height:22px;border-radius:11px;border:0;background:#b8c3cf;position:relative;cursor:pointer}
+.sw button:after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .15s}
+.sw button[aria-checked=true]{background:var(--dg)}.sw button[aria-checked=true]:after{left:21px}
+dialog{border:1px solid var(--line);border-radius:16px;padding:26px;width:min(420px,calc(100vw - 24px));color:var(--ink)}
+dialog::backdrop{background:rgba(20,32,46,.5)}
+dialog h2{margin:0 0 6px}dialog p{margin:0 0 14px;color:var(--mut)}
+dialog input{width:100%;padding:11px 12px;border:1.5px solid #cbd5df;border-radius:8px;font:inherit}
+dialog input[aria-invalid=true]{border-color:var(--out)}
+.er{color:#b91c1c;font-size:13px;min-height:20px;margin-top:4px}
+.ac{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
+@media(max-width:640px){.sv{padding:16px}.ban{padding:18px}}
+@media(prefers-reduced-motion:reduce){.sw button:after{transition:none}}
+</style></head><body>
+<div class="w">
+<header><div class="lg"><i aria-hidden="true"></i>Northwind Cloud Status</div><button class="btn" id="sub">Subscribe to updates</button></header>
+<div class="card ban" id="ban" role="status"><span class="ic" id="bi" aria-hidden="true">✓</span><div><h1 id="bt">All systems operational</h1><p id="bp">Updated just now. No incidents reported today.</p></div></div>
+<h2>Services</h2><div class="card" id="svs"></div>
+<h2>Past incidents</h2><div id="inc"></div>
+<footer><span>Times shown in your local timezone (<span id="tz"></span>).</span><label class="sw"><span id="sl">Simulate incident</span><button type="button" role="switch" aria-checked="false" aria-labelledby="sl" id="sim"></button></label></footer>
+</div>
+<dialog id="dlg"><form id="fm" novalidate><h2>Subscribe to updates</h2><p>We will email you when an incident starts or is resolved.</p><label for="em" class="id" style="display:block;margin-bottom:6px">Email address</label><input id="em" type="email" autocomplete="email" placeholder="you@example.com"><div class="er" id="er" role="alert"></div><div class="ac"><button class="btn s" type="button" id="cn">Cancel</button><button class="btn" type="submit">Subscribe</button></div></form><div id="ok" hidden><h2>You are subscribed</h2><p>Check your inbox to confirm. You can unsubscribe at any time.</p><div class="ac"><button class="btn" id="dn">Done</button></div></div></dialog>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var SV=['API','Dashboard','Database','Storage','Email delivery','Webhooks'];
+var NAME={ok:'Operational',dg:'Degraded',out:'Outage',mt:'Maintenance'};
+var N=90,now=new Date();now.setHours(12,0,0,0);
+function rnd(s){return function(){s=(s*16807)%2147483647;return s/2147483647}}
+var INC=[
+ {id:'INC-2041',t:'Elevated webhook delivery latency',sev:'dg',sv:5,off:2,ups:[['Resolved','Delivery times are back to normal. We will publish a review this week.',14,40],['Monitoring','A fix has been applied and queues are draining.',13,5],['Identified','A slow downstream worker pool was causing retries to back up.',12,10],['Investigating','We are looking into delayed webhook deliveries.',11,32]]},
+ {id:'INC-2037',t:'Scheduled database maintenance',sev:'mt',sv:2,off:6,ups:[['Resolved','Maintenance completed with no customer impact.',3,15],['Monitoring','Primary failover finished, verifying replicas.',2,40],['Investigating','Maintenance window has started.',2,0]]},
+ {id:'INC-2029',t:'Email delivery partially unavailable',sev:'out',sv:4,off:11,ups:[['Resolved','All queued messages have been delivered.',17,25],['Identified','Upstream provider confirmed an outage on their side.',16,5],['Investigating','Some outgoing emails are not being delivered.',15,10]]}
+];
+var hist=SV.map(function(_,i){var r=rnd(i*97+13),a=[];for(var d=0;d<N;d++){var v=r();a.push(v>.985?'out':v>.955?'dg':'ok')}return a});
+INC.forEach(function(c){var i=N-1-c.off;hist[c.sv][i]=c.sev});
+var sim=false;
+function dateOf(back){var d=new Date(now);d.setDate(d.getDate()-back);return d}
+function fmt(d){return d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',year:'numeric'})}
+function upt(a){var bad=0;a.forEach(function(x){bad+=x==='out'?1:x==='dg'?.25:0});return (100-bad/a.length*100).toFixed(2)+'%'}
+function cur(i){return(sim&&i===5)?'dg':'ok'}
+function render(){
+ var h='';
+ SV.forEach(function(n,i){
+  var c=cur(i),a=hist[i].slice(),vis=innerWidth<640?45:N;if(sim&&i===5)a[N-1]='dg';a=a.slice(N-vis);
+  h+='<div class="sv"><div class="sh"><b>'+n+'</b><div class="rt"><span class="up">'+upt(hist[i])+' uptime</span><span class="pill '+c+'">'+NAME[c]+'</span></div></div><div class="bars" role="group" aria-label="'+n+' last '+vis+' days" data-s="'+i+'">'+
+  a.map(function(s,j){var back=vis-1-j,t=j===0&&0?0:-1;return'<button class="bar '+s+'" tabindex="-1" data-b="'+back+'" data-s="'+i+'" data-st="'+s+'" aria-label="'+fmt(dateOf(back))+': '+NAME[s]+'"></button>'}).join('')+'</div><div class="ax"><span>'+vis+' days ago</span><span>Today</span></div></div>';
+ });
+ $('svs').innerHTML=h;
+ [].forEach.call(document.querySelectorAll('.bars'),function(b){b.lastChild.tabIndex=0});
+ var bad=sim;
+ $('ban').className='card ban'+(bad?' dg':'');$('bi').textContent=bad?'!':'✓';
+ $('bt').textContent=bad?'Partial outage':'All systems operational';
+ $('bp').textContent=bad?'Webhooks are experiencing degraded performance. We are investigating.':'Updated just now. No incidents reported today.';
+}
+function incs(){
+ var g={};INC.forEach(function(c){var k=c.off;(g[k]=g[k]||[]).push(c)});
+ $('inc').innerHTML=Object.keys(g).sort(function(a,b){return a-b}).map(function(k){
+  return'<div class="day"><h3>'+fmt(dateOf(+k))+'</h3>'+g[k].map(function(c,ix){
+   return'<details class="card inc"'+(ix===0&&k==2?' open':'')+'><summary><b>'+c.t+'</b><span class="pill '+c.sev+'">'+NAME[c.sev]+'</span><span class="id">'+c.id+'</span></summary><ul class="tl">'+c.ups.map(function(u){
+    var d=dateOf(+k);d.setHours(u[2],u[3]);return'<li class="'+(u[0]==='Resolved'?'r':'')+'"><strong>'+u[0]+'</strong><time>'+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'})+'</time><p>'+u[1]+'</p></li>'}).join('')+'</ul></details>'}).join('')+'</div>'}).join('');
+}
+var tip=null;
+function showTip(b){
+ hideTip();var bars=b.parentNode,r=b.getBoundingClientRect(),pr=bars.getBoundingClientRect();
+ var inc=INC.filter(function(c){return c.sv==+b.dataset.s&&c.off===+b.dataset.b})[0];
+ tip=document.createElement('div');tip.className='tip';
+ tip.innerHTML='<b>'+fmt(dateOf(+b.dataset.b))+'</b>'+NAME[b.dataset.st]+(inc?' · '+inc.t:'');
+ bars.appendChild(tip);
+ var x=r.left-pr.left+r.width/2,w=tip.offsetWidth;x=Math.max(w/2,Math.min(pr.width-w/2,x));tip.style.left=x+'px';
+}
+function hideTip(){if(tip){tip.remove();tip=null}}
+var sv=$('svs');
+sv.addEventListener('pointerover',function(e){var b=e.target.closest('.bar');if(b)showTip(b)});
+sv.addEventListener('pointerleave',hideTip);
+sv.addEventListener('focusin',function(e){var b=e.target.closest('.bar');if(b)showTip(b)});
+sv.addEventListener('focusout',hideTip);
+sv.addEventListener('keydown',function(e){
+ var b=e.target.closest('.bar');if(!b)return;var all=[].slice.call(b.parentNode.children).filter(function(x){return x.classList.contains('bar')}),i=all.indexOf(b),j=i;
+ if(e.key==='ArrowLeft')j=Math.max(0,i-1);else if(e.key==='ArrowRight')j=Math.min(all.length-1,i+1);else if(e.key==='Home')j=0;else if(e.key==='End')j=all.length-1;else return;
+ e.preventDefault();b.tabIndex=-1;all[j].tabIndex=0;all[j].focus();
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')hideTip()});
+$('sim').onclick=function(){sim=!sim;this.setAttribute('aria-checked',sim);render()};
+var dlg=$('dlg');
+$('sub').onclick=function(){$('fm').hidden=false;$('ok').hidden=true;$('em').value='';$('er').textContent='';$('em').removeAttribute('aria-invalid');dlg.showModal();$('em').focus()};
+$('cn').onclick=function(){dlg.close()};$('dn').onclick=function(){dlg.close()};
+$('fm').onsubmit=function(e){e.preventDefault();var v=$('em').value.trim();
+ if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){$('er').textContent=v?'That email address does not look right.':'Enter your email address.';$('em').setAttribute('aria-invalid','true');$('em').focus();return}
+ $('fm').hidden=true;$('ok').hidden=false};
+$('em').addEventListener('input',function(){$('er').textContent='';this.removeAttribute('aria-invalid')});
+try{$('tz').textContent=Intl.DateTimeFormat().resolvedOptions().timeZone}catch(e){$('tz').textContent='local'}
+render();incs();
+var rw=innerWidth<640;addEventListener('resize',function(){var n=innerWidth<640;if(n!==rw){rw=n;render()}});
+})();
+</script></body></html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Event Ticket Page — E-commerce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#0d0b14;--sf:#17141f;--ln:#2a2536;--tx:#f4f2fa;--mut:#a39db8;--mg:#ff3d9a;--vi:#7c5cff;--li:#c7f464}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.6 'Manrope',sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid var(--li);outline-offset:3px}
+.hero{min-height:88svh;padding:28px max(20px,5vw);display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(60% 50% at 80% 10%,rgba(255,61,154,.35),transparent),radial-gradient(50% 50% at 10% 90%,rgba(124,92,255,.4),transparent)}
+.bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;font:700 13px 'Space Mono';letter-spacing:.1em;text-transform:uppercase;gap:12px}
+h1{font:800 clamp(38px,11vw,150px)/.9 'Syne';text-transform:uppercase;margin:40px 0 18px;letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--mg);display:block}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;font:700 15px 'Space Mono';margin-bottom:26px}
+.btn{background:var(--li);color:#10130a;border:0;border-radius:999px;padding:16px 30px;font:700 16px 'Manrope';cursor:pointer;min-height:50px;text-decoration:none;display:inline-block}
+.btn:hover{filter:brightness(1.08)}.btn[disabled]{opacity:.4;cursor:not-allowed}.btn.o{background:transparent;color:var(--tx);border:1px solid #4a4260}
+.mq{overflow:hidden;border-block:1px solid var(--ln);padding:16px 0;white-space:nowrap}
+.mq div{display:inline-block;animation:mq 30s linear infinite;font:800 clamp(24px,4vw,40px) 'Syne';text-transform:uppercase}
+.mq:hover div{animation-play-state:paused}
+.mq span{margin:0 18px}.mq span:nth-child(3n){color:var(--mg)}.mq span:nth-child(3n+1){color:var(--vi)}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:70px max(20px,5vw);max-width:1200px;margin:0 auto}
+h2{font:800 clamp(30px,5vw,56px)/1 'Syne';text-transform:uppercase;margin:0 0 30px}
+.lu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.n{background:var(--sf);border:1px solid var(--ln);border-radius:20px;padding:24px}.n b{font:700 13px 'Space Mono';color:var(--li)}.n h3{font:800 28px 'Syne';text-transform:uppercase;margin:6px 0 10px}.n p{margin:0;color:var(--mut)}
+.tk{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;align-items:start}
+.tc{background:var(--sf);border:1px solid var(--ln);border-radius:20px;padding:22px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 20px;align-items:center;margin-bottom:14px}
+.tc.sel{border-color:var(--mg);box-shadow:0 0 0 1px var(--mg)}
+.tc h3{font:800 22px 'Syne';text-transform:uppercase;margin:0}.tc ul{margin:8px 0;padding-left:18px;color:var(--mut);font-size:14.5px}
+.pr{font:700 22px 'Space Mono'}
+.av{height:6px;background:#2a2536;border-radius:3px;overflow:hidden;margin-top:6px}.av i{display:block;height:100%;background:linear-gradient(90deg,var(--vi),var(--mg))}
+.lf{font-size:12.5px;color:var(--mut)}.lf.lo{color:#ffb4c8}
+.st{display:flex;align-items:center;gap:6px}
+.st button{width:44px;height:44px;border-radius:50%;border:1px solid #4a4260;background:transparent;color:var(--tx);font-size:22px;cursor:pointer}
+.st button:hover:not([aria-disabled=true]){background:#2a2536}.st button[aria-disabled=true]{opacity:.3;cursor:default}
+.st output{min-width:30px;text-align:center;font:700 18px 'Space Mono'}
+.sm{background:var(--sf);border:1px solid var(--ln);border-radius:20px;padding:22px;position:sticky;top:16px}
+.sm h3{font:800 20px 'Syne';text-transform:uppercase;margin:0 0 12px}
+.ln{display:flex;justify-content:space-between;gap:10px;padding:6px 0;font-size:14.5px}.ln span:last-child{font-family:'Space Mono'}
+.tt{border-top:1px solid var(--ln);margin-top:10px;padding-top:12px;font:700 20px 'Space Mono'}
+.tm{font:700 14px 'Space Mono';color:var(--li);margin:14px 0}.tm.ex{color:#ff8aa8}
+.em{color:var(--mut);margin:0 0 6px}
+.tgl{display:none}
+dialog{border:1px solid #4a4260;border-radius:22px;background:var(--sf);color:var(--tx);padding:28px;width:min(440px,calc(100vw - 24px))}
+dialog::backdrop{background:rgba(5,3,10,.75)}
+dialog h2{font-size:28px;margin:0 0 16px}
+dialog label{display:block;font:700 12px 'Space Mono';text-transform:uppercase;letter-spacing:.08em;margin:12px 0 6px}
+dialog input{width:100%;background:#0d0b14;border:1px solid #4a4260;border-radius:12px;padding:13px;color:var(--tx);font:inherit}
+dialog input[aria-invalid=true]{border-color:#ff6b8f}
+.er{color:#ff9db6;font-size:13px;min-height:18px}
+.acts{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+.conf{max-width:640px;margin:0 auto}
+.paper{background:#fff8ec;color:#1b1722;border-radius:16px;display:grid;grid-template-columns:minmax(0,1fr) 150px;margin-bottom:16px;position:relative;overflow:hidden}
+.paper:before{content:'';position:absolute;right:150px;top:-8px;bottom:-8px;border-left:2px dashed #cdbfa6}
+.paper .l{padding:20px 24px}.paper .l small{font:700 11px 'Space Mono';letter-spacing:.1em;color:#7a6f5c;text-transform:uppercase}
+.paper h4{font:800 24px/1.1 'Syne';text-transform:uppercase;margin:4px 0 8px}.paper p{margin:0;font-size:14px}
+.paper .r{display:grid;place-items:center;padding:14px}.paper svg{width:110px;height:110px}
+#sbar{display:none}
+@media(max-width:900px){
+ .tk{grid-template-columns:minmax(0,1fr)}.lu{grid-template-columns:minmax(0,1fr)}
+ .sm{position:fixed;left:0;right:0;bottom:0;top:auto;border-radius:20px 20px 0 0;z-index:20;padding:14px 18px;box-shadow:0 -10px 40px rgba(0,0,0,.6)}
+ .sm .det{display:none}.sm.open .det{display:block}
+ .tgl{display:inline-block;background:none;border:0;color:var(--mut);font:700 13px 'Space Mono';cursor:pointer;padding:8px 0}
+ .sm h3{display:none}.sm .tt{margin:0;padding:0;border:0}.sm .btn{width:100%;margin-top:8px}.tm{margin:4px 0}
+ section{padding-bottom:200px}
+ .tc{grid-template-columns:minmax(0,1fr)}
+ .paper{grid-template-columns:minmax(0,1fr) 110px}.paper:before{right:110px}.paper svg{width:80px;height:80px}
+}
+@media print{body{background:#fff}.hero,.mq,section>*:not(.conf),header,#tkt,.acts,.sm,.nopr{display:none!important}.conf{max-width:none}.paper{border:1px solid #000;break-inside:avoid}}
+@media(prefers-reduced-motion:reduce){.mq div{animation:none}}
+</style></head><body>
+<header class="hero"><div class="bar"><span>Lowtide Sessions</span><span>The Boiler Room · Leeds</span></div>
+<div><h1>Lowtide<em>Sessions</em></h1><div class="meta"><span>14–16 NOV 2026</span><span>·</span><span>3 NIGHTS</span><span>·</span><span>18+</span></div><a class="btn" href="#tickets">Buy tickets</a></div></header>
+<div class="mq" aria-hidden="true"><div><span>Marlowe Vane</span><span>Static Orchard</span><span>Jonah Reyes</span><span>The Quiet Engines</span><span>Dahlia Moon</span><span>Kestrel Club</span><span>Marlowe Vane</span><span>Static Orchard</span><span>Jonah Reyes</span><span>The Quiet Engines</span><span>Dahlia Moon</span><span>Kestrel Club</span></div></div>
+<section><h2>The lineup</h2><div class="lu"><div class="n"><b>FRI 14 NOV</b><h3>Static Orchard</h3><p>With Dahlia Moon and Jonah Reyes. Doors 7pm.</p></div><div class="n"><b>SAT 15 NOV</b><h3>Marlowe Vane</h3><p>With The Quiet Engines and Kestrel Club. Doors 6pm.</p></div><div class="n"><b>SUN 16 NOV</b><h3>The Quiet Engines</h3><p>An acoustic closing night. Doors 5pm.</p></div></div></section>
+<section id="tickets"><h2>Tickets</h2>
+<div id="main"><div class="tk"><div id="tiers"></div>
+<aside class="sm" id="sm" aria-label="Order summary"><h3>Your order</h3><div class="det" id="lines"><p class="em">No tickets selected yet.</p></div><button class="tgl" id="tg" type="button" aria-expanded="false">Show details ▴</button><div class="tt ln"><span>Total</span><span id="tot">£0.00</span></div><div class="tm" id="tm" role="timer" hidden></div><button class="btn" id="co" disabled>Checkout</button><div class="sr" id="live" role="status" aria-live="polite" style="position:absolute;left:-9999px"></div></aside></div></div>
+<div class="conf" id="conf" hidden><h2 id="tkt" tabindex="-1">You're in!</h2><p class="nopr" style="color:var(--mut)" id="cm"></p><div id="pp"></div><div class="acts nopr" style="justify-content:flex-start"><button class="btn" type="button" id="pr">Print tickets</button><button class="btn o" type="button" id="ag">Book more</button></div></div></section>
+<dialog id="dlg"><form id="fm" novalidate><h2>Checkout</h2><div class="ln"><span>Total due</span><b id="dt" style="font-family:'Space Mono'"></b></div><label for="nm">Full name</label><input id="nm" autocomplete="name"><div class="er" id="e1"></div><label for="em">Email</label><input id="em" type="email" autocomplete="email"><div class="er" id="e2"></div><div class="acts"><button class="btn o" type="button" id="cn">Cancel</button><button class="btn" type="submit">Pay now</button></div></form></dialog>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var TI=[{k:'day',n:'Day pass',p:45,left:112,max:200,pk:['Entry for one night','Access to all stages']},{k:'wk',n:'Weekend',p:110,left:64,max:150,pk:['All three nights','Priority entry lane','Free locker']},{k:'vip',n:'VIP',p:245,left:38,max:60,pk:['All three nights','Raised viewing deck','Lounge bar and quiet cloakroom']},{k:'cmp',n:'Camping add-on',p:35,left:90,max:120,pk:['Pitch for one tent, three nights','Hot showers']}];
+var Q={day:0,wk:0,vip:0,cmp:0},FEE=.08,MAXQ=8,hold=0,tmr=null,expired=false;
+function gbp(n){return '£'+n.toFixed(2)}
+$('tiers').innerHTML=TI.map(function(t){return'<div class="tc" id="c-'+t.k+'"><div><h3>'+t.n+'</h3><ul>'+t.pk.map(function(x){return'<li>'+x+'</li>'}).join('')+'</ul><div class="lf'+(t.left<50?' lo':'')+'">'+(t.left<50?'Only ':'')+t.left+' left</div><div class="av" aria-hidden="true"><i style="width:'+Math.round((1-t.left/t.max)*100)+'%"></i></div></div><div style="display:grid;gap:10px;justify-items:end"><span class="pr">'+gbp(t.p)+'</span><div class="st" role="group" aria-label="'+t.n+' quantity"><button type="button" data-d="-1" data-k="'+t.k+'" aria-label="Remove one '+t.n+'" aria-disabled="true">−</button><output id="q-'+t.k+'" aria-live="off">0</output><button type="button" data-d="1" data-k="'+t.k+'" aria-label="Add one '+t.n+'">+</button></div></div></div>'}).join('');
+function sub(){return TI.reduce(function(s,t){return s+t.p*Q[t.k]},0)}
+function cnt(){return TI.reduce(function(s,t){return s+Q[t.k]},0)}
+function draw(){
+ var s=sub(),f=s*FEE,tot=s+f;
+ TI.forEach(function(t){$('q-'+t.k).textContent=Q[t.k];$('c-'+t.k).className='tc'+(Q[t.k]?' sel':'');var b=document.querySelectorAll('[data-k="'+t.k+'"]');b[0].setAttribute('aria-disabled',Q[t.k]<=0);b[1].setAttribute('aria-disabled',Q[t.k]>=Math.min(MAXQ,t.left))});
+ var h=TI.filter(function(t){return Q[t.k]}).map(function(t){return'<div class="ln"><span>'+Q[t.k]+' × '+t.n+'</span><span>'+gbp(t.p*Q[t.k])+'</span></div>'}).join('');
+ $('lines').innerHTML=h?h+'<div class="ln"><span>Booking fee (8%)</span><span>'+gbp(f)+'</span></div>':'<p class="em">No tickets selected yet.</p>';
+ $('tot').textContent=gbp(tot);$('co').disabled=!cnt()||expired;$('live').textContent=cnt()+' tickets, total '+gbp(tot);
+ if(cnt()&&!tmr&&!expired)start();
+}
+function start(){hold=599;$('tm').hidden=false;$('tm').className='tm';tick();tmr=setInterval(function(){hold--;tick();if(hold<=0){clearInterval(tmr);tmr=null;expired=true;$('tm').className='tm ex';$('tm').innerHTML='Hold expired <button class="btn o" style="padding:6px 14px;min-height:36px;margin-left:8px" id="rs">Restart</button>';$('co').disabled=true;$('rs').onclick=function(){expired=false;Q={day:0,wk:0,vip:0,cmp:0};$('tm').hidden=true;draw()}}},1000)}
+function tick(){var m=Math.floor(hold/60),s=hold%60;$('tm').textContent='Held for '+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
+$('tiers').addEventListener('click',function(e){var b=e.target.closest('[data-k]');if(!b||b.getAttribute('aria-disabled')==='true'||expired)return;var t=TI.filter(function(x){return x.k===b.dataset.k})[0];Q[t.k]=Math.max(0,Math.min(Math.min(MAXQ,t.left),Q[t.k]+ +b.dataset.d));draw()});
+$('tg').onclick=function(){var o=$('sm').classList.toggle('open');this.setAttribute('aria-expanded',o);this.textContent=o?'Hide details ▾':'Show details ▴'};
+var dlg=$('dlg');
+$('co').onclick=function(){$('dt').textContent=$('tot').textContent;dlg.showModal();$('nm').focus()};$('cn').onclick=function(){dlg.close()};
+function code(seed){var s=0;for(var i=0;i<seed.length;i++)s=(s*31+seed.charCodeAt(i))>>>0;var g='',N=11;function r(){s=(s*1664525+1013904223)>>>0;return s/4294967296}
+ var cells='';for(var y=0;y<N;y++)for(var x=0;x<N;x++){var f=(x<3&&y<3)||(x>7&&y<3)||(x<3&&y>7);if(f?((x%2===0&&y%2===0)||x===1&&y===1||x===9&&y===1||x===1&&y===9)?false:true:r()>.52)cells+='<rect x="'+x+'" y="'+y+'" width="1.02" height="1.02"/>'}
+ return'<svg viewBox="0 0 11 11" role="img" aria-label="Ticket code '+seed+'" fill="#1b1722" shape-rendering="crispEdges">'+cells+'</svg>'}
+$('fm').onsubmit=function(e){e.preventDefault();var n=$('nm').value.trim(),m=$('em').value.trim(),ok=true;
+ $('e1').textContent=n.length<2?'Enter your name.':'';$('nm').setAttribute('aria-invalid',n.length<2);
+ var bad=!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m);$('e2').textContent=bad?'Enter a valid email.':'';$('em').setAttribute('aria-invalid',bad);
+ if(n.length<2){$('nm').focus();return}if(bad){$('em').focus();return}
+ clearInterval(tmr);tmr=null;dlg.close();
+ var id='LS'+Math.floor(10000+Math.random()*89999),h='',k=0;
+ TI.forEach(function(t){for(var i=0;i<Q[t.k];i++){k++;var c=id+'-'+k;h+='<div class="paper"><div class="l"><small>Lowtide Sessions · '+c+'</small><h4>'+t.n+'</h4><p>'+n.replace(/[<&>]/g,'')+'<br>14–16 Nov 2026 · The Boiler Room, Leeds</p></div><div class="r">'+code(c)+'</div></div>'}});
+ $('pp').innerHTML=h;$('cm').textContent='Order '+id+' confirmed. We have sent your tickets to '+m+'.';$('main').hidden=true;$('conf').hidden=false;$('sm').hidden=true;$('tkt').focus();
+};
+$('pr').onclick=function(){window.print()};
+$('ag').onclick=function(){Q={day:0,wk:0,vip:0,cmp:0};expired=false;$('conf').hidden=true;$('main').hidden=false;$('sm').hidden=false;$('tm').hidden=true;draw()};
+draw();
+})();
+</script></body></html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Online Course Landing — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#1c1b29;--mut:#5f5c70;--pl:#4a2c7a;--or:#ff8a3d;--mn:#5fd1a8;--ln:#efe4d2}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:#fff9f0;color:var(--ink);font:400 17px/1.65 'Outfit',sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:3px}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,249,240,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--ln)}
+.nv{max-width:1160px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:26px}
+.lg{font:400 22px 'Young Serif';margin-right:auto;color:var(--pl)}
+.nv a.l{color:var(--ink);text-decoration:none;font-weight:500;font-size:15px}
+.btn{background:var(--pl);color:#fff;border:0;border-radius:999px;padding:14px 28px;font:600 16px 'Outfit';cursor:pointer;min-height:48px;text-decoration:none;display:inline-block;text-align:center}
+.btn:hover{background:#3b2263}.btn.or{background:var(--or);color:#2a1100}.btn.or:hover{background:#ff9a57}.btn.o{background:transparent;color:var(--pl);border:2px solid var(--pl)}
+.btn.s{padding:10px 20px;min-height:42px;font-size:15px}
+.w{max-width:1160px;margin:0 auto;padding:0 24px}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:center;padding:56px 0 70px}
+.pill{display:inline-block;background:#ffe9d6;color:#9a4a0c;border-radius:999px;padding:5px 16px;font-weight:600;font-size:14px}
+h1{font:400 clamp(40px,6.5vw,76px)/1.02 'Young Serif';margin:18px 0 18px;letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--pl);background:linear-gradient(transparent 62%,#ffd9bd 62%)}
+.sub{font-size:19px;color:var(--mut);max-width:46ch;margin:0 0 26px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.tr{display:flex;flex-wrap:wrap;gap:8px 26px;color:var(--mut);font-size:15px}.tr b{color:var(--ink)}
+.ill{position:relative;aspect-ratio:1;max-width:460px;margin:0 auto;width:100%}
+.ill .bg{position:absolute;inset:6% 4% 6% 8%;border-radius:40% 60% 55% 45%/50% 45% 55% 50%;background:linear-gradient(135deg,var(--pl),#8d5fd0)}
+.ill .lp{position:absolute;left:14%;right:10%;top:24%;height:46%;background:#fff;border-radius:14px;box-shadow:0 30px 50px -20px rgba(28,27,41,.5);padding:14px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-content:start}
+.ill .lp i{height:34px;border-radius:8px;display:block}
+.ill .bd{position:absolute;background:#fff;border-radius:14px;padding:8px 14px;font-weight:600;font-size:14px;box-shadow:0 14px 30px -12px rgba(28,27,41,.4)}
+.sec{padding:70px 0}
+h2{font:400 clamp(30px,4.5vw,44px)/1.1 'Young Serif';margin:0 0 12px}
+.lead{color:var(--mut);margin:0 0 32px;max-width:56ch}
+.og{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.oc{background:#fff;border:1px solid var(--ln);border-radius:20px;padding:22px}.oc i{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;font-style:normal;font-size:22px;margin-bottom:12px}
+.oc h3{margin:0 0 4px;font:600 18px 'Outfit'}.oc p{margin:0;color:var(--mut);font-size:15.5px}
+.cw{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:36px;align-items:start}
+.ch{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.lk{background:none;border:0;color:var(--pl);font:600 15px 'Outfit';cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:8px 0}
+.md{background:#fff;border:1px solid var(--ln);border-radius:16px;margin-bottom:10px;overflow:hidden}
+.mh{width:100%;background:none;border:0;display:flex;gap:14px;align-items:center;padding:16px 20px;cursor:pointer;text-align:left;font:600 18px 'Outfit';color:var(--ink);min-height:60px}
+.mh .n{width:34px;height:34px;border-radius:10px;background:#f0e8fb;color:var(--pl);display:grid;place-items:center;font-size:15px;flex:none}
+.mh small{margin-left:auto;font:400 14px 'Outfit';color:var(--mut);white-space:nowrap}
+.mh:after{content:'+';font-size:22px;color:var(--pl);flex:none}.mh[aria-expanded=true]:after{content:'–'}
+.mb{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}.mb.o{grid-template-rows:1fr}.mb>div{overflow:hidden}
+.mb ul{list-style:none;margin:0;padding:0 20px 14px}
+.mb li{display:flex;gap:10px;align-items:center;padding:9px 0;border-top:1px solid #f6efe2;font-size:16px}
+.mb li span:last-child{margin-left:auto;color:var(--mut);font-size:14px;white-space:nowrap}
+.pv{background:#d8f6ea;color:#0b6b4a;font-size:12px;font-weight:600;border-radius:999px;padding:1px 10px}
+.pc{background:#fff;border:2px solid var(--pl);border-radius:24px;padding:26px;position:sticky;top:90px;box-shadow:0 30px 60px -36px rgba(74,44,122,.6)}
+.pc .p{font:400 54px/1 'Young Serif'}.pc .p s{font:400 22px 'Outfit';color:var(--mut);margin-left:8px}
+.of{background:#fff0e3;border-radius:14px;padding:12px 14px;margin:16px 0;font-size:14.5px}.of b{display:block;font:600 22px 'Outfit';font-variant-numeric:tabular-nums;color:#b24a05}
+.pc ul{list-style:none;margin:0 0 18px;padding:0}.pc li{padding:5px 0 5px 26px;position:relative;font-size:15.5px}.pc li:before{content:'✓';position:absolute;left:0;color:#0b8f64;font-weight:700}
+.gt{font-size:14px;color:var(--mut);text-align:center;margin:12px 0 0}
+.ins{display:grid;grid-template-columns:200px minmax(0,1fr);gap:32px;align-items:center;background:#fff;border:1px solid var(--ln);border-radius:28px;padding:32px}
+.av{aspect-ratio:1;border-radius:50%;background:linear-gradient(160deg,#ffd9bd,#ff8a3d);position:relative;overflow:hidden}
+.av:before{content:'';position:absolute;left:50%;top:26%;width:34%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:#7a4128}
+.av:after{content:'';position:absolute;left:50%;top:58%;width:70%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:var(--pl)}
+.ins p{color:var(--mut);margin:0 0 12px}.ins .st{display:flex;gap:26px;flex-wrap:wrap}.ins .st b{font:400 28px 'Young Serif';display:block}.ins .st span{font-size:14px;color:var(--mut)}
+.rv{position:relative}
+.rt{display:grid;grid-auto-flow:column;grid-auto-columns:100%;overflow:hidden;scroll-snap-type:x mandatory;border-radius:24px}
+.rc{scroll-snap-align:start;background:var(--pl);color:#fff;padding:clamp(28px,5vw,56px);min-width:0}
+.rc q{font:400 clamp(22px,3vw,32px)/1.3 'Young Serif';display:block;quotes:none;margin-bottom:20px}.rc b{display:block}.rc span{opacity:.8;font-size:15px}
+.rn{display:flex;gap:10px;align-items:center;margin-top:16px}
+.rn button.a{width:46px;height:46px;border-radius:50%;border:2px solid var(--pl);background:#fff;color:var(--pl);font-size:20px;cursor:pointer}
+.dt{display:flex;gap:8px;margin-right:auto}.dt button{width:12px;height:12px;border-radius:50%;border:0;background:#d8cdbd;padding:0;cursor:pointer;position:relative}.dt button:before{content:'';position:absolute;inset:-16px -4px}.dt button[aria-current=true]{background:var(--pl);width:28px;border-radius:6px}
+details{border-bottom:1px solid var(--ln)}summary{padding:18px 0;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between}summary::-webkit-details-marker{display:none}summary:after{content:'+';color:var(--pl);font-size:22px}details[open] summary:after{content:'–'}details p{margin:0 0 18px;color:var(--mut)}
+footer{background:var(--ink);color:#c8c6d6;text-align:center;padding:36px 20px;font-size:15px}
+dialog{border:0;border-radius:20px;padding:0;width:min(720px,calc(100vw - 24px));overflow:hidden;background:#000}
+dialog::backdrop{background:rgba(20,16,32,.8)}
+.vd{aspect-ratio:16/9;background:linear-gradient(135deg,#2d1b4e,#4a2c7a 50%,#ff8a3d);display:grid;place-items:center;position:relative;color:#fff}
+.vd button.pp{width:76px;height:76px;border-radius:50%;border:0;background:#fff;color:var(--pl);font-size:30px;cursor:pointer}
+.vb{position:absolute;left:0;right:0;bottom:0;height:6px;background:rgba(255,255,255,.3)}.vb i{display:block;height:100%;width:0;background:var(--or)}
+.vx{position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(0,0,0,.5);color:#fff;font-size:18px;cursor:pointer}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:14px 22px;border-radius:14px;z-index:60;max-width:calc(100vw - 24px)}
+@media(max-width:900px){
+ .hero{grid-template-columns:minmax(0,1fr);padding:36px 0 40px}.og{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+ .cw{grid-template-columns:minmax(0,1fr)}.pc{position:static;order:-1}
+ .ins{grid-template-columns:minmax(0,1fr);text-align:center;justify-items:center}.ins .av{width:140px}.ins .st{justify-content:center}
+ .nv a.l{display:none}
+}
+@media(max-width:560px){.og{grid-template-columns:minmax(0,1fr)}.nv,.w{padding-left:16px;padding-right:16px}.mh{padding:14px;font-size:16px}.mh small{display:none}.sec{padding:48px 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mb{transition:none}}
+</style></head><body>
+<nav><div class="nv"><span class="lg">Studio School</span><a class="l" href="#learn">Outcomes</a><a class="l" href="#curr">Curriculum</a><a class="l" href="#rev">Reviews</a><button class="btn s or" data-enrol>Enrol</button></div></nav>
+<div class="w"><header class="hero"><div><span class="pill">Starts 3 November · 6 weeks</span><h1>Colour for <em>designers</em></h1><p class="sub">Learn to choose, mix and test palettes that look beautiful and pass accessibility checks, with Priya Nair-Walsh.</p><div class="cta"><button class="btn or" data-enrol>Enrol now</button><button class="btn o" id="pv">▶ Watch preview</button></div><div class="tr"><span><b>4.9</b> ★ rating</span><span><b>3,200</b> students</span><span><b>Lifetime</b> access</span></div></div>
+<div class="ill" aria-hidden="true"><div class="bg"></div><div class="lp"><i style="background:#ff8a3d"></i><i style="background:#5fd1a8"></i><i style="background:#4a2c7a"></i><i style="background:#ffd23f"></i><i style="background:#e8567f"></i><i style="background:#3d8bff"></i><i style="background:#1c1b29"></i><i style="background:#f0e8fb"></i></div><span class="bd" style="left:0;top:14%">Contrast 7.2 ✓</span><span class="bd" style="right:0;bottom:16%">60 / 30 / 10</span></div></header></div>
+<div class="w sec" id="learn"><h2>What you will learn</h2><p class="lead">Practical skills you can use on your next project the same day.</p>
+<div class="og"><div class="oc"><i style="background:#ffe9d6">🎨</i><h3>Build a palette</h3><p>From a single colour to a full, balanced system.</p></div><div class="oc"><i style="background:#d8f6ea">♿</i><h3>Pass contrast checks</h3><p>Hit WCAG targets without losing personality.</p></div><div class="oc"><i style="background:#f0e8fb">🌗</i><h3>Design for dark mode</h3><p>Adapt palettes so they hold up after dark.</p></div><div class="oc"><i style="background:#ffe1e8">🧠</i><h3>Use colour psychology</h3><p>What colour says, and when to break the rules.</p></div><div class="oc"><i style="background:#dfeeff">🧰</i><h3>Make tokens</h3><p>Turn palettes into usable design tokens.</p></div><div class="oc"><i style="background:#fff3c4">🖼</i><h3>Critique like a pro</h3><p>Give and take feedback on colour choices.</p></div></div></div>
+<div class="w sec" id="curr"><div class="cw"><div><h2>Curriculum</h2><div class="ch"><span id="tot" style="color:var(--mut)"></span><button class="lk" id="ea" type="button">Expand all</button></div><div id="mods"></div></div>
+<aside class="pc"><div class="p">£149<s>£229</s></div><div class="of">Launch offer ends in<b id="cd" role="timer"></b></div><ul><li>24 video lessons, 6 hours</li><li>Palette and token templates</li><li>Weekly live critique</li><li>Certificate of completion</li></ul><button class="btn or" style="width:100%" data-enrol>Enrol now</button><p class="gt">30-day money-back guarantee</p></aside></div></div>
+<div class="w sec"><div class="ins"><div class="av" role="img" aria-label="Illustration of the instructor"></div><div><h2>Meet Priya</h2><p>Priya is a colour and brand designer who has built palettes for health, finance and education products used by millions. She teaches with live examples and honest critique.</p><div class="st"><div><b>14</b><span>years designing</span></div><div><b>40+</b><span>brand systems</span></div><div><b>3,200</b><span>students taught</span></div></div></div></div></div>
+<div class="w sec" id="rev"><h2>Learners say</h2><div class="rv" role="region" aria-roledescription="carousel" aria-label="Reviews" id="rv"><div class="rt" id="rt"></div><div class="rn"><div class="dt" id="dt"></div><button class="a" id="rp" aria-label="Previous review">‹</button><button class="a" id="rx" aria-label="Next review">›</button></div></div></div>
+<div class="w sec" style="padding-top:0"><h2>Questions</h2><details><summary>Do I need design experience?</summary><p>No. If you can use a design tool at a basic level, you can follow every lesson.</p></details><details><summary>How long do I have access?</summary><p>For life, including all future updates to the lessons.</p></details><details><summary>What if it is not for me?</summary><p>Ask for a full refund in the first 30 days, no questions asked.</p></details></div>
+<footer>© Studio School · An invented school for demonstration</footer>
+<dialog id="dlg"><div class="vd"><button class="pp" id="pp" aria-label="Play preview">▶</button><button class="vx" id="vx" aria-label="Close preview">✕</button><div class="vb"><i id="vi"></i></div></div></dialog>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var M=[['Foundations of colour',[['What colour actually is',6,1],['Hue, saturation and lightness',9],['Mixing on screen',8],['Your first palette',12]]],['Contrast and accessibility',[['WCAG contrast explained',8,1],['Testing real interfaces',14],['Colour blindness simulation',10],['Fixing failing pairs',9],['Exercise: audit a page',15]]],['Building systems',[['Neutrals that work',11],['Brand and accent roles',10],['Semantic colours',9],['Scales from one colour',13]]],['Dark mode',[['Why dark is not inverted',7],['Elevation and surfaces',10],['Adapting your brand colour',12],['Exercise: dark palette',14]]],['Tokens and handoff',[['Naming tokens',8],['Exporting to code',12],['Documenting for teams',9],['Governance',7]]],['Critique and capstone',[['Giving colour feedback',8],['Capstone brief',6],['Live critique session',45],['Next steps',5]]]];
+var ls=0,mins=0;M.forEach(function(m){m[1].forEach(function(l){ls++;mins+=l[1]})});
+$('tot').textContent=M.length+' modules · '+ls+' lessons · '+(mins/60).toFixed(1)+' hours';
+$('mods').innerHTML=M.map(function(m,i){var t=m[1].reduce(function(s,l){return s+l[1]},0);
+ return'<div class="md"><h3 style="margin:0"><button class="mh" type="button" aria-expanded="'+(i===0)+'" aria-controls="m'+i+'" id="h'+i+'"><span class="n">'+(i+1)+'</span>'+m[0]+'<small>'+m[1].length+' lessons · '+t+' min</small></button></h3><div class="mb'+(i===0?' o':'')+'" id="m'+i+'" role="region" aria-labelledby="h'+i+'"><div><ul>'+m[1].map(function(l){return'<li><span aria-hidden="true">▶</span><span>'+l[0]+'</span>'+(l[2]?'<span class="pv">Preview</span>':'')+'<span>'+l[1]+' min</span></li>'}).join('')+'</ul></div></div></div>'}).join('');
+function tg(i,o){var h=$('h'+i),b=$('m'+i);h.setAttribute('aria-expanded',o);b.classList.toggle('o',o)}
+$('mods').addEventListener('click',function(e){var h=e.target.closest('.mh');if(!h)return;var i=+h.id.slice(1);tg(i,h.getAttribute('aria-expanded')!=='true');upd()});
+function upd(){var all=M.every(function(_,i){return $('h'+i).getAttribute('aria-expanded')==='true'});$('ea').textContent=all?'Collapse all':'Expand all'}
+$('ea').onclick=function(){var all=this.textContent==='Collapse all';M.forEach(function(_,i){tg(i,!all)});upd()};
+var end=Date.now()+(11*3600+42*60+9)*1000;
+function cd(){var s=Math.max(0,Math.floor((end-Date.now())/1000));$('cd').textContent=s?[Math.floor(s/3600),Math.floor(s%3600/60),s%60].map(function(x){return String(x).padStart(2,'0')}).join(':'):'Offer ended'}cd();setInterval(cd,1000);
+var R=[['I finally understand why my palettes felt off. The contrast module alone paid for the course.','Hannah B.','Product designer'],['Clear, kind and practical. My team now uses the token templates every week.','Tomás R.','Design lead'],['The live critique sessions were the best part. Honest, specific and useful.','Aisha K.','Freelance brand designer'],['I passed our accessibility audit first time after applying the lessons.','Daniel W.','Front-end developer'],['Worth every penny. Dark mode lessons saved me weeks of trial and error.','Mei L.','UX designer']];
+$('rt').innerHTML=R.map(function(r,i){return'<div class="rc" role="group" aria-roledescription="slide" aria-label="'+(i+1)+' of '+R.length+'"><q>“'+r[0]+'”</q><b>'+r[1]+'</b><span>'+r[2]+'</span></div>'}).join('');
+$('dt').innerHTML=R.map(function(_,i){return'<button type="button" data-i="'+i+'" aria-label="Go to review '+(i+1)+'"></button>'}).join('');
+var cur=0,rt=$('rt'),pause=false,auto=null;
+function go(i,smooth){cur=(i+R.length)%R.length;rt.scrollTo({left:cur*rt.clientWidth,behavior:smooth&&!RM?'smooth':'auto'});dots()}
+function dots(){[].forEach.call($('dt').children,function(d,i){if(i===cur)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')})}
+$('rp').onclick=function(){go(cur-1,true)};$('rx').onclick=function(){go(cur+1,true)};
+$('dt').onclick=function(e){var b=e.target.closest('[data-i]');if(b)go(+b.dataset.i,true)};
+$('rv').addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(cur+1,true);if(e.key==='ArrowLeft')go(cur-1,true)});
+var tmo;rt.addEventListener('scroll',function(){clearTimeout(tmo);tmo=setTimeout(function(){var i=Math.round(rt.scrollLeft/rt.clientWidth);if(i!==cur){cur=i;dots()}},80)});
+addEventListener('resize',function(){go(cur)});
+if(!RM){auto=setInterval(function(){if(!pause)go(cur+1,true)},6000);['mouseenter','focusin'].forEach(function(ev){$('rv').addEventListener(ev,function(){pause=true})});['mouseleave','focusout'].forEach(function(ev){$('rv').addEventListener(ev,function(){pause=false})})}
+dots();
+var dlg=$('dlg'),pl=false,pr=0,vt=null;
+$('pv').onclick=function(){dlg.showModal();$('pp').focus()};$('vx').onclick=function(){dlg.close()};dlg.addEventListener('close',function(){clearInterval(vt);pl=false;pr=0;$('vi').style.width='0';$('pp').textContent='▶';$('pv').focus()});
+dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+$('pp').onclick=function(){pl=!pl;this.textContent=pl?'❚❚':'▶';this.setAttribute('aria-label',pl?'Pause preview':'Play preview');clearInterval(vt);if(pl)vt=setInterval(function(){pr=Math.min(100,pr+.5);$('vi').style.width=pr+'%';if(pr>=100){clearInterval(vt);pl=false;$('pp').textContent='▶'}},100)};
+var tt;document.addEventListener('click',function(e){if(!e.target.closest('[data-enrol]'))return;var t=$('toast');if(t)t.remove();t=document.createElement('div');t.id='toast';t.setAttribute('role','status');t.textContent='Thanks! Enrolment opens soon. This is a demo page.';document.body.appendChild(t);clearTimeout(tt);tt=setTimeout(function(){t.remove()},3500)});
+})();
+</script></body></html>

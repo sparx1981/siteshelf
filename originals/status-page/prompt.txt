@@ -1,0 +1,11 @@
+Canvas & base: A calm, trustworthy page on #f7f9fb with white cards (1px #e1e7ee border, 14px radius). Ink #14202e, secondary #5b6b7c. Status colours: operational #16a34a, degraded #f59e0b, outage #dc2626, maintenance #3b82f6, no data #d5dce4. Invented company "Northwind Cloud".
+
+Typography: "IBM Plex Sans" (400, 500, 600) for text and "IBM Plex Mono" (400, 500) for percentages, timestamps and incident IDs. Page title 28px 600; service names 16px 500.
+
+Layout: Max-width 860px. Header with logo and a "Subscribe to updates" button. A large banner card that reflects overall state ("All systems operational" in green, or "Partial outage" in amber with the affected services listed). Below, a "Services" card listing six services (API, Dashboard, Database, Storage, Email delivery, Webhooks), each with name, current state pill, 90-day uptime percentage and a row of 90 thin vertical bars coloured by that day's status. A "Past incidents" section groups incidents by date for the last 14 days, each with title, severity pill and a mini timeline of updates (Investigating, Identified, Monitoring, Resolved) with times.
+
+Interaction: Hovering or focusing a bar shows a tooltip with the date and status (and incident title if any); bars are focusable via arrow keys within each row (roving tabindex). A "Simulate incident" toggle in the footer flips Webhooks to degraded and updates the banner and pills live, for demo purposes. Subscribe opens a native dialog with email field, validation, and a success state. Incident updates are collapsible per incident. Timestamps shown in the viewer's local timezone with a note.
+
+Responsive: Below 640px bars reduce to the last 45 days; the dialog becomes full width; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Bars have aria-labels, status is never conveyed by colour alone (pills carry text), reduced-motion safe. Invented names only.

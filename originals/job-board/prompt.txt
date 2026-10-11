@@ -1,0 +1,11 @@
+Canvas & base: A friendly professional board on #f5f7fa with white cards (1px #e3e8ef border, 14px radius). Ink #172033, secondary #5d6b82, accent teal #0d9488 (dark #0f766e), saved star #f59e0b. Company logos are generated coloured squares with initials. Invented brand "Hirewell".
+
+Typography: "Plus Jakarta Sans" (400, 500, 600, 700, 800) throughout; page title 34px 800 tracking -.03em; job titles 17px 700; meta 13px in secondary colour; salary in 600.
+
+Layout: Hero strip with title "Find work you will like" and a search row (keyword input, location select, Search button). Two-column body: left filter sidebar (Job type checkboxes: Full-time, Part-time, Contract, Remote only; Salary minimum slider; Experience radio group; Clear all), right results list with a count, sort select (Newest, Salary high-low) and ten job cards (logo, title, company, location, type pill, salary range, posted time, tags, save star). A "Saved (n)" tab switches the list to the shortlist.
+
+Interaction: Filters, search and sort update results live with the count announced. Clicking a card opens a right slide-over panel (native dialog or role=dialog with focus management) showing the full description, responsibilities, requirements, benefits and an Apply button that swaps to "Applied ✓". Save star toggles with aria-pressed and persists to localStorage (try/catch). Escape and a close button dismiss the panel, returning focus to the card. Empty state with a Clear filters button when nothing matches. Reduced motion disables the slide.
+
+Responsive: Below 900px the filter sidebar collapses into a "Filters" button opening a bottom sheet; the slide-over becomes full screen; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Invented companies and roles only.

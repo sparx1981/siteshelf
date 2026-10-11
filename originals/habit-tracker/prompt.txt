@@ -1,0 +1,11 @@
+Canvas & base: A soft, friendly app on #f6f1ea with white cards (16px radius, 1px #e9e1d4 border, shadow 0 6px 20px -12px rgba(80,60,30,.3)). Ink #2b2620, secondary #7a6f62. Habit colours (one per habit, used for check fills): coral #ef6f5e, sage #5fa37a, sky #4c9be8, plum #9b6bd1, amber #f0a93b. Invented app "Tickmark".
+
+Typography: "Bricolage Grotesque" (500, 700) for headings and numbers, "Nunito Sans" (400, 600, 700) for body and labels. Greeting 30px 700; habit names 16px 600; day headers 12px 700 uppercase.
+
+Layout: Max-width 960px. Top: greeting with the date, a week navigator (previous, "This week", next) and an "Add habit" button. A two-column grid: left, a table-like list of habits where each row has an emoji badge, name, a 7-day row of round check buttons (Mon–Sun, today highlighted) and a streak chip with a flame; right, a sticky "Today" card with a progress ring (done/total), a short motivational line that changes with progress, and a mini 7-bar chart of completion per day.
+
+Interaction: Clicking a day circle toggles it with a quick pop animation; future days are disabled with aria-disabled. Streaks recompute from the data (consecutive days ending today or yesterday). The ring and bars update live. "Add habit" opens a native dialog with name, emoji choice (8 options) and colour choice (5 swatches); each row has an overflow button to Rename or Archive (with Undo toast). Week navigation shows earlier weeks read-only for toggling past days. Data is seeded with a plausible history and persisted to localStorage in try/catch. Reduced motion removes pop and ring animation.
+
+Responsive: Below 820px the Today card moves above the list; day circles shrink to 34px and header labels become single letters; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Checks are buttons with aria-pressed and aria-label like "Run, Tuesday, done". Announce changes in an aria-live region. Invented names only.

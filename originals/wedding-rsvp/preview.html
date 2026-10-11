@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wedding RSVP — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ol:#3d4a34;--bl:#e9c9bd;--gd:#b8935a;--ln:#e4dccb;--mut:#6b6a5c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 20% 10%,#fffdf8,transparent 50%),#faf6ef;color:var(--ol);font:300 17px/1.7 'Jost',sans-serif}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:3px}
+.lab{font:500 12px 'Jost';text-transform:uppercase;letter-spacing:.22em;color:var(--gd)}
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:60px 24px;position:relative;overflow:hidden}
+.sp{position:absolute;width:min(300px,40vw);opacity:.5;pointer-events:none}
+.sp.l{left:-30px;top:6%}.sp.r{right:-30px;bottom:6%;transform:scaleX(-1) rotate(180deg)}
+h1{font:italic 400 clamp(52px,10vw,110px)/.95 'Cormorant Garamond';margin:14px 0 18px;letter-spacing:-.01em}
+h1 span{display:block;font-style:normal;font-size:.4em;color:var(--gd);margin:6px 0}
+.dt{font:500 15px 'Jost';letter-spacing:.2em;text-transform:uppercase;margin:0 0 4px}
+.cd{display:flex;gap:clamp(14px,4vw,34px);justify-content:center;margin:34px 0 30px}
+.cd div{min-width:64px}.cd b{display:block;font:500 clamp(34px,6vw,52px)/1 'Cormorant Garamond'}.cd span{font:400 11px 'Jost';letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.btn{display:inline-block;background:var(--ol);color:#faf6ef;border:1px solid var(--ol);padding:15px 34px;font:500 13px 'Jost';letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;border-radius:2px;min-height:48px}
+.btn:hover{background:#2f3a28}.btn.o{background:transparent;color:var(--ol)}.btn.o:hover{background:rgba(61,74,52,.07)}
+section{max-width:860px;margin:0 auto;padding:80px 24px}
+h2{font:500 clamp(34px,5vw,48px)/1.1 'Cormorant Garamond';margin:8px 0 28px;text-align:center}
+.lab.c{display:block;text-align:center}
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl:before{content:'';position:absolute;left:50%;top:6px;bottom:6px;width:1px;background:var(--ln)}
+.tl li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:50px;margin-bottom:34px;position:relative}
+.tl li:before{content:'';position:absolute;left:50%;top:10px;width:11px;height:11px;border-radius:50%;background:#faf6ef;border:2px solid var(--gd);transform:translateX(-50%)}
+.tl time{text-align:right;font:italic 500 28px 'Cormorant Garamond'}
+.tl li:nth-child(even) time{order:2;text-align:left}.tl li:nth-child(even) div{order:1;text-align:right}
+.tl b{display:block;font:500 15px 'Jost';letter-spacing:.14em;text-transform:uppercase}.tl p{margin:2px 0 0;color:var(--mut);font-size:15.5px}
+.vn{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;align-items:center}
+.vn svg{width:100%;height:auto;border:1px solid var(--ln);border-radius:2px;background:#fffdf8}
+.vn h3{font:500 28px 'Cormorant Garamond';margin:0 0 6px}.vn p{margin:0 0 10px;color:var(--mut)}
+details{border-bottom:1px solid var(--ln)}summary{cursor:pointer;padding:18px 0;font:500 14px 'Jost';letter-spacing:.12em;text-transform:uppercase;display:flex;justify-content:space-between;list-style:none}
+summary::-webkit-details-marker{display:none}summary:after{content:'+';color:var(--gd);font-size:20px}details[open] summary:after{content:'–'}
+details p{margin:0 0 18px;color:var(--mut)}
+.rv{background:#fffdf8;border:1px solid var(--ln);padding:clamp(24px,5vw,48px);position:relative;box-shadow:0 30px 60px -40px rgba(61,74,52,.4)}
+.rv:before{content:'';position:absolute;inset:8px;border:1px solid var(--ln);pointer-events:none}
+.pr{display:flex;gap:10px;justify-content:center;margin-bottom:28px;font:500 12px 'Jost';letter-spacing:.14em;text-transform:uppercase;color:#a29f8c;flex-wrap:wrap}
+.pr span{display:flex;gap:8px;align-items:center}.pr i{font-style:normal;width:26px;height:26px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-size:12px}
+.pr .on{color:var(--ol)}.pr .on i{background:var(--ol);color:#fff;border-color:var(--ol)}
+fieldset{border:0;padding:0;margin:0 0 20px}legend,label.f{display:block;font:500 12px 'Jost';letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;padding:0}
+input[type=text],textarea,select{width:100%;background:#faf6ef;border:1px solid #d3c9b2;border-radius:2px;padding:13px 14px;font:300 17px 'Jost';color:var(--ol)}
+input[aria-invalid=true],select[aria-invalid=true]{border-color:#b3261e}
+.er{color:#b3261e;font-size:14px;margin-top:4px;min-height:0}
+.ch{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ch label{border:1px solid #d3c9b2;padding:16px;text-align:center;cursor:pointer;font:400 16px 'Cormorant Garamond';font-size:20px;border-radius:2px;position:relative;display:block}
+.ch input{position:absolute;opacity:0}
+.ch input:checked+span{font-weight:600}.ch label:has(input:checked){background:var(--ol);color:#faf6ef;border-color:var(--ol)}
+.ch label:has(input:focus-visible){outline:3px solid #2f7de1;outline-offset:2px}
+.gst{border:1px solid var(--ln);padding:16px;margin-bottom:12px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:12px;align-items:end}
+.rm{background:none;border:0;color:#9b3b2e;cursor:pointer;font:500 13px 'Jost';min-height:44px;padding:0 6px}
+.nv{display:flex;justify-content:space-between;gap:10px;margin-top:26px;flex-wrap:wrap}
+.sum{background:#faf6ef;border:1px solid var(--ln);padding:18px 20px;margin-bottom:10px}.sum b{font-weight:500}
+.done{text-align:center}.done h3{font:italic 400 44px/1.1 'Cormorant Garamond';margin:10px 0}
+@media(max-width:720px){
+ section{padding:56px 20px}
+ .tl:before{left:8px}.tl li{grid-template-columns:minmax(0,1fr);gap:0;padding-left:34px}.tl li:before{left:8px}
+ .tl time,.tl li:nth-child(even) time{text-align:left;order:0}.tl li:nth-child(even) div{order:0;text-align:left}
+ .vn{grid-template-columns:minmax(0,1fr)}.ch{grid-template-columns:minmax(0,1fr)}.gst{grid-template-columns:minmax(0,1fr)}
+ .sp{opacity:.3}
+}
+.fade{opacity:0;transform:translateY(18px);transition:opacity .8s,transform .8s}.fade.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style></head><body>
+<header class="hero">
+<svg class="sp l" viewBox="0 0 200 260" fill="none" stroke="#b8935a" stroke-width="1.2" aria-hidden="true"><path d="M10 250C40 180 60 120 120 20"/><path d="M40 190c-20-6-30-22-28-38 18 2 30 16 28 38zM58 150c-18-10-24-28-18-42 16 6 24 22 18 42zM78 110c-14-14-16-32-6-44 14 10 18 26 6 44zM98 70c-10-16-8-32 4-40 10 12 8 28-4 40zM50 185c18-8 38-4 46 12-18 6-38 2-46-12zM70 142c16-10 34-8 44 6-16 8-34 6-44-6zM90 100c14-10 30-10 40 2-14 8-30 8-40-2z"/></svg>
+<svg class="sp r" viewBox="0 0 200 260" fill="none" stroke="#b8935a" stroke-width="1.2" aria-hidden="true"><path d="M10 250C40 180 60 120 120 20"/><path d="M40 190c-20-6-30-22-28-38 18 2 30 16 28 38zM58 150c-18-10-24-28-18-42 16 6 24 22 18 42zM78 110c-14-14-16-32-6-44 14 10 18 26 6 44zM50 185c18-8 38-4 46 12-18 6-38 2-46-12zM70 142c16-10 34-8 44 6-16 8-34 6-44-6z"/></svg>
+<div><div class="lab">Together with their families</div><h1>Imogen<span>&amp;</span>Rafael</h1><p class="dt">14 June 2027</p><p style="margin:0;color:var(--mut)">Hollin Court Gardens, Wiltshire</p>
+<div class="cd" id="cd" role="timer" aria-label="Countdown to the wedding"><div><b id="d">0</b><span>Days</span></div><div><b id="h">0</b><span>Hours</span></div><div><b id="m">0</b><span>Minutes</span></div></div>
+<a class="btn" href="#rsvp">RSVP</a></div></header>
+<section class="fade"><span class="lab c">The day</span><h2>Our day</h2>
+<ol class="tl"><li><time>2:00 pm</time><div><b>Ceremony</b><p>In the walled garden. Please be seated by 1:45.</p></div></li><li><time>3:00 pm</time><div><b>Drinks &amp; canapés</b><p>On the south lawn, with lawn games.</p></div></li><li><time>5:30 pm</time><div><b>Wedding breakfast</b><p>In the orangery. Speeches follow dessert.</p></div></li><li><time>8:00 pm</time><div><b>Dancing</b><p>Evening guests join us. Carriages at midnight.</p></div></li></ol></section>
+<section class="fade"><span class="lab c">Where</span><h2>The venue</h2>
+<div class="vn"><svg viewBox="0 0 320 220" role="img" aria-label="Sketch map showing the venue between the village and the A-road"><path d="M0 170C80 150 150 190 320 130" fill="none" stroke="#d3c9b2" stroke-width="10"/><path d="M60 0C70 60 110 90 130 140" fill="none" stroke="#e4dccb" stroke-width="6"/><circle cx="168" cy="120" r="12" fill="#b8935a"/><circle cx="168" cy="120" r="22" fill="none" stroke="#b8935a" opacity=".5"/><text x="188" y="116" font-family="Jost" font-size="12" fill="#3d4a34">Hollin Court</text><text x="20" y="200" font-family="Jost" font-size="11" fill="#6b6a5c">Village</text><text x="230" y="150" font-family="Jost" font-size="11" fill="#6b6a5c">A-road</text></svg>
+<div><h3>Hollin Court Gardens</h3><p>Church Lane, Little Hollin, Wiltshire, SN0 0AA</p><p>Free parking on site. Taxis can be booked for the journey home; we have arranged a shuttle to the village inn.</p></div></div></section>
+<section class="fade"><span class="lab c">Good to know</span><h2>Questions</h2>
+<details><summary>What should I wear?</summary><p>Smart cocktail. The ceremony is outdoors, so bring a layer and flat shoes for the lawn.</p></details>
+<details><summary>Are children welcome?</summary><p>We love your little ones, but the day is adults only, apart from those named on your invitation.</p></details>
+<details><summary>Where can we stay?</summary><p>The Hollin Inn and two nearby guest houses are holding rooms until 1 April. Mention the wedding when booking.</p></details>
+<details><summary>When should I reply by?</summary><p>Please RSVP by 1 March 2027.</p></details></section>
+<section id="rsvp" class="fade"><span class="lab c">Kindly reply by 1 March</span><h2>RSVP</h2>
+<form class="rv" id="fm" novalidate>
+<div class="pr" id="pr" aria-hidden="true"><span class="on"><i>1</i>Attendance</span><span><i>2</i>Guests</span><span><i>3</i>Review</span></div>
+<div class="sr" id="live" role="status" aria-live="polite" style="position:absolute;left:-9999px"></div>
+<div id="s1"><fieldset><legend>Will you be joining us?</legend><div class="ch"><label><input type="radio" name="att" value="yes">Joyfully accept</label><label><input type="radio" name="att" value="no">Regretfully decline</label></div><div class="er" id="e-att"></div></fieldset>
+<label class="f" for="nm">Your full name</label><input type="text" id="nm" autocomplete="name"><div class="er" id="e-nm"></div>
+<div class="nv"><span></span><button class="btn" type="button" data-next>Continue</button></div></div>
+<div id="s2" hidden><fieldset><legend>Your meal</legend><select id="meal"><option value="">Choose a main course</option><option>Herb-crusted lamb</option><option>Pan-roast sea bass</option><option>Wild mushroom wellington (vegan)</option></select></fieldset><div class="er" id="e-meal" style="margin-top:-14px;margin-bottom:12px"></div>
+<div id="gl"></div><button class="btn o" type="button" id="ag" style="width:100%">+ Add a guest</button>
+<label class="f" for="dn" style="margin-top:22px">Dietary needs or notes (optional)</label><textarea id="dn" rows="3"></textarea>
+<div class="nv"><button class="btn o" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue</button></div></div>
+<div id="s3" hidden><div class="sum" id="sm"></div><div class="nv"><button class="btn o" type="button" data-back>Back</button><button class="btn" type="submit">Send RSVP</button></div></div>
+<div id="dn2" class="done" hidden tabindex="-1"><span class="lab">Thank you</span><h3 id="dh"></h3><p id="dp" style="color:var(--mut)"></p><div class="sum" id="ds" style="text-align:left"></div><a class="btn o" id="ics" download="wedding.ics" href="#">Add to calendar</a></div>
+</form></section>
+<footer style="text-align:center;padding:40px 20px 60px;color:var(--mut);font-size:14px">Imogen &amp; Rafael · 14 June 2027 · #ImogenAndRafael</footer>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var T=new Date(2027,5,14,14,0,0);
+function tick(){var s=Math.max(0,Math.floor((T-new Date())/1000));$('d').textContent=Math.floor(s/86400);$('h').textContent=Math.floor(s%86400/3600);$('m').textContent=Math.floor(s%3600/60)}
+tick();if(!RM)setInterval(tick,1000*10);
+if('IntersectionObserver' in window&&!RM){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});[].forEach.call(document.querySelectorAll('.fade'),function(e){io.observe(e)})}else[].forEach.call(document.querySelectorAll('.fade'),function(e){e.classList.add('in')});
+var step=1,guests=[],MEALS=['Herb-crusted lamb','Pan-roast sea bass','Wild mushroom wellington (vegan)'];
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function att(){var c=document.querySelector('[name=att]:checked');return c?c.value:''}
+function gl(){$('gl').innerHTML=guests.map(function(g,i){return'<div class="gst"><div><label class="f" for="gn'+i+'">Guest '+(i+1)+' name</label><input type="text" id="gn'+i+'" data-g="'+i+'" value="'+esc(g.n)+'"></div><div><label class="f" for="gm'+i+'">Meal</label><select id="gm'+i+'" data-m="'+i+'"><option value="">Choose</option>'+MEALS.map(function(m){return'<option'+(g.m===m?' selected':'')+'>'+m+'</option>'}).join('')+'</select></div><button type="button" class="rm" data-rm="'+i+'" aria-label="Remove guest '+(i+1)+'">Remove</button></div>'}).join('');$('ag').hidden=guests.length>=3}
+$('gl').addEventListener('input',function(e){var t=e.target;if(t.dataset.g!==undefined){guests[+t.dataset.g].n=t.value;t.removeAttribute('aria-invalid')}if(t.dataset.m!==undefined)guests[+t.dataset.m].m=t.value});
+$('gl').addEventListener('click',function(e){var b=e.target.closest('[data-rm]');if(b){guests.splice(+b.dataset.rm,1);gl();$('ag').focus()}});
+$('ag').onclick=function(){guests.push({n:'',m:''});gl();var i=guests.length-1;$('gn'+i).focus()};
+function err(id,el,msg){$('e-'+id).textContent=msg;if(el){if(msg)el.setAttribute('aria-invalid','true');else el.removeAttribute('aria-invalid')}}
+function show(n){step=n;['s1','s2','s3'].forEach(function(s,i){$(s).hidden=i+1!==n});[].forEach.call($('pr').children,function(p,i){p.className=i+1<=n?'on':''});
+ $('pr').children[1].hidden=att()==='no';$('live').textContent='Step '+n+' of 3';
+ var f=$('s'+n).querySelector('input:not([type=radio]),select,button');if(n>1&&f)f.focus()}
+function valid(n){
+ if(n===1){var ok=true;if(!att()){err('att',null,'Please choose one.');ok=false;document.querySelector('[name=att]').focus()}else err('att',null,'');
+  var v=$('nm').value.trim();if(v.length<2){err('nm',$('nm'),'Please enter your name.');if(ok)$('nm').focus();ok=false}else err('nm',$('nm'),'');return ok}
+ if(n===2){var ok2=true;if(!$('meal').value){err('meal',$('meal'),'Please choose your main course.');$('meal').focus();ok2=false}else err('meal',$('meal'),'');
+  guests.forEach(function(g,i){var gn=$('gn'+i);if(!g.n.trim()||!g.m){ if(ok2){(g.n.trim()?$('gm'+i):gn).focus()} gn.setAttribute('aria-invalid','true');ok2=false}});return ok2}
+ return true}
+function summary(){
+ var h='<p style="margin:0"><b>'+esc($('nm').value.trim())+'</b> — '+(att()==='yes'?'attending':'unable to attend')+'</p>';
+ if(att()==='yes'){h+='<p style="margin:6px 0 0">Meal: '+esc($('meal').value)+'</p>'+guests.map(function(g){return'<p style="margin:6px 0 0">Guest: '+esc(g.n)+' — '+esc(g.m)+'</p>'}).join('')+($('dn').value.trim()?'<p style="margin:6px 0 0">Notes: '+esc($('dn').value.trim())+'</p>':'')}
+ return h}
+document.addEventListener('click',function(e){
+ if(e.target.closest('[data-next]')){if(!valid(step))return;if(step===1&&att()==='no'){$('sm').innerHTML=summary();show(3)}else{if(step===2||step===1&&att()==='yes'){if(step===1){show(2);return}$('sm').innerHTML=summary();show(3)}}}
+ if(e.target.closest('[data-back]')){show(step===3&&att()==='no'?1:step-1)}});
+$('fm').onsubmit=function(e){e.preventDefault();var yes=att()==='yes',n=$('nm').value.trim().split(' ')[0];
+ ['s1','s2','s3'].forEach(function(s){$(s).hidden=true});$('pr').hidden=true;$('dn2').hidden=false;
+ $('dh').textContent=yes?'See you there, '+n+'!':'We will miss you, '+n;$('dp').textContent=yes?'Your reply is in. We cannot wait to celebrate with you.':'Thank you for letting us know. You will be in our hearts on the day.';
+ $('ds').innerHTML=summary();$('ics').hidden=!yes;
+ var ics='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nSUMMARY:Imogen & Rafael wedding\r\nDTSTART:20270614T130000Z\r\nDTEND:20270614T230000Z\r\nLOCATION:Hollin Court Gardens\\, Wiltshire\r\nEND:VEVENT\r\nEND:VCALENDAR';
+ try{$('ics').href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}))}catch(x){$('ics').hidden=true}
+ $('dn2').focus()};
+$('fm').addEventListener('change',function(e){if(e.target.name==='att')err('att',null,'')});
+})();
+</script></body></html>

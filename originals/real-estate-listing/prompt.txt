@@ -1,0 +1,11 @@
+Canvas & base: A refined property page on #fbfaf8 with ink #1d2330, secondary #667085, hairlines #e8e4dc, accent deep teal #0f5e63 and warm clay #c46a3d for highlights. All images are generated in code: five room scenes built from CSS gradients and inline SVG shapes (living room with sofa and window light, kitchen with island, bedroom, garden at dusk, exterior facade). Invented agent "Alder & Finch", property "14 Wren Lane, Harbourside".
+
+Typography: "Fraunces" (500, 600) for the price and headings, "DM Sans" (400, 500, 700) for body and labels. Price clamp(34px,5vw,48px); section headings 26px.
+
+Layout: Top bar with agency name and phone. A gallery grid: one large image (16:10) with four thumbnails beside it on desktop, "View all 5 photos" button. Below, two columns: left details (address, price £625,000, beds 3, baths 2, size 1,240 sq ft, tenure; a description with Read more; Features list with icons; floor plan with tabs Ground and First rendered as SVG rooms; Neighbourhood list with walk times; map sketch SVG), right sticky card: mortgage estimate (deposit slider and rate input producing monthly cost) and a viewing request form (name, email, preferred date from the next 7 days as buttons, message).
+
+Interaction: Clicking any image opens a lightbox (native dialog) with prev/next buttons, arrow keys, counter and caption; focus returns to the trigger. Floor plan tabs switch with arrow keys (role=tablist). Mortgage estimate recalculates live (repayment, 25 years). Date buttons are a radio group; form validation shows inline errors and a success card. Read more expands the description. Save-home heart toggles with aria-pressed.
+
+Responsive: Below 900px the gallery becomes a swipeable scroll-snap strip; the sticky card moves under the details and becomes full width; no horizontal overflow at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Every generated image has an accessible name via role=img and aria-label. Invented names only.

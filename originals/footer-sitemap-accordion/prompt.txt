@@ -1,0 +1,11 @@
+Canvas & base: Dark ink footer (#101418) on a pale page stub. Link text #aeb8c2, headings #fff, accent lime #b6f23d.
+
+Typography: Manrope; column headings 13px uppercase letter-spaced, links 15px.
+
+Layout: Brand blurb + status pill ("All systems normal") on the left, four link columns (Product, Company, Resources, Legal), then a bottom bar with © line, language select, currency select and a back-to-top button.
+
+Interaction: Above 760px columns are always open. Below 760px each heading is a button (aria-expanded) that toggles its list with a height animation; only one open at a time. Language/currency selects update a visible "Region" label. Back-to-top appears after scrolling and smooth-scrolls up.
+
+Responsive: Columns become accordions at 760px; bottom bar stacks.
+
+Rules: Single HTML file, invented brand "Northwind Labs", prefers-reduced-motion disables animation and smooth scroll.

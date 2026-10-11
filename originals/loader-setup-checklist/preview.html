@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Setting up workspace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#10122b radial-gradient(60% 50% at 50% 0,#262a6b 0,transparent 70%);color:#e9ebff;font:15px/1.5 Inter,system-ui,sans-serif;display:grid;place-items:center;padding:24px 16px}
+.cd{width:100%;max-width:520px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:30px;backdrop-filter:blur(10px)}
+.top{display:flex;gap:22px;align-items:center;margin-bottom:24px}h1{font:700 26px Sora;margin:0 0 4px}p{margin:0;color:#aab0e6}
+.ring{position:relative;width:140px;height:140px;flex:none}.ring svg{transform:rotate(-90deg)}.ring circle{fill:none;stroke-width:10;stroke-linecap:round}
+.ring .bg{stroke:rgba(255,255,255,.1)}.ring .fg{stroke:#7c8cff;transition:stroke-dashoffset .5s}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font:700 30px Sora}
+ul{list-style:none;margin:0;padding:0}li{display:flex;gap:14px;padding:12px 0;border-top:1px solid rgba(255,255,255,.08);opacity:.5;transition:opacity .3s}
+li.on,li.ok,li.er{opacity:1}li b{display:block;font-weight:600}li small{color:#aab0e6}
+.ic{width:26px;height:26px;border-radius:50%;border:2px solid rgba(255,255,255,.25);flex:none;display:grid;place-items:center;font-size:14px;margin-top:2px}
+li.on .ic{border-color:#7c8cff;border-top-color:transparent;animation:sp .8s linear infinite}
+li.ok .ic{background:#4ade80;border-color:#4ade80;color:#052e16}li.er .ic{background:#fb7185;border-color:#fb7185;color:#4c0519}
+@keyframes sp{to{transform:rotate(360deg)}}
+.bt{display:flex;gap:10px;align-items:center;margin-top:18px;flex-wrap:wrap}
+button{padding:11px 20px;border-radius:10px;border:0;background:#7c8cff;color:#0b0d2a;font:600 15px Inter;cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #fff}
+.rt{background:#fb7185;margin-left:auto;padding:6px 14px;font-size:14px}
+label{display:flex;gap:8px;align-items:center;font-size:14px;color:#aab0e6;cursor:pointer}
+@media(max-width:480px){.cd{padding:20px}.ring{width:110px;height:110px}.ring svg{width:110px;height:110px}.top{gap:14px}h1{font-size:22px}}
+@media(prefers-reduced-motion:reduce){li.on .ic{animation:none;border-top-color:#7c8cff}.ring .fg{transition:none}}
+</style></head><body><div class="cd">
+<div class="top"><div class="ring" role="progressbar" aria-label="Setup progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="rg"><svg width="140" height="140" viewBox="0 0 140 140"><circle class="bg" cx="70" cy="70" r="60"/><circle class="fg" id="fg" cx="70" cy="70" r="60" stroke-dasharray="377" stroke-dashoffset="377"/></svg><b id="pc">0%</b></div>
+<div><h1 id="hd">Setting up Kestrel</h1><p id="sb" aria-live="polite">This usually takes under a minute.</p></div></div>
+<ul id="ls"></ul>
+<div class="bt"><label><input type="checkbox" id="fl"> Simulate failure</label><button id="op" hidden>Open workspace</button></div></div>
+<script>
+const S=[["Create your workspace",["Reserving name…","Provisioning space…"],1300],["Set up folders",["Creating folders… 3 of 8","Creating folders… 6 of 8","Creating folders… 8 of 8"],1800],["Connect integrations",["Linking calendar…","Verifying access…"],1700],["Import sample data",["Reading templates…","Writing 124 records…"],1500],["Final checks",["Running health checks…"],1100]];
+const $=i=>document.getElementById(i),ls=$("ls");
+ls.innerHTML=S.map((s,i)=>`<li id="s${i}"><span class="ic" aria-hidden="true"></span><div><b>${s[0]}</b><small id="d${i}">Waiting</small></div></li>`).join("");
+let i=0,timer=null,failedOnce=false;
+function set(n,state,txt,ic){const li=$("s"+n);li.className=state;$("d"+n).textContent=txt;li.querySelector(".ic").textContent=ic||""}
+function pct(p){$("fg").style.strokeDashoffset=377*(1-p/100);$("pc").textContent=Math.round(p)+"%";$("rg").setAttribute("aria-valuenow",Math.round(p))}
+function run(){if(i>=S.length){$("hd").textContent="You're all set";$("sb").textContent="Your workspace is ready.";$("op").hidden=false;$("op").focus();pct(100);return}
+const s=S[i],n=i;set(n,"on",s[1][0]);let k=0;const sub=s[2]/s[1].length;
+const iv=setInterval(()=>{k++;if(k<s[1].length){set(n,"on",s[1][k]);pct((n+k/s[1].length)/S.length*100)}},sub);
+timer=setTimeout(()=>{clearInterval(iv);if(n==2&&$("fl").checked&&!failedOnce){failedOnce=true;set(n,"er","Couldn't reach the calendar service.","!");$("sb").textContent="Step 3 failed. Retry to continue.";const b=document.createElement("button");b.className="rt";b.textContent="Retry";b.onclick=()=>{b.remove();$("fl").checked=false;$("sb").textContent="Retrying…";run()};$("s2").appendChild(b);b.focus();return}
+set(n,"ok","Done","✓");i++;pct(i/S.length*100);run()},s[2])}
+$("op").onclick=()=>{$("sb").textContent="Opening…"};
+pct(0);run();
+</script></body></html>

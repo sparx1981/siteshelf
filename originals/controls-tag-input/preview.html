@@ -1,0 +1,52 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tag Input</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#f4f2ee;color:#221f1a;font:15px/1.5 Onest,system-ui,sans-serif;display:grid;place-items:center;padding:24px 16px}
+.cd{width:100%;max-width:560px;background:#fff;border-radius:18px;padding:30px;box-shadow:0 10px 36px rgba(34,31,26,.1)}
+h1{font-size:22px;margin:0 0 22px}.fd{margin-bottom:26px;position:relative}label{display:flex;justify-content:space-between;font-weight:600;font-size:14px;margin-bottom:6px}label small{font-weight:400;color:#7a7468}
+.box{display:flex;flex-wrap:wrap;gap:6px;padding:8px;border:1.5px solid #d9d4c8;border-radius:12px;cursor:text;min-height:50px}.box:focus-within{border-color:#6d28d9;box-shadow:0 0 0 3px rgba(109,40,217,.18)}
+.ch{display:inline-flex;align-items:center;gap:4px;padding:4px 4px 4px 11px;border-radius:99px;font-weight:600;font-size:14px;background:var(--b);color:var(--f);animation:in .2s}
+.ch button{all:unset;cursor:pointer;width:22px;height:22px;border-radius:50%;text-align:center;line-height:22px;font-size:16px}.ch button:hover{background:rgba(0,0,0,.12)}.ch button:focus-visible{outline:2px solid currentColor}
+.ch.sel{outline:2px solid #6d28d9}.ch.dup{animation:sh .35s}.ch.bad{background:#fee2e2;color:#991b1b;border:1px dashed #dc2626}
+@keyframes in{from{transform:scale(.7);opacity:0}}@keyframes sh{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.box input{flex:1;min-width:120px;border:0;outline:0;font:inherit;padding:6px 4px;background:none}
+ul.sg{position:absolute;left:0;right:0;margin:4px 0 0;padding:6px;list-style:none;background:#fff;border:1px solid #e3ded2;border-radius:12px;box-shadow:0 14px 28px rgba(0,0,0,.12);z-index:4}
+.sg li{padding:8px 10px;border-radius:8px;cursor:pointer}.sg li[aria-selected=true]{background:#efe7fd}.sg mark{background:none;font-weight:700;color:#6d28d9}
+.nt{font-size:13px;color:#7a7468;min-height:20px;margin-top:6px}.nt.e{color:#b91c1c}
+@media(max-width:520px){.cd{padding:20px}}
+@media(prefers-reduced-motion:reduce){.ch{animation:none!important}}
+</style></head><body><main class="cd"><h1>Profile details</h1>
+<div class="fd" id="f1"></div><div class="fd" id="f2"></div><div id="lv" aria-live="polite" style="position:absolute;left:-9999px"></div></main>
+<script>
+const PAL=[["#ede9fe","#5b21b6"],["#dcfce7","#166534"],["#ffedd5","#9a3412"],["#e0f2fe","#075985"],["#fce7f3","#9d174d"]];
+const SK=["Accessibility","Animation","API design","Brand strategy","CSS architecture","Data viz","Design systems","Illustration","Motion design","Prototyping","React","Typography","User research","UX writing"];
+const lv=document.getElementById("lv");
+function make(root,{label,max,ph,sugg,email,init}){
+const id=Math.random().toString(36).slice(2,6);let tags=[],armed=false,cur=-1,list=[];
+root.innerHTML=`<label for="i${id}">${label}<small id="c${id}"></small></label><div class="box" id="b${id}"></div><ul class="sg" id="s${id}" role="listbox" hidden></ul><div class="nt" id="n${id}"></div>`;
+const box=root.querySelector(".box"),inp=document.createElement("input"),sg=root.querySelector(".sg"),nt=root.querySelector(".nt"),ct=root.querySelector("small");
+inp.id="i"+id;inp.placeholder=ph;inp.setAttribute("role","combobox");inp.setAttribute("aria-expanded","false");inp.setAttribute("aria-controls","s"+id);inp.autocomplete="off";
+function paint(){box.querySelectorAll(".ch").forEach(c=>c.remove());tags.forEach((t,i)=>{const c=document.createElement("span");c.className="ch"+(t.bad?" bad":"")+(armed&&i==tags.length-1?" sel":"");const p=PAL[t.k%5];c.style.setProperty("--b",p[0]);c.style.setProperty("--f",p[1]);c.innerHTML=`${t.v.replace(/</g,"&lt;")}<button type="button" aria-label="Remove ${t.v.replace(/"/g,"")}">×</button>`;c.querySelector("button").onclick=()=>{rm(i);inp.focus()};box.insertBefore(c,inp)});
+ct.textContent=max?tags.length+" / "+max:"";inp.disabled=max&&tags.length>=max;if(inp.disabled)note("Limit reached — remove one to add more.");else if(!tags.some(t=>t.bad))note("");}
+function note(m,e){nt.textContent=m;nt.className="nt"+(e?" e":"")}
+function add(v){v=v.trim();if(!v)return;if(max&&tags.length>=max)return;const dup=tags.findIndex(t=>t.v.toLowerCase()==v.toLowerCase());if(dup>-1){paint();const c=box.querySelectorAll(".ch")[dup];c.classList.add("dup");setTimeout(()=>c.classList.remove("dup"),400);note(`“${v}” is already added.`,1);return}
+const bad=email&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);tags.push({v,k:tags.length,bad});lv.textContent="Added "+v;paint();if(bad)note(`“${v}” isn't a valid email — fix or remove it.`,1)}
+function rm(i){const t=tags.splice(i,1)[0];lv.textContent="Removed "+t.v;armed=false;paint();if(email&&!tags.some(x=>x.bad))note("")}
+function sug(){const v=inp.value.trim().toLowerCase();list=sugg&&v?sugg.filter(s=>s.toLowerCase().includes(v)&&!tags.some(t=>t.v.toLowerCase()==s.toLowerCase())).slice(0,6):[];cur=-1;
+sg.innerHTML=list.map((s,i)=>{const k=s.toLowerCase().indexOf(v);return`<li role="option" id="o${id}${i}" data-i="${i}">${s.slice(0,k)}<mark>${s.slice(k,k+v.length)}</mark>${s.slice(k+v.length)}</li>`}).join("");sg.hidden=!list.length;inp.setAttribute("aria-expanded",!sg.hidden)}
+function hi(){sg.querySelectorAll("li").forEach((l,i)=>l.setAttribute("aria-selected",i==cur));inp.setAttribute("aria-activedescendant",cur>-1?"o"+id+cur:"")}
+inp.addEventListener("input",()=>{armed=false;paint();const v=inp.value;if(v.includes(",")||v.includes("\n")){v.split(/[,\n]/).forEach((p,i,a)=>{if(i<a.length-1)add(p)});inp.value=v.split(/[,\n]/).pop()}sug()});
+inp.addEventListener("paste",e=>{const t=(e.clipboardData||window.clipboardData).getData("text");if(/[,\n;]/.test(t)){e.preventDefault();t.split(/[,\n;]/).forEach(add);inp.value="";sug()}});
+inp.addEventListener("keydown",e=>{if(e.key=="ArrowDown"&&!sg.hidden){e.preventDefault();cur=Math.min(list.length-1,cur+1);hi()}else if(e.key=="ArrowUp"&&!sg.hidden){e.preventDefault();cur=Math.max(0,cur-1);hi()}
+else if(e.key=="Enter"){e.preventDefault();if(cur>-1)add(list[cur]);else add(inp.value);inp.value="";sug()}
+else if(e.key=="Tab"&&inp.value.trim()){add(inp.value);inp.value="";sug()}
+else if(e.key=="Escape"){sg.hidden=true}
+else if(e.key=="Backspace"&&!inp.value&&tags.length){if(armed)rm(tags.length-1);else{armed=true;paint()}}});
+sg.addEventListener("mousedown",e=>{const l=e.target.closest("li");if(l){e.preventDefault();add(list[+l.dataset.i]);inp.value="";sug();inp.focus()}});
+inp.addEventListener("blur",()=>{if(inp.value.trim()&&!sugg){add(inp.value);inp.value=""}sg.hidden=true});
+box.addEventListener("click",e=>{if(e.target===box)inp.focus()});
+box.appendChild(inp);(init||[]).forEach(add);paint()}
+make(document.getElementById("f1"),{label:"Skills",max:8,ph:"Add a skill…",sugg:SK,init:["Typography","React"]});
+make(document.getElementById("f2"),{label:"Email recipients",ph:"name@example.com",email:true,init:["ana@lumen.example"]});
+</script></body></html>

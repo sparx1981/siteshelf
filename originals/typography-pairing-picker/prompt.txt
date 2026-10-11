@@ -1,0 +1,11 @@
+Canvas & base: Two-pane layout: left control rail (300px, #fff) and right live preview on cream (#faf6ee). Ink #1f1b16, accent #b4451f.
+
+Typography: UI in Inter; the preview uses the selected pair (Playfair Display + Source Sans 3, Space Grotesk + Inter, Fraunces + Work Sans, DM Serif Display + DM Sans, Bebas Neue + Lora).
+
+Layout: Rail holds pair cards (radio list), heading size slider (32–72), body size slider (15–22), heading weight select and a generated CSS box with Copy. Preview shows an article headline, deck, two paragraphs, a pull quote and a button.
+
+Interaction: Selecting a pair swaps fonts instantly; sliders update CSS custom properties; the CSS snippet regenerates live; Copy gives "Copied" feedback. Arrow keys move through pairs.
+
+Responsive: Rail stacks above the preview below 860px.
+
+Rules: Single HTML file, all fonts from Google Fonts in one link, fallback stacks, prefers-reduced-motion, invented article text.

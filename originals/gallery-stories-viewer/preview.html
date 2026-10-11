@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Stories</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#0b0b0f;color:#fff;font:16px/1.4 Figtree,system-ui,sans-serif;min-height:100vh;padding:28px 20px}
+h1{font-size:22px;margin:0 0 18px}.tray{display:flex;gap:18px;overflow-x:auto;padding:6px 2px 14px}
+.av{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:13px;color:#cfd0da}.av:focus-visible .rg{outline:3px solid #fff;outline-offset:3px}
+.rg{width:76px;height:76px;border-radius:50%;padding:3px;background:conic-gradient(#f59e0b,#ec4899,#8b5cf6,#f59e0b)}.seen .rg{background:#3a3b46}
+.rg i{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;border:3px solid #0b0b0f;font-style:normal;font-weight:800;font-size:22px}
+.hint{color:#8c8d9c;margin-top:12px}
+.vw{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:10;display:grid;place-items:center}
+.stg{position:relative;width:min(420px,100vw);height:min(746px,100vh);aspect-ratio:9/16;border-radius:18px;overflow:hidden;user-select:none;touch-action:pan-y;background:#222}
+.sl{position:absolute;inset:0}.sl i{position:absolute;border-radius:50%}
+.sl.z{animation:zm 4s linear forwards}@keyframes zm{to{transform:scale(1.08)}}
+.pb{position:absolute;top:10px;left:10px;right:10px;display:flex;gap:4px;z-index:3}.pb b{flex:1;height:3px;border-radius:9px;background:rgba(255,255,255,.35);overflow:hidden}.pb b i{display:block;height:100%;width:0;background:#fff}
+.hd{position:absolute;top:22px;left:12px;right:12px;display:flex;align-items:center;gap:10px;z-index:3;font-size:14px;transition:opacity .2s}
+.hd .m{width:34px;height:34px;border-radius:50%;background:#fff3;display:grid;place-items:center;font-weight:800}.hd .sp{flex:1}
+.hd button{all:unset;cursor:pointer;font-size:26px;width:38px;height:38px;text-align:center;border-radius:50%}.hd button:focus-visible{outline:3px solid #fff}
+.cp{position:absolute;left:20px;right:20px;bottom:44px;font-size:24px;font-weight:800;line-height:1.2;text-shadow:0 2px 14px rgba(0,0,0,.5);z-index:2;transition:opacity .2s}
+.hold .hd,.hold .cp,.hold .pb{opacity:0}
+.zn{position:absolute;top:70px;bottom:0;width:38%;z-index:2;cursor:pointer}.zl{left:0}.zr{right:0}
+@media(max-width:480px){.stg{width:100vw;height:100vh;aspect-ratio:auto;border-radius:0}}
+@media(prefers-reduced-motion:reduce){.sl.z{animation:none}}
+</style></head><body><h1>Stories</h1><div class="tray" id="tr" role="list"></div><p class="hint">Tap a ring. Tap right/left to skip, hold to pause.</p>
+<div class="vw" id="vw" hidden role="dialog" aria-modal="true" aria-label="Story viewer"><div class="stg" id="sg"><div class="pb" id="pb"></div><div class="hd"><span class="m" id="mk"></span><b id="hn"></b><span class="sp"></span><span id="tm" style="opacity:.7"></span><button id="cl" aria-label="Close stories">×</button></div><div id="sl"></div><div class="cp" id="cp" aria-live="polite"></div><div class="zn zl" id="zl" aria-label="Previous"></div><div class="zn zr" id="zr" aria-label="Next"></div></div></div>
+<script>
+const U=[{n:"mira.k",c:["#7c3aed","#ec4899"],s:[["Sunrise ritual",["#f59e0b","#ec4899"]],["Coffee, then code",["#78350f","#d97706"]],["Out the door",["#0ea5e9","#6366f1"]]],t:"2h"},
+{n:"dev.oro",c:["#059669","#14b8a6"],s:[["Trail notes",["#065f46","#34d399"]],["Summit in sight",["#1e3a8a","#93c5fd"]]],t:"5h"},
+{n:"juno.lane",c:["#e11d48","#f97316"],s:[["New print drop",["#be123c","#fb923c"]],["Behind the press",["#312e81","#a78bfa"]],["Order links soon",["#0f766e","#99f6e4"]],["Thank you",["#a21caf","#f0abfc"]]],t:"9h"},
+{n:"ansel.wu",c:["#2563eb","#06b6d4"],s:[["Harbour at dawn",["#0c4a6e","#7dd3fc"]]],t:"1d"}];
+const $=i=>document.getElementById(i),DUR=matchMedia("(prefers-reduced-motion:reduce)").matches?6000:4000;let seen=new Set(),u=0,s=0,start=0,el=0,raf=0,paused=false,opener=null;
+$("tr").innerHTML=U.map((x,i)=>`<button class="av" role="listitem" data-i="${i}" aria-label="Open ${x.n}'s story"><span class="rg"><i style="background:linear-gradient(135deg,${x.c[0]},${x.c[1]})">${x.n[0].toUpperCase()}</i></span>${x.n}</button>`).join("");
+function art(sl){const[a,b]=sl[1];return`<div class="sl z" style="background:linear-gradient(160deg,${a},${b})"><i style="width:70%;aspect-ratio:1;right:-20%;top:20%;background:rgba(255,255,255,.14)"></i><i style="width:36%;aspect-ratio:1;left:8%;bottom:26%;background:rgba(255,255,255,.2)"></i><i style="width:14%;aspect-ratio:1;left:40%;top:14%;background:rgba(255,255,255,.3)"></i></div>`}
+function show(){const x=U[u],sl=x.s[s];$("sl").innerHTML=art(sl);$("cp").textContent=sl[0];$("hn").textContent=x.n;$("tm").textContent=x.t;$("mk").textContent=x.n[0].toUpperCase();$("mk").style.background=`linear-gradient(135deg,${x.c[0]},${x.c[1]})`;
+$("pb").innerHTML=x.s.map((_,i)=>`<b><i style="width:${i<s?100:0}%"></i></b>`).join("");el=0;start=performance.now();paused=false;$("sg").classList.remove("hold");cancelAnimationFrame(raf);raf=requestAnimationFrame(loop)}
+function loop(t){if(!paused){el+=t-start}start=t;const f=Math.min(1,el/DUR),seg=$("pb").children[s];if(seg)seg.firstChild.style.width=f*100+"%";if(f>=1){next();return}raf=requestAnimationFrame(loop)}
+function next(){if(s<U[u].s.length-1){s++;show()}else{seen.add(u);mark();if(u<U.length-1){u++;s=0;show()}else close()}}
+function prev(){if(s>0){s--;show()}else if(u>0){u--;s=0;show()}else show()}
+function mark(){document.querySelectorAll(".av").forEach((a,i)=>a.classList.toggle("seen",seen.has(i)))}
+function open(i,b){opener=b;u=i;s=0;$("vw").hidden=false;show();$("cl").focus()}
+function close(){cancelAnimationFrame(raf);seen.add(u);mark();$("vw").hidden=true;opener&&opener.focus()}
+$("tr").addEventListener("click",e=>{const b=e.target.closest(".av");if(b)open(+b.dataset.i,b)});
+$("zr").onclick=()=>{if(!hold)next()};$("zl").onclick=()=>{if(!hold)prev()};$("cl").onclick=close;
+let hold=false,ht=0;function down(){ht=Date.now();hold=false;setTimeout(()=>{if(ht){hold=true;paused=true;$("sg").classList.add("hold")}},180)}
+function up(){ht=0;if(paused){paused=false;$("sg").classList.remove("hold");setTimeout(()=>hold=false,0)}}
+["zl","zr"].forEach(i=>{$(i).addEventListener("pointerdown",down);$(i).addEventListener("pointerup",up);$(i).addEventListener("pointerleave",up);$(i).addEventListener("pointercancel",up)});
+document.addEventListener("keydown",e=>{if($("vw").hidden)return;if(e.key=="Escape")close();if(e.key=="ArrowRight")next();if(e.key=="ArrowLeft")prev();if(e.key==" "&&document.activeElement.id!="cl"){e.preventDefault();paused=!paused;$("sg").classList.toggle("hold",paused)}});
+</script></body></html>

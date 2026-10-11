@@ -1,0 +1,11 @@
+Canvas & base: Soft sky gradient page (#e8f1ff to #fdf4ff), cards white with 18px radius, each tinted by a left colour stripe. Accent #4f46e5.
+
+Typography: Archivo for numerals (tabular, 40px) and labels, Inter for UI.
+
+Layout: Header with title and an "Add event" form (name, date-time, colour swatches). Below, a responsive grid of countdown cards: name, target date, four unit blocks (days, hrs, min, sec) and a Remove button.
+
+Interaction: All cards tick each second; digits that change get a quick flip animation. New events insert sorted by soonest. Past events show "Happened 3 days ago" in muted style and move to the end. Form validates name and a future-or-past valid date. Data persists in memory with try/catch localStorage.
+
+Responsive: Grid is 3, 2, then 1 columns; the form wraps.
+
+Rules: Single HTML file, seeded invented events relative to now, prefers-reduced-motion disables flips, aria-live announcements on add/remove.

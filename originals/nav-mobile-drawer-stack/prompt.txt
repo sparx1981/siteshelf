@@ -1,0 +1,11 @@
+Canvas & base: Phone-width stage (max 420px) centred on a grey page, with a white app bar and hamburger. Menu is a full-height white sheet with a #0e7490 accent.
+
+Typography: Outfit; top-level items 20px medium, sub-items 17px, panel title 13px uppercase.
+
+Layout: Panel stack: Root (Shop, Learn, Support, Account), Shop (Women, Men, Kids, Sale) with deeper panels (Women → Jackets, Knitwear, Boots). Each row with a chevron if it has children.
+
+Interaction: Opening the menu focuses the first item and locks scroll. Tapping a parent slides the next panel in from the right and the old one out left; the header shows a Back button and the panel title. Back reverses; Escape goes back one level then closes. Leaf link shows a toast "Navigated to …". Focus is restored to the hamburger on close.
+
+Responsive: On screens wider than 600px the phone stage remains 420px wide.
+
+Rules: Single HTML file, invented store, prefers-reduced-motion cross-fades, aria-expanded on hamburger, hidden panels are inert.

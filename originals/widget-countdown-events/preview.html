@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Countdowns</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:linear-gradient(160deg,#e8f1ff,#fdf4ff);color:#1b1f3a;font:15px/1.5 Inter,system-ui,sans-serif;padding:36px 20px}
+.w{max-width:1000px;margin:0 auto}h1{font:700 30px Archivo;margin:0 0 16px}
+form{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;background:#fff;border-radius:16px;padding:16px;margin-bottom:22px;box-shadow:0 6px 20px rgba(79,70,229,.08)}
+.f{display:flex;flex-direction:column;gap:4px;flex:1;min-width:160px}.f label{font-size:12px;font-weight:600;color:#5b5f86}
+input[type=text],input[type=datetime-local]{padding:10px 12px;border:1.5px solid #d7daf0;border-radius:10px;font:inherit}
+input:focus-visible,button:focus-visible{outline:3px solid rgba(79,70,229,.4)}
+.sw{display:flex;gap:6px;padding:8px 0}.sw label{width:24px;height:24px;border-radius:50%;cursor:pointer;position:relative}.sw input{position:absolute;opacity:0}
+.sw label:has(input:checked){box-shadow:0 0 0 3px #fff,0 0 0 5px #1b1f3a}.sw label:has(input:focus-visible){outline:3px solid #4f46e5;outline-offset:3px}
+.add{padding:11px 20px;border:0;border-radius:10px;background:#4f46e5;color:#fff;font:600 15px Inter;cursor:pointer}
+.er{color:#c0264b;font-size:13px;width:100%;min-height:18px}
+.g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.c{background:#fff;border-radius:18px;padding:18px 18px 14px;border-left:6px solid var(--c);box-shadow:0 6px 20px rgba(27,31,58,.07)}
+.c h2{font:700 19px Archivo;margin:0}.c .dt{color:#6b6f94;font-size:13px;margin-bottom:12px}
+.u{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;text-align:center}
+.u div{background:#f4f5ff;border-radius:10px;padding:8px 2px}.u b{display:block;font:700 30px/1.1 Archivo;font-variant-numeric:tabular-nums}.u span{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#6b6f94}
+.u b.fl{animation:fl .35s}@keyframes fl{0%{transform:rotateX(90deg);opacity:.2}100%{transform:none;opacity:1}}
+.c.past{opacity:.65;border-left-color:#b9bcd6}.c.past .u{display:none}.past .ph{font:600 18px Archivo;padding:10px 0}
+.rm{margin-top:10px;background:none;border:0;color:#6b6f94;font:600 13px Inter;cursor:pointer;padding:4px 0}.rm:hover{color:#c0264b}
+@media(max-width:860px){.g{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.g{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){.u b.fl{animation:none}}
+</style></head><body><div class="w"><h1>Countdowns</h1>
+<form id="f" novalidate><div class="f"><label for="n">Event name</label><input type="text" id="n" maxlength="40" placeholder="Launch day"></div><div class="f"><label for="d">Date and time</label><input type="datetime-local" id="d"></div>
+<div class="f" style="flex:none;min-width:0"><span style="font-size:12px;font-weight:600;color:#5b5f86">Colour</span><div class="sw" id="sw"></div></div><button class="add">Add event</button><div class="er" id="er" role="alert"></div></form>
+<div class="g" id="g"></div><div id="lv" aria-live="polite" style="position:absolute;left:-9999px"></div></div>
+<script>
+const COL=["#4f46e5","#0ea5a4","#f97316","#e11d48"],$=i=>document.getElementById(i);let ev=[],uid=0,last={};
+$("sw").innerHTML=COL.map((c,i)=>`<label style="background:${c}" title="Colour ${i+1}"><input type="radio" name="c" value="${c}"${i?"":" checked"} aria-label="Colour ${i+1}"></label>`).join("");
+const now=Date.now(),H=36e5,D=24*H;
+[["Product launch",now+3*D+5*H,COL[0]],["Team offsite",now+12*D,COL[1]],["Quarter close",now+1*D+2*H,COL[2]],["Beta ended",now-3*D,COL[3]]].forEach(e=>ev.push({id:++uid,n:e[0],t:e[1],c:e[2]}));
+function fmt(t){return new Date(t).toLocaleString(undefined,{dateStyle:"medium",timeStyle:"short"})}
+function render(){ev.sort((a,b)=>{const pa=a.t<Date.now(),pb=b.t<Date.now();return pa-pb||(pa?b.t-a.t:a.t-b.t)});
+$("g").innerHTML=ev.map(e=>`<article class="c" data-id="${e.id}" style="--c:${e.c}"><h2>${e.n.replace(/</g,"&lt;")}</h2><div class="dt">${fmt(e.t)}</div><div class="u" role="timer" aria-label="${e.n} countdown">${["d","h","m","s"].map((u,i)=>`<div><b data-u="${u}">00</b><span>${["days","hrs","min","sec"][i]}</span></div>`).join("")}</div><div class="ph" hidden></div><button class="rm" aria-label="Remove ${e.n}">Remove</button></article>`).join("");last={};tick(true)}
+function tick(first){document.querySelectorAll(".c").forEach(c=>{const e=ev.find(x=>x.id==c.dataset.id),diff=e.t-Date.now();if(diff<=0){if(!c.classList.contains("past")){c.classList.add("past");}const a=Math.abs(diff),d=Math.floor(a/D),hh=Math.floor(a/H);const ph=c.querySelector(".ph");ph.hidden=false;ph.textContent="Happened "+(d>=1?d+(d==1?" day":" days"):hh>=1?hh+"h":"just now")+(d>=1||hh>=1?" ago":"");return}
+const v={d:Math.floor(diff/D),h:Math.floor(diff%D/H),m:Math.floor(diff%H/6e4),s:Math.floor(diff%6e4/1e3)};
+c.querySelectorAll("b").forEach(b=>{const k=c.dataset.id+b.dataset.u,s=String(v[b.dataset.u]).padStart(2,"0");if(b.textContent!==s){b.textContent=s;if(!first&&last[k]!==undefined){b.classList.remove("fl");void b.offsetWidth;b.classList.add("fl")}}last[k]=s})})}
+setInterval(()=>tick(false),1000);
+$("f").addEventListener("submit",e=>{e.preventDefault();const n=$("n").value.trim(),d=$("d").value,er=$("er");if(!n){er.textContent="Give the event a name.";$("n").focus();return}if(!d||isNaN(new Date(d))){er.textContent="Pick a valid date and time.";$("d").focus();return}er.textContent="";
+ev.push({id:++uid,n,t:new Date(d).getTime(),c:document.querySelector("[name=c]:checked").value});$("n").value="";$("d").value="";render();$("lv").textContent="Added "+n});
+$("g").addEventListener("click",e=>{const b=e.target.closest(".rm");if(!b)return;const id=+b.closest(".c").dataset.id,x=ev.find(v=>v.id==id);ev=ev.filter(v=>v.id!=id);render();$("lv").textContent="Removed "+x.n;$("n").focus()});
+render();
+</script></body></html>

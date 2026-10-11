@@ -1,0 +1,11 @@
+Canvas & base: Warm cream page (#fbf5ea), 3-column grid of 280px-tall cards each with a colour block hero (CSS gradient art) and a title. Expanded card is a centred sheet 640px wide over a dim overlay.
+
+Typography: Bricolage Grotesque 700 for titles, Nunito Sans for body.
+
+Layout: Six invented recipe cards: image block with emoji-free CSS shapes, title, time and difficulty chips. Expanded state adds ingredients list (two columns), numbered steps and a Cook button.
+
+Interaction: Click or Enter on a card animates (FLIP) from its rect to the centred sheet; Escape, overlay click or the close button animates back. Focus moves to the close button and returns to the card. Ingredient checkboxes toggle strikethrough.
+
+Responsive: Grid is 2 columns at 900px and 1 at 560px; the sheet is full-screen under 560px.
+
+Rules: Single HTML file, no images, aria-modal dialog, prefers-reduced-motion skips animation, invented recipes.

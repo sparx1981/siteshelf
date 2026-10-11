@@ -1,0 +1,11 @@
+Canvas & base: Pale warm grey page (#f4f2ee); centred 560px card. Chips use tinted backgrounds from a rotating five-colour palette. Accent #6d28d9.
+
+Typography: Onest throughout; chip text 14px semibold, label 14px.
+
+Layout: Label "Skills (max 8)", a bordered field containing chips and an inline text input, a suggestions listbox below, a counter, and a second field "Email recipients" using the same control with email validation.
+
+Interaction: Enter, comma or Tab (when text exists) commits a tag; Backspace on empty input highlights then removes the last chip; chips have an × button; pasting "a, b, c" splits into tags; duplicates flash instead of adding; limit disables input at 8 with a message. Suggestions filter as you type, navigated by arrows. In the email field invalid entries become red chips with an explanatory tooltip-like note.
+
+Responsive: Field wraps chips across lines; card padding tightens under 520px.
+
+Rules: Single HTML file, role=combobox/listbox, aria-live announcements for add/remove, prefers-reduced-motion, invented data.

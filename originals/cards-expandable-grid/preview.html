@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Expandable Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#fbf5ea;color:#2b2118;font:16px/1.5 "Nunito Sans",system-ui,sans-serif;padding:40px 20px}body.lock{overflow:hidden}
+h1{font:700 34px "Bricolage Grotesque";margin:0 auto 24px;max-width:1040px}
+.g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:1040px;margin:0 auto}
+.c{all:unset;box-sizing:border-box;display:flex;flex-direction:column;height:280px;border-radius:18px;background:#fff;overflow:hidden;cursor:pointer;box-shadow:0 4px 14px rgba(43,33,24,.08);transition:transform .2s,box-shadow .2s}
+.c:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(43,33,24,.14)}.c:focus-visible{outline:3px solid #d9480f}
+.art{flex:1;position:relative;overflow:hidden}.art i{position:absolute;border-radius:50%}
+.in{padding:14px 16px}.in h2{font:700 20px "Bricolage Grotesque";margin:0 0 6px}.ch{display:flex;gap:6px;font-size:13px}.ch span{background:#f6ecda;padding:2px 10px;border-radius:99px}
+.ov{position:fixed;inset:0;background:rgba(43,33,24,.5);z-index:10;opacity:0;transition:opacity .3s}.ov.show{opacity:1}
+.sh{position:fixed;background:#fff;border-radius:18px;overflow:auto;z-index:11;box-shadow:0 30px 80px rgba(0,0,0,.35);transform-origin:top left}
+.sh .art{flex:none;height:220px}.det{padding:24px 28px 32px}.det h2{font:700 30px "Bricolage Grotesque";margin:0 0 6px}
+.x{position:absolute;top:14px;right:14px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:#fff;font-size:20px;cursor:pointer}.x:focus-visible{outline:3px solid #d9480f}
+.ing{columns:2;margin:12px 0 20px;padding:0;list-style:none}.ing li{margin-bottom:8px}.ing label{cursor:pointer}.ing input:checked+span{text-decoration:line-through;color:#9a8c7c}
+ol{padding-left:22px}ol li{margin-bottom:8px}.go{padding:12px 26px;border:0;border-radius:99px;background:#d9480f;color:#fff;font:700 16px "Nunito Sans";cursor:pointer}
+@media(max-width:900px){.g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.g{grid-template-columns:minmax(0,1fr)}.ing{columns:1}.sh.full{border-radius:0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><h1>Tonight's table</h1><div class="g" id="g"></div><div id="h"></div>
+<script>
+const R=[["Charred leek risotto","35 min","Medium","#2f6b4f","#b7d36a",["Arborio rice 300g","2 leeks","Vegetable stock 1L","Parmesan 60g","Butter 30g","White wine 100ml"],["Char the leeks in a dry pan until blackened at the edges.","Toast the rice in butter for two minutes.","Add wine, then stock a ladle at a time, stirring.","Fold in leeks and cheese off the heat."]],
+["Burnt-honey flatbreads","25 min","Easy","#b4531f","#f2c46d",["Plain flour 300g","Greek yogurt 200g","Honey 3 tbsp","Thyme","Flaky salt"],["Mix flour and yogurt into a soft dough.","Rest for ten minutes.","Roll thin and cook in a hot pan.","Brush with honey and thyme."]],
+["Smoked paprika chickpeas","20 min","Easy","#8b2e2e","#f0b87a",["Chickpeas 2 tins","Smoked paprika 2 tsp","Garlic 3 cloves","Olive oil","Lemon"],["Drain and dry the chickpeas.","Fry in oil until crisp.","Add garlic and paprika for a minute.","Finish with lemon."]],
+["Blackberry tart","1 hr 10","Hard","#4b2a6b","#c58be0",["Shortcrust pastry","Blackberries 400g","Sugar 80g","Almond meal 50g","Egg"],["Blind-bake the case.","Dust with almond meal.","Pile in berries and sugar.","Bake until jammy."]],
+["Sesame noodle bowl","15 min","Easy","#1f5f7a","#9fd8e8",["Soba 200g","Tahini 3 tbsp","Soy sauce 2 tbsp","Cucumber","Spring onion"],["Boil and rinse the noodles.","Whisk tahini, soy and water.","Toss with cucumber.","Top with spring onion."]],
+["Slow lamb shoulder","4 hr","Medium","#6d4a2b","#e4b98c",["Lamb shoulder 1.8kg","Garlic head","Rosemary","Anchovies 4","Stock 500ml"],["Stud the lamb with garlic and anchovy.","Roast low, covered, for four hours.","Rest for twenty minutes.","Pull apart with the juices."]]];
+const g=document.getElementById("g"),h=document.getElementById("h"),rm=matchMedia("(prefers-reduced-motion:reduce)");
+const art=(a,b)=>`<div class="art" style="background:linear-gradient(135deg,${a},${b})"><i style="width:55%;aspect-ratio:1;right:-10%;bottom:-25%;background:rgba(255,255,255,.18)"></i><i style="width:30%;aspect-ratio:1;left:12%;top:18%;background:rgba(255,255,255,.28)"></i></div>`;
+g.innerHTML=R.map((r,i)=>`<button class="c" data-i="${i}" aria-haspopup="dialog">${art(r[3],r[4])}<div class="in"><h2>${r[0]}</h2><div class="ch"><span>${r[1]}</span><span>${r[2]}</span></div></div></button>`).join("");
+let cur=null;
+function rect(el){const r=el.getBoundingClientRect();return{l:r.left,t:r.top,w:r.width,h:r.height}}
+function target(){const m=innerWidth<=560,w=m?innerWidth:Math.min(640,innerWidth-40),hh=m?innerHeight:Math.min(innerHeight-48,700);return{l:(innerWidth-w)/2,t:(innerHeight-hh)/2,w,h:hh}}
+function place(s,r){Object.assign(s.style,{left:r.l+"px",top:r.t+"px",width:r.w+"px",height:r.h+"px"})}
+g.addEventListener("click",e=>{const c=e.target.closest(".c");if(!c||cur)return;const r=R[+c.dataset.i],from=rect(c);
+h.innerHTML=`<div class="ov"></div><div class="sh" role="dialog" aria-modal="true" aria-labelledby="dt"><button class="x" aria-label="Close">×</button>${art(r[3],r[4])}<div class="det"><h2 id="dt">${r[0]}</h2><div class="ch"><span>${r[1]}</span><span>${r[2]}</span></div><h3>Ingredients</h3><ul class="ing">${r[5].map(x=>`<li><label><input type="checkbox"> <span>${x}</span></label></li>`).join("")}</ul><h3>Method</h3><ol>${r[6].map(x=>`<li>${x}</li>`).join("")}</ol><button class="go">Start cooking</button></div></div>`;
+const ov=h.firstChild,sh=h.lastChild,to=target();sh.classList.toggle("full",innerWidth<=560);cur={c,sh,ov,from};document.body.classList.add("lock");
+place(sh,from);sh.style.opacity=.6;c.style.visibility="hidden";
+requestAnimationFrame(()=>{if(!rm.matches)sh.style.transition="all .35s cubic-bezier(.2,.8,.2,1)";place(sh,to);sh.style.opacity=1;ov.classList.add("show")});
+sh.querySelector(".x").focus();ov.onclick=close;sh.querySelector(".x").onclick=close});
+function close(){if(!cur)return;const{c,sh,ov,from}=cur;cur=null;ov.classList.remove("show");if(rm.matches){done()}else{sh.style.transition="all .3s ease";place(sh,rect(c));sh.style.opacity=.6;setTimeout(done,320)}
+function done(){h.innerHTML="";c.style.visibility="";document.body.classList.remove("lock");c.focus()}}
+document.addEventListener("keydown",e=>{if(!cur)return;if(e.key=="Escape")close();if(e.key=="Tab"){const f=[...cur.sh.querySelectorAll("button,input")];const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement==a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement==z){e.preventDefault();a.focus()}}});
+</script></body></html>

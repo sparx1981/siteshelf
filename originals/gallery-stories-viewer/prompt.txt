@@ -1,0 +1,11 @@
+Canvas & base: Near-black page (#0b0b0f) with a row of circular story avatars (gradient ring for unseen, grey for seen). Viewer is a 9:16 stage, max 420px wide, with CSS-drawn slide art (gradients and shapes) and overlaid captions.
+
+Typography: Figtree; captions 22px bold white with a soft text shadow; handles 14px.
+
+Layout: Avatar tray at the top of the page. Opening a story shows segmented progress bars (one per slide), a header with avatar, handle and time, close button, slide art, caption, and invisible left/right tap zones.
+
+Interaction: Each slide plays for 4 seconds; the current progress segment fills smoothly. Tap right = next, left = previous; holding pointer down pauses (and hides UI); finishing the last slide moves to the next person, then closes. Arrow keys, Space (pause) and Escape work. Viewed rings turn grey.
+
+Responsive: Stage becomes full-viewport on screens narrower than 480px.
+
+Rules: Single HTML file, no images, invented people, prefers-reduced-motion extends duration and removes zoom, aria-label on controls.

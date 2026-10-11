@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Regex Tester</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#eef2f7;color:#14213d;font:15px/1.5 Inter,system-ui,sans-serif;padding:28px 20px}
+.w{max-width:1040px;margin:0 auto}h1{font-size:24px;margin:0 0 14px}
+.pn{background:#fff;border-radius:14px;padding:16px;box-shadow:0 4px 16px rgba(20,33,61,.07);margin-bottom:16px}
+.bar{display:flex;align-items:center;gap:6px;border:1.5px solid #d3dbe8;border-radius:10px;padding:4px 8px;font:16px "JetBrains Mono",monospace}.bar:focus-within{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.2)}.bar.bad{border-color:#dc2626}
+.bar input{flex:1;min-width:0;border:0;outline:0;font:inherit;padding:8px 2px;background:none}.bar span{color:#7b8aa6}
+.fl{display:flex;gap:4px}.fl button{font:600 13px "JetBrains Mono";border:1px solid #d3dbe8;background:#fff;border-radius:6px;padding:4px 8px;cursor:pointer}.fl button[aria-pressed=true]{background:#2563eb;color:#fff;border-color:#2563eb}
+button:focus-visible{outline:3px solid rgba(37,99,235,.45)}
+.er{color:#dc2626;font:13px "JetBrains Mono";min-height:20px;margin-top:6px}
+.sm{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center;font-size:13px;color:#5b6b88}.sm button{border:1px solid #d3dbe8;background:#f7f9fc;border-radius:99px;padding:4px 12px;cursor:pointer;font:600 13px Inter}.sm button:hover{background:#e8efff}
+.cols{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px}
+.ed{position:relative;height:240px;border:1.5px solid #d3dbe8;border-radius:10px;font:14px/1.6 "JetBrains Mono",monospace;overflow:hidden}
+.ed pre,.ed textarea{position:absolute;inset:0;margin:0;padding:12px;font:inherit;white-space:pre-wrap;word-break:break-word;overflow:auto;border:0}
+.ed pre{color:transparent;pointer-events:none}.ed textarea{background:transparent;resize:none;outline:0;color:#14213d}
+.ed:focus-within{border-color:#2563eb}
+mark{background:#fde68a;border-radius:3px;color:transparent}mark.g1{background:#bfdbfe}mark.g2{background:#bbf7d0}
+.st{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.st b{font-size:15px}.cpb{border:1px solid #d3dbe8;background:#fff;border-radius:8px;padding:5px 12px;font:600 13px Inter;cursor:pointer}
+table{width:100%;border-collapse:collapse;font:13px "JetBrains Mono",monospace}th{text-align:left;font:600 12px Inter;color:#5b6b88;padding:6px;border-bottom:1px solid #e1e7f0}td{padding:6px;border-bottom:1px solid #eef2f7;word-break:break-all}
+tr[data-i]{cursor:pointer}tr[data-i]:hover{background:#f2f6ff}.gp{display:inline-block;padding:0 6px;border-radius:4px;margin:1px;background:#e8efff}
+.res{max-height:240px;overflow:auto}.empty{color:#7b8aa6;padding:10px 0}
+@media(max-width:800px){.cols{grid-template-columns:minmax(0,1fr)}.bar{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="w"><h1>Regex Tester</h1>
+<div class="pn"><div class="bar" id="br"><span>/</span><input id="pt" aria-label="Pattern" spellcheck="false"><span>/</span><div class="fl" role="group" aria-label="Flags"><button aria-pressed="true" data-f="g" title="global">g</button><button aria-pressed="false" data-f="i" title="ignore case">i</button><button aria-pressed="false" data-f="m" title="multiline">m</button><button aria-pressed="false" data-f="s" title="dotAll">s</button></div></div>
+<div class="er" id="er" role="alert"></div>
+<div class="sm">Samples: <button data-s="0">Emails</button><button data-s="1">Dates</button><button data-s="2">Hex colours</button><button data-s="3">Words</button></div></div>
+<div class="cols"><div class="pn"><div class="st"><b>Test string</b></div><div class="ed"><pre id="hl" aria-hidden="true"></pre><textarea id="tx" aria-label="Test string" spellcheck="false"></textarea></div></div>
+<div class="pn"><div class="st"><b id="ct" aria-live="polite">0 matches</b><button class="cpb" id="cp">Copy regex</button></div><div class="res" id="rs"></div></div></div></div>
+<script>
+const SM=[{p:"([\\w.+-]+)@([\\w-]+\\.[\\w.]+)",f:"g",t:"Write to ada@lumen.example or ops+alerts@harbor.test for help.\nNot an email: hello@ or @nobody."},{p:"(\\d{4})-(\\d{2})-(\\d{2})",f:"g",t:"Shipped 2026-03-14, patched 2026-04-02, retired 2027-01-30.\nBad: 26-3-14."},{p:"#([0-9a-f]{3}|[0-9a-f]{6})\\b",f:"gi",t:"Palette: #FF6B35, #1b1b1b, #fff and #12345 (invalid)."},{p:"\\b\\w{6,}\\b",f:"g",t:"Short words vanish; only longer, meaningful vocabulary survives the filter."}];
+const $=i=>document.getElementById(i),fl=new Set(["g"]);let cur=[];
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+function run(){const p=$("pt").value,t=$("tx").value;$("br").classList.remove("bad");$("er").textContent="";cur=[];
+if(!p){$("hl").innerHTML=esc(t)+"\n";$("ct").textContent="0 matches";$("rs").innerHTML='<div class="empty">Enter a pattern to begin.</div>';return}
+let re;try{re=new RegExp(p,[...fl].join(""))}catch(e){$("br").classList.add("bad");$("er").textContent=e.message;$("hl").innerHTML=esc(t)+"\n";$("ct").textContent="Invalid pattern";$("rs").innerHTML="";return}
+const g=fl.has("g");let m;re.lastIndex=0;
+if(g){while((m=re.exec(t))&&cur.length<500){cur.push(m);if(m[0]==="")re.lastIndex++}}else{m=re.exec(t);if(m)cur.push(m)}
+let o="",pos=0;cur.forEach(m=>{if(m.index<pos)return;o+=esc(t.slice(pos,m.index))+"<mark>"+esc(m[0])+"</mark>";pos=m.index+m[0].length});o+=esc(t.slice(pos))+"\n";$("hl").innerHTML=o;
+$("ct").textContent=cur.length+(cur.length==1?" match":" matches");
+$("rs").innerHTML=cur.length?`<table><thead><tr><th>#</th><th>Match</th><th>Index</th><th>Groups</th></tr></thead><tbody>${cur.map((m,i)=>`<tr data-i="${i}" tabindex="0"><td>${i+1}</td><td>${esc(m[0])||"∅"}</td><td>${m.index}</td><td>${m.slice(1).map(x=>x==null?"":`<span class="gp">${esc(x)}</span>`).join("")}</td></tr>`).join("")}</tbody></table>`:'<div class="empty">No matches.</div>'}
+$("pt").oninput=$("tx").oninput=run;$("tx").onscroll=()=>{$("hl").scrollTop=$("tx").scrollTop};
+document.querySelectorAll(".fl button").forEach(b=>b.onclick=()=>{const f=b.dataset.f;fl.has(f)?fl.delete(f):fl.add(f);b.setAttribute("aria-pressed",fl.has(f));run()});
+document.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>{const s=SM[+b.dataset.s];$("pt").value=s.p;$("tx").value=s.t;fl.clear();[...s.f].forEach(c=>fl.add(c));document.querySelectorAll(".fl button").forEach(x=>x.setAttribute("aria-pressed",fl.has(x.dataset.f)));run()});
+function sel(r){const m=cur[+r.dataset.i];$("tx").focus();$("tx").setSelectionRange(m.index,m.index+m[0].length)}
+$("rs").addEventListener("click",e=>{const r=e.target.closest("tr[data-i]");if(r)sel(r)});$("rs").addEventListener("keydown",e=>{if(e.key=="Enter"){const r=e.target.closest("tr[data-i]");if(r)sel(r)}});
+$("cp").onclick=()=>{const t="/"+$("pt").value+"/"+[...fl].join("");(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).catch(()=>{});$("cp").textContent="Copied";setTimeout(()=>$("cp").textContent="Copy regex",1500)};
+document.querySelector("[data-s='0']").click();
+</script></body></html>

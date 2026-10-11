@@ -1,0 +1,11 @@
+Canvas & base: Midnight indigo (#10122b) page with a soft radial glow; centred glass card 520px wide (rgba white .06, 1px border .12). Accent #7c8cff, success #4ade80, error #fb7185.
+
+Typography: Sora for the heading and percentage, Inter for step labels.
+
+Layout: Left-aligned heading, SVG progress ring (140px) with the percentage in the centre, then a vertical checklist of five steps each with a status icon, label and a sub-line.
+
+Interaction: Steps run sequentially with 1–2s durations; the active step shows a spinner and a changing sub-line ("Creating folders… 3 of 8"); finished steps show a tick. A "Simulate failure" toggle makes step 3 fail with a Retry button that resumes. On completion the heading becomes "You're all set" and an Open workspace button appears.
+
+Responsive: Ring shrinks to 110px and padding tightens below 480px.
+
+Rules: Single HTML file, aria-live=polite status, role=progressbar on ring, prefers-reduced-motion removes spin and uses a static icon.

@@ -1,0 +1,11 @@
+Canvas & base: Light grey-blue page (#eef2f7), two white panels. Accent #2563eb; match highlight yellow #fde68a; group colours cycling blue/green/pink.
+
+Typography: Inter for UI, JetBrains Mono for pattern, text and results.
+
+Layout: Pattern bar with / pattern / and flag toggles (g i m s), a sample chips row (Emails, Dates, Hex colours, Words), a test-string textarea with a mirrored highlight layer behind it, and a results panel with match count and a table of match, index and groups.
+
+Interaction: Everything recomputes on input; invalid patterns show the engine error in red without crashing; zero-length matches are guarded; the highlight layer scrolls in sync; clicking a match row selects it in the textarea. A Copy button copies /pattern/flags.
+
+Responsive: Panels stack under 800px.
+
+Rules: Single HTML file, no network, escape HTML in the highlight layer, cap at 500 matches, prefers-reduced-motion, aria-live for the count.

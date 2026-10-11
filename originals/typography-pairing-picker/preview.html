@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Font Pairing Picker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&family=DM+Serif+Display&family=Fraunces:wght@400;600;800&family=Inter:wght@400;600&family=Lora:ital,wght@0,400;1,400&family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@400;600&family=Space+Grotesk:wght@400;500;700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;font:15px/1.5 Inter,system-ui,sans-serif;color:#1f1b16;display:grid;grid-template-columns:300px minmax(0,1fr);min-height:100vh}
+aside{background:#fff;border-right:1px solid #e9e1d2;padding:22px 18px;display:flex;flex-direction:column;gap:18px}
+aside h1{font-size:16px;margin:0}
+.pairs{display:grid;gap:8px;border:0;padding:0;margin:0}.pairs legend{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#7a6f5c;margin-bottom:8px;padding:0}
+.pr{position:relative}.pr input{position:absolute;opacity:0}.pr span{display:block;padding:10px 12px;border:1.5px solid #e9e1d2;border-radius:10px;cursor:pointer}
+.pr b{display:block;font-size:17px}.pr small{color:#7a6f5c}.pr input:checked+span{border-color:#b4451f;background:#fdf2ec}.pr input:focus-visible+span{outline:3px solid rgba(180,69,31,.35)}
+label.s{display:block;font-size:13px;font-weight:600}label.s output{float:right;font-weight:400;color:#7a6f5c}
+input[type=range]{width:100%;accent-color:#b4451f}select{width:100%;padding:8px;border:1.5px solid #e9e1d2;border-radius:8px;font:inherit}
+pre{margin:0;background:#1f1b16;color:#f3e9d6;border-radius:10px;padding:12px;font-size:12px;line-height:1.5;white-space:pre-wrap;overflow:auto}
+.cp{padding:9px;border:0;border-radius:8px;background:#b4451f;color:#fff;font:600 14px Inter;cursor:pointer}
+main{background:#faf6ee;padding:56px clamp(20px,5vw,72px);--hf:"Playfair Display",serif;--bf:"Source Sans 3",sans-serif;--hs:52px;--bs:18px;--hw:700}
+.pv{max-width:680px;margin:0 auto}
+.k{font:600 12px Inter;letter-spacing:.14em;text-transform:uppercase;color:#b4451f}
+h2{font:var(--hw) var(--hs)/1.05 var(--hf);margin:12px 0 14px;transition:font-family .2s}
+.dk{font:400 calc(var(--bs)*1.25)/1.45 var(--bf);color:#5d5445;margin:0 0 22px}
+.pv p{font:400 var(--bs)/1.7 var(--bf);margin:0 0 1.1em}
+blockquote{margin:1.6em 0;font:400 calc(var(--hs)*.5)/1.2 var(--hf);color:#b4451f;border-left:4px solid #b4451f;padding-left:18px}
+.btn{font:600 var(--bs) var(--bf);padding:12px 24px;border:0;border-radius:99px;background:#1f1b16;color:#fff}
+@media(max-width:860px){body{grid-template-columns:minmax(0,1fr)}aside{border-right:0;border-bottom:1px solid #e9e1d2}main{padding:36px 20px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<aside><h1>Font Pairing Picker</h1>
+<fieldset class="pairs" id="ps"><legend>Pairs</legend></fieldset>
+<label class="s">Heading size <output id="o1">52px</output><input type="range" id="r1" min="32" max="72" value="52"></label>
+<label class="s">Body size <output id="o2">18px</output><input type="range" id="r2" min="15" max="22" value="18"></label>
+<label class="s">Heading weight<select id="w"><option value="400">Regular 400</option><option value="700" selected>Bold 700</option><option value="900">Black 900</option></select></label>
+<pre id="css" aria-label="Generated CSS"></pre><button class="cp" id="cp">Copy CSS</button><span id="cm" aria-live="polite" style="font-size:13px;color:#7a6f5c"></span></aside>
+<main id="m"><div class="pv"><div class="k">Essay</div><h2>The quiet craft of reading slowly</h2><p class="dk">Why the best typography is the kind you never notice, and how to choose it anyway.</p>
+<p>A typeface is a voice. Set the same sentence in two faces and a reader will tell you, without hesitation, which one sounds more trustworthy, more playful, more expensive. The words never changed; the air around them did.</p>
+<blockquote>Pair for contrast, not for conflict.</blockquote>
+<p>The safest pairings give each face a job. Let the display face announce, and let the text face carry the load for hundreds of words without tiring the eye. When both try to be interesting, neither is.</p><button class="btn">Continue reading</button></div></main>
+<script>
+const P=[["Playfair Display","Source Sans 3","Classic editorial","'Playfair Display',serif","'Source Sans 3',sans-serif"],["Space Grotesk","Inter","Modern tech","'Space Grotesk',sans-serif","Inter,sans-serif"],["Fraunces","Work Sans","Warm and soft","Fraunces,serif","'Work Sans',sans-serif"],["DM Serif Display","DM Sans","Boutique","'DM Serif Display',serif","'DM Sans',sans-serif"],["Bebas Neue","Lora","Poster","'Bebas Neue',sans-serif","Lora,serif"]];
+const m=document.getElementById("m"),$=i=>document.getElementById(i);
+$("ps").insertAdjacentHTML("beforeend",P.map((p,i)=>`<label class="pr"><input type="radio" name="p" value="${i}"${i?"":" checked"}><span><b style="font-family:${p[3]}">${p[0]}</b><small>${p[1]} · ${p[2]}</small></span></label>`).join(""));
+let cur=0;
+function upd(){const p=P[cur];m.style.setProperty("--hf",p[3]);m.style.setProperty("--bf",p[4]);m.style.setProperty("--hs",$("r1").value+"px");m.style.setProperty("--bs",$("r2").value+"px");m.style.setProperty("--hw",$("w").value);$("o1").textContent=$("r1").value+"px";$("o2").textContent=$("r2").value+"px";
+$("css").textContent=`h1,h2{\n  font-family:${p[3]};\n  font-size:${$("r1").value}px;\n  font-weight:${$("w").value};\n}\nbody{\n  font-family:${p[4]};\n  font-size:${$("r2").value}px;\n}`}
+document.querySelectorAll("[name=p]").forEach(r=>r.onchange=()=>{cur=+r.value;upd()});
+[$("r1"),$("r2"),$("w")].forEach(x=>x.oninput=upd);
+$("cp").onclick=()=>{const t=$("css").textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).catch(()=>{}).finally(()=>{$("cm").textContent="Copied";setTimeout(()=>$("cm").textContent="",1800)})};
+upd();
+</script></body></html>

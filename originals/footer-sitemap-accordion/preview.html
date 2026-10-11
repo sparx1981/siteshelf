@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Footer Sitemap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;font-family:Manrope,system-ui,sans-serif;background:#f1f4f0;color:#101418}
+.stub{height:70vh;display:grid;place-items:center;text-align:center;padding:24px}.stub h1{font-size:34px;margin:0}.stub p{color:#5b665f}
+footer{background:#101418;color:#aeb8c2;padding:56px 24px 24px}
+.in{max-width:1100px;margin:0 auto}
+.top{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(4,minmax(0,1fr));gap:32px}
+.brand b{color:#fff;font-size:22px;display:block;margin-bottom:10px}.brand p{margin:0 0 16px;font-size:15px;line-height:1.6}
+.pill{display:inline-flex;gap:8px;align-items:center;padding:6px 12px;border-radius:99px;background:#1a2128;font-size:13px;color:#d4dde5}.pill i{width:8px;height:8px;border-radius:50%;background:#b6f23d;box-shadow:0 0 0 4px rgba(182,242,61,.18)}
+h3{margin:0}.col button{all:unset;display:block;width:100%;font:800 13px Manrope;letter-spacing:.1em;text-transform:uppercase;color:#fff;padding:4px 0 14px;cursor:default}
+.col ul{list-style:none;margin:0;padding:0}.col li{margin:0 0 10px}
+.col a{color:inherit;text-decoration:none;font-size:15px}.col a:hover,.col a:focus-visible{color:#b6f23d;outline:0;text-decoration:underline}
+.bot{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:40px;padding-top:22px;border-top:1px solid #222b34;font-size:14px}
+.bot .sp{flex:1}
+select{background:#1a2128;color:#e5ebf0;border:1px solid #2b3641;border-radius:8px;padding:8px 10px;font:600 14px Manrope}select:focus-visible{outline:3px solid #b6f23d}
+#up{width:40px;height:40px;border-radius:50%;border:0;background:#b6f23d;color:#101418;font-size:18px;font-weight:800;cursor:pointer}
+#up:focus-visible{outline:3px solid #fff}
+.reg{color:#fff;font-weight:600}
+@media(max-width:760px){.top{grid-template-columns:minmax(0,1fr);gap:0}.brand{margin-bottom:24px}
+.col{border-top:1px solid #222b34}.col button{cursor:pointer;display:flex;justify-content:space-between;padding:16px 0}.col button:after{content:"+";font-size:18px;transition:transform .25s}.col button[aria-expanded=true]:after{transform:rotate(45deg)}
+.col .pn{overflow:hidden;height:0;transition:height .3s}.col li:last-child{margin-bottom:16px}.bot{flex-direction:column;align-items:flex-start}.bot .sp{display:none}}
+@media(min-width:761px){.col .pn{height:auto!important}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style></head><body>
+<div class="stub"><div><h1>Page content</h1><p>Scroll down to the footer.</p></div></div>
+<footer><div class="in"><div class="top">
+<div class="brand"><b>Northwind Labs</b><p>Tools for teams who ship. Built in small batches, supported by humans.</p><span class="pill"><i></i>All systems normal</span></div>
+<div class="col" id="cols"></div></div>
+<div class="bot"><span>© 2026 Northwind Labs, Inc.</span><span class="sp"></span><span class="reg" id="reg" aria-live="polite">Region: English · USD</span>
+<label><span style="position:absolute;left:-9999px">Language</span><select id="lg"><option>English</option><option>Deutsch</option><option>Español</option><option>Français</option></select></label>
+<label><span style="position:absolute;left:-9999px">Currency</span><select id="cu"><option>USD</option><option>EUR</option><option>GBP</option></select></label>
+<button id="up" aria-label="Back to top" hidden>↑</button></div></div></footer>
+<script>
+const D={Product:["Overview","Pricing","Changelog","Integrations","Roadmap"],Company:["About","Careers","Press kit","Contact"],Resources:["Docs","Guides","Community","Status page"],Legal:["Privacy","Terms","Security","Cookies"]};
+const cols=document.getElementById("cols");cols.style.display="contents";
+cols.innerHTML=Object.entries(D).map(([h,l],i)=>`<div class="col"><h3><button aria-expanded="false" aria-controls="p${i}" id="h${i}">${h}</button></h3><div class="pn" id="p${i}" role="region" aria-labelledby="h${i}"><ul>${l.map(x=>`<li><a href="#">${x}</a></li>`).join("")}</ul></div></div>`).join("");
+const mq=matchMedia("(max-width:760px)");
+function setH(p,o){p.style.height=o?p.scrollHeight+"px":"0px"}
+document.querySelectorAll(".col button").forEach(b=>b.onclick=()=>{if(!mq.matches)return;const open=b.getAttribute("aria-expanded")=="true";document.querySelectorAll(".col button").forEach(x=>{x.setAttribute("aria-expanded","false");setH(document.getElementById(x.getAttribute("aria-controls")),false)});if(!open){b.setAttribute("aria-expanded","true");setH(document.getElementById(b.getAttribute("aria-controls")),true)}});
+function sync(){document.querySelectorAll(".col .pn").forEach(p=>{if(!mq.matches)p.style.height="";else if(!p.previousSibling||document.getElementById(p.id.replace("p","h")).getAttribute("aria-expanded")!="true")p.style.height="0px"})}
+mq.addEventListener("change",sync);sync();
+function reg(){document.getElementById("reg").textContent="Region: "+lg.value+" · "+cu.value}lg.onchange=cu.onchange=reg;
+const up=document.getElementById("up");function sc(){up.hidden=scrollY<200}addEventListener("scroll",sc,{passive:true});sc();
+up.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+</script></body></html>

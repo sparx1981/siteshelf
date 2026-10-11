@@ -1,0 +1,11 @@
+Canvas & base: Dark graphite page (#15171c) with a circular 4-quadrant pad board (320px) in green, red, yellow and blue, each dimmed at rest and lit when active. Centre hub shows the round number and a Start button.
+
+Typography: Chakra Petch; round counter 44px, labels 14px uppercase.
+
+Layout: Title, score row (Round, Best), board, controls row (Strict mode toggle, Speed select), status line.
+
+Interaction: Start plays a sequence of lights with tones (Web Audio, created on first click, with a mute toggle). The player repeats by clicking pads or pressing 1–4/Q W A S; each step is checked; correct completion adds a step and speeds up slightly. A mistake shakes the board; in Strict mode the game ends, otherwise the sequence replays once. Best score is kept in memory with try/catch localStorage.
+
+Responsive: Board scales to min(320px, 82vw).
+
+Rules: Single HTML file, aria-live status, pads are buttons with labels, prefers-reduced-motion removes shake and uses brightness only, sound off if AudioContext is unavailable.

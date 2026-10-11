@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cargo Drop — File Transfer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#121826;--mut:#667085;--ln:#e4e7ec;--ac:#2f6bff;--ok:#12b76a;--wn:#f79009;--er:#f04438}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#eef1f6;color:var(--ink);font:14px/1.5 Inter,system-ui,sans-serif;padding:32px 14px}
+.p{max-width:640px;margin:0 auto;background:#fff;border-radius:20px;box-shadow:0 18px 50px #1218261a;overflow:hidden}
+.hd{display:flex;align-items:center;gap:16px;padding:20px 22px;border-bottom:1px solid var(--ln)}
+.rg{width:68px;height:68px;position:relative;flex:none}.rg svg{width:100%;height:100%;transform:rotate(-90deg)}.rg span{position:absolute;inset:0;display:grid;place-items:center;font:700 16px Inter;font-variant-numeric:tabular-nums}
+.hd h1{margin:0;font-size:18px}.hd p{margin:2px 0 0;color:var(--mut);font-variant-numeric:tabular-nums}
+ul{list-style:none;margin:0;padding:6px 10px}
+li{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px;border-radius:12px}
+li+li{border-top:1px solid #f0f2f6}
+.bg{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;font:700 11px Inter;color:#fff;letter-spacing:.04em}
+.nm{display:flex;justify-content:space-between;gap:8px;font-weight:600}.nm span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nm small{color:var(--mut);font-weight:400;flex:none}
+.bar{height:6px;background:#eef1f6;border-radius:9px;margin:6px 0 4px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--ac);border-radius:9px;transition:width .25s linear}
+.st{font-size:12.5px;color:var(--mut);font-variant-numeric:tabular-nums}
+li.done .bar i{background:var(--ok)}li.done .st{color:#067647}li.err .bar i{background:var(--er)}li.err .st{color:#b42318}li.pau .bar i{background:var(--wn)}li.can{opacity:.55}li.que .st{color:#98a2b3}
+.ac{display:flex;gap:2px}
+.ac button{width:44px;height:44px;border:0;background:none;border-radius:10px;cursor:pointer;color:var(--mut);font-size:17px}
+.ac button:hover{background:#f2f4f7;color:var(--ink)}
+.ft{display:flex;gap:10px;padding:14px 22px;border-top:1px solid var(--ln);flex-wrap:wrap}
+.b{border:1px solid var(--ln);background:#fff;border-radius:10px;min-height:44px;padding:0 16px;font:600 14px Inter;cursor:pointer;color:var(--ink)}
+.b.p{background:var(--ac);border-color:var(--ac);color:#fff}
+.sm{margin:0 22px 14px;padding:12px 14px;border-radius:12px;background:#ecfdf3;color:#067647;font-weight:600}
+button:focus-visible{outline:3px solid #2f6bff66;outline-offset:2px}
+@media(max-width:520px){li{grid-template-columns:36px minmax(0,1fr)}li .ac{grid-column:1/-1;justify-content:flex-end;margin-top:-6px}.hd{padding:16px}}
+@media(prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style></head><body><section class="p" aria-label="File transfers"><div class="hd"><div class="rg"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.500" fill="none" stroke="#eef1f6" stroke-width="4"/><circle id="ro" cx="18" cy="18" r="15.500" fill="none" stroke="#2f6bff" stroke-width="4" stroke-linecap="round" stroke-dasharray="97.4" stroke-dashoffset="97.4" style="transition:stroke-dashoffset .3s"/></svg><span id="rp" role="progressbar" aria-label="Overall progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">0%</span></div><div><h1>Uploading to Project Atlas</h1><p id="sub">Starting…</p></div></div>
+<div class="sm" id="sm" role="status" hidden></div><ul id="ls"></ul>
+<div class="ft"><button class="b" id="pa">Pause all</button><button class="b" id="ca">Cancel all</button><button class="b p" id="sa" hidden>Start again</button></div></section>
+<div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div>
+<script>
+const $=s=>document.querySelector(s);
+const F=[["Brand-guidelines.pdf","PDF",48,"#e5484d"],["Q3-roadmap.fig","FIG",92,"#7c4dff"],["Launch-video.mp4","MP4",310,"#0ea5e9"],["Customer-export.csv","CSV",12,"#16a34a"],["Hero-render.png","PNG",26,"#f59e0b"],["Interview-audio.wav","WAV",164,"#14b8a6"]];
+let T=[],max=3,last=0,tm=null,allPaused=false;
+const say=m=>{const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)};
+const mb=n=>n>=100?Math.round(n)+" MB":n.toFixed(1)+" MB";
+function init(){T=F.map((f,i)=>({n:f[0],t:f[1],size:f[2],c:f[3],done:0,st:"que",sp:0,base:2.5+Math.random()*4,fail:i==3,tried:0}));$("#sm").hidden=true;$("#sa").hidden=true;$("#pa").hidden=$("#ca").hidden=false;allPaused=false;$("#pa").textContent="Pause all";build();clearInterval(tm);last=performance.now();tm=setInterval(tick,200)}
+function build(){const ul=$("#ls");ul.innerHTML="";T.forEach((x,i)=>{const li=document.createElement("li");li.id="f"+i;li.innerHTML=`<span class="bg" style="background:${x.c}">${x.t}</span><div><div class="nm"><span></span><small>${mb(x.size)}</small></div><div class="bar" role="progressbar" aria-label="" aria-valuemin="0" aria-valuemax="100"><i></i></div><div class="st"></div></div><div class="ac"></div>`;li.querySelector(".nm span").textContent=x.n;li.querySelector(".bar").setAttribute("aria-label",x.n);ul.append(li)});T.forEach((_,i)=>paint(i))}
+function paint(i){const x=T[i],li=$("#f"+i),p=Math.min(100,x.done/x.size*100);li.className={que:"que",run:"",pau:"pau",done:"done",err:"err",can:"can"}[x.st];li.querySelector(".bar i").style.width=p+"%";li.querySelector(".bar").setAttribute("aria-valuenow",Math.round(p));const eta=x.sp>0?Math.ceil((x.size-x.done)/x.sp):0;
+const txt={que:"Waiting in queue",run:`${mb(x.done)} of ${mb(x.size)} · ${x.sp.toFixed(1)} MB/s · ${eta}s left`,pau:`Paused at ${Math.round(p)}%`,done:"Uploaded",err:"Failed: connection reset by server",can:"Cancelled"}[x.st];li.querySelector(".st").textContent=txt;
+const ac=li.querySelector(".ac");ac.innerHTML="";const add=(l,a,fn)=>{const b=document.createElement("button");b.textContent=l;b.setAttribute("aria-label",a+" "+x.n);b.onclick=fn;ac.append(b)};
+if(x.st=="run"||x.st=="que")add("⏸","Pause",()=>{x.st="pau";x.sp=0;paint(i);say(x.n+" paused")});
+if(x.st=="pau")add("▶","Resume",()=>{x.st="que";paint(i);say(x.n+" resumed")});
+if(x.st=="run"||x.st=="que"||x.st=="pau")add("✕","Cancel",()=>{x.st="can";x.sp=0;paint(i);say(x.n+" cancelled")});
+if(x.st=="err")add("↻","Retry",()=>{x.st="que";x.fail=false;x.done=Math.min(x.done,x.size*.5);paint(i);if(!tm){last=performance.now();tm=setInterval(tick,200);$("#sm").hidden=true;$("#sa").hidden=true;$("#pa").hidden=$("#ca").hidden=false}say("Retrying "+x.n)})}
+function tick(){const now=performance.now(),dt=(now-last)/1000;last=now;let run=T.filter(x=>x.st=="run").length;T.forEach((x,i)=>{if(x.st=="que"&&run<max&&!allPaused){x.st="run";run++}});let tot=0;
+T.forEach((x,i)=>{if(x.st=="run"){x.sp=Math.max(.8,x.base*(.7+Math.random()*.6));x.done+=x.sp*dt;if(x.fail&&x.done>=x.size*.6){x.st="err";x.sp=0;x.done=x.size*.6;say(x.n+" failed")}else if(x.done>=x.size){x.done=x.size;x.st="done";x.sp=0;say(x.n+" uploaded")}}paint(i)});
+const tw=T.filter(x=>x.st!="can"),sz=tw.reduce((s,x)=>s+x.size,0),dn=tw.reduce((s,x)=>s+x.done,0),pc=sz?Math.round(dn/sz*100):100,sp=T.reduce((s,x)=>s+x.sp,0),d=T.filter(x=>x.st=="done").length;
+$("#ro").style.strokeDashoffset=97.4*(1-pc/100);$("#rp").textContent=pc+"%";$("#rp").setAttribute("aria-valuenow",pc);$("#sub").textContent=`${d} of ${T.length} complete · ${sp.toFixed(1)} MB/s`;
+if(T.every(x=>["done","err","can"].includes(x.st))){clearInterval(tm);tm=null;const e=T.filter(x=>x.st=="err").length,c=T.filter(x=>x.st=="can").length;const sm=$("#sm");sm.hidden=false;sm.style.background=e?"#fef3f2":"#ecfdf3";sm.style.color=e?"#b42318":"#067647";sm.textContent=`${d} uploaded${e?", "+e+" failed":""}${c?", "+c+" cancelled":""}.`;$("#sa").hidden=false;$("#pa").hidden=$("#ca").hidden=true;$("#sub").textContent="Finished";say(sm.textContent)}}
+$("#pa").onclick=()=>{allPaused=!allPaused;T.forEach((x,i)=>{if(allPaused&&(x.st=="run"||x.st=="que")){x.st="pau";x.sp=0}else if(!allPaused&&x.st=="pau")x.st="que";paint(i)});$("#pa").textContent=allPaused?"Resume all":"Pause all";say(allPaused?"All paused":"All resumed")};
+$("#ca").onclick=()=>{T.forEach((x,i)=>{if(["run","que","pau"].includes(x.st)){x.st="can";x.sp=0;paint(i)}});say("All cancelled")};
+$("#sa").onclick=init;init();
+</script></body></html>

@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Harrow Observatory — History</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#e9eefc;--mut:#93a0c0;--tr:#1d2a45;--ea:#fbbf24}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#0b1220;color:var(--ink);font:15px/1.6 Inter,system-ui,sans-serif}
+.w{max-width:980px;margin:0 auto;padding:64px 20px 140px}
+header{text-align:center;margin-bottom:56px}
+h1{font:700 clamp(34px,6vw,60px)/1.05 "Space Grotesk";margin:0 0 10px;letter-spacing:-.02em}header p{color:var(--mut);margin:0 auto;max-width:520px}
+.rail{position:fixed;right:20px;top:50%;transform:translateY(-50%);display:grid;gap:8px;z-index:10}
+.rail button{border:1px solid var(--tr);background:#101a30;color:var(--mut);border-radius:99px;min-height:44px;padding:0 16px;font:600 13px "Space Grotesk";cursor:pointer}
+.rail button[aria-current=true]{background:var(--ea);color:#16100a;border-color:var(--ea)}
+.rail button:focus-visible,.ev:focus-visible{outline:3px solid #5eead4;outline-offset:3px}
+.tl{position:relative}
+.tk{position:absolute;left:50%;top:0;bottom:0;width:4px;margin-left:-2px;background:var(--tr);border-radius:4px}
+.pg{position:absolute;left:0;top:0;width:100%;height:0;background:linear-gradient(#5eead4,#818cf8);border-radius:4px;box-shadow:0 0 18px var(--ea)}
+.ev{position:relative;width:calc(50% - 36px);margin:0 0 44px;background:#111b33;border:1px solid var(--tr);border-radius:16px;padding:20px;opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s,border-color .3s}
+.ev:nth-child(even){margin-left:auto}
+.ev.on{opacity:1;transform:none}
+.ev::after{content:"";position:absolute;top:28px;width:18px;height:18px;border-radius:50%;background:#0b1220;border:4px solid var(--c);right:-45px}
+.ev:nth-child(even)::after{right:auto;left:-45px}
+.ev.cur{border-color:var(--c)}.ev.cur::after{background:var(--c);box-shadow:0 0 0 6px color-mix(in srgb,var(--c) 30%,transparent)}
+.yr{font:700 52px/1 "Space Grotesk";color:transparent;-webkit-text-stroke:1.5px var(--c);letter-spacing:-.02em}
+.ev h2{font:700 20px/1.25 "Space Grotesk";margin:6px 0}.ev p{margin:0;color:var(--mut)}
+.ic{width:34px;height:34px;border-radius:10px;background:color-mix(in srgb,var(--c) 22%,transparent);display:grid;place-items:center;float:right;margin:0 0 6px 10px}
+.ic i{width:14px;height:14px;border:2.5px solid var(--c);border-radius:50%}
+@media(max-width:760px){.tk{left:12px}.ev,.ev:nth-child(even){width:calc(100% - 44px);margin-left:44px}.ev::after,.ev:nth-child(even)::after{left:-40px;right:auto}.rail{top:auto;bottom:12px;right:50%;transform:translateX(50%);display:flex;background:#0b1220ee;padding:6px;border-radius:99px;border:1px solid var(--tr)}.rail button{min-height:44px;padding:0 12px}.yr{font-size:42px}}
+@media(prefers-reduced-motion:reduce){.ev{opacity:1;transform:none;transition:none}}
+</style></head><body><nav class="rail" aria-label="Jump to decade" id="rail"></nav>
+<div class="w"><header><h1>Sixty years under one dome</h1><p>The story of Harrow Observatory, from a borrowed refractor to a robotic survey telescope.</p></header><div class="tl" id="tl"><div class="tk" aria-hidden="true"><div class="pg" id="pg"></div></div></div></div>
+<script>
+const $=s=>document.querySelector(s);
+const E=[[1962,"A borrowed refractor","The Harrow Astronomy Society raises £400 and borrows a 6-inch refractor from the local grammar school."],[1969,"First public night","Over 800 people queue in the rain to watch the moon landing coverage and look at Jupiter."],[1974,"The dome is built","Volunteers pour the concrete pier and raise a hand-turned 4-metre dome in a single summer."],[1983,"Photographing Halley","The 20-inch reflector captures the returning comet over eleven cold nights."],[1989,"Schools programme","A weekly outreach scheme begins, reaching every primary school in the district by 1995."],[1998,"Going digital","The first CCD camera replaces film, cutting exposure times from hours to minutes."],[2006,"Variable star survey","Members begin a decade-long survey of 300 variable stars, published in three journals."],[2013,"Remote observing","Anyone can book a session online and control the telescope from their own kitchen."],[2021,"Robotic dome","A new robotic mount allows fully automated nights and runs the survey while volunteers sleep."],[2025,"Dark-sky status","The observatory's surrounding parish is awarded international dark-sky designation."]];
+const ERA=[["1960s",1960,"#fbbf24"],["1980s",1980,"#f472b6"],["2000s",2000,"#22d3ee"],["2020s",2020,"#a78bfa"]];
+const eraOf=y=>ERA.filter(e=>y>=e[1]).pop();
+E.forEach((e,i)=>{const era=eraOf(e[0]),a=document.createElement("article");a.className="ev";a.tabIndex=0;a.dataset.era=era[0];a.style.setProperty("--c",era[2]);a.setAttribute("aria-labelledby","t"+i);a.innerHTML=`<span class="ic" aria-hidden="true"><i></i></span><div class="yr">${e[0]}</div><h2 id="t${i}">${e[1]}</h2><p>${e[2]}</p>`;$("#tl").append(a)});
+const evs=[...document.querySelectorAll(".ev")],rail=$("#rail");
+ERA.forEach(([n,y,c],i)=>{const b=document.createElement("button");b.textContent=n;b.setAttribute("aria-current","false");b.dataset.era=n;b.onclick=()=>{const t=evs.find(x=>x.dataset.era==n);t.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth",block:"center"});t.focus({preventScroll:true})};b.onkeydown=e=>{const bs=[...rail.children],j=bs.indexOf(b);if(e.key=="Home"){e.preventDefault();bs[0].focus()}else if(e.key=="End"){e.preventDefault();bs.at(-1).focus()}else if(e.key=="ArrowDown"||e.key=="ArrowRight"){e.preventDefault();bs[Math.min(bs.length-1,j+1)].focus()}else if(e.key=="ArrowUp"||e.key=="ArrowLeft"){e.preventDefault();bs[Math.max(0,j-1)].focus()}};rail.append(b)});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("on")}),{threshold:.2});evs.forEach(e=>io.observe(e));
+function upd(){const tl=$("#tl").getBoundingClientRect(),mid=innerHeight*.5;$("#pg").style.height=Math.max(0,Math.min(tl.height,mid-tl.top))+"px";let best=null,bd=1e9;evs.forEach(e=>{const r=e.getBoundingClientRect(),d=Math.abs(r.top+r.height/2-mid);if(d<bd){bd=d;best=e}e.classList.remove("cur")});if(best){best.classList.add("cur");const c=best.style.getPropertyValue("--c");document.documentElement.style.setProperty("--ea",c);rail.querySelectorAll("button").forEach(b=>b.setAttribute("aria-current",b.dataset.era==best.dataset.era))}}
+addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);upd();
+</script></body></html>

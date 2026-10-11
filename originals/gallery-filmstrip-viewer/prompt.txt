@@ -1,0 +1,11 @@
+Canvas & base: Charcoal #17181c page, stage #0f1013 with 18px radius, thumbnails with 2px accent border when active (#ffcf4a), text #f1f1f3, secondary #9a9ca6. Artwork is generated gradients and shapes (no photos), 12 pieces in a "Coastline" series by an invented artist.
+
+Typography: "Sora" (400,600) at 14px, caption title 20px.
+
+Layout: Title bar (series title, counter "4 / 12", fullscreen button), main stage with the artwork and prev/next arrows, caption row (title, medium, year) and a horizontally scrollable filmstrip of 12 thumbnails with the active one auto-centred, plus a toolbar (Play/Pause with circular progress, Zoom toggle).
+
+Interaction: Click thumbnail, arrows, Left/Right keys, or swipe to change; Home/End jump; Zoom toggles 2x and enables drag-pan within the stage (pointer events, clamped), double-click toggles zoom, zoom resets on change; Slideshow advances every 4s with an SVG ring showing progress, pausing on hover/focus and on user interaction, stopping at the end or looping (loop on); Fullscreen uses Fullscreen API with fallback to a CSS full-viewport class; filmstrip is a listbox with roving focus and aria-selected; announce slide changes.
+
+Responsive: Thumbnails 64px under 600px; toolbar wraps.
+
+Rules: No libraries or external images, hidden attribute respected, 44px controls, reduced-motion disables slide transitions and autoplay is off by default.

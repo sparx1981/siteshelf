@@ -1,0 +1,11 @@
+Canvas & base: Light #f4f5f9 page, cards white #fff with #e3e6ee border and 20px radius in a 3x2 grid, ink #141824, secondary #6b7390, accent violet #6d4aff, success #16a34a, danger #e5484d, like pink #ff4d79.
+
+Typography: "Manrope" (500,700,800) at 15px.
+
+Layout: Title and six demo cards each with a heading, one-line description and the live button: (1) Submit that morphs width into a spinner then a check; (2) Hold to delete — press and hold 1.2s to fill a ring and confirm; (3) Copy API key — swaps label/icon to "Copied" and resets; (4) Like — heart scales, count increments, burst of small particles; (5) Download — button becomes a progress bar to 100% then shows "Open"; (6) Undo — "Archive" turns into "Undo (5)" with a shrinking countdown bar, reverting if undone or completing if timer ends.
+
+Interaction: All buttons are real <button>s with aria-live status text; holding works with mouse, touch and keyboard (Space/Enter held) and cancels on release or Escape; state resets via a "Reset all" link; particles are DOM spans removed after the animation; keyboard focus rings remain visible during morphs.
+
+Responsive: Grid 3→2→1.
+
+Rules: No libraries or external images, hidden attribute respected, 44px minimum targets, reduced-motion replaces animations with instant state changes (hold still works).

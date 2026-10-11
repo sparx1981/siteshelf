@@ -1,0 +1,80 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tuner — Range &amp; Stepper Controls</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#151a2e;--mut:#6a7290;--ln:#e2e6f0;--ac:#4f46e5;--tr:#dde1ee}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f2f4fa;color:var(--ink);font:15px/1.5 "Plus Jakarta Sans",system-ui,sans-serif;padding:32px 16px}
+.w{max-width:860px;margin:0 auto}h1{margin:0 0 16px;font-size:26px;font-weight:800}
+.g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.cd{background:#fff;border:1px solid var(--ln);border-radius:22px;padding:22px;display:grid;gap:14px;align-content:start}
+.cd h2{margin:0;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut)}
+.ro{font:800 20px inherit;font-variant-numeric:tabular-nums}
+.rg{position:relative;height:44px;touch-action:none}
+.rt{position:absolute;left:14px;right:14px;top:18px;height:8px;background:var(--tr);border-radius:9px}
+.rf{position:absolute;top:0;bottom:0;background:var(--ac);border-radius:9px}
+.th{position:absolute;top:8px;width:28px;height:28px;margin-left:-14px;border-radius:50%;background:#fff;border:3px solid var(--ac);box-shadow:0 3px 8px #0003;cursor:grab;transition:box-shadow .15s}
+.th::after{content:"";position:absolute;inset:-8px}
+.th:focus-visible,.th.act{outline:none;box-shadow:0 0 0 6px #4f46e533,0 3px 8px #0003}
+.tk{display:flex;justify-content:space-between;color:var(--mut);font-size:12px;padding:0 6px}
+.sp{display:flex;align-items:center;gap:12px;justify-self:start;background:#f4f5fb;border-radius:16px;padding:6px}
+.sp button{width:48px;height:48px;border:0;border-radius:12px;background:#fff;box-shadow:0 1px 4px #0002;font-size:22px;cursor:pointer;color:var(--ac);font-weight:700;touch-action:manipulation;user-select:none}
+.sp button:active:not(:disabled){transform:scale(.94)}.sp button:disabled{opacity:.35;cursor:not-allowed}
+.sp output{min-width:56px;text-align:center;font:800 24px inherit;font-variant-numeric:tabular-nums}
+.sg{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:#eef0f8;border-radius:14px;padding:4px}
+.sg .hl{position:absolute;top:4px;bottom:4px;left:4px;width:calc((100% - 8px)/3);background:#fff;border-radius:10px;box-shadow:0 1px 5px #0003;transition:transform .25s cubic-bezier(.3,1.2,.5,1)}
+.sg label{position:relative;z-index:1;text-align:center;min-height:44px;display:grid;place-items:center;font-weight:700;cursor:pointer;color:var(--mut);border-radius:10px}
+.sg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.sg label:has(input:checked){color:var(--ink)}.sg label:has(input:focus-visible){outline:3px solid #4f46e566;outline-offset:1px}
+.kn{display:grid;place-items:center}
+.kb{position:relative;width:150px;height:150px;touch-action:none;cursor:grab;border-radius:50%}
+.kb svg{width:100%;height:100%}
+.kb:focus-visible{outline:3px solid #4f46e566;outline-offset:4px}
+.kv{position:absolute;inset:0;display:grid;place-items:center;font:800 30px inherit;font-variant-numeric:tabular-nums;pointer-events:none}
+.hu{height:14px;border-radius:9px;background:linear-gradient(90deg,hsl(0 80% 55%),hsl(60 80% 55%),hsl(120 80% 55%),hsl(180 80% 55%),hsl(240 80% 55%),hsl(300 80% 55%),hsl(360 80% 55%));position:relative;margin:15px 14px}
+.hu .th{top:-7px;border-color:#fff}
+.sw{display:flex;gap:14px;align-items:center}.sw i{width:56px;height:56px;border-radius:16px;box-shadow:inset 0 0 0 1px #0002;flex:none}
+.sw div{font:500 14px "Courier New",monospace;line-height:1.5}
+.cp{border:1px solid var(--ln);background:#fff;border-radius:10px;min-height:44px;padding:0 14px;font:700 13px inherit;font-family:inherit;cursor:pointer;margin-left:auto;color:var(--ink)}
+@media(max-width:700px){.g{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="w"><h1>Tuner controls</h1><div class="g">
+<section class="cd"><h2 id="h1">Price range</h2><div class="ro" id="r1">$200 – $750</div><div class="rg" id="rg"><div class="rt"><div class="rf" id="rf"></div></div><div class="th" id="t1" role="slider" tabindex="0" aria-labelledby="h1" aria-label="Minimum price" aria-valuemin="0" aria-valuemax="1000"></div><div class="th" id="t2" role="slider" tabindex="0" aria-label="Maximum price" aria-valuemin="0" aria-valuemax="1000"></div></div><div class="tk"><span>$0</span><span>$500</span><span>$1,000</span></div></section>
+<section class="cd"><h2 id="h2">Quantity</h2><div class="sp" role="group" aria-labelledby="h2"><button id="mn" aria-label="Decrease quantity">−</button><output id="q" aria-live="off">4</output><button id="pl" aria-label="Increase quantity">+</button></div><div style="color:#6a7290;font-size:13px">Hold a button to repeat. Range 0–20.</div></section>
+<section class="cd"><h2 id="h3">Billing</h2><div class="sg" role="radiogroup" aria-labelledby="h3" id="sg"><span class="hl" id="hl"></span><label><input type="radio" name="b" value="0">Weekly</label><label><input type="radio" name="b" value="1" checked>Monthly</label><label><input type="radio" name="b" value="2">Yearly</label></div><div class="ro" id="r3" style="font-size:16px"></div></section>
+<section class="cd kn"><h2 style="justify-self:start" id="h4">Volume knob</h2><div class="kb" id="kb" role="slider" tabindex="0" aria-labelledby="h4" aria-valuemin="0" aria-valuemax="100"><svg viewBox="0 0 120 120"><path id="kt" fill="none" stroke="#dde1ee" stroke-width="10" stroke-linecap="round"/><path id="kf" fill="none" stroke="#4f46e5" stroke-width="10" stroke-linecap="round"/></svg><div class="kv" id="kv"></div></div></section>
+<section class="cd" style="grid-column:1/-1"><h2 id="h5">Hue</h2><div class="hu" id="hu"><div class="th" id="th5" role="slider" tabindex="0" aria-labelledby="h5" aria-valuemin="0" aria-valuemax="360"></div></div><div class="sw"><i id="sc"></i><div id="sv"></div><button class="cp" id="cp">Copy hex</button></div></section></div></div>
+<div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div>
+<script>
+const $=s=>document.querySelector(s);let lt;const say=m=>{clearTimeout(lt);lt=setTimeout(()=>{const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,40)},350)};
+function slider(el,{get,set,min,max,step,big,posFn,dragEl,axisX=true}){el.addEventListener("keydown",e=>{let v=get();const k=e.key;if(k=="ArrowRight"||k=="ArrowUp")v+=step;else if(k=="ArrowLeft"||k=="ArrowDown")v-=step;else if(k=="PageUp")v+=big;else if(k=="PageDown")v-=big;else if(k=="Home")v=min;else if(k=="End")v=max;else return;e.preventDefault();set(v)})}
+// 1 dual range
+const R={a:200,b:750,gap:50},rg=$("#rg");const money=n=>"$"+n.toLocaleString();
+function pos(v){const w=rg.clientWidth-28;return 14+v/1000*w}
+function r1(){$("#t1").style.left=pos(R.a)+"px";$("#t2").style.left=pos(R.b)+"px";$("#rf").style.left=pos(R.a)-14+"px";$("#rf").style.width=pos(R.b)-pos(R.a)+"px";$("#t1").setAttribute("aria-valuenow",R.a);$("#t2").setAttribute("aria-valuenow",R.b);$("#t1").setAttribute("aria-valuemax",R.b-R.gap);$("#t2").setAttribute("aria-valuemin",R.a+R.gap);$("#t1").setAttribute("aria-valuetext",money(R.a));$("#t2").setAttribute("aria-valuetext",money(R.b));$("#r1").textContent=money(R.a)+" – "+money(R.b)}
+const setA=v=>{R.a=Math.round(Math.max(0,Math.min(R.b-R.gap,v))/10)*10;r1();say("Price range "+money(R.a)+" to "+money(R.b))},setB=v=>{R.b=Math.round(Math.max(R.a+R.gap,Math.min(1000,v))/10)*10;r1();say("Price range "+money(R.a)+" to "+money(R.b))};
+slider($("#t1"),{get:()=>R.a,set:setA,min:0,max:1000,step:10,big:100});slider($("#t2"),{get:()=>R.b,set:setB,min:0,max:1000,step:10,big:100});
+function drag(th,fn){th.addEventListener("pointerdown",e=>{e.preventDefault();th.setPointerCapture(e.pointerId);th.classList.add("act");th.focus();const mv=ev=>{const r=th.parentElement.getBoundingClientRect(),w=r.width-28;fn(Math.max(0,Math.min(1,(ev.clientX-r.left-14)/w)))};mv(e);th.onpointermove=mv;th.onpointerup=()=>{th.onpointermove=null;th.classList.remove("act")}})}
+drag($("#t1"),f=>setA(f*1000));drag($("#t2"),f=>setB(f*1000));
+rg.addEventListener("pointerdown",e=>{if(e.target.classList.contains("th"))return;const r=rg.getBoundingClientRect(),v=(e.clientX-r.left-14)/(r.width-28)*1000;Math.abs(v-R.a)<Math.abs(v-R.b)?setA(v):setB(v)});
+// 2 stepper
+let Q=4;const qq=()=>{$("#q").textContent=Q;$("#mn").disabled=Q<=0;$("#pl").disabled=Q>=20};
+function hold(btn,d){let t,iv,n=0;const stop=()=>{clearTimeout(t);clearInterval(iv);if(n){say("Quantity "+Q)}n=0};const step=()=>{Q=Math.max(0,Math.min(20,Q+d));qq();n++};btn.addEventListener("pointerdown",e=>{if(btn.disabled)return;step();t=setTimeout(()=>{let sp=200;const loop=()=>{step();sp=Math.max(40,sp*.88);iv=setTimeout(loop,sp)};iv=setTimeout(loop,sp)},350)});["pointerup","pointerleave","pointercancel"].forEach(ev=>btn.addEventListener(ev,()=>{clearTimeout(t);clearTimeout(iv);if(n)say("Quantity "+Q);n=0}));btn.addEventListener("keydown",e=>{if((e.key=="Enter"||e.key==" ")&&!e.repeat){e.preventDefault();step();say("Quantity "+Q)}});btn.addEventListener("click",e=>{if(e.detail===0)e.preventDefault()})}
+hold($("#mn"),-1);hold($("#pl"),1);qq();
+// 3 segmented
+const P=["$4 / week","$14 / month","$140 / year (save 17%)"];
+function seg(){const i=+document.querySelector("#sg input:checked").value;$("#hl").style.transform=`translateX(${i*100}%)`;$("#r3").textContent=P[i]}
+document.querySelectorAll("#sg input").forEach(x=>x.onchange=()=>{seg();say("Billing "+P[+x.value])});seg();
+// 4 knob
+let K=40;const A0=-135,A1=135,rad=a=>(a-90)*Math.PI/180,pt=(a,r)=>[60+r*Math.cos(rad(a)),60+r*Math.sin(rad(a))];
+function arc(a,b){const[p,q]=[pt(a,48),pt(b,48)];return `M${p[0]} ${p[1]}A48 48 0 ${b-a>180?1:0} 1 ${q[0]} ${q[1]}`}
+function kn(){const a=A0+K/100*(A1-A0);$("#kt").setAttribute("d",arc(A0,A1));$("#kf").setAttribute("d",K>0?arc(A0,a):"");$("#kv").textContent=K;$("#kb").setAttribute("aria-valuenow",K)}
+const setK=v=>{K=Math.round(Math.max(0,Math.min(100,v)));kn();say("Volume "+K)};slider($("#kb"),{get:()=>K,set:setK,min:0,max:100,step:1,big:10});
+$("#kb").addEventListener("pointerdown",e=>{const el=$("#kb");el.setPointerCapture(e.pointerId);el.focus();const mv=ev=>{const r=el.getBoundingClientRect(),dx=ev.clientX-(r.left+r.width/2),dy=ev.clientY-(r.top+r.height/2);let a=Math.atan2(dx,-dy)*180/Math.PI;a=Math.max(A0,Math.min(A1,a));setK((a-A0)/(A1-A0)*100)};mv(e);el.onpointermove=mv;el.onpointerup=()=>el.onpointermove=null});kn();
+// 5 hue
+let H=262;const hw=()=>$("#hu").clientWidth-28;function hex(h,s,l){s/=100;l/=100;const k=n=>(n+h/30)%12,a=s*Math.min(l,1-l),f=n=>l-a*Math.max(-1,Math.min(k(n)-3,Math.min(9-k(n),1)));return"#"+[f(0),f(8),f(4)].map(x=>Math.round(x*255).toString(16).padStart(2,"0")).join("")}
+function hu(){$("#th5").style.left=14+H/360*hw()+"px";$("#th5").setAttribute("aria-valuenow",H);$("#th5").setAttribute("aria-valuetext",H+" degrees");const c=hex(H,80,55);$("#sc").style.background=c;$("#sv").innerHTML=`hsl(${H}, 80%, 55%)<br>${c.toUpperCase()}`}
+const setH=v=>{H=Math.round(Math.max(0,Math.min(360,v)));hu();say("Hue "+H)};slider($("#th5"),{get:()=>H,set:setH,min:0,max:360,step:5,big:30});
+drag($("#th5"),f=>setH(f*360));$("#hu").addEventListener("pointerdown",e=>{if(e.target.id=="th5")return;const r=$("#hu").getBoundingClientRect();setH((e.clientX-r.left-14)/(r.width-28)*360)});
+$("#cp").onclick=async()=>{try{await navigator.clipboard.writeText(hex(H,80,55))}catch(e){}$("#cp").textContent="Copied ✓";setTimeout(()=>$("#cp").textContent="Copy hex",1400)};
+hu();r1();addEventListener("resize",()=>{r1();hu()});
+</script></body></html>

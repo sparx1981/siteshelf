@@ -1,0 +1,11 @@
+Canvas & base: Deep plum #1e1530 page, board #2a1f42 with 14px radius, tiles in a hue gradient from coral #ff7a6b to violet #8b5cf6 per tile number, empty slot recessed #1a1228, text #f6f1ff, secondary #b3a6d6, accent mint #5eead4. Invented "Slidewell".
+
+Typography: "Fredoka" (500,600) at 16px, tile numerals 40px.
+
+Layout: Header (title, size selector 3×3/4×4/5×5, New game), stats row (Moves, Time, Best), centred square board (max 460px) built with CSS grid of absolutely positioned tiles, and a hint line. Win overlay shows moves/time/best and Play again.
+
+Interaction: Click or tap a tile adjacent to the empty slot (or in the same row/column to slide multiple tiles) to move; arrow keys move the tile into the empty slot from the opposite direction; swipe gestures on touch; shuffle by performing 200 random legal moves from the solved state (guarantees solvability); tiles animate via transforms; timer starts on first move; best score per size kept in memory; win detection shows overlay with confetti-free glow; tiles are buttons with aria-labels "Tile 7, row 2 column 3" and roving focus; a status live region announces moves count at win and invalid presses.
+
+Responsive: Board scales with min(92vw,460px); tile numerals scale with board size.
+
+Rules: No libraries or external images, hidden attribute respected, reduced-motion makes tiles jump without transitions, 44px minimum tile size at 5x5 on small screens.

@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Button Micro-Interactions</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#141824;--mut:#6b7390;--ln:#e3e6ee;--ac:#6d4aff;--ok:#16a34a;--rd:#e5484d;--pk:#ff4d79}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f4f5f9;color:var(--ink);font:15px/1.5 Manrope,system-ui,sans-serif;padding:40px 16px}
+.w{max-width:960px;margin:0 auto}
+h1{margin:0 0 4px;font-size:28px;font-weight:800}.sub{color:var(--mut);margin:0 0 6px}
+.rs{border:0;background:none;color:var(--ac);font:700 14px Manrope;cursor:pointer;text-decoration:underline;min-height:44px;padding:0}
+.g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:10px}
+.cd{background:#fff;border:1px solid var(--ln);border-radius:20px;padding:20px;display:grid;gap:14px;align-content:space-between;min-height:190px}
+.cd h2{margin:0;font-size:16px}.cd p{margin:2px 0 0;color:var(--mut);font-size:14px}
+.st{min-height:20px;font-size:13px;color:var(--mut)}
+.b{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;min-width:140px;padding:0 22px;border:0;border-radius:14px;background:var(--ac);color:#fff;font:800 15px Manrope;cursor:pointer;overflow:hidden;transition:min-width .3s,width .3s,background .3s,border-radius .3s;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.b:active{transform:scale(.97)}
+.b:focus-visible{outline:3px solid #6d4aff66;outline-offset:3px}
+.b.ld{min-width:48px;width:48px;padding:0;border-radius:50%}.b.ld .t{display:none}
+.b.ok{background:var(--ok)}
+.sp{width:20px;height:20px;border:3px solid #fff5;border-top-color:#fff;border-radius:50%;animation:s .7s linear infinite}
+@keyframes s{to{transform:rotate(360deg)}}
+.b svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.500;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.hd{background:#fff;color:var(--rd);border:2px solid var(--rd)}
+.hd .f{position:absolute;inset:0;background:var(--rd);transform:scaleX(0);transform-origin:left;transition:transform 0s}
+.hd.hold .f{transform:scaleX(1);transition:transform 1.2s linear}
+.hd span{position:relative;z-index:1;transition:color .2s}.hd.hold span{color:#fff}
+.hd.done{background:var(--rd);color:#fff}
+.cp{background:#14182410;color:var(--ink);border:1.5px solid var(--ln);font-family:"Courier New",monospace;font-weight:700;min-width:210px}
+.cp.ok{background:#dcfce7;color:#166534;border-color:#86efac}
+.lk{background:#fff;color:var(--ink);border:1.5px solid var(--ln);position:relative;overflow:visible;min-width:110px}
+.lk svg{stroke:var(--pk);transition:transform .2s}
+.lk[aria-pressed=true] svg{fill:var(--pk);transform:scale(1.2)}
+.pt{position:absolute;left:30px;top:50%;width:7px;height:7px;border-radius:50%;pointer-events:none;animation:pt .7s ease-out forwards}
+@keyframes pt{to{transform:translate(var(--x),var(--y)) scale(.2);opacity:0}}
+.dl{min-width:170px;background:#141824}
+.dl .bar{position:absolute;inset:0;background:var(--ac);transform:scaleX(0);transform-origin:left}
+.dl span{position:relative}
+.ar{background:#fff;color:var(--ink);border:1.5px solid var(--ln);min-width:170px}
+.ar .cd2{position:absolute;left:0;bottom:0;height:4px;background:var(--ac);width:100%;transform-origin:left}
+.ar.un{background:#fef3c7;border-color:#fcd34d;color:#78350f}
+@media(max-width:900px){.g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.g{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){.b,.hd .f,.lk svg{transition:none!important}.sp{animation:none;border-top-color:#fff}.pt{display:none}}
+</style></head><body><div class="w"><h1>Button micro-interactions</h1><p class="sub">Small feedback moments that make a click feel answered.</p><button class="rs" id="rs">Reset all</button>
+<div class="g" id="g"></div></div><div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div>
+<script>
+const $=s=>document.querySelector(s),rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const say=m=>{const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)};
+const CK='<svg viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7.500"/></svg>';
+const D=[["Submit form","Spinner, then a check.",1],["Hold to delete","Hold for 1.2 seconds.",2],["Copy API key","Swaps to a confirmation.",3],["Like","Heart pops with a burst.",4],["Download report","Progress inside the button.",5],["Archive with undo","Five seconds to change your mind.",6]];
+const reg=[];
+D.forEach(([h,p,k])=>{const c=document.createElement("div");c.className="cd";c.innerHTML=`<div><h2>${h}</h2><p>${p}</p></div><div class="a"></div><div class="st" id="s${k}" role="status"></div>`;$("#g").append(c);reg.push(()=>init[k](c.querySelector(".a"),c.querySelector(".st")))});
+const init={
+1(a,s){a.innerHTML='<button class="b"><span class="t">Send message</span></button>';const b=a.firstChild;let busy=false;b.onclick=()=>{if(busy)return;busy=true;b.classList.add("ld");b.setAttribute("aria-busy","true");b.innerHTML='<span class="sp" aria-hidden="true"></span>';s.textContent="Sending…";setTimeout(()=>{b.classList.add("ok");b.innerHTML=CK;b.setAttribute("aria-label","Sent");b.removeAttribute("aria-busy");s.textContent="Message sent";say("Message sent");setTimeout(()=>{b.className="b";b.innerHTML='<span class="t">Send message</span>';b.removeAttribute("aria-label");s.textContent="";busy=false},1800)},1400)}},
+2(a,s){a.innerHTML='<button class="b hd" aria-describedby="hh"><span class="f"></span><span class="t">Hold to delete</span></button><span id="hh" style="position:absolute;left:-9999px">Press and hold, or hold Space or Enter, for 1.2 seconds</span>';const b=a.firstChild,t=b.querySelector(".t");let tm=null,on=false;const start=()=>{if(on||b.classList.contains("done"))return;on=true;b.classList.add("hold");t.textContent="Keep holding…";tm=setTimeout(()=>{on=false;b.classList.remove("hold");b.classList.add("done");t.textContent="Deleted";s.textContent="Item deleted";say("Item deleted");setTimeout(()=>{b.classList.remove("done");t.textContent="Hold to delete";s.textContent=""},1800)},1200)},end=()=>{if(!on)return;on=false;clearTimeout(tm);b.classList.remove("hold");t.textContent="Hold to delete";s.textContent="Cancelled. Hold longer to confirm."};
+b.addEventListener("pointerdown",e=>{e.preventDefault();start()});["pointerup","pointerleave","pointercancel"].forEach(ev=>b.addEventListener(ev,end));b.addEventListener("keydown",e=>{if((e.key==" "||e.key=="Enter")&&!e.repeat){e.preventDefault();start()}if(e.key=="Escape")end()});b.addEventListener("keyup",e=>{if(e.key==" "||e.key=="Enter")end()});b.addEventListener("blur",end);b.oncontextmenu=e=>e.preventDefault()},
+3(a,s){a.innerHTML='<button class="b cp"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg><span class="t">sk_live_8f3a…c91d</span></button>';const b=a.firstChild,t=b.querySelector(".t");b.onclick=async()=>{try{await navigator.clipboard.writeText("sk_live_demo_8f3a91d")}catch(e){}b.classList.add("ok");b.querySelector("svg").outerHTML=CK;t.textContent="Copied to clipboard";s.textContent="API key copied";say("API key copied");setTimeout(()=>{b.classList.remove("ok");b.querySelector("svg").outerHTML='<svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg>';t.textContent="sk_live_8f3a…c91d";s.textContent=""},1800)}},
+4(a,s){let n=128;a.innerHTML='<button class="b lk" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 20s-8-4.700-8-10.500A4.500 4.500 0 0 1 12 7a4.500 4.500 0 0 1 8 2.500C20 15.300 12 20 12 20z"/></svg><span class="t">128</span></button>';const b=a.firstChild,t=b.querySelector(".t");b.onclick=()=>{const on=b.getAttribute("aria-pressed")!="true";b.setAttribute("aria-pressed",on);n+=on?1:-1;t.textContent=n;s.textContent=on?"You liked this":"Like removed";say(s.textContent);if(on&&!rm)for(let i=0;i<10;i++){const p=document.createElement("span");p.className="pt";const ang=i/10*Math.PI*2,r=26+Math.random()*14;p.style.setProperty("--x",Math.cos(ang)*r+"px");p.style.setProperty("--y",Math.sin(ang)*r+"px");p.style.background=["#ff4d79","#ffb347","#6d4aff"][i%3];b.append(p);setTimeout(()=>p.remove(),750)}}},
+5(a,s){a.innerHTML='<button class="b dl"><span class="bar"></span><svg viewBox="0 0 24 24" style="position:relative"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span class="t">Download PDF</span></button>';const b=a.firstChild,t=b.querySelector(".t"),bar=b.querySelector(".bar");let busy=false;b.onclick=()=>{if(b.dataset.done){s.textContent="Opened report.pdf";say("Opened");return}if(busy)return;busy=true;b.setAttribute("aria-busy","true");let p=0;const iv=setInterval(()=>{p+=3+Math.random()*7;if(p>=100){p=100;clearInterval(iv);busy=false;b.removeAttribute("aria-busy");b.dataset.done=1;t.textContent="Open report";s.textContent="Download complete";say("Download complete")}else t.textContent=Math.round(p)+"%";bar.style.transform="scaleX("+p/100+")"},120)}},
+6(a,s){a.innerHTML='<button class="b ar"><span class="t">Archive project</span></button>';const b=a.firstChild,t=b.querySelector(".t");let tm=null,iv=null,left=5;b.onclick=()=>{if(b.classList.contains("un")){clearInterval(iv);clearTimeout(tm);b.classList.remove("un");b.querySelectorAll(".cd2").forEach(x=>x.remove());t.textContent="Archive project";s.textContent="Archive undone";say("Archive undone");return}left=5;b.classList.add("un");t.textContent="Undo ("+left+")";const bar=document.createElement("span");bar.className="cd2";b.append(bar);bar.animate?bar.animate([{transform:"scaleX(1)"},{transform:"scaleX(0)"}],{duration:rm?1:5000,fill:"forwards",easing:"linear"}):0;s.textContent="Archiving in 5s…";say("Project will be archived in 5 seconds. Press again to undo.");iv=setInterval(()=>{left--;if(left>0)t.textContent="Undo ("+left+")"},1000);tm=setTimeout(()=>{clearInterval(iv);b.classList.remove("un");b.querySelectorAll(".cd2").forEach(x=>x.remove());t.textContent="Archived ✓";s.textContent="Project archived";say("Project archived");setTimeout(()=>t.textContent="Archive project",1800)},5000)}}};
+function all(){document.querySelectorAll(".a").forEach(x=>x.innerHTML="");reg.forEach(f=>f())}
+$("#rs").onclick=()=>{all();say("All demos reset")};all();
+</script></body></html>

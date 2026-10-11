@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Coastline — Filmstrip Gallery</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ac:#ffcf4a;--mut:#9a9ca6}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#17181c;color:#f1f1f3;font:14px/1.5 Sora,system-ui,sans-serif;padding:20px 16px}
+.w{max-width:960px;margin:0 auto;display:grid;gap:12px}
+.w.fs{position:fixed;inset:0;max-width:none;margin:0;z-index:100;background:#17181c;padding:16px;grid-template-rows:auto minmax(0,1fr) auto auto auto}
+.tb{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+h1{margin:0;font-size:18px;font-weight:600}.tb small{color:var(--mut);font-variant-numeric:tabular-nums}
+.ib{width:44px;height:44px;border:1px solid #ffffff26;background:#202228;color:#f1f1f3;border-radius:12px;cursor:pointer;font-size:16px;display:grid;place-items:center;position:relative}
+.ib:hover{border-color:var(--ac)}.ib[aria-pressed=true]{background:var(--ac);color:#111;border-color:var(--ac)}
+.stg{position:relative;aspect-ratio:16/10;background:#0f1013;border-radius:18px;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.fs .stg{aspect-ratio:auto;min-height:0}
+.sl{position:absolute;inset:0;transition:opacity .45s;cursor:zoom-in}
+.stg.z .sl{cursor:grab}
+.sl .p{position:absolute;inset:0;transform-origin:50% 50%;will-change:transform}
+.p i{position:absolute;display:block}
+.nv{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:48px;height:48px;border-radius:50%;border:0;background:#000a;color:#fff;font-size:20px;cursor:pointer;backdrop-filter:blur(6px)}
+.nv:hover{background:var(--ac);color:#111}.nv.l{left:12px}.nv.r{right:12px}
+.cp{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}.cp b{font-size:20px;font-weight:600}.cp span{color:var(--mut)}
+.fl{display:flex;gap:8px;overflow-x:auto;padding:6px 2px;scroll-snap-type:x proximity}
+.th{flex:none;width:96px;aspect-ratio:3/2;border-radius:10px;border:2px solid transparent;padding:0;overflow:hidden;cursor:pointer;position:relative;opacity:.65;scroll-snap-align:center;background:none}
+.th:hover{opacity:1}.th[aria-selected=true]{border-color:var(--ac);opacity:1}
+.th .p{position:absolute;inset:0}
+.ct{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ring{position:absolute;inset:0;transform:rotate(-90deg)}.ring circle{fill:none;stroke-width:3}
+.ib:focus-visible,.th:focus-visible,.nv:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.sp{color:var(--mut);font-size:13px;margin-left:auto}
+@media(max-width:600px){.th{width:64px}.stg{aspect-ratio:4/3}}
+@media(prefers-reduced-motion:reduce){.sl{transition:none}}
+</style></head><body><div class="w" id="w"><div class="tb"><div><h1>Coastline, a series</h1><small id="ctr">1 / 12</small></div><button class="ib" id="fb" aria-label="Toggle fullscreen" aria-pressed="false">⛶</button></div>
+<div class="stg" id="stg" aria-roledescription="carousel" aria-label="Artwork viewer"><div id="sls"></div><button class="nv l" id="pv" aria-label="Previous artwork">‹</button><button class="nv r" id="nx" aria-label="Next artwork">›</button></div>
+<div class="cp"><b id="tt"></b><span id="md"></span></div>
+<div class="fl" id="fl" role="listbox" aria-label="Artwork thumbnails" aria-orientation="horizontal"></div>
+<div class="ct"><button class="ib" id="pl" aria-label="Start slideshow" aria-pressed="false"><svg class="ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" stroke="#ffffff22"/><circle id="rg" cx="22" cy="22" r="20" stroke="#ffcf4a" stroke-dasharray="125.66" stroke-dashoffset="125.66"/></svg><span id="pi">▶</span></button><button class="ib" id="zm" aria-label="Zoom" aria-pressed="false">⊕</button><span class="sp">← → keys · double-click to zoom</span></div>
+<div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div></div>
+<script>
+const $=s=>document.querySelector(s),rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const A=[["Low Tide at Dawn","Oil on canvas","2021",["#f6c6a0","#e98e7a","#3f5d7a"]],["Salt Line","Acrylic","2021",["#cfe3e8","#7fb0c0","#25506b"]],["Harbour Lights","Gouache","2022",["#1b2a49","#f4b860","#e2735b"]],["The Long Jetty","Oil on board","2022",["#e9dcc3","#c9a477","#5a4636"]],["Green Hour","Watercolour","2022",["#d5ebd9","#7ec8a0","#2f6f57"]],["Fog Bell","Charcoal and ink","2023",["#d9dde0","#9aa5ad","#3c4750"]],["Kelp Garden","Acrylic","2023",["#0e3b43","#2a9d8f","#e9c46a"]],["Evening Ferry","Oil on canvas","2023",["#3d2b56","#c75d7a","#f6b26b"]],["Shingle","Mixed media","2024",["#ece4d8","#b9a58b","#6a5a48"]],["Storm Light","Oil on canvas","2024",["#2b3a55","#6c7f9e","#f2d49b"]],["Rockpool","Gouache","2024",["#cdeaf2","#4fb0c6","#e76f51"]],["Last Boat Home","Oil on linen","2025",["#14213d","#e07a5f","#f2cc8f"]]];
+function art(c,k){const[a,b,d]=c,w=document.createElement("div");w.className="p";w.style.background=`linear-gradient(180deg,${a} 0%,${b} 58%,${d} 58%,${d} 100%)`;const s=[`<i style="width:22%;aspect-ratio:1;border-radius:50%;background:#fff8;left:62%;top:14%"></i>`,`<i style="left:0;right:0;top:56%;height:5%;background:#fff6"></i><i style="width:14%;aspect-ratio:1;border-radius:50%;background:#fff9;left:20%;top:22%"></i>`,`<i style="width:10px;height:36%;background:#0006;left:30%;top:36%"></i><i style="width:10px;height:28%;background:#0006;left:56%;top:44%"></i><i style="width:36%;height:6%;background:#fff5;left:28%;top:62%;border-radius:9px"></i>`,`<i style="left:8%;width:70%;height:3%;background:#0005;top:60%"></i><i style="width:10%;aspect-ratio:1;background:#fff9;border-radius:50%;right:14%;top:18%"></i>`][k%4];w.innerHTML=s;return w}
+let cur=0,zoom=false,play=false,tm=null,t0=0,pan={x:0,y:0};const say=m=>{const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)};
+A.forEach((x,i)=>{const s=document.createElement("div");s.className="sl";s.style.opacity=i?0:1;s.style.pointerEvents=i?"none":"";s.setAttribute("role","group");s.setAttribute("aria-roledescription","slide");s.setAttribute("aria-label",`${i+1} of 12: ${x[0]}`);s.append(art(x[3],i));$("#sls").append(s);const t=document.createElement("button");t.className="th";t.setAttribute("role","option");t.setAttribute("aria-selected",i==0);t.setAttribute("aria-label",x[0]);t.tabIndex=i==0?0:-1;t.append(art(x[3],i));t.onclick=()=>go(i,true);t.onkeydown=e=>{if(e.key=="ArrowRight"||e.key=="ArrowLeft"){e.preventDefault();go(Math.max(0,Math.min(11,i+(e.key=="ArrowRight"?1:-1))),true,true)}};$("#fl").append(t)});
+const sls=[...document.querySelectorAll(".sl")],ths=[...document.querySelectorAll(".th")];
+function applyT(){const p=sls[cur].querySelector(".p");p.style.transform=zoom?`translate(${pan.x}px,${pan.y}px) scale(2)`:"none";$("#stg").classList.toggle("z",zoom);$("#zm").setAttribute("aria-pressed",zoom)}
+function go(i,user,focus){if(user&&play)stopPlay();cur=i;zoom=false;pan={x:0,y:0};sls.forEach((s,j)=>{s.style.opacity=j==i?1:0;s.style.pointerEvents=j==i?"":"none";s.querySelector(".p").style.transform="none"});ths.forEach((t,j)=>{t.setAttribute("aria-selected",j==i);t.tabIndex=j==i?0:-1});const th=ths[i];$("#fl").scrollTo({left:th.offsetLeft-$("#fl").clientWidth/2+th.offsetWidth/2,behavior:rm?"auto":"smooth"});if(focus)th.focus({preventScroll:true});$("#ctr").textContent=`${i+1} / 12`;$("#tt").textContent=A[i][0];$("#md").textContent=A[i][1]+" · "+A[i][2];applyT();say(`${i+1} of 12: ${A[i][0]}`);t0=performance.now()}
+$("#pv").onclick=()=>go((cur+11)%12,true);$("#nx").onclick=()=>go((cur+1)%12,true);
+document.addEventListener("keydown",e=>{if(e.target.closest(".th"))return;if(e.key=="ArrowRight")go((cur+1)%12,true);else if(e.key=="ArrowLeft")go((cur+11)%12,true);else if(e.key=="Home")go(0,true);else if(e.key=="End")go(11,true);else if(e.key=="Escape"&&$("#w").classList.contains("fs"))fs(false)});
+$("#zm").onclick=()=>{zoom=!zoom;pan={x:0,y:0};applyT()};$("#stg").addEventListener("dblclick",()=>{zoom=!zoom;pan={x:0,y:0};applyT()});
+let drag=null,sx=0;$("#stg").addEventListener("pointerdown",e=>{if(e.target.closest(".nv"))return;drag={x:e.clientX,y:e.clientY,px:pan.x,py:pan.y,moved:false};sx=e.clientX;$("#stg").setPointerCapture(e.pointerId)});
+$("#stg").addEventListener("pointermove",e=>{if(!drag||!zoom)return;const r=$("#stg").getBoundingClientRect(),mx=r.width/2,my=r.height/2;pan.x=Math.max(-mx,Math.min(mx,drag.px+(e.clientX-drag.x)));pan.y=Math.max(-my,Math.min(my,drag.py+(e.clientY-drag.y)));applyT()});
+$("#stg").addEventListener("pointerup",e=>{if(drag&&!zoom&&Math.abs(e.clientX-sx)>60)go((cur+(e.clientX<sx?1:11))%12,true);drag=null});
+function tick(){if(!play)return;const el=performance.now()-t0,p=Math.min(1,el/4000);$("#rg").style.strokeDashoffset=125.66*(1-p);if(p>=1){go((cur+1)%12);t0=performance.now()}requestAnimationFrame(tick)}
+function stopPlay(){play=false;$("#pl").setAttribute("aria-pressed",false);$("#pl").setAttribute("aria-label","Start slideshow");$("#pi").textContent="▶";$("#rg").style.strokeDashoffset=125.66}
+$("#pl").onclick=()=>{if(play){stopPlay();say("Slideshow paused");return}play=true;$("#pl").setAttribute("aria-pressed",true);$("#pl").setAttribute("aria-label","Pause slideshow");$("#pi").textContent="⏸";t0=performance.now();say("Slideshow playing");requestAnimationFrame(tick)};
+let hov=false,hs=0;$("#stg").addEventListener("pointerenter",()=>{hov=true;if(play){hs=performance.now()}});$("#stg").addEventListener("pointerleave",()=>{if(hov&&play)t0+=performance.now()-hs;hov=false});
+function fs(on){const w=$("#w");const f=on??!w.classList.contains("fs");w.classList.toggle("fs",f);$("#fb").setAttribute("aria-pressed",f);if(f&&w.requestFullscreen&&!rm)w.requestFullscreen().catch(()=>{});else if(!f&&document.fullscreenElement)document.exitFullscreen().catch(()=>{})}
+$("#fb").onclick=()=>fs();document.addEventListener("fullscreenchange",()=>{if(!document.fullscreenElement&&$("#w").classList.contains("fs")){$("#w").classList.remove("fs");$("#fb").setAttribute("aria-pressed",false)}});
+go(0);
+</script></body></html>

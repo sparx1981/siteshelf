@@ -1,0 +1,11 @@
+Canvas & base: Light #f5f7f4 section, card white with #dde4da border and 24px radius, ink #14201a, secondary #607167, accent per customer (Kelp & Co. green #1f8a5b, Halden Rail blue #2f64d6, Tin Lantern orange #e0652b, Oatly Moon purple #7a4fd3). Invented companies.
+
+Typography: "Bricolage Grotesque" (500,700) for quotes (28px) and numerals (56px), "Inter" 15px.
+
+Layout: Heading "Results our customers can point to", a tablist of four company chips (logo-mark square + name), then a two-column card: left a large quote with attribution (avatar initial, name, role), right a panel of three metric tiles (big number, label) and a before/after horizontal bar pair, plus "Read the story →" link.
+
+Interaction: Tabs follow the ARIA tab pattern with arrow keys, Home/End; switching panels cross-fades and re-triggers count-up on metrics (once per switch) and bar growth; accent colour variable changes for the card; auto-rotate every 8s until the user interacts or hovers/focuses (pause control provided as a button with aria-pressed); reduced motion disables count-up and rotation and shows final values.
+
+Responsive: Columns stack; tabs scroll horizontally.
+
+Rules: No libraries or external images, hidden attribute respected, 44px targets, invented content only.

@@ -1,0 +1,11 @@
+Canvas & base: Gradient page #fdf2f8→#eef2ff, cards 340×460px with 24px radius and generated gradient artwork (no photos), ink #1d1b2e, secondary #6b6885, like green #10b981, pass red #f43f5e, accent violet #6d28d9. Invented "Wander Deck" with 8 destinations.
+
+Typography: "Poppins" (400,600,700) at 15px; destination name 26px.
+
+Layout: Centred stack of up to 3 visible cards (scale and offset for depth), each with artwork, name, country, three tags and a one-line blurb; below, round buttons Pass ✕, Undo ↺, Like ♥ and a counter "3 of 8"; after the last card show a summary of liked destinations as chips with a Start over button.
+
+Interaction: Pointer-event dragging with rotation (±15° max by x), LIKE and NOPE stamps fading in at ±60px, release beyond ±110px flings the card off with transition, otherwise springs back; buttons trigger the same fling; keyboard Left=pass, Right=like, Backspace/Z=undo; the next card scales up as the top moves; undo restores the previous card with a reverse animation; aria-live announces decisions; deck is exposed as a list for assistive tech with only the top card interactive.
+
+Responsive: Cards scale to 90vw (max 340px).
+
+Rules: No libraries or external images, hidden attribute respected, 52px action buttons, reduced-motion replaces fling with instant removal and fade.

@@ -1,0 +1,11 @@
+Canvas & base: Off-black #101010 left panel, off-white #f3f0ea right column, accent chartreuse #c9f23b, ink #151515, secondary #7a766d. Project artwork is generated CSS (gradients and shapes), no images. Invented designer "Noor Linden".
+
+Typography: "Instrument Serif" for the name and project titles (italic accents) at up to 72px, "Inter" (400,500,600) at 15px for metadata.
+
+Layout: Two columns above 900px: left sticky half-viewport panel showing large artwork, the current project index ("03 / 07") and title, and tiny prev/next arrows; right scrolling column with an intro block (name, short bio, availability dot) then 7 project rows (year, title, role, tags, short description, "View project ↗") each ~70vh tall; footer with email and social links.
+
+Interaction: IntersectionObserver picks the row nearest viewport centre and cross-fades left artwork (opacity and slight scale) plus counter digits (rolling number animation); hover/focus on a row nudges it; prev/next arrows scroll to adjacent rows; arrow keys Up/Down when focus is inside the right column do not hijack scrolling; clicking a title row opens a lightweight case overlay with description and close button (focus returns); announce current project politely.
+
+Responsive: Under 900px the left panel becomes a 40vh sticky header with smaller title; rows shorter.
+
+Rules: No libraries or external images, hidden attribute respected, 44px targets, reduced-motion disables fades and roll animations, invented projects only.

@@ -1,0 +1,11 @@
+Canvas & base: Light #f2f4fa page, panel white #fff with #e2e6f0 border and 22px radius, ink #151a2e, secondary #6a7290, accent indigo #4f46e5, track #dde1ee, thumb white with 3px accent border. Invented settings screen "Tuner".
+
+Typography: "Plus Jakarta Sans" (500,700,800) at 15px; readouts tabular 20px.
+
+Layout: Five control cards in a responsive grid: (1) Dual-handle price range ($0–$1,000) with two thumbs and the filled segment, numeric readouts and min gap of $50; (2) Quantity stepper (− value +) with min 0, max 20, hold-to-repeat accelerating; (3) Segmented control "Billing" (Weekly, Monthly, Yearly) with a sliding highlight; (4) Circular knob 0–100 you can drag around or use arrow keys, showing value in the centre; (5) Hue slider showing a colour swatch with HSL and hex text and copy button.
+
+Interaction: Dual range uses two overlapped accessible thumbs (role=slider, aria-valuenow/min/max, keyboard arrows 10, PageUp/Down 100, Home/End) with pointer dragging; stepper hold repeats at 300ms then speeds up, with aria-live; segmented uses radio semantics with arrow keys; knob supports pointer drag by angle with 270° sweep and keyboard arrows; hue slider updates swatch and readouts; every control announces value changes via polite live region debounced.
+
+Responsive: Grid 2→1 columns; knob scales.
+
+Rules: No libraries or external images, hidden attribute respected, thumbs 28px with 44px hit areas, reduced-motion disables thumb transitions.

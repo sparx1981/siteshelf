@@ -1,0 +1,11 @@
+Canvas & base: Deep navy #0b1220 page, text #e9eefc, secondary #93a0c0, line track #1d2a45, progress line gradient #5eead4→#818cf8, era accent colours (1960s amber #fbbf24, 1980s pink #f472b6, 2000s cyan #22d3ee, 2020s violet #a78bfa). Invented organisation "Harrow Observatory" and its history.
+
+Typography: "Space Grotesk" (400,500,700) for headings, "Inter" 15px body; years in 56px outline numerals.
+
+Layout: Header, a sticky decade rail on the right (1960s, 1980s, 2000s, 2020s) as buttons showing the active era, and a centre vertical line with 10 event cards alternating left/right on desktop (single column with the line on the left on mobile). Each card has year, title, description and a small CSS-drawn icon.
+
+Interaction: Progress line fill height tracks scroll position through the timeline; cards fade/slide in via IntersectionObserver; the dot of the card nearest viewport centre glows; the decade rail highlights the active era and clicking scrolls smoothly to the first event of that era; Home/End keys move focus between decade buttons; era accent colour updates the progress glow; cards are focusable articles with aria-labelledby.
+
+Responsive: Single column under 760px; rail becomes a bottom pill bar.
+
+Rules: No libraries or external images, reduced-motion shows cards immediately and uses instant scrolling, hidden attribute respected, 44px targets, invented history only.

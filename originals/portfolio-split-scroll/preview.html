@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Noor Linden — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--lime:#c9f23b;--ink:#151515;--mut:#7a766d}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f3f0ea;color:var(--ink);font:15px/1.55 Inter,system-ui,sans-serif}
+.lay{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.lp{position:sticky;top:0;height:100vh;background:#101010;color:#f3f0ea;display:flex;flex-direction:column;justify-content:space-between;padding:28px;overflow:hidden}
+.art{position:absolute;inset:0;transition:opacity .7s,transform .9s;opacity:0;transform:scale(1.05)}
+.art.on{opacity:1;transform:none}
+.art i{position:absolute;display:block}
+.ov{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-start}
+.cn{font:400 22px "Instrument Serif";letter-spacing:.02em;display:flex;gap:6px;align-items:baseline;font-variant-numeric:tabular-nums}
+.dg{display:inline-block;height:1.15em;overflow:hidden;vertical-align:bottom}.dg span{display:block;transition:transform .5s}
+.ar button{width:44px;height:44px;border-radius:50%;border:1px solid #ffffff55;background:#0006;color:#fff;cursor:pointer;margin-left:6px;backdrop-filter:blur(6px);font-size:16px}
+.ar button:hover{background:var(--lime);color:#111;border-color:var(--lime)}
+.cp{position:relative;z-index:2}
+.cp h2{font:400 clamp(40px,6vw,84px)/.95 "Instrument Serif";margin:0;text-shadow:0 2px 20px #0006}.cp h2 em{color:var(--lime)}
+.rc{padding:0 clamp(24px,5vw,72px)}
+.in{min-height:90vh;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.in h1{font:400 clamp(48px,7vw,96px)/.95 "Instrument Serif";margin:0;letter-spacing:-.01em}.in h1 em{color:#6a7a10}
+.in p{max-width:420px;margin:0;color:#4a463e;font-size:17px}
+.av{display:inline-flex;gap:8px;align-items:center;font-weight:600}.av i{width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px #22c55e33}
+.pr{min-height:72vh;display:flex;flex-direction:column;justify-content:center;gap:12px;border-top:1px solid #d8d3c7;padding:32px 0;cursor:pointer;transition:transform .3s}
+.pr:hover,.pr:focus-visible{transform:translateX(8px)}
+.pr:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+.mt{display:flex;gap:14px;color:var(--mut);font-weight:500;font-size:14px}
+.pr h3{font:400 clamp(34px,4vw,54px)/1 "Instrument Serif";margin:0}
+.pr p{margin:0;max-width:420px;color:#4a463e}
+.tg{display:flex;gap:6px;flex-wrap:wrap}.tg span{border:1px solid #cfc9bb;border-radius:99px;padding:2px 12px;font-size:13px}
+.vw{align-self:flex-start;margin-top:6px;font-weight:600;border-bottom:2px solid var(--lime)}
+.ft{padding:80px 0 60px;border-top:1px solid #d8d3c7}.ft a{display:block;font:400 clamp(26px,3.4vw,44px) "Instrument Serif";color:var(--ink)}.ft div{display:flex;gap:18px;margin-top:14px}.ft div a{font:500 15px Inter;display:inline-flex;min-height:44px;align-items:center}
+.cs{position:fixed;inset:0;background:#101010ee;z-index:50;display:grid;place-items:center;padding:20px;animation:f .25s}
+@keyframes f{from{opacity:0}}
+.cs div{background:#f3f0ea;border-radius:20px;max-width:560px;width:100%;padding:32px;display:grid;gap:12px}
+.cs h3{font:400 44px/1 "Instrument Serif";margin:0}.cs button{justify-self:start;border:0;background:var(--ink);color:#fff;border-radius:99px;min-height:44px;padding:0 22px;font:600 14px Inter;cursor:pointer}
+a:focus-visible,button:focus-visible{outline:3px solid var(--lime);outline-offset:2px}
+@media(max-width:900px){.lay{grid-template-columns:minmax(0,1fr)}.lp{height:40vh;padding:18px;z-index:5}.cp h2{font-size:38px}.pr{min-height:55vh}.in{min-height:60vh}.rc{padding:0 20px}}
+@media(prefers-reduced-motion:reduce){.art,.dg span,.pr{transition:none}html{scroll-behavior:auto}}
+</style></head><body><div class="lay"><aside class="lp" aria-label="Current project preview"><div id="arts" aria-hidden="true"></div><div class="ov"><div class="cn" aria-hidden="true"><span class="dg" id="d1"></span><span class="dg" id="d2"></span><span style="opacity:.6">/ 07</span></div><div class="ar"><button id="pv" aria-label="Previous project">↑</button><button id="nx" aria-label="Next project">↓</button></div></div><div class="cp"><h2 id="ct"></h2></div></aside>
+<main class="rc"><section class="in"><span class="av"><i></i>Available from November</span><h1>Noor <em>Linden</em></h1><p>Independent product designer. I shape calm interfaces for tools people use every day, from first sketch to shipped system.</p></section><div id="ps"></div>
+<footer class="ft"><a href="#">noor@linden.example</a><div><a href="#">Are.na</a><a href="#">Read.cv</a><a href="#">Instagram</a></div></footer></main></div>
+<div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div>
+<script>
+const $=s=>document.querySelector(s),rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const PR=[["Fieldnote","Mobile app","2026","Research notebook for fieldworkers","Offline-first notes with voice capture and map pins.",["iOS","Systems"],["#1f3a2e","#c9f23b","#f3f0ea"]],["Tallow & Rye","Brand & web","2025","Identity for a neighbourhood bakery","Warm, typographic identity and an ordering site.",["Brand","Web"],["#b5532a","#f6d9a8","#2b1b12"]],["Meridian","Dashboard","2025","Analytics for small shipping fleets","A calm control room for twelve-vehicle fleets.",["B2B","Data"],["#16243d","#5aa9ff","#e8f1ff"]],["Quiet Hours","Design system","2024","A system for a focus app","Tokens, components and docs shared by eight engineers.",["System","Docs"],["#2a1f3d","#c9a6ff","#fbe7ff"]],["Little Orchard","E-commerce","2024","Online shop for a cider maker","Seasonal drops, subscriptions and a gift flow.",["Shop","Brand"],["#7a1f2b","#ffd166","#fff1e0"]],["Lumen","Hardware UI","2023","Interface for a smart lamp","Dial-first interaction with a companion app.",["IoT","Motion"],["#0e0e10","#ffcf56","#ffe9b0"]],["Atlas Kids","Education","2023","Geography game for children","A playful map-based game used in 120 schools.",["Games","Illustration"],["#0e5a6b","#ffb347","#d5f5ff"]]];
+const pad=n=>String(n).padStart(2,"0");let cur=-1;
+function art(p,i){const[a,b,c]=p[6],d=document.createElement("div");d.className="art";d.style.background=a;const sh=[`<i style="width:60%;aspect-ratio:1;border-radius:50%;background:${b};right:-10%;top:12%;opacity:.9"></i><i style="width:38%;aspect-ratio:1;background:${c};left:8%;bottom:18%;border-radius:12%;opacity:.15"></i>`,`<i style="left:10%;right:10%;top:20%;height:34%;background:${b};border-radius:200px 200px 0 0"></i><i style="left:10%;right:10%;top:54%;height:3px;background:${c}"></i>`,`<i style="left:8%;top:14%;width:84%;height:50%;border:3px solid ${b};border-radius:16px"></i><i style="left:14%;top:30%;width:20%;height:26%;background:${b};opacity:.8"></i><i style="left:40%;top:40%;width:20%;height:16%;background:${c};opacity:.5"></i>`,`<i style="left:15%;top:10%;width:70%;height:70%;border-radius:50%;border:40px solid ${b};opacity:.7"></i>`,`<i style="width:50%;aspect-ratio:1;background:${b};left:6%;top:16%;transform:rotate(14deg);border-radius:20%"></i><i style="width:36%;aspect-ratio:1;border-radius:50%;background:${c};right:8%;bottom:24%;opacity:.8"></i>`,`<i style="left:30%;top:10%;width:40%;height:58%;border-radius:50% 50% 12% 12%;background:${b};box-shadow:0 0 120px ${b}"></i>`,`<i style="left:0;right:0;top:20%;height:20%;background:${b}"></i><i style="left:0;right:0;top:48%;height:20%;background:${c};opacity:.5"></i><i style="width:30%;aspect-ratio:1;border-radius:50%;background:#fff;right:12%;top:8%;opacity:.8"></i>`];d.innerHTML=sh[i];return d}
+const dig=(el,v)=>{el.innerHTML="";const s=document.createElement("span");s.textContent=v;el.append(s)};
+PR.forEach((p,i)=>{$("#arts").append(art(p,i));const s=document.createElement("section");s.className="pr";s.tabIndex=0;s.dataset.i=i;s.setAttribute("role","button");s.setAttribute("aria-label",`${p[0]}, ${p[1]}, ${p[2]}. Open details`);s.innerHTML=`<div class="mt"><span>${pad(i+1)}</span><span>${p[2]}</span><span>${p[1]}</span></div><h3>${p[0]}</h3><p>${p[3]}. ${p[4]}</p><div class="tg">${p[5].map(t=>`<span>${t}</span>`).join("")}</div><span class="vw">View project ↗</span>`;s.onclick=()=>openCase(i,s);s.onkeydown=e=>{if(e.key=="Enter"||e.key==" "){e.preventDefault();openCase(i,s)}};$("#ps").append(s)});
+const rows=[...document.querySelectorAll(".pr")],arts=[...document.querySelectorAll(".art")];
+function set(i){if(i==cur)return;cur=i;arts.forEach((a,j)=>a.classList.toggle("on",j==i));const p=PR[i];const h=$("#ct");h.innerHTML=p[0].replace(/(\S+)$/,"<em>$1</em>");dig($("#d1"),"0");dig($("#d2"),String(i+1));$("#live").textContent="Project "+(i+1)+" of 7: "+p[0]}
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)set(+e.target.dataset.i)})},{rootMargin:"-45% 0px -45% 0px"});rows.forEach(r=>io.observe(r));
+new IntersectionObserver(es=>{if(es[0].isIntersecting){cur=-1;arts.forEach((a,j)=>a.classList.toggle("on",j==0));$("#ct").innerHTML="Selected <em>work</em>";dig($("#d1"),"0");dig($("#d2"),"0")}},{rootMargin:"-45% 0px -45% 0px"}).observe($(".in"));
+arts[0].classList.add("on");$("#ct").innerHTML="Selected <em>work</em>";dig($("#d1"),"0");dig($("#d2"),"0");
+const go=d=>{const i=Math.max(0,Math.min(6,(cur<0?-1:cur)+d));rows[i].scrollIntoView({behavior:rm?"auto":"smooth",block:"center"})};$("#pv").onclick=()=>go(-1);$("#nx").onclick=()=>go(1);
+let last=null;function openCase(i,el){last=el;const p=PR[i],o=document.createElement("div");o.className="cs";o.setAttribute("role","dialog");o.setAttribute("aria-modal","true");o.setAttribute("aria-label",p[0]+" case summary");o.innerHTML=`<div><div class="mt"><span>${p[2]}</span><span>${p[1]}</span></div><h3>${p[0]}</h3><p>${p[3]}. ${p[4]} The full case study covers research, key decisions and measured outcomes.</p><button>Close</button></div>`;document.body.append(o);const b=o.querySelector("button");b.focus();const c=()=>{o.remove();last&&last.focus()};b.onclick=c;o.onclick=e=>{if(e.target==o)c()};o.onkeydown=e=>{if(e.key=="Escape")c();if(e.key=="Tab"){e.preventDefault();b.focus()}}}
+</script></body></html>

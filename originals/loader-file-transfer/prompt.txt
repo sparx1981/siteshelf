@@ -1,0 +1,11 @@
+Canvas & base: Soft grey #eef1f6 page, white panel #fff with 20px radius, ink #121826, secondary #667085, accent blue #2f6bff, success #12b76a, warning #f79009, error #f04438. Invented app "Cargo Drop".
+
+Typography: "Inter" (400,500,600,700) at 14px; numerals tabular; overall percent 28px.
+
+Layout: 640px panel with a header (title, overall ring SVG with percent, "3 of 6 complete", total speed), a list of 6 file rows (type badge, name, size, progress bar, status text "12.4 MB of 48 MB · 3.2 MB/s · 11 s left", row actions pause/resume, cancel, retry), and footer buttons (Pause all, Cancel all, Start again).
+
+Interaction: Simulated transfers advance with randomised speeds via a single requestAnimationFrame/interval loop; max 3 concurrent, others queued; pause freezes a row, resume continues; cancel marks "Cancelled" and frees a slot; one file is scripted to fail at ~60% with an error message and offers Retry; overall progress and ring update; when all settled show a summary banner (X uploaded, Y failed, Z cancelled) and announce; per-row progressbar roles with aria-valuenow; Start again resets.
+
+Responsive: Status text wraps under the bar; actions become icon buttons.
+
+Rules: No libraries or external images, hidden attribute respected, 44px action targets, reduced-motion disables bar transitions (values still update).

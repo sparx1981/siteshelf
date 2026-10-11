@@ -1,0 +1,11 @@
+Canvas & base: White #fff page, subtle #f6f7fb sidebar tint, ink #111827, secondary #6b7280, border #e5e7eb, accent teal #0d9488 with tint #ccfbf1. Invented docs "Kiln Docs" with an article "Deploying a static site".
+
+Typography: "Inter" (400,500,600,700) at 16px/1.7 for body, headings 700, code in "JetBrains Mono" 13px.
+
+Layout: Header bar; two columns above 960px: article (720px) with an H1, intro, and 6 H2 sections each with 1–2 H3 subsections (placeholder prose plus a code block); right sticky TOC (240px) titled "On this page" with H2 links and indented H3 links, a vertical track line with a moving thumb indicating the active item, and a reading-progress percent. Below 960px the TOC becomes a collapsible "On this page" dropdown at the top.
+
+Interaction: IntersectionObserver or scroll-based scrollspy highlights the active heading (aria-current="location"); the thumb animates to the active link's position; clicking a link smooth-scrolls with a scroll-margin offset for the sticky header and updates the URL hash; keyboard users can tab through links; copy-link icon appears on heading hover/focus; at page end the last item activates; "Back to top" link; mobile dropdown closes on selection and shows the current section as its label.
+
+Responsive: As above; code blocks scroll horizontally inside their own box.
+
+Rules: No libraries or external images, hidden attribute respected, 44px targets for mobile TOC, reduced-motion uses instant scrolling and no thumb transition.

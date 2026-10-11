@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kiln Docs — Deploying a static site</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111827;--mut:#6b7280;--ln:#e5e7eb;--ac:#0d9488;--ti:#ccfbf1;--hh:60px}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 16px)}
+body{margin:0;color:var(--ink);font:16px/1.7 Inter,system-ui,sans-serif;background:#fff}
+.hd{position:sticky;top:0;z-index:30;height:var(--hh);background:#ffffffee;backdrop-filter:blur(8px);border-bottom:1px solid var(--ln);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+.hd b{font-weight:700}.hd span{color:var(--mut);font-size:14px}
+.lay{max-width:1040px;margin:0 auto;padding:32px 24px 160px;display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:56px}
+article{min-width:0}
+h1{font-size:36px;line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
+h2{font-size:26px;margin:48px 0 8px;letter-spacing:-.01em;position:relative}h3{font-size:19px;margin:28px 0 4px;position:relative}
+.cl{position:absolute;left:-30px;top:50%;transform:translateY(-50%);border:0;background:none;width:28px;height:28px;color:var(--mut);cursor:pointer;opacity:0;font-size:15px;border-radius:6px}
+h2:hover .cl,h3:hover .cl,.cl:focus-visible{opacity:1}
+p{margin:0 0 14px;color:#374151}
+pre{background:#0f172a;color:#d6e0f5;border-radius:12px;padding:14px 16px;overflow-x:auto;font:400 13px/1.6 "JetBrains Mono",monospace;margin:12px 0 16px}
+code{font-family:"JetBrains Mono",monospace;font-size:.88em;background:#f3f4f6;padding:1px 6px;border-radius:5px}
+.toc{position:sticky;top:calc(var(--hh) + 24px);align-self:start;font-size:14px}
+.toc h4{margin:0 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+.tr{position:relative;border-left:2px solid var(--ln)}
+.th{position:absolute;left:-2px;width:2px;background:var(--ac);transition:top .25s,height .25s}
+.toc a{display:flex;align-items:center;min-height:32px;padding:2px 0 2px 14px;color:var(--mut);text-decoration:none;line-height:1.3}
+.toc a.s{padding-left:28px;font-size:13px}
+.toc a:hover{color:var(--ink)}.toc a[aria-current=location]{color:var(--ac);font-weight:600}
+a:focus-visible,button:focus-visible{outline:3px solid #0d948866;outline-offset:2px;border-radius:4px}
+.pr{margin-top:14px;color:var(--mut);font-size:12px;font-variant-numeric:tabular-nums}.pr i{display:block;height:4px;background:var(--ln);border-radius:4px;margin-top:6px;overflow:hidden}.pr i b{display:block;height:100%;width:0;background:var(--ac)}
+.bt{display:inline-block;margin-top:14px;color:var(--mut);font-size:13px}
+.mb{display:none;position:sticky;top:var(--hh);z-index:25;background:#fff;border-bottom:1px solid var(--ln)}
+.mb button{all:unset;box-sizing:border-box;width:100%;min-height:48px;padding:0 20px;display:flex;justify-content:space-between;align-items:center;font-weight:600;cursor:pointer;font-size:14px}
+.mb button:focus-visible{outline:3px solid #0d948866;outline-offset:-3px}
+.mb nav{padding:0 20px 12px;display:grid;max-height:60vh;overflow:auto}
+.mb nav a{display:flex;align-items:center;min-height:44px;color:var(--ink);text-decoration:none;font-size:15px}.mb nav a.s{padding-left:16px;color:var(--mut)}.mb nav a[aria-current=location]{color:var(--ac);font-weight:700}
+@media(max-width:960px){.lay{grid-template-columns:minmax(0,1fr);padding:20px 18px 120px}.toc{display:none}.mb{display:block}.cl{display:none}h1{font-size:28px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.th{transition:none}}
+</style></head><body>
+<header class="hd"><b>Kiln Docs</b><span>Guides / Deploying</span></header>
+<div class="mb" id="mb"><button id="mbt" aria-expanded="false" aria-controls="mbn"><span id="mbl">On this page</span><span aria-hidden="true">▾</span></button><nav id="mbn" aria-label="On this page" hidden></nav></div>
+<div class="lay"><article id="art"><h1>Deploying a static site</h1><p>This guide walks through taking a static site from your laptop to a global edge network in about ten minutes. You'll need Node 20 and a Kiln account.</p></article>
+<aside class="toc" aria-label="On this page"><h4>On this page</h4><div class="tr" id="tr"><div class="th" id="th"></div><div id="tl"></div></div><div class="pr"><span id="pc">0% read</span><i><b id="pb"></b></i></div><a class="bt" href="#top" id="bt">↑ Back to top</a></aside></div>
+<script>
+const $=s=>document.querySelector(s);
+const S=[["Prerequisites",["Install the CLI","Authenticate"]],["Project setup",["Configuration file"]],["Building your site",["Build output","Environment variables"]],["Deploying",["Preview deploys","Production deploys"]],["Custom domains",["DNS records"]],["Troubleshooting",["Common errors","Getting help"]]];
+const P=["Static hosting works best when the build is predictable. Keep the output in a single directory and avoid writing files during runtime so every deploy is identical to the last.","Kiln caches assets at the edge and invalidates them atomically, which means visitors never see a half-updated site. The details below cover the settings you will touch most often.","If something looks off, the deploy log is the quickest place to start. Each step prints a timestamp and a short explanation so problems are easy to locate."];
+const slug=t=>t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const hs=[];let k=0;
+S.forEach(([h,subs])=>{const e=document.createElement("h2");e.id=slug(h);e.innerHTML=`<button class="cl" aria-label="Copy link to ${h}">#</button>`;e.append(h);$("#art").append(e);hs.push([e,0]);const p=document.createElement("p");p.textContent=P[k++%3];$("#art").append(p);subs.forEach(s=>{const g=document.createElement("h3");g.id=slug(s);g.innerHTML=`<button class="cl" aria-label="Copy link to ${s}">#</button>`;g.append(s);$("#art").append(g);hs.push([g,1]);const q=document.createElement("p");q.textContent=P[k++%3]+" "+P[k%3];$("#art").append(q);if(k%2){const c=document.createElement("pre");c.textContent=`$ kiln deploy --dir ./dist --env ${slug(s).slice(0,10)}\n✔ Uploaded 128 files in 2.4s\n✔ Live at https://my-site.kiln.example`;$("#art").append(c)}})});
+hs.forEach(([e,l])=>{const a=document.createElement("a");a.href="#"+e.id;a.textContent=e.textContent.replace(/^#/,"");if(l)a.className="s";$("#tl").append(a);const b=a.cloneNode(true);$("#mbn").append(b)});
+document.querySelectorAll(".cl").forEach(b=>b.onclick=async()=>{const id=b.parentElement.id;try{await navigator.clipboard.writeText(location.href.split("#")[0]+"#"+id)}catch(e){}history.replaceState(null,"","#"+id);b.textContent="✓";setTimeout(()=>b.textContent="#",1200)});
+const links=[...document.querySelectorAll("#tl a")],mlinks=[...document.querySelectorAll("#mbn a")];let act=-1;
+function spy(){const off=parseInt(getComputedStyle(document.documentElement).getPropertyValue("--hh"))+(innerWidth<=960?60:0)+24;let a=0;hs.forEach(([e],i)=>{if(e.getBoundingClientRect().top<=off)a=i});if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)a=hs.length-1;if(a!=act){act=a;links.forEach((l,i)=>i==a?l.setAttribute("aria-current","location"):l.removeAttribute("aria-current"));mlinks.forEach((l,i)=>i==a?l.setAttribute("aria-current","location"):l.removeAttribute("aria-current"));$("#mbl").textContent=links[a].textContent;const l=links[a],th=$("#th");th.style.top=l.offsetTop+"px";th.style.height=l.offsetHeight+"px"}
+const h=document.documentElement.scrollHeight-innerHeight,p=h>0?Math.min(100,Math.round(scrollY/h*100)):0;$("#pc").textContent=p+"% read";$("#pb").style.width=p+"%"}
+addEventListener("scroll",spy,{passive:true});addEventListener("resize",spy);spy();
+$("#mbt").onclick=()=>{const o=$("#mbt").getAttribute("aria-expanded")=="true";$("#mbt").setAttribute("aria-expanded",!o);$("#mbn").hidden=o};
+$("#mbn").addEventListener("click",e=>{if(e.target.closest("a")){$("#mbt").setAttribute("aria-expanded","false");$("#mbn").hidden=true}});
+document.addEventListener("keydown",e=>{if(e.key=="Escape"&&!$("#mbn").hidden){$("#mbt").setAttribute("aria-expanded","false");$("#mbn").hidden=true;$("#mbt").focus()}});
+document.body.id="top";
+</script></body></html>

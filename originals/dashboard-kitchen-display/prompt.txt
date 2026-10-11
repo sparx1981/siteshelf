@@ -1,0 +1,13 @@
+Canvas & base: Near-black display #101114 optimised for a busy kitchen screen, with ticket cards #1b1d22 (2px #2d3037 border, radius 14px). Text #f4f5f7, secondary #a3a8b3 (7.5:1). Ticket age states: Fresh (under 5 min) green #2fd07d, Warning (5 to 8 min) amber #ffb020, Late (over 8 min) red #ff5a5a; ticket header bars take the state colour with dark text #0a0a0a for contrast. Accent for dine-in #7cc4ff, takeaway #d6a8ff, delivery #ffd27a. Invented restaurant "Saltgrass Kitchen".
+
+Typography: "Barlow Condensed" is not available; use "Oswald" 500/600 for headings, table numbers and timers (timer 34px 600 tabular), and "Inter" 400/500/600 for item lines at 17px (large for glanceability).
+
+Layout: Top bar with wordmark "THE PASS", a clock, station filter chips (All, Grill, Fry, Cold, Pastry; aria-pressed), a "Speed" selector (Real time, x10, x30) for demo timers and an "Add order" button. Three columns: New, Cooking, Ready (headers show counts). Each ticket card: header bar with order number (#4821), channel tag (Dine-in T12, Takeaway, Delivery), and the timer at the right; body listing items with quantity ("2 x Smoked haddock chowder"), modifiers in smaller text (no onions, extra lemon), allergen badges as text pills ("Gluten", "Nuts", "Dairy"; allergy-critical items flagged with "ALLERGY" in red), a station tag per item, and a footer with a large "Start" button (New), "Bump to ready" (Cooking) or "Bump (clear)" (Ready). Items belonging to a different station than the filter are dimmed.
+
+Behaviour: Start moves a ticket to Cooking (animates sliding across 250ms), Bump to ready moves it to Ready, and Bump (clear) removes it with a collapse animation and increments "Served today". Timers count up from creation; at 5 minutes the header turns amber, at 8 minutes red and the card gently pulses once per minute. At speed x10 or x30 the minutes pass faster so the demo is visible. New random orders arrive every 12 seconds (stops at 8 open tickets) and a polite alert region announces "New order #4825, table 7". Seed 6 opening tickets at different ages (e.g. 1:10, 3:40, 5:30, 6:45, 8:20, 9:05).
+
+Interaction: Tickets are focusable (tab) and have keyboard shortcuts: Enter advances the focused ticket; arrow keys move focus between tickets. Station filter dims items, not tickets.
+
+Responsive: Under 1000px columns become a swipeable tabbed view (New, Cooking, Ready tabs); no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. State is conveyed by text ("LATE", "WARN") as well as colour; aria-live for new orders; visible focus 4px #ffffff outline. Respect prefers-reduced-motion (no pulse or slide). Invented names only.

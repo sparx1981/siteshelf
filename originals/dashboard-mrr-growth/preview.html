@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Recurring Revenue Dashboard — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#07120f;color:#e7f5ee;font:500 14px/1.5 Manrope,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #3ee0a0;outline-offset:2px;border-radius:8px}
+.tb{display:flex;align-items:center;gap:14px;padding:14px clamp(16px,3vw,36px);border-bottom:1px solid #15302a;flex-wrap:wrap}.logo{font:800 22px Manrope,sans-serif;margin-right:auto;letter-spacing:-.03em}.logo i{display:inline-block;width:16px;height:16px;border-radius:5px;background:#3ee0a0;margin-right:8px;box-shadow:0 0 14px rgba(62,224,160,.6)}
+.co{background:#0d1d18;border:1px solid #1b3a30;border-radius:99px;padding:5px 14px;font-size:13px;color:#8fb1a2}.sg{display:flex;background:#0d1d18;border:1px solid #1b3a30;border-radius:12px;padding:3px}.sg button{font:700 13px Manrope,sans-serif;border:0;background:none;color:#8fb1a2;padding:7px 14px;border-radius:9px;cursor:pointer}.sg button[aria-pressed=true]{background:#3ee0a0;color:#03140d}
+.w{max-width:1260px;margin:0 auto;padding:20px clamp(16px,3vw,36px) 60px}h1{font:800 clamp(24px,3vw,32px)/1.1 Manrope,sans-serif;letter-spacing:-.02em;margin:0 0 16px}
+.kp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:16px}.k,.p{background:#0d1d18;border:1px solid #1b3a30;border-radius:16px;padding:18px}.k small{color:#8fb1a2;font-weight:600}.k b{display:block;font:800 32px/1.15 Manrope,sans-serif;font-variant-numeric:tabular-nums}
+.dl{display:inline-block;font:500 12px 'DM Mono',monospace;border-radius:99px;padding:2px 10px;margin-top:4px}.dl.u{background:rgba(62,224,160,.14);color:#3ee0a0}.dl.d{background:rgba(255,122,122,.14);color:#ff7a7a}
+.p+.p{margin-top:16px}.p h2{font:800 17px Manrope,sans-serif;margin:0 0 12px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.cw{position:relative}.cw svg{width:100%;height:auto;display:block;overflow:visible}.cw text{font:400 11px 'DM Mono',monospace;fill:#8fb1a2}.cw .v{font:500 12px 'DM Mono',monospace;fill:#e7f5ee}
+.bar{cursor:pointer;transition:filter .15s}.bar:hover,.bar:focus-visible{filter:brightness(1.25);outline:none}.bar:focus-visible rect{stroke:#fff;stroke-width:2}
+.tip{position:absolute;background:#04100b;border:1px solid #2a5546;border-radius:10px;padding:8px 12px;font:400 12px 'DM Mono',monospace;white-space:nowrap;pointer-events:none;opacity:0;transform:translate(-50%,-115%);transition:opacity .12s;z-index:5}.tip.on{opacity:1}.tip b{display:block;font:800 14px Manrope,sans-serif}
+.hm{overflow-x:auto}table{border-collapse:separate;border-spacing:4px;width:100%;min-width:560px}th{font:500 12px 'DM Mono',monospace;color:#8fb1a2;padding:4px 6px;text-align:center}th.l{text-align:left}td{font:500 12px 'DM Mono',monospace;text-align:center;padding:10px 4px;border-radius:8px;color:#04140d;animation:fi .4s both;animation-delay:calc(var(--d)*20ms);cursor:default;min-width:62px}td.n{background:none;color:#8fb1a2;text-align:left;animation:none}td:hover,td:focus-visible{outline:2px solid #fff}@keyframes fi{from{opacity:0}}
+.lg{display:flex;align-items:center;gap:10px;font:400 11px 'DM Mono',monospace;color:#8fb1a2;margin-top:10px}.lg i{display:block;width:160px;height:8px;border-radius:99px;background:linear-gradient(90deg,#ffcf5c,#a4e07a,#1fbf7a,#0e8f5a)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:900px){.kp{grid-template-columns:repeat(2,minmax(0,1fr))}.k b{font-size:26px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div class="tb"><div class="logo"><i></i>ledgerly</div><span class="co">Parcelhop · GBP</span><div class="sg" role="group" aria-label="Quarter" id="qg"></div></div>
+<main class="w"><h1>Revenue health</h1><div class="kp" id="kp"></div>
+<section class="p"><h2>MRR movement, <span id="qt"></span></h2><div class="cw" id="cw" role="img" aria-label="Waterfall chart of monthly recurring revenue movement for the quarter. Use the table below for exact values."><svg id="svg" viewBox="0 0 760 320"></svg><div class="tip" id="tip"></div></div>
+<div class="vh"><table><caption>MRR movement values</caption><tbody id="at"></tbody></table></div></section>
+<section class="p"><h2><span>Cohort retention</span><span class="sg" role="group" aria-label="Measure" id="mg"><button type="button" aria-pressed="true" data-m="p">Percent retained</button><button type="button" aria-pressed="false" data-m="r">Revenue retained</button></span></h2><div class="hm"><div class="cw" id="hw"><table id="ht"></table><div class="tip" id="ht2"></div></div></div><div class="lg"><span>Lower</span><i></i><span>Higher</span></div></section></main>
+<script>
+(function(){
+var Q=[[150.2,12.4,5.1,1.9,3.2],[null,13.8,5.9,2.1,3.0],[null,15.6,6.4,2.2,3.5],[null,16.9,7.2,2.4,3.3]],reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+for(var i=1;i<4;i++){var p=Q[i-1];Q[i][0]=+(p[0]+p[1]+p[2]-p[3]-p[4]).toFixed(1)}
+var qi=2,mode='p',shown={},kp=document.getElementById('kp'),qg=document.getElementById('qg');
+['Q1','Q2','Q3','Q4'].forEach(function(q,i){var b=document.createElement('button');b.type='button';b.textContent=q+' 2026';b.setAttribute('aria-pressed',i===qi);b.addEventListener('click',function(){qi=i;[].forEach.call(qg.children,function(x){x.setAttribute('aria-pressed',x===b)});render()});qg.appendChild(b)});
+function end(q){return q[0]+q[1]+q[2]-q[3]-q[4]}
+function tween(el,to,fmt){var from=shown[el.id]===undefined?to:shown[el.id];shown[el.id]=to;var t0=performance.now();if(reduce||from===to){el.textContent=fmt(to);return}(function f(n){var k=Math.min(1,(n-t0)/450);el.textContent=fmt(from+(to-from)*k);if(k<1)requestAnimationFrame(f)})(t0)}
+function render(){var q=Q[qi],e=end(q),pe=qi?end(Q[qi-1]):q[0]*.94,K=[['MRR',e,function(v){return'£'+v.toFixed(1)+'k'},(e-q[0])/q[0]*100],['ARR',e*12/1000,function(v){return'£'+v.toFixed(2)+'m'},(e-q[0])/q[0]*100],['Net revenue retention',100+(q[2]-q[3]-q[4])/q[0]*100*3.6,function(v){return Math.round(v)+'%'},1.8],['Logo churn',q[4]/q[0]*100*1.4,function(v){return v.toFixed(1)+'%'},-.2]];
+if(!kp.children.length)K.forEach(function(k,i){kp.insertAdjacentHTML('beforeend','<div class="k"><small>'+k[0]+'</small><b id="kv'+i+'"></b><span class="dl" id="kd'+i+'"></span></div>')});
+K.forEach(function(k,i){tween(document.getElementById('kv'+i),k[1],k[2]);var d=document.getElementById('kd'+i);var good=i===3?k[3]<0:k[3]>=0;d.className='dl '+(good?'u':'d');d.textContent=(k[3]>=0?'▲ +':'▼ ')+Math.abs(k[3]).toFixed(1)+(i===3?' pts':'%')+' vs last quarter'});
+document.getElementById('qt').textContent=['Q1','Q2','Q3','Q4'][qi]+' 2026';chart();cohort()}
+function chart(){var q=Q[qi],steps=[['Start MRR',q[0],'#9d8cff','t'],['New',q[1],'#3ee0a0','+'],['Expansion',q[2],'#8af0c4','+'],['Contraction',-q[3],'#ff9d9d','-'],['Churn',-q[4],'#ff7a7a','-'],['End MRR',end(q),'#9d8cff','t']],W=760,H=320,P={l:50,r:10,t:26,b:34},mx=Math.ceil((q[0]+q[1]+q[2])/10)*10,mn=Math.floor(q[0]*.7/10)*10;
+var y=function(v){return P.t+(1-(v-mn)/(mx-mn))*(H-P.t-P.b)},bw=(W-P.l-P.r)/steps.length,svg=document.getElementById('svg'),h='';
+for(var g=0;g<=4;g++){var v=mn+(mx-mn)*g/4,yy=y(v);h+='<line x1="'+P.l+'" x2="'+(W-P.r)+'" y1="'+yy+'" y2="'+yy+'" stroke="#16322a"/><text x="'+(P.l-8)+'" y="'+(yy+4)+'" text-anchor="end">£'+Math.round(v)+'k</text>'}
+var run=0,tab='';steps.forEach(function(s,i){var x=P.l+i*bw+bw*.18,w=bw*.64,top,bot;if(s[3]==='t'){top=s[1];bot=mn;run=s[1]}else{var a=run,b=run+s[1];top=Math.max(a,b);bot=Math.min(a,b);run=b}
+var y1=y(top),y2=y(bot),hh=Math.max(2,y2-y1),lbl=(s[3]==='t'?'':s[1]>0?'+':'−')+'£'+Math.abs(s[1]).toFixed(1)+'k';
+h+='<g class="bar" tabindex="0" role="button" aria-label="'+s[0]+': '+lbl+'" data-i="'+i+'"><rect x="'+x+'" width="'+w+'" rx="5" fill="'+s[2]+'" y="'+(reduce?y1:y2)+'" height="'+(reduce?hh:0)+'" data-y="'+y1+'" data-h="'+hh+'"/><text class="v" x="'+(x+w/2)+'" y="'+(y1-7)+'" text-anchor="middle">'+lbl+'</text></g><text x="'+(x+w/2)+'" y="'+(H-12)+'" text-anchor="middle">'+s[0]+'</text>';
+if(i<steps.length-1){var ly=y(run);h+='<line x1="'+(x+w)+'" x2="'+(x+bw)+'" y1="'+ly+'" y2="'+ly+'" stroke="#3a6b59" stroke-dasharray="3 3"/>'}
+tab+='<tr><th>'+s[0]+'</th><td>'+lbl+'</td></tr>'});
+svg.innerHTML=h;document.getElementById('at').innerHTML=tab;
+if(!reduce)requestAnimationFrame(function(){svg.querySelectorAll('rect[data-y]').forEach(function(r,i){r.style.transition='y .5s cubic-bezier(.3,1,.5,1) '+(i*50)+'ms,height .5s cubic-bezier(.3,1,.5,1) '+(i*50)+'ms';r.setAttribute('y',r.dataset.y);r.setAttribute('height',r.dataset.h)})});
+var tip=document.getElementById('tip'),cw=document.getElementById('cw');
+svg.querySelectorAll('.bar').forEach(function(g,i){function sh(){var s=steps[i],r=g.querySelector('rect').getBoundingClientRect(),c=cw.getBoundingClientRect();tip.innerHTML='<b>'+s[0]+'</b>'+(s[3]==='t'?'£'+s[1].toFixed(1)+'k':(s[1]>0?'+':'−')+'£'+Math.abs(s[1]).toFixed(1)+'k')+(s[3]==='t'?'':' · '+(Math.abs(s[1])/q[0]*100).toFixed(1)+'% of start');tip.style.left=(r.left-c.left+r.width/2)+'px';tip.style.top=(r.top-c.top)+'px';tip.classList.add('on')}
+g.addEventListener('pointerenter',sh);g.addEventListener('focus',sh);g.addEventListener('pointerleave',function(){tip.classList.remove('on')});g.addEventListener('blur',function(){tip.classList.remove('on')});
+g.addEventListener('keydown',function(e){var d={ArrowRight:1,ArrowLeft:-1}[e.key];if(d){e.preventDefault();var n=svg.querySelectorAll('.bar')[i+d];if(n)n.focus()}})})}
+var CO=[['Apr',214],['May',238],['Jun',251],['Jul',266],['Aug',281],['Sep',296]],RET=[[100,91,86,82,79,77],[100,92,87,83,80,null],[100,93,88,85,null,null],[100,92,89,null,null,null],[100,94,null,null,null,null],[100,null,null,null,null,null]];
+function scale(v){var t=Math.max(0,Math.min(1,(v-70)/30)),c=[[255,207,92],[164,224,122],[31,191,122],[14,143,90]],p=t*3,i=Math.min(2,Math.floor(p)),f=p-i;return'rgb('+c[i].map(function(a,k){return Math.round(a+(c[i+1][k]-a)*f)}).join(',')+')'}
+function cohort(){var ht=document.getElementById('ht'),h='<thead><tr><th class="l">Cohort</th>'+[0,1,2,3,4,5].map(function(m){return'<th>M'+m+'</th>'}).join('')+'</tr></thead><tbody>';
+CO.forEach(function(c,r){h+='<tr><td class="n">'+c[0]+' · '+c[1]+'</td>';RET[r].forEach(function(v,m){if(v===null){h+='<td style="background:#0a1a15"></td>';return}var rev=mode==='r'?Math.round(v*(1+m*.012)):v;h+='<td tabindex="0" style="background:'+scale(rev>100?100:rev)+';--d:'+(r+m)+'" data-r="'+r+'" data-m="'+m+'" aria-label="'+c[0]+' cohort, month '+m+', '+rev+'% '+(mode==='r'?'revenue':'customers')+' retained">'+rev+'%</td>'});h+='</tr>'});ht.innerHTML=h+'</tbody>';
+var tip=document.getElementById('ht2'),hw=document.getElementById('hw');ht.querySelectorAll('td[data-r]').forEach(function(td){function sh(){var r=+td.dataset.r,m=+td.dataset.m,c=td.getBoundingClientRect(),w=hw.getBoundingClientRect();tip.innerHTML='<b>'+CO[r][0]+' cohort</b>'+CO[r][1]+' customers · M'+m+' '+td.textContent+' retained<br>£'+(CO[r][1]*.158*(RET[r][m]/100)).toFixed(1)+'k MRR';tip.style.left=(c.left-w.left+c.width/2)+'px';tip.style.top=(c.top-w.top)+'px';tip.classList.add('on')}td.addEventListener('pointerenter',sh);td.addEventListener('focus',sh);td.addEventListener('pointerleave',function(){tip.classList.remove('on')});td.addEventListener('blur',function(){tip.classList.remove('on')})})}
+document.querySelectorAll('#mg button').forEach(function(b){b.addEventListener('click',function(){mode=b.dataset.m;document.querySelectorAll('#mg button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});cohort()})});
+render();
+})();
+</script></body></html>

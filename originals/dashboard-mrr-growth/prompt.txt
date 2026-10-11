@@ -1,0 +1,13 @@
+Canvas & base: Near-black green page #07120f, panels #0d1d18 (1px #1b3a30 border, radius 16px). Text #e7f5ee, secondary #8fb1a2 (7:1). Accent mint #3ee0a0 for positive, coral #ff7a7a for negative, amber #ffcf5c for highlights, lilac #9d8cff for totals. Invented SaaS metrics tool "Ledgerly" showing a fictional company's finances ("Parcelhop").
+
+Typography: "Manrope" 600/700/800 for headings and big numbers (KPI 34px 800); "DM Mono" 400/500 for chart labels, amounts and heatmap cells (12px); body "Manrope" 500 14px.
+
+Layout: Top bar with wordmark "ledgerly", a company chip "Parcelhop · GBP", and a quarter selector (Q1, Q2, Q3, Q4 2026; segmented; Q3 default). KPI row of four cards: MRR (£184.2k), ARR (£2.21m), Net revenue retention (108%), Logo churn (1.9%), each with a delta chip. Main panel "MRR movement" containing an SVG waterfall for the selected quarter: bars Start MRR (lilac), New (mint), Expansion (mint, lighter), Contraction (coral), Churn (coral, darker), End MRR (lilac), with connector lines, value labels above bars and a y-axis scale; hovering or focusing a bar shows a tooltip with the amount and its share of start MRR; bars are focusable with arrow-key navigation. A second panel "Cohort retention": a heatmap table of six monthly cohorts (Apr to Sep) by months since signup (M0 to M5) with percentages coloured from deep green (high) to amber (low) using a defined scale; each cell has a text percentage so colour is not the only signal; hovering shows a tooltip "Apr cohort · 214 customers · M3 retention 82% · £31.4k MRR". A small legend gradient below. Panel header toggles between "Percent retained" and "Revenue retained" (aria-pressed) that recalculates cell values.
+
+Data: Provide deterministic invented numbers per quarter such that Start + New + Expansion - Contraction - Churn = End, and each next quarter starts at the previous End.
+
+Interaction: Quarter change animates bar heights (500ms) and counts KPIs; the waterfall bars grow from the baseline on load; heatmap cells fade in diagonally with 20ms stagger. Tooltips follow focus and hover without rebuilding the DOM.
+
+Responsive: Under 900px KPIs 2x2 and panels stack; the heatmap scrolls inside its container; chart labels shrink; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Chart has role=img with an aria-label and an accessible table alternative (visually hidden); positive/negative are labelled with + and - signs; visible focus 3px #3ee0a0. Respect prefers-reduced-motion (no growth or stagger). Invented names only.

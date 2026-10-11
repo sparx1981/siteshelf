@@ -1,0 +1,11 @@
+Canvas & base: Off-white #f7f5f0 page with generous 120px section padding, a pinned mockup on the left (a rounded 24px app window #ffffff with a 1px #e2ddd2 border and a deep shadow 0 40px 80px -30px rgba(40,30,10,.35)) over a soft colour wash whose hue changes per feature (peach #ffd9c2, mint #c9efdc, sky #cfe3ff, lilac #e1d6ff, 500ms transition). Ink #1b1812, muted #6e675a, accent #e4572e.
+
+Typography: "Instrument Serif" (400, italic) for the section heading (64px) and feature titles (40px), "Figtree" (400, 500, 600, 700) for body, labels and mockup UI text.
+
+Layout: A hero line "Everything you save, exactly where you left it." with a short intro. Below, a two-column scroll section: the left column is position sticky (top 12vh, height 76vh) holding the app window mockup; the right column has four feature blocks (Capture, Organise, Search, Share), each min-height 70vh with a number, title, paragraph and two bullet points. A thin vertical progress rail with four dots shows the current feature. The mockup contains simple designed UI whose content swaps per feature: Capture shows a clipper popup saving a link, Organise shows collections as draggable-looking cards, Search shows a query with highlighted results, Share shows a link-permission dialog with avatars.
+
+Interaction: An IntersectionObserver picks the feature nearest the viewport centre and sets it active: its text becomes full opacity (others 35%), the mockup crossfades and slides to the matching state, the wash colour changes and the rail dot fills. Dots are links that scroll to that block. Small inner animations play once when a state becomes active (a saved checkmark pops, search text types in, avatars stagger in).
+
+Responsive: Under 900px the mockup becomes sticky at the top (height 38vh, scaled) and the feature text scrolls beneath it with 60vh blocks. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no images or libraries, respects prefers-reduced-motion (no typing, no slides, instant crossfade), proper headings and landmarks, rail links are real anchors.

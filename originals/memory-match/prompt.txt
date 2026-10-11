@@ -1,0 +1,11 @@
+Canvas & base: Page #fff7ec with a faint diagonal stripe pattern, board area on a rounded #ffe8c8 panel. Card backs use a diagonal #ff6b4a / #ff9a3c pattern with a white border, card faces #ffffff with a 3px #1f1b2e outline; matched cards turn #c8f2d4 with a green outline. Ink #1f1b2e, muted #7a6f66, accent #ff6b4a, success #1f9d55.
+
+Typography: "Baloo 2" (600, 700, 800) for title, stats and buttons; "Nunito" (500, 700) for helper text.
+
+Layout: A header with the title "Pair Up", three stat chips (Moves, Time, Best) and a difficulty toggle (Easy 4 by 3, Hard 4 by 4). A responsive grid of cards (aspect-ratio 3/4) with 12px gaps; each face shows one of eight generated SVG symbols (circle, square, triangle, star, heart, moon, bolt, diamond) in distinct bright colours. A "Restart" button sits below with a short instruction line.
+
+Interaction: Clicking or pressing Enter or Space flips a card in 3D (rotateY 180deg, 400ms). Two flipped cards are compared: matches lock green with a small bounce, mismatches flip back after 800ms. Input is locked during the mismatch delay. The timer starts on the first flip, moves increase after each pair of flips, and when all pairs are found a celebration card appears with moves, time, a star rating based on moves and a Play again button; best (lowest moves) is stored per difficulty in memory and in localStorage when available (try/catch). The grid uses arrow-key navigation with a roving tabindex, and each card has an aria-label reflecting its state ("Card 3, face down", "Card 3, star, matched").
+
+Responsive: Cards shrink to fit with at least 64px width on 390px screens. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries or images, respects prefers-reduced-motion (cross-fade instead of 3D flip).

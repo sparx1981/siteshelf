@@ -1,0 +1,11 @@
+Canvas & base: Dark theatre #0c0a14 with a soft projector cone (a conic or linear gradient of #8b7bff at 14% from the screen downwards). Surfaces #16121f with 1px #2a2438 borders, text #f4f1ff, muted #9d97b5. Seat states: available #3a3550, hover #5b52a0, selected #ffd166, taken #1d1a28 with a diagonal hatch, accessible shown with a small wheelchair-style marker glyph drawn in SVG. Price tier colours on the legend: Standard #6c8cff, Premium #c77dff, Recliner #ff8fab.
+
+Typography: "Barlow Condensed" (600, 700) for the film title (56px, uppercase) and seat labels, "Barlow" (400, 500, 600) for body and controls; tabular-nums for prices.
+
+Layout: Two columns: seat map left and a sticky summary right (stacked on mobile). Top: film title "Midnight at the Observatory" (fictional), rating pill, runtime and genre line, then date chips (next 5 days) and time chips (e.g. 14:30, 17:15, 20:00, 22:45). A curved screen drawn with an SVG arc and label SCREEN. Beneath, rows A to H with 12 seats each and a centre aisle gap, row letters on both sides; rows A to C Standard (£9), D to F Premium (£12), G to H Recliner (£15, wider seats). Legend and a "Selected: A5, A6" summary card with a price breakdown, 'Book tickets' button and a note "Max 6 seats".
+
+Interaction: Click or Space toggles a seat; max 6 with a friendly inline message at the limit. Taken seats are generated from a seed based on the chosen date and time so each showing looks different. Changing showtime clears the selection. Arrow keys move focus around the seat grid (roving tabindex), each seat has an aria-label ("Row D, seat 5, Premium, £12, available"). Booking opens a ticket confirmation with a booking reference, seats, showing and a generated QR-like pattern drawn on canvas from the reference (clearly decorative), a "Book more" button resets.
+
+Responsive: The map scales to the container with viewBox-style sizing (seat size from CSS clamp), summary moves below at 900px; seat touch targets at least 24px at 390px with horizontal scroll disabled by shrinking. No page horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries or images, respects prefers-reduced-motion, state is never colour-only (selected seats show a tick, taken seats a cross).

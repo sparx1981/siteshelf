@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tilesum — Puzzle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Rubik:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;background:radial-gradient(70% 50% at 50% 0,#17474b,#0f2b2e);color:#eafaf6;font:400 15px/1.5 Inter,sans-serif;display:grid;place-items:center;padding:20px}
+:focus-visible{outline:3px solid #7fd8c4;outline-offset:3px}
+.g{width:min(480px,100%)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+h1{font:800 clamp(36px,9vw,52px)/1 Rubik,sans-serif;margin:0;letter-spacing:-.03em}
+.sc{display:flex;gap:8px}
+.sb{background:#0a1e20;border-radius:10px;padding:6px 14px;min-width:78px;text-align:center}
+.sb small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8bb5b0}
+.sb b{font:700 20px Rubik,sans-serif;font-variant-numeric:tabular-nums}
+.bt{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.bt p{margin:0;color:#8bb5b0;font-size:14px;flex:1}
+.b{background:#2fa8a0;border:0;color:#04201f;border-radius:10px;padding:10px 16px;font:700 14px Rubik,sans-serif;cursor:pointer;transition:transform .08s}
+.b:hover{filter:brightness(1.1)}.b:active{transform:scale(.96)}.b.o{background:transparent;color:#eafaf6;border:1px solid #3a6f72}.b:disabled{opacity:.4;cursor:default}
+.board{position:relative;width:100%;aspect-ratio:1;background:#0a1e20;border-radius:14px;padding:12px;touch-action:none;user-select:none;-webkit-user-select:none}
+.cells{position:absolute;inset:12px;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
+.cells i{background:rgba(255,255,255,.06);border-radius:10px}
+.tl{position:absolute;display:grid;place-items:center;border-radius:10px;font-family:Rubik,sans-serif;font-weight:800;transition:transform .12s ease-in-out;will-change:transform}
+.tl.n{animation:pop .2s}.tl.m{animation:bump .2s}
+@keyframes pop{from{transform:var(--t) scale(.3);opacity:0}}
+@keyframes bump{40%{transform:var(--t) scale(1.18)}}
+.fl{position:absolute;font:800 20px Rubik,sans-serif;color:#7fd8c4;pointer-events:none;animation:up .7s forwards;z-index:3}
+@keyframes up{to{transform:translateY(-40px);opacity:0}}
+.ov{position:absolute;inset:0;background:rgba(10,30,32,.88);backdrop-filter:blur(3px);border-radius:14px;display:grid;place-content:center;gap:14px;text-align:center;z-index:5}
+.ov h2{font:800 34px Rubik,sans-serif;margin:0}.ov div{display:flex;gap:10px;justify-content:center}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(prefers-reduced-motion:reduce){.tl{transition:none}.tl.n,.tl.m,.fl{animation:none}.fl{display:none}}
+</style></head><body><main class="g">
+<div class="hd"><h1>Tilesum</h1><div class="sc"><div class="sb"><small>Score</small><b id="sc">0</b></div><div class="sb"><small>Best</small><b id="bs">0</b></div></div></div>
+<div class="bt"><p>Slide with arrow keys or swipe. Equal numbers merge.</p><button class="b o" id="un">Undo</button><button class="b" id="nw">New game</button></div>
+<div class="board" id="bd" role="application" aria-label="Game board. Use arrow keys to slide tiles." tabindex="0"><div class="cells" id="cl"></div><div id="tiles"></div><div class="ov" id="ov" hidden></div></div>
+<div class="sr" id="live" aria-live="polite"></div></main>
+<script>
+const N=4,GAP=10,$=i=>document.getElementById(i),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const COL={2:['#d7f3ec','#0b3b36'],4:['#b4e8dc','#0b3b36'],8:['#7fd8c4','#06302b'],16:['#4cc5ae','#04201f'],32:['#2fa8a0','#fff'],64:['#2689a0','#fff'],128:['#3a6fc4','#fff'],256:['#5a55c8','#fff'],512:['#7a44c2','#fff'],1024:['#a53fb0','#fff'],2048:['#e0457b','#fff']};
+let grid,score,best=0,prev=null,id=0,won=false,over=false,keepGoing=false;
+try{best=+localStorage.getItem('tilesum-best')||0}catch(e){}
+$('cl').style.setProperty('--gap',GAP+'px');$('cl').innerHTML='<i></i>'.repeat(16);
+function size(){const w=$('cl').clientWidth;return{c:(w-GAP*(N-1))/N}}
+function empty(){const e=[];grid.forEach((r,y)=>r.forEach((t,x)=>{if(!t)e.push([x,y])}));return e}
+function spawn(){const e=empty();if(!e.length)return null;const[x,y]=e[Math.floor(Math.random()*e.length)];const t={id:++id,v:Math.random()<.9?2:4,x,y,n:1};grid[y][x]=t;return t}
+function start(){grid=Array.from({length:N},()=>Array(N).fill(null));score=0;prev=null;won=false;over=false;keepGoing=false;$('ov').hidden=true;spawn();spawn();render();$('live').textContent='New game started.'}
+function snap(){return{g:grid.map(r=>r.map(t=>t&&{...t,n:0,m:0})),s:score}}
+function move(dir){if(over||(won&&!keepGoing&&!$('ov').hidden))return;const before=snap();let moved=false,gain=0;
+ const dx=dir==='L'?-1:dir==='R'?1:0,dy=dir==='U'?-1:dir==='D'?1:0;const xs=[...Array(N).keys()],ys=[...Array(N).keys()];if(dx>0)xs.reverse();if(dy>0)ys.reverse();
+ grid.forEach(r=>r.forEach(t=>{if(t){t.n=0;t.m=0}}));const merged=new Set();
+ ys.forEach(y=>xs.forEach(x=>{const t=grid[y][x];if(!t)return;let cx=x,cy=y;while(true){const nx=cx+dx,ny=cy+dy;if(nx<0||ny<0||nx>=N||ny>=N)break;const o=grid[ny][nx];if(!o){cx=nx;cy=ny;continue}if(o.v===t.v&&!merged.has(o.id)){grid[y][x]=null;o.v*=2;o.m=1;merged.add(o.id);gain+=o.v;moved=true;t.x=nx;t.y=ny;t.dead=1;ghosts.push(t);cx=-1;break}break}
+  if(cx>=0&&(cx!==x||cy!==y)){grid[y][x]=null;grid[cy][cx]=t;t.x=cx;t.y=cy;moved=true}}));
+ if(!moved){return}
+ prev=before;score+=gain;const nt=spawn();if(score>best){best=score;try{localStorage.setItem('tilesum-best',best)}catch(e){}}
+ render(gain,nt);setTimeout(()=>{ghosts.length=0;render(0,null,true)},reduce?0:130);check()}
+const ghosts=[];
+function render(gain,nt,quiet){const s=size(),tiles=$('tiles');const all=[];grid.forEach(r=>r.forEach(t=>t&&all.push(t)));ghosts.forEach(g=>all.push(g));
+ const keep=new Set(all.map(t=>t.id));[...tiles.children].forEach(e=>{if(!keep.has(+e.dataset.id))e.remove()});
+ all.forEach(t=>{let e=tiles.querySelector(`[data-id="${t.id}"]`);if(!e){e=document.createElement('div');e.className='tl';e.dataset.id=t.id;tiles.appendChild(e)}
+  const c=COL[t.v]||['#14141f','#f5c451'];e.style.width=e.style.height=s.c+'px';e.style.background=c[0];e.style.color=c[1];if(t.v>2048)e.style.boxShadow='inset 0 0 0 3px #f5c451';else e.style.boxShadow='';
+  e.style.fontSize=(s.c*(t.v<100?.46:t.v<1000?.38:t.v<10000?.3:.24))+'px';const tr=`translate(${t.x*(s.c+GAP)}px,${t.y*(s.c+GAP)}px)`;e.style.setProperty('--t',tr);e.style.transform=tr;e.textContent=t.v;e.style.zIndex=t.dead?1:2;
+  e.classList.remove('n','m');if(!quiet){if(t.n&&nt===t){void e.offsetWidth;e.classList.add('n')}if(t.m){void e.offsetWidth;e.classList.add('m')}}if(t.dead&&quiet)e.remove()});
+ $('sc').textContent=score;$('bs').textContent=best;$('un').disabled=!prev;
+ if(gain&&!quiet&&!reduce){const f=document.createElement('div');f.className='fl';f.textContent='+'+gain;f.style.left='50%';f.style.top='40%';$('bd').appendChild(f);setTimeout(()=>f.remove(),700)}
+ if(nt&&!quiet)$('live').textContent=`Score ${score}. New tile ${nt.v}.`}
+function can(){if(empty().length)return true;for(let y=0;y<N;y++)for(let x=0;x<N;x++){const t=grid[y][x];if(x<N-1&&grid[y][x+1].v===t.v)return true;if(y<N-1&&grid[y+1][x].v===t.v)return true}return false}
+function check(){const has=grid.some(r=>r.some(t=>t&&t.v>=2048));if(has&&!won){won=true;$('ov').innerHTML='<h2>You made 2048</h2><div><button class="b" id="kg">Keep going</button><button class="b o" id="ng1">New game</button></div>';$('ov').hidden=false;$('kg').onclick=()=>{keepGoing=true;$('ov').hidden=true;$('bd').focus()};$('ng1').onclick=start;$('kg').focus();return}
+ if(!can()){over=true;$('ov').innerHTML=`<h2>Game over</h2><p style="margin:0;color:#8bb5b0">Final score ${score}</p><div><button class="b" id="ta">Try again</button></div>`;$('ov').hidden=false;$('ta').onclick=start;$('ta').focus();$('live').textContent='Game over. Final score '+score}}
+$('un').onclick=()=>{if(!prev)return;grid=prev.g;score=prev.s;prev=null;ghosts.length=0;over=false;$('ov').hidden=true;render(0,null,true)};
+$('nw').onclick=()=>{start();$('bd').focus()};
+const KEY={ArrowLeft:'L',ArrowRight:'R',ArrowUp:'U',ArrowDown:'D',a:'L',d:'R',w:'U',s:'D',A:'L',D:'R',W:'U',S:'D'};
+addEventListener('keydown',e=>{const d=KEY[e.key];if(!d||e.metaKey||e.ctrlKey||e.altKey)return;if(e.target.closest&&e.target.closest('button'))return;e.preventDefault();move(d)});
+let sx,sy;$('bd').addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
+$('bd').addEventListener('touchmove',e=>e.preventDefault(),{passive:false});
+$('bd').addEventListener('touchend',e=>{const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.max(Math.abs(dx),Math.abs(dy))<24)return;move(Math.abs(dx)>Math.abs(dy)?(dx>0?'R':'L'):(dy>0?'D':'U'))});
+addEventListener('resize',()=>render(0,null,true));
+start();
+</script></body></html>

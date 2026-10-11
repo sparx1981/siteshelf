@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>World Clocks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#eef2ff;--mut:#8f9bc0;--acc:#7cc4f0;--line:#1f2a44;--pan:#121a2c}
+*{box-sizing:border-box}
+body{margin:0;background:#0b1220;color:var(--ink);font:400 15px/1.5 Lexend,sans-serif;padding:28px 20px 56px}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto}
+.hd{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin-bottom:22px}
+h1{font:600 30px/1.1 Lexend,sans-serif;margin:0;letter-spacing:-.02em;flex:1 1 auto}
+.home{color:var(--mut);font-size:14px}.home b{color:var(--ink);font-weight:500}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;background:var(--pan);color:var(--mut);padding:8px 14px;font:500 14px Lexend,sans-serif;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--acc);color:#07212f}
+select{background:var(--pan);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:400 14px Lexend,sans-serif}
+.gr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:34px}
+.cd{background:var(--pan);border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative;transition:opacity .3s,transform .3s}
+.cd.out{opacity:0;transform:scale(.94)}
+.top{padding:14px 16px;background:linear-gradient(135deg,var(--a),var(--b));display:flex;justify-content:space-between;align-items:center;transition:background .6s}
+.top h2{font:600 20px Lexend,sans-serif;margin:0;line-height:1.2}.top small{opacity:.85;font-size:13px}
+.top svg{width:28px;height:28px;flex:none}
+.rm{position:absolute;right:10px;top:10px;width:28px;height:28px;border-radius:50%;border:0;background:rgba(0,0,0,.28);color:#fff;cursor:pointer;font-size:16px;line-height:1;opacity:0;transition:opacity .15s}
+.cd:hover .rm,.rm:focus-visible{opacity:1}
+@media(hover:none){.rm{opacity:1}}
+.top .ico{margin-right:30px}
+.bd{display:grid;grid-template-columns:130px minmax(0,1fr);gap:16px;padding:16px;align-items:center}
+.bd svg.face{width:100%;height:auto}
+.dt{font:500 40px/1 'Roboto Mono',monospace;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.dt small{font-size:15px;margin-left:4px;color:var(--mut)}
+.dd{color:var(--mut);font-size:14px;margin-top:6px}
+.of{display:inline-block;margin-top:8px;font:500 13px 'Roboto Mono',monospace;border:1px solid var(--line);border-radius:999px;padding:1px 10px;color:var(--acc)}
+.pl{background:var(--pan);border:1px solid var(--line);border-radius:18px;padding:20px}
+.pl h2{font:600 20px Lexend,sans-serif;margin:0 0 4px}
+.pl p{margin:0 0 14px;color:var(--mut);font-size:14px}
+.ov{color:#34d399;font-weight:500}
+.sc{overflow-x:auto;padding-bottom:6px}
+.inn{min-width:640px;position:relative}
+.ro{display:grid;grid-template-columns:130px minmax(0,1fr) 78px;gap:10px;align-items:center;margin-bottom:8px}
+.ro .n{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st{height:28px;border-radius:7px;background:#0d1424;border:1px solid var(--line);position:relative;overflow:hidden}
+.st i{position:absolute;top:0;bottom:0;background:rgba(52,211,153,.35)}
+.lt{font:500 13px 'Roboto Mono',monospace;text-align:right;font-variant-numeric:tabular-nums;color:var(--acc)}
+.ax{display:grid;grid-template-columns:130px minmax(0,1fr) 78px;gap:10px;font:400 11px 'Roboto Mono',monospace;color:var(--mut)}
+.ax div:nth-child(2){position:relative;height:16px}.ax span{position:absolute;transform:translateX(-50%)}
+.mk{position:absolute;top:0;bottom:22px;left:140px;right:88px;pointer-events:none}
+.mk .h{position:absolute;top:-6px;bottom:0;width:22px;margin-left:-11px;cursor:ew-resize;pointer-events:auto;touch-action:none;outline-offset:2px}
+.mk .h:before{content:'';position:absolute;left:10px;top:6px;bottom:0;width:2px;background:#fff;box-shadow:0 0 8px rgba(255,255,255,.6)}
+.mk .h:after{content:'';position:absolute;left:5px;top:0;width:12px;height:12px;border-radius:50%;background:#fff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:900px){.gr{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.gr{grid-template-columns:minmax(0,1fr)}body{padding:18px 14px 48px}.bd{grid-template-columns:110px minmax(0,1fr)}.dt{font-size:34px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<div class="hd"><h1>World Clocks</h1><span class="home">Home: <b id="hz"></b></span><div class="seg" role="group" aria-label="Time format"><button id="f12" aria-pressed="true">12h</button><button id="f24" aria-pressed="false">24h</button></div><select id="add" aria-label="Add a city"></select></div>
+<div class="gr" id="gr"></div>
+<section class="pl" aria-labelledby="ph"><h2 id="ph">Meeting planner</h2><p id="ovt"></p><div class="sc"><div class="inn" id="inn"></div></div></section>
+<div class="sr" id="live" aria-live="polite"></div></div>
+<script>
+const $=i=>document.getElementById(i);
+const HOME=Intl.DateTimeFormat().resolvedOptions().timeZone||'UTC';
+const CITIES={London:['Europe/London','United Kingdom'],'New York':['America/New_York','United States'],'San Francisco':['America/Los_Angeles','United States'],'São Paulo':['America/Sao_Paulo','Brazil'],Lagos:['Africa/Lagos','Nigeria'],Cairo:['Africa/Cairo','Egypt'],Dubai:['Asia/Dubai','UAE'],Mumbai:['Asia/Kolkata','India'],Singapore:['Asia/Singapore','Singapore'],Tokyo:['Asia/Tokyo','Japan'],Sydney:['Australia/Sydney','Australia'],Auckland:['Pacific/Auckland','New Zealand'],Paris:['Europe/Paris','France'],Berlin:['Europe/Berlin','Germany'],Reykjavik:['Atlantic/Reykjavik','Iceland'],Honolulu:['Pacific/Honolulu','United States']};
+let sel=['London','New York','Tokyo'],h24=false,marker=null,uShift=0;
+try{const s=JSON.parse(localStorage.getItem('worldclocks'));if(Array.isArray(s)&&s.length)sel=s.filter(c=>CITIES[c])}catch(e){}
+const save=()=>{try{localStorage.setItem('worldclocks',JSON.stringify(sel))}catch(e){}};
+const homeLabel=HOME.split('/').pop().replace(/_/g,' ');$('hz').textContent=homeLabel;
+function parts(d,tz){const p=Object.fromEntries(new Intl.DateTimeFormat('en-GB',{timeZone:tz,hour:'2-digit',minute:'2-digit',second:'2-digit',year:'numeric',month:'2-digit',day:'2-digit',hourCycle:'h23'}).formatToParts(d).filter(x=>x.type!=='literal').map(x=>[x.type,+x.value]));return p}
+const off=(d,tz)=>{const p=parts(d,tz);return(Date.UTC(p.year,p.month-1,p.day,p.hour,p.minute,p.second)-Math.floor(d/1000)*1000)/36e5};
+const theme=h=>h<5||h>=21?['#1b2250','#0f1530','n']:h<8?['#5b3b6e','#d98a6a','d']:h<17?['#2a6fb8','#7cc4f0','s']:['#6b3f5c','#e48b4f','d'];
+const SUN='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="#ffd166" stroke="#ffd166"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',MOON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z" fill="#e6e9ff"/></svg>';
+function face(){let t='';for(let i=0;i<60;i++){const a=i*6*Math.PI/180,l=i%5?2:6;t+=`<line x1="${60+Math.sin(a)*52}" y1="${60-Math.cos(a)*52}" x2="${60+Math.sin(a)*(52-l)}" y2="${60-Math.cos(a)*(52-l)}" stroke="${i%5?'#46547f':'#c7d0f0'}" stroke-width="${i%5?1:2}"/>`}
+ return `<svg class="face" viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="57" fill="#0d1424" stroke="#26335a" stroke-width="2"/>${t}<line class="hh" x1="60" y1="60" x2="60" y2="34" stroke="#eef2ff" stroke-width="4" stroke-linecap="round"/><line class="mh" x1="60" y1="60" x2="60" y2="20" stroke="#eef2ff" stroke-width="3" stroke-linecap="round"/><line class="sh" x1="60" y1="68" x2="60" y2="14" stroke="#7cc4f0" stroke-width="1.5" stroke-linecap="round"/><circle cx="60" cy="60" r="3.5" fill="#7cc4f0"/></svg>`}
+function build(){$('gr').innerHTML=['__home',...sel].map(k=>{const home=k==='__home',tz=home?HOME:CITIES[k][0],nm=home?homeLabel:k,ct=home?'Your time zone':CITIES[k][1];return `<article class="cd" data-k="${k}" data-tz="${tz}"><div class="top"><div><h2>${nm}</h2><small>${ct}</small></div><span class="ico"></span></div>${home?'':`<button class="rm" aria-label="Remove ${nm}">×</button>`}<div class="bd">${face()}<div><div class="dt"></div><div class="dd"></div><span class="of"></span></div></div></article>`}).join('');
+ $('add').innerHTML='<option value="">+ Add a city</option>'+Object.keys(CITIES).filter(c=>!sel.includes(c)).map(c=>`<option>${c}</option>`).join('');planner();tick()}
+const words=(h,m)=>{const hh=h%12||12;return `${hh} ${m<10&&m>0?'oh '+m:m===0?"o'clock":m} ${h<12?'AM':'PM'}`};
+function tick(){const d=new Date(),hp=parts(d,HOME);document.querySelectorAll('.cd').forEach(c=>{const tz=c.dataset.tz,p=parts(d,tz),h=p.hour,m=p.minute,s=p.second;
+ const th=theme(h),top=c.querySelector('.top');top.style.setProperty('--a',th[0]);top.style.setProperty('--b',th[1]);const ico=top.querySelector('.ico');const night=th[2]==='n';if(ico.dataset.n!==String(night)){ico.dataset.n=night;ico.innerHTML=night?MOON:SUN}
+ c.querySelector('.hh').style.transform=`rotate(${(h%12)*30+m*.5}deg)`;c.querySelector('.mh').style.transform=`rotate(${m*6+s*.1}deg)`;c.querySelector('.sh').style.transform=`rotate(${s*6}deg)`;c.querySelectorAll('.hh,.mh,.sh').forEach(l=>l.style.transformOrigin='60px 60px');
+ const dt=c.querySelector('.dt');dt.innerHTML=h24?`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}<small>${String(s).padStart(2,'0')}</small>`:`${h%12||12}:${String(m).padStart(2,'0')}<small>${h<12?'AM':'PM'}</small>`;
+ const dayD=Math.round((Date.UTC(p.year,p.month-1,p.day)-Date.UTC(hp.year,hp.month-1,hp.day))/864e5);c.querySelector('.dd').textContent=new Intl.DateTimeFormat('en-GB',{timeZone:tz,weekday:'long',day:'numeric',month:'short'}).format(d)+' · '+(dayD===0?'Today':dayD>0?'Tomorrow':'Yesterday');
+ const o=off(d,tz)-off(d,HOME);c.querySelector('.of').textContent=c.dataset.k==='__home'?'Home':(o>=0?'+':'−')+(Math.abs(o)%1?Math.abs(o).toFixed(1):Math.abs(o))+' h';
+ c.querySelector('svg.face').setAttribute('aria-label',`Clock showing ${words(h,m)}`)})}
+/* planner */
+function planner(){const d=new Date(),zs=['__home',...sel].map(k=>k==='__home'?{n:homeLabel+' (you)',tz:HOME}:{n:k,tz:CITIES[k][0]}),
+ base=Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate());if(marker==null){marker=(d.getUTCHours()*60+d.getUTCMinutes());marker=Math.round(marker/15)*15}
+ zs.forEach(z=>{z.o=off(new Date(base+12*36e5),z.tz)});
+ const row=z=>{let segs='',lo=Array(24*4).fill(0);for(let q=0;q<96;q++){const u=q*15,l=((u+z.o*60)%1440+1440)%1440;lo[q]=l>=540&&l<1080}
+  let q=0;while(q<96){if(lo[q]){let e=q;while(e<96&&lo[e])e++;segs+=`<i style="left:${q/96*100}%;width:${(e-q)/96*100}%"></i>`;q=e}else q++}
+  return `<div class="ro" data-tz="${z.tz}" data-o="${z.o}"><span class="n">${z.n}</span><div class="st">${segs}</div><span class="lt"></span></div>`};
+ $('inn').innerHTML=zs.map(row).join('')+`<div class="ax"><div></div><div>${[0,3,6,9,12,15,18,21,24].map(h=>`<span style="left:${h/24*100}%">${String(h).padStart(2,'0')}</span>`).join('')}</div><div></div></div><div class="mk" id="mk"><div class="h" id="mh" role="slider" tabindex="0" aria-label="Meeting time in UTC" aria-valuemin="0" aria-valuemax="1425" aria-valuenow="${marker}"></div></div>`;
+ const all=Array.from({length:96},(_,q)=>zs.every(z=>{const l=((q*15+z.o*60)%1440+1440)%1440;return l>=540&&l<1080}));let a=all.indexOf(true),txt;
+ if(a<0)txt='<span style="color:#fca5a5">No shared working hours today.</span>';else{let e=a;while(e<96&&all[e])e++;const f=q=>String(Math.floor(q*15/60)).padStart(2,'0')+':'+String(q*15%60).padStart(2,'0');txt=`Overlap: <span class="ov">${f(a)} to ${f(e)} UTC</span>`}
+ $('ovt').innerHTML=txt+' · drag the marker or use arrow keys';place()}
+const f2=m=>{m=((m%1440)+1440)%1440;const h=Math.floor(m/60),mm=m%60;return h24?String(h).padStart(2,'0')+':'+String(mm).padStart(2,'0'):`${h%12||12}:${String(mm).padStart(2,'0')} ${h<12?'AM':'PM'}`};
+function place(){const h=$('mh');if(!h)return;h.style.left=marker/1440*100+'%';h.setAttribute('aria-valuenow',marker);h.setAttribute('aria-valuetext',`${String(Math.floor(marker/60)).padStart(2,'0')}:${String(marker%60).padStart(2,'0')} UTC`);
+ document.querySelectorAll('.ro').forEach(r=>r.querySelector('.lt').textContent=f2(marker+ +r.dataset.o*60))}
+$('inn').addEventListener('pointerdown',e=>{const h=e.target.closest('#mh');if(h){h.setPointerCapture(e.pointerId);h.dataset.d=1}});
+$('inn').addEventListener('pointermove',e=>{const h=$('mh');if(!h||!h.dataset.d)return;const b=$('mk').getBoundingClientRect();marker=Math.round(Math.max(0,Math.min(1,(e.clientX-b.left)/b.width))*1440/15)*15;if(marker>=1440)marker=1425;place()});
+$('inn').addEventListener('pointerup',()=>{const h=$('mh');if(h)delete h.dataset.d});
+$('inn').addEventListener('keydown',e=>{if(e.target.id!=='mh')return;const s={ArrowRight:15,ArrowLeft:-15,PageUp:60,PageDown:-60}[e.key];if(e.key==='Home')marker=0;else if(e.key==='End')marker=1425;else if(s)marker=Math.max(0,Math.min(1425,marker+s));else return;e.preventDefault();place()});
+$('gr').addEventListener('click',e=>{const b=e.target.closest('.rm');if(!b)return;const c=b.closest('.cd');c.classList.add('out');setTimeout(()=>{sel=sel.filter(x=>x!==c.dataset.k);save();build();$('live').textContent=c.dataset.k+' removed'},reduceM()?0:300)});
+const reduceM=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
+$('add').onchange=()=>{const v=$('add').value;if(v&&!sel.includes(v)){sel.push(v);save();build();$('live').textContent=v+' added'}};
+$('f12').onclick=()=>fmt(false);$('f24').onclick=()=>fmt(true);function fmt(v){h24=v;$('f12').setAttribute('aria-pressed',!v);$('f24').setAttribute('aria-pressed',v);tick();place()}
+build();setInterval(tick,1000);
+</script></body></html>

@@ -1,0 +1,11 @@
+Canvas & base: App shell #f3f1ec, panes white with a 1px #ddd8cc divider, toolbar #faf8f4. Editor background #fffefb with a subtle line-number gutter #f1ede4, preview background #ffffff. Ink #1f1d1a, muted #7c766a, accent #0b6e4f (forest), code backgrounds #f4f1ea, selection #cfeadf.
+
+Typography: "JetBrains Mono" (400, 500) 14px/1.7 for the editor, "Source Serif 4" (400, 600, italic) 17px/1.7 for the rendered preview with headings in "Inter" (600, 700), toolbar and status in "Inter" 13px.
+
+Layout: A top bar with a document title input ("Untitled note"), a "Copy HTML" button and a "Clear" button. Under it a toolbar with icon-style text buttons (H, B, I, code, quote, list, numbered list, link) and a sample-document button. The main area is two equal panes: Markdown on the left, rendered preview on the right, with a draggable divider on desktop. A status bar shows words, characters, estimated reading time and a "Saved just now" indicator. Preload a short sample document showing headings, emphasis, lists, a blockquote, a link, a fenced code block and a horizontal rule.
+
+Interaction: The preview updates as you type (debounced 60ms). Toolbar buttons and shortcuts (Ctrl or Cmd + B, I, K for link) wrap the selection or insert placeholders and restore the selection sensibly; Tab inserts two spaces; Enter continues list items. A small hand-written Markdown parser supports headings, bold, italic, inline code, fenced code blocks, unordered and ordered lists, blockquotes, links, horizontal rules and paragraphs, and it HTML-escapes everything first so pasted HTML or script text is shown as text; link URLs must start with http, https or mailto. The two panes scroll in proportion. Copy HTML copies the rendered markup (clipboard with a textarea fallback) and shows a toast.
+
+Responsive: Under 800px the panes become Write and Preview tabs. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries, respects prefers-reduced-motion, textarea has an accessible label, preview is an aria-live=off region labelled "Preview".

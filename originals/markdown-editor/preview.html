@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Markdown Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#1f1d1a;--mut:#7c766a;--acc:#0b6e4f;--line:#ddd8cc}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:#f3f1ec;color:var(--ink);font:400 13px/1.4 Inter,sans-serif;display:flex;flex-direction:column;height:100dvh}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.top{display:flex;gap:10px;align-items:center;padding:10px 16px;background:#faf8f4;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.top input{flex:1;min-width:140px;border:0;background:none;font:600 17px Inter,sans-serif;color:var(--ink);padding:4px 6px;border-radius:6px}
+.top input:hover{background:#efece4}
+.bt{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 12px;font:600 13px Inter,sans-serif;cursor:pointer;color:var(--ink)}
+.bt:hover{background:#f1ede4}.bt.p{background:var(--acc);border-color:var(--acc);color:#fff}.bt.p:hover{background:#095b42}
+.tb{display:flex;gap:4px;padding:6px 16px;background:#faf8f4;border-bottom:1px solid var(--line);flex-wrap:wrap;align-items:center}
+.tb button{min-width:34px;height:32px;border:0;background:none;border-radius:7px;font:600 13px Inter,sans-serif;cursor:pointer;color:var(--ink);padding:0 8px}
+.tb button:hover{background:#ebe7dd}
+.tb .sep{width:1px;height:20px;background:var(--line);margin:0 6px}
+.tb .smp{margin-left:auto;font-weight:500;color:var(--mut)}
+.tabs{display:none}
+.main{flex:1;display:flex;min-height:0}
+.pane{min-width:0;display:flex;flex-direction:column}
+#ed{flex:0 0 50%;background:#fffefb}
+#pv{flex:1;background:#fff;border-left:0}
+.dv{width:8px;cursor:col-resize;background:linear-gradient(90deg,transparent 3px,var(--line) 3px 5px,transparent 5px);flex:none;touch-action:none}
+.dv:hover,.dv.drag{background:linear-gradient(90deg,transparent 2px,var(--acc) 2px 6px,transparent 6px)}
+.edw{flex:1;display:flex;min-height:0}
+.gut{width:44px;background:#f1ede4;color:#a8a191;font:400 12px/1.7 'JetBrains Mono',monospace;text-align:right;padding:16px 8px 16px 0;overflow:hidden;user-select:none;flex:none;white-space:pre}
+textarea{flex:1;border:0;outline:0;resize:none;padding:16px;font:400 14px/1.7 'JetBrains Mono',monospace;background:transparent;color:var(--ink);tab-size:2;white-space:pre-wrap;overflow-wrap:anywhere}
+textarea::selection{background:#cfeadf}
+.out{flex:1;overflow:auto;padding:28px 36px;font:400 17px/1.7 'Source Serif 4',serif}
+.out h1,.out h2,.out h3,.out h4{font-family:Inter,sans-serif;line-height:1.25;letter-spacing:-.01em;margin:1.4em 0 .5em}
+.out h1{font-size:30px;margin-top:0;font-weight:700}.out h2{font-size:22px;font-weight:700;border-bottom:1px solid #eee9de;padding-bottom:6px}.out h3{font-size:18px;font-weight:600}.out h4{font-size:16px;font-weight:600}
+.out p{margin:0 0 1em}
+.out a{color:var(--acc);text-underline-offset:3px}
+.out code{font:500 14px 'JetBrains Mono',monospace;background:#f4f1ea;border-radius:5px;padding:1px 6px}
+.out pre{background:#1e2a25;color:#e5f3ec;border-radius:10px;padding:14px 16px;overflow:auto;margin:0 0 1em}
+.out pre code{background:none;padding:0;color:inherit;font-size:13px}
+.out blockquote{margin:0 0 1em;padding:2px 18px;border-left:4px solid var(--acc);color:#4a463d;font-style:italic}
+.out ul,.out ol{padding-left:26px;margin:0 0 1em}.out li{margin:.2em 0}
+.out hr{border:0;border-top:2px dashed var(--line);margin:1.6em 0}
+.st{display:flex;gap:18px;padding:7px 16px;background:#faf8f4;border-top:1px solid var(--line);color:var(--mut);flex-wrap:wrap}
+.st span:last-child{margin-left:auto;color:var(--acc);font-weight:600}
+#toast{position:fixed;left:50%;bottom:48px;transform:translate(-50%,16px);background:var(--ink);color:#fff;padding:9px 16px;border-radius:10px;opacity:0;transition:.25s;pointer-events:none;font-weight:600}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:800px){.tabs{display:flex;background:#faf8f4;border-bottom:1px solid var(--line)}.tabs button{flex:1;border:0;background:none;padding:10px;font:600 14px Inter,sans-serif;color:var(--mut);border-bottom:2px solid transparent;cursor:pointer}.tabs button[aria-selected=true]{color:var(--acc);border-color:var(--acc)}
+ #ed,#pv{flex:1 1 auto}.dv{display:none}.main.w #pv,.main.p #ed{display:none}.out{padding:20px 18px}.tb .smp{margin-left:0}.st{gap:12px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="top"><input id="ttl" value="Untitled note" aria-label="Document title"><button class="bt" id="cl">Clear</button><button class="bt p" id="cp">Copy HTML</button></div>
+<div class="tb" role="toolbar" aria-label="Formatting"><button data-a="h" title="Heading" aria-label="Heading">H</button><button data-a="b" title="Bold (Ctrl+B)" aria-label="Bold"><b>B</b></button><button data-a="i" title="Italic (Ctrl+I)" aria-label="Italic"><i>I</i></button><button data-a="c" title="Code" aria-label="Inline code">&lt;/&gt;</button><span class="sep"></span><button data-a="q" title="Quote" aria-label="Quote">❝</button><button data-a="ul" title="Bulleted list" aria-label="Bulleted list">• List</button><button data-a="ol" title="Numbered list" aria-label="Numbered list">1. List</button><button data-a="a" title="Link (Ctrl+K)" aria-label="Link">Link</button><button class="smp" id="sm">Load sample</button></div>
+<div class="tabs" role="tablist" id="tabs"><button role="tab" aria-selected="true" data-t="w">Write</button><button role="tab" aria-selected="false" data-t="p">Preview</button></div>
+<div class="main w" id="main"><section class="pane" id="ed" aria-label="Markdown editor"><div class="edw"><div class="gut" id="gut" aria-hidden="true">1</div><textarea id="ta" spellcheck="false" aria-label="Markdown source"></textarea></div></section><div class="dv" id="dv" role="separator" aria-orientation="vertical" aria-label="Resize panes" tabindex="0"></div><section class="pane" id="pv"><div class="out" id="out" aria-live="off" aria-label="Preview" role="region"></div></section></div>
+<div class="st"><span id="wc"></span><span id="cc"></span><span id="rt"></span><span id="sv">Saved just now</span></div><div id="toast" role="status"></div>
+<script>
+const SAMPLE=`# Field notes on writing small
+Good notes are **short**, *honest* and easy to scan. Here is a quick tour of what this editor understands.
+
+## Lists
+- Bullets for loose thoughts
+- Numbers when order matters
+- Inline \`code\` for the technical bits
+
+1. Draft it badly
+2. Edit it ruthlessly
+3. Ship it
+
+> The first draft is just you telling yourself the story.
+
+## Code
+\`\`\`js
+const note = { title: "Hello", words: 42 };
+console.log(note.title);
+\`\`\`
+
+---
+
+Read more on [the project page](https://example.com). Pasted <script>alert(1)<\/script> tags stay harmless.`;
+const $=i=>document.getElementById(i),ta=$('ta');
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function inline(t){t=esc(t);const codes=[];t=t.replace(/`([^`]+)`/g,(m,c)=>{codes.push(c);return '\u0000'+(codes.length-1)+'\u0000'});
+ t=t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,(m,a,u)=>/^(https?:\/\/|mailto:)/i.test(u.replace(/&amp;/g,'&'))?`<a href="${u}" target="_blank" rel="noopener noreferrer">${a}</a>`:m);
+ t=t.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/__([^_]+)__/g,'<strong>$1</strong>').replace(/(^|[^*])\*([^*\n]+)\*/g,'$1<em>$2</em>').replace(/(^|[^_\w])_([^_\n]+)_/g,'$1<em>$2</em>');
+ return t.replace(/\u0000(\d+)\u0000/g,(m,i)=>`<code>${codes[i]}</code>`)}
+function md(src){const L=src.replace(/\r/g,'').split('\n');let h='',i=0,para=[];const flush=()=>{if(para.length){h+=`<p>${inline(para.join(' '))}</p>`;para=[]}};
+ while(i<L.length){const l=L[i];let m;
+  if(/^```/.test(l)){flush();const buf=[];i++;while(i<L.length&&!/^```/.test(L[i]))buf.push(L[i++]);i++;h+=`<pre><code>${esc(buf.join('\n'))}</code></pre>`;continue}
+  if(/^\s*$/.test(l)){flush();i++;continue}
+  if(m=l.match(/^(#{1,4})\s+(.*)$/)){flush();h+=`<h${m[1].length}>${inline(m[2])}</h${m[1].length}>`;i++;continue}
+  if(/^(-{3,}|\*{3,}|_{3,})\s*$/.test(l)){flush();h+='<hr>';i++;continue}
+  if(/^>\s?/.test(l)){flush();const b=[];while(i<L.length&&/^>\s?/.test(L[i]))b.push(L[i++].replace(/^>\s?/,''));h+=`<blockquote><p>${inline(b.join(' '))}</p></blockquote>`;continue}
+  if(/^\s*[-*+]\s+/.test(l)){flush();const b=[];while(i<L.length&&/^\s*[-*+]\s+/.test(L[i]))b.push(L[i++].replace(/^\s*[-*+]\s+/,''));h+=`<ul>${b.map(x=>`<li>${inline(x)}</li>`).join('')}</ul>`;continue}
+  if(/^\s*\d+[.)]\s+/.test(l)){flush();const b=[];while(i<L.length&&/^\s*\d+[.)]\s+/.test(L[i]))b.push(L[i++].replace(/^\s*\d+[.)]\s+/,''));h+=`<ol>${b.map(x=>`<li>${inline(x)}</li>`).join('')}</ol>`;continue}
+  para.push(l.trim());i++}
+ flush();return h}
+let tm,sv;
+function render(){$('out').innerHTML=md(ta.value);const t=ta.value.trim(),w=t?t.split(/\s+/).length:0;$('wc').textContent=w+(w===1?' word':' words');$('cc').textContent=ta.value.length+' characters';$('rt').textContent=w?Math.max(1,Math.round(w/230))+' min read':'0 min read';
+ const n=ta.value.split('\n').length;$('gut').textContent=Array.from({length:Math.max(n,1)},(_,i)=>i+1).join('\n');$('sv').textContent='Saving…';clearTimeout(sv);sv=setTimeout(()=>$('sv').textContent='Saved just now',500)}
+ta.addEventListener('input',()=>{clearTimeout(tm);tm=setTimeout(render,60)});
+ta.addEventListener('scroll',()=>{$('gut').scrollTop=ta.scrollTop;const r=ta.scrollTop/Math.max(1,ta.scrollHeight-ta.clientHeight);$('out').scrollTop=r*($('out').scrollHeight-$('out').clientHeight)});
+function wrap(a,b,ph){const s=ta.selectionStart,e=ta.selectionEnd,v=ta.value,sel=v.slice(s,e)||ph;ta.value=v.slice(0,s)+a+sel+b+v.slice(e);ta.focus();ta.setSelectionRange(s+a.length,s+a.length+sel.length);render()}
+function lines(fn){const v=ta.value;let s=v.lastIndexOf('\n',ta.selectionStart-1)+1,e=v.indexOf('\n',ta.selectionEnd);if(e<0)e=v.length;const blk=v.slice(s,e).split('\n').map(fn).join('\n');ta.value=v.slice(0,s)+blk+v.slice(e);ta.focus();ta.setSelectionRange(s,s+blk.length);render()}
+const ACT={h:()=>lines(l=>/^#{1,3} /.test(l)?l.replace(/^(#{1,3}) /,(m,h)=>h.length<3?h+'# ':''):'# '+l),b:()=>wrap('**','**','bold text'),i:()=>wrap('*','*','italic text'),c:()=>wrap('`','`','code'),q:()=>lines(l=>l.startsWith('> ')?l.slice(2):'> '+l),ul:()=>lines(l=>/^- /.test(l)?l.slice(2):'- '+l),ol:()=>{let n=0;lines(l=>/^\d+\. /.test(l)?l.replace(/^\d+\. /,''):(++n)+'. '+l)},a:()=>{const s=ta.selectionStart,e=ta.selectionEnd,t=ta.value.slice(s,e)||'link text';ta.value=ta.value.slice(0,s)+`[${t}](https://)`+ta.value.slice(e);ta.focus();const p=s+t.length+3;ta.setSelectionRange(p+8-1,p+8-1);render()}};
+document.querySelector('.tb').onclick=e=>{const b=e.target.closest('button[data-a]');if(b)ACT[b.dataset.a]()};
+ta.addEventListener('keydown',e=>{const mod=e.ctrlKey||e.metaKey;if(mod&&e.key==='b'){e.preventDefault();ACT.b()}else if(mod&&e.key==='i'){e.preventDefault();ACT.i()}else if(mod&&e.key==='k'){e.preventDefault();ACT.a()}
+ else if(e.key==='Tab'){e.preventDefault();const s=ta.selectionStart;ta.setRangeText('  ',s,ta.selectionEnd,'end');render()}
+ else if(e.key==='Enter'&&!e.shiftKey){const v=ta.value,s=ta.selectionStart,ls=v.lastIndexOf('\n',s-1)+1,line=v.slice(ls,s);let m=line.match(/^(\s*)([-*+]|\d+\.)\s(.*)$/);if(m){e.preventDefault();if(!m[3]){ta.setRangeText('',ls,s,'end')}else{const nx=/\d/.test(m[2])?(parseInt(m[2])+1)+'.':m[2];ta.setRangeText('\n'+m[1]+nx+' ',s,ta.selectionEnd,'end')}render()}}});
+$('sm').onclick=()=>{ta.value=SAMPLE;render()};$('cl').onclick=()=>{ta.value='';render();ta.focus()};
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),1800)}
+$('cp').onclick=()=>{const h=$('out').innerHTML;const fb=()=>{const x=document.createElement('textarea');x.value=h;document.body.appendChild(x);x.select();try{document.execCommand('copy')}catch(e){}x.remove();toast('HTML copied')};(navigator.clipboard?navigator.clipboard.writeText(h).then(()=>toast('HTML copied'),fb):Promise.resolve(fb()))};
+$('tabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;[...$('tabs').children].forEach(x=>x.setAttribute('aria-selected',x===b));$('main').className='main '+b.dataset.t};
+const dv=$('dv');let drag=false;dv.addEventListener('pointerdown',e=>{drag=true;dv.classList.add('drag');dv.setPointerCapture(e.pointerId)});dv.addEventListener('pointerup',()=>{drag=false;dv.classList.remove('drag')});
+dv.addEventListener('pointermove',e=>{if(!drag)return;const r=$('main').getBoundingClientRect();$('ed').style.flex='0 0 '+Math.max(25,Math.min(75,(e.clientX-r.left)/r.width*100))+'%'});
+dv.addEventListener('keydown',e=>{const cur=parseFloat($('ed').style.flexBasis)||50;if(e.key==='ArrowLeft')$('ed').style.flex='0 0 '+Math.max(25,cur-3)+'%';if(e.key==='ArrowRight')$('ed').style.flex='0 0 '+Math.min(75,cur+3)+'%'});
+ta.value=SAMPLE;render();
+</script></body></html>

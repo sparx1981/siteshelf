@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Midnight at the Observatory — Choose seats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#0c0a14;--pan:#16121f;--line:#2a2438;--ink:#f4f1ff;--mut:#9d97b5;--sel:#ffd166;--st:#6c8cff;--pr:#c77dff;--rc:#ff8fab}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(70% 40% at 50% 12%,rgba(139,123,255,.16),transparent 70%),var(--bg);color:var(--ink);font:400 16px/1.5 Barlow,sans-serif;padding:28px 20px 48px}
+:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto}
+.hd{margin-bottom:18px}
+h1{font:700 clamp(36px,6vw,56px)/1 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.01em;margin:0 0 8px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;color:var(--mut)}
+.pill{border:1px solid var(--mut);border-radius:6px;padding:0 8px;font-weight:600;font-size:13px;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+.chips button{border:1px solid var(--line);background:var(--pan);color:var(--ink);border-radius:999px;padding:7px 16px;font:600 15px Barlow,sans-serif;cursor:pointer;font-variant-numeric:tabular-nums}
+.chips button:hover{border-color:#6d63b0}.chips button[aria-pressed=true]{background:#e9e4ff;color:#16121f;border-color:#e9e4ff}
+.chips small{display:block;font-weight:400;font-size:11px;color:var(--mut);line-height:1.1}.chips button[aria-pressed=true] small{color:#5b5478}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;align-items:start;margin-top:22px}
+.map{background:var(--pan);border:1px solid var(--line);border-radius:20px;padding:22px 16px 20px;min-width:0}
+.scr{width:min(560px,86%);margin:0 auto 26px;display:block}
+.rows{display:grid;gap:8px;justify-content:center}
+.r{display:flex;align-items:center;gap:6px;justify-content:center}
+.rl{width:18px;font:600 14px 'Barlow Condensed',sans-serif;color:var(--mut);text-align:center;flex:none}
+.sg{display:flex;gap:5px}
+.ai{width:clamp(12px,3vw,26px);flex:none}
+.s{--w:clamp(16px,4.6vw,38px);width:var(--w);height:calc(var(--w)*.88);border:0;border-radius:8px 8px 4px 4px;background:#3a3550;cursor:pointer;position:relative;padding:0;color:transparent;transition:background .12s,transform .12s;display:grid;place-items:center;font:700 11px/1 'Barlow Condensed',sans-serif}
+.s.rc{width:calc(var(--w)*1.18)}
+.s:before{content:'';position:absolute;left:12%;right:12%;bottom:-3px;height:4px;border-radius:0 0 4px 4px;background:var(--t)}
+.s:hover:not(:disabled){background:#5b52a0;transform:translateY(-2px)}
+.s.on{background:var(--sel);color:#2b2100}
+.s.on:after{content:'✓';font-size:clamp(9px,2vw,15px)}
+.s.tk{background:repeating-linear-gradient(45deg,#1d1a28 0 4px,#272235 4px 8px);cursor:not-allowed}
+.s.tk:after{content:'×';color:#5e5878;font-size:clamp(10px,2.2vw,16px)}
+.s.acc{box-shadow:inset 0 0 0 2px #9ad0ff}
+.lg{display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:center;margin-top:22px;font-size:14px;color:var(--mut)}
+.lg span{display:flex;align-items:center;gap:7px}.lg i{width:16px;height:14px;border-radius:5px 5px 2px 2px;background:#3a3550;display:inline-block;position:relative}
+.lg i.t:before{content:'';position:absolute;left:2px;right:2px;bottom:-3px;height:3px;border-radius:2px;background:var(--c)}
+.sm{background:var(--pan);border:1px solid var(--line);border-radius:20px;padding:22px;position:sticky;top:16px}
+.sm h2{font:700 24px 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.03em;margin:0 0 4px}
+.sm .sh{color:var(--mut);font-size:14px;margin-bottom:14px}
+.ls{list-style:none;margin:0;padding:0;display:grid;gap:8px;min-height:44px}
+.ls li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--line);padding-bottom:8px;font-variant-numeric:tabular-nums}
+.ls .no{color:var(--mut);border:0}
+.tot{display:flex;justify-content:space-between;align-items:baseline;font:700 28px 'Barlow Condensed',sans-serif;margin:16px 0 4px}
+.warn{color:#ffb4a2;min-height:22px;font-size:14px;margin:0 0 10px}
+.bk{width:100%;border:0;background:var(--sel);color:#2b2100;border-radius:12px;padding:14px;font:700 18px 'Barlow Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.bk:hover:not(:disabled){filter:brightness(1.08)}.bk:disabled{opacity:.4;cursor:not-allowed}
+dialog{background:#fff;color:#16121f;border:0;border-radius:20px;padding:0;width:min(380px,calc(100vw - 32px));overflow:hidden}
+dialog::backdrop{background:rgba(5,3,10,.75)}
+.tk1{padding:24px;background:linear-gradient(135deg,#ffd166,#ff9f6e)}
+.tk1 h2{font:700 30px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;margin:0 0 4px}
+.tk2{padding:20px 24px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;border-top:2px dashed #cfc8e8}
+.tk2 dl{margin:0;display:grid;gap:6px;font-size:14px}.tk2 dt{color:#6b6486;font-size:12px;text-transform:uppercase;letter-spacing:.08em}.tk2 dd{margin:0;font-weight:600}
+canvas{width:92px;height:92px;image-rendering:pixelated}
+.tk3{padding:0 24px 22px;display:flex;gap:10px}.tk3 button{flex:1;border:0;background:#16121f;color:#fff;border-radius:10px;padding:12px;font:700 15px Barlow,sans-serif;cursor:pointer}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:900px){.cols{grid-template-columns:minmax(0,1fr)}.sm{position:static}}
+@media(max-width:520px){body{padding:18px 12px 40px}.map{padding:16px 8px}.sg{gap:3px}.r{gap:3px}.rl{width:14px}.rows{gap:6px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<div class="hd"><h1>Midnight at the Observatory</h1><div class="meta"><span class="pill">12A</span><span>1 h 52 m</span><span>Mystery · Drama</span></div>
+<div class="chips" id="days" role="group" aria-label="Date"></div><div class="chips" id="times" role="group" aria-label="Showtime"></div></div>
+<div class="cols"><section class="map" aria-label="Seat map"><svg class="scr" viewBox="0 0 560 50" role="img" aria-label="Screen"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#8b7bff" stop-opacity=".1"/></linearGradient></defs><path d="M10 42 Q280 -6 550 42" fill="none" stroke="url(#sg)" stroke-width="8" stroke-linecap="round"/><text x="280" y="44" text-anchor="middle" fill="#9d97b5" font-size="12" letter-spacing="6" font-family="Barlow Condensed">SCREEN</text></svg>
+<div class="rows" id="rows" role="grid" aria-label="Seats"></div>
+<div class="lg"><span><i></i>Available</span><span><i style="background:var(--sel)"></i>Selected</span><span><i style="background:#272235"></i>Taken</span><span><i class="t" style="--c:var(--st)"></i>Standard £9</span><span><i class="t" style="--c:var(--pr)"></i>Premium £12</span><span><i class="t" style="--c:var(--rc)"></i>Recliner £15</span></div></section>
+<aside class="sm" aria-label="Your booking"><h2>Your seats</h2><div class="sh" id="sh"></div><ul class="ls" id="ls"></ul><div class="tot"><span>Total</span><span id="tt">£0</span></div><p class="warn" id="wn" role="status"></p><button class="bk" id="bk" disabled>Book tickets</button></aside></div></div>
+<dialog id="dlg" aria-label="Booking confirmed"><div class="tk1"><h2>Booking confirmed</h2><div id="tk-sub"></div></div><div class="tk2"><dl id="tk-dl"></dl><canvas id="qr" width="23" height="23" aria-hidden="true"></canvas></div><div class="tk3"><button id="more">Book more</button></div></dialog>
+<div class="sr" id="live" aria-live="polite"></div>
+<script>
+const $=i=>document.getElementById(i);const ROWS='ABCDEFGH'.split(''),N=12,MAX=6;
+const TIER=r=>r<3?['Standard',9,'var(--st)']:r<6?['Premium',12,'var(--pr)']:['Recliner',15,'var(--rc)'];
+const days=Array.from({length:5},(_,i)=>{const d=new Date();d.setDate(d.getDate()+i);return d}),times=['14:30','17:15','20:00','22:45'];
+let di=0,ti=2,sel=new Set(),fr=0,fc=0;
+function seed(s){return()=>{s=(s*1664525+1013904223)%4294967296;return s/4294967296}}
+function taken(){const r=seed(days[di].getDate()*100+ti*7+di),T=new Set();ROWS.forEach((_,y)=>{for(let x=0;x<N;x++)if(r()<(y>=3&&y<=5?.42:.3)*(ti>=2?1.1:.8))T.add(y+','+x)});return T}
+let TK=taken();
+const acc=(y,x)=>y===7&&(x===0||x===N-1)||y===0&&x===N-1;
+function chips(){$('days').innerHTML=days.map((d,i)=>`<button data-d="${i}" aria-pressed="${i===di}"><small>${i?d.toLocaleDateString('en-GB',{weekday:'short'}):'Today'}</small>${d.getDate()} ${d.toLocaleDateString('en-GB',{month:'short'})}</button>`).join('');
+ $('times').innerHTML=times.map((t,i)=>`<button data-t="${i}" aria-pressed="${i===ti}">${t}</button>`).join('')}
+function rows(){$('rows').innerHTML=ROWS.map((L,y)=>{const t=TIER(y);let h=`<div class="r" role="row"><span class="rl" aria-hidden="true">${L}</span><div class="sg">`;for(let x=0;x<N;x++){if(x===N/2)h+='</div><span class="ai"></span><div class="sg">';const k=y+','+x,tk=TK.has(k),on=sel.has(k);
+  h+=`<button class="s${t[0]==='Recliner'?' rc':''}${on?' on':''}${tk?' tk':''}${acc(y,x)?' acc':''}" style="--t:${t[2]}" role="gridcell" data-y="${y}" data-x="${x}" tabindex="${y===fr&&x===fc?0:-1}" ${tk?'aria-disabled="true"':''} aria-pressed="${on}" aria-label="Row ${L}, seat ${x+1}, ${t[0]}, £${t[1]}${acc(y,x)?', wheelchair accessible':''}, ${tk?'taken':on?'selected':'available'}">${tk||on?'':x+1}</button>`}
+  return h+`</div><span class="rl" aria-hidden="true">${L}</span></div>`}).join('')}
+function summary(){const L=[...sel].map(k=>{const[y,x]=k.split(',').map(Number),t=TIER(y);return{y,x,n:ROWS[y]+(x+1),t:t[0],p:t[1]}}).sort((a,b)=>a.y-b.y||a.x-b.x);
+ $('sh').textContent=`${days[di].toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})} · ${times[ti]}`;
+ $('ls').innerHTML=L.length?L.map(s=>`<li><span>${s.n} <span style="color:var(--mut)">${s.t}</span></span><span>£${s.p}</span></li>`).join(''):'<li class="no">Pick up to 6 seats on the map.</li>';
+ const tot=L.reduce((a,s)=>a+s.p,0);$('tt').textContent='£'+tot;$('bk').disabled=!L.length;$('bk').textContent=L.length?`Book ${L.length} ticket${L.length>1?'s':''}`:'Book tickets';return L}
+function all(){rows();summary()}
+$('rows').addEventListener('click',e=>{const b=e.target.closest('.s');if(!b||b.classList.contains('tk'))return;fr=+b.dataset.y;fc=+b.dataset.x;const k=fr+','+fc;
+ if(sel.has(k)){sel.delete(k);$('wn').textContent=''}else if(sel.size>=MAX){$('wn').textContent='You can book up to 6 seats at a time.';return}else{sel.add(k);$('wn').textContent=''}
+ $('live').textContent=b.getAttribute('aria-label').replace(/, (available|selected)$/,'')+(sel.has(k)?' selected':' removed');all();$('rows').querySelector(`[data-y="${fr}"][data-x="${fc}"]`).focus()});
+$('rows').addEventListener('keydown',e=>{const b=e.target.closest('.s');if(!b)return;const m={ArrowRight:[0,1],ArrowLeft:[0,-1],ArrowDown:[1,0],ArrowUp:[-1,0]}[e.key];if(!m)return;e.preventDefault();let y=+b.dataset.y,x=+b.dataset.x;y=Math.max(0,Math.min(ROWS.length-1,y+m[0]));x=Math.max(0,Math.min(N-1,x+m[1]));fr=y;fc=x;
+ $('rows').querySelectorAll('.s').forEach(s=>s.tabIndex=(+s.dataset.y===y&&+s.dataset.x===x)?0:-1);$('rows').querySelector(`[data-y="${y}"][data-x="${x}"]`).focus()});
+$('days').onclick=e=>{const b=e.target.closest('button');if(b){di=+b.dataset.d;ch()}};$('times').onclick=e=>{const b=e.target.closest('button');if(b){ti=+b.dataset.t;ch()}};
+function ch(){sel.clear();TK=taken();$('wn').textContent='';chips();all();$('live').textContent='Showing '+days[di].toDateString()+' at '+times[ti]}
+$('bk').onclick=()=>{const L=summary(),ref='MO'+(Math.abs((di*97+ti*31+L.length*13)*7919+L.reduce((a,s)=>a+s.y*12+s.x,0)*104729)%900000+100000);
+ $('tk-sub').textContent='Ref '+ref;$('tk-dl').innerHTML=`<div><dt>Showing</dt><dd>${days[di].toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'})} · ${times[ti]}</dd></div><div><dt>Seats</dt><dd>${L.map(s=>s.n).join(', ')}</dd></div><div><dt>Paid</dt><dd>£${L.reduce((a,s)=>a+s.p,0)}</dd></div>`;
+ const c=$('qr'),x=c.getContext('2d');x.clearRect(0,0,23,23);const r=seed([...ref].reduce((a,ch)=>a*31+ch.charCodeAt(0)>>>0,7));const fin=(a,b)=>{x.fillStyle='#16121f';x.fillRect(a,b,7,7);x.fillStyle='#fff';x.fillRect(a+1,b+1,5,5);x.fillStyle='#16121f';x.fillRect(a+2,b+2,3,3)};
+ for(let j=0;j<23;j++)for(let i=0;i<23;i++)if(r()>.5){x.fillStyle='#16121f';x.fillRect(i,j,1,1)}[[0,0],[16,0],[0,16]].forEach(([a,b])=>{x.fillStyle='#fff';x.fillRect(a-1<0?0:a-1,b-1<0?0:b-1,9,9);fin(a,b)});
+ $('dlg').showModal();$('more').focus();$('live').textContent='Booking confirmed. Reference '+ref};
+$('more').onclick=()=>{$('dlg').close();ch()};
+chips();all();
+</script></body></html>

@@ -1,0 +1,11 @@
+Canvas & base: The page background changes with the mode: focus #2b1a1a with a warm radial glow of #ff6b5a at 18%, short break #14282a with #3dd6c6 glow, long break #161a2e with #7c8cff glow. Card #ffffff0d with 1px #ffffff1f border, 28px radius, blur backdrop. Text #fff4f0, muted rgba(255,255,255,.62). The accent follows the mode (coral #ff6b5a, teal #3dd6c6, periwinkle #7c8cff). Colour changes transition over 600ms.
+
+Typography: "Manrope" (500, 700, 800) for labels and buttons, "Space Grotesk" (500, 700) with tabular-nums for the 88px countdown digits.
+
+Layout: A centred card max-width 440px. A three-button mode switcher (Focus, Short break, Long break) as a segmented control. A large SVG ring (stroke-linecap round) with the countdown MM:SS centred and the mode label below it. Beneath: an input "What are you focusing on?" for the task label, then three round-ish controls (Reset, a big Start/Pause, Skip). Four session dots show progress toward the long break, followed by "Session 2 of 4". A collapsible Settings section with number inputs for focus, short and long minutes and a sound toggle. A "Today" list shows completed focus sessions with task name and time.
+
+Interaction: The timer uses Date.now() deltas so it stays accurate when the tab is throttled. The ring depletes smoothly; the document title shows the remaining time and mode. When a session ends, a soft chime plays via the Web Audio API (if the sound toggle is on and the user has interacted), the mode advances automatically (four focus sessions then a long break), a completed focus session is added to the Today list, and the card pulses. Space starts and pauses when focus is not in an input, R resets, S skips. Changing a duration while stopped updates the display. The Today list keeps up to 8 entries.
+
+Responsive: Digits scale with clamp from 64px to 88px; the card fills 390px with 16px margins. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries or audio files, respects prefers-reduced-motion (no ring transition or pulse), the countdown has role=timer and the remaining time is announced only at the start, pause and end (not every second).

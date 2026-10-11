@@ -1,0 +1,11 @@
+Canvas & base: Deep navy #0b1220 page, city cards #121a2c with 1px #1f2a44 borders and 18px radius. Each card's header strip tints by local time of day: night #1b2250 to #0f1530, dawn #5b3b6e to #d98a6a, day #2a6fb8 to #7cc4f0, dusk #6b3f5c to #e48b4f. Ink #eef2ff, muted #8f9bc0, accent #7cc4f0, working-hours highlight #34d399 at 35%.
+
+Typography: "Lexend" (400, 500, 600) for labels and city names (20px 600), "Roboto Mono" (400, 500) with tabular-nums for digital time (40px) and offsets.
+
+Layout: A header "World Clocks" with a 12h / 24h toggle, a "Home" label showing the viewer's own time zone and an "Add city" select with about 16 cities. A grid of city cards (3 columns desktop) each with: the tinted header (city, country, a sun or moon glyph), an SVG analogue clock face with hour, minute and second hands and tick marks, the digital time, the date with "Today / Tomorrow / Yesterday" relative to home, and the offset versus home ("+5 h"). Remove (×) button on each card (the home card cannot be removed). Below the grid a "Meeting planner" with 24-hour horizontal strips per city aligned on a shared UTC axis, working hours 09:00 to 18:00 shaded, a draggable vertical marker that shows each city's local time at that moment, and a text line "Overlap: 14:00 to 17:00 UTC" computed across all selected cities.
+
+Interaction: Time zones come from Intl.DateTimeFormat with the IANA zone name so daylight saving is correct. Clocks tick every second (second hand with a smooth transition disabled for the wrap). The meeting marker can be dragged or moved with arrow keys (15-minute steps) and has role=slider with aria-valuetext. Adding a city appends a card; removing animates it out. Selected cities persist to localStorage when available (try/catch).
+
+Responsive: 2 columns at 900px, 1 at 600px; planner strips scroll inside their own container at narrow widths without breaking the page. No horizontal page scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries, respects prefers-reduced-motion (second hands step without easing and no card animation), each clock face has an aria-label with the time in words.

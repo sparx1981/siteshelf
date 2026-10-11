@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Focus Timer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#2b1a1a;--acc:#ff6b5a;--glow:rgba(255,107,90,.18)}
+body.sb{--bg:#14282a;--acc:#3dd6c6;--glow:rgba(61,214,198,.18)}
+body.lb{--bg:#161a2e;--acc:#7c8cff;--glow:rgba(124,140,255,.2)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;background:radial-gradient(60% 50% at 50% 30%,var(--glow),transparent 70%),var(--bg);color:#fff4f0;font:500 16px/1.5 Manrope,sans-serif;display:grid;place-items:center;padding:20px;transition:background-color .6s}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.card{width:min(440px,100%);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:26px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:transform .3s}
+.card.pulse{animation:pl .8s}
+@keyframes pl{40%{transform:scale(1.025);box-shadow:0 0 0 8px var(--glow)}}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:rgba(0,0,0,.25);border-radius:14px;padding:4px}
+.seg button{border:0;background:none;color:rgba(255,255,255,.65);padding:9px 4px;border-radius:10px;font:700 14px Manrope,sans-serif;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--acc);color:#1a0d0b}
+.ring{position:relative;width:min(300px,78vw);margin:22px auto 6px}
+.ring svg{display:block;width:100%;height:auto;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:9}
+.tr{stroke:rgba(255,255,255,.1)}
+.pg{stroke:var(--acc);stroke-linecap:round;transition:stroke-dashoffset .3s linear,stroke .6s}
+.mid{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.tm{font:700 clamp(64px,19vw,88px)/1 'Space Grotesk',sans-serif;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.md{color:rgba(255,255,255,.62);letter-spacing:.14em;text-transform:uppercase;font-size:12px;font-weight:700;margin-top:6px}
+input[type=text]{width:100%;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px 14px;font:500 15px Manrope,sans-serif;color:#fff;margin:14px 0 18px;text-align:center}
+input::placeholder{color:rgba(255,255,255,.45)}
+.ct{display:flex;justify-content:center;align-items:center;gap:16px}
+.rb{width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;font:700 13px Manrope,sans-serif;cursor:pointer}
+.rb:hover{background:rgba(255,255,255,.14)}
+.go{min-width:150px;height:64px;border-radius:32px;border:0;background:var(--acc);color:#1a0d0b;font:800 18px Manrope,sans-serif;cursor:pointer;transition:transform .08s,background .6s}
+.go:hover{filter:brightness(1.08)}.go:active{transform:scale(.97)}
+.dots{display:flex;gap:8px;justify-content:center;align-items:center;margin:20px 0 4px}
+.dots i{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.15);transition:background .3s}.dots i.on{background:var(--acc)}.dots i.cur{box-shadow:0 0 0 3px var(--glow),inset 0 0 0 2px var(--acc);background:transparent}
+.ss{text-align:center;color:rgba(255,255,255,.62);font-size:14px;margin:0}
+details{margin-top:18px;border-top:1px solid rgba(255,255,255,.1);padding-top:12px}
+summary{cursor:pointer;font-weight:700;font-size:14px;color:rgba(255,255,255,.8)}
+.set{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.set label{display:grid;gap:4px;font-size:12px;color:rgba(255,255,255,.62)}
+.set input{width:100%;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:8px;color:#fff;font:700 16px 'Space Grotesk',sans-serif;text-align:center}
+.snd{display:flex;gap:10px;align-items:center;font-size:14px}
+.snd input{accent-color:var(--acc);width:18px;height:18px}
+.log{margin-top:18px;border-top:1px solid rgba(255,255,255,.1);padding-top:12px}
+.log h2{font:700 12px Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62);margin:0 0 8px}
+.log ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:14px}
+.log li{display:flex;justify-content:space-between;gap:10px;background:rgba(255,255,255,.05);border-radius:10px;padding:7px 12px}
+.log li span:last-child{color:rgba(255,255,255,.55);font-variant-numeric:tabular-nums}
+.log p{margin:0;color:rgba(255,255,255,.5);font-size:14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:420px){.card{padding:18px}.go{min-width:120px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body><main class="card" id="card">
+<div class="seg" role="group" aria-label="Timer mode" id="seg"><button data-m="f" aria-pressed="true">Focus</button><button data-m="s" aria-pressed="false">Short break</button><button data-m="l" aria-pressed="false">Long break</button></div>
+<div class="ring"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="tr" cx="100" cy="100" r="92"/><circle class="pg" id="pg" cx="100" cy="100" r="92"/></svg><div class="mid"><div class="tm" id="tm" role="timer" aria-label="Time remaining">25:00</div><div class="md" id="md">Focus</div></div></div>
+<input type="text" id="task" placeholder="What are you focusing on?" maxlength="48" aria-label="Task label">
+<div class="ct"><button class="rb" id="rs" aria-label="Reset timer">Reset</button><button class="go" id="go">Start</button><button class="rb" id="sk" aria-label="Skip to next session">Skip</button></div>
+<div class="dots" id="dots" aria-hidden="true"></div><p class="ss" id="ss"></p>
+<details><summary>Settings</summary><div class="set"><label>Focus (min)<input type="number" id="cf" min="1" max="90" value="25"></label><label>Short (min)<input type="number" id="cs" min="1" max="30" value="5"></label><label>Long (min)<input type="number" id="cl" min="1" max="60" value="15"></label></div><label class="snd"><input type="checkbox" id="snd" checked> Play a chime when a session ends</label></details>
+<section class="log" aria-labelledby="lh"><h2 id="lh">Today</h2><ul id="lg"></ul><p id="le">No sessions yet. Start your first one.</p></section>
+<div class="sr" id="live" aria-live="polite"></div></main>
+<script>
+const $=i=>document.getElementById(i),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const C=2*Math.PI*92;$('pg').style.strokeDasharray=C;
+const NAME={f:'Focus',s:'Short break',l:'Long break'};
+let mode='f',total=1500,end=0,left=1500,running=false,tick=null,done=0,log=[],audio=null;
+const mins=()=>({f:+$('cf').value||25,s:+$('cs').value||5,l:+$('cl').value||15});
+const fmt=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(Math.ceil(s%60)%60===0&&s%60!==0?0:Math.ceil(s%60)).padStart(2,'0');
+function f2(s){s=Math.max(0,Math.ceil(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function paint(){const s=running?Math.max(0,(end-Date.now())/1000):left;$('tm').textContent=f2(s);$('pg').style.strokeDashoffset=C*(1-(total-s)/total)*-1+C*0;$('pg').style.strokeDashoffset=C*((total-s)/total);document.title=`${f2(s)} · ${NAME[mode]}`;
+ $('md').textContent=NAME[mode];document.body.className=mode==='s'?'sb':mode==='l'?'lb':'';
+ [...$('seg').children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===mode));$('go').textContent=running?'Pause':(left<total?'Resume':'Start');
+ $('dots').innerHTML=[0,1,2,3].map(i=>`<i class="${i<done%4||(done>0&&done%4===0&&mode==='l')?'on':''} ${mode==='f'&&i===done%4?'cur':''}"></i>`).join('');
+ $('ss').textContent=mode==='f'?`Session ${done%4+1} of 4`:mode==='s'?'Take five':'You earned a long one';return s}
+function setMode(m,auto){clearInterval(tick);running=false;mode=m;total=left=mins()[m]*60;paint();if(!auto)$('live').textContent=NAME[m]+' selected, '+f2(total)}
+function start(){if(running)return;running=true;end=Date.now()+left*1000;tick=setInterval(()=>{const s=paint();if(s<=0)finish()},reduce?250:200);paint();$('live').textContent=NAME[mode]+' started, '+f2(left)}
+function pause(){if(!running)return;left=Math.max(0,(end-Date.now())/1000);running=false;clearInterval(tick);paint();$('live').textContent='Paused at '+f2(left)}
+function finish(){clearInterval(tick);running=false;chime();const card=$('card');card.classList.remove('pulse');void card.offsetWidth;card.classList.add('pulse');
+ if(mode==='f'){done++;log.unshift({t:$('task').value.trim()||'Focus session',m:total/60,at:new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'})});log=log.slice(0,8);drawLog();$('live').textContent='Focus session complete.'}else $('live').textContent='Break over.';
+ const next=mode==='f'?(done%4===0?'l':'s'):'f';setMode(next,true);$('live').textContent+=' Next: '+NAME[next]}
+function drawLog(){$('lg').innerHTML=log.map(l=>`<li><span>${l.t.replace(/[<>&]/g,'')}</span><span>${l.m} min · ${l.at}</span></li>`).join('');$('le').hidden=log.length>0}
+function chime(){if(!$('snd').checked)return;try{audio=audio||new (window.AudioContext||window.webkitAudioContext)();const t=audio.currentTime;[660,880,1100].forEach((f,i)=>{const o=audio.createOscillator(),g=audio.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,t+i*.18);g.gain.linearRampToValueAtTime(.18,t+i*.18+.03);g.gain.exponentialRampToValueAtTime(.0001,t+i*.18+.6);o.connect(g).connect(audio.destination);o.start(t+i*.18);o.stop(t+i*.18+.65)})}catch(e){}}
+$('go').onclick=()=>{try{audio=audio||new (window.AudioContext||window.webkitAudioContext)()}catch(e){}running?pause():start()};
+$('rs').onclick=()=>{setMode(mode)};$('sk').onclick=()=>{const next=mode==='f'?(done%4===3?'l':'s'):'f';if(mode==='f')done=done;setMode(next)};
+$('seg').onclick=e=>{const b=e.target.closest('button');if(b)setMode(b.dataset.m)};
+['cf','cs','cl'].forEach(i=>$(i).onchange=()=>{const el=$(i);el.value=Math.min(+el.max,Math.max(1,+el.value||1));if(!running&&left===total)setMode(mode,true)});
+addEventListener('keydown',e=>{if(e.target.matches('input,textarea,select,button,summary'))return;if(e.key===' '){e.preventDefault();$('go').click()}else if(e.key==='r'||e.key==='R')$('rs').click();else if(e.key==='s'||e.key==='S')$('sk').click()});
+drawLog();setMode('f',true);
+</script></body></html>

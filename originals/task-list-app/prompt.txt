@@ -1,0 +1,11 @@
+Canvas & base: Soft lilac page #f1eefb, app card white with 1px #e3def5 border and 22px radius, shadow 0 30px 70px -30px rgba(80,60,160,.35). Ink #231f3b, muted #7b7599, accent violet #6d4aff, priority colours: High #ef476f, Medium #f4a259, Low #4fb286. Completed rows 55% opacity with a strike-through.
+
+Typography: "DM Serif Display" for the heading (40px) and "DM Sans" (400, 500, 700) for everything else; counts in tabular numbers.
+
+Layout: A centred card max-width 620px. Heading "Today" with the date and a progress bar showing "3 of 7 done" with a percentage. An add row (text input, priority select, Add button). Filter tabs (All, Active, Done) with counts. A list of task rows, each with a drag handle, a custom round checkbox, the title, a priority dot and label, and an overflow of edit and delete icon buttons visible on hover and focus. A footer with "4 items left" and a Clear completed button. Preload six realistic tasks.
+
+Interaction: Enter in the input adds a task at the top. Double-click or the edit button turns a title into an input (Enter saves, Escape cancels). Rows reorder by dragging the handle (pointer drag with a placeholder gap) and also with the keyboard: focus a row and press Alt plus Up or Down, announcing the new position. Checking animates a tick and moves the progress bar. Delete shows an "Undo" toast for 5 seconds that restores the task in place. Empty states differ for All, Active and Done. State persists to localStorage when available (wrapped in try/catch) and otherwise lives in memory.
+
+Responsive: Full-width card with 16px page padding at 390px; hover-only buttons become always visible on touch. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries, respects prefers-reduced-motion, checkboxes are real inputs, the list is a ul with aria-live announcements for add, delete and reorder.

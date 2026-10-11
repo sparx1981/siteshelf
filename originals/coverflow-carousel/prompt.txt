@@ -1,0 +1,11 @@
+Canvas & base: Dark stage #0b0b10 with a soft spotlight radial gradient (#2a2540 at 55% to transparent) behind the centre item and a faint floor line with a blurred reflection of each cover. Covers are 280px squares with 14px radius, generated artwork (no images) from gradients and simple SVG shapes in distinct palettes: Dusk Drive (#ff7a59 to #5b2a86), Paper Moons (#f6e7c1 to #7aa6c2), Neon Aisle (#12f7d6 to #6a00f4), Slow Garden (#b5e48c to #1a7f64), Static Bloom (#ff5d8f to #ffd23f), Low Tide (#3a86ff to #0b2545), Ember Hours (#ffb703 to #9d0208). Text #f5f3ff, muted #a29cc0.
+
+Typography: "Fraunces" (600, italic 500) for the focused title at 40px, "Manrope" (400, 500, 700) for artist, track count and controls.
+
+Layout: A heading "Mixtapes for the long way home" with a short line. A stage 440px tall with perspective 1200px containing 7 covers laid out horizontally. The focused cover sits centre, facing forward, with neighbours rotated about the Y axis by 48 degrees, pushed back on Z and scaled down, overlapping each other, with decreasing opacity farther away. Below the stage a caption block shows the title, artist, year, track count and a small genre pill, with prev and next buttons and dot indicators.
+
+Interaction: Click a side cover to bring it to centre; arrow keys, Home, End, mouse drag and touch swipe change the index with a 600ms cubic-bezier transition on transform and opacity. The wheel (horizontal) also changes covers with a throttle. The caption text crossfades. The centre cover has a subtle shine that follows the pointer. Drag has momentum-free snapping to the nearest index. Buttons are labelled and the focused item is announced through an aria-live region ("Slow Garden, 4 of 7").
+
+Responsive: Covers shrink to 200px under 700px with tighter spacing and a 36 degree rotation. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries or images, respects prefers-reduced-motion (instant movement, no shine), the carousel is a region with role=group and aria-roledescription=carousel.

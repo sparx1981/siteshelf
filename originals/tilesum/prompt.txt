@@ -1,0 +1,11 @@
+Canvas & base: Page #0f2b2e with a soft radial highlight, game board #0a1e20 with 12px padding and 14px radius, empty cells rgba(255,255,255,.06). Tile colours move from pale to rich as values grow: 2 #d7f3ec, 4 #b4e8dc, 8 #7fd8c4 (dark text), 16 #4cc5ae, 32 #2fa8a0, 64 #2689a0 , 128 #3a6fc4, 256 #5a55c8, 512 #7a44c2, 1024 #a53fb0, 2048 #e0457b (light text), higher #14141f with a gold ring. Text #eafaf6, muted #8bb5b0.
+
+Typography: "Rubik" (500, 700, 800) for tiles and score (tile numbers scale down for 3 and 4 digits), "Inter" (400, 500) for hints and labels.
+
+Layout: A centred column max-width 480px. Header with the title "Tilesum", two score boxes (Score, Best) and a row of buttons (New game, Undo). A one-line hint "Slide tiles with arrow keys or swipe. Equal numbers merge." A square 4 by 4 board using CSS grid with absolutely positioned tiles so they can slide with transform transitions.
+
+Interaction: Arrow keys, WASD and touch swipes move all tiles in a direction; equal neighbours merge once per move, the score increases by the merged value and shows a floating "+8" bubble. Tiles slide over 120ms, new tiles pop in with a scale animation and merged tiles bump. A new tile (90% two, 10% four) spawns only if the board changed. Undo reverts one move (score and board). Reaching 2048 shows a "You made 2048" overlay with Keep going and New game; no legal moves shows Game over with Try again. Best score is kept for the session and in localStorage when available (wrapped in try/catch). Prevent page scroll while swiping on the board.
+
+Responsive: The board is min(92vw, 480px) square with tile text scaling using container query units or a computed font size. No horizontal scroll at 390px.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries, respects prefers-reduced-motion (no slide, merge or spawn animation), board has role=application with an aria-live region announcing score and new tile values.

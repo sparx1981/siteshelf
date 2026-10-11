@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Docket — Task List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#231f3b;--mut:#7b7599;--acc:#6d4aff;--line:#e3def5;--hi:#ef476f;--md:#f4a259;--lo:#4fb286}
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;background:#f1eefb;color:var(--ink);font:400 16px/1.5 'DM Sans',sans-serif;display:grid;place-items:start center;padding:48px 16px}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.card{width:min(620px,100%);background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 30px 70px -30px rgba(80,60,160,.35)}
+.hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+h1{font:400 40px/1.1 'DM Serif Display',serif;margin:0}
+.dt{color:var(--mut);font-size:14px}
+.pr{margin:16px 0 20px}
+.pr .t{display:flex;justify-content:space-between;font-size:14px;color:var(--mut);margin-bottom:6px;font-variant-numeric:tabular-nums}
+.bar{height:8px;border-radius:4px;background:#ece8fb;overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8d6bff,#6d4aff);border-radius:4px;transition:width .4s}
+.add{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;margin-bottom:18px}
+.add input[type=text],.add select{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;background:#fff;color:var(--ink);min-width:0}
+.add input[type=text]:focus{border-color:var(--acc)}
+.btn{border:0;background:var(--acc);color:#fff;border-radius:12px;padding:0 20px;font:700 15px 'DM Sans',sans-serif;cursor:pointer;min-height:46px}.btn:hover{background:#5b39ee}
+.tabs{display:flex;gap:6px;margin-bottom:10px}
+.tabs button{border:0;background:none;padding:7px 14px;border-radius:999px;font:700 14px 'DM Sans',sans-serif;color:var(--mut);cursor:pointer}
+.tabs button[aria-pressed=true]{background:#efeaff;color:var(--acc)}
+.tabs b{font-variant-numeric:tabular-nums;margin-left:4px;font-weight:500}
+ul{list-style:none;margin:0;padding:0}
+.row{display:grid;grid-template-columns:22px 26px minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:11px 8px;border-bottom:1px solid #f0edfa;border-radius:10px;background:#fff;position:relative}
+.row:focus-visible{outline-offset:-2px}
+.row.drag{opacity:.35}
+.row.over{box-shadow:0 -3px 0 var(--acc)}
+.row.done .ti{opacity:.55;text-decoration:line-through}
+.h{cursor:grab;color:#c3bde0;font-size:18px;line-height:1;touch-action:none;user-select:none;text-align:center}
+.h:hover{color:var(--acc)}
+.ck{appearance:none;-webkit-appearance:none;width:24px;height:24px;border:2px solid #cfc8ee;border-radius:50%;cursor:pointer;display:grid;place-items:center;margin:0;transition:.2s;background:#fff}
+.ck:checked{background:var(--acc);border-color:var(--acc)}
+.ck:checked:after{content:'';width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px);animation:tk .25s}
+@keyframes tk{from{transform:rotate(45deg) scale(0)}}
+.ti{min-width:0;overflow-wrap:anywhere}
+.ti input{width:100%;border:1.5px solid var(--acc);border-radius:8px;padding:6px 8px;font:inherit;color:var(--ink)}
+.pt{font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;color:var(--mut)}
+.pt i{width:9px;height:9px;border-radius:50%;background:var(--c)}
+.ac{display:flex;gap:2px;opacity:0;transition:opacity .15s}
+.row:hover .ac,.row:focus-within .ac{opacity:1}
+.ac button{border:0;background:none;width:30px;height:30px;border-radius:8px;color:var(--mut);cursor:pointer;font-size:15px}.ac button:hover{background:#f1eefb;color:var(--ink)}
+.ft{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:14px;color:var(--mut)}
+.ft button{border:0;background:none;color:var(--acc);font:700 14px 'DM Sans',sans-serif;cursor:pointer}
+.ft button:disabled{opacity:.4;cursor:default}
+.em{text-align:center;padding:34px 10px;color:var(--mut)}
+.em b{display:block;font:400 22px 'DM Serif Display',serif;color:var(--ink)}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ink);color:#fff;border-radius:12px;padding:10px 12px 10px 16px;display:flex;gap:14px;align-items:center;opacity:0;pointer-events:none;transition:.25s}
+#toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+#toast button{background:none;border:0;color:#b9a7ff;font:700 14px 'DM Sans',sans-serif;cursor:pointer}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(hover:none){.ac{opacity:1}}
+@media(max-width:520px){body{padding:16px}.card{padding:18px}h1{font-size:32px}.add{grid-template-columns:minmax(0,1fr) auto}.add select{grid-column:1}.add .btn{grid-column:2;grid-row:1/3}.row{grid-template-columns:20px 26px minmax(0,1fr) auto;gap:8px}.pt span{display:none}.ac{grid-column:3/5;justify-self:end}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body><main class="card">
+<div class="hd"><h1>Today</h1><span class="dt" id="dt"></span></div>
+<div class="pr"><div class="t"><span id="pt">0 of 0 done</span><span id="pp">0%</span></div><div class="bar" role="progressbar" aria-label="Tasks completed" id="pb" aria-valuemin="0" aria-valuemax="100"><i id="pi"></i></div></div>
+<form class="add" id="fm"><input type="text" id="in" placeholder="Add a task and press Enter" aria-label="New task" maxlength="80" autocomplete="off"><select id="pr" aria-label="Priority"><option value="m">Medium</option><option value="h">High</option><option value="l">Low</option></select><button class="btn">Add</button></form>
+<div class="tabs" role="group" aria-label="Filter tasks" id="tabs"></div>
+<ul id="ls" aria-label="Tasks"></ul><div class="em" id="em" hidden></div>
+<div class="ft"><span id="left"></span><button id="cc">Clear completed</button></div>
+<div class="sr" id="live" aria-live="polite"></div></main><div id="toast" role="status"><span id="tt"></span><button id="un">Undo</button></div>
+<script>
+const $=i=>document.getElementById(i);const PC={h:['High','#ef476f'],m:['Medium','#f4a259'],l:['Low','#4fb286']};
+let T=[{id:1,t:'Review the pull request from Mei',p:'h',d:0},{id:2,t:'Book dentist for next week',p:'m',d:0},{id:3,t:'Write the release notes',p:'m',d:1},{id:4,t:'Water the plants',p:'l',d:0},{id:5,t:'Send the invoice to Northwind',p:'h',d:1},{id:6,t:'Plan Friday demo',p:'m',d:0}],uid=10,filt='all',editing=null,last=null,tmr;
+try{const s=JSON.parse(localStorage.getItem('docket-tasks'));if(Array.isArray(s)&&s.length){T=s;uid=Math.max(...T.map(t=>t.id))+1}}catch(e){}
+const save=()=>{try{localStorage.setItem('docket-tasks',JSON.stringify(T))}catch(e){}};
+$('dt').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+const say=t=>$('live').textContent=t,esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function render(focusId){const vis=T.filter(t=>filt==='all'||(filt==='active'?!t.d:t.d)),done=T.filter(t=>t.d).length,pct=T.length?Math.round(done/T.length*100):0;
+ $('pt').textContent=`${done} of ${T.length} done`;$('pp').textContent=pct+'%';$('pi').style.width=pct+'%';$('pb').setAttribute('aria-valuenow',pct);
+ $('tabs').innerHTML=[['all','All',T.length],['active','Active',T.length-done],['done','Done',done]].map(([k,l,n])=>`<button data-f="${k}" aria-pressed="${filt===k}">${l}<b>${n}</b></button>`).join('');
+ $('ls').innerHTML=vis.map(t=>`<li class="row${t.d?' done':''}" data-id="${t.id}" tabindex="0" aria-label="${esc(t.t)}, ${PC[t.p][0]} priority${t.d?', done':''}. Alt plus arrow keys to reorder."><span class="h" aria-hidden="true" title="Drag to reorder">⋮⋮</span><input class="ck" type="checkbox" ${t.d?'checked':''} aria-label="Mark ${esc(t.t)} as done"><span class="ti">${editing===t.id?`<input type="text" value="${esc(t.t)}" aria-label="Edit task" maxlength="80">`:esc(t.t)}</span><span class="pt" style="--c:${PC[t.p][1]}"><i></i><span>${PC[t.p][0]}</span></span><span class="ac"><button data-a="e" aria-label="Edit ${esc(t.t)}">✎</button><button data-a="x" aria-label="Delete ${esc(t.t)}">✕</button></span></li>`).join('');
+ const em=$('em');em.hidden=vis.length>0;em.innerHTML=filt==='done'?'<b>Nothing done yet</b>Finish a task and it lands here.':filt==='active'?'<b>All clear</b>Every task is done. Enjoy it.':'<b>No tasks</b>Add your first one above.';
+ $('left').textContent=`${T.length-done} item${T.length-done===1?'':'s'} left`;$('cc').disabled=!done;
+ const ed=$('ls').querySelector('.ti input');if(ed){ed.focus();ed.select()}else if(focusId){const r=$('ls').querySelector(`[data-id="${focusId}"]`);r&&r.focus()}save()}
+$('fm').onsubmit=e=>{e.preventDefault();const v=$('in').value.trim();if(!v)return;const t={id:uid++,t:v,p:$('pr').value,d:0};T.unshift(t);$('in').value='';say('Added '+v);if(filt==='done')filt='all';render()};
+$('tabs').onclick=e=>{const b=e.target.closest('button');if(b){filt=b.dataset.f;render()}};
+$('cc').onclick=()=>{const n=T.filter(t=>t.d).length;T=T.filter(t=>!t.d);say(n+' completed tasks cleared');render()};
+$('ls').addEventListener('change',e=>{if(!e.target.classList.contains('ck'))return;const id=+e.target.closest('.row').dataset.id,t=T.find(x=>x.id===id);t.d=e.target.checked?1:0;say(t.t+(t.d?' completed':' reopened'));render(id)});
+$('ls').addEventListener('click',e=>{const b=e.target.closest('button[data-a]');if(!b)return;const id=+b.closest('.row').dataset.id;if(b.dataset.a==='e'){editing=id;render()}else del(id)});
+$('ls').addEventListener('dblclick',e=>{const ti=e.target.closest('.ti');if(ti&&!ti.querySelector('input')){editing=+ti.closest('.row').dataset.id;render()}});
+$('ls').addEventListener('keydown',e=>{const row=e.target.closest('.row');if(!row)return;const id=+row.dataset.id;
+ if(e.target.matches('.ti input')){if(e.key==='Enter'){const v=e.target.value.trim();if(v)T.find(t=>t.id===id).t=v;editing=null;render(id)}else if(e.key==='Escape'){editing=null;render(id)}return}
+ if(e.altKey&&(e.key==='ArrowUp'||e.key==='ArrowDown')){e.preventDefault();const i=T.findIndex(t=>t.id===id),j=i+(e.key==='ArrowUp'?-1:1);if(j<0||j>=T.length)return;[T[i],T[j]]=[T[j],T[i]];say(`${T[j].t} moved to position ${j+1} of ${T.length}`);render(id)}
+ else if(e.target===row&&(e.key==='Delete'||e.key==='Backspace')){e.preventDefault();del(id)}
+ else if(e.target===row&&e.key==='ArrowDown'&&!e.altKey){const n=row.nextElementSibling;n&&(e.preventDefault(),n.focus())}else if(e.target===row&&e.key==='ArrowUp'&&!e.altKey){const n=row.previousElementSibling;n&&(e.preventDefault(),n.focus())}});
+$('ls').addEventListener('focusout',e=>{if(e.target.matches('.ti input')&&editing){const id=+e.target.closest('.row').dataset.id;const v=e.target.value.trim();if(v)T.find(t=>t.id===id).t=v;editing=null;setTimeout(()=>render(),0)}});
+function del(id){const i=T.findIndex(t=>t.id===id);last={t:T[i],i};T.splice(i,1);say('Deleted '+last.t.t);render();$('tt').textContent='Task deleted';$('toast').classList.add('on');clearTimeout(tmr);tmr=setTimeout(()=>$('toast').classList.remove('on'),5000)}
+$('un').onclick=()=>{if(!last)return;T.splice(Math.min(last.i,T.length),0,last.t);say('Restored '+last.t.t);last=null;$('toast').classList.remove('on');render()};
+/* pointer drag */
+let dr=null;
+$('ls').addEventListener('pointerdown',e=>{const h=e.target.closest('.h');if(!h||filt!=='all')return;const row=h.closest('.row');dr={id:+row.dataset.id,row};row.classList.add('drag');h.setPointerCapture(e.pointerId);e.preventDefault()});
+$('ls').addEventListener('pointermove',e=>{if(!dr)return;const rows=[...$('ls').children];rows.forEach(r=>r.classList.remove('over'));const tgt=rows.find(r=>{const b=r.getBoundingClientRect();return e.clientY>=b.top&&e.clientY<=b.bottom});if(tgt&&tgt!==dr.row){tgt.classList.add('over');dr.over=+tgt.dataset.id}else dr.over=null});
+const endDrag=()=>{if(!dr)return;const{id,over}=dr;dr=null;if(over){const i=T.findIndex(t=>t.id===id),oi=T.findIndex(x=>x.id===over),[t]=T.splice(i,1);let j=T.findIndex(x=>x.id===over);if(i<oi)j++;T.splice(j,0,t);say(`${t.t} moved to position ${j+1} of ${T.length}`)}render(id)};
+$('ls').addEventListener('pointerup',endDrag);$('ls').addEventListener('pointercancel',endDrag);
+render();
+</script></body></html>

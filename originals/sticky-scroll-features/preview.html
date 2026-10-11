@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stash — Sticky Scroll Features</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#1b1812;--mut:#6e675a;--acc:#e4572e;--wash:#ffd9c2}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f7f5f0;color:var(--ink);font:400 17px/1.6 Figtree,sans-serif}
+:focus-visible{outline:3px solid var(--acc);outline-offset:4px}
+.in{max-width:1180px;margin:0 auto;padding:0 28px}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.logo{font:400 30px 'Instrument Serif',serif}.logo i{color:var(--acc)}
+.nav a.b{background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:9px 18px;border-radius:999px}
+.hero{padding:70px 0 40px;max-width:820px}
+h1{font:400 clamp(44px,7vw,84px)/1.02 'Instrument Serif',serif;margin:0 0 20px;letter-spacing:-.02em}
+h1 em{color:var(--acc)}
+.hero p{color:var(--mut);font-size:20px;max-width:520px;margin:0}
+.sec{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;padding:40px 0 80px}
+.pin{position:sticky;top:10vh;height:80vh;max-height:700px;display:grid;place-items:center;border-radius:36px;background:var(--wash);transition:background-color .5s;overflow:hidden}
+.win{width:min(520px,86%);height:min(430px,70%);background:#fff;border:1px solid #e2ddd2;border-radius:24px;box-shadow:0 40px 80px -30px rgba(40,30,10,.35);position:relative;overflow:hidden}
+.wb{display:flex;gap:6px;align-items:center;padding:12px 16px;border-bottom:1px solid #eee9de;background:#fcfbf8}
+.wb i{width:10px;height:10px;border-radius:50%;background:#e2ddd2}.wb span{margin-left:10px;font-size:12px;font-weight:600;color:var(--mut)}
+.st{position:absolute;top:44px;left:0;right:0;bottom:0;padding:18px;opacity:0;transform:translateY(18px);transition:opacity .45s,transform .45s;pointer-events:none}
+.st.on{opacity:1;transform:none}
+.lbl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:0 0 10px}
+/* capture */
+.cl{border:1px solid #e2ddd2;border-radius:14px;padding:14px;display:grid;gap:10px;box-shadow:0 10px 30px -14px rgba(0,0,0,.2)}
+.cl .u{font-size:13px;color:var(--mut)}.cl .t{font-weight:700;font-size:16px;line-height:1.3}
+.chip{display:inline-block;border-radius:999px;background:#fdebe4;color:#b03a17;font-size:12px;font-weight:600;padding:2px 10px;margin-right:6px}
+.sv{display:flex;align-items:center;gap:10px}
+.sv button{border:0;background:var(--acc);color:#fff;border-radius:10px;padding:9px 16px;font:700 14px Figtree,sans-serif}
+.ok{width:28px;height:28px;border-radius:50%;background:#22a06b;color:#fff;display:grid;place-items:center;font-weight:700;transform:scale(0)}
+.on .ok{animation:pop .5s .5s forwards}
+@keyframes pop{60%{transform:scale(1.25)}to{transform:scale(1)}}
+.ghost{margin-top:12px;border:1px dashed #d9d2c2;border-radius:12px;padding:12px;font-size:13px;color:var(--mut)}
+/* organise */
+.cg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.cc{border-radius:14px;padding:14px;color:#fff;min-height:92px;display:flex;flex-direction:column;justify-content:flex-end;font-weight:700;box-shadow:0 8px 20px -10px rgba(0,0,0,.35);transform:translateY(10px);opacity:0}
+.cc small{font-weight:500;opacity:.85}
+.on .cc{animation:up .5s forwards}.on .cc:nth-child(2){animation-delay:.08s}.on .cc:nth-child(3){animation-delay:.16s}.on .cc:nth-child(4){animation-delay:.24s}
+@keyframes up{to{transform:none;opacity:1}}
+.cc.drag{transform:rotate(-3deg)}
+/* search */
+.sb{display:flex;align-items:center;gap:10px;border:1.5px solid var(--acc);border-radius:12px;padding:10px 14px;font-weight:600;margin-bottom:12px}
+.sb .q{min-width:2px}.sb .cu{width:2px;height:18px;background:var(--acc);animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.rs{display:grid;gap:8px}
+.rs div{border:1px solid #eee9de;border-radius:12px;padding:10px 12px;font-size:14px}
+.rs b{display:block;font-size:14px}.rs mark{background:#ffe08a;border-radius:3px;padding:0 2px}
+.rs span{color:var(--mut);font-size:12px}
+/* share */
+.sh{border:1px solid #e2ddd2;border-radius:14px;padding:16px;display:grid;gap:14px}
+.av{display:flex}.av i{width:38px;height:38px;border-radius:50%;border:3px solid #fff;margin-left:-8px;display:grid;place-items:center;color:#fff;font:700 13px Figtree,sans-serif;font-style:normal;transform:scale(0)}
+.av i:first-child{margin-left:0}
+.on .av i{animation:pop .4s forwards}.on .av i:nth-child(2){animation-delay:.1s}.on .av i:nth-child(3){animation-delay:.2s}.on .av i:nth-child(4){animation-delay:.3s}
+.lk{display:flex;gap:8px}.lk div{flex:1;border:1px solid #e2ddd2;border-radius:10px;padding:9px 12px;font-size:13px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.lk button{border:0;background:var(--ink);color:#fff;border-radius:10px;padding:0 16px;font:700 13px Figtree,sans-serif}
+.pm{display:flex;justify-content:space-between;font-size:14px;border-top:1px solid #eee9de;padding-top:12px}.pm b{color:#22a06b}
+/* text */
+.rail{position:absolute;left:calc(50% + 28px - 38px);top:80px;bottom:120px;width:2px;background:#e2ddd2;display:none}
+.txt{position:relative}
+.fb{min-height:70vh;display:flex;flex-direction:column;justify-content:center;opacity:.35;transition:opacity .4s;padding-left:34px;position:relative}
+.fb.on{opacity:1}
+.fb:before{content:'';position:absolute;left:0;top:calc(50% - 90px);bottom:calc(50% - 90px);width:3px;border-radius:2px;background:#e2ddd2;transition:background .4s}
+.fb.on:before{background:var(--acc)}
+.fb .n{font:italic 400 24px 'Instrument Serif',serif;color:var(--acc)}
+.fb h2{font:400 clamp(36px,4.4vw,52px)/1.05 'Instrument Serif',serif;margin:4px 0 12px}
+.fb p{color:var(--mut);margin:0 0 14px;max-width:440px}
+.fb ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}.fb li{padding-left:26px;position:relative;font-weight:500}.fb li:before{content:'✓';position:absolute;left:0;color:var(--acc);font-weight:700}
+.dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:grid;gap:12px;z-index:5}
+.dots a{width:12px;height:12px;border-radius:50%;border:2px solid #b9b2a2;background:#f7f5f0;display:block;transition:.3s}
+.dots a.on{background:var(--acc);border-color:var(--acc);transform:scale(1.25)}
+.dots.hid{opacity:0;pointer-events:none}
+footer{padding:60px 0 80px;text-align:center;color:var(--mut);border-top:1px solid #e2ddd2}
+footer h2{font:400 44px 'Instrument Serif',serif;color:var(--ink);margin:0 0 14px}
+@media(max-width:900px){.sec{grid-template-columns:minmax(0,1fr);gap:0;padding-top:10px}.pin{top:8px;height:40vh;min-height:300px;border-radius:24px;z-index:2}.win{transform:scale(.8);transform-origin:center;width:112%;height:min(430px,100%)}.fb{min-height:62vh;padding-left:20px}.dots{display:none}.in{padding:0 16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.ok,.cc,.av i{transform:none!important;opacity:1!important}.sb .cu{animation:none}}
+</style></head><body>
+<div class="in"><div class="nav"><span class="logo">Stash<i>.</i></span><a class="b" href="#f1">Try it free</a></div>
+<header class="hero"><h1>Everything you save, <em>exactly</em> where you left it.</h1><p>Stash is the calm home for links, notes and ideas. Four small habits, one tidy shelf.</p></header>
+<div class="sec"><div class="pin" id="pin" aria-hidden="true"><div class="win"><div class="wb"><i></i><i></i><i></i><span id="wt">Capture</span></div>
+<div class="st on" data-s="0"><p class="lbl">Clipper</p><div class="cl"><div class="u">design-notes.example/long-read</div><div class="t">Why the best interfaces feel quiet</div><div><span class="chip">Design</span><span class="chip">Read later</span></div><div class="sv"><button>Save to Stash</button><div class="ok">✓</div><span style="font-size:13px;color:var(--mut)">Saved</span></div></div><div class="ghost">Ctrl + Shift + S saves any page in one keystroke.</div></div>
+<div class="st" data-s="1"><p class="lbl">Collections</p><div class="cg"><div class="cc drag" style="background:#e4572e">Reading list<small>24 items</small></div><div class="cc" style="background:#2a9d8f">Recipes<small>11 items</small></div><div class="cc" style="background:#6c63ff">Work refs<small>38 items</small></div><div class="cc" style="background:#e9a23b">Trip ideas<small>9 items</small></div></div></div>
+<div class="st" data-s="2"><p class="lbl">Search</p><div class="sb"><span>⌕</span><span class="q" id="qt"></span><span class="cu"></span></div><div class="rs"><div><b>Why the best interfaces feel <mark>quiet</mark></b><span>Reading list · saved 2 days ago</span></div><div><b>Designing for <mark>quiet</mark> software</b><span>Work refs · saved last week</span></div><div><b>Slow web, <mark>quiet</mark> web</b><span>Reading list · saved last month</span></div></div></div>
+<div class="st" data-s="3"><p class="lbl">Share collection</p><div class="sh"><div class="av"><i style="background:#e4572e">MK</i><i style="background:#2a9d8f">JP</i><i style="background:#6c63ff">AO</i><i style="background:#e9a23b">+4</i></div><div class="lk"><div>stash.example/c/reading-list-7x2</div><button>Copy</button></div><div class="pm"><span>Anyone with the link</span><b>Can view</b></div></div></div></div></div>
+<div class="txt" id="txt">
+<section class="fb on" id="f1" data-s="0"><span class="n">01</span><h2>Capture in one keystroke</h2><p>Save any page, selection or screenshot without leaving what you are reading. Tags and a note are optional, never required.</p><ul><li>Browser extension and mobile share sheet</li><li>Automatic title, image and reading time</li></ul></section>
+<section class="fb" id="f2" data-s="1"><span class="n">02</span><h2>Organise without ceremony</h2><p>Drop things into collections now, sort them later. Smart suggestions file new saves where similar ones already live.</p><ul><li>Drag between collections, nest as deep as you like</li><li>Auto-tags from the content, editable any time</li></ul></section>
+<section class="fb" id="f3" data-s="2"><span class="n">03</span><h2>Find it in seconds</h2><p>Full-text search across everything you have saved, including the text inside articles and PDFs, with matches highlighted.</p><ul><li>Filter by collection, tag, date or domain</li><li>Remembers the saved version if the page vanishes</li></ul></section>
+<section class="fb" id="f4" data-s="3"><span class="n">04</span><h2>Share a shelf, not a screenshot</h2><p>Send a collection as a clean link. Choose who can view, comment or add, and revoke it whenever you like.</p><ul><li>Public, link-only or invite-only</li><li>Live updates for everyone with access</li></ul></section></div></div>
+<footer><h2>Start your first shelf</h2><p>Free for personal use. No card, no catch.</p></footer></div>
+<nav class="dots hid" id="dots" aria-label="Feature progress"><a href="#f1" class="on" aria-label="Capture"></a><a href="#f2" aria-label="Organise"></a><a href="#f3" aria-label="Search"></a><a href="#f4" aria-label="Share"></a></nav>
+<script>
+const WASH=['#ffd9c2','#c9efdc','#cfe3ff','#e1d6ff'],NAMES=['Capture','Organise','Search','Share'],reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fbs=[...document.querySelectorAll('.fb')],sts=[...document.querySelectorAll('.st')],dots=[...document.querySelectorAll('#dots a')],pin=document.getElementById('pin'),qt=document.getElementById('qt');
+let cur=-1,typing=null;
+function set(i){if(i===cur)return;cur=i;fbs.forEach((f,k)=>f.classList.toggle('on',k===i));sts.forEach((s,k)=>s.classList.toggle('on',k===i));dots.forEach((d,k)=>{d.classList.toggle('on',k===i);if(k===i)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')});pin.style.setProperty('--wash',WASH[i]);document.getElementById('wt').textContent=NAMES[i];
+ clearInterval(typing);if(i===2){const t='quiet';if(reduce){qt.textContent=t}else{qt.textContent='';let n=0;typing=setInterval(()=>{qt.textContent=t.slice(0,++n);if(n>=t.length)clearInterval(typing)},140)}}
+ const ok=sts[0].querySelector('.ok');if(i===0&&!reduce){ok.style.animation='none';void ok.offsetWidth;ok.style.animation=''}}
+function pick(){const mid=innerWidth<=900?(pin.getBoundingClientRect().bottom+innerHeight)/2:innerHeight*.5;let best=0,bd=1e9;fbs.forEach((f,k)=>{const r=f.getBoundingClientRect(),c=(r.top+r.bottom)/2,d=Math.abs(c-mid);if(d<bd){bd=d;best=k}});set(best);
+ const top=document.querySelector('.sec').getBoundingClientRect();document.getElementById('dots').classList.toggle('hid',top.top>innerHeight*.5||top.bottom<innerHeight*.5)}
+let tick=false;addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(()=>{tick=false;pick()})}},{passive:true});addEventListener('resize',pick);
+if(reduce)qt.textContent='quiet';set(0);pick();
+</script></body></html>

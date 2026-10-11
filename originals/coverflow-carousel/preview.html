@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mixtapes — Coverflow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#f5f3ff;--mut:#a29cc0;--cs:280px;--gap:150px;--rot:48deg}
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;background:#0b0b10;color:var(--ink);font:400 16px/1.5 Manrope,sans-serif;overflow-x:hidden;display:flex;flex-direction:column}
+:focus-visible{outline:3px solid #b9a8ff;outline-offset:4px}
+header{text-align:center;padding:44px 20px 0}
+h1{font:600 clamp(28px,4.5vw,46px)/1.1 Fraunces,serif;margin:0 0 8px;letter-spacing:-.01em}
+header p{margin:0;color:var(--mut)}
+.stage{position:relative;height:calc(var(--cs) + 150px);perspective:1200px;margin:10px 0 0;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none;background:radial-gradient(40% 55% at 50% 40%,rgba(80,66,140,.5),transparent 75%);overflow:hidden}
+.stage.drag{cursor:grabbing}
+.stage:before{content:'';position:absolute;left:0;right:0;top:calc(50% + var(--cs)/2 - 20px);height:1px;background:linear-gradient(90deg,transparent,#3a3550,transparent)}
+.it{position:absolute;left:50%;top:calc(50% - var(--cs)/2 - 22px);width:var(--cs);height:var(--cs);margin-left:calc(var(--cs)/-2);border:0;padding:0;background:none;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.22,.8,.24,1),opacity .6s;cursor:pointer;-webkit-box-reflect:below 6px linear-gradient(transparent 62%,rgba(255,255,255,.22))}
+.art{position:absolute;inset:0;border-radius:14px;overflow:hidden;box-shadow:0 24px 60px -18px rgba(0,0,0,.8);background:var(--g)}
+.art svg{position:absolute;inset:0;width:100%;height:100%}
+.art:after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,30%) var(--my,20%),rgba(255,255,255,.35),transparent 55%);opacity:0;transition:opacity .3s}
+.it.c:hover .art:after{opacity:1}
+.lb{position:absolute;left:16px;bottom:14px;right:16px;text-align:left;font:600 20px/1.1 Fraunces,serif;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.cap{text-align:center;padding:12px 20px 0;min-height:130px}
+.cap h2{font:600 40px/1.1 Fraunces,serif;margin:0;transition:opacity .25s}
+.cap .m{color:var(--mut);margin:6px 0 10px;transition:opacity .25s}
+.cap.f h2,.cap.f .m,.cap.f .pl{opacity:0}
+.pl{display:inline-block;border:1px solid #3a3550;border-radius:999px;padding:2px 14px;font-size:13px;font-weight:500;transition:opacity .25s}
+.ct{display:flex;gap:18px;align-items:center;justify-content:center;margin:12px 0 40px}
+.ar{width:46px;height:46px;border-radius:50%;border:1px solid #3a3550;background:#15131f;color:var(--ink);font-size:20px;cursor:pointer}
+.ar:hover:not(:disabled){background:#241f38}.ar:disabled{opacity:.35;cursor:default}
+.dots{display:flex;gap:8px}
+.dots button{width:10px;height:10px;border-radius:50%;border:0;background:#3a3550;padding:0;cursor:pointer;transition:.3s}
+.dots button[aria-current=true]{background:#b9a8ff;width:26px;border-radius:5px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:700px){:root{--cs:200px;--gap:96px;--rot:36deg}.cap h2{font-size:30px}header{padding-top:32px}}
+@media(prefers-reduced-motion:reduce){.it,.cap h2,.cap .m,.pl{transition:none}.art:after{display:none}}
+</style></head><body>
+<header><h1>Mixtapes for the long way home</h1><p>Seven compilations for slow trains, late buses and empty motorways.</p></header>
+<section class="stage" id="st" role="group" aria-roledescription="carousel" aria-label="Mixtape covers"></section>
+<div class="cap" id="cap"><h2 id="t"></h2><p class="m" id="m"></p><span class="pl" id="g"></span></div>
+<div class="ct"><button class="ar" id="pv" aria-label="Previous mixtape">←</button><div class="dots" id="dots" role="group" aria-label="Choose mixtape"></div><button class="ar" id="nx" aria-label="Next mixtape">→</button></div>
+<div class="sr" id="live" aria-live="polite"></div>
+<script>
+const M=[['Dusk Drive','Marlo Vance',2024,12,'Synth-pop',['#ff7a59','#5b2a86'],'sun'],['Paper Moons','The Quiet Hours',2023,9,'Folk',['#f6e7c1','#7aa6c2'],'moon'],['Neon Aisle','Kira Okonkwo',2025,14,'Electronic',['#12f7d6','#6a00f4'],'bars'],['Slow Garden','Fern & Field',2022,10,'Ambient',['#b5e48c','#1a7f64'],'leaf'],['Static Bloom','Pink Receiver',2024,11,'Indie rock',['#ff5d8f','#ffd23f'],'flower'],['Low Tide','Harbour Lights',2023,8,'Dream pop',['#3a86ff','#0b2545'],'wave'],['Ember Hours','Soleil Park',2025,13,'Soul',['#ffb703','#9d0208'],'sun']];
+const $=i=>document.getElementById(i),st=$('st'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const sh=(k)=>({sun:'<circle cx="50" cy="42" r="24" fill="#fff" opacity=".85"/><rect y="62" width="100" height="40" fill="#000" opacity=".28"/>',moon:'<circle cx="54" cy="46" r="26" fill="#fff" opacity=".9"/><circle cx="64" cy="40" r="24" fill="#7aa6c2"/>',bars:'<g fill="#fff" opacity=".8">'+[10,26,42,58,74].map((x,i)=>`<rect x="${x}" y="${55-[28,44,20,36,48][i]/1}" width="10" height="${30+[28,44,20,36,48][i]/1}" rx="2"/>`).join('')+'</g>',leaf:'<path d="M20 78C20 40 50 18 82 20 82 54 58 80 20 78z" fill="#fff" opacity=".85"/><path d="M24 76 64 36" stroke="#1a7f64" stroke-width="3"/>',flower:'<g fill="#fff" opacity=".85">'+[0,72,144,216,288].map(a=>`<ellipse cx="50" cy="28" rx="11" ry="20" transform="rotate(${a} 50 50)"/>`).join('')+'</g><circle cx="50" cy="50" r="9" fill="#ff5d8f"/>',wave:'<g fill="none" stroke="#fff" stroke-width="3" opacity=".75">'+[0,1,2,3].map(i=>`<path d="M0 ${48+i*13} Q25 ${36+i*13} 50 ${48+i*13} T100 ${48+i*13}"/>`).join('')+'</g><circle cx="72" cy="28" r="9" fill="#fff" opacity=".85"/>'}[k]);
+M.forEach((a,i)=>{const b=document.createElement('button');b.className='it';b.dataset.i=i;b.setAttribute('aria-label',`${a[0]} by ${a[1]}`);b.setAttribute('role','group');b.setAttribute('aria-roledescription','slide');b.innerHTML=`<span class="art" style="--g:linear-gradient(150deg,${a[5][0]},${a[5][1]})"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${sh(a[6])}</svg><span class="lb">${a[0]}</span></span>`;st.appendChild(b)});
+$('dots').innerHTML=M.map((a,i)=>`<button data-i="${i}" aria-label="${a[0]}"></button>`).join('');
+let cur=3,drag=null,moved=false,wheelT=0;
+const cs=()=>parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--cs'))||280,gap=()=>parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gap'))||150,rot=()=>parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--rot'))||48;
+function layout(off=0){const g=gap(),r=rot();[...st.children].forEach((e,i)=>{const d=i-cur+off,ad=Math.abs(d),s=Math.sign(d);const x=d===0?0:s*(g*.9+(ad-1)*g*.55+cs()*.08*ad),z=-Math.min(ad,4)*60-(d===0?0:70),ry=d===0?0:-s*r,sc=d===0?1:Math.max(.72,1-ad*.06);
+ e.style.transform=`translate3d(${x}px,0,${z}px) rotateY(${Math.max(-r,Math.min(r,-d*r))}deg) scale(${sc})`;e.style.opacity=ad>3.2?0:1-Math.min(ad,3)*.18;e.style.zIndex=100-Math.round(ad*10);e.classList.toggle('c',i===cur);e.tabIndex=i===cur?0:-1;e.setAttribute('aria-hidden',ad>3?'true':'false');e.style.pointerEvents=ad>3?'none':'auto'})}
+function show(i,user){i=Math.max(0,Math.min(M.length-1,i));const ch=i!==cur;cur=i;layout();const a=M[i];const cap=$('cap');if(ch&&!reduce){cap.classList.add('f');setTimeout(()=>{fill(a);cap.classList.remove('f')},200)}else fill(a);
+ $('pv').disabled=i===0;$('nx').disabled=i===M.length-1;[...$('dots').children].forEach((d,k)=>d.setAttribute('aria-current',k===i));$('live').textContent=`${a[0]}, ${i+1} of ${M.length}`}
+function fill(a){$('t').textContent=a[0];$('m').textContent=`${a[1]} · ${a[2]} · ${a[3]} tracks`;$('g').textContent=a[4]}
+st.addEventListener('click',e=>{if(moved)return;const b=e.target.closest('.it');if(b)show(+b.dataset.i,true)});
+$('dots').onclick=e=>{const b=e.target.closest('button');if(b)show(+b.dataset.i)};$('pv').onclick=()=>show(cur-1);$('nx').onclick=()=>show(cur+1);
+st.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();show(cur-1);st.querySelector('.c').focus()}else if(e.key==='ArrowRight'){e.preventDefault();show(cur+1);st.querySelector('.c').focus()}else if(e.key==='Home'){e.preventDefault();show(0);st.querySelector('.c').focus()}else if(e.key==='End'){e.preventDefault();show(M.length-1);st.querySelector('.c').focus()}});
+st.addEventListener('pointerdown',e=>{drag={x:e.clientX,i:cur};moved=false});
+addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-drag.x;if(Math.abs(dx)>6&&!moved){moved=true;st.classList.add('drag');[...st.children].forEach(c=>c.style.transition='none')}if(moved){layout(-dx/gap())}});
+addEventListener('pointerup',e=>{if(!drag)return;const dx=e.clientX-drag.x;const was=moved;drag=null;st.classList.remove('drag');[...st.children].forEach(c=>c.style.transition='');if(was){const n=Math.round(drag?0:-dx/gap());show(cur+n,true);setTimeout(()=>moved=false,0)}});
+st.addEventListener('wheel',e=>{if(Math.abs(e.deltaX)<Math.abs(e.deltaY)||Date.now()-wheelT<350)return;e.preventDefault();wheelT=Date.now();show(cur+(e.deltaX>0?1:-1))},{passive:false});
+st.addEventListener('pointermove',e=>{const c=e.target.closest('.c');if(!c)return;const r=c.getBoundingClientRect();const a=c.querySelector('.art');a.style.setProperty('--mx',(e.clientX-r.left)/r.width*100+'%');a.style.setProperty('--my',(e.clientY-r.top)/r.height*100+'%')});
+addEventListener('resize',()=>layout());
+show(cur);
+</script></body></html>

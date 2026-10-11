@@ -1,0 +1,11 @@
+Canvas & base: Clean off-white #fafaf7 page with a 1px #e6e6df top bar. The five palette swatches are full-height columns on desktop that fill the viewport below the toolbar; on mobile they become stacked rows. Swatch text colour flips between #111 and #fff automatically based on contrast. Ink #141414, muted #6c6c66, accent #141414 on buttons, focus #3b5bff.
+
+Typography: "Space Grotesk" (500, 700) for the title, buttons and hex codes (hex at 26px bold uppercase), "JetBrains Mono" (400, 500) for HSL values, ratios and the code export.
+
+Layout: A toolbar with the title "Hues", a base colour picker (native colour input plus hex text field), a harmony select (Analogous, Complementary, Triadic, Split complementary, Monochrome, Random), a "Generate" button with the hint "or press Space", and Undo/Redo history buttons. Below, five swatch columns each showing the hex, the HSL string, two contrast badges (against white and against black with ratios and AA/AAA/Fail labels), a lock toggle and a copy button. A footer drawer "Export" with tabs CSS variables, JSON and Tailwind-style object, each in a code block with a Copy button.
+
+Interaction: Pressing Space (when not focused in an input) or clicking Generate creates a new palette in the chosen harmony from a random or chosen base while keeping locked swatches. Clicking a hex copies it and shows a brief "Copied" label on that swatch. The base colour picker regenerates relative to the new base. The contrast ratio is calculated with the WCAG relative luminance formula and the larger of the two is used for the swatch's text colour. History stores the last 20 palettes with undo and redo. Locked swatches show a lock icon and stay put. Hover reveals a small "Fine tune" lightness slider on each swatch.
+
+Responsive: Under 800px swatches are rows of 20vh min with the info arranged horizontally; toolbar wraps. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries, respects prefers-reduced-motion, all buttons have labels, copy has a clipboard fallback, colour is never the only cue for the lock state (icon plus aria-pressed).

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pair Up — Memory Match</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#1f1b2e;--mut:#7a6f66;--acc:#ff6b4a;--ok:#1f9d55}
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;background:repeating-linear-gradient(135deg,#fff7ec 0 22px,#fff1df 22px 44px);color:var(--ink);font:500 16px/1.5 Nunito,sans-serif;display:grid;place-items:center;padding:20px}
+:focus-visible{outline:4px solid #5b4bff;outline-offset:3px}
+.w{width:min(560px,100%)}
+.hd{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;justify-content:space-between;margin-bottom:14px}
+h1{font:800 clamp(34px,8vw,48px)/1 'Baloo 2',sans-serif;margin:0;letter-spacing:-.02em}
+h1 span{color:var(--acc)}
+.st{display:flex;gap:8px}
+.ch{background:#fff;border:3px solid var(--ink);border-radius:12px;padding:2px 12px;text-align:center;min-width:70px;box-shadow:3px 3px 0 var(--ink)}
+.ch small{display:block;font:700 11px Nunito,sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--mut)}
+.ch b{font:800 20px/1.2 'Baloo 2',sans-serif;font-variant-numeric:tabular-nums}
+.tg{display:flex;gap:6px;margin-bottom:14px}
+.tg button,.btn{border:3px solid var(--ink);background:#fff;border-radius:12px;padding:6px 16px;font:700 15px 'Baloo 2',sans-serif;cursor:pointer;color:var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .08s,box-shadow .08s}
+.tg button[aria-pressed=true]{background:#ffd23c}
+.btn{background:var(--acc);color:#fff;padding:8px 22px}
+.tg button:active,.btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
+.panel{background:#ffe8c8;border:3px solid var(--ink);border-radius:20px;padding:14px;position:relative}
+.gr{display:grid;gap:12px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.cd{perspective:700px;aspect-ratio:3/4;border:0;background:none;padding:0;cursor:pointer;min-width:0}
+.in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .4s}
+.cd.up .in{transform:rotateY(180deg)}
+.f{position:absolute;inset:0;border-radius:12px;border:3px solid var(--ink);backface-visibility:hidden;-webkit-backface-visibility:hidden;display:grid;place-items:center;overflow:hidden}
+.bk{background:repeating-linear-gradient(45deg,#ff6b4a 0 10px,#ff9a3c 10px 20px);box-shadow:inset 0 0 0 4px #fff}
+.fc{background:#fff;transform:rotateY(180deg)}
+.fc svg{width:62%;height:auto}
+.cd.ok .fc{background:#c8f2d4;border-color:var(--ok)}
+.cd.ok .in{animation:bn .4s}
+@keyframes bn{50%{transform:rotateY(180deg) scale(1.08)}}
+.cd:disabled{cursor:default}
+.win{position:absolute;inset:0;background:rgba(255,247,236,.94);border-radius:17px;display:grid;place-content:center;justify-items:center;gap:8px;text-align:center;padding:20px;animation:in .35s}
+@keyframes in{from{opacity:0;transform:scale(.96)}}
+.win h2{font:800 36px 'Baloo 2',sans-serif;margin:0}
+.win .s{font-size:34px;letter-spacing:6px;color:#ffb400}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap}
+.foot p{margin:0;color:var(--mut);font-size:14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:420px){.gr{gap:8px}.panel{padding:10px}.ch{min-width:62px;padding:2px 8px}}
+@media(prefers-reduced-motion:reduce){.in{transition:none}.fc{transform:none;opacity:0;transition:opacity .2s}.bk{transition:opacity .2s}.cd.up .in{transform:none}.cd.up .fc{opacity:1}.cd.up .bk{opacity:0}.cd.ok .in,.win{animation:none}}
+</style></head><body><main class="w">
+<div class="hd"><h1>Pair <span>Up</span></h1><div class="st"><div class="ch"><small>Moves</small><b id="mv">0</b></div><div class="ch"><small>Time</small><b id="tm">0:00</b></div><div class="ch"><small>Best</small><b id="bs">—</b></div></div></div>
+<div class="tg" role="group" aria-label="Difficulty"><button id="e" aria-pressed="true">Easy 4×3</button><button id="h" aria-pressed="false">Hard 4×4</button></div>
+<div class="panel"><div class="gr" id="gr" role="grid" aria-label="Memory cards"></div><div class="win" id="win" hidden></div></div>
+<div class="foot"><p>Flip two cards. Find all the pairs in the fewest moves.</p><button class="btn" id="rs">Restart</button></div>
+<div class="sr" id="live" aria-live="polite"></div></main>
+<script>
+const SY=[['circle','#ff6b4a','<circle cx="50" cy="50" r="34"/>'],['square','#3b82f6','<rect x="18" y="18" width="64" height="64" rx="8"/>'],['triangle','#22a06b','<path d="M50 14 90 84H10z"/>'],['star','#f5b400','<path d="m50 8 12.5 26.5 29 3.5-21.5 20 5.5 28.8L50 72.7 24.5 86.8 30 58 8.5 38l29-3.5z"/>'],['heart','#ec4899','<path d="M50 86C14 62 10 40 24 27c10-9 22-5 26 5 4-10 16-14 26-5 14 13 10 35-26 59z"/>'],['moon','#7c3aed','<path d="M62 12a38 38 0 1 0 26 60A32 32 0 0 1 62 12z"/>'],['bolt','#fb7a24','<path d="M58 6 20 56h26l-8 38 42-54H54z"/>'],['diamond','#06b6d4','<path d="M50 6 92 50 50 94 8 50z"/>']];
+const $=i=>document.getElementById(i);let hard=false,cards=[],open=[],lock=false,moves=0,found=0,t0=0,tmr=null,focusI=0,best={e:null,h:null};
+try{best=JSON.parse(localStorage.getItem('pairup-best'))||best}catch(e){}
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+function start(){clearInterval(tmr);tmr=null;moves=0;found=0;open=[];lock=false;$('win').hidden=true;const pairs=hard?8:6;cards=shuf([...SY.slice(0,pairs),...SY.slice(0,pairs)]).map((s,i)=>({i,s,up:false,ok:false}));focusI=0;draw();stats()}
+function stats(){$('mv').textContent=moves;$('bs').textContent=best[hard?'h':'e']??'—'}
+function fmt(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+function draw(){$('gr').innerHTML=cards.map((c,k)=>`<button class="cd${c.up||c.ok?' up':''}${c.ok?' ok':''}" role="gridcell" data-i="${k}" tabindex="${k===focusI?0:-1}" ${c.ok?'disabled':''} aria-label="${lab(c,k)}"><div class="in"><span class="f bk"></span><span class="f fc"><svg viewBox="0 0 100 100" fill="${c.s[1]}" stroke="#1f1b2e" stroke-width="5" stroke-linejoin="round" aria-hidden="true">${c.s[2]}</svg></span></div></button>`).join('')}
+const lab=(c,k)=>`Card ${k+1}, ${c.ok?c.s[0]+', matched':c.up?c.s[0]+', face up':'face down'}`;
+function flip(k){if(lock||cards[k].up||cards[k].ok)return;if(!tmr){t0=Date.now();tmr=setInterval(()=>$('tm').textContent=fmt(Math.floor((Date.now()-t0)/1000)),500)}
+ cards[k].up=true;open.push(k);upd(k);$('live').textContent=cards[k].s[0];
+ if(open.length===2){moves++;stats();lock=true;const[a,b]=open;if(cards[a].s[0]===cards[b].s[0]){setTimeout(()=>{cards[a].ok=cards[b].ok=true;found++;open=[];lock=false;upd(a);upd(b);$('live').textContent='Match!';if(found===cards.length/2)win()},350)}
+  else setTimeout(()=>{cards[a].up=cards[b].up=false;open=[];lock=false;upd(a);upd(b);$('live').textContent='No match'},800)}}
+function upd(k){const e=$('gr').children[k],c=cards[k];e.classList.toggle('up',c.up||c.ok);e.classList.toggle('ok',c.ok);e.disabled=c.ok;e.setAttribute('aria-label',lab(c,k))}
+function win(){clearInterval(tmr);tmr=null;const s=Math.floor((Date.now()-t0)/1000),n=cards.length/2,star=moves<=n+2?3:moves<=n*2?2:1;const key=hard?'h':'e';if(best[key]==null||moves<best[key]){best[key]=moves;try{localStorage.setItem('pairup-best',JSON.stringify(best))}catch(e){}}stats();
+ $('win').innerHTML=`<div class="s" aria-label="${star} out of 3 stars">${'★'.repeat(star)}${'☆'.repeat(3-star)}</div><h2>All paired!</h2><p style="margin:0">${moves} moves in ${fmt(s)}</p><button class="btn" id="pa" style="margin-top:8px">Play again</button>`;$('win').hidden=false;$('pa').onclick=start;$('pa').focus();$('live').textContent=`All pairs found in ${moves} moves.`}
+$('gr').addEventListener('click',e=>{const b=e.target.closest('.cd');if(b){focusI=+b.dataset.i;flip(focusI)}});
+$('gr').addEventListener('keydown',e=>{const b=e.target.closest('.cd');if(!b)return;const cols=4,n=cards.length;let k=+b.dataset.i;const m={ArrowRight:1,ArrowLeft:-1,ArrowDown:cols,ArrowUp:-cols}[e.key];if(m){e.preventDefault();k=Math.max(0,Math.min(n-1,k+m));focusI=k;[...$('gr').children].forEach((c,i)=>c.tabIndex=i===k?0:-1);$('gr').children[k].focus()}});
+function mode(h){hard=h;$('e').setAttribute('aria-pressed',!h);$('h').setAttribute('aria-pressed',h);start()}
+$('e').onclick=()=>mode(false);$('h').onclick=()=>mode(true);$('rs').onclick=start;
+start();
+</script></body></html>

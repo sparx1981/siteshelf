@@ -1,0 +1,11 @@
+Canvas & base: Deep warm background #1a1410 with a faint paper grain made from a tiny repeating radial-gradient. Cream text #f3e9d8, muted #b8a88f, accent terracotta #e07a3f, hairlines rgba(243,233,216,.16). Content column max-width 860px, centred, generous 80px top padding.
+
+Typography: "Cormorant Garamond" (500, 600, italic 500) for the restaurant name, section titles and dish names; "Jost" (400, 500) for descriptions, tags and controls. Name 64px italic, dish names 24px 600, descriptions 15px muted at 1.55 line height, prices in Jost 500 18px.
+
+Layout: Header with the restaurant name "Ember & Olive", a one-line tagline and opening hours. Below, a sticky bar containing four tabs (Starters, Mains, Desserts, Drinks) and a row of dietary filter chips (Vegetarian, Vegan, Gluten-free). Each dish is a row: name, a dotted leader line stretching to the price, a description underneath and small tag badges (V, VG, GF, Spicy). Include 5 to 6 plausible dishes per tab with realistic descriptions and £ prices.
+
+Interaction: Tabs are a real tablist with arrow-key navigation and aria-selected; the panel swaps with a short fade. Filter chips are toggle buttons (aria-pressed) that combine with AND logic and hide non-matching dishes; show a live count such as "4 dishes" in an aria-live region. When nothing matches show a friendly empty message with a "Clear filters" button. The sticky bar gains a subtle shadow once stuck.
+
+Responsive: At 390px the tabs scroll horizontally without a visible scrollbar, the name drops to 44px and the leader lines still work. No horizontal page scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no images or libraries, respects prefers-reduced-motion, visible focus rings.

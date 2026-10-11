@@ -1,0 +1,11 @@
+Canvas & base: Page #fafaf8, ink #141414, muted #6e6e68, line #e5e5e0, accent #ff4b2b. Max width 1240px centred, 32px gutters. Cards and controls use radius 14px.
+
+Typography: "Archivo" (400, 500, 700, 800) for everything; headings uppercase 800 letter-spacing -0.02em. Product title 44px/1.0, price 28px 700, body 16px/1.6, small labels 12px uppercase tracking 0.1em.
+
+Layout: A slim top bar (logo "STRIDE", nav, a cart button with a count badge). Main: a two-column product section. Left: a large 4:5 gallery stage on a tinted background that matches the selected colour, showing a sneaker built from CSS shapes and SVG (sole, upper, laces, swoosh stripe) that recolours instantly with the swatch; below it four thumbnail views (side, top, back, sole) rendered from the same shape with different transforms. Right: breadcrumb, a "New" badge, title "Aero Runner 2", a star rating with review count, price (with a struck-through old price and a percent off badge), a short description, a colour swatch row (4 colours with names), a size grid (EU 38 to 46, some sizes sold out and disabled), a quantity stepper, a primary full-width "Add to cart" button and a secondary "Save" heart button, delivery notes, and an accordion (Details, Materials, Shipping and returns) with one item open at a time.
+
+Interaction: Choosing a colour recolours the shoe and updates the selected name and the stage tint. Add to cart is disabled with the label "Select a size" until a size is chosen. Adding opens a right-hand mini cart drawer with the item (swatch, colour, size, quantity stepper, remove), subtotal, free-delivery progress bar towards a 120 threshold, and a Checkout button; the header badge updates. Adding the same variant increments quantity. Escape and the scrim close the drawer. The heart toggles.
+
+Responsive: Stacks to a single column below 900px with the gallery first; the size grid keeps 5 columns; the drawer is full width on mobile.
+
+Rules: Use prices as numbers formatted with Intl.NumberFormat GBP; do not use a pound sign as an identifier. prefers-reduced-motion disables transitions. No images, no libraries, one HTML file.

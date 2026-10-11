@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ember &amp; Olive — Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1a1410;--ink:#f3e9d8;--mut:#b8a88f;--acc:#e07a3f;--line:rgba(243,233,216,.16)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);background-image:radial-gradient(rgba(243,233,216,.05) 1px,transparent 1px);background-size:5px 5px;color:var(--ink);font:400 16px/1.5 Jost,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:80px 20px 80px}
+header{text-align:center;padding-bottom:36px}
+h1{font:italic 500 64px/1 'Cormorant Garamond',serif;margin:0 0 12px;letter-spacing:-.01em}
+header p{margin:4px 0;color:var(--mut)}
+.hours{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0;border-bottom:1px solid var(--line);transition:box-shadow .25s}
+.bar.stuck{box-shadow:0 12px 24px -12px rgba(0,0,0,.7)}
+[role=tablist]{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+[role=tablist]::-webkit-scrollbar{display:none}
+[role=tab]{flex:none;background:none;border:0;color:var(--mut);font:500 15px Jost,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:10px 16px;border-bottom:2px solid transparent;cursor:pointer}
+[role=tab][aria-selected=true]{color:var(--ink);border-color:var(--acc)}
+[role=tab]:hover{color:var(--ink)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+.chip{background:none;border:1px solid var(--line);color:var(--mut);border-radius:999px;padding:6px 14px;font:400 14px Jost,sans-serif;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--acc);border-color:var(--acc);color:#1a1410;font-weight:500}
+.count{margin-left:auto;font-size:13px;color:var(--mut)}
+.panel{padding-top:22px;animation:in .3s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+h2{font:600 34px/1.1 'Cormorant Garamond',serif;margin:6px 0 4px}
+.sub{color:var(--mut);margin:0 0 18px;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:19px}
+.dish{padding:16px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:10px}
+.top h3{font:600 24px/1.2 'Cormorant Garamond',serif;margin:0}
+.lead{flex:1;border-bottom:2px dotted rgba(243,233,216,.28);transform:translateY(-4px);min-width:16px}
+.price{font-weight:500;font-size:18px}
+.dish p{margin:4px 0 8px;color:var(--mut);font-size:15px;max-width:620px}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:11px;letter-spacing:.1em;border:1px solid var(--line);border-radius:4px;padding:1px 7px;color:var(--mut)}
+.tag.sp{color:var(--acc);border-color:var(--acc)}
+.empty{text-align:center;padding:48px 0;color:var(--mut)}
+.empty button{margin-top:12px;background:var(--acc);border:0;color:#1a1410;font:500 14px Jost,sans-serif;padding:10px 18px;border-radius:6px;cursor:pointer}
+footer{text-align:center;color:var(--mut);font-size:13px;margin-top:40px}
+@media(max-width:600px){h1{font-size:44px}.wrap{padding-top:48px}h2{font-size:28px}.top h3{font-size:21px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div class="wrap">
+<header><p class="hours">Tue – Sun · 12 till late</p><h1>Ember &amp; Olive</h1><p>Wood-fired plates and slow-cooked things from the Mediterranean.</p></header>
+<div class="bar" id="bar">
+<div role="tablist" aria-label="Menu sections" id="tabs"></div>
+<div class="filters" role="group" aria-label="Dietary filters"></div>
+</div>
+<div id="panel" class="panel" role="tabpanel" tabindex="0"></div>
+<footer>Please tell us about any allergies before ordering. Prices include VAT.</footer>
+</div>
+<script>
+const MENU={
+Starters:{sub:'To share, or not.',items:[
+['Charred flatbread','Warm, blistered, brushed with garlic oil and sea salt.',5.5,['V','VG']],
+['Whipped feta','Honey, toasted pistachio, thyme and grilled sourdough.',8,['V']],
+['Octopus carpaccio','Shaved thin, lemon, capers, smoked paprika oil.',11.5,['GF']],
+['Padrón peppers','Blistered with flaky salt. One in ten is hot.',7,['V','VG','GF','Spicy']],
+['Burrata & tomatoes','Heritage tomatoes, basil, aged balsamic.',10,['V','GF']],
+['Lamb koftas','Yoghurt, mint, pickled red onion, warm pitta.',9.5,[]]]},
+Mains:{sub:'From the fire and the pot.',items:[
+['Whole sea bream','Fennel, olives, blistered lemon, salsa verde.',24,['GF']],
+['Slow lamb shoulder','Twelve hours, rosemary jus, crushed potatoes.',26,['GF']],
+['Wild mushroom orzo','Thyme, white wine, hazelnut crumb, vegan parmesan.',17,['V','VG']],
+['Harissa cauliflower','Whole roasted, chickpeas, tahini, pomegranate.',16,['V','VG','GF','Spicy']],
+['Chicken souvlaki','Oregano, flatbread, tzatziki, charred lemon.',18,[]],
+['Saffron seafood stew','Mussels, prawns, white fish, rouille toast.',23,[]]]},
+Desserts:{sub:'Something small and sweet.',items:[
+['Olive oil cake','Orange blossom cream, candied zest.',8,['V']],
+['Baklava','Pistachio, walnut, spiced syrup.',7,['V']],
+['Dark chocolate pot','Sea salt, olive oil, toasted almond.',8.5,['V','GF']],
+['Roast figs','Honey, thyme, coconut yoghurt.',8,['V','VG','GF']],
+['Lemon posset','Shortbread, blackcurrants.',7.5,['V']]]},
+Drinks:{sub:'Poured with care.',items:[
+['House Negroni','Gin, Campari, sweet vermouth, orange.',10.5,['VG','GF']],
+['Olive martini','Dry gin, dry vermouth, brine.',11,['VG','GF']],
+['Spiced pomegranate spritz','Alcohol-free, rosemary, soda.',6.5,['V','VG','GF']],
+['Greek white, glass','Assyrtiko, crisp and mineral.',9,['VG','GF']],
+['Turkish coffee','Cardamom, served with a sweet.',4,['V','VG','GF']],
+['Fresh mint tea','Pot for one, honey on the side.',4.5,['V','GF']]]}
+};
+const KEYS={V:'Vegetarian',VG:'Vegan',GF:'Gluten-free'};
+const tabs=document.getElementById('tabs'),panel=document.getElementById('panel'),filters=document.querySelector('.filters'),bar=document.getElementById('bar');
+let cur='Starters';const on=new Set();
+Object.keys(MENU).forEach((k,i)=>{const b=document.createElement('button');b.role='tab';b.id='t'+i;b.textContent=k;b.setAttribute('aria-controls','panel');b.onclick=()=>{cur=k;render(true)};b.onkeydown=e=>{const all=[...tabs.children];let j=all.indexOf(b);if(e.key==='ArrowRight')j=(j+1)%all.length;else if(e.key==='ArrowLeft')j=(j-1+all.length)%all.length;else return;e.preventDefault();all[j].focus();cur=all[j].textContent;render(true,true)};tabs.appendChild(b)});
+Object.entries(KEYS).forEach(([c,l])=>{const b=document.createElement('button');b.className='chip';b.textContent=l;b.setAttribute('aria-pressed','false');b.onclick=()=>{on.has(c)?on.delete(c):on.add(c);b.setAttribute('aria-pressed',on.has(c));render(false)};filters.appendChild(b)});
+const cnt=document.createElement('span');cnt.className='count';cnt.setAttribute('aria-live','polite');filters.appendChild(cnt);
+const clear=()=>{on.clear();filters.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed','false'));render(false)};
+function render(fade,keepFocus){
+ [...tabs.children].forEach(b=>{const s=b.textContent===cur;b.setAttribute('aria-selected',s);b.tabIndex=s?0:-1});
+ panel.setAttribute('aria-labelledby',[...tabs.children].find(b=>b.textContent===cur).id);
+ const m=MENU[cur];const list=m.items.filter(d=>[...on].every(c=>d[3].includes(c)));
+ cnt.textContent=list.length+(list.length===1?' dish':' dishes');
+ panel.style.animation='none';if(fade){void panel.offsetWidth;panel.style.animation=''}
+ panel.innerHTML='<h2>'+cur+'</h2><p class="sub">'+m.sub+'</p>'+(list.length?list.map(d=>'<div class="dish"><div class="top"><h3>'+d[0]+'</h3><span class="lead" aria-hidden="true"></span><span class="price">£'+d[2].toFixed(2).replace('.00','')+'</span></div><p>'+d[1]+'</p><div class="tags">'+d[3].map(t=>'<span class="tag'+(t==='Spicy'?' sp':'')+'">'+t+'</span>').join('')+'</div></div>').join(''):'<div class="empty"><p>Nothing here fits those filters — try a different section.</p><button type="button" id="cf">Clear filters</button></div>');
+ const cf=document.getElementById('cf');if(cf)cf.onclick=clear;
+}
+new IntersectionObserver(([e])=>bar.classList.toggle('stuck',e.intersectionRatio<1),{threshold:[1],rootMargin:'-1px 0px 0px 0px'}).observe(bar);
+render(false);
+</script></body></html>

@@ -1,0 +1,11 @@
+Canvas & base: Near-black #0a0d10, panels #11161b with 1px #1f2a33 borders and 10px radius. Text #e6edf3, muted #7d8b98, gain #2dd4a0, loss #ff5d73, accent #5aa9ff. Max-width 1180px, 20px gutters.
+
+Typography: "Space Grotesk" (500, 700) for headings and names, "JetBrains Mono" (400, 500) with tabular-nums for every price, percentage and ticker symbol. Sizes 13 to 15px in the table, 34px for the selected price.
+
+Layout: A top ticker tape that scrolls continuously (CSS marquee on a duplicated list) showing symbol, price and coloured change. Beneath, a toolbar with a search field, a Live/Paused switch and a "Last update" clock. The main area has a sortable table (Asset, Price, 24h %, Trend sparkline, Volume) of 10 fictional assets with invented tickers so nothing resembles real securities, plus a detail panel on the right with a large canvas line chart, high/low/volume stats and range buttons (1H, 1D, 1W).
+
+Interaction: Every 1.4 seconds a random subset of prices moves by a small random-walk step; changed cells flash green or red for 600ms and the sparklines redraw. Clicking a column header sorts ascending/descending with aria-sort; clicking a row selects it and updates the detail chart. The Live switch (role=switch) pauses updates and the ticker animation. Search filters rows instantly. Add a small "Simulated data" badge.
+
+Responsive: Under 900px the detail panel moves above the table; under 600px the Trend and Volume columns are hidden. No horizontal page scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS only, canvas drawn without libraries, handle devicePixelRatio, respects prefers-reduced-motion (no flashing, no marquee), rows are keyboard-selectable.

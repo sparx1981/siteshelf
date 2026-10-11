@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkout — Fieldwork</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#f7f7f9;color:#16161d;font:400 16px/1.5 "Inter Tight",system-ui,sans-serif}
+.hd{max-width:1100px;margin:0 auto;padding:24px 24px 8px;display:flex;justify-content:space-between;align-items:center}
+.hd b{font:700 22px "Inter Tight",sans-serif;letter-spacing:-.03em}.hd span{color:#6b6b7b;font-size:14px}
+.w{max-width:1100px;margin:0 auto;padding:16px 24px 64px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:start}
+form{background:#fff;border:1px solid #e6e6ec;border-radius:20px;padding:32px}
+.sc{padding-bottom:26px;margin-bottom:26px;border-bottom:1px solid #e6e6ec}.sc:last-of-type{border:0;margin-bottom:10px;padding-bottom:0}
+h2{font:650 22px "Inter Tight",sans-serif;letter-spacing:-.02em;margin:0 0 16px;display:flex;align-items:center;gap:12px}
+h2 i{width:28px;height:28px;border-radius:50%;background:#16161d;color:#fff;font:600 14px "Inter Tight",sans-serif;display:grid;place-items:center;font-style:normal}
+.f{display:block;margin-bottom:14px}.f>span{display:block;font-size:13px;color:#6b6b7b;font-weight:500;margin-bottom:5px}
+input[type=text],input[type=email],select{width:100%;height:48px;border:1.5px solid #dcdce4;border-radius:12px;padding:0 14px;font:400 16px "Inter Tight",sans-serif;background:#fff;color:#16161d}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid rgba(15,118,110,.3);outline-offset:1px;border-color:#0f766e}
+input[aria-invalid=true]{border-color:#c81e3a}
+.er{color:#c81e3a;font-size:13px;margin:5px 0 0;min-height:0}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.chk{display:flex;gap:10px;align-items:center;font-size:15px;color:#4a4a58}.chk input{width:18px;height:18px;accent-color:#0f766e}
+.dl{display:grid;gap:10px}
+.dl label{display:flex;align-items:center;gap:14px;border:1.5px solid #dcdce4;border-radius:14px;padding:14px 16px;cursor:pointer}
+.dl label:has(input:checked){border-color:#0f766e;background:#f0faf8}
+.dl input{accent-color:#0f766e;width:18px;height:18px}.dl b{display:block;font-weight:600}.dl small{color:#6b6b7b}.dl em{margin-left:auto;font-style:normal;font-weight:600}
+.cn{position:relative}.cn input{font-family:"JetBrains Mono",monospace;padding-right:70px;letter-spacing:.04em}
+.br{position:absolute;right:10px;top:50%;transform:translateY(-50%);min-width:48px;height:28px;border-radius:6px;background:#eef0f4;color:#4a4a58;font:700 11px "Inter Tight",sans-serif;display:grid;place-items:center;letter-spacing:.06em;padding:0 6px}
+.br.visa{background:#1a3a9c;color:#fff}.br.mc{background:#eb5a2c;color:#fff}.br.amex{background:#2a85d8;color:#fff}
+.pay{width:100%;height:56px;border:0;border-radius:14px;background:#0f766e;color:#fff;font:700 17px "Inter Tight",sans-serif;cursor:pointer;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:10px}
+.pay:hover{background:#0b5f58}.pay:disabled{opacity:.75;cursor:wait}
+.sp{width:18px;height:18px;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:r .7s linear infinite}@keyframes r{to{transform:rotate(360deg)}}
+.sm{background:#f1f2f6;border-radius:20px;padding:28px;position:sticky;top:24px}
+.sm h3{font:650 18px "Inter Tight",sans-serif;margin:0 0 16px}
+.ln{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;margin-bottom:14px}
+.th{position:relative;width:64px;height:64px;border-radius:12px;background:var(--b);overflow:visible}
+.th i{position:absolute;inset:14px;border-radius:var(--r,8px);background:var(--a)}
+.th u{position:absolute;top:-6px;right:-6px;min-width:22px;height:22px;border-radius:11px;background:#16161d;color:#fff;font:700 12px "Inter Tight",sans-serif;text-decoration:none;display:grid;place-items:center}
+.ln b{display:block;font-weight:600;font-size:15px}.ln small{color:#6b6b7b}
+.pr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;margin:18px 0 6px}
+.pr button{border:1.5px solid #16161d;background:#fff;border-radius:12px;padding:0 18px;font:600 15px "Inter Tight",sans-serif;cursor:pointer}
+.pm{font-size:13.5px;min-height:20px;margin:0 0 10px}
+.tt div{display:flex;justify-content:space-between;padding:6px 0;color:#4a4a58}
+.tt .tl{border-top:1px solid #d6d8e0;margin-top:8px;padding-top:14px;color:#16161d;font:700 20px "Inter Tight",sans-serif}
+.tg{display:none}
+.ok{max-width:560px;margin:60px auto;background:#fff;border:1px solid #e6e6ec;border-radius:24px;padding:48px 32px;text-align:center}
+.ok svg{width:72px;height:72px}.ok h1{font:700 30px "Inter Tight",sans-serif;letter-spacing:-.02em;margin:16px 0 8px}.ok p{color:#6b6b7b;margin:0 0 6px}
+@media(max-width:900px){.w{grid-template-columns:minmax(0,1fr);gap:20px;padding:12px 16px 48px}.sm{position:static;order:-1;padding:18px}.tg{display:flex;width:100%;justify-content:space-between;background:none;border:0;font:600 16px "Inter Tight",sans-serif;color:#0f766e;cursor:pointer;padding:0}.sm .bd{display:none;margin-top:16px}.sm.open .bd{display:block}form{padding:20px}.g2{grid-template-columns:minmax(0,1fr)}.g2.keep{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:901px){.sm .bd{display:block!important}}
+@media(prefers-reduced-motion:reduce){.sp{animation:none;border-top-color:rgba(255,255,255,.4)}}
+</style></head><body>
+<header class="hd"><b>Fieldwork</b><span>🔒 Secure checkout</span></header>
+<div class="w" id="root">
+ <form id="f" novalidate>
+  <div class="sc"><h2><i>1</i>Contact</h2><label class="f"><span>Email</span><input id="em" type="email" autocomplete="email" placeholder="you@example.com"><p class="er" id="e-em" aria-live="polite"></p></label><label class="chk"><input type="checkbox" checked> Email me about new arrivals</label></div>
+  <div class="sc"><h2><i>2</i>Shipping address</h2>
+   <label class="f"><span>Full name</span><input id="nm" type="text" autocomplete="name"><p class="er" id="e-nm" aria-live="polite"></p></label>
+   <label class="f"><span>Address</span><input id="ad" type="text" autocomplete="street-address"><p class="er" id="e-ad" aria-live="polite"></p></label>
+   <div class="g2 keep"><label class="f"><span>City</span><input id="ct" type="text"><p class="er" id="e-ct" aria-live="polite"></p></label><label class="f"><span>Postcode</span><input id="pc" type="text" autocomplete="postal-code"><p class="er" id="e-pc" aria-live="polite"></p></label></div>
+   <label class="f"><span>Country</span><select id="co"><option>United Kingdom</option><option>Ireland</option><option>France</option><option>Germany</option></select></label></div>
+  <div class="sc"><h2><i>3</i>Delivery</h2><div class="dl" id="dl" role="radiogroup" aria-label="Delivery"></div></div>
+  <div class="sc"><h2><i>4</i>Payment</h2>
+   <label class="f"><span>Card number</span><div class="cn"><input id="cn" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="4242 4242 4242 4242"><span class="br" id="br">CARD</span></div><p class="er" id="e-cn" aria-live="polite"></p></label>
+   <label class="f"><span>Name on card</span><input id="cm" type="text" autocomplete="cc-name"><p class="er" id="e-cm" aria-live="polite"></p></label>
+   <div class="g2 keep"><label class="f"><span>Expiry (MM/YY)</span><input id="ex" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5"><p class="er" id="e-ex" aria-live="polite"></p></label><label class="f"><span>CVC</span><input id="cv" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="4"><p class="er" id="e-cv" aria-live="polite"></p></label></div>
+   <button class="pay" id="pay" type="submit">Pay</button></div>
+ </form>
+ <aside class="sm" id="sm"><button class="tg" id="tg" type="button" aria-expanded="false"><span>Show order summary</span><b id="tg2"></b></button><div class="bd">
+  <h3>Order summary</h3><div id="ls"></div>
+  <div class="pr"><label class="f" style="margin:0"><span class="sr" style="position:absolute;left:-9999px">Promo code</span><input id="pm" type="text" placeholder="Promo code (try WELCOME10)" aria-label="Promo code"></label><button id="pa" type="button">Apply</button></div><p class="pm" id="pmm" aria-live="polite"></p>
+  <div class="tt" id="tt"></div></div></aside>
+</div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var items=[{n:'Field Jacket',v:'Olive · M',q:1,p:8900,b:'#e3e8dc',a:'#5d6b45',r:'18px 18px 8px 8px'},{n:'Merino Tee',v:'Sand · L',q:2,p:3200,b:'#f2e8da',a:'#d5b98f',r:'8px'},{n:'Canvas Tote',v:'Natural',q:1,p:2400,b:'#e8e8ee',a:'#a9a9b5',r:'4px 4px 18px 18px'}];
+var ship=[['Standard','4 to 6 working days',0],['Express','2 to 3 working days',600],['Next day','Order before 4pm',1200]],sel=0,disc=0,done=false;
+var gbp=new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'});var m=function(c){return gbp.format(c/100)};
+ship.forEach(function(s,i){var l=document.createElement('label');l.innerHTML='<input type="radio" name="d" '+(i===0?'checked':'')+'><span><b>'+s[0]+'</b><small>'+s[1]+'</small></span><em>'+(s[2]?m(s[2]):'Free')+'</em>';l.querySelector('input').onchange=function(){sel=i;sum()};$('dl').appendChild(l)});
+function sum(){var sub=items.reduce(function(a,x){return a+x.p*x.q},0),d=Math.round(sub*disc),sh=ship[sel][2],tot=sub-d+sh,vat=Math.round(tot/6);
+ $('ls').innerHTML=items.map(function(x){return'<div class="ln"><div class="th" style="--b:'+x.b+';--a:'+x.a+';--r:'+x.r+'"><i></i><u>'+x.q+'</u></div><div><b>'+x.n+'</b><small>'+x.v+'</small></div><b>'+m(x.p*x.q)+'</b></div>'}).join('');
+ $('tt').innerHTML='<div><span>Subtotal</span><span>'+m(sub)+'</span></div><div><span>Shipping</span><span>'+(sh?m(sh):'Free')+'</span></div>'+(d?'<div style="color:#15803d"><span>Discount (10%)</span><span>−'+m(d)+'</span></div>':'')+'<div><span>Includes VAT</span><span>'+m(vat)+'</span></div><div class="tl"><span>Total</span><span>'+m(tot)+'</span></div>';
+ $('pay').innerHTML=done?'':'Pay '+m(tot);$('tg2').textContent=m(tot);window._tot=tot}
+$('pa').onclick=function(){var v=$('pm').value.trim().toUpperCase(),p=$('pmm');if(v==='WELCOME10'){disc=.1;p.style.color='#15803d';p.textContent='Code applied: 10% off your subtotal.'}else{disc=0;p.style.color='#c81e3a';p.textContent=v?'That code is not valid.':'Enter a promo code.'}sum()};
+$('tg').onclick=function(){var o=$('sm').classList.toggle('open');$('tg').setAttribute('aria-expanded',String(o));$('tg').firstChild.textContent=o?'Hide order summary':'Show order summary'};
+function brand(n){if(/^4/.test(n))return'visa';if(/^(5[1-5]|2[2-7])/.test(n))return'mc';if(/^3[47]/.test(n))return'amex';return''}
+function luhn(n){var s=0,alt=false;for(var i=n.length-1;i>=0;i--){var d=+n[i];if(alt){d*=2;if(d>9)d-=9}s+=d;alt=!alt}return n.length>=13&&s%10===0}
+$('cn').addEventListener('input',function(){var d=this.value.replace(/\D/g,'').slice(0,16),b=brand(d),out;if(b==='amex'){d=d.slice(0,15);out=[d.slice(0,4),d.slice(4,10),d.slice(10)].filter(Boolean).join(' ')}else out=d.replace(/(.{4})/g,'$1 ').trim();this.value=out;var br=$('br');br.className='br '+b;br.textContent={visa:'VISA',mc:'MC',amex:'AMEX','':'CARD'}[b];$('cv').maxLength=b==='amex'?4:3;$('cv').placeholder=b==='amex'?'1234':'123'});
+$('ex').addEventListener('input',function(){var d=this.value.replace(/\D/g,'').slice(0,4);if(d.length>=3)d=d.slice(0,2)+'/'+d.slice(2);this.value=d});
+function err(id,msg){var i=$(id),e=$('e-'+id);if(msg){i.setAttribute('aria-invalid','true');e.textContent=msg;return i}i.removeAttribute('aria-invalid');e.textContent='';return null}
+var chk={em:function(v){return/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v)?'':'Enter a valid email address.'},nm:function(v){return v.trim().length>1?'':'Enter your full name.'},ad:function(v){return v.trim().length>4?'':'Enter your street address.'},ct:function(v){return v.trim()?'':'Enter your city.'},pc:function(v){return v.trim().length>=5?'':'Enter your postcode.'},
+ cn:function(v){var d=v.replace(/\D/g,'');return luhn(d)?'':'That card number does not look right.'},cm:function(v){return v.trim()?'':'Enter the name on the card.'},
+ ex:function(v){var mt=/^(\d\d)\/(\d\d)$/.exec(v);if(!mt)return'Use MM/YY.';var mo=+mt[1],yr=2000+ +mt[2],n=new Date();if(mo<1||mo>12)return'Month must be 01 to 12.';if(yr<n.getFullYear()||(yr===n.getFullYear()&&mo<n.getMonth()+1))return'That card has expired.';return''},
+ cv:function(v){return v.length===$('cv').maxLength?'':'Enter the '+$('cv').maxLength+'-digit code.'}};
+Object.keys(chk).forEach(function(k){$(k).addEventListener('blur',function(){if($(k).value||$(k).hasAttribute('aria-invalid'))err(k,chk[k]($(k).value))})});
+$('f').addEventListener('submit',function(e){e.preventDefault();if(done)return;var first=null;Object.keys(chk).forEach(function(k){var x=err(k,chk[k]($(k).value));if(x&&!first)first=x});if(first){first.focus();return}
+ $('pay').disabled=true;$('pay').innerHTML='<span class="sp"></span> Processing…';
+ setTimeout(function(){done=true;var no='FW-'+Math.floor(100000+Math.random()*900000);$('root').outerHTML='<div class="ok"><svg viewBox="0 0 72 72" fill="none" stroke="#15803d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="36" cy="36" r="32"/><path d="M22 37l10 10 18-20"/></svg><h1>Thank you for your order</h1><p>Order '+no+' is confirmed.</p><p>A receipt has been sent to '+$('em').value.replace(/</g,'&lt;')+'.</p></div>'},1200)});
+sum();
+})();
+</script>
+</body></html>

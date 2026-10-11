@@ -1,0 +1,11 @@
+Canvas & base: Off-white page #f6f4ef, ink #141414, muted #77746c, hairline #dcd8cf, single accent #c2410c used only for the active filter underline and focus rings. Lightbox overlay rgba(10,10,10,.94).
+
+Typography: "Instrument Serif" (400, italic) for the photographer's name at 72px, "Inter" (400, 500) for captions, filters and metadata at 13 to 15px. Small caps labels with .14em tracking.
+
+Layout: A slim header with the name "Mara Ellison" and "Photographer, Lisbon and elsewhere". Under it a filter row (All, Coast, Desert, City, Night) with an underline on the active item. The gallery is a masonry layout using CSS columns (3 columns desktop, 2 tablet, 1 on phones) with 12px gaps. Because external images are not allowed, generate each "photograph" as an inline SVG scene in JavaScript (gradient skies, layered hills, dunes, skylines, moons) from a small data array with varied aspect ratios; 14 pieces in total, each with a title, place and year.
+
+Interaction: Hovering a tile lifts a caption bar from the bottom. Clicking opens a native dialog lightbox showing the artwork large with title, place, year and "3 / 14" counter. Arrow keys and on-screen buttons move previous and next within the currently filtered set, Escape closes, focus returns to the tile that opened it. Filtering fades tiles out and in without a layout jump.
+
+Responsive: Lightbox buttons move below the image on phones. No horizontal scroll at 390px.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no external images, respects prefers-reduced-motion, tiles are real buttons with aria-labels.

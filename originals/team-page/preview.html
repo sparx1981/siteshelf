@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Northfold — The Team</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3efe8;--ink:#1c1b19;--mut:#6f6a60;--line:#d9d3c7}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 Manrope,sans-serif}
+:focus-visible{outline:3px solid #3b6ea5;outline-offset:3px}
+.in{max-width:1160px;margin:0 auto;padding:0 24px}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0}
+.logo{font:700 24px Fraunces,serif;letter-spacing:-.02em}
+.nav a{font-weight:700;font-size:14px;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--ink)}
+h1{font:700 clamp(44px,8vw,96px)/1 Fraunces,serif;letter-spacing:-.03em;margin:48px 0 22px;max-width:900px}
+h1 em{font-style:italic;font-weight:500;color:#e4572e}
+.lede{max-width:560px;color:var(--mut);font-size:19px;margin:0 0 64px}
+h2{font:700 32px/1.15 Fraunces,serif;letter-spacing:-.02em;margin:0 0 20px}
+.vals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-bottom:80px}
+.val{border-top:2px solid var(--ink);padding-top:14px}
+.val b{font:italic 500 22px Fraunces,serif;color:#e4572e}
+.val h3{font:700 22px Fraunces,serif;margin:6px 0}
+.val p{margin:0;color:var(--mut)}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:22px}
+.bar .f{border:1.5px solid var(--ink);background:transparent;border-radius:999px;padding:8px 18px;font:700 14px Manrope,sans-serif;cursor:pointer;color:var(--ink)}
+.bar .f[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.cnt{margin-left:auto;color:var(--mut);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:96px}
+.cell{perspective:900px;transition:opacity .3s,transform .3s}
+.cell.out{opacity:0;transform:scale(.94)}
+.cell.gone{display:none}
+.flip{position:relative;display:block;width:100%;aspect-ratio:1;border:0;padding:0;background:none;cursor:pointer;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.3,.7,.2,1);text-align:left;font:inherit;color:inherit}
+.cell.on .flip{transform:rotateY(180deg)}
+@media(hover:hover){.cell:hover .flip{transform:rotateY(180deg)}}
+.face{position:absolute;inset:0;border-radius:18px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.front{background:var(--c)}
+.front svg{position:absolute;inset:0;width:100%;height:100%}
+.who{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff}
+.who b{display:block;font:700 19px Fraunces,serif}.who span{font-size:13px;opacity:.9}
+.back{background:var(--ink);color:#f3efe8;transform:rotateY(180deg);padding:18px;display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.5}
+.back b{font:700 19px Fraunces,serif;color:var(--c)}
+.back small{margin-top:auto;color:#b9b2a3}
+.back .lk{display:flex;gap:12px;font-weight:700;color:#fff}
+.hire{background:var(--ink);color:var(--bg);padding:72px 0}
+.hire h2{font-size:clamp(34px,5vw,56px);color:#fff}
+.roles{list-style:none;padding:0;margin:26px 0 30px;max-width:640px}
+.roles li{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid #3b3a36}
+.roles span{color:#b9b2a3}
+.cta{display:inline-block;background:#f2b134;color:#1c1b19;font-weight:700;padding:14px 26px;border-radius:999px;text-decoration:none}
+.cta:hover{background:#ffc74f}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.vals{grid-template-columns:minmax(0,1fr)}.who b{font-size:16px}.back{font-size:12.5px;padding:12px;gap:5px}.back b{font-size:16px}.back .lk{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.flip{transition:none;transform:none!important}.face{backface-visibility:visible;transition:opacity .25s}.back{transform:none;opacity:0}.cell.on .back,.cell:hover .back{opacity:1}.cell.on .front,.cell:hover .front{opacity:0}.cell{transition:none}}
+</style></head><body>
+<div class="in"><div class="nav"><span class="logo">Northfold</span><a href="#join">We are hiring</a></div>
+<h1>Eleven people who care about the <em>details.</em></h1>
+<p class="lede">Northfold is an independent design and engineering studio. We keep the team small so everyone who works on your project actually knows it.</p>
+<h2>How we work</h2>
+<div class="vals"><div class="val"><b>01</b><h3>Small on purpose</h3><p>No hand-offs between strangers. The person who designs it ships it.</p></div><div class="val"><b>02</b><h3>Show the work</h3><p>Weekly demos, honest notes and a shared board your whole team can open.</p></div><div class="val"><b>03</b><h3>Finish things</h3><p>We would rather launch a smaller thing well than a bigger thing late.</p></div></div>
+<h2>The team</h2>
+<div class="bar" role="group" aria-label="Filter by department" id="bar"></div>
+<div class="grid" id="grid"></div></div>
+<section class="hire" id="join"><div class="in"><h2>Come and join us</h2><p style="color:#b9b2a3;max-width:520px;margin:0">We hire slowly and look after people. Remote friendly across UK time zones.</p>
+<ul class="roles"><li>Senior product designer <span>Full time · Remote</span></li><li>Frontend engineer <span>Full time · Bristol</span></li><li>Studio coordinator <span>Part time · Bristol</span></li></ul>
+<a class="cta" href="mailto:hello@northfold.example">Say hello</a></div></section>
+<script>
+const T=[
+['Ines Okafor','Founder, Design Director','Design','#e4572e','Started Northfold after a decade of agency work and a lot of long meetings. Believes a good brief is half the project.','Figma and a very sharp pencil'],
+['Tomas Brandt','Engineering Lead','Engineering','#3b6ea5','Builds the sturdy bits you never notice. Runs the studio\'s accessibility audit every quarter.','Vim, reluctantly VS Code'],
+['Priya Nair','Strategy Director','Strategy','#7a9e7e','Turns fuzzy goals into plans with a date on them. Has read every user survey we ever sent.','Miro and index cards'],
+['Callum Reid','Studio Manager','Operations','#f2b134','Keeps the lights on and the invoices honest. Makes the best flat white in the building.','A very large spreadsheet'],
+['Mei Tanaka','Senior Designer','Design','#b08bbb','Type nerd with a soft spot for tiny interactions. Owns the studio\'s font library.','Glyphs and Figma'],
+['Rafael Costa','Frontend Engineer','Engineering','#e4572e','Loves animation done with restraint and CSS that deletes itself when it is not needed.','Chrome DevTools'],
+['Hannah Ellis','Product Designer','Design','#3b6ea5','Spends her weekends in pottery class and her weeks fixing onboarding flows.','Figma and FigJam'],
+['Samir Haddad','Backend Engineer','Engineering','#7a9e7e','Databases, queues and quiet pipelines. Dislikes pagers on principle.','Postgres'],
+['Olivia Brandt','Researcher','Strategy','#f2b134','Interviews real people so we do not have to guess. Brings snacks to every session.','Dovetail and a notebook'],
+['Jonah Pike','Producer','Operations','#b08bbb','Plans the sprints and protects the team\'s focus time. Runs the Friday demo.','Linear'],
+['Zara Whitfield','Motion Designer','Design','#e4572e','Makes things move with meaning. Former stage manager, still calls every cue.','After Effects and Rive']
+];
+const DEPS=['All',...new Set(T.map(t=>t[2]))];let dep='All',openCell=null;
+const bar=document.getElementById('bar'),grid=document.getElementById('grid');
+DEPS.forEach(d=>{const b=document.createElement('button');b.className='f';b.textContent=d;b.setAttribute('aria-pressed',d==='All');b.onclick=()=>{dep=d;[...bar.querySelectorAll('.f')].forEach(x=>x.setAttribute('aria-pressed',x===b));filt()};bar.appendChild(b)});
+const cnt=document.createElement('span');cnt.className='cnt';cnt.setAttribute('aria-live','polite');bar.appendChild(cnt);
+const shapes=[i=>`<circle cx="70%" cy="34%" r="28%" fill="#fff" opacity=".28"/><rect x="-5%" y="62%" width="110%" height="50%" fill="#000" opacity=".12"/>`,i=>`<path d="M0 100 A100 100 0 0 1 100 0 V100Z" transform="scale(1.2) translate(-5,-10)" fill="#fff" opacity=".25"/><circle cx="24%" cy="28%" r="12%" fill="#000" opacity=".15"/>`,i=>`<rect x="14%" y="14%" width="46%" height="46%" fill="#fff" opacity=".28"/><circle cx="66%" cy="58%" r="22%" fill="#000" opacity=".14"/>`,i=>`<circle cx="30%" cy="70%" r="34%" fill="#fff" opacity=".24"/><circle cx="72%" cy="30%" r="16%" fill="#000" opacity=".15"/>`];
+T.forEach((t,i)=>{const ini=t[0].split(' ').map(w=>w[0]).join('');const c=document.createElement('div');c.className='cell';c.dataset.d=t[2];c.style.setProperty('--c',t[3]);
+ c.innerHTML=`<button class="flip" aria-pressed="false" aria-label="${t[0]}, ${t[1]}. Show bio"><span class="face front"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">${shapes[i%4](i)}<text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" fill="#fff" font-family="Fraunces,serif" font-weight="700" font-size="30" opacity=".95">${ini}</text></svg><span class="who"><b>${t[0]}</b><span>${t[1]}</span></span></span><span class="face back"><b>${t[0].split(' ')[0]}</b><span>${t[4]}</span><small>Favourite tool: ${t[5]}</small></span></button>`;
+ const b=c.querySelector('.flip');b.onclick=()=>{const on=!c.classList.contains('on');if(openCell&&openCell!==c){openCell.classList.remove('on');openCell.querySelector('.flip').setAttribute('aria-pressed','false')}c.classList.toggle('on',on);b.setAttribute('aria-pressed',on);openCell=on?c:null};
+ c.addEventListener('focusin',()=>c.classList.add('peek'));grid.appendChild(c)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&openCell){openCell.classList.remove('on');openCell.querySelector('.flip').setAttribute('aria-pressed','false');openCell=null}});
+function filt(){let n=0;[...grid.children].forEach(c=>{const keep=dep==='All'||c.dataset.d===dep;if(keep)n++;if(keep){c.classList.remove('gone');requestAnimationFrame(()=>c.classList.remove('out'))}else{c.classList.add('out');setTimeout(()=>{if(c.classList.contains('out'))c.classList.add('gone')},300)}});cnt.textContent=`Showing ${n} of ${T.length}`}
+filt();
+</script></body></html>

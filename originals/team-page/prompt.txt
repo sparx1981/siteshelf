@@ -1,0 +1,11 @@
+Canvas & base: Soft paper #f3efe8, ink #1c1b19, muted #6f6a60, hairlines #d9d3c7, card colours drawn from a muted palette (#e4572e terracotta, #3b6ea5 blue, #7a9e7e sage, #f2b134 mustard, #b08bbb lilac, #1c1b19 black). Max-width 1160px.
+
+Typography: "Fraunces" (600, 700, italic 500) for headings with a 96px hero statement, "Manrope" (400, 500, 700) for body, roles and filters.
+
+Layout: Hero statement "Eleven people who care about the details." with a two-line intro. A "How we work" row with three value cards (numbered, with short copy). A department filter row (All, Design, Engineering, Strategy, Operations) as toggle buttons. A team grid of 11 cards, 4 columns on desktop, each card a square tile with a bold shape-based avatar made from CSS or inline SVG (circles, arcs, blocks in the palette, with initials), the person's name and role. A final dark band "Come and join us" with an open roles list and an email button.
+
+Interaction: Cards are buttons. On hover or keyboard focus (and on tap) the card flips with a 3D rotateY to show a back with a two-sentence bio, a "Favourite tool" line and a link row. Only one card is flipped at a time on touch; Escape flips back. Filtering fades non-matching cards and collapses the grid smoothly, updating a "Showing 4 of 11" counter. Use aria-pressed on the flip button and aria-live for the counter.
+
+Responsive: 4 columns, 3 at 1000px, 2 at 700px; the hero scales with clamp. No horizontal scroll at 390px.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no photographs or libraries, respects prefers-reduced-motion (cross-fade the back instead of rotating), invented names only.

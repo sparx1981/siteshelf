@@ -1,0 +1,11 @@
+Canvas & base: Page #000 on desktop with a centred card of max-width 460px, #1c1c1e background, 28px radius and a 1px #2c2c2e border; around it a soft #0a0a0a vignette. Ring colours: Move #fa114f, Exercise #92e82a, Stand #1eeaef, each track the same hue at 22% opacity. Text #fff, muted #8e8e93.
+
+Typography: "Sora" (400, 600, 700) throughout, large numerals at 40px 700 with tabular-nums, labels 12px uppercase with .1em tracking.
+
+Layout: Card header with a title "Today", the date and a streak chip ("6 day streak"). Centre: three concentric SVG rings (stroke-linecap round, rotated so progress starts at 12 o'clock) with a legend column beside or below showing each metric's value / goal (e.g. 342 / 500 CAL, 18 / 30 MIN, 8 / 12 HRS). Underneath: three quick-log buttons ("+ 10 min walk", "+ 150 kcal run", "+ stand hour"), a "Week" bar chart of Mon to Sun built from divs, and a "Goals" disclosure containing a range slider for each goal.
+
+Interaction: Rings animate from their previous value to the new one using stroke-dashoffset with a 900ms ease. Quick-log buttons add realistic amounts to the right metrics (a walk adds minutes and some calories). When a ring reaches 100% it pulses once, gets a small tick, and a toast says "Move ring closed"; closing all three bumps the streak. Overflowing past 100% draws a second lap with a darker tint. Changing a goal slider recalculates immediately. A reset button returns to the start state. Values are announced via an aria-live region and each ring has role="img" with an aria-label of its percentage.
+
+Responsive: The card fills the width under 480px with 16px padding; the legend stacks below the rings. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS only, no libraries, respects prefers-reduced-motion (instant updates, no pulse).

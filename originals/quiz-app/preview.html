@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Web Wits — Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111;--mut:#5d5a52;--ok:#1fb56b;--bad:#ef4444}
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;background:#fff4dc;background-image:radial-gradient(#e8d8b0 1.5px,transparent 1.5px);background-size:22px 22px;color:var(--ink);font:500 17px/1.45 'Bricolage Grotesque',sans-serif;display:grid;place-items:center;padding:24px}
+.card{width:min(640px,100%);background:#fff;border:3px solid var(--ink);border-radius:20px;box-shadow:6px 6px 0 var(--ink);padding:28px}
+:focus-visible{outline:3px solid #6d28d9;outline-offset:3px}
+.mono{font-family:'Space Mono',monospace}
+h1{font:800 56px/1 'Bricolage Grotesque',sans-serif;margin:0 0 12px;letter-spacing:-.03em}
+h2{font:700 28px/1.2 'Bricolage Grotesque',sans-serif;margin:18px 0 20px}
+p{margin:0 0 14px;color:var(--mut)}
+.btn{display:inline-block;background:#ffd95e;border:3px solid var(--ink);border-radius:14px;padding:14px 26px;font:800 18px 'Bricolage Grotesque',sans-serif;box-shadow:4px 4px 0 var(--ink);cursor:pointer;transition:transform .08s,box-shadow .08s}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.btn.alt{background:#fff}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cnt{font:700 14px 'Space Mono',monospace}
+.segs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:14px}
+.segs i{height:10px;border:2px solid var(--ink);border-radius:6px;background:#fff}
+.segs i.cur{background:#ffd95e}.segs i.ok{background:var(--ok)}.segs i.no{background:var(--bad)}
+.ring{position:relative;width:54px;height:54px;flex:none}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:6}
+.ring .bg{stroke:#eee}.ring .fg{stroke:var(--ink);stroke-linecap:round;transition:stroke .3s}
+.ring.low .fg{stroke:var(--bad)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font:700 16px 'Space Mono',monospace}
+.opts{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.opt{width:100%;min-height:58px;display:flex;align-items:center;gap:14px;text-align:left;background:#fff;border:3px solid var(--ink);border-radius:14px;padding:0 16px 0 0;font:600 18px 'Bricolage Grotesque',sans-serif;cursor:pointer;overflow:hidden;transition:transform .08s,background .15s}
+.opt:hover:not(:disabled){transform:translateX(3px)}
+.opt .k{align-self:stretch;width:48px;display:grid;place-items:center;border-right:3px solid var(--ink);font:700 15px 'Space Mono',monospace;flex:none}
+.opt:nth-child(1) .k{background:#ff8fb1}.opt:nth-child(2) .k{background:#7ee0b5}.opt:nth-child(3) .k{background:#8ecbff}.opt:nth-child(4) .k{background:#ffd95e}
+.opt:disabled{cursor:default;opacity:.6}
+.opt.right{background:#c9f5df;opacity:1;animation:bounce .4s}
+.opt.wrong{background:#fecaca;opacity:1;animation:shake .4s}
+@keyframes bounce{40%{transform:scale(1.03)}}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fb{margin-top:18px;border:3px solid var(--ink);border-radius:14px;padding:14px 16px;background:#f3f0ff;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.fb p{margin:0;color:var(--ink);flex:1 1 220px;font-size:16px}
+.fl{display:inline-flex;align-items:center;gap:4px;background:#fff0d6;border:2px solid var(--ink);border-radius:999px;padding:1px 10px;font:700 13px 'Space Mono',monospace}
+.score{font:800 clamp(56px,14vw,96px)/1 'Bricolage Grotesque',sans-serif;margin:6px 0}
+.grade{display:inline-block;background:#8ecbff;border:3px solid var(--ink);border-radius:999px;padding:4px 16px;font-weight:800}
+.rev{margin:22px 0;padding:0;list-style:none;display:grid;gap:10px}
+.rev li{border:2px solid var(--ink);border-radius:12px;padding:10px 14px;font-size:15px}
+.rev b{display:block}.rev span{color:var(--ok);font-weight:700}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:480px){body{padding:0;place-items:start}.card{border-radius:0;border-width:0 0 3px;box-shadow:none;padding:20px 16px;min-height:100dvh}h1{font-size:44px}h2{font-size:23px}.opt{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<main class="card" id="app"></main><div class="sr" id="live" aria-live="assertive"></div>
+<script>
+const Q=[
+['Which year was the first website published?',['1989','1991','1995','1999'],1,'Tim Berners-Lee put the first site online in August 1991 at CERN.'],
+['What does the "C" in CSS stand for?',['Colour','Creative','Cascading','Compiled'],2,'The cascade decides which rule wins when several apply to one element.'],
+['Which of these was the first graphical web browser to become widely popular?',['Mosaic','Netscape 4','Safari','Opera'],0,'NCSA Mosaic arrived in 1993 and made the web feel visual.'],
+['What is the default colour of an unvisited link in most browsers?',['Green','Purple','Red','Blue'],3,'Blue for unvisited, purple for visited, a convention older than CSS.'],
+['Which typeface family was designed for the original Macintosh interface?',['Chicago','Comic Sans','Times','Papyrus'],0,'Susan Kare drew Chicago for the first Mac system font.'],
+['In CSS, which unit is relative to the root element\'s font size?',['em','rem','vh','ch'],1,'rem keeps sizing consistent regardless of nesting depth.']
+];
+const app=document.getElementById('app'),live=document.getElementById('live');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let qs,i,score,streak,best,res,t,timer,locked;const SECS=15,CIRC=2*Math.PI*21;
+function start(){qs=shuf(Q).map(q=>{const c=q[1][q[2]],o=shuf(q[1]);return{q:q[0],o,a:o.indexOf(c),f:q[3]}});i=0;score=0;streak=0;best=0;res=[];question()}
+function intro(){app.innerHTML='<h1>Web Wits</h1><p>A quick quiz on the web, CSS and design history. Think fast, the clock is ticking.</p><p class="mono">6 questions · 15 seconds each</p><div class="row"><button class="btn" id="go">Start quiz</button></div>';document.getElementById('go').onclick=start;document.getElementById('go').focus()}
+function segs(){return '<div class="segs" aria-hidden="true">'+qs.map((_,k)=>`<i class="${k===i?'cur':res[k]===undefined?'':res[k]?'ok':'no'}"></i>`).join('')+'</div>'}
+function question(){locked=false;t=SECS;const q=qs[i];
+ app.innerHTML=`<div class="top"><span class="cnt">Question ${i+1} of ${qs.length}</span>${streak>1?`<span class="fl">🔥 ${streak} streak</span>`:'<span></span>'}<div class="ring" id="ring" role="timer" aria-label="Time left"><svg viewBox="0 0 54 54" aria-hidden="true"><circle class="bg" cx="27" cy="27" r="21"/><circle class="fg" id="fg" cx="27" cy="27" r="21" stroke-dasharray="${CIRC}"/></svg><b id="sec">${SECS}</b></div></div>${segs()}<h2 id="qt">${q.q}</h2><ol class="opts" aria-labelledby="qt">${q.o.map((o,k)=>`<li><button class="opt" data-k="${k}"><span class="k" aria-hidden="true">${k+1}</span>${o}</button></li>`).join('')}</ol><div id="fbx"></div>`;
+ app.querySelectorAll('.opt').forEach(b=>b.onclick=()=>pick(+b.dataset.k));
+ clearInterval(timer);tick();timer=setInterval(()=>{t-=reduce?1:.1;if(t<=0){t=0;tick();pick(-1)}else tick()},reduce?1000:100)}
+function tick(){const fg=document.getElementById('fg');if(!fg)return;fg.style.strokeDashoffset=CIRC*(1-t/SECS);document.getElementById('sec').textContent=Math.ceil(t);document.getElementById('ring').classList.toggle('low',t<=5)}
+function pick(k){if(locked)return;locked=true;clearInterval(timer);const q=qs[i],ok=k===q.a;res[i]=ok;
+ if(ok){score++;streak++;best=Math.max(best,streak)}else streak=0;
+ const bs=app.querySelectorAll('.opt');bs.forEach((b,n)=>{b.disabled=true;if(n===q.a)b.classList.add('right');else if(n===k)b.classList.add('wrong')});
+ const last=i===qs.length-1;
+ document.getElementById('fbx').innerHTML=`<div class="fb"><p><b>${ok?'Correct!':k<0?'Time is up.':'Not quite.'}</b> ${q.f}</p><button class="btn" id="nx">${last?'See results':'Next'}</button></div>`;
+ document.getElementById('nx').onclick=next;document.getElementById('nx').focus();
+ live.textContent=(ok?'Correct. ':k<0?'Time is up. ':'Incorrect. ')+'The answer is '+q.o[q.a]+'.'}
+function next(){if(i<qs.length-1){i++;question()}else results()}
+function results(){const g=score===6?'Browser Wizard':score>=4?'Stylesheet Sage':score>=2?'Tab Hopper':'Fresh Install';
+ const miss=qs.map((q,k)=>res[k]?'':`<li><b>${q.q}</b><span>Answer: ${q.o[q.a]}</span></li>`).join('');
+ app.innerHTML=`<p class="cnt">Your result</p><div class="score">${score}<span style="font-size:.5em;color:var(--mut)"> / ${qs.length}</span></div><span class="grade">${g}</span><p class="mono" style="margin-top:14px">Best streak: ${best}</p>${miss?`<h2 style="font-size:20px;margin-bottom:10px">Worth another look</h2><ul class="rev">${miss}</ul>`:'<p style="margin-top:14px">Flawless run. Nothing to review.</p>'}<div class="row"><button class="btn" id="re">Play again</button></div>`;
+ document.getElementById('re').onclick=start;document.getElementById('re').focus();live.textContent=`Quiz finished. You scored ${score} out of ${qs.length}. ${g}.`}
+document.addEventListener('keydown',e=>{if(e.metaKey||e.ctrlKey||e.altKey)return;const k=+e.key;if(k>=1&&k<=4&&app.querySelector('.opt')&&!locked){pick(k-1)}
+ else if((e.key==='n'||e.key==='N')&&locked){const n=document.getElementById('nx');if(n)n.click()}});
+intro();
+</script></body></html>

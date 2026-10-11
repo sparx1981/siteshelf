@@ -1,0 +1,11 @@
+Canvas & base: Deep plum #14091f with a soft radial glow of #7c3aed at 20% opacity behind the hero, surfaces #1e1230 with 1px #35244d borders, text #f5f0ff, muted #b3a4cc, accent coral #ff7a59, secondary violet #a78bfa. Max-width 1080px.
+
+Typography: "Syne" (700, 800) for the show name at clamp(48px, 9vw, 112px) and episode titles, "Figtree" (400, 500, 600) for body and controls. Tabular numbers for times.
+
+Layout: Hero with the show name "Static & Stories", a one-line pitch, a row of subscribe buttons (Apple, Spotify, RSS as plain text buttons, no logos) and a decorative canvas waveform of animated vertical bars. Below, a sticky mini player bar that appears once an episode is chosen, then an "Episodes" section with a search field and a list of 8 episodes, each with number, title, date, duration, a short summary, a play button and a "Show transcript" disclosure with 2 to 3 lines of sample transcript.
+
+Interaction: No real audio is available, so simulate playback with a timer: the play button toggles play/pause on the selected episode, the progress bar advances in real time, can be scrubbed by click or keyboard (an input type=range), and the current / total time updates. Skip back 15s and forward 30s buttons, and a speed button cycling 1x, 1.25x, 1.5x, 2x that makes the timer run faster. Only one episode plays at a time and the active row is highlighted. The hero waveform bars animate while playing and settle when paused. Search filters episodes by title and summary with a result count.
+
+Responsive: The player bar stacks into two rows under 640px. No horizontal scroll at 390px.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no audio files or external media, respects prefers-reduced-motion (static waveform), all controls are real buttons with aria-labels, aria-pressed on play.

@@ -1,0 +1,11 @@
+Canvas & base: White page #ffffff, ink #101828, muted #667085, hairline #eaecf0, surface #f9fafb, accent indigo #4f46e5 for chips, links and focus. Content max-width 1120px, 24px gutters, cards radius 16px with a 1px hairline border and no shadow until hover.
+
+Typography: "Newsreader" (500, 600, italic 400) for the featured title (48px) and post titles (22px), "Inter" (400, 500, 600) for metadata, chips, search and excerpts (15px). Metadata 13px muted.
+
+Layout: A header with the blog name "Fieldnotes" and a nav (Posts, Topics, About). A large featured post card with a wide generated cover on the left and the title, excerpt, author and reading time on the right. Under it a toolbar with category chips (All, Design, Engineering, Product, Culture) each showing a live count, and a search field. Then a responsive grid of 9 post cards (3 columns) with generated cover art (CSS gradients plus a simple inline SVG shape per post, no images), a category label, title, two-line excerpt, author with a coloured initial avatar, date and reading time. A "Load more" button reveals 3 more posts at a time from a data array of 15.
+
+Interaction: Chips and search combine; the counts reflect the current search. Results update instantly with a short fade, show "Showing 9 of 15 posts" in an aria-live region, and show a friendly empty state with a reset button. Load more hides itself when everything is shown. Cards are fully clickable links with hover lift and an arrow that slides in; the featured post changes to the newest match.
+
+Responsive: 2 columns at 900px, 1 column at 600px, the featured card stacks. No horizontal scroll at 390px.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no images or libraries, respects prefers-reduced-motion, invented authors and titles only, semantic article elements.

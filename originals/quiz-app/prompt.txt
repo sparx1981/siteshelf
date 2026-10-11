@@ -1,0 +1,11 @@
+Canvas & base: Warm cream #fff4dc page, a centred card of max-width 640px in white with a 3px #111 border, 20px radius and a hard offset shadow 6px 6px 0 #111. Option colours: pink #ff8fb1, mint #7ee0b5, sky #8ecbff, butter #ffd95e; correct #1fb56b, wrong #ef4444. Ink #111, muted #5d5a52.
+
+Typography: "Bricolage Grotesque" (500, 700, 800) for questions and headings (28px question text, 56px for the final score), "Space Mono" (400, 700) for the timer, counters and key hints.
+
+Layout: A start screen with the quiz title "Web Wits", a short description, a "6 questions · 15 seconds each" line and a big Start button. The question screen has a top row with "Question 2 of 6", a progress bar made of 6 segments and a circular SVG countdown ring with seconds. Below the question are four large answer buttons, each with a coloured left tab and a key hint (1, 2, 3, 4). After answering, show a feedback strip with a one-line fun fact and a Next button. The results screen shows the score big, a grade label (for example "Browser Wizard"), best streak and a review list of the questions you missed with the correct answer.
+
+Interaction: The ring drains over 15 seconds and turns red in the last 5; at 0 the question counts as missed and the correct answer is revealed. Number keys 1 to 4 choose answers, Enter or N advances. Correct answers highlight green with a small bounce; wrong ones shake and the correct one is revealed. Consecutive correct answers build a streak shown as a small flame badge. The Retry button reshuffles the questions and answer order. All 6 questions are about the web, CSS and design history with accurate facts.
+
+Responsive: At 390px the card goes edge to edge with the shadow reduced to 4px, answers stay full width and thumb sized (min 56px tall). No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries or images, respects prefers-reduced-motion (no shake, no bounce, ring updates in steps), answers are real buttons, feedback is announced through an aria-live region.

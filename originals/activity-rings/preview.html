@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Activity Rings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--m:#fa114f;--e:#92e82a;--s:#1eeaef;--mut:#8e8e93}
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;background:radial-gradient(70% 60% at 50% 30%,#141416,#000);color:#fff;font:400 15px/1.5 Sora,sans-serif;display:grid;place-items:center;padding:24px}
+.card{width:min(460px,100%);background:#1c1c1e;border:1px solid #2c2c2e;border-radius:28px;padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.hd{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+h1{font:700 24px/1.1 Sora,sans-serif;margin:0}
+.date{color:var(--mut);font-size:13px}
+.chip{background:#2c2c2e;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:600;white-space:nowrap}
+.chip.pop{animation:pop .6s}
+@keyframes pop{40%{transform:scale(1.15);background:#3a3a3d}}
+.hero{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:20px;align-items:center;margin:14px 0 20px}
+svg.rings{width:100%;height:auto;display:block;overflow:visible}
+.tr{fill:none;stroke-width:17}
+.pr{fill:none;stroke-width:17;stroke-linecap:round;transition:stroke-dashoffset .9s cubic-bezier(.3,.8,.3,1)}
+.pr.pulse{animation:pl .7s}
+@keyframes pl{40%{stroke-width:21}}
+.leg{display:grid;gap:12px}
+.leg small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.leg b{font:700 26px/1.1 Sora,sans-serif;font-variant-numeric:tabular-nums}
+.leg span{color:var(--mut);font-size:13px;font-weight:400}
+.q{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:20px}
+.q button,.rs{background:#2c2c2e;border:0;color:#fff;border-radius:14px;padding:12px 8px;font:600 13px/1.25 Sora,sans-serif;cursor:pointer;transition:background .15s,transform .1s}
+.q button:hover{background:#3a3a3d}.q button:active{transform:scale(.97)}
+h2{font:600 12px Sora,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:0 0 10px}
+.wk{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;align-items:end;height:96px;margin-bottom:18px}
+.wk div{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px;height:100%;font-size:11px;color:var(--mut)}
+.wk i{display:block;width:100%;max-width:26px;border-radius:7px;background:linear-gradient(var(--m),#ff5c7f);min-height:4px}
+.wk .today i{background:linear-gradient(var(--s),var(--e))}.wk .today{color:#fff}
+details{border-top:1px solid #2c2c2e;padding-top:14px}
+summary{cursor:pointer;font-weight:600;font-size:14px}
+.g{display:grid;grid-template-columns:70px minmax(0,1fr) 54px;gap:10px;align-items:center;margin:12px 0;font-size:13px}
+.g output{text-align:right;font-variant-numeric:tabular-nums;color:var(--mut)}
+input[type=range]{width:100%}
+.rs{display:block;width:100%;margin-top:6px;color:var(--mut)}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,30px);background:#fff;color:#000;border-radius:999px;padding:10px 18px;font-weight:600;font-size:14px;opacity:0;transition:.3s;pointer-events:none}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:480px){body{padding:12px;place-items:start center}.card{padding:18px}.hero{grid-template-columns:minmax(0,1fr);justify-items:center}svg.rings{max-width:230px}.leg{width:100%;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.leg b{font-size:20px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body>
+<div class="card">
+<div class="hd"><div><h1>Today</h1><div class="date" id="date"></div></div><span class="chip" id="streak"></span></div>
+<div class="hero">
+<svg class="rings" viewBox="0 0 200 200" id="svg"></svg>
+<div class="leg" id="leg"></div></div>
+<div class="q"><button data-a="walk">+ 10 min walk</button><button data-a="run">+ 150 kcal run</button><button data-a="stand">+ stand hour</button></div>
+<h2>This week</h2><div class="wk" id="wk" role="img"></div>
+<details><summary>Daily goals</summary><div id="goals"></div><button class="rs" id="reset">Reset day</button></details>
+<div class="sr" aria-live="polite" id="live"></div>
+</div><div id="toast" role="status"></div>
+<script>
+const M=[{k:'m',n:'Move',u:'CAL',c:'#fa114f',v:342,g:500,r:84,min:200,max:1000,st:50},{k:'e',n:'Exercise',u:'MIN',c:'#92e82a',v:18,g:30,r:63,min:10,max:90,st:5},{k:'s',n:'Stand',u:'HRS',c:'#1eeaef',v:8,g:12,r:42,min:4,max:16,st:1}];
+const START=M.map(x=>x.v),WEEK=[420,610,380,720,550,300,0],STREAK0=6;let streak=STREAK0;const done={};
+const svg=document.getElementById('svg'),leg=document.getElementById('leg'),NS='http://www.w3.org/2000/svg';
+document.getElementById('date').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+M.forEach(x=>{const C=2*Math.PI*x.r;x.C=C;
+ svg.insertAdjacentHTML('beforeend',`<g transform="rotate(-90 100 100)" role="img" id="r${x.k}"><circle class="tr" cx="100" cy="100" r="${x.r}" stroke="${x.c}" opacity=".22"/><circle class="pr" id="a${x.k}" cx="100" cy="100" r="${x.r}" stroke="${x.c}" stroke-dasharray="${C}" stroke-dashoffset="${C}"/><circle class="pr" id="b${x.k}" cx="100" cy="100" r="${x.r}" stroke="#000" stroke-opacity=".35" stroke-dasharray="${C}" stroke-dashoffset="${C}"/></g>`);
+ leg.insertAdjacentHTML('beforeend',`<div><small style="color:${x.c}">${x.n}</small><b id="v${x.k}"></b> <span id="u${x.k}"></span></div>`);
+ document.getElementById('goals').insertAdjacentHTML('beforeend',`<div class="g"><label for="gs${x.k}" style="color:${x.c}">${x.n}</label><input id="gs${x.k}" type="range" min="${x.min}" max="${x.max}" step="${x.st}" value="${x.g}"><output id="go${x.k}"></output></div>`);
+ document.getElementById('gs'+x.k).oninput=ev=>{x.g=+ev.target.value;paint(false)}});
+function paint(anim=true){M.forEach(x=>{const p=x.v/x.g,a=document.getElementById('a'+x.k),b=document.getElementById('b'+x.k);
+ a.style.strokeDashoffset=x.C*(1-Math.min(p,1));b.style.strokeDashoffset=x.C*(1-Math.max(0,Math.min(p-1,1)));b.style.opacity=p>1?1:0;
+ document.getElementById('v'+x.k).textContent=Math.round(x.v);document.getElementById('u'+x.k).textContent='/ '+x.g+' '+x.u;document.getElementById('go'+x.k).textContent=x.g;
+ const pct=Math.round(p*100);document.getElementById('r'+x.k).setAttribute('aria-label',`${x.n}: ${pct}% of goal`);
+ if(p>=1&&!done[x.k]&&anim){done[x.k]=1;a.classList.remove('pulse');void a.getBoundingClientRect();a.classList.add('pulse');toast(x.n+' ring closed');if(M.every(y=>y.v>=y.g)){streak++;const c=document.getElementById('streak');c.classList.remove('pop');void c.offsetWidth;c.classList.add('pop')}}
+ if(p<1)done[x.k]=0;});
+ document.getElementById('streak').textContent=streak+' day streak';
+ const wk=document.getElementById('wk'),days=['M','T','W','T','F','S','S'],vals=WEEK.slice(0,6).concat(M[0].v),mx=Math.max(...vals,M[0].g);
+ const ti=(new Date().getDay()+6)%7;
+ wk.innerHTML=days.map((d,i)=>`<div class="${i===6?'today':''}"><i style="height:${Math.max(4,vals[i]/mx*72)}px"></i>${d}</div>`).join('');
+ wk.setAttribute('aria-label','Weekly move calories: '+vals.map((v,i)=>days[i]+' '+Math.round(v)).join(', '));
+ document.getElementById('live').textContent=M.map(x=>`${x.n} ${Math.round(x.v)} of ${x.g}`).join('. ');}
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),2200)}
+const ACT={walk:{m:45,e:10},run:{m:150,e:12},stand:{s:1}};
+document.querySelector('.q').onclick=ev=>{const b=ev.target.closest('button');if(!b)return;const a=ACT[b.dataset.a];M.forEach(x=>{if(a[x.k])x.v+=a[x.k]});paint()};
+document.getElementById('reset').onclick=()=>{M.forEach((x,i)=>{x.v=START[i];x.g=[500,30,12][i];document.getElementById('gs'+x.k).value=x.g});streak=STREAK0;paint(false);toast('Day reset')};
+paint(false);
+</script></body></html>

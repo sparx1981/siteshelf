@@ -1,0 +1,11 @@
+Canvas & base: Page #f7f7f9; left form column on white (#ffffff) with 1px #e6e6ec dividers, right order summary on #f1f2f6 with a sticky position. Ink #16161d, muted #6b6b7b, accent #0f766e (teal), error #c81e3a, success #15803d. Content max-width 1100px, two columns 1.15fr / 0.85fr, gap 56px, radius 12px inputs.
+
+Typography: "Inter Tight" (400, 500, 600, 700) for everything, "JetBrains Mono" (400, 500) for the card number. Headings 22px 650, field labels 13px 500 muted, inputs 16px.
+
+Layout: A header with the store name "Fieldwork" and a secure lock note. Left column sections with numbered headings: 1 Contact (email, newsletter checkbox), 2 Shipping address (full name, address, city, postcode, country select), 3 Delivery (three radio cards: Standard free 4 to 6 days, Express 6, Next day 12), 4 Payment (a card form with number, name on card, expiry MM/YY, CVC, and a live card-brand badge). A large "Pay" button shows the total. Right column: 3 order lines with CSS-drawn product thumbnails, quantity badges, prices, a promo code field with Apply button, and totals (subtotal, shipping, discount, VAT included, total).
+
+Interaction: Card number formats into groups of 4 (Amex 4-6-5), detects Visa, Mastercard, Amex from the prefix, shows the brand in the badge, and validates with the Luhn check on blur. Expiry auto-inserts the slash and rejects past dates. CVC length follows the brand (3 or 4). Promo code "WELCOME10" gives 10% off the subtotal; other codes show an inline error. Choosing a delivery option updates shipping and the total. Pressing Pay validates everything: inline errors with aria-live, focus on the first invalid field; if valid, the button shows a spinner for 1.2 seconds then the page swaps to an order confirmation with a mock order number.
+
+Responsive: Under 900px the summary moves above the form as a collapsed "Show order summary" toggle; inputs go full width; no horizontal scroll.
+
+Rules: Never send data anywhere. Use only test-style demo values in placeholders (4242 4242 4242 4242 style). Compute money in integer pence. Do not use a pound sign as a JavaScript identifier. prefers-reduced-motion removes the spinner animation in favour of text. No images, no libraries, one HTML file.

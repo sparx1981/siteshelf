@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fieldnotes — Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#101828;--mut:#667085;--line:#eaecf0;--sf:#f9fafb;--acc:#4f46e5}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font:400 15px/1.55 Inter,sans-serif}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.in{max-width:1120px;margin:0 auto;padding:0 24px}
+header .in{display:flex;align-items:center;justify-content:space-between;padding-top:22px;padding-bottom:22px;border-bottom:1px solid var(--line);flex-wrap:wrap;gap:10px}
+.logo{font:600 26px Newsreader,serif;letter-spacing:-.02em}
+nav{display:flex;gap:22px}nav a{color:var(--mut);text-decoration:none;font-weight:500}nav a:hover,nav a[aria-current]{color:var(--ink)}
+.cover{position:relative;overflow:hidden;background:var(--g);aspect-ratio:16/10}
+.cover svg{position:absolute;inset:0;width:100%;height:100%}
+.feat{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:36px;align-items:center;margin:40px 0 44px;color:inherit;text-decoration:none}
+.feat .cover{border-radius:20px;aspect-ratio:16/10}
+.eyebrow{color:var(--acc);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.feat h2{font:600 clamp(32px,4.4vw,48px)/1.08 Newsreader,serif;letter-spacing:-.02em;margin:10px 0 14px}
+.feat p{color:var(--mut);font-size:17px;margin:0 0 18px}
+.by{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mut)}
+.av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;font:600 12px Inter,sans-serif;flex:none}
+.tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:22px;padding-top:22px;border-top:1px solid var(--line)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font:500 14px Inter,sans-serif;cursor:pointer;color:var(--ink)}
+.chip small{color:var(--mut);margin-left:4px;font-size:12px}
+.chip:hover{background:var(--sf)}
+.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}.chip[aria-pressed=true] small{color:#c7cbd3}
+input[type=search]{margin-left:auto;border:1px solid var(--line);border-radius:10px;padding:9px 14px;font:inherit;width:260px;max-width:100%}
+.sum{color:var(--mut);font-size:14px;margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.post{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden;color:inherit;text-decoration:none;background:#fff;transition:transform .2s,box-shadow .2s,opacity .3s;animation:in .35s both}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.post:hover{transform:translateY(-3px);box-shadow:0 14px 30px -14px rgba(16,24,40,.25)}
+.post .cover{aspect-ratio:16/9}
+.pb{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.pb h3{font:600 22px/1.25 Newsreader,serif;margin:0;letter-spacing:-.01em}
+.pb p{margin:0;color:var(--mut);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pb .by{margin-top:auto;padding-top:10px}
+.arr{margin-left:auto;opacity:0;transform:translateX(-6px);transition:.2s;color:var(--acc);font-weight:600}
+.post:hover .arr,.post:focus-visible .arr{opacity:1;transform:none}
+.more{display:block;margin:34px auto 0;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:12px 28px;font:600 15px Inter,sans-serif;cursor:pointer}
+.more:hover{background:#344054}
+.empty{text-align:center;padding:60px 0;color:var(--mut)}
+.empty button{margin-top:12px;background:var(--acc);color:#fff;border:0;border-radius:8px;padding:10px 18px;font:600 14px Inter,sans-serif;cursor:pointer}
+footer{margin-top:72px;padding:28px 0;border-top:1px solid var(--line);color:var(--mut);font-size:14px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.feat{grid-template-columns:minmax(0,1fr);gap:20px}}
+@media(max-width:600px){.grid{grid-template-columns:minmax(0,1fr)}input[type=search]{margin-left:0;width:100%}.in{padding:0 16px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div class="in"><span class="logo">Fieldnotes</span><nav aria-label="Main"><a href="#" aria-current="page">Posts</a><a href="#">Topics</a><a href="#">About</a></nav></div></header>
+<main class="in">
+<div id="feat"></div>
+<div class="tools"><div class="chips" id="chips" role="group" aria-label="Filter by category"></div><input type="search" id="q" placeholder="Search posts" aria-label="Search posts"></div>
+<p class="sum" id="sum" aria-live="polite"></p>
+<div class="grid" id="grid"></div><div id="empty"></div>
+<button class="more" id="more">Load more</button>
+</main>
+<footer><div class="in">© Fieldnotes. Notes from a small studio. All names and posts are invented.</div></footer>
+<script>
+const AU={'Maya Lindqvist':'#4f46e5','Dev Anand':'#0e9384','Rosa Ibarra':'#dd2590','Ben Okoye':'#dc6803'};
+const GR={Design:['#c7d2fe','#a5b4fc'],Engineering:['#a7f3d0','#5eead4'],Product:['#fde68a','#fdba74'],Culture:['#fbcfe8','#f9a8d4']};
+const P=[
+['Design','The case for boring navigation','Clever menus cost more than they earn. Here is how we cut our nav down to five items and watched task time fall.','Maya Lindqvist','12 Oct',6],
+['Engineering','Shipping a design system without a rewrite','We adopted tokens one component at a time and never paused feature work. The playbook, with the mistakes.','Dev Anand','8 Oct',9],
+['Product','Write the press release last','A better way to run discovery: let the problem shape the story instead of the other way around.','Rosa Ibarra','3 Oct',5],
+['Culture','What a four-day week did to our calendar','Six months in, the surprising effects on meetings, estimates and Fridays.','Ben Okoye','28 Sep',7],
+['Design','Contrast is a conversation, not a checkbox','Passing AA is the floor. A practical tour of making low-vision users feel considered.','Maya Lindqvist','22 Sep',8],
+['Engineering','Why we stopped using feature flags for everything','Flags are a debt instrument. How we decide what deserves one and when to delete it.','Dev Anand','17 Sep',6],
+['Product','Roadmaps are promises in disguise','How we replaced dates with themes and what it did to stakeholder trust.','Rosa Ibarra','11 Sep',5],
+['Culture','The onboarding doc nobody read','And the buddy system that finally worked. A tiny process that saved weeks.','Ben Okoye','6 Sep',4],
+['Design','Empty states deserve a brief','Blank screens are the first real moment of truth. Examples worth stealing.','Maya Lindqvist','30 Aug',5],
+['Engineering','Slow queries and honest dashboards','A tour of the three charts that actually found our performance problems.','Dev Anand','24 Aug',10],
+['Product','Pricing pages are a product surface','Treat your plans like features: test, listen and iterate on them.','Rosa Ibarra','19 Aug',6],
+['Culture','Hiring for curiosity','Our interview loop, rewritten around how people learn rather than what they know.','Ben Okoye','12 Aug',7],
+['Design','A love letter to the humble table','Dense data deserves good typography. Seven fixes that make tables readable.','Maya Lindqvist','5 Aug',6],
+['Engineering','Small commits, big calm','What changed in code review when we capped pull requests at 300 lines.','Dev Anand','29 Jul',5],
+['Product','The meeting after the launch','Retros that actually change what we do next quarter.','Rosa Ibarra','22 Jul',4]
+].map((p,i)=>({i,c:p[0],t:p[1],x:p[2],a:p[3],d:p[4],r:p[5]}));
+const CATS=['All','Design','Engineering','Product','Culture'];let cat='All',q='',shown=9;
+const $=id=>document.getElementById(id);
+function art(p){const g=GR[p.c],s=p.i;const sh=[`<circle cx="${30+s*4%40}" cy="45" r="26" fill="#fff" opacity=".5"/><rect x="${50+s%3*8}" y="20" width="36" height="36" rx="6" fill="#4f46e5" opacity=".25"/>`,`<path d="M0 80 Q 30 ${30+s%4*8} 60 70 T 120 55 V100 H0Z" fill="#fff" opacity=".5"/><circle cx="80" cy="28" r="12" fill="#fff" opacity=".7"/>`,`<g fill="#fff" opacity=".55">${[0,1,2,3,4].map(k=>`<rect x="${12+k*20}" y="${30+(k*s%5)*7}" width="14" height="${60-(k*s%5)*7}" rx="3"/>`).join('')}</g>`][s%3];return `<div class="cover" style="--g:linear-gradient(135deg,${g[0]},${g[1]})"><svg viewBox="0 0 100 56" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${sh}</svg></div>`}
+const av=a=>`<span class="av" style="background:${AU[a]}" aria-hidden="true">${a.split(' ').map(w=>w[0]).join('')}</span>`;
+function match(p,ignoreCat){const s=q.toLowerCase();return(ignoreCat||cat==='All'||p.c===cat)&&(!s||(p.t+' '+p.x+' '+p.a).toLowerCase().includes(s))}
+function chips(){$('chips').innerHTML=CATS.map(c=>`<button class="chip" aria-pressed="${c===cat}" data-c="${c}">${c}<small>${P.filter(p=>(c==='All'||p.c===c)&&match(p,true)).length}</small></button>`).join('')}
+function render(){const m=P.filter(p=>match(p));
+ chips();
+ const f=m[0];$('feat').innerHTML=f?`<a class="feat" href="#"><div>${art({...f,i:f.i+1})}</div><div><span class="eyebrow">Featured · ${f.c}</span><h2>${f.t}</h2><p>${f.x}</p><div class="by">${av(f.a)}<span>${f.a} · ${f.d} · ${f.r} min read</span></div></div></a>`:'';
+ const rest=f?m.slice(1):[];const vis=rest.slice(0,shown);
+ $('grid').innerHTML=vis.map((p,k)=>`<a class="post" href="#" style="animation-delay:${Math.min(k,8)*30}ms">${art(p)}<div class="pb"><span class="eyebrow">${p.c}</span><h3>${p.t}</h3><p>${p.x}</p><div class="by">${av(p.a)}<span>${p.a} · ${p.r} min</span><span class="arr" aria-hidden="true">Read →</span></div></div></a>`).join('');
+ $('sum').textContent=m.length?`Showing ${f?vis.length+1:0} of ${m.length} posts`:'';
+ $('more').hidden=vis.length>=rest.length;
+ $('empty').innerHTML=m.length?'':'<div class="empty"><p>No posts match that search.</p><button id="rs">Reset filters</button></div>';
+ const rs=$('rs');if(rs)rs.onclick=()=>{cat='All';q='';$('q').value='';shown=9;render()};
+ document.querySelectorAll('.post,.feat').forEach(a=>a.onclick=e=>e.preventDefault())}
+$('chips').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;cat=b.dataset.c;shown=9;render();$('chips').querySelector(`[data-c="${cat}"]`).focus()};
+$('q').oninput=function(){q=this.value.trim();shown=9;render()};
+$('more').onclick=()=>{shown+=3;render();const l=$('grid').querySelectorAll('.post');if(l.length>3)l[l.length-3].focus()};
+render();
+</script></body></html>

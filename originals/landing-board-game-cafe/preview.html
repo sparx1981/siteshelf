@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meeple &amp; Mug — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#fff3d6;color:#2b2340;font:400 17px/1.6 Nunito,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #6a3fb5;outline-offset:3px;border-radius:12px}
+header{display:flex;align-items:center;gap:26px;padding:16px clamp(18px,4vw,56px)}
+.logo{font:700 26px Fredoka,sans-serif;margin-right:auto;display:flex;align-items:center;gap:8px}.mp{position:relative;width:22px;height:26px}.mp:before{content:"";position:absolute;left:5px;top:0;width:12px;height:12px;border-radius:50%;background:#ff5a43;border:2px solid #2b2340}.mp:after{content:"";position:absolute;left:0;bottom:0;width:22px;height:15px;border-radius:12px 12px 4px 4px;background:#ff5a43;border:2px solid #2b2340}
+header a{color:#5e5476;text-decoration:none;font-weight:700;font-size:15px}header a:hover{color:#2b2340}
+.btn{display:inline-block;font:700 17px Fredoka,sans-serif;padding:12px 24px;border-radius:99px;border:2.5px solid #2b2340;background:#fff;color:#2b2340!important;text-decoration:none;cursor:pointer;box-shadow:3px 3px 0 #2b2340;transition:transform .15s,box-shadow .15s}.btn.t{background:#ff5a43;color:#fff!important}.btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 #2b2340}.btn:active{transform:translate(2px,2px);box-shadow:0 0 0}header .btn{padding:7px 18px;font-size:15px}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:30px;align-items:center;max-width:1240px;margin:0 auto;padding:20px clamp(18px,4vw,56px) 40px}
+h1{font:700 clamp(42px,6.2vw,92px)/1 Fredoka,sans-serif;margin:0 0 18px}h1 span{background:linear-gradient(transparent 60%,#bff0dc 60%)}
+.sub{max-width:44ch;color:#5e5476;margin:0 0 26px;font-size:18px}.btns{display:flex;gap:14px;flex-wrap:wrap}
+.art{position:relative;aspect-ratio:1;max-width:440px;width:100%;margin:0 auto}.art i{position:absolute;display:block;animation:fl var(--t) ease-in-out infinite alternate}
+@keyframes fl{to{transform:translateY(-14px) rotate(var(--r))}}
+.d{width:26%;aspect-ratio:1;border:3px solid #2b2340;border-radius:18%;box-shadow:4px 4px 0 #2b2340}.d1{left:8%;top:12%;background:#fff;--t:3s;--r:8deg}.d2{right:6%;top:30%;background:#ffbf2f;--t:3.6s;--r:-10deg}.d3{left:30%;bottom:6%;background:#14a79b;--t:2.8s;--r:6deg}
+.m{width:20%;height:34%;border:3px solid #2b2340;border-radius:40% 40% 20% 20%;box-shadow:4px 4px 0 #2b2340}.m1{left:48%;top:6%;background:#ff5a43;--t:3.4s;--r:-6deg}.m2{left:2%;bottom:22%;background:#6a3fb5;--t:3.8s;--r:10deg}
+.sec{max-width:1160px;margin:0 auto;padding:40px clamp(18px,4vw,56px) 20px}h2{font:700 clamp(32px,4.4vw,56px)/1 Fredoka,sans-serif;margin:0 0 20px}
+.box{background:#fff;border:2.5px solid #2b2340;border-radius:20px;box-shadow:5px 5px 0 #2b2340;padding:20px 24px;display:grid;grid-template-columns:auto 1fr 1fr auto;gap:22px;align-items:start}
+.box b{display:block;font:700 14px Fredoka,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#5e5476;margin-bottom:8px}
+.stp{display:flex;align-items:center;gap:10px}.stp button{width:38px;height:38px;border-radius:50%;border:2.5px solid #2b2340;background:#ffbf2f;font:700 22px Fredoka,sans-serif;cursor:pointer}.stp button:active{transform:scale(.9)}.stp output{font:700 32px Fredoka,sans-serif;min-width:30px;text-align:center}
+.ch{display:flex;gap:6px;flex-wrap:wrap}.ch button{font:800 14px Nunito,sans-serif;border:2px solid #2b2340;background:#fff;border-radius:99px;padding:6px 13px;cursor:pointer;color:#2b2340}.ch button[aria-pressed=true]{background:#14a79b;color:#fff}
+.rs{background:none;border:0;text-decoration:underline;font:700 14px Nunito,sans-serif;cursor:pointer;color:#5e5476;align-self:end}
+.cnt{margin:18px 0 12px;font:700 20px Fredoka,sans-serif}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.g{background:#fff;border:2.5px solid #2b2340;border-radius:18px;box-shadow:4px 4px 0 #2b2340;overflow:hidden;transition:transform .25s,opacity .25s;animation:in .3s both}
+@keyframes in{from{opacity:0;transform:scale(.9)}}
+.g:hover{transform:translateY(-4px)}.cv{height:96px;position:relative;overflow:hidden;border-bottom:2.5px solid #2b2340;transition:transform .3s}.g:hover .cv{transform:rotate(-2deg) scale(1.06)}.cv i{position:absolute;display:block}
+.gb{padding:12px 14px}.gb h3{font:700 19px/1.15 Fredoka,sans-serif;margin:0 0 4px}.gb p{margin:0 0 6px;font-size:13px;color:#5e5476;font-weight:700}
+.tg{display:flex;gap:4px;flex-wrap:wrap}.tg span{font-size:11px;font-weight:800;background:#ece3ff;color:#4a2a90;padding:2px 8px;border-radius:99px}
+.pp{display:flex;gap:4px;margin-top:8px;align-items:center;font-size:11px;font-weight:800;color:#5e5476}.pp i{width:10px;height:10px;border-radius:50%;border:2px solid #2b2340;background:#fff}.pp i.on{background:#ff5a43}
+.em{text-align:center;padding:40px 20px;background:#fff;border:2.5px dashed #2b2340;border-radius:20px}.em b{display:block;font:700 24px Fredoka,sans-serif;margin-bottom:8px}
+.bk{margin:50px auto 60px;max-width:1160px;padding:0 clamp(18px,4vw,56px)}.bk div{background:#6a3fb5;color:#fff;border:2.5px solid #2b2340;border-radius:22px;box-shadow:5px 5px 0 #2b2340;padding:28px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}.bk h2{margin:0;font-size:clamp(26px,3.2vw,40px)}
+dialog{border:2.5px solid #2b2340;border-radius:22px;padding:26px;max-width:420px;width:calc(100% - 32px);box-shadow:6px 6px 0 #2b2340;color:#2b2340}dialog::backdrop{background:rgba(43,35,64,.6)}dialog h3{font:700 28px Fredoka,sans-serif;margin:0 0 12px}
+dialog label{display:block;font-weight:800;font-size:14px;margin:12px 0 4px}dialog input,dialog select{width:100%;font:700 16px Nunito,sans-serif;padding:10px 12px;border:2px solid #2b2340;border-radius:12px;background:#fff}
+dialog .row{display:flex;gap:10px;justify-content:flex-end;margin-top:18px}
+@media(max-width:860px){.hero,.box{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}header a:not(.btn){display:none}.rs{align-self:start}}
+@media(max-width:520px){.grid{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){.art i{animation:none}*{transition:none!important}.g{animation:none}}
+</style></head><body>
+<header><div class="logo"><span class="mp"></span>Meeple &amp; Mug</div><a href="#games">Games</a><a href="#">Menu</a><a href="#">Events</a><button class="btn t" type="button" data-book>Book a table</button></header>
+<main><section class="hero"><div><h1>Roll in. <span>Play more.</span> Stay for cake.</h1><p class="sub">Leeds' friendliest board-game cafe. 400 games, expert hosts who teach you the rules, and brownies that deserve their own trophy.</p><div class="btns"><a class="btn t" href="#games">Find a game</a><a class="btn" href="#">See events</a></div></div>
+<div class="art" aria-hidden="true"><i class="d d1"></i><i class="d d2"></i><i class="d d3"></i><i class="m m1"></i><i class="m m2"></i></div></section>
+<section class="sec" id="games"><h2>Game finder</h2><div class="box"><div><b id="lp">Players</b><div class="stp"><button type="button" id="pm" aria-label="Fewer players">−</button><output id="pn" aria-labelledby="lp">4</output><button type="button" id="pp" aria-label="More players">+</button></div></div>
+<div><b id="lt">Time</b><div class="ch" id="tm" role="group" aria-labelledby="lt"></div></div><div><b id="lv">Vibe</b><div class="ch" id="vb" role="group" aria-labelledby="lv"></div></div><button class="rs" type="button" id="rs">Reset</button></div>
+<div class="cnt" id="cnt" aria-live="polite"></div><div class="grid" id="grid"></div><div class="em" id="em" hidden><b>No games match.</b>Try fewer players or a longer time.<br><br><button class="btn" type="button" id="rs2">Reset filters</button></div></section>
+<section class="bk"><div><h2>Save us a table.</h2><button class="btn" type="button" data-book>Book a table</button></div></section></main>
+<dialog id="dlg" aria-labelledby="dt"><form method="dialog" id="f"><div id="fm"><h3 id="dt">Book a table</h3><label for="nm">Your name</label><input id="nm" autocomplete="name"><label for="pz">Party size</label><select id="pz"><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>8</option></select><label for="ts">Time</label><select id="ts"><option>12:00</option><option>14:00</option><option selected>18:00</option><option>20:00</option></select><div class="row"><button class="btn" value="cancel" formnovalidate>Cancel</button><button class="btn t" id="ok" type="submit">Confirm</button></div></div><div id="done" hidden><h3>See you soon!</h3><p id="dp"></p><div class="row"><button class="btn" value="close">Close</button></div></div></form></dialog>
+<script>
+(function(){
+var G=[['Lantern Harbour',[2,4],45,['Strategy'],3,'#14a79b','#ffbf2f'],['Cheese Heist',[3,6],20,['Party','Quick filler'],1,'#ffbf2f','#ff5a43'],['Moth & Flame',[1,4],60,['Co-op','Strategy'],3,'#6a3fb5','#ffbf2f'],['Orbit Cafe',[2,5],30,['Quick filler','Party'],2,'#ff5a43','#bff0dc'],['Dragon Dentist',[2,6],25,['Party','Quick filler'],1,'#bff0dc','#6a3fb5'],['Last Train to Nowhere',[3,5],90,['Co-op','Strategy'],4,'#2b2340','#ffbf2f'],['Pancake Panic',[2,8],15,['Party','Quick filler'],1,'#ffbf2f','#14a79b'],['Saltmarsh Traders',[2,4],75,['Strategy'],4,'#14a79b','#ff5a43'],['The Quiet Library',[1,3],40,['Co-op'],2,'#6a3fb5','#bff0dc'],['Gnome Sweet Gnome',[3,8],30,['Party'],1,'#ff5a43','#ffbf2f'],['Tidewater',[2,4],120,['Strategy'],5,'#2b2340','#14a79b'],['Bake Off Beasts',[2,6],35,['Party','Co-op'],2,'#bff0dc','#ff5a43'],['Clockwork Orchard',[1,5],60,['Co-op','Strategy'],3,'#ffbf2f','#6a3fb5'],['Rooftop Rescue',[2,5],45,['Co-op'],2,'#14a79b','#6a3fb5']];
+var TM=[['Any',999],['Up to 30 min',30],['Up to 60 min',60],['Up to 2 hours',120]],VB=['Co-op','Strategy','Party','Quick filler'],pl=4,tm=0,vb={},grid=document.getElementById('grid'),cnt=document.getElementById('cnt'),em=document.getElementById('em'),tmEl=document.getElementById('tm'),vbEl=document.getElementById('vb');
+TM.forEach(function(t,i){var b=document.createElement('button');b.type='button';b.textContent=t[0];b.addEventListener('click',function(){tm=i;render()});tmEl.appendChild(b)});
+VB.forEach(function(v){var b=document.createElement('button');b.type='button';b.textContent=v;b.addEventListener('click',function(){vb[v]=!vb[v];render()});vbEl.appendChild(b)});
+document.getElementById('pm').addEventListener('click',function(){pl=Math.max(1,pl-1);render()});document.getElementById('pp').addEventListener('click',function(){pl=Math.min(8,pl+1);render()});
+function reset(){pl=4;tm=0;vb={};render()}document.getElementById('rs').addEventListener('click',reset);document.getElementById('rs2').addEventListener('click',reset);
+function cover(g){return'<div class="cv" style="background:'+g[5]+'"><i style="left:12%;top:18%;width:44px;height:44px;border-radius:50%;background:'+g[6]+';border:2.5px solid #2b2340"></i><i style="left:46%;top:38%;width:70px;height:34px;border-radius:12px;background:#fff;border:2.5px solid #2b2340;transform:rotate(-8deg)"></i><i style="right:10%;top:10%;width:30px;height:30px;background:#2b2340;border-radius:8px;transform:rotate(18deg)"></i></div>'}
+function render(){[].forEach.call(tmEl.children,function(b,i){b.setAttribute('aria-pressed',i===tm)});[].forEach.call(vbEl.children,function(b){b.setAttribute('aria-pressed',!!vb[b.textContent])});document.getElementById('pn').textContent=pl;
+var act=VB.filter(function(v){return vb[v]}),list=G.filter(function(g){return pl>=g[1][0]&&pl<=g[1][1]&&g[2]<=TM[tm][1]&&(!act.length||act.some(function(v){return g[3].indexOf(v)>-1}))});
+grid.innerHTML=list.map(function(g,i){var p='';for(var k=1;k<=5;k++)p+='<i class="'+(k<=g[4]?'on':'')+'"></i>';return'<article class="g" style="animation-delay:'+i*30+'ms">'+cover(g)+'<div class="gb"><h3>'+g[0]+'</h3><p>'+g[1][0]+(g[1][1]>g[1][0]?'–'+g[1][1]:'')+' players · '+g[2]+' min</p><div class="tg">'+g[3].map(function(t){return'<span>'+t+'</span>'}).join('')+'</div><div class="pp"><span>Complexity</span>'+p+'</div></div></article>'}).join('');
+cnt.textContent=list.length+(list.length===1?' game':' games')+' for '+pl+(pl===1?' player':' players');em.hidden=list.length>0}
+render();
+var dlg=document.getElementById('dlg'),fm=document.getElementById('fm'),dn=document.getElementById('done');
+document.querySelectorAll('[data-book]').forEach(function(b){b.addEventListener('click',function(){fm.hidden=false;dn.hidden=true;dlg.showModal()})});
+document.getElementById('f').addEventListener('submit',function(e){if(e.submitter&&e.submitter.id==='ok'){e.preventDefault();var n=document.getElementById('nm').value.trim()||'friend';fm.hidden=true;dn.hidden=false;document.getElementById('dp').textContent='Table for '+document.getElementById('pz').value+' at '+document.getElementById('ts').value+', '+n+'. We will have the kettle on.'}});
+})();
+</script></body></html>

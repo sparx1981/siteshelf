@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Keystone Security Key — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:radial-gradient(circle at 75% 22%,rgba(31,224,138,.14),transparent 40%),#0f1214;color:#eef3f1;font:400 17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #1fe08a;outline-offset:3px;border-radius:8px}
+header{display:flex;align-items:center;gap:26px;padding:18px clamp(18px,4vw,56px)}
+.logo{font:700 24px 'Space Grotesk',sans-serif;margin-right:auto}.logo i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#1fe08a;margin-left:3px}
+header a{color:#9aa8a3;text-decoration:none;font-size:15px;font-weight:500}header a:hover{color:#fff}
+.btn{display:inline-block;font:600 16px Inter,sans-serif;padding:14px 26px;border-radius:12px;border:1px solid #33404a;background:transparent;color:#eef3f1!important;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn.g{background:#1fe08a;border-color:#1fe08a;color:#04180e!important}.btn:hover{transform:translateY(-2px)}.btn.g:hover{box-shadow:0 10px 30px rgba(31,224,138,.35)}header .btn{padding:9px 18px;font-size:14px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;align-items:center;max-width:1240px;margin:0 auto;padding:20px clamp(18px,4vw,56px) 40px}
+h1{font:700 clamp(40px,5.6vw,84px)/1 'Space Grotesk',sans-serif;letter-spacing:-.03em;margin:0 0 18px}h1 em{color:#1fe08a;font-style:normal}
+.sub{color:#9aa8a3;max-width:46ch;margin:0 0 26px;font-size:18px}.btns{display:flex;gap:12px;flex-wrap:wrap}
+.keyw{perspective:900px;display:grid;place-items:center;min-height:300px}
+.key{width:min(100%,420px);animation:fl 5s ease-in-out infinite;transition:transform .2s}
+@keyframes fl{50%{translate:0 -8px}}
+.key svg{width:100%;display:block;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.ring{transform-origin:center;transform-box:fill-box}.ring.ok{animation:pg .5s 3 both}.ring.bad{animation:pr .5s 3 both}
+@keyframes pg{50%{stroke:#7dffc2;stroke-width:8}}@keyframes pr{50%{stroke:#ff5d5d;stroke-width:8}}
+.sec{max-width:1100px;margin:0 auto;padding:40px clamp(18px,4vw,56px)}h2{font:700 clamp(28px,3.8vw,46px)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.02em;margin:0 0 22px}
+.demo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.fr{background:#181c1f;border:1px solid #2a3136;border-radius:16px;overflow:hidden}
+.url{display:flex;gap:8px;align-items:center;padding:10px 14px;background:#11161a;border-bottom:1px solid #2a3136;font:400 13px 'IBM Plex Mono',monospace}.url i{width:9px;height:9px;border-radius:50%;background:#2a3136}.url span{margin-left:6px;color:#9aa8a3;background:#0b0e10;border-radius:6px;padding:3px 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.url span.bad{color:#ff9a9a}.url span.good{color:#7dffc2}
+.bd{padding:20px}.bd h3{margin:0 0 12px;font:600 20px 'Space Grotesk',sans-serif}
+.fk{height:38px;border-radius:8px;background:#0f1214;border:1px solid #2a3136;margin-bottom:10px;padding:9px 12px;font:13px 'IBM Plex Mono',monospace;color:#6c7a75}
+.tap{width:100%;margin-top:6px;font:600 15px Inter,sans-serif;background:#1fe08a;color:#04180e;border:0;border-radius:10px;padding:12px;cursor:pointer}.tap:disabled{opacity:.6;cursor:progress}
+.stt{margin-top:12px;min-height:46px;font-weight:600;font-size:15px;padding:10px 12px;border-radius:10px;background:#11161a}.stt.ok{color:#7dffc2;background:rgba(31,224,138,.1)}.stt.no{color:#ff9a9a;background:rgba(255,93,93,.1)}
+.log{margin-top:16px;background:#0b0e10;border:1px solid #2a3136;border-radius:12px;padding:14px 16px;font:400 13px/1.8 'IBM Plex Mono',monospace;color:#9aa8a3;min-height:92px}.log div{animation:fi .25s}@keyframes fi{from{opacity:0;transform:translateX(-6px)}}.log .e{color:#ff9a9a}.log .o{color:#7dffc2}
+.rs{background:none;border:0;color:#9aa8a3;text-decoration:underline;cursor:pointer;margin-top:10px;font:inherit;font-size:14px}
+.tw{overflow-x:auto;border:1px solid #2a3136;border-radius:16px}table{width:100%;border-collapse:collapse;min-width:560px}th,td{padding:14px 18px;text-align:left;border-bottom:1px solid #20272b;font-size:15px}th{font:600 14px 'Space Grotesk',sans-serif;background:#141a1d}tr:last-child td{border:0}
+tbody tr:hover,tbody tr:focus-within{background:#161d20}th:nth-child(2),td:nth-child(2){background:rgba(31,224,138,.07)}
+.y{color:#7dffc2;font-weight:600}.n{color:#ff9a9a;font-weight:600}.p{color:#ffd37a;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.cards div{background:#181c1f;border:1px solid #2a3136;border-radius:16px;padding:22px;transition:transform .25s,border-color .25s}.cards div:hover{transform:translateY(-4px);border-color:#1fe08a}.cards b{display:block;font:600 19px 'Space Grotesk',sans-serif;margin-bottom:4px}.cards p{margin:0;color:#9aa8a3;font-size:15px}
+.cta{text-align:center;padding:70px 20px 80px}.cta h2{margin-bottom:20px}
+@media(max-width:860px){.hero,.demo,.cards{grid-template-columns:minmax(0,1fr)}header a:not(.btn){display:none}}
+@media(prefers-reduced-motion:reduce){.key{animation:none}.ring{animation:none!important}*{transition:none!important}.log div{animation:none}}
+</style></head><body>
+<header><div class="logo">keystone<i></i></div><a href="#">Product</a><a href="#demo">How it works</a><a href="#cmp">Compare</a><a class="btn g" href="#">Buy for £29</a></header>
+<main><section class="hero"><div><h1>Passwords get stolen. <em>This can't.</em></h1><p class="sub">Keystone is a USB key that proves it's really you, and only to the real website. Phishing pages get nothing.</p><div class="btns"><a class="btn g" href="#">Buy Keystone, £29</a><a class="btn" href="#demo">How it works</a></div></div>
+<div class="keyw" id="kw"><div class="key" id="key"><svg viewBox="0 0 400 200" role="img" aria-label="Keystone security key"><rect x="150" y="62" width="120" height="76" rx="10" fill="#d9b24a"/><rect x="150" y="62" width="120" height="76" rx="10" fill="none" stroke="#8a6a1c" stroke-width="3"/><rect x="170" y="80" width="14" height="14" fill="#8a6a1c"/><rect x="170" y="106" width="14" height="14" fill="#8a6a1c"/><rect x="200" y="80" width="14" height="14" fill="#8a6a1c"/><rect x="200" y="106" width="14" height="14" fill="#8a6a1c"/>
+<rect x="30" y="40" width="130" height="120" rx="28" fill="#232a2e"/><rect x="30" y="40" width="130" height="120" rx="28" fill="none" stroke="#3a454b" stroke-width="2"/><circle cx="95" cy="100" r="34" fill="#11161a" stroke="#2f3b41" stroke-width="3"/><circle id="ring" class="ring" cx="95" cy="100" r="26" fill="none" stroke="#1fe08a" stroke-width="5"/><circle cx="95" cy="100" r="10" fill="#1fe08a" opacity=".35"/><circle cx="52" cy="62" r="8" fill="#0f1214" stroke="#3a454b" stroke-width="2"/><text x="52" y="146" fill="#7a8a84" font-family="IBM Plex Mono,monospace" font-size="11">KEYSTONE</text></svg></div></div></section>
+<section class="sec" id="demo"><h2>Try to get phished</h2><div class="demo">
+<div class="fr"><div class="url"><i></i><i></i><i></i><span class="good">https://bank.example</span></div><div class="bd"><h3>Sign in to Bank Example</h3><div class="fk">ada@example.com</div><div class="fk">•••••••••••</div><button class="tap" type="button" data-s="real">Tap Keystone</button><div class="stt" id="s-real" aria-live="polite">Waiting for your key…</div></div></div>
+<div class="fr"><div class="url"><i></i><i></i><i></i><span class="bad">https://bank-secure-login.example</span></div><div class="bd"><h3>Sign in to Bank Example</h3><div class="fk">ada@example.com</div><div class="fk">•••••••••••</div><button class="tap" type="button" data-s="fake">Tap Keystone</button><div class="stt" id="s-fake" aria-live="polite">Waiting for your key…</div></div></div></div>
+<div class="log" id="log" aria-hidden="false"><div>$ keystone --monitor</div></div><button class="rs" id="rs" type="button">Reset demo</button></section>
+<section class="sec" id="cmp"><h2>How it compares</h2><div class="tw"><table><thead><tr><th scope="col">&nbsp;</th><th scope="col">Keystone</th><th scope="col">Password</th><th scope="col">SMS code</th><th scope="col">Authenticator app</th></tr></thead><tbody>
+<tr><th scope="row">Phishing-proof</th><td class="y">✓ Yes</td><td class="n">✕ No</td><td class="n">✕ No</td><td class="p">~ Partly</td></tr>
+<tr><th scope="row">Nothing to type</th><td class="y">✓ Yes</td><td class="n">✕ No</td><td class="n">✕ No</td><td class="n">✕ No</td></tr>
+<tr><th scope="row">Works offline</th><td class="y">✓ Yes</td><td class="y">✓ Yes</td><td class="n">✕ No</td><td class="y">✓ Yes</td></tr>
+<tr><th scope="row">Cost</th><td>£29 once</td><td>Free</td><td>Free</td><td>Free</td></tr></tbody></table></div></section>
+<section class="sec"><div class="cards"><div><b>Works everywhere</b><p>USB-A, USB-C and NFC for phones. Over 4,000 sites supported.</p></div><div><b>No batteries</b><p>Powered by the port or the phone. It will outlast your laptop.</p></div><div><b>Lose it? Stay safe</b><p>Register a spare and revoke the lost key in seconds.</p></div></div></section>
+<section class="cta"><h2>Make phishing a non-event.</h2><a class="btn g" href="#">Buy Keystone, £29</a></section></main>
+<script>
+(function(){
+var log=document.getElementById('log'),ring=document.getElementById('ring'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,busy=false;
+function line(t,c){var d=document.createElement('div');d.textContent=t;if(c)d.className=c;log.appendChild(d)}
+function run(kind){if(busy)return;busy=true;document.querySelectorAll('.tap').forEach(function(b){b.disabled=true});
+var real=kind==='real',host=real?'bank.example':'bank-secure-login.example',st=document.getElementById('s-'+kind);
+var steps=[['challenge received from '+host,''],['checking origin against registered: bank.example',''],real?['origin matches ✓','o']:['origin MISMATCH ✕','e'],real?['signing challenge with private key…','']:['refusing to sign','e'],real?['signature sent. signed in as ada@example.com','o']:['no credentials were sent','e']];
+steps.forEach(function(s,i){setTimeout(function(){line('> '+s[0],s[1]);if(i===2){ring.setAttribute('class','ring '+(real?'ok':'bad'));ring.setAttribute('stroke',real?'#1fe08a':'#ff5d5d')}
+if(i===4){st.className='stt '+(real?'ok':'no');st.textContent=real?'✓ Verified: signed in as ada@example.com':'✕ Blocked: wrong domain, no credentials sent';busy=false;document.querySelectorAll('.tap').forEach(function(b){b.disabled=false})}},reduce?0:i*350)})}
+document.querySelectorAll('.tap').forEach(function(b){b.addEventListener('click',function(){run(b.dataset.s)})});
+document.getElementById('rs').addEventListener('click',function(){log.innerHTML='<div>$ keystone --monitor</div>';ring.setAttribute('class','ring');ring.setAttribute('stroke','#1fe08a');['real','fake'].forEach(function(k){var s=document.getElementById('s-'+k);s.className='stt';s.textContent='Waiting for your key…'})});
+var kw=document.getElementById('kw'),key=document.getElementById('key');if(!reduce){kw.addEventListener('pointermove',function(e){var r=kw.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;key.style.transform='rotateY('+x*20+'deg) rotateX('+(-y*16)+'deg)'});kw.addEventListener('pointerleave',function(){key.style.transform=''})}
+})();
+</script></body></html>

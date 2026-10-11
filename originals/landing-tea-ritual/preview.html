@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Steepline Tea Club — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Newsreader:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f6f1e6;color:#1e2a22;font:400 17px/1.6 Karla,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #1f3a2d;outline-offset:3px;border-radius:10px}
+header{display:flex;align-items:center;gap:26px;padding:18px clamp(18px,4vw,56px)}
+.logo{font:500 26px Newsreader,serif;margin-right:auto;display:flex;align-items:center;gap:8px}.logo i{width:20px;height:20px;background:#1f3a2d;border-radius:0 100% 0 100%}
+header a{color:#5c6a5f;text-decoration:none;font-weight:500;font-size:15px}header a:hover{color:#1e2a22}
+.btn{display:inline-block;font:700 16px Karla,sans-serif;padding:14px 26px;border-radius:99px;background:#1f3a2d;color:#f6f1e6!important;border:0;text-decoration:none;cursor:pointer;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px);background:#2c5040}.btn.o{background:transparent;color:#1f3a2d!important;border:1.5px solid #1f3a2d}.btn.o:hover{background:#e9e3d2}header .btn{padding:9px 20px;font-size:14px}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:30px;align-items:center;max-width:1200px;margin:0 auto;padding:20px clamp(18px,4vw,56px) 40px}
+h1{font:500 clamp(40px,6vw,84px)/1.02 Newsreader,serif;letter-spacing:-.015em;margin:0 0 18px}h1 em{color:#b5532e}
+.sub{color:#5c6a5f;max-width:46ch;margin:0 0 26px;font-size:18px}
+.cup{max-width:380px;margin:0 auto;width:100%}.cup svg{width:100%;display:block;overflow:visible}
+.steam path{fill:none;stroke:#b9b2a0;stroke-width:4;stroke-linecap:round;opacity:.5;animation:st 3.2s ease-in-out infinite}.steam path:nth-child(2){animation-delay:-1s}.steam path:nth-child(3){animation-delay:-2s}
+@keyframes st{0%{transform:translateY(8px);opacity:0}40%{opacity:.6}100%{transform:translateY(-22px);opacity:0}}
+.run .steam path{opacity:.8}
+.sec{max-width:1100px;margin:0 auto;padding:40px clamp(18px,4vw,56px)}h2{font:500 clamp(30px,4vw,50px)/1.05 Newsreader,serif;margin:0 0 22px}
+.brew{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px}
+.teas{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.tea{text-align:left;background:#fff;border:2px solid #e4dcc8;border-radius:18px;padding:16px;cursor:pointer;font:inherit;color:inherit;transition:border-color .2s,transform .2s}.tea:hover{transform:translateY(-3px)}
+.tea[aria-checked=true]{border-color:#1f3a2d;background:#f1f6ee}.tea i{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:8px;vertical-align:-1px}.tea b{font:500 20px Newsreader,serif}.tea span{display:block;font-size:14px;color:#5c6a5f;margin-top:4px}.tea em{display:block;font-size:13px;font-style:normal;font-weight:700;margin-top:8px;color:#1f3a2d}
+.tm{background:#fff;border:1px solid #e4dcc8;border-radius:24px;padding:26px;text-align:center}
+.rg{position:relative;width:190px;margin:0 auto 14px}.rg svg{width:100%;transform:rotate(-90deg);display:block}.rg .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.big{font:500 48px/1 Newsreader,serif;font-variant-numeric:tabular-nums}.chip{display:inline-block;margin-top:6px;font-size:13px;font-weight:700;background:#f4e7d4;color:#7a3a1c;padding:3px 12px;border-radius:99px}
+.ctl{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:10px 0}.ctl .btn{padding:11px 22px;font-size:15px}
+.dm{display:flex;gap:8px;justify-content:center;align-items:center;font-size:14px;color:#5c6a5f;margin-top:6px}.dm input{width:18px;height:18px;accent-color:#1f3a2d}
+.msg{min-height:26px;font-weight:700;color:#1f3a2d;margin-top:10px}.msg.done{animation:pu 1.4s ease-in-out infinite}@keyframes pu{50%{transform:scale(1.05)}}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.pn{text-align:left;background:#fff;border:2px solid #e4dcc8;border-radius:20px;padding:20px;cursor:pointer;font:inherit;color:inherit;transition:border-color .2s,transform .2s}.pn:hover{transform:translateY(-3px)}.pn[aria-checked=true]{border-color:#b5532e;background:#fff7f1}
+.pn b{display:block;font:500 22px Newsreader,serif}.pn strong{display:block;font:500 32px Newsreader,serif;margin-top:6px}.pn span{font-size:14px;color:#5c6a5f}
+.sum{margin-top:14px;font-weight:700}
+footer{text-align:center;padding:50px 20px;color:#5c6a5f;font-size:14px}
+@media(max-width:860px){.hero,.brew{grid-template-columns:minmax(0,1fr)}.plans{grid-template-columns:minmax(0,1fr)}.cup{max-width:260px}header a:not(.btn){display:none}.teas{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){.steam path{animation:none}.msg.done{animation:none}*{transition:none!important}}
+</style></head><body>
+<header><div class="logo"><i></i>Steepline</div><a href="#">Teas</a><a href="#brew">Ritual</a><a href="#club">Club</a><a class="btn" href="#club">Join the club</a></header>
+<main><section class="hero"><div><h1>A slower, <em>better</em> cup.</h1><p class="sub">Four single-garden teas a month, picked by tea buyers and posted in a tin. Brew each one at exactly the right temperature and time.</p><a class="btn" href="#brew">Choose your blends</a></div>
+<div class="cup" id="cup"><svg viewBox="0 0 300 260" role="img" aria-label="A teacup that fills with colour as the tea steeps"><g class="steam"><path d="M110 70q-14-20 0-38t0-30"/><path d="M150 70q-14-20 0-38t0-30"/><path d="M190 70q-14-20 0-38t0-30"/></g>
+<ellipse cx="150" cy="225" rx="118" ry="16" fill="#e4dcc8"/><path d="M60 90h180v60a90 78 0 0 1-180 0z" fill="#fff" stroke="#d9cfb8" stroke-width="3"/><clipPath id="cp"><path d="M66 100h168v50a84 72 0 0 1-168 0z"/></clipPath><rect id="liq" x="60" y="100" width="180" height="170" fill="#e6efc9" clip-path="url(#cp)" style="transition:fill .6s"/><ellipse cx="150" cy="100" rx="84" ry="9" fill="#f1f6d4" id="top" style="transition:fill .6s"/><path d="M60 110c-38-6-42 40-6 48" fill="none" stroke="#d9cfb8" stroke-width="12" stroke-linecap="round"/><path d="M60 110c-38-6-42 40-6 48" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/><path d="M92 90h116" stroke="#d9cfb8" stroke-width="3"/></svg></div></section>
+<section class="sec" id="brew"><h2>Brew it right</h2><div class="brew"><div class="teas" role="radiogroup" aria-label="Choose a tea" id="teas"></div>
+<div class="tm"><div class="rg"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#efe8d6" stroke-width="7"/><circle id="pr" cx="50" cy="50" r="44" fill="none" stroke="#1f3a2d" stroke-width="7" stroke-linecap="round" stroke-dasharray="276.46" stroke-dashoffset="276.46"/></svg><div class="c"><div class="big" id="clk">2:00</div><span class="chip" id="tmp">75°C</span></div></div>
+<div class="ctl"><button class="btn" type="button" id="go">Start</button><button class="btn o" type="button" id="rs">Reset</button></div><label class="dm"><input type="checkbox" id="fast"> Demo speed ×10</label><div class="msg" id="msg" aria-live="polite"></div></div></div></section>
+<section class="sec" id="club"><h2>Pick your tin</h2><div class="plans" role="radiogroup" aria-label="Plan" id="pl"></div><p class="sum" id="sm" aria-live="polite"></p></section></main>
+<footer>Steepline Tea Club · Posted from Shropshire · hello@steepline.example</footer>
+<script>
+(function(){
+var T=[['Sencha Midori',75,120,'#c7dd7a','Grassy, sweet, a little seaweed','#e6efc9'],['Assam Bright',95,240,'#b5532e','Malty, honeyed, brisk','#f2d9c2'],['Silver Needle',80,180,'#e8d38a','Delicate, melon, soft hay','#f6f0d6'],['Rooibos Ember',100,300,'#a3401f','Caramel, red fruit, no caffeine','#f1d3c0']],sel=0,left=120,total=120,run=false,timer,fast=false,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var teas=document.getElementById('teas'),clk=document.getElementById('clk'),tmp=document.getElementById('tmp'),pr=document.getElementById('pr'),liq=document.getElementById('liq'),top_=document.getElementById('top'),go=document.getElementById('go'),msg=document.getElementById('msg'),cup=document.getElementById('cup'),last=0;
+function mix(a,b,t){var A=[1,3,5].map(function(i){return parseInt(a.substr(i,2),16)}),B=[1,3,5].map(function(i){return parseInt(b.substr(i,2),16)});return'#'+A.map(function(v,i){return('0'+Math.round(v+(B[i]-v)*t).toString(16)).slice(-2)}).join('')}
+function fmt(s){return Math.floor(s/60)+':'+('0'+Math.floor(s%60)).slice(-2)}
+function draw(){clk.textContent=fmt(Math.ceil(left));var p=1-left/total;pr.style.strokeDashoffset=276.46*(1-p);var t=reduce?Math.round(p*4)/4:p,c=mix(T[sel][5],T[sel][3],t);liq.setAttribute('fill',c);top_.setAttribute('fill',mix(c,'#ffffff',.18))}
+T.forEach(function(t,i){var b=document.createElement('button');b.type='button';b.className='tea';b.setAttribute('role','radio');b.innerHTML='<b><i style="background:'+t[3]+'"></i>'+t[0]+'</b><span>'+t[4]+'</span><em>'+t[1]+'°C · '+fmt(t[2])+'</em>';b.addEventListener('click',function(){pick(i)});b.addEventListener('keydown',function(e){var k={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];if(k){e.preventDefault();pick((sel+k+4)%4);teas.children[sel].focus()}});teas.appendChild(b)});
+function stop(){run=false;clearInterval(timer);go.textContent='Start';cup.classList.remove('run')}
+function pick(i){sel=i;stop();total=left=T[i][2];tmp.textContent=T[i][1]+'°C';msg.className='msg';msg.textContent='';[].forEach.call(teas.children,function(b,k){b.setAttribute('aria-checked',k===i);b.tabIndex=k===i?0:-1});draw()}
+function tick(){left-=fast?1:.1;last+=fast?1:.1;if(last>=30){last=0;msg.textContent=fmt(Math.ceil(left))+' remaining'}if(left<=0){left=0;stop();draw();msg.className='msg done';msg.textContent='Ready, enjoy';return}draw()}
+go.addEventListener('click',function(){if(left<=0)pick(sel);if(run){stop()}else{run=true;go.textContent='Pause';cup.classList.add('run');msg.className='msg';msg.textContent='Steeping…';clearInterval(timer);timer=setInterval(tick,fast?100:100)}});
+document.getElementById('rs').addEventListener('click',function(){pick(sel)});document.getElementById('fast').addEventListener('change',function(e){fast=e.target.checked});
+pick(0);
+var P=[['Monthly','£16','a month, four teas'],['Every 2 months','£17','a tin, eight teas'],['Gift 3 months','£48','one payment, no renewal']],pl=document.getElementById('pl'),pi=0,sm=document.getElementById('sm');
+P.forEach(function(p,i){var b=document.createElement('button');b.type='button';b.className='pn';b.setAttribute('role','radio');b.innerHTML='<b>'+p[0]+'</b><strong>'+p[1]+'</strong><span>'+p[2]+'</span>';b.addEventListener('click',function(){pp(i)});b.addEventListener('keydown',function(e){var k={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];if(k){e.preventDefault();pp((pi+k+3)%3);pl.children[pi].focus()}});pl.appendChild(b)});
+function pp(i){pi=i;[].forEach.call(pl.children,function(b,k){b.setAttribute('aria-checked',k===i);b.tabIndex=k===i?0:-1});sm.textContent='You chose '+P[i][0]+' at '+P[i][1]+'. Free postage in the UK; skip or cancel any time.'}pp(0);
+})();
+</script></body></html>

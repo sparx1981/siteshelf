@@ -1,0 +1,13 @@
+Canvas & base: Charcoal #1c1c1e and warm yellow #ffd23f as the main pair, off-white #f6f3ea sections, ink #1c1c1e, secondary #5b5a55 (6:1 on off-white). Cards white with 2px #1c1c1e borders and 6px 6px 0 #1c1c1e hard shadows for a bold poster feel. Invented company "Haul & Hum Movers", family-run removals across the north of England.
+
+Typography: "Big Shoulders Display" 800 uppercase for headings (clamp 52px to 128px, line-height .9, tracking -.01em) and big numbers; "Work Sans" 400/500/700 for body 17px and UI. Headline: "Your whole life. One very organised van."
+
+Layout: Header on yellow with wordmark "HAUL & HUM" (with a small van glyph in CSS), links Estimate, Checklist, Reviews, and a black button "Get a quote". Hero (yellow background): left headline, 42ch sub "Careful crews, fixed prices and a tea break on us. Tell us what you're moving and see a price in seconds.", buttons "Estimate my move" (black) and "Call 0161 555 0142" (outline). Right: a CSS van illustration (body, cab, wheels) that drives in from the left on load. Section "Estimate your move" in a two-column card: left a list of six rooms (Living room, Kitchen, Bedrooms, Home office, Garage, Garden) each with a minus/plus counter (0 to 6, default 1, 2, 2, 0, 0, 0 and bedrooms 2), a "Miles to travel" slider 1 to 250 (default 30) and two toggles: "Stairs or no lift" and "We need packing help"; right: a result panel with the price range (e.g. "£640 to £780"), recommended van (Small, Medium, Large, Luton) with a progress meter, crew size (2 or 3) and estimated hours. Section "Moving day checklist": ten tasks as checkboxes with a circular progress ring (e.g. "Book parking permit", "Defrost the freezer") and a message when complete. Reviews strip of three quotes. Black footer.
+
+Calculation: points = living*4 + kitchen*3 + bedrooms*3 + office*2 + garage*5 + garden*1.5; van = points<12 small, <24 medium, <40 large, else luton; base = 180 + points*18 + miles*2.4 + (stairs?70:0) + (packing?points*9:0); range = base*0.92 to base*1.12 rounded to nearest £10; crew = points<24?2:3; hours = max(2, round(points/5 + miles/40)).
+
+Interaction: Counter buttons have press feedback; numbers animate 300ms; van meter fills with spring easing; keyboard operable counters (aria-label "Add one bedroom"). Checklist ring animates stroke.
+
+Responsive: Under 860px stack columns, van art smaller; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. aria-live on the estimate, visible focus 3px #1c1c1e with yellow offset ring. Respect prefers-reduced-motion (no driving animation). Invented names only, example-style phone numbers.

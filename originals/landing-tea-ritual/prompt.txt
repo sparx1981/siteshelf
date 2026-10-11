@@ -1,0 +1,11 @@
+Canvas & base: Soft cream page #f6f1e6, deep tea green #1f3a2d, ink #1e2a22, secondary #5c6a5f (5.6:1), clay #b5532e accent, honey #e0a63a. Cards white with 1px #e4dcc8 borders, radius 22px. Invented subscription "Steepline Tea Club", loose-leaf tea from small gardens.
+
+Typography: "Newsreader" 500 and italic 500 for headings (clamp 40px to 84px, line-height 1.02, tracking -.015em); "Karla" 400/500/700 for body 17px and UI. Headline: "A slower, better cup." with "better" in italic clay.
+
+Layout: Header with wordmark "Steepline" (serif with a leaf glyph), links Teas, Ritual, Club and button "Join the club". Hero: left headline, 46ch sub "Four single-garden teas a month, picked by tea buyers and posted in a tin. Brew each one at exactly the right temperature and time.", button "Choose your blends". Right: an SVG teacup (white cup, saucer, steam wisps) whose liquid fill colour is animated by the timer. Section "Brew it right": left, a blend picker of four teas as selectable cards (Sencha Midori 75°C 2 min, Assam Bright 95°C 4 min, Silver Needle 80°C 3 min, Rooibos Ember 100°C 5 min) each with a colour dot and tasting note; right, a timer panel: big mm:ss, temperature chip, a progress ring, buttons Start, Pause, Reset and a "Demo speed x10" checkbox. When running, the cup liquid gradually darkens from pale to the tea's final colour; at zero the timer shows "Ready, enjoy" with a soft pulse and steam wisps intensify. Next: "Pick your tin" with three plan cards (Monthly £16, Every 2 months £17, Gift 3 months £48) as radios and a summary. Footer.
+
+Interaction: Blend selection resets the timer to that tea's time and updates temperature and colours (400ms). Timer runs on setInterval at 1s (100ms ticks with x10 demo). Start becomes Pause; space key toggles when the panel is focused. The ring stroke shows progress. All controls have visible focus (3px #1f3a2d) and aria-pressed or aria-checked states; the remaining time is announced every 30s (aria-live polite) and at completion.
+
+Responsive: Under 860px stack columns, cup above timer; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Respect prefers-reduced-motion (no steam animation or pulse; liquid colour changes in steps). Invented names only.

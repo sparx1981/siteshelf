@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Parley Language App — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#fff6e9;color:#2a1f3d;font:400 17px/1.6 Nunito,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #4a3aff;outline-offset:3px;border-radius:14px}
+header{display:flex;align-items:center;gap:26px;padding:18px clamp(18px,4vw,56px)}
+.logo{font:800 26px 'Bricolage Grotesque',sans-serif;margin-right:auto;display:flex;align-items:center;gap:8px}.logo i{width:26px;height:22px;background:#ff6a5c;border:2px solid #2a1f3d;border-radius:10px 10px 10px 2px}
+header a{color:#6a5b7f;text-decoration:none;font-weight:700;font-size:15px}header a:hover{color:#2a1f3d}
+.btn{display:inline-block;font:800 16px Nunito,sans-serif;padding:13px 24px;border-radius:99px;border:2px solid #2a1f3d;background:#fff;color:#2a1f3d!important;text-decoration:none;cursor:pointer;box-shadow:3px 3px 0 #2a1f3d;transition:transform .15s,box-shadow .15s}
+.btn.pr{background:#4a3aff;color:#fff!important}.btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 #2a1f3d}.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #2a1f3d}header .btn{padding:8px 18px;font-size:14px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:30px;align-items:center;max-width:1240px;margin:0 auto;padding:20px clamp(18px,4vw,56px) 40px}
+h1{font:800 clamp(42px,6vw,92px)/.98 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em;margin:0 0 18px}h1 span{background:linear-gradient(transparent 62%,#ffc933 62%)}
+.sub{color:#6a5b7f;max-width:44ch;margin:0 0 26px;font-size:18px}.btns{display:flex;gap:14px;flex-wrap:wrap}
+.play{position:relative;height:440px;border:2px dashed #cdbfa6;border-radius:28px;background:radial-gradient(#e9dcc3 1.5px,transparent 2px) 0 0/22px 22px}
+.bub{position:absolute;perspective:700px;animation:fl var(--t) ease-in-out infinite alternate}
+@keyframes fl{to{transform:translate(var(--dx),var(--dy))}}
+.bub button{all:unset;box-sizing:border-box;display:block;cursor:pointer;position:relative;transform-style:preserve-3d;transition:transform .5s;border-radius:20px}
+.bub button:focus-visible{outline:3px solid #4a3aff;outline-offset:4px}
+.bub .f,.bub .b{display:block;padding:12px 18px;border:2px solid #2a1f3d;border-radius:20px 20px 20px 4px;box-shadow:4px 4px 0 #2a1f3d;font:800 18px Nunito,sans-serif;white-space:nowrap;backface-visibility:hidden;transition:box-shadow .2s,transform .2s}
+.bub .b{position:absolute;inset:0;transform:rotateX(180deg);background:#fff;font-size:15px;display:flex;align-items:center;gap:8px;font-weight:700}
+.bub button[aria-pressed=true]{transform:rotateX(180deg)}
+.bub button:hover .f{box-shadow:6px 6px 0 #2a1f3d;transform:translate(-1px,-2px)}
+.chips{display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.chips button{font:800 15px Nunito,sans-serif;border:2px solid #2a1f3d;background:#fff;border-radius:99px;padding:8px 16px;cursor:pointer;color:#2a1f3d}.chips button[aria-pressed=true]{background:#2a1f3d;color:#fff}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:900px;margin:10px auto 0;padding:0 clamp(18px,4vw,40px)}
+.card{background:#fff;border:2px solid #2a1f3d;border-radius:22px;box-shadow:4px 4px 0 #2a1f3d;padding:22px}
+.card h2{font:800 14px Nunito,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6a5b7f;margin:0 0 10px}
+.big{font:800 36px 'Bricolage Grotesque',sans-serif}
+.wk{display:flex;gap:8px;margin-top:12px}.wk button{flex:1;aspect-ratio:1;max-width:44px;border-radius:50%;border:2px solid #2a1f3d;background:#fff;cursor:pointer;font:800 12px Nunito,sans-serif;color:#2a1f3d;transition:background .2s,transform .2s}.wk button[aria-pressed=true]{background:#ffc933}.wk button:hover{transform:scale(1.08)}
+.goal{display:flex;align-items:center;gap:18px}.goal svg{width:96px;height:96px;transform:rotate(-90deg);flex:none}.goal b{display:block;font:800 30px 'Bricolage Grotesque',sans-serif}
+.how{max-width:1000px;margin:60px auto 0;padding:0 clamp(18px,4vw,40px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.how div{padding:6px 4px}.how i{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#2fc9a0;border:2px solid #2a1f3d;font:800 20px 'Bricolage Grotesque',sans-serif;font-style:normal;margin-bottom:10px}.how b{display:block;font:800 22px 'Bricolage Grotesque',sans-serif}.how p{margin:4px 0 0;color:#6a5b7f;font-size:15px}
+.cta{background:#4a3aff;color:#fff;text-align:center;padding:60px 20px;margin-top:70px}.cta h2{font:800 clamp(30px,4.4vw,56px)/1 'Bricolage Grotesque',sans-serif;margin:0 0 20px}.cta .btn{background:#ffc933;color:#2a1f3d!important}
+@media(max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}.play{height:auto;padding:14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;border-style:solid}.bub{position:static;animation:none!important;perspective:none}.bub button{width:100%}.bub .f{white-space:normal;font-size:15px;padding:10px 12px;min-height:60px}.bub .b{white-space:normal;font-size:13px}.row,.how{grid-template-columns:minmax(0,1fr)}header a:not(.btn){display:none}}
+@media(prefers-reduced-motion:reduce){.bub{animation:none}*{transition:none!important}}
+</style></head><body>
+<header><div class="logo"><i></i>parley</div><a href="#">Languages</a><a href="#">Method</a><a href="#">Pricing</a><a class="btn pr" href="#">Start free</a></header>
+<main><section class="hero"><div><h1>Talk first. <span>Textbook later.</span></h1><p class="sub">Parley gets you speaking real sentences on day one, with short voice lessons and a patient tutor that never sighs.</p><div class="btns"><a class="btn pr" href="#">Start speaking</a><a class="btn" href="#">See how it works</a></div></div>
+<div><div class="play" id="play" role="group" aria-label="Phrase bubbles. Press a bubble to see its translation"></div><div class="chips" id="chips" role="group" aria-label="Language"></div></div></section>
+<section class="row"><div class="card"><h2>Streak</h2><div class="big" id="sk">🔥 12 day streak</div><div class="wk" id="wk" role="group" aria-label="This week"></div></div>
+<div class="card"><h2>Daily goal</h2><div class="goal"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="40" fill="none" stroke="#f1e3c8" stroke-width="12"/><circle id="rg" cx="50" cy="50" r="40" fill="none" stroke="#ff6a5c" stroke-width="12" stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3" style="transition:stroke-dashoffset 1.2s ease"/></svg><div><b>8 of 10 min</b><span style="color:#6a5b7f">Two more minutes to keep your streak.</span></div></div></div></section>
+<section class="how"><div><i>1</i><b>Listen</b><p>Hear a native speaker say a short, useful phrase.</p></div><div><i>2</i><b>Say it</b><p>Repeat out loud and get gentle feedback on rhythm and sound.</p></div><div><i>3</i><b>Use it</b><p>Roleplay a real moment: ordering coffee, asking directions.</p></div></section></main>
+<div class="cta"><h2>Your first conversation is five minutes away.</h2><a class="btn" href="#">Start free</a></div>
+<script>
+(function(){
+var L={Spanish:[['¿Dónde está la estación?','Where is the station?'],['Una mesa para dos','A table for two'],['Me encanta este lugar','I love this place'],['¿Cuánto cuesta?','How much is it?'],['Hablo un poco','I speak a little'],['Buenas noches','Good night'],['Con gusto','My pleasure'],['Otra vez, por favor','Once more, please']],
+Japanese:[['駅はどこですか？','Where is the station?'],['二人です','Table for two'],['とても美味しい','Very delicious'],['いくらですか？','How much is it?'],['少し話せます','I speak a little'],['おやすみなさい','Good night'],['どういたしまして','You are welcome'],['もう一度お願いします','Once more, please']],
+Italian:[["Dov'è la stazione?",'Where is the station?'],['Un tavolo per due','A table for two'],['Adoro questo posto','I love this place'],['Quanto costa?','How much is it?'],['Parlo un poco','I speak a little'],['Buonanotte','Good night'],['Prego','You are welcome'],['Ancora una volta','Once more']],
+Korean:[['역이 어디예요?','Where is the station?'],['두 명이에요','Table for two'],['정말 맛있어요','So delicious'],['얼마예요?','How much is it?'],['조금 해요','I speak a little'],['안녕히 주무세요','Good night'],['천만에요','You are welcome'],['다시 말해 주세요','Say it again, please']]};
+var C=['#ffc933','#ff9a8e','#c9c4ff','#9be8d2','#fff','#ffc933','#ff9a8e','#c9c4ff'],P=[[3,6],[52,3],[6,32],[48,28],[14,58],[54,56],[4,82],[46,82]],play=document.getElementById('play'),chips=document.getElementById('chips'),cur='Spanish',reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function build(){play.innerHTML='';L[cur].forEach(function(p,i){var d=document.createElement('div');d.className='bub';d.style.cssText='left:'+P[i][0]+'%;top:'+P[i][1]+'%;--t:'+(6+i%4*1.3)+'s;--dx:'+(i%2?8:-8)+'px;--dy:'+(i%3?-10:10)+'px;animation-delay:-'+i+'s';
+d.innerHTML='<button type="button" aria-pressed="false" aria-label="'+cur+': '+p[0]+'. Translation: '+p[1]+'"><span class="f" style="background:'+C[i]+'">'+p[0]+'</span><span class="b">🔊 '+p[1]+'</span></button>';
+var b=d.firstChild;b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true')});play.appendChild(d)})}
+Object.keys(L).forEach(function(n){var b=document.createElement('button');b.type='button';b.textContent=n;b.setAttribute('aria-pressed',n===cur);b.addEventListener('click',function(){cur=n;[].forEach.call(chips.children,function(c){c.setAttribute('aria-pressed',c===b)});play.style.opacity=0;setTimeout(function(){build();play.style.opacity=1},reduce?0:180)});chips.appendChild(b)});
+play.style.transition='opacity .2s';build();
+var wk=document.getElementById('wk'),sk=document.getElementById('sk'),days=['M','T','W','T','F','S','S'],on=[1,1,1,1,1,0,0];
+days.forEach(function(d,i){var b=document.createElement('button');b.type='button';b.textContent=d;b.setAttribute('aria-label','Day '+(i+1));b.setAttribute('aria-pressed',!!on[i]);b.addEventListener('click',function(){on[i]=on[i]?0:1;b.setAttribute('aria-pressed',!!on[i]);sk.textContent='🔥 '+(7+on.reduce(function(a,c){return a+c},0))+' day streak'});wk.appendChild(b)});
+var rg=document.getElementById('rg');setTimeout(function(){rg.style.strokeDashoffset=251.3*.2},reduce?0:400);
+})();
+</script></body></html>

@@ -1,0 +1,74 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Perigee Lines — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#05060d;color:#eef0ff;font:400 17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #ffb347;outline-offset:3px;border-radius:8px}
+.sky{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 80% 10%,rgba(58,42,122,.55),transparent 45%)}
+.sky i{position:absolute;inset:-20% 0 0;display:block;will-change:transform}
+.s1{background-image:radial-gradient(1px 1px at 20px 30px,#fff,transparent),radial-gradient(1px 1px at 120px 90px,#cfd8ff,transparent),radial-gradient(1px 1px at 220px 20px,#fff,transparent);background-size:260px 200px;opacity:.7}
+.s2{background-image:radial-gradient(1.5px 1.5px at 60px 70px,#fff,transparent),radial-gradient(1.5px 1.5px at 180px 150px,#ffe6c4,transparent);background-size:340px 260px;opacity:.8}
+.s3{background-image:radial-gradient(2px 2px at 100px 100px,#fff,transparent),radial-gradient(2px 2px at 300px 40px,#bcd8ff,transparent);background-size:480px 340px}
+header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;gap:26px;padding:16px clamp(18px,4vw,56px);background:linear-gradient(rgba(5,6,13,.85),rgba(5,6,13,0));backdrop-filter:blur(4px)}
+.logo{font:600 15px Unbounded,sans-serif;letter-spacing:.2em;margin-right:auto}
+header a{color:#a6abd0;text-decoration:none;font-size:15px;font-weight:500}header a:hover{color:#fff}
+.btn{display:inline-block;font:600 15px Inter,sans-serif;padding:14px 26px;border-radius:99px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:#eef0ff!important;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn.am{background:#ffb347;border-color:#ffb347;color:#1a1000!important}.btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(255,179,71,.3)}header .btn{padding:9px 18px;font-size:14px}
+main{position:relative;z-index:2}
+.hero{position:relative;overflow-x:clip;min-height:100vh;display:flex;align-items:center;max-width:1280px;margin:0 auto;padding:110px clamp(18px,4vw,56px) 60px}
+.moon{position:absolute;right:-4%;top:12%;width:min(46vw,560px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 32% 30%,#f2efe6,#cfc9bd 45%,#8f8a82 100%);box-shadow:inset -40px -30px 80px rgba(0,0,0,.45),0 0 120px rgba(190,200,255,.18);will-change:transform;overflow:hidden}
+.moon i{position:absolute;display:block;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(0,0,0,.05),rgba(60,55,50,.28));box-shadow:inset 3px 3px 8px rgba(0,0,0,.22)}
+.hc{position:relative;max-width:560px}
+.lab{font:500 12px Unbounded,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#ffb347}
+h1{font:600 clamp(34px,5.4vw,76px)/1.05 Unbounded,sans-serif;letter-spacing:-.02em;margin:18px 0 18px}
+.sub{color:#a6abd0;max-width:46ch;margin:0 0 28px}.btns{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:clamp(20px,4vw,50px);margin-top:44px;flex-wrap:wrap}.stats b{display:block;font:600 clamp(24px,3vw,36px) Unbounded,sans-serif;color:#7fc8ff}.stats span{font-size:14px;color:#a6abd0}
+.sec{max-width:1000px;margin:0 auto;padding:70px clamp(18px,4vw,56px)}
+h2{font:600 clamp(26px,3.6vw,46px)/1.1 Unbounded,sans-serif;letter-spacing:-.02em;margin:0 0 40px}
+.tl{position:relative;padding:10px 0}.tl:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:rgba(255,255,255,.12);transform:translateX(-50%)}
+.tl .ln{position:absolute;left:50%;top:0;width:2px;background:linear-gradient(#ffb347,#7fc8ff);transform:translateX(-50%);height:0;box-shadow:0 0 14px rgba(255,179,71,.6)}
+.st{position:relative;width:calc(50% - 34px);margin-bottom:34px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:20px 22px;backdrop-filter:blur(8px);opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.st.in{opacity:1;transform:none}.st:nth-child(odd){margin-left:auto}
+.st:before{content:"";position:absolute;top:26px;width:14px;height:14px;border-radius:50%;background:#ffb347;box-shadow:0 0 0 5px rgba(255,179,71,.2)}
+.st:nth-child(even):before{right:-41px}.st:nth-child(odd):before{left:-41px}
+.st small{font:500 12px Unbounded,sans-serif;color:#ffb347;letter-spacing:.1em}.st b{display:block;font:600 20px Unbounded,sans-serif;margin:6px 0}.st p{margin:0;color:#a6abd0;font-size:15px}
+.bk{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:26px;padding:clamp(20px,3vw,34px);backdrop-filter:blur(10px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:30px}
+.bk h3{font:500 12px Unbounded,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#a6abd0;margin:0 0 10px}
+.cab{display:grid;gap:10px;margin-bottom:22px}.cab button{display:flex;justify-content:space-between;align-items:center;font:inherit;text-align:left;border:1.5px solid rgba(255,255,255,.18);background:transparent;color:#eef0ff;border-radius:16px;padding:14px 18px;cursor:pointer;transition:border-color .2s,background .2s}
+.cab button[aria-checked=true]{border-color:#ffb347;background:rgba(255,179,71,.1)}.cab b{font:600 16px Unbounded,sans-serif}.cab span{color:#a6abd0;font-size:14px}.cab em{font:600 18px Inter,sans-serif;font-style:normal;color:#ffb347}
+.mo{display:flex;gap:8px;flex-wrap:wrap}.mo button{font:500 15px Inter,sans-serif;border:1.5px solid rgba(255,255,255,.18);background:transparent;color:#eef0ff;border-radius:99px;padding:9px 18px;cursor:pointer}.mo button[aria-pressed=true]{background:#7fc8ff;border-color:#7fc8ff;color:#05101a}
+.sum{align-self:end;background:rgba(0,0,0,.3);border-radius:18px;padding:22px}.sum .t{font:600 clamp(28px,3.4vw,40px) Unbounded,sans-serif;margin:6px 0}.sum p{margin:0 0 6px;color:#a6abd0;font-size:15px}.sum .l{color:#ffb347;font-weight:600}
+.ok{margin-top:14px;padding:12px 16px;border-radius:12px;background:rgba(61,220,151,.14);color:#aef0cf;font-weight:500}
+footer{text-align:center;padding:50px 20px;color:#a6abd0;font-size:14px}
+@media(max-width:860px){.moon{width:300px;right:-60px;top:80px;opacity:.4}.bk{grid-template-columns:minmax(0,1fr)}.tl:before,.tl .ln{left:8px}.st{width:calc(100% - 34px);margin-left:34px!important}.st:before{left:-34px!important;right:auto!important}header a:not(.btn){display:none}}
+@media(prefers-reduced-motion:reduce){.st{opacity:1;transform:none;transition:none}*{transition:none!important}}
+</style></head><body>
+<div class="sky" aria-hidden="true"><i class="s1"></i><i class="s2"></i><i class="s3"></i></div>
+<header><div class="logo">PERIGEE LINES</div><a href="#">Flights</a><a href="#tl">Timeline</a><a href="#book">Book</a><a class="btn" href="#book">Reserve a seat</a></header>
+<main><section class="hero"><div class="moon" id="moon" aria-hidden="true"><i style="left:14%;top:20%;width:18%;aspect-ratio:1"></i><i style="left:52%;top:12%;width:12%;aspect-ratio:1"></i><i style="left:62%;top:44%;width:22%;aspect-ratio:1"></i><i style="left:22%;top:56%;width:14%;aspect-ratio:1"></i><i style="left:44%;top:70%;width:9%;aspect-ratio:1"></i><i style="left:76%;top:20%;width:8%;aspect-ratio:1"></i><i style="left:8%;top:40%;width:7%;aspect-ratio:1"></i></div>
+<div class="hc"><div class="lab">Orbital tourism, 2027 departures</div><h1>The Earth looks better from here.</h1><p class="sub">Three days in low Earth orbit. Sixteen sunrises a day. One window seat with your name on it.</p><div class="btns"><a class="btn am" href="#book">Reserve a seat</a><a class="btn" href="#tl">Watch the flight</a></div>
+<div class="stats"><div><b>400 km</b><span>altitude</span></div><div><b>16</b><span>sunrises a day</span></div><div><b>3 days</b><span>mission</span></div></div></div></section>
+<section class="sec" id="tl"><h2>Your flight, hour by hour</h2><div class="tl" id="tlw"><div class="ln" id="ln"></div>
+<div class="st"><small>T-0</small><b>Launch</b><p>Eight minutes of acceleration, then the silence you will never forget.</p></div>
+<div class="st"><small>T+9 MIN</small><b>Orbit</b><p>Engines cut. Your seat belt comes off and the cabin floats.</p></div>
+<div class="st"><small>T+3 HR</small><b>Docking</b><p>Meet the Perigee Hotel, a four-room orbital lodge with a glass floor.</p></div>
+<div class="st"><small>T+1 DAY</small><b>Window time</b><p>Watch the aurora from above, and find your house in the dark.</p></div>
+<div class="st"><small>T+2 DAYS</small><b>Spacewalk view</b><p>Watch crew step outside from the safety of the observation dome.</p></div>
+<div class="st"><small>T+3 DAYS</small><b>Return</b><p>Fire, parachutes and a soft landing in the Atlantic, four hours from tea.</p></div></div></section>
+<section class="sec" id="book"><h2>Book your seat</h2><div class="bk"><div><h3 id="h1">Cabin class</h3><div class="cab" role="radiogroup" aria-labelledby="h1" id="cab"></div><h3 id="h2">Departure</h3><div class="mo" id="mo" role="group" aria-labelledby="h2"></div></div>
+<div class="sum" aria-live="polite"><p>Your seat</p><div class="t" id="tp"></div><p id="sd"></p><p class="l" id="sl"></p><p>Refundable deposit: £5,000 today.</p><button class="btn am" type="button" id="rq" style="margin-top:8px;width:100%">Request this seat</button><div class="ok" id="ok" hidden></div></div></div></section></main>
+<footer>Perigee Lines Ltd · Cape Harbour Spaceport · bookings@perigee.example</footer>
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,moon=document.getElementById('moon'),L=[].slice.call(document.querySelectorAll('.sky i')),tl=document.getElementById('tlw'),ln=document.getElementById('ln'),st=[].slice.call(document.querySelectorAll('.st'));
+function tick(){var y=scrollY;if(!reduce){moon.style.transform='translateY('+(-y*.3)+'px)';L.forEach(function(e,i){e.style.transform='translateY('+(-y*[.05,.1,.2][i])+'px)'})}
+var r=tl.getBoundingClientRect(),p=Math.max(0,Math.min(1,(innerHeight*.6-r.top)/r.height));ln.style.height=(reduce?100:p*100)+'%'}
+addEventListener('scroll',function(){requestAnimationFrame(tick)},{passive:true});tick();
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.2});st.forEach(function(s){io.observe(s)});
+var C=[['Window','Standard cabin, one porthole',248],['Panorama','Dome seat, 140° view',312],['Commander','Front row, meet the crew',420]],M=[['Mar',6],['Jun',4],['Sep',9],['Dec',2]],ci=0,mi=1,cab=document.getElementById('cab'),mo=document.getElementById('mo');
+C.forEach(function(c,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','radio');b.innerHTML='<div><b>'+c[0]+'</b><br><span>'+c[1]+'</span></div><em>£'+c[2]+'k</em>';b.addEventListener('click',function(){ci=i;draw()});b.addEventListener('keydown',function(e){var k={ArrowDown:1,ArrowRight:1,ArrowUp:-1,ArrowLeft:-1}[e.key];if(k){e.preventDefault();ci=(ci+k+3)%3;draw();cab.children[ci].focus()}});cab.appendChild(b)});
+M.forEach(function(m,i){var b=document.createElement('button');b.type='button';b.textContent=m[0]+' 2027';b.addEventListener('click',function(){mi=i;draw()});mo.appendChild(b)});
+function draw(){[].forEach.call(cab.children,function(b,i){b.setAttribute('aria-checked',i===ci);b.tabIndex=i===ci?0:-1});[].forEach.call(mo.children,function(b,i){b.setAttribute('aria-pressed',i===mi)});document.getElementById('tp').textContent='£'+C[ci][2]+',000';document.getElementById('sd').textContent=C[ci][0]+' · '+M[mi][0]+' 2027';document.getElementById('sl').textContent=M[mi][1]+' seats left on this departure';document.getElementById('ok').hidden=true}draw();
+document.getElementById('rq').addEventListener('click',function(){var o=document.getElementById('ok');o.hidden=false;o.textContent='Request received. A flight advisor will call you within one working day.'});
+})();
+</script></body></html>

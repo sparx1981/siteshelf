@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Clause &amp; Co Contracts — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Spectral:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f8f6f0;color:#14213d;font:400 17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #b8872b;outline-offset:3px;border-radius:6px}
+header{display:flex;align-items:center;gap:26px;padding:18px clamp(18px,4vw,56px)}
+.logo{font:600 24px Spectral,serif;margin-right:auto}.logo i{color:#b8872b;font-style:italic}
+header a{color:#5a6478;text-decoration:none;font-weight:500;font-size:15px}header a:hover{color:#14213d}
+.btn{display:inline-block;font:600 15px Inter,sans-serif;padding:13px 24px;border-radius:8px;background:#14213d;color:#fff!important;border:1.5px solid #14213d;text-decoration:none;cursor:pointer;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px)}.btn.o{background:transparent;color:#14213d!important}header .btn{padding:9px 18px;font-size:14px}
+.hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr);gap:40px;align-items:start;max-width:1280px;margin:0 auto;padding:30px clamp(18px,4vw,56px) 50px}
+h1{font:500 clamp(40px,5.2vw,76px)/1.04 Spectral,serif;letter-spacing:-.01em;margin:0 0 18px}h1 em{color:#b8872b}
+.sub{color:#5a6478;max-width:48ch;margin:0 0 26px;font-size:18px}.btns{display:flex;gap:12px;flex-wrap:wrap}
+.doc{background:#fff;border:1px solid #e5dfd0;border-radius:14px;box-shadow:0 30px 70px -40px rgba(20,33,61,.5);padding:22px 24px}
+.dh{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}.dh b{font:600 18px Spectral,serif}
+.fl{display:flex;gap:6px;flex-wrap:wrap}.fl button{font:500 13px Inter,sans-serif;border:1px solid #d9d2c0;background:#fff;border-radius:99px;padding:5px 12px;cursor:pointer;color:#14213d}.fl button[aria-pressed=true]{background:#14213d;color:#fff;border-color:#14213d}
+.cl{display:block;width:100%;text-align:left;background:none;border:0;border-left:4px solid #e5dfd0;padding:10px 12px;margin:6px 0;cursor:pointer;font:400 15px/1.65 Spectral,serif;color:#14213d;border-radius:0 8px 8px 0;transition:opacity .2s,background .2s}
+.cl:hover{background:#faf7ee}.cl.r{border-left-color:#c0392b}.cl.ok{border-left-color:#2f7d4f}.cl.sel{outline:2px solid #b8872b;outline-offset:1px;background:#fffbf0}.cl.dim{opacity:.3}
+.cl b{display:flex;align-items:center;gap:8px;font:600 14px Inter,sans-serif;margin-bottom:2px}.tg{font:600 11px Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:99px}
+.tg.r{background:#fbe3df;color:#8f2418}.tg.o{background:#dff1e6;color:#1d5a37}
+mark{background:linear-gradient(transparent 50%,#ffe08a 50%);color:inherit}
+.ms{border:1.5px dashed #d98a0b;background:#fff7e6;border-radius:8px;padding:10px 12px;margin:6px 0;font:500 14px Inter,sans-serif;color:#7a4a00;transition:opacity .2s}.ms.dim{opacity:.3}
+.pe{margin-top:14px;background:#14213d;color:#f5efe0;border-radius:12px;padding:16px 18px;min-height:96px}
+.pe small{font:600 11px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#d9b866}.pe p{margin:6px 0 10px;font:500 16px/1.5 Spectral,serif}
+.pe button{font:600 13px Inter,sans-serif;background:#b8872b;color:#14213d;border:0;border-radius:8px;padding:8px 14px;cursor:pointer}
+.tl{max-width:1000px;margin:20px auto 0;padding:0 clamp(18px,4vw,56px)}.tl h2,.ft h2{font:500 clamp(28px,3.6vw,44px)/1.1 Spectral,serif;margin:0 0 20px}
+.rail{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.rail:before{content:"";position:absolute;left:12%;right:12%;top:20px;height:4px;background:#e5dfd0;border-radius:4px}
+.rail .pg{position:absolute;left:12%;top:20px;height:4px;background:#b8872b;border-radius:4px;transition:width .5s;width:0}
+.rail button{position:relative;background:none;border:0;cursor:pointer;text-align:center;font:inherit;color:#14213d;padding:0 4px}
+.rail i{display:grid;place-items:center;width:44px;height:44px;margin:0 auto 8px;border-radius:50%;background:#fff;border:3px solid #e5dfd0;font:600 15px Inter,sans-serif;font-style:normal;transition:background .3s,border-color .3s}
+.rail button.on i{background:#b8872b;border-color:#b8872b;color:#14213d}.rail button.dn i{border-color:#b8872b}
+.rail b{display:block;font-size:15px}.rail span{font-size:13px;color:#5a6478}
+.det{margin-top:16px;background:#fff;border:1px solid #e5dfd0;border-radius:12px;padding:14px 18px;font-size:15px;color:#5a6478;min-height:54px}
+.ft{max-width:1100px;margin:60px auto 0;padding:0 clamp(18px,4vw,56px)}.fc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.fc div{background:#fff;border:1px solid #e5dfd0;border-radius:14px;padding:22px;transition:transform .25s}.fc div:hover{transform:translateY(-4px)}.fc b{display:block;font:600 21px Spectral,serif;margin-bottom:4px}.fc p{margin:0;color:#5a6478;font-size:15px}
+.band{background:#14213d;color:#f5efe0;text-align:center;padding:60px 20px;margin-top:70px}.band h2{font:500 clamp(28px,4vw,48px)/1.1 Spectral,serif;margin:0 0 20px}.band .btn{background:#b8872b;border-color:#b8872b;color:#14213d!important}
+@media(max-width:900px){.hero{grid-template-columns:minmax(0,1fr)}.rail{grid-template-columns:minmax(0,1fr);gap:16px}.rail:before,.rail .pg{display:none}.rail button{display:flex;gap:14px;align-items:center;text-align:left}.rail i{margin:0}.fc{grid-template-columns:minmax(0,1fr)}header a:not(.btn){display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header><div class="logo">Clause <i>&amp;</i> Co</div><a href="#">Product</a><a href="#">Security</a><a href="#">Pricing</a><a class="btn" href="#">Book a demo</a></header>
+<main><section class="hero"><div><h1>Read every clause. <em>Sign with confidence.</em></h1><p class="sub">Clause &amp; Co flags risky terms, explains them in plain English and tracks every contract from first draft to renewal.</p><div class="btns"><a class="btn" href="#">Try the demo</a><a class="btn o" href="#">See a sample report</a></div></div>
+<div><div class="doc"><div class="dh"><b>Master Services Agreement · Harbour Ltd</b><div class="fl" role="group" aria-label="Filter clauses" id="fl"></div></div><div id="cl"></div>
+<div class="pe" aria-live="polite"><small>Plain English</small><p id="pt">Select a clause to see what it really means.</p><button type="button" id="cp" hidden>Copy suggested wording</button></div></div></div></section>
+<section class="tl"><h2>From first draft to renewal</h2><div class="rail" id="rail"><div class="pg" id="pg"></div></div><div class="det" id="det" aria-live="polite"></div></section>
+<section class="ft"><h2>Built for small, careful teams</h2><div class="fc"><div><b>Risk spotting</b><p>Every clause is scored against your own playbook, not a generic checklist.</p></div><div><b>Plain English</b><p>Each flag comes with a one-sentence explanation and suggested wording.</p></div><div><b>Renewal alerts</b><p>Never auto-renew by accident: get a reminder ninety days before notice dates.</p></div></div></section></main>
+<div class="band"><h2>Fewer surprises in the small print.</h2><a class="btn" href="#">Book a demo</a></div>
+<script>
+(function(){
+var C=[{n:'1. Term',s:'ok',t:'This Agreement starts on the Effective Date and continues for <mark>twelve (12) months</mark>, then renews annually unless either party gives notice.',e:'A 12-month term that renews each year. Set a diary reminder for the notice date.',w:''},
+{n:'2. Payment',s:'ok',t:'The Customer shall pay each invoice within <mark>thirty (30) days</mark> of receipt. Late sums accrue interest at 4% above base rate.',e:'You have 30 days to pay. Interest at 4% above base rate is standard and fair.',w:''},
+{n:'3. Liability',s:'r',t:'The Customer\'s liability under this Agreement shall be <mark>unlimited</mark> and shall include indirect and consequential losses.',e:'You are liable for unlimited damages, including indirect losses. Ask to cap this at 12 months of fees.',w:'Each party\'s total liability shall not exceed the fees paid in the preceding twelve (12) months.'},
+{n:'4. Termination',s:'r',t:'The Supplier may terminate at any time on <mark>seven (7) days\' notice</mark>; the Customer may terminate only for material breach.',e:'They can walk away in a week; you cannot. Ask for equal notice, ideally 30 days each way.',w:'Either party may terminate on thirty (30) days\' written notice.'},
+{n:'5. IP ownership',s:'r',t:'All work product, including <mark>pre-existing materials</mark> of the Customer, vests in the Supplier on creation.',e:'The supplier would own things you already had. Carve out your existing materials.',w:'Pre-existing materials remain the property of the party that owned them before the Effective Date.'},
+{n:'6. Governing law',s:'ok',t:'This Agreement is governed by the laws of <mark>England and Wales</mark> and the courts of England shall have exclusive jurisdiction.',e:'English law and courts. Fine for a UK business.',w:''}];
+var cl=document.getElementById('cl'),fl=document.getElementById('fl'),pt=document.getElementById('pt'),cp=document.getElementById('cp'),flt='all',sel=-1;
+function counts(){return{all:C.length+1,r:C.filter(function(c){return c.s==='r'}).length,m:1,o:C.filter(function(c){return c.s==='ok'}).length}}
+var K=counts(),F=[['all','All '+(C.length+1)],['r','Risky '+K.r],['m','Missing 1'],['o','OK '+K.o]];
+F.forEach(function(f,i){var b=document.createElement('button');b.type='button';b.textContent=f[1];b.setAttribute('aria-pressed',i===0);b.addEventListener('click',function(){flt=f[0];[].forEach.call(fl.children,function(c){c.setAttribute('aria-pressed',c===b)});render()});fl.appendChild(b)});
+function match(s){return flt==='all'||(flt==='r'&&s==='r')||(flt==='o'&&s==='ok')||(flt==='m'&&s==='m')}
+function render(){cl.innerHTML='';C.forEach(function(c,i){var b=document.createElement('button');b.type='button';b.className='cl '+(c.s==='r'?'r':'ok')+(i===sel?' sel':'')+(match(c.s)?'':' dim');b.innerHTML='<b>'+c.n+' <span class="tg '+(c.s==='r'?'r':'o')+'">'+(c.s==='r'?'⚠ Risky':'✓ OK')+'</span></b>'+c.t;b.setAttribute('aria-pressed',i===sel);b.addEventListener('click',function(){sel=i;pt.textContent=c.e;cp.hidden=!c.w;cp.textContent='Copy suggested wording';render();cl.children[i].focus()});cl.appendChild(b)});
+var m=document.createElement('div');m.className='ms'+(match('m')?'':' dim');m.textContent='⚑ Missing: no data protection clause (UK GDPR). Add a processor schedule.';cl.appendChild(m)}
+cp.addEventListener('click',function(){var w=C[sel].w;try{navigator.clipboard.writeText(w).then(done,done)}catch(e){done()}function done(){cp.textContent='Copied ✓';setTimeout(function(){cp.textContent='Copy suggested wording'},1500)}});render();
+var S=[['Draft','12 Jan','Terms are drafted from your template and shared for comment.'],['Review','15 Jan','Clause & Co flags 3 risky terms and 1 missing clause for your lawyer.'],['Sign','22 Jan','Both parties sign electronically, with a full audit trail.'],['Renew','12 Jan next year','A reminder lands 90 days before the notice date.']],rail=document.getElementById('rail'),det=document.getElementById('det'),pg=document.getElementById('pg');
+S.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.innerHTML='<i>'+(i+1)+'</i><div><b>'+s[0]+'</b><span>'+s[1]+'</span></div>';b.addEventListener('click',function(){stage(i)});rail.appendChild(b)});
+function stage(i){[].forEach.call(rail.querySelectorAll('button'),function(b,k){b.classList.toggle('on',k===i);b.classList.toggle('dn',k<i);b.setAttribute('aria-pressed',k===i)});pg.style.width=(76*i/3)+'%';det.textContent=S[i][0]+' · '+S[i][1]+': '+S[i][2]}stage(1);
+})();
+</script></body></html>

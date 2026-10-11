@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pantry Post Meal Kits — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#fbf3e6;color:#2b2118;font:400 17px/1.6 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #34402a;outline-offset:3px;border-radius:10px}
+header{display:flex;align-items:center;gap:26px;padding:18px clamp(18px,4vw,56px)}
+.logo{font:400 26px 'Young Serif',serif;margin-right:auto;display:flex;align-items:center;gap:8px}.logo i{width:24px;height:18px;background:#d9452b;border-radius:3px 3px 8px 8px;position:relative}.logo i:before{content:"";position:absolute;left:3px;right:3px;top:-5px;height:7px;background:#34402a;border-radius:3px}
+header a{color:#6b5a47;text-decoration:none;font-weight:500;font-size:15px}header a:hover{color:#2b2118}
+.btn{display:inline-block;font:700 16px 'DM Sans',sans-serif;padding:14px 26px;border-radius:99px;background:#d9452b;color:#fff!important;border:0;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(217,69,43,.35)}header .btn{padding:9px 20px;font-size:14px}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:30px;align-items:center;max-width:1240px;margin:0 auto;padding:20px clamp(18px,4vw,56px) 40px}
+h1{font:400 clamp(40px,6vw,84px)/1.02 'Young Serif',serif;letter-spacing:-.01em;margin:0 0 18px}
+.sub{color:#6b5a47;max-width:46ch;margin:0 0 26px;font-size:18px}
+.crate{position:relative;width:min(100%,420px);aspect-ratio:1;margin:0 auto}
+.crate .box{position:absolute;left:8%;right:8%;bottom:6%;height:42%;background:repeating-linear-gradient(0deg,#c58a4e 0 18px,#b67a40 18px 20px);border-radius:10px 10px 22px 22px;box-shadow:inset 0 10px 0 rgba(0,0,0,.12)}
+.crate i{position:absolute;display:block;animation:bob var(--t) ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(-10px) rotate(var(--r,4deg))}}
+.v1{left:18%;bottom:40%;width:26%;aspect-ratio:1;background:#d9452b;border-radius:50%;--t:3s}.v2{left:40%;bottom:44%;width:30%;height:38%;background:#34402a;border-radius:50% 50% 40% 40%;--t:3.6s;--r:-4deg}
+.v3{right:14%;bottom:40%;width:22%;aspect-ratio:1;background:#f4c95d;border-radius:50%;--t:2.8s}.v4{left:32%;bottom:40%;width:14%;height:48%;background:#e98a2b;border-radius:50% 50% 8px 8px;transform:rotate(12deg);--t:3.2s}
+.v5{right:30%;bottom:42%;width:16%;height:34%;background:#8fa57a;border-radius:90% 0;--t:3.4s}
+.bld{max-width:1100px;margin:0 auto;padding:30px clamp(18px,4vw,56px)}h2{font:400 clamp(30px,4vw,50px)/1.05 'Young Serif',serif;margin:0 0 22px}
+.panel{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:0;background:#fff;border:1px solid #eadcc3;border-radius:26px;overflow:hidden}
+.ctl{padding:26px;border-right:1px solid #f0e6d2}.fld{margin-bottom:22px}.fld>label,.fld>b{display:block;font-weight:700;font-size:14px;margin-bottom:8px;letter-spacing:.02em}
+.seg{display:flex;background:#f6ecda;border-radius:14px;padding:4px;gap:4px}.seg button{flex:1;font:700 16px 'DM Sans',sans-serif;border:0;background:transparent;border-radius:11px;padding:10px;cursor:pointer;color:#2b2118;transition:background .2s}
+.seg button[aria-checked=true]{background:#34402a;color:#fff}
+.dt{display:flex;gap:8px;flex-wrap:wrap}.dt button{font:500 14px 'DM Sans',sans-serif;border:1.5px solid #eadcc3;background:#fff;border-radius:99px;padding:7px 14px;cursor:pointer}.dt button[aria-checked=true]{background:#d9452b;color:#fff;border-color:#d9452b}
+select{font:500 16px 'DM Sans',sans-serif;padding:10px 12px;border:1.5px solid #eadcc3;border-radius:12px;width:100%;background:#fff}
+.out{padding:26px;background:#fffaf1}
+.meals{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:20px;min-height:120px}
+.m{background:#fff;border:1px solid #eadcc3;border-radius:16px;padding:12px;animation:in .4s both;animation-delay:calc(var(--i)*60ms)}
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
+.m .art{height:54px;border-radius:10px;margin-bottom:8px;position:relative;overflow:hidden}.m .art i{position:absolute;display:block}
+.m b{display:block;font-size:15px;line-height:1.25}.m span{font-size:12px;color:#6b5a47}
+.pr{border-top:1px dashed #dccaa8;padding-top:16px;font-size:15px}.pr div{display:flex;justify-content:space-between;padding:3px 0}.pr .tt{font:400 28px 'Young Serif',serif;padding-top:8px}.pr .sv{color:#2f7a3c;font-weight:700}
+.pr .sv.pulse{animation:pu .6s}@keyframes pu{50%{transform:scale(1.04)}}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:1100px;margin:30px auto 0;padding:0 clamp(18px,4vw,56px)}.steps b{font:400 22px 'Young Serif',serif;display:block}.steps p{margin:4px 0 0;color:#6b5a47;font-size:15px}
+.band{background:#34402a;color:#fbf3e6;text-align:center;padding:60px 20px;margin-top:60px}.band h2{margin:0 0 18px}
+@media(max-width:860px){.hero,.panel{grid-template-columns:minmax(0,1fr)}.ctl{border-right:0;border-bottom:1px solid #f0e6d2}.steps{grid-template-columns:minmax(0,1fr)}header a:not(.btn){display:none}.crate{max-width:280px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div class="logo"><i></i>Pantry Post</div><a href="#">Menu</a><a href="#">How it works</a><a href="#">Gift</a><a class="btn" href="#build">Get 40% off</a></header>
+<main><section class="hero"><div><h1>Dinner, sorted. Washing-up, minimal.</h1><p class="sub">Fresh ingredients, pre-measured, with recipes that take 30 minutes or less. Skip a week or cancel any time.</p><a class="btn" href="#build">Build my box</a></div>
+<div class="crate" aria-hidden="true"><i class="v4"></i><i class="v2"></i><i class="v1"></i><i class="v3"></i><i class="v5"></i><div class="box"></div></div></section>
+<section class="bld" id="build"><h2>Build your box</h2><div class="panel"><div class="ctl">
+<div class="fld"><b id="l1">People</b><div class="seg" role="radiogroup" aria-labelledby="l1" data-k="p"></div></div>
+<div class="fld"><b id="l2">Meals per week</b><div class="seg" role="radiogroup" aria-labelledby="l2" data-k="m"></div></div>
+<div class="fld"><b id="l3">Diet</b><div class="dt" role="radiogroup" aria-labelledby="l3" id="diet"></div></div>
+<div class="fld"><label for="day">Delivery day</label><select id="day"><option>Tuesday</option><option>Wednesday</option><option selected>Thursday</option><option>Saturday</option></select></div></div>
+<div class="out"><div class="meals" id="meals" aria-live="polite"></div><div class="pr" aria-live="polite"><div><span id="srv"></span><span id="pps"></span></div><div><span>Weekly total</span><span id="tot"></span></div><div><span>First box discount (40%)</span><span class="sv" id="dis"></span></div><div><span>Delivery</span><span id="del"></span></div><div class="tt"><span>First box</span><span id="fb"></span></div></div><p style="margin:16px 0 0"><a class="btn" href="#" id="go">Start with 40% off</a></p></div></div></section>
+<section class="steps"><div><b>1. Choose</b><p>Pick up to five recipes a week from a menu of twenty.</p></div><div><b>2. Cook</b><p>Everything is pre-measured and labelled. Dinner takes 30 minutes.</p></div><div><b>3. Relax</b><p>Skip, swap or pause any week up to five days before.</p></div></section></main>
+<div class="band"><h2>Fewer decisions. Better dinners.</h2><a class="btn" href="#build">Build my box</a></div>
+<script>
+(function(){
+var S={p:[2,3,4],m:[3,4,5]},st={p:3,m:4,d:0},DIET=['Everything','Vegetarian','Vegan','Pescatarian'];
+var M=[['Smoky chickpea shakshuka',25,520,'#d9452b',[0,1,2]],['Lemon herb salmon traybake',30,610,'#f4c95d',[0,3]],['Creamy mushroom orzotto',28,560,'#c58a4e',[0,1]],['Sticky aubergine rice bowls',30,540,'#8e3a63',[0,1,2,3]],['Harissa chicken flatbreads',22,640,'#e98a2b',[0]],['Coconut dal with greens',25,480,'#e0b032',[0,1,2,3]],['Garlic prawn linguine',20,590,'#e86f55',[0,3]],['Roast veg & halloumi wraps',20,580,'#34402a',[0,1]],['Miso tofu noodle soup',25,430,'#6a8a5a',[0,1,2,3]],['Beef & black bean tacos',25,660,'#7a3a22',[0]]];
+var meals=document.getElementById('meals'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,shown={};
+function seg(el,vals,key){vals.forEach(function(v,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','radio');b.textContent=v;b.addEventListener('click',function(){pick(el,key,v,i)});b.addEventListener('keydown',function(e){var k={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];if(k){e.preventDefault();var j=(i+k+vals.length)%vals.length;pick(el,key,vals[j],j);el.children[j].focus()}});el.appendChild(b)})}
+function mark(el,i){[].forEach.call(el.children,function(b,k){b.setAttribute('aria-checked',k===i);b.tabIndex=k===i?0:-1})}
+function pick(el,key,v,i){st[key]=v;mark(el,i);render()}
+document.querySelectorAll('.seg').forEach(function(el){var k=el.dataset.k;seg(el,S[k],k);mark(el,S[k].indexOf(st[k]))});
+var dt=document.getElementById('diet');DIET.forEach(function(d,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','radio');b.textContent=d;b.addEventListener('click',function(){st.d=i;mark(dt,i);render()});b.addEventListener('keydown',function(e){var k={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];if(k){e.preventDefault();var j=(i+k+4)%4;st.d=j;mark(dt,j);dt.children[j].focus();render()}});dt.appendChild(b)});mark(dt,0);
+function num(id,to,fmt){var el=document.getElementById(id),from=shown[id]||0,t0=performance.now();shown[id]=to;if(reduce){el.textContent=fmt(to);return}(function f(n){var k=Math.min(1,(n-t0)/400);el.textContent=fmt(from+(to-from)*k);if(k<1)requestAnimationFrame(f)})(t0)}
+var gbp=function(v){return'£'+v.toFixed(2)};
+function art(c){return'<div class="art" style="background:'+c+'22"><i style="left:12%;top:20%;width:34px;height:34px;border-radius:50%;background:'+c+'"></i><i style="left:42%;top:30%;width:44px;height:22px;border-radius:12px;background:'+c+'aa"></i><i style="right:10%;top:12%;width:22px;height:22px;border-radius:6px;background:'+c+'66;transform:rotate(20deg)"></i></div>'}
+function render(){var n=st.m,list=M.filter(function(x){return x[4].indexOf(st.d)>-1}).slice(0,n);meals.innerHTML=list.map(function(x,i){return'<div class="m" style="--i:'+i+'">'+art(x[3])+'<b>'+x[0]+'</b><span>'+x[1]+' min · '+x[2]+' kcal</span></div>'}).join('');
+var servings=st.p*st.m,pps=st.p===2?5.99:st.p===3?5.49:4.99,tot=servings*pps,del=tot<35?3.99:0,dis=tot*.4;
+document.getElementById('srv').textContent=servings+' servings at';num('pps',pps,gbp);num('tot',tot,gbp);num('dis',-dis,function(v){return'−'+gbp(-v)});document.getElementById('del').textContent=del?gbp(del):'Free';num('fb',tot-dis+del,gbp);var d=document.getElementById('dis');d.classList.remove('pulse');void d.offsetWidth;if(!reduce)d.classList.add('pulse')}
+render();document.getElementById('go').addEventListener('click',function(e){e.preventDefault()});
+})();
+</script></body></html>

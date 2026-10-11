@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Three-Way Pricing Toggle — Pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:radial-gradient(ellipse at 50% -10%,#ece6ff,transparent 55%),#f7f6fb;color:#17142a;font:500 17px/1.6 'Plus Jakarta Sans',system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #6c4cf1;outline-offset:3px;border-radius:14px}
+.w{max-width:1120px;margin:0 auto;padding:clamp(40px,8vh,90px) clamp(18px,4vw,40px) 60px}
+.hd{text-align:center;margin-bottom:34px}.lb{font:500 12px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#6c4cf1}
+h1{font:800 clamp(36px,5.4vw,64px)/1.05 'Plus Jakarta Sans',sans-serif;letter-spacing:-.03em;margin:12px 0 14px}.sub{color:#5f5a7a;max-width:48ch;margin:0 auto}
+.tg{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:min(100%,420px);height:64px;margin:28px auto 8px;background:#fff;border:1px solid #e4e0f3;border-radius:99px;padding:4px}
+.th{position:absolute;top:4px;bottom:4px;left:4px;width:calc((100% - 8px)/3);background:#6c4cf1;border-radius:99px;transition:transform .35s cubic-bezier(.3,1.3,.5,1);box-shadow:0 6px 16px rgba(108,76,241,.4)}
+.tg button{position:relative;z-index:1;background:none;border:0;font:700 15px 'Plus Jakarta Sans',sans-serif;color:#5f5a7a;cursor:pointer;border-radius:99px;transition:color .25s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;line-height:1.1;white-space:nowrap;padding:0}
+.tg button[aria-checked=true]{color:#fff}
+.bd{font:500 9px 'DM Mono',monospace;letter-spacing:.04em;padding:1px 6px;border-radius:99px;background:#ffb62e;color:#3a2600;text-transform:uppercase}.bd.m{background:#b8f0d6;color:#0b4a2f}
+.bd.pop{animation:pop .5s cubic-bezier(.2,1.6,.4,1)}@keyframes pop{from{transform:scale(.4)}}
+.cmp{text-align:center;color:#5f5a7a;font-size:14px;min-height:22px;margin-bottom:28px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.c{background:#fff;border:1px solid #e4e0f3;border-radius:24px;padding:28px;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}.c:hover{transform:translateY(-4px)}
+.c.f{border:2px solid #6c4cf1;box-shadow:0 30px 60px -30px rgba(108,76,241,.6);position:relative}
+.pp{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#6c4cf1;color:#fff;font:500 11px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:99px}
+.c h2{font:800 22px 'Plus Jakarta Sans',sans-serif;margin:0 0 4px}.c .d{color:#5f5a7a;font-size:15px;margin:0 0 18px}
+.pr{display:flex;align-items:baseline;gap:2px;height:64px;overflow:hidden}.pr .cur{font:800 30px 'Plus Jakarta Sans',sans-serif;align-self:flex-start;margin-top:12px}
+.col{display:inline-flex;height:64px;overflow:hidden;position:relative}.col>span{display:block;flex:none;transition:transform .5s cubic-bezier(.2,.9,.2,1);transition-delay:calc(var(--i)*40ms)}.col span b{display:block;height:64px;line-height:64px;font:800 56px/64px 'Plus Jakarta Sans',sans-serif;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.pt{height:22px;color:#5f5a7a;font-size:14px;transition:opacity .2s}.pt.sw{opacity:0}
+.sv{height:26px;margin:6px 0 16px;font-weight:700;font-size:14px;color:#1f9d6b;transition:opacity .2s}
+ul{list-style:none;margin:0 0 22px;padding:0;flex:1}li{display:flex;gap:10px;padding:6px 0;font-size:15px}li:before{content:"✓";color:#6c4cf1;font-weight:800}li.x{color:#5f5a7a}li.lt{color:#6c4cf1;font-weight:700}li.lt:before{content:"✦"}
+.b{display:block;text-align:center;font:700 16px 'Plus Jakarta Sans',sans-serif;padding:14px;border-radius:14px;border:1.5px solid #17142a;background:#fff;color:#17142a;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s}.b:hover{transform:translateY(-2px)}.b.v{background:#6c4cf1;border-color:#6c4cf1;color:#fff}.b.v:hover{box-shadow:0 10px 24px rgba(108,76,241,.4)}
+.tr{text-align:center;color:#5f5a7a;font-size:14px;margin-top:30px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:900px){.cards{grid-template-columns:minmax(0,1fr)}.c.f{order:-1}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body><main class="w">
+<div class="hd"><div class="lb">Pricing</div><h1>Simple pricing. Pick how you pay.</h1><p class="sub">Cadence keeps your calendar, tasks and focus time in one place. Start free, upgrade when you are ready.</p>
+<div class="tg" role="radiogroup" aria-label="Billing" id="tg"><div class="th" id="th"></div><button type="button" role="radio" data-m="0">Monthly</button><button type="button" role="radio" data-m="1">Annual <span class="bd">Save 20%</span></button><button type="button" role="radio" data-m="2">Lifetime <span class="bd m">Pay once</span></button></div><div class="cmp" id="cmp" aria-live="polite"></div></div>
+<div class="cards"><article class="c"><h2>Starter</h2><p class="d">For trying things out.</p><div class="pr"><span class="cur">£</span><span class="col" data-p="0"></span></div><div class="pt">free forever</div><div class="sv"></div><ul><li>1 calendar</li><li>Up to 20 tasks</li><li>Basic focus timer</li><li class="x">No integrations</li></ul><a class="b" href="#">Start free</a></article>
+<article class="c f"><div class="pp">Most popular</div><h2>Pro</h2><p class="d">For solo freelancers.</p><div class="pr"><span class="cur">£</span><span class="col" data-p="1"></span></div><div class="pt" id="pt1"></div><div class="sv" id="sv1"></div><ul id="u1"><li>Unlimited calendars</li><li>Unlimited tasks</li><li>Smart focus blocks</li><li>20 integrations</li><li>Time tracking</li><li>Priority support</li></ul><a class="b v" href="#" id="b1">Start 14-day trial</a></article>
+<article class="c"><h2>Studio</h2><p class="d">For small teams, up to 10.</p><div class="pr"><span class="cur">£</span><span class="col" data-p="2"></span></div><div class="pt" id="pt2"></div><div class="sv" id="sv2"></div><ul id="u2"><li>Everything in Pro</li><li>Shared calendars</li><li>Team workload view</li><li>Client portal</li><li>SSO and audit log</li><li>Onboarding call</li></ul><a class="b" href="#" id="b2">Talk to sales</a></article></div>
+<p class="tr">14-day money-back guarantee · Cancel in two clicks · Secure checkout</p><div class="vh" id="vh" aria-live="polite"></div></main>
+<script>
+(function(){
+var P=[[0,0,0],[12,9.6,299],[29,23.2,749]],PT=[['','',''],['/ month','/ month, billed £115 yearly','one-time payment'],['/ month','/ month, billed £278 yearly','one-time payment']],SV=[['','',''],['','You save £29 a year','Equals 25 months of Pro'],['','You save £70 a year','Equals 26 months of Studio']],B=['Start free','Start 14-day trial','Buy once'],mode=1,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var btns=[].slice.call(document.querySelectorAll('#tg button')),th=document.getElementById('th'),cols=[].slice.call(document.querySelectorAll('.col'));
+function fmt(v){return v===0?'0':(v%1?v.toFixed(2):String(v))}
+function build(col,txt){col.innerHTML='';col.setAttribute('aria-hidden','true');for(var i=0;i<txt.length;i++){var ch=txt[i],w=document.createElement('span');w.style.setProperty('--i',i);if(/\d/.test(ch)){var s='';for(var d=0;d<10;d++)s+='<b>'+d+'</b>';w.innerHTML=s;w.dataset.d=ch}else{w.innerHTML='<b>'+ch+'</b>';w.dataset.d=''}col.appendChild(w)}}
+function setv(col,txt,first){if(col.dataset.t!==String(txt.length)||first){build(col,txt);col.dataset.t=txt.length;col.dataset.v=''}
+var i=0;[].forEach.call(col.children,function(w,k){var ch=txt[k];if(w.dataset.d!==''){w.style.transform='translateY(-'+(+ch*64)+'px)'}else{w.firstChild.textContent=ch}});col.dataset.v=txt}
+function upd(first){th.style.transform='translateX('+(mode*100)+'%)';btns.forEach(function(b,i){b.setAttribute('aria-checked',i===mode);b.tabIndex=i===mode?0:-1});
+cols.forEach(function(c,k){var v=P[+c.dataset.p][mode],t=fmt(v);if(first&&reduce)c.style.transition='none';setv(c,t,first)});
+[1,2].forEach(function(k){var pt=document.getElementById('pt'+k);pt.classList.add('sw');setTimeout(function(){pt.textContent=PT[k][mode];pt.classList.remove('sw')},reduce?0:150);document.getElementById('sv'+k).textContent=SV[k][mode]});
+document.getElementById('b1').textContent=B[mode]==='Buy once'?'Buy once':'Start 14-day trial';document.getElementById('b2').textContent=mode===2?'Buy once':'Talk to sales';document.getElementById('b2').className='b'+(mode===2?' v':'');
+['u1','u2'].forEach(function(id){var u=document.getElementById(id),ex=u.querySelector('.lt');if(ex)u.removeChild(ex);if(mode===2){u.insertAdjacentHTML('beforeend','<li class="lt">Lifetime updates</li><li class="lt">Founding member badge</li>')}});
+var cm=['Monthly: cancel any time.','Annual: two months free compared with monthly.','Lifetime pays off versus Pro monthly after about 25 months.'];document.getElementById('cmp').textContent=cm[mode];
+document.getElementById('vh').textContent=['Monthly','Annual','Lifetime'][mode]+' billing selected. Pro £'+fmt(P[1][mode])+', Studio £'+fmt(P[2][mode])+'.';
+var bd=btns[mode].querySelector('.bd');if(bd&&!first){bd.classList.remove('pop');void bd.offsetWidth;bd.classList.add('pop')}}
+btns.forEach(function(b,i){b.addEventListener('click',function(){mode=i;upd()});b.addEventListener('keydown',function(e){var k={ArrowRight:1,ArrowLeft:-1}[e.key];if(k){e.preventDefault();mode=(mode+k+3)%3;upd();btns[mode].focus()}})});
+cols.forEach(function(c){c.innerHTML=''});upd(true);
+})();
+</script></body></html>

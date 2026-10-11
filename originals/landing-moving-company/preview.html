@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Haul &amp; Hum Movers — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f6f3ea;color:#1c1c1e;font:400 17px/1.6 'Work Sans',system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #1c1c1e;outline-offset:3px;box-shadow:0 0 0 6px #ffd23f}
+.top{background:#ffd23f}
+header{display:flex;align-items:center;gap:26px;padding:16px clamp(18px,4vw,56px)}
+.logo{font:800 28px 'Big Shoulders Display',sans-serif;letter-spacing:.04em;margin-right:auto;display:flex;align-items:center;gap:10px}.logo i{width:30px;height:16px;background:#1c1c1e;border-radius:3px 6px 2px 2px;position:relative}.logo i:after{content:"";position:absolute;right:-6px;bottom:0;width:10px;height:10px;background:#1c1c1e;border-radius:0 6px 0 0}
+header a{color:#1c1c1e;text-decoration:none;font-weight:700;font-size:15px}
+.btn{display:inline-block;font:700 16px 'Work Sans',sans-serif;padding:14px 26px;border:2px solid #1c1c1e;background:#1c1c1e;color:#ffd23f!important;text-decoration:none;cursor:pointer;border-radius:10px;box-shadow:4px 4px 0 rgba(28,28,30,.35);transition:transform .15s,box-shadow .15s}.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(28,28,30,.45)}.btn:active{transform:translate(2px,2px);box-shadow:0 0 0}.btn.o{background:transparent;color:#1c1c1e!important}header .btn{padding:9px 18px;font-size:14px}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px;align-items:center;max-width:1280px;margin:0 auto;padding:30px clamp(18px,4vw,56px) 50px;overflow-x:clip}
+h1{font:800 clamp(52px,8.4vw,128px)/.9 'Big Shoulders Display',sans-serif;text-transform:uppercase;margin:0 0 18px}
+.sub{max-width:42ch;margin:0 0 26px;font-size:19px;font-weight:500}.btns{display:flex;gap:12px;flex-wrap:wrap}
+.van{position:relative;width:100%;max-width:520px;aspect-ratio:2/1;margin:0 auto;animation:drive 1.2s cubic-bezier(.2,.8,.2,1) both}
+@keyframes drive{from{transform:translateX(-120%)}}
+.van .bx{position:absolute;left:0;top:6%;width:68%;height:68%;background:#fff;border:4px solid #1c1c1e;border-radius:12px 12px 4px 4px;display:grid;place-items:center;font:800 34px 'Big Shoulders Display',sans-serif;letter-spacing:.05em}
+.van .cb{position:absolute;left:66%;top:28%;width:32%;height:46%;background:#1c1c1e;border-radius:6px 40px 6px 6px}.van .cb:after{content:"";position:absolute;left:16%;top:16%;width:44%;height:34%;background:#cfe6ef;border-radius:4px 22px 4px 4px}
+.van .wh{position:absolute;bottom:8%;width:17%;aspect-ratio:1;background:#1c1c1e;border-radius:50%;border:6px solid #1c1c1e;box-shadow:inset 0 0 0 6px #aaa;animation:spin 1s linear 1}.van .w1{left:12%}.van .w2{left:68%}
+@keyframes spin{to{transform:rotate(-720deg)}}
+.road{position:absolute;left:0;right:0;bottom:7%;height:4px;background:#1c1c1e}
+.sec{max-width:1160px;margin:0 auto;padding:50px clamp(18px,4vw,56px) 20px}h2{font:800 clamp(40px,5.6vw,76px)/.92 'Big Shoulders Display',sans-serif;text-transform:uppercase;margin:0 0 24px}
+.card{background:#fff;border:2px solid #1c1c1e;border-radius:18px;box-shadow:6px 6px 0 #1c1c1e}
+.est{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+.rm{padding:24px}.row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px dashed #cfc9b8;font-weight:500}
+.cn{display:flex;align-items:center;gap:10px}.cn button{width:36px;height:36px;border-radius:50%;border:2px solid #1c1c1e;background:#fff;font:700 20px 'Work Sans',sans-serif;cursor:pointer;line-height:1;transition:background .15s,transform .15s}.cn button:hover{background:#ffd23f}.cn button:active{transform:scale(.9)}.cn button[aria-disabled=true]{opacity:.3;cursor:not-allowed}
+.cn output{display:inline-block;min-width:24px;text-align:center;font:800 24px 'Big Shoulders Display',sans-serif}
+.ml{padding:14px 0}.ml label{display:flex;justify-content:space-between;font-weight:700}input[type=range]{width:100%;accent-color:#1c1c1e;margin-top:8px}
+.tg{display:flex;align-items:center;gap:10px;padding:8px 0;font-weight:500}.tg input{width:22px;height:22px;accent-color:#1c1c1e}
+.res{background:#1c1c1e;color:#f6f3ea;padding:26px;border-radius:0 15px 15px 0}
+.res small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#ffd23f;font-weight:700}.pr{font:800 clamp(48px,6vw,76px)/1 'Big Shoulders Display',sans-serif;color:#ffd23f;margin:4px 0 14px}
+.kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}.kv div{background:#2a2a2d;border-radius:10px;padding:10px}.kv b{display:block;font:800 24px 'Big Shoulders Display',sans-serif}.kv span{font-size:12px;color:#b9b6ac}
+.mt{height:14px;background:#2f2f33;border-radius:99px;overflow:hidden}.mt i{display:block;height:100%;background:#ffd23f;border-radius:99px;transition:width .5s cubic-bezier(.3,1.4,.5,1)}.vn{display:flex;justify-content:space-between;font-size:12px;color:#b9b6ac;margin-top:6px}
+.ck{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:24px;padding:24px;align-items:center}.ck ul{list-style:none;margin:0;padding:0;columns:2;gap:20px}.ck li{padding:5px 0;break-inside:avoid}.ck label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}.ck input{width:20px;height:20px;accent-color:#1c1c1e;margin-top:3px;flex:none}.ck input:checked+span{text-decoration:line-through;color:#8a887f}
+.rg{position:relative;width:150px;margin:0 auto}.rg svg{width:100%;transform:rotate(-90deg);display:block}.rg b{position:absolute;inset:0;display:grid;place-items:center;font:800 36px 'Big Shoulders Display',sans-serif}
+.dn{text-align:center;font-weight:700;margin:10px 0 0;min-height:24px}
+.rv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1160px;margin:30px auto 60px;padding:0 clamp(18px,4vw,56px)}.rv blockquote{margin:0;background:#ffd23f;border:2px solid #1c1c1e;border-radius:16px;padding:20px;font-weight:500}.rv cite{display:block;margin-top:10px;font-style:normal;font-weight:700;font-size:14px}
+footer{background:#1c1c1e;color:#d8d5ca;text-align:center;padding:40px;font-size:14px}
+@media(max-width:860px){.hero,.est,.ck{grid-template-columns:minmax(0,1fr)}.res{border-radius:0 0 15px 15px}.rv{grid-template-columns:minmax(0,1fr)}.ck ul{columns:1}header a:not(.btn){display:none}}
+@media(prefers-reduced-motion:reduce){.van,.van .wh{animation:none}*{transition:none!important}}
+</style></head><body>
+<div class="top"><header><div class="logo"><i></i>HAUL &amp; HUM</div><a href="#est">Estimate</a><a href="#chk">Checklist</a><a href="#">Reviews</a><a class="btn" href="#est">Get a quote</a></header>
+<section class="hero"><div><h1>Your whole life. One very organised van.</h1><p class="sub">Careful crews, fixed prices and a tea break on us. Tell us what you're moving and see a price in seconds.</p><div class="btns"><a class="btn" href="#est">Estimate my move</a><a class="btn o" href="#">Call 0161 555 0142</a></div></div>
+<div class="van" aria-hidden="true"><div class="bx">HAUL &amp; HUM</div><div class="cb"></div><div class="wh w1"></div><div class="wh w2"></div><div class="road"></div></div></section></div>
+<main><section class="sec" id="est"><h2>Estimate your move</h2><div class="card est"><div class="rm" id="rm"><div class="ml"><label for="mi">Miles to travel <output id="mo">30 miles</output></label><input id="mi" type="range" min="1" max="250" value="30"></div><div class="tg"><input type="checkbox" id="st"><label for="st">Stairs or no lift at either end</label></div><div class="tg"><input type="checkbox" id="pk"><label for="pk">We need packing help</label></div></div>
+<div class="res" aria-live="polite"><small>Your estimate</small><div class="pr" id="pr"></div><div class="kv"><div><b id="vn"></b><span>Van</span></div><div><b id="cr"></b><span>Crew</span></div><div><b id="hr"></b><span>Hours</span></div></div><div class="mt" aria-hidden="true"><i id="mt"></i></div><div class="vn"><span>Small</span><span>Medium</span><span>Large</span><span>Luton</span></div></div></div></section>
+<section class="sec" id="chk"><h2>Moving day checklist</h2><div class="card ck"><ul id="cl"></ul><div><div class="rg"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="none" stroke="#eee8d6" stroke-width="12"/><circle id="ring" cx="50" cy="50" r="42" fill="none" stroke="#1c1c1e" stroke-width="12" stroke-linecap="round" stroke-dasharray="263.9" stroke-dashoffset="263.9" style="transition:stroke-dashoffset .5s"/></svg><b id="pc">0/10</b></div><p class="dn" id="dn" aria-live="polite"></p></div></div></section>
+<section class="rv"><blockquote>"Three flights of stairs and not a scratch. They even labelled the cables."<cite>Priya N., Leeds to York</cite></blockquote><blockquote>"The price they quoted online was the price I paid. Refreshing."<cite>Callum R., Sheffield</cite></blockquote><blockquote>"The crew brought tea. I cried a little. Moving day was fine."<cite>Joan M., Manchester</cite></blockquote></section></main>
+<footer>Haul &amp; Hum Movers · Fully insured · Goods in transit cover up to £50,000 · hello@haulandhum.example</footer>
+<script>
+(function(){
+var R=[['Living room',4,1,6],['Kitchen',3,1,6],['Bedrooms',3,2,6],['Home office',2,0,6],['Garage',5,0,6],['Garden',1.5,0,6]],cnt=R.map(function(r){return r[2]}),rm=document.getElementById('rm'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var first=rm.firstChild;R.forEach(function(r,i){var d=document.createElement('div');d.className='row';d.innerHTML='<span>'+r[0]+'</span><div class="cn"><button type="button" aria-label="Remove one '+r[0].toLowerCase()+'" data-d="-1">−</button><output id="n'+i+'" aria-label="'+r[0]+' count">'+cnt[i]+'</output><button type="button" aria-label="Add one '+r[0].toLowerCase()+'" data-d="1">+</button></div>';
+d.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){var v=cnt[i]+ +b.dataset.d;if(v<0||v>r[3])return;cnt[i]=v;calc()})});rm.insertBefore(d,first)});
+var mi=document.getElementById('mi'),st=document.getElementById('st'),pk=document.getElementById('pk');[mi,st,pk].forEach(function(e){e.addEventListener('input',calc)});
+var shown={};function num(id,to,fmt){var el=document.getElementById(id),from=shown[id]===undefined?to:shown[id];shown[id]=to;var t0=performance.now();if(reduce||from===to){el.textContent=fmt(to);return}(function f(n){var k=Math.min(1,(n-t0)/300);el.textContent=fmt(Math.round(from+(to-from)*k));if(k<1)requestAnimationFrame(f)})(t0)}
+function calc(){var pts=0;R.forEach(function(r,i){pts+=cnt[i]*r[1];var o=document.getElementById('n'+i);o.textContent=cnt[i];var bs=o.parentNode.querySelectorAll('button');bs[0].setAttribute('aria-disabled',cnt[i]<=0);bs[1].setAttribute('aria-disabled',cnt[i]>=r[3])});
+var mil=+mi.value;document.getElementById('mo').textContent=mil+' miles';
+var van=pts<12?0:pts<24?1:pts<40?2:3,base=180+pts*18+mil*2.4+(st.checked?70:0)+(pk.checked?pts*9:0),lo=Math.round(base*.92/10)*10,hi=Math.round(base*1.12/10)*10;
+document.getElementById('pr').textContent=pts?'£'+lo+' to £'+hi:'Add a room';document.getElementById('vn').textContent=['Small','Medium','Large','Luton'][van];document.getElementById('cr').textContent=pts<24?2:3;document.getElementById('hr').textContent=Math.max(2,Math.round(pts/5+mil/40))+' h';document.getElementById('mt').style.width=(25*(van+1))+'%'}
+calc();
+var T=['Book parking permit for the van','Defrost the freezer the day before','Label every box by room','Pack a "first night" bag','Photograph the meter readings','Tell your bank and the council','Take down curtains and shelves','Keep documents and keys with you','Clean the old place for the handover','Leave a tin of biscuits for the new owners'],cl=document.getElementById('cl'),ring=document.getElementById('ring'),pc=document.getElementById('pc'),dn=document.getElementById('dn');
+T.forEach(function(t,i){var li=document.createElement('li');li.innerHTML='<label><input type="checkbox"><span>'+t+'</span></label>';li.querySelector('input').addEventListener('change',up);cl.appendChild(li)});
+function up(){var n=cl.querySelectorAll('input:checked').length;pc.textContent=n+'/10';ring.style.strokeDashoffset=263.9*(1-n/10);dn.textContent=n===10?'All set. Put the kettle on!':''}
+})();
+</script></body></html>

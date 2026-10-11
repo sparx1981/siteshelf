@@ -94,8 +94,17 @@ async function viewLibrary() {
   const only = h('select', { id: 'only', 'aria-label': 'Filter' },
     h('option', { value: '', text: 'Everything' }), h('option', { value: 'original', text: 'SiteShelf originals' }), h('option', { value: 'sceneai', text: 'From SceneAI' }),
     h('option', { value: 'new', text: 'New' }), h('option', { value: 'edited', text: 'Edited by me' }));
-  const grid = h('div', { class: 'grid' });
+  const ribbons = h('div', { class: 'ribbons' });
   const count = h('span', { class: 'muted' });
+
+  const ribbon = (title, rows, wrap) => {
+    const track = h('div', { class: wrap ? 'grid' : 'track' }, rows.map(card));
+    const back = h('button', { class: 'rb-btn', type: 'button', 'aria-label': `Scroll ${title} left`, text: '‹', onclick: () => track.scrollBy({ left: -track.clientWidth * 0.8, behavior: 'smooth' }) });
+    const fwd = h('button', { class: 'rb-btn', type: 'button', 'aria-label': `Scroll ${title} right`, text: '›', onclick: () => track.scrollBy({ left: track.clientWidth * 0.8, behavior: 'smooth' }) });
+    return h('section', { class: 'ribbon' },
+      h('div', { class: 'rb-head' }, h('h2', { text: title }), h('span', { class: 'muted', text: `${rows.length}` }), wrap ? null : h('div', { class: 'rb-nav' }, back, fwd)),
+      track);
+  };
 
   const draw = () => {
     const q = search.value.trim().toLowerCase();
@@ -105,7 +114,14 @@ async function viewLibrary() {
       (only.value !== 'new' || p.is_new) && (only.value !== 'edited' || p.edited) &&
       (only.value !== 'original' || p.source === 'siteshelf') && (only.value !== 'sceneai' || p.source === 'sceneai'));
     count.textContent = `${rows.length} of ${library.length}`;
-    grid.replaceChildren(...(rows.length ? rows.map(card) : [h('div', { class: 'empty-state', style: 'grid-column:1/-1', text: library.length ? 'Nothing matches those filters.' : 'The library is empty. Press Sync now to fetch the free prompts.' })]));
+    if (!rows.length) { ribbons.replaceChildren(h('div', { class: 'empty-state', text: library.length ? 'Nothing matches those filters.' : 'The library is empty. Press Sync now to fetch the free prompts.' })); return; }
+    const by = new Map();
+    for (const p of rows) { const k = p.category || 'Other'; (by.get(k) || by.set(k, []).get(k)).push(p); }
+    const sections = [];
+    const fresh = rows.filter((p) => p.is_new);
+    if (fresh.length && !cat.value && only.value !== 'new') sections.push(ribbon('New', fresh));
+    [...by.entries()].sort((x, y) => y[1].length - x[1].length || x[0].localeCompare(y[0])).forEach(([k, v]) => sections.push(ribbon(k, v, !!cat.value)));
+    ribbons.replaceChildren(...sections);
   };
   [search, cat, only].forEach((el) => el.addEventListener('input', draw));
 
@@ -114,7 +130,7 @@ async function viewLibrary() {
       h('h1', { text: 'Prompt library' }),
       h('span', { class: 'muted', text: last ? `Last synced ${when(last.finished_at)}${sync.newCount ? ` · ${sync.newCount} new` : ''}` : 'Not synced yet' })),
     h('div', { class: 'toolbar' }, search, cat, only, count),
-    grid);
+    ribbons);
   draw();
 }
 
@@ -139,7 +155,7 @@ async function viewDetail(id) {
 
   const stage = h('div', { class: 'stage' });
   const stageNote = h('div');
-  const genBtn = h('button', { class: 'button primary', type: 'button', text: 'Generate preview' });
+  const toolsRow = h('div', { class: 'row' });
   let leftTab = 'source';
   let preview = null;
 
@@ -169,20 +185,51 @@ async function viewDetail(id) {
         stage.replaceChildren(v);
       } else stage.replaceChildren(img);
       stageNote.append(h('p', { class: 'muted', text: 'This is the source site’s own preview. Use the Generated tab to see what your current text produces.' }));
-    } else if (preview) {
-      stage.replaceChildren(h('iframe', { sandbox: 'allow-scripts', title: 'Generated preview', srcdoc: preview.html }));
-      stageNote.append(
-        preview.stale ? h('p', { class: 'notice', text: 'This preview was made from an earlier version of the prompt. Generate again to refresh it.' }) : null,
-        h('p', { class: 'muted', text: `Generated ${when(preview.createdAt)}${preview.model ? ` with ${preview.model}` : ''}` }));
     } else {
-      stage.replaceChildren(h('div', { class: 'empty', text: 'No generated preview yet. Press Generate preview to build the page from the prompt text on the right.' }));
+      if (preview) {
+        stage.replaceChildren(h('iframe', { sandbox: 'allow-scripts', title: 'Generated preview', srcdoc: preview.html }));
+        stageNote.append(
+          preview.stale ? h('p', { class: 'notice', text: 'This page was made from an earlier version of the prompt. Open the prompt in a chat again to refresh it.' }) : null,
+          h('p', { class: 'muted', text: `Saved ${when(preview.createdAt)}${preview.model ? ` · ${preview.model}` : ''}` }));
+      } else {
+        stage.replaceChildren(h('div', { class: 'empty', text: 'No generated page yet. Open the prompt in Claude or ChatGPT with the buttons below, then paste the finished page back here.' }));
+      }
+      stageNote.append(makePasteBox());
     }
-    genBtn.hidden = leftTab !== 'generated';
+    drawTools();
   }
-  genBtn.addEventListener('click', () => busy(genBtn, 'Generating… (up to a minute)', async () => {
-    const r = await api('/api/preview', { method: 'POST', body: { id, prompt: editor.value } });
-    preview = r.preview; leftTab = 'generated'; drawLeftTabs(); drawLeft();
-  }));
+  const chatText = () => `Build this as one complete, self-contained HTML page (inline CSS and JavaScript, Google Fonts allowed, no libraries). Reply with only the HTML, starting with <!doctype html>.\n\n${editor.value}`;
+  async function copyText(t, ok) { try { await navigator.clipboard.writeText(t); toast(ok); return true; } catch { toast('Could not copy. Select the text and copy it yourself.'); return false; } }
+  function openChat(base, name) {
+    const full = chatText();
+    const url = `${base}?q=${encodeURIComponent(full)}`;
+    if (url.length <= 7500) { window.open(url, '_blank', 'noopener'); return; }
+    copyText(full, `This prompt is too long to send in a link. It is copied: paste it into ${name}.`).then(() => window.open(base, '_blank', 'noopener'));
+  }
+  function drawTools() {
+    const gen = leftTab === 'generated';
+    const fs = h('button', { class: 'button', type: 'button', text: 'Full screen', onclick: () => fullscreen(stage) });
+    const tab = h('button', { class: 'button', type: 'button', text: 'Open in new tab', onclick: () => { const u = URL.createObjectURL(new Blob([preview.html], { type: 'text/html' })); window.open(u, '_blank'); setTimeout(() => URL.revokeObjectURL(u), 60000); } });
+    toolsRow.replaceChildren(...(gen && preview ? [fs, tab] : []));
+    toolsRow.hidden = !(gen && preview);
+  }
+  function fullscreen(el) {
+    if (el.requestFullscreen) el.requestFullscreen().catch(() => el.classList.add('fs'));
+    else el.classList.add('fs');
+    if (!el.requestFullscreen) { const esc = (e) => { if (e.key === 'Escape') { el.classList.remove('fs'); removeEventListener('keydown', esc); } }; addEventListener('keydown', esc); }
+  }
+  function makePasteBox() {
+    const claude = h('button', { class: 'button primary', type: 'button', text: 'Open in Claude', onclick: () => openChat('https://claude.ai/new', 'Claude') });
+    const gpt = h('button', { class: 'button primary', type: 'button', text: 'Open in ChatGPT', onclick: () => openChat('https://chatgpt.com/', 'ChatGPT') });
+    const copy = h('button', { class: 'button', type: 'button', text: 'Copy for Gemini or others', onclick: () => copyText(chatText(), 'Copied. Paste it into any chat.') });
+    const ta = h('textarea', { rows: 5, spellcheck: 'false', placeholder: 'Paste the page the chat wrote here (the whole reply is fine)…', 'aria-label': 'Pasted page' });
+    const save = h('button', { class: 'button', type: 'button', text: 'Save as preview' });
+    save.addEventListener('click', () => busy(save, 'Saving…', async () => {
+      const r = await api('/api/preview', { method: 'POST', body: { id, html: ta.value, prompt: editor.value } });
+      preview = r.preview; leftTab = 'generated'; drawLeftTabs(); drawLeft(); toast('Saved. This is now the preview.');
+    }));
+    return h('div', { class: 'stack paste' }, h('div', { class: 'row' }, claude, gpt, copy), ta, h('div', { class: 'row' }, save));
+  }
   const leftTabs = h('div', { class: 'tabs', role: 'tablist' });
   function drawLeftTabs() {
     leftTabs.replaceChildren(...[['source', 'Source'], ['generated', 'Generated']].map(([k, t]) =>
@@ -206,11 +253,7 @@ async function viewDetail(id) {
     if (rightTab === 'prompt') {
       const save = h('button', { class: 'button primary', type: 'button', text: 'Save' });
       save.addEventListener('click', () => busy(save, 'Saving…', async () => { await savePrompt(editor.value); toast('Saved. The previous text is in History.'); drawRight(); }));
-      const prev = h('button', { class: 'button', type: 'button', text: 'Preview this text' });
-      prev.addEventListener('click', () => busy(prev, 'Generating…', async () => {
-        const r = await api('/api/preview', { method: 'POST', body: { id, prompt: editor.value } });
-        preview = r.preview; leftTab = 'generated'; drawLeftTabs(); drawLeft(); window.scrollTo({ top: 0, behavior: 'smooth' });
-      }));
+      const prev = h('button', { class: 'button', type: 'button', text: 'Open in Claude', onclick: () => openChat('https://claude.ai/new', 'Claude') });
       const copy = h('button', { class: 'button ghost', type: 'button', text: 'Copy' });
       copy.addEventListener('click', async () => { try { await navigator.clipboard.writeText(editor.value); toast('Copied.'); } catch { editor.select(); toast('Press copy on your keyboard.'); } });
       const reset = p.edited ? h('button', { class: 'button ghost', type: 'button', text: 'Reset to original' }) : null;
@@ -272,7 +315,7 @@ async function viewDetail(id) {
       h('div', { class: 'row' }, p.is_new ? h('span', { class: 'pill new', text: 'New' }) : null, p.edited ? h('span', { class: 'pill edited', text: 'Edited' }) : null, p.category ? h('span', { class: 'pill', text: p.category }) : null)),
     p.description ? h('p', { class: 'muted', text: p.description }) : null,
     h('div', { class: 'detail' },
-      h('section', { class: 'panel' }, h('div', { class: 'panel-head' }, leftTabs, genBtn), stage, h('div', { class: 'panel-body' }, stageNote)),
+      h('section', { class: 'panel' }, h('div', { class: 'panel-head' }, leftTabs, toolsRow), stage, h('div', { class: 'panel-body' }, stageNote)),
       h('section', { class: 'panel' }, h('div', { class: 'panel-head' }, rightTabs), rightBody)));
 }
 

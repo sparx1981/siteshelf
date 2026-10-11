@@ -1,0 +1,11 @@
+Canvas & base: Page #f6f7fb, centred card max-width 680px on white, 1px #e3e6ef border, 20px radius, soft shadow 0 24px 60px -24px rgba(30,41,90,.3). Dropzone with a 2px dashed #b7bfdc border, #f9faff fill; active drag state turns border and fill #4f46e5 / #eef0ff. Accent #4f46e5, success #16a34a, error #dc2626, ink #151a30, muted #667096.
+
+Typography: "Outfit" (400, 500, 600, 700) throughout; heading 26px 700, file names 15px 500, meta 13px muted, tabular numbers for sizes and percentages.
+
+Layout: Card title "Upload files" with the rules line "PNG, JPG, PDF or ZIP, up to 5 MB each, max 6 files". A large dropzone with a cloud-upload icon (inline SVG), the text "Drag and drop files here" and a "Browse files" button wrapping a hidden file input. Below, a list of file rows: thumbnail (image preview via URL.createObjectURL or a coloured type tile), name, size, status text, a progress bar and an action button (Cancel, Retry or Remove). A footer shows "2 of 4 uploaded", total size and a "Clear all" link.
+
+Interaction: Dropping or choosing files validates type, size and count; invalid files appear as error rows with a clear reason (for example "Larger than 5 MB") rather than being silently ignored. Valid files upload with a simulated progress using timers at random speeds; one in five fails halfway with "Network error" and shows Retry. Cancel stops the timer and removes the row. The dropzone is focusable, opens the file picker on Enter or Space, and announces results through an aria-live region. Paste from clipboard also works for images. Dragging over anywhere on the page highlights the zone.
+
+Responsive: Rows stack their action under the name at 390px. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries, nothing is actually uploaded (say so in small text), respects prefers-reduced-motion, revoke object URLs when rows are removed.

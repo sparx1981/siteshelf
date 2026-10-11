@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orbit — Notification Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#111827;--mut:#6b7280;--line:#e4e6eb;--acc:#2563eb;--un:#eff6ff}
+*{box-sizing:border-box}
+body{margin:0;background:#f5f6f8;color:var(--ink);font:400 14px/1.5 'Plus Jakarta Sans',sans-serif;min-height:100dvh}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+header{height:64px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:20px;padding:0 24px;position:sticky;top:0;z-index:20}
+.logo{font-weight:700;font-size:20px;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.logo i{width:24px;height:24px;border-radius:50%;border:5px solid var(--acc);display:block}
+.sr{flex:1;max-width:340px;background:#f3f4f6;border-radius:10px;padding:9px 14px;color:var(--mut)}
+.right{margin-left:auto;position:relative;display:flex;align-items:center;gap:10px}
+.bell{position:relative;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer;color:var(--ink)}
+.bell:hover{background:#f9fafb}
+.bell svg{width:20px;height:20px}
+.bell.shake svg{animation:sh .6s}
+@keyframes sh{20%{transform:rotate(18deg)}40%{transform:rotate(-16deg)}60%{transform:rotate(10deg)}80%{transform:rotate(-6deg)}}
+.badge{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;border-radius:10px;background:#dc2626;color:#fff;font:700 11px/20px 'Plus Jakarta Sans',sans-serif;padding:0 5px;text-align:center;border:2px solid #fff;box-sizing:content-box}
+.av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;font-weight:700;display:grid;place-items:center;font-size:13px}
+.panel{position:absolute;top:calc(100% + 10px);right:0;width:400px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 50px -12px rgba(16,24,40,.25);transform-origin:top right;transform:scale(.96) translateY(-6px);opacity:0;visibility:hidden;transition:transform .18s,opacity .18s,visibility .18s;overflow:hidden}
+.panel.open{transform:none;opacity:1;visibility:visible}
+.ph{display:flex;align-items:center;justify-content:space-between;padding:16px 18px 6px}
+.ph h2{margin:0;font-size:18px}
+.lk{background:none;border:0;color:var(--acc);font:600 13px 'Plus Jakarta Sans',sans-serif;cursor:pointer;padding:4px}
+.lk:hover{text-decoration:underline}
+.tabs{display:flex;gap:4px;padding:0 12px;border-bottom:1px solid var(--line)}
+.tab{background:none;border:0;padding:10px 8px;font:600 13px 'Plus Jakarta Sans',sans-serif;color:var(--mut);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab[aria-selected=true]{color:var(--ink);border-color:var(--acc)}
+.tab b{background:#e5e7eb;border-radius:999px;font-size:11px;padding:1px 7px;margin-left:4px;color:var(--ink)}
+.tab[aria-selected=true] b{background:var(--acc);color:#fff}
+.list{max-height:min(460px,60dvh);overflow:auto}
+.grp{padding:12px 18px 4px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mut)}
+.it{position:relative;display:grid;grid-template-columns:40px minmax(0,1fr) 10px;gap:12px;padding:12px 18px;cursor:pointer;transition:background .15s,height .3s,opacity .3s,padding .3s}
+.it:hover{background:#f9fafb}
+.it.un{background:var(--un)}.it.un:hover{background:#e0ecff}
+.it.rm{height:0!important;padding-top:0;padding-bottom:0;opacity:0;overflow:hidden}
+.ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px}
+.it h3{margin:0;font-size:14px;font-weight:600;line-height:1.4}.it h3 b{font-weight:700}
+.it p{margin:2px 0 0;color:var(--mut);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.it time{font-size:12px;color:var(--mut)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--acc);margin-top:6px;opacity:0}.un .dot{opacity:1}
+.x{position:absolute;right:30px;top:10px;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--mut);cursor:pointer;opacity:0;font-size:15px;line-height:1;padding:0 0 2px}
+.it:hover .x,.x:focus-visible{opacity:1}
+.empty{padding:44px 20px;text-align:center;color:var(--mut)}
+.empty .c{width:70px;height:70px;margin:0 auto 14px;border-radius:50%;background:#dbeafe;position:relative}
+.empty .c:after{content:'';position:absolute;left:21px;top:22px;width:28px;height:15px;border-left:5px solid #2563eb;border-bottom:5px solid #2563eb;transform:rotate(-45deg)}
+.empty b{display:block;color:var(--ink);font-size:16px}
+main{max-width:900px;margin:0 auto;padding:28px 24px}
+.sk{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:14px}
+.sk i{display:block;height:12px;border-radius:6px;background:#eceef2;margin-bottom:10px}
+.sim{background:var(--ink);color:#fff;border:0;border-radius:10px;padding:10px 16px;font:600 14px 'Plus Jakarta Sans',sans-serif;cursor:pointer;margin-bottom:18px}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ink);color:#fff;border-radius:12px;padding:10px 12px 10px 16px;display:flex;gap:14px;align-items:center;opacity:0;pointer-events:none;transition:.25s;z-index:40}
+#toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+#toast button{background:none;border:0;color:#93c5fd;font:700 14px 'Plus Jakarta Sans',sans-serif;cursor:pointer}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:520px){header{padding:0 14px;gap:10px}.sr{display:none}.right{position:static}.panel{position:fixed;top:72px;left:12px;right:12px;width:auto}main{padding:20px 14px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body>
+<header><span class="logo"><i></i>Orbit</span><div class="sr">Search anything…</div>
+<div class="right"><button class="bell" id="bell" aria-label="Notifications" aria-expanded="false" aria-controls="panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="badge" id="badge" hidden></span></button><span class="av">RK</span>
+<div class="panel" id="panel" role="dialog" aria-label="Notifications"><div class="ph"><h2>Notifications</h2><button class="lk" id="all">Mark all as read</button></div><div class="tabs" role="tablist" id="tabs"></div><div class="list" id="list"></div></div></div></header>
+<main><button class="sim" id="sim">Simulate new notification</button><div class="sk"><i style="width:40%"></i><i></i><i style="width:80%"></i></div><div class="sk"><i style="width:30%"></i><i></i><i style="width:70%"></i></div><div class="sk"><i style="width:50%"></i><i></i><i style="width:60%"></i></div></main>
+<div id="toast" role="status"><span id="tt"></span><button id="undo">Undo</button></div><div class="sr-only" aria-live="polite" id="live"></div>
+<script>
+let N=[
+{id:1,t:'mention',g:'t',c:'#7c3aed',a:'MS',h:'<b>Maya Singh</b> mentioned you in <b>Q4 roadmap</b>',b:'"@Rae can you check the dates on the launch row?"',w:'2m',u:1},
+{id:2,t:'comment',g:'t',c:'#0891b2',a:'DA',h:'<b>Dev Anand</b> commented on <b>Pricing page</b>',b:'Looks great, one small thing on the toggle spacing.',w:'18m',u:1},
+{id:3,t:'system',g:'t',c:'#16a34a',a:'✓',h:'<b>Deploy succeeded</b> for <b>orbit-web</b>',b:'Production · build 2841 · 1m 12s',w:'1h',u:1},
+{id:4,t:'invite',g:'t',c:'#ea580c',a:'+',h:'<b>Ben Okoye</b> invited you to <b>Design review</b>',b:'Tomorrow at 10:00, Meet link attached.',w:'3h',u:0},
+{id:5,t:'system',g:'e',c:'#dc2626',a:'!',h:'<b>Payment failed</b> for the Team plan',b:'Update your card to keep your workspace active.',w:'Yesterday',u:1},
+{id:6,t:'comment',g:'e',c:'#db2777',a:'RI',h:'<b>Rosa Ibarra</b> replied to your comment',b:'Agreed, let us ship that on Friday.',w:'Yesterday',u:0},
+{id:7,t:'mention',g:'e',c:'#2563eb',a:'JP',h:'<b>Jonah Pike</b> mentioned you in <b>Sprint notes</b>',b:'"Rae owns the follow-up from the retro."',w:'2d',u:0},
+{id:8,t:'system',g:'e',c:'#6b7280',a:'⚙',h:'<b>Weekly digest</b> is ready',b:'14 tasks closed, 3 new members joined.',w:'3d',u:0},
+{id:9,t:'invite',g:'e',c:'#0d9488',a:'+',h:'<b>Zara Whitfield</b> shared <b>Brand assets</b> with you',b:'Can edit · 24 files',w:'4d',u:0}];
+let tab='all',seq=100,last=null,tmr;
+const $=id=>document.getElementById(id),bell=$('bell'),panel=$('panel'),list=$('list');
+const TABS=[['all','All'],['mention','Mentions'],['system','System']];
+const inTab=(n,t)=>t==='all'||n.t===t||(t==='mention'&&n.t==='mention');
+function counts(){return Object.fromEntries(TABS.map(([k])=>[k,N.filter(n=>n.u&&inTab(n,k)).length]))}
+function render(){const c=counts();
+ $('tabs').innerHTML=TABS.map(([k,l])=>`<button class="tab" role="tab" aria-selected="${k===tab}" data-t="${k}">${l}<b>${c[k]}</b></button>`).join('');
+ const v=N.filter(n=>inTab(n,tab));
+ const grp=(g,l)=>{const a=v.filter(n=>n.g===g);return a.length?`<div class="grp">${l}</div>`+a.map(n=>`<div class="it${n.u?' un':''}" data-id="${n.id}" tabindex="0" role="button"><span class="ic" style="background:${n.c}">${n.a}</span><div><h3>${n.h}</h3><p>${n.b}</p><time>${n.w}</time></div><span class="dot" aria-hidden="true"></span><button class="x" aria-label="Dismiss notification" tabindex="0">×</button></div>`).join(''):''};
+ list.innerHTML=v.length?grp('t','Today')+grp('e','Earlier'):'<div class="empty"><div class="c"></div><b>You are all caught up</b>Nothing new right now. Enjoy the quiet.</div>';
+ const tot=N.filter(n=>n.u).length;$('badge').hidden=!tot;$('badge').textContent=tot>9?'9+':tot;bell.setAttribute('aria-label',tot?`Notifications, ${tot} unread`:'Notifications');$('all').disabled=!tot;$('all').style.opacity=tot?1:.4}
+function open(o){panel.classList.toggle('open',o);bell.setAttribute('aria-expanded',o);if(o){setTimeout(()=>{const f=panel.querySelector('.tab[aria-selected=true]');f&&f.focus()},30)}}
+bell.onclick=e=>{e.stopPropagation();open(!panel.classList.contains('open'))};
+document.addEventListener('click',e=>{const path=e.composedPath();if(panel.classList.contains('open')&&!path.includes(panel)&&!path.includes(bell))open(false)});
+document.addEventListener('keydown',e=>{if(!panel.classList.contains('open'))return;if(e.key==='Escape'){open(false);bell.focus()}
+ if(e.key==='Tab'){const f=[...panel.querySelectorAll('button:not(:disabled),[tabindex="0"]')].filter(x=>x.offsetParent!==null);if(!f.length)return;const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}});
+panel.addEventListener('click',e=>{const t=e.target.closest('.tab');if(t){tab=t.dataset.t;render();panel.querySelector('.tab[aria-selected=true]').focus();return}
+ const it=e.target.closest('.it');if(!it)return;const n=N.find(x=>x.id==it.dataset.id);
+ if(e.target.closest('.x')){const idx=N.indexOf(n);last={n,idx};it.style.height=it.offsetHeight+'px';void it.offsetHeight;it.classList.add('rm');setTimeout(()=>{N=N.filter(x=>x!==n);render();toast('Notification dismissed')},300)}
+ else{n.u=0;render()}});
+panel.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('it')){e.preventDefault();const n=N.find(x=>x.id==e.target.dataset.id);n.u=0;render();const el=list.querySelector(`[data-id="${n.id}"]`);el&&el.focus()}});
+$('all').onclick=()=>{N.forEach(n=>n.u=0);render()};
+function toast(t){$('tt').textContent=t;$('toast').classList.add('on');clearTimeout(tmr);tmr=setTimeout(()=>$('toast').classList.remove('on'),5000)}
+$('undo').onclick=()=>{if(!last)return;N.splice(Math.min(last.idx,N.length),0,last.n);last=null;$('toast').classList.remove('on');render()};
+const NEW=[['#0ea5e9','LK','<b>Lena Kovacs</b> assigned you <b>Fix onboarding copy</b>','Due Friday · High priority'],['#8b5cf6','TB','<b>Tomas Brandt</b> mentioned you in <b>API review</b>','"Rae, does this match the spec?"'],['#f43f5e','!','<b>Usage alert</b>: 80% of your storage used','Upgrade to avoid interruptions.']];
+$('sim').onclick=()=>{const s=NEW[seq%3];const n={id:++seq,t:s[2].includes('mentioned')?'mention':s[1]==='!'?'system':'comment',g:'t',c:s[0],a:s[1],h:s[2],b:s[3],w:'now',u:1};N.unshift(n);render();bell.classList.remove('shake');void bell.offsetWidth;bell.classList.add('shake');$('live').textContent='New notification: '+s[2].replace(/<[^>]+>/g,'')};
+render();panel.classList.add('open');bell.setAttribute('aria-expanded','true');
+</script></body></html>

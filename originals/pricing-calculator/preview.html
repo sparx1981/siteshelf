@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Estimate your bill — Pricing Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#10231c;--mut:#5f7268;--acc:#12b76a;--line:#dde3dd;--dk:#0e3b2e;--mint:#b8f2d0}
+*{box-sizing:border-box}
+body{margin:0;background:#f4f6f4;color:var(--ink);font:400 16px/1.5 'IBM Plex Sans',sans-serif;padding:32px 20px}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto}
+h1{font:700 clamp(30px,4vw,44px)/1.1 Sora,sans-serif;margin:0 0 8px;letter-spacing:-.03em}
+.lede{color:var(--mut);margin:0 0 28px}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px}
+h2{font:600 18px Sora,sans-serif;margin:0 0 18px}
+.sl{margin-bottom:26px}
+.sl .t{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.sl label{font-weight:500}
+.sl .v{display:flex;align-items:baseline;gap:6px;font:600 22px Sora,sans-serif;font-variant-numeric:tabular-nums}
+.sl .v input{width:104px;border:1px solid var(--line);border-radius:8px;padding:4px 8px;font:600 18px Sora,sans-serif;text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+.sl .v small{font:400 14px 'IBM Plex Sans',sans-serif;color:var(--mut)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:4px;background:linear-gradient(90deg,var(--acc) var(--p,0%),#e4e9e4 var(--p,0%));outline-offset:6px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid var(--acc);box-shadow:0 2px 8px rgba(0,0,0,.2);cursor:grab}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid var(--acc);cursor:grab}
+.tk{display:flex;justify-content:space-between;color:var(--mut);font-size:12px;margin-top:6px}
+.bill{display:flex;align-items:center;gap:12px;padding-top:6px;border-top:1px solid var(--line);margin-top:6px;padding-top:20px}
+.sw{width:50px;height:28px;border-radius:14px;background:#cfd8d2;border:0;position:relative;cursor:pointer;transition:background .2s;flex:none}
+.sw:after{content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform .2s}
+.sw[aria-checked=true]{background:var(--acc)}.sw[aria-checked=true]:after{transform:translateX(22px)}
+.tag{background:#d1fadf;color:#05603a;border-radius:999px;font-size:12px;font-weight:500;padding:2px 10px}
+.sum{background:var(--dk);color:#e7f6ee;border-color:var(--dk)}
+.sum h2{color:var(--mint)}
+.tot{font:700 clamp(44px,6vw,64px)/1 Sora,sans-serif;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.tot small{font:500 16px 'IBM Plex Sans',sans-serif;color:var(--mint);letter-spacing:0;margin-left:6px}
+.note{color:#9fc7b3;font-size:14px;margin:6px 0 18px}
+.stack{display:flex;height:14px;border-radius:7px;overflow:hidden;background:#16513f;gap:2px}
+.stack i{display:block;transition:width .3s}
+.lg{display:flex;flex-wrap:wrap;gap:6px 16px;margin:12px 0 18px;font-size:13px}
+.lg span:before{content:'';display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--c);margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td{padding:9px 0;border-top:1px solid #1d5a47;vertical-align:top}
+td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:500;color:#fff;white-space:nowrap;padding-left:12px}
+td small{display:block;color:#9fc7b3;font-size:12px}
+.rec{margin-top:18px;background:#134a39;border:1px solid #1d6a52;border-radius:14px;padding:14px 16px;font-size:14px}
+.rec b{color:var(--mint);font-family:Sora,sans-serif}
+.cta{display:inline-block;margin-top:14px;background:var(--mint);color:var(--dk);border:0;border-radius:10px;padding:11px 20px;font:600 15px Sora,sans-serif;cursor:pointer}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:880px){.cols{grid-template-columns:minmax(0,1fr)}.sum{order:-1}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<h1>Estimate your bill</h1><p class="lede">Slide to match your usage. The maths is the real maths: tiered rates, plan fees and the cheapest plan for you.</p>
+<div class="cols">
+<section class="card" aria-label="Usage inputs"><h2>Your usage</h2><div id="sls"></div>
+<div class="bill"><span id="bl1">Monthly</span><button class="sw" id="sw" role="switch" aria-checked="false" aria-label="Annual billing"></button><span id="bl2">Annual</span><span class="tag">Save 20%</span></div></section>
+<section class="card sum" aria-label="Estimate"><h2>Estimated monthly cost</h2><div class="tot" id="tot">£0<small>/ month</small></div><p class="note" id="nt"></p>
+<div class="stack" id="st" role="img" aria-label="Cost split"></div><div class="lg" id="lg"></div>
+<table><tbody id="tb"></tbody></table><div class="rec" id="rec"></div><button class="cta" id="cta" hidden>Talk to sales</button><div class="sr" id="live" aria-live="polite"></div></section>
+</div></div>
+<script>
+const S=[{k:'users',l:'Monthly active users',min:0,max:100000,step:500,v:12000,u:'users',f:n=>n.toLocaleString('en-GB')},{k:'req',l:'API requests',min:0,max:500,step:5,v:60,u:'M / month',f:n=>n+'M'},{k:'gb',l:'Storage',min:0,max:5000,step:50,v:400,u:'GB',f:n=>n.toLocaleString('en-GB')+' GB'}];
+const TIERS={users:[[10000,.02],[50000,.015],[Infinity,.01]],req:[[50,.9],[200,.7],[Infinity,.5]],gb:[[500,.1],[2000,.08],[Infinity,.05]]};
+const PLANS={Starter:{fee:0,cap:{users:5000,req:20,gb:100},mult:1.15},Growth:{fee:79,cap:{users:50000,req:200,gb:1000},mult:1},Scale:{fee:299,cap:{users:1e9,req:1e9,gb:1e9},mult:.85}};
+const COL={Platform:'#b8f2d0',Users:'#12b76a',Requests:'#5bd1d7',Storage:'#f9c74f'};
+const $=i=>document.getElementById(i),val={};let annual=false;
+$('sls').innerHTML=S.map(s=>{val[s.k]=s.v;return `<div class="sl"><div class="t"><label for="r-${s.k}">${s.l}</label><div class="v"><input type="number" id="n-${s.k}" min="${s.min}" max="${s.max}" step="${s.step}" value="${s.v}" aria-label="${s.l} value"><small>${s.u}</small></div></div><input type="range" id="r-${s.k}" min="${s.min}" max="${s.max}" step="${s.step}" value="${s.v}"><div class="tk"><span>${s.f(s.min)}</span><span>${s.f(s.max)}</span></div></div>`}).join('');
+const gbp=(n,d=0)=>'£'+n.toLocaleString('en-GB',{minimumFractionDigits:d,maximumFractionDigits:d});
+function tier(k,q,mult){let left=q,prev=0,cost=0,parts=[];for(const[cap,rate]of TIERS[k]){if(left<=0)break;const span=Math.min(left,cap-prev);cost+=span*rate*mult;parts.push(`${k==='users'?(span/1000).toFixed(span%1000?1:0)+'k':span+(k==='req'?'M':' GB')} at ${gbp(rate*mult,3)}`);left-=span;prev=cap}return{cost,parts}}
+function calc(name){const p=PLANS[name];const over=Object.entries(p.cap).some(([k,c])=>val[k]>c);const L=[['Platform',p.fee,`${name} plan fee`]];
+ [['Users','users'],['Requests','req'],['Storage','gb']].forEach(([n,k])=>{const t=tier(k,val[k],p.mult);L.push([n,t.cost,t.parts.join(', ')||'No usage'])});
+ const total=L.reduce((a,l)=>a+l[1],0);return{over,L,total}}
+let shown=0,raf=null,speak=null;const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function update(){S.forEach(s=>{const r=$('r-'+s.k);r.style.setProperty('--p',((val[s.k]-s.min)/(s.max-s.min)*100)+'%')});
+ const res=Object.keys(PLANS).map(n=>({n,...calc(n)}));const fit=res.filter(r=>!r.over);const best=fit.sort((a,b)=>a.total-b.total)[0]||res[2];
+ const disc=annual?.8:1,tot=best.total*disc;
+ const mx=Math.max(tot,1);$('st').innerHTML=best.L.map(l=>`<i style="width:${tot?l[1]*disc/tot*100:0}%;background:${COL[l[0]]}" title="${l[0]}"></i>`).join('');
+ $('lg').innerHTML=best.L.map(l=>`<span style="--c:${COL[l[0]]}">${l[0]} ${gbp(l[1]*disc)}</span>`).join('');
+ $('tb').innerHTML=best.L.map(l=>`<tr><td>${l[0]}<small>${l[2]}</small></td><td>${gbp(l[1]*disc,2)}</td></tr>`).join('');
+ const alt=res.filter(r=>r.n!==best.n&&!r.over).sort((a,b)=>a.total-b.total)[0];
+ $('rec').innerHTML=`<b>${best.n}</b> is your cheapest fit at ${gbp(tot,2)} a month.`+(alt?` ${alt.n} would cost ${gbp(alt.total*disc,2)}.`:' It is the only plan that covers this volume.')+(annual?' Annual billing already applied.':' Switch to annual to save '+gbp(best.total*.2,2)+' a month.');
+ $('cta').hidden=tot<1500;$('nt').textContent=annual?`Billed annually at ${gbp(tot*12)}`:'Billed monthly, cancel any time';
+ animate(tot);clearTimeout(speak);speak=setTimeout(()=>$('live').textContent=`Estimated ${gbp(tot,2)} per month on the ${best.n} plan.`,600)}
+function animate(to){cancelAnimationFrame(raf);if(reduce){shown=to;paint();return}const from=shown,t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/350);shown=from+(to-from)*(1-Math.pow(1-k,3));paint();if(k<1)raf=requestAnimationFrame(f)})(t0)}
+function paint(){$('tot').innerHTML=`${gbp(shown)}<small>/ month</small>`}
+S.forEach(s=>{const r=$('r-'+s.k),n=$('n-'+s.k);r.oninput=()=>{val[s.k]=+r.value;n.value=r.value;update()};
+ n.onchange=()=>{let v=Math.min(s.max,Math.max(s.min,+n.value||0));val[s.k]=v;n.value=v;r.value=v;update()}});
+$('sw').onclick=function(){annual=!annual;this.setAttribute('aria-checked',annual);$('bl1').style.fontWeight=annual?400:700;$('bl2').style.fontWeight=annual?700:400;update()};
+$('bl1').style.fontWeight=700;update();shown=+$('tot').textContent.replace(/[^0-9]/g,'')||0;
+</script></body></html>

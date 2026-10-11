@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Customers — Data Table</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#0f172a;--mut:#64748b;--line:#e2e8f0;--acc:#4f46e5;--rh:56px}
+*{box-sizing:border-box}
+body{margin:0;background:#f8fafc;color:var(--ink);font:400 14px/1.5 Inter,sans-serif;padding:28px}
+body.compact{--rh:40px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:10px 16px;justify-content:space-between;align-items:center;margin-bottom:16px}
+h1{font:600 26px/1.2 Inter,sans-serif;margin:0;letter-spacing:-.02em}
+h1 small{color:var(--mut);font-weight:400;font-size:15px;margin-left:8px}
+.btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 14px;font:500 14px Inter,sans-serif;cursor:pointer;color:var(--ink)}
+.btn:hover{background:#f1f5f9}.btn.p{background:var(--acc);border-color:var(--acc);color:#fff}.btn.p:hover{background:#4338ca}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.tb{display:flex;flex-wrap:wrap;gap:10px;padding:14px;border-bottom:1px solid var(--line);align-items:center}
+.tb input[type=search],.tb select{border:1px solid var(--line);border-radius:8px;padding:8px 12px;font:inherit;background:#fff}
+.tb input[type=search]{flex:1 1 220px;min-width:0}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-left:auto}
+.seg button{border:0;background:#fff;padding:8px 12px;font:500 13px Inter,sans-serif;cursor:pointer;color:var(--mut)}
+.seg button[aria-pressed=true]{background:#eef2ff;color:var(--acc)}
+.bulk{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#eef2ff;border-bottom:1px solid #c7d2fe;position:sticky;top:0;z-index:3;flex-wrap:wrap}
+.bulk b{margin-right:auto;color:var(--acc)}
+.sc{overflow-x:auto}
+table{width:100%;border-collapse:separate;border-spacing:0;min-width:760px}
+th{background:#f8fafc;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);font-weight:600;text-align:left;padding:0;border-bottom:1px solid var(--line);white-space:nowrap}
+th button{all:unset;display:flex;align-items:center;gap:6px;padding:12px 14px;cursor:pointer;box-sizing:border-box;width:100%}
+th button:hover{color:var(--ink)}th button:focus-visible{outline:2px solid var(--acc);outline-offset:-2px}
+th.r button{justify-content:flex-end}
+th[aria-sort=ascending] button:after{content:'↑';color:var(--acc)}th[aria-sort=descending] button:after{content:'↓';color:var(--acc)}
+th.plain{padding:12px 14px}
+td{padding:0 14px;height:var(--rh);border-bottom:1px solid var(--line);white-space:nowrap;transition:height .2s}
+td.r{text-align:right;font-variant-numeric:tabular-nums}
+tr.row:hover td{background:#f1f5f9}tr.row.sel td{background:#eef2ff}
+tr.row:focus-visible{outline:2px solid var(--acc);outline-offset:-2px}
+.ck{width:44px}
+input[type=checkbox]{width:16px;height:16px;accent-color:var(--acc);cursor:pointer}
+.cu{display:flex;align-items:center;gap:10px}
+.av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;font:600 12px Inter,sans-serif;flex:none;transition:.2s}
+.compact .av{width:24px;height:24px;font-size:10px}
+.cu b{display:block;font-weight:500;line-height:1.25}.cu small{color:var(--mut);display:block;line-height:1.25}
+.compact .cu small{display:none}
+.st{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:500}
+.st.Active{background:#dcfce7;color:#15803d}.st.Pending{background:#fef3c7;color:#b45309}.st.Paused{background:#e2e8f0;color:#475569}.st.Churned{background:#fee2e2;color:#b91c1c}
+.ft{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;padding:12px 14px;color:var(--mut)}
+.pg{display:flex;gap:4px;flex-wrap:wrap}
+.pg button{min-width:34px;height:34px;border:1px solid var(--line);background:#fff;border-radius:8px;font:500 13px Inter,sans-serif;cursor:pointer;color:var(--ink)}
+.pg button[aria-current=page]{background:var(--acc);border-color:var(--acc);color:#fff}
+.pg button:disabled{opacity:.4;cursor:default}
+.empty{text-align:center;padding:56px 16px;color:var(--mut)}
+.empty .i{width:54px;height:54px;border-radius:50%;background:#f1f5f9;margin:0 auto 12px;display:grid;place-items:center;font-size:24px}
+.empty b{display:block;color:var(--ink);font-size:16px}
+dialog{border:1px solid var(--line);border-radius:14px;padding:20px;width:min(560px,calc(100vw - 32px));color:var(--ink)}
+dialog::backdrop{background:rgba(15,23,42,.5)}
+dialog h2{margin:0 0 10px;font-size:18px}
+dialog textarea{width:100%;height:200px;font:12px ui-monospace,Menlo,monospace;border:1px solid var(--line);border-radius:8px;padding:10px;resize:vertical}
+.dr{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+@media(max-width:760px){body{padding:14px}th:nth-child(1),td:nth-child(1){position:sticky;left:0;z-index:2;background:#fff}th:nth-child(2),td:nth-child(2){position:sticky;left:44px;z-index:2;background:#fff;box-shadow:1px 0 0 var(--line)}th:nth-child(1),th:nth-child(2){background:#f8fafc}tr.row.sel td:nth-child(1),tr.row.sel td:nth-child(2){background:#eef2ff}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<div class="top"><h1>Customers<small id="tot"></small></h1><div style="display:flex;gap:8px"><button class="btn" id="expAll">Export</button><button class="btn p">Add customer</button></div></div>
+<div class="card">
+<div class="tb"><input type="search" id="q" placeholder="Search name or email" aria-label="Search customers"><select id="sf" aria-label="Filter by status"><option>All</option><option>Active</option><option>Pending</option><option>Paused</option><option>Churned</option></select>
+<div class="seg" role="group" aria-label="Row density"><button id="d1" aria-pressed="true">Comfortable</button><button id="d2" aria-pressed="false">Compact</button></div></div>
+<div class="bulk" id="bulk" hidden><b id="bc"></b><button class="btn" id="exp">Export selected</button><button class="btn" id="pause">Pause</button><button class="btn" id="clr">Clear</button></div>
+<div class="sc"><table><thead><tr id="hr"></tr></thead><tbody id="tb"></tbody></table></div>
+<div class="empty" id="em" hidden><div class="i">⌕</div><b>No customers found</b>Try a different search or status.<br><button class="btn" id="cf" style="margin-top:12px">Clear filters</button></div>
+<div class="ft"><span id="rg" aria-live="polite"></span><label>Rows <select id="ps" aria-label="Rows per page"><option>10</option><option>25</option></select></label><div class="pg" id="pg"></div></div>
+</div></div>
+<dialog id="dlg"><h2>CSV export</h2><textarea id="csv" readonly aria-label="CSV data"></textarea><div class="dr"><button class="btn" id="cp">Copy</button><button class="btn p" id="cx">Close</button></div></dialog>
+<script>
+let s=7;const rnd=()=>{s=(s*1664525+1013904223)%4294967296;return s/4294967296};const pick=a=>a[Math.floor(rnd()*a.length)];
+const FN=['Amara','Liam','Noor','Oskar','Priya','Mateo','Hana','Callum','Ines','Tariq','Freya','Jonas','Leila','Marcus','Yuki','Sofia','Ravi','Elena','Dylan','Zainab','Theo','Mina'],LN=['Okafor','Brandt','Nair','Costa','Tanaka','Whitfield','Haddad','Reid','Lindqvist','Ibarra','Pike','Singh','Ellis','Kovacs','Moreau','Ahmed'],CO=['northwind.co','lumen.io','fieldstone.uk','bright.dev','tidal.app','orchard.co.uk'];
+const PL=['Starter','Team','Business'],ST=['Active','Active','Active','Pending','Paused','Churned'],COL=['#4f46e5','#0891b2','#db2777','#ea580c','#16a34a','#7c3aed','#0d9488'];
+const D=Array.from({length:42},(_,i)=>{const f=pick(FN),l=pick(LN),p=pick(PL);return{id:i+1,n:f+' '+l,e:(f+'.'+l).toLowerCase()+'@'+pick(CO),p,s:pick(ST),m:p==='Starter'?29:p==='Team'?99+Math.floor(rnd()*5)*20:249+Math.floor(rnd()*6)*50,j:new Date(2024,0,1+Math.floor(rnd()*620)),c:pick(COL)}});
+let sort={k:null,d:1},q='',sf='All',pg=1,ps=10,sel=new Set();
+const $=i=>document.getElementById(i);
+const COLS=[['n','Customer'],['p','Plan'],['s','Status'],['m','MRR','r'],['j','Joined']];
+$('hr').innerHTML='<th scope="col" class="ck plain"><input type="checkbox" id="all" aria-label="Select all rows on this page"></th>'+COLS.map(c=>`<th scope="col" class="${c[2]||''}" data-k="${c[0]}" aria-sort="none"><button>${c[1]}</button></th>`).join('');
+const fmt=d=>d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+function view(){let v=D.filter(r=>(sf==='All'||r.s===sf)&&(!q||(r.n+' '+r.e).toLowerCase().includes(q)));
+ if(sort.k)v.sort((a,b)=>{const x=a[sort.k],y=b[sort.k];return(x>y?1:x<y?-1:0)*sort.d});return v}
+function render(){const v=view(),pages=Math.max(1,Math.ceil(v.length/ps));if(pg>pages)pg=pages;const a=v.slice((pg-1)*ps,pg*ps);
+ document.querySelectorAll('th[data-k]').forEach(th=>th.setAttribute('aria-sort',sort.k===th.dataset.k?(sort.d>0?'ascending':'descending'):'none'));
+ $('tb').innerHTML=a.map(r=>`<tr class="row${sel.has(r.id)?' sel':''}" data-id="${r.id}" tabindex="0" aria-selected="${sel.has(r.id)}"><td class="ck"><input type="checkbox" ${sel.has(r.id)?'checked':''} aria-label="Select ${r.n}"></td><td><div class="cu"><span class="av" style="background:${r.c}">${r.n.split(' ').map(w=>w[0]).join('')}</span><div><b>${r.n}</b><small>${r.e}</small></div></div></td><td>${r.p}</td><td><span class="st ${r.s}">${r.s}</span></td><td class="r">£${r.m.toLocaleString('en-GB')}</td><td>${fmt(r.j)}</td></tr>`).join('');
+ $('em').hidden=v.length>0;$('tot').textContent=` ${D.length} total`;
+ $('rg').textContent=v.length?`${(pg-1)*ps+1} to ${Math.min(pg*ps,v.length)} of ${v.length}`:'0 results';
+ let h=`<button data-p="${pg-1}" ${pg===1?'disabled':''} aria-label="Previous page">←</button>`;for(let i=1;i<=pages;i++)h+=`<button data-p="${i}" ${i===pg?'aria-current="page"':''} aria-label="Page ${i}">${i}</button>`;h+=`<button data-p="${pg+1}" ${pg===pages?'disabled':''} aria-label="Next page">→</button>`;$('pg').innerHTML=h;
+ const ids=a.map(r=>r.id),n=ids.filter(i=>sel.has(i)).length;const all=$('all');all.checked=ids.length>0&&n===ids.length;all.indeterminate=n>0&&n<ids.length;
+ $('bulk').hidden=!sel.size;$('bc').textContent=sel.size+' selected'}
+function toggle(id){sel.has(id)?sel.delete(id):sel.add(id);render();const r=$('tb').querySelector(`[data-id="${id}"]`);r&&r.focus()}
+$('hr').addEventListener('click',e=>{const b=e.target.closest('th[data-k] button');if(!b)return;const k=b.parentElement.dataset.k;sort=sort.k!==k?{k,d:1}:sort.d===1?{k,d:-1}:{k:null,d:1};render();document.querySelector(`th[data-k="${k}"] button`).focus()});
+$('all').onchange=function(){const ids=[...$('tb').children].map(r=>+r.dataset.id);ids.forEach(i=>this.checked?sel.add(i):sel.delete(i));render()};
+$('tb').addEventListener('click',e=>{const r=e.target.closest('tr');if(!r)return;toggle(+r.dataset.id)});
+$('tb').addEventListener('keydown',e=>{if(e.key===' '&&e.target.matches('tr')){e.preventDefault();toggle(+e.target.dataset.id)}});
+$('q').oninput=function(){q=this.value.trim().toLowerCase();pg=1;render()};$('sf').onchange=function(){sf=this.value;pg=1;render()};$('ps').onchange=function(){ps=+this.value;pg=1;render()};
+$('pg').onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return;pg=+b.dataset.p;render()};
+$('cf').onclick=()=>{q='';sf='All';$('q').value='';$('sf').value='All';pg=1;render()};
+$('d1').onclick=()=>dens(false);$('d2').onclick=()=>dens(true);function dens(c){document.body.classList.toggle('compact',c);$('d1').setAttribute('aria-pressed',!c);$('d2').setAttribute('aria-pressed',c)}
+$('clr').onclick=()=>{sel.clear();render()};
+$('pause').onclick=()=>{D.forEach(r=>{if(sel.has(r.id)&&r.s==='Active')r.s='Paused'});sel.clear();render()};
+function csv(rows){return['Name,Email,Plan,Status,MRR,Joined'].concat(rows.map(r=>[r.n,r.e,r.p,r.s,r.m,r.j.toISOString().slice(0,10)].join(','))).join('\n')}
+function dlg(rows){$('csv').value=csv(rows);$('dlg').showModal()}
+$('exp').onclick=()=>dlg(D.filter(r=>sel.has(r.id)));$('expAll').onclick=()=>dlg(view());
+$('cp').onclick=()=>{navigator.clipboard.writeText($('csv').value).then(()=>$('cp').textContent='Copied',()=>{$('csv').select();$('cp').textContent='Select and copy'});setTimeout(()=>$('cp').textContent='Copy',1600)};$('cx').onclick=()=>$('dlg').close();
+render();
+</script></body></html>

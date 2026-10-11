@@ -1,0 +1,11 @@
+Canvas & base: Full viewport dark page #0e1116 with 24px padding. Five panels sharing the width, each painted with its own layered gradient scene (no images): Iceland #1d3b4f to #8ecae6, Marrakech #7b2d12 to #f4a261, Kyoto #3b1d2e to #e76f88, Patagonia #14301f to #7fb77e, Cape Town #1b2a5a to #ff9e6d. Text #fff, muted rgba(255,255,255,.75).
+
+Typography: "Bricolage Grotesque" (600, 800) for place names, "DM Sans" (400, 500) for the description, labels and buttons. Place names are rotated 90 degrees when a panel is collapsed and horizontal at 56px when expanded.
+
+Layout: A header line "Where next?" with a short intro. Below, a flex row of 5 panels 70vh tall (min 440px). Collapsed panels flex 1, the active panel flex 5, transitioning flex-grow over 700ms. An active panel shows a number, the place name, a two-sentence description, three small stat chips (best months, flight time, vibe) and a "Plan this trip" button. Inactive panels show only the vertical name and number.
+
+Interaction: Click or Enter on a panel activates it; on pointer devices hover also activates after a 120ms delay. Arrow Left/Right (Up/Down in vertical mode) move between panels with roving tabindex (role=tablist semantics or aria-expanded on buttons). Auto-advance every 6 seconds with a thin progress bar along the bottom of the active panel; it pauses on hover, focus and when the user has interacted, and a Pause/Play button controls it. "Plan this trip" opens a small toast "Added to your shortlist" and toggles a heart count in the header.
+
+Responsive: Under 760px the panels stack vertically as an accordion; collapsed height 64px, expanded 340px, names are horizontal. No horizontal scroll at 390px.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no images, respects prefers-reduced-motion (no auto-advance, instant size change), visible focus rings.

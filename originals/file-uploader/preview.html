@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Upload files</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--acc:#4f46e5;--ok:#16a34a;--bad:#dc2626;--ink:#151a30;--mut:#667096;--line:#e3e6ef}
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;background:#f6f7fb;color:var(--ink);font:400 16px/1.5 Outfit,sans-serif;display:grid;place-items:center;padding:24px}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.card{width:min(680px,100%);background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 24px 60px -24px rgba(30,41,90,.3)}
+h1{font:700 26px/1.2 Outfit,sans-serif;margin:0 0 4px}
+.rules{color:var(--mut);margin:0 0 20px;font-size:15px}
+.dz{display:grid;justify-items:center;gap:6px;text-align:center;border:2px dashed #b7bfdc;background:#f9faff;border-radius:16px;padding:34px 16px;cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
+.dz:hover{border-color:var(--acc)}
+.dz.over,body.drag .dz{border-color:var(--acc);background:#eef0ff;transform:scale(1.01)}
+.dz svg{width:46px;height:46px;color:var(--acc)}
+.dz b{font-size:18px;font-weight:600}
+.dz span{color:var(--mut);font-size:14px}
+.btn{margin-top:8px;background:var(--acc);color:#fff;border:0;border-radius:10px;padding:10px 20px;font:600 15px Outfit,sans-serif;cursor:pointer}
+.btn:hover{background:#4338ca}
+.files{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
+.f{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:4px 14px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 12px;animation:in .25s}
+@keyframes in{from{opacity:0;transform:translateY(6px)}}
+.th{grid-row:1/3;width:48px;height:48px;border-radius:10px;background:#eef0ff center/cover;display:grid;place-items:center;font:700 11px Outfit,sans-serif;color:var(--acc);letter-spacing:.04em}
+.th.pdf{background:#fee2e2;color:#b91c1c}.th.zip{background:#fef3c7;color:#b45309}
+.nm{font-weight:500;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mt{font-size:13px;color:var(--mut);font-variant-numeric:tabular-nums;display:flex;gap:8px}
+.mt .e{color:var(--bad)}.mt .o{color:var(--ok)}
+.act{grid-row:1/3;grid-column:3;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;font:500 13px Outfit,sans-serif;color:var(--ink);cursor:pointer}
+.act:hover{background:#f3f4f9}
+.pg{grid-column:2;height:6px;border-radius:3px;background:#e9ebf5;overflow:hidden}
+.pg i{display:block;height:100%;width:0;background:var(--acc);border-radius:3px;transition:width .2s}
+.f.done .pg i{background:var(--ok)}.f.fail .pg i{background:var(--bad)}.f.err .pg{display:none}
+.ft{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:space-between;margin-top:16px;font-size:14px;color:var(--mut)}
+.ft button{background:none;border:0;color:var(--acc);font:500 14px Outfit,sans-serif;cursor:pointer;padding:0}
+.note{margin:16px 0 0;font-size:12px;color:var(--mut)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:520px){body{padding:12px}.card{padding:18px}.f{grid-template-columns:44px minmax(0,1fr)}.act{grid-row:auto;grid-column:2;justify-self:start;margin-top:4px}.th{grid-row:1/4;width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body>
+<main class="card">
+<h1>Upload files</h1><p class="rules">PNG, JPG, PDF or ZIP, up to 5 MB each, max 6 files.</p>
+<div class="dz" id="dz" tabindex="0" role="button" aria-label="Drop files here or press Enter to browse"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8a4 4 0 0 1 .5 7.97"/><path d="M12 12v8M9 15l3-3 3 3"/></svg><b>Drag and drop files here</b><span>or</span><button class="btn" type="button" id="br" tabindex="-1">Browse files</button><input type="file" id="in" multiple accept=".png,.jpg,.jpeg,.pdf,.zip" hidden></div>
+<ul class="files" id="fl"></ul>
+<div class="ft" id="ft" hidden><span id="sm"></span><button id="cl">Clear all</button></div>
+<p class="note">Demo only: nothing leaves your browser, uploads are simulated.</p>
+<div class="sr" id="live" aria-live="polite"></div>
+</main>
+<script>
+const MAX=5*1024*1024,LIMIT=6,OK=/\.(png|jpe?g|pdf|zip)$/i;let rows=[],id=0;
+const $=i=>document.getElementById(i),fl=$('fl'),dz=$('dz'),inp=$('in');
+const size=b=>b<1024?b+' B':b<1048576?(b/1024).toFixed(0)+' KB':(b/1048576).toFixed(1)+' MB';
+const ext=n=>(n.split('.').pop()||'').toLowerCase();
+function add(files){const msgs=[];[...files].forEach(f=>{let err='';const active=rows.filter(r=>!r.err).length;
+ if(!OK.test(f.name))err='File type not supported';else if(f.size>MAX)err='Larger than 5 MB';else if(active>=LIMIT)err='Limit of 6 files reached';
+ const r={id:++id,f,err,p:0,state:err?'err':'up',url:/^image\//.test(f.type)&&!err?URL.createObjectURL(f):null,speed:1+Math.random()*3.5,willFail:!err&&Math.random()<.2&&files.length>0,t:null};
+ rows.push(r);msgs.push(f.name+(err?': '+err:' added'));if(!err)run(r)});render();$('live').textContent=msgs.join('. ')}
+function run(r){r.state='up';r.t=setInterval(()=>{r.p=Math.min(100,r.p+r.speed*(1+Math.random()));if(r.willFail&&r.p>=50){clearInterval(r.t);r.state='fail';r.willFail=false;$('live').textContent=r.f.name+' failed: network error'}else if(r.p>=100){clearInterval(r.t);r.state='done';$('live').textContent=r.f.name+' uploaded'}upd(r)},120)}
+function upd(r){const el=document.querySelector(`[data-r="${r.id}"]`);if(!el){return}el.className='f '+r.state;el.querySelector('.pg i').style.width=r.p+'%';el.querySelector('.pg').setAttribute('aria-valuenow',Math.round(r.p));el.querySelector('.mt').innerHTML=meta(r);const a=el.querySelector('.act');a.textContent=r.state==='done'?'Remove':r.state==='fail'?'Retry':'Cancel';sum()}
+function meta(r){return `<span>${size(r.f.size)}</span>`+(r.state==='err'?`<span class="e">${r.err}</span>`:r.state==='done'?'<span class="o">Uploaded</span>':r.state==='fail'?'<span class="e">Network error</span>':`<span>${Math.round(r.p)}%</span>`)}
+function render(){fl.innerHTML=rows.map(r=>{const e=ext(r.f.name);return `<li class="f ${r.state}" data-r="${r.id}"><div class="th ${e==='pdf'?'pdf':e==='zip'?'zip':''}" ${r.url?`style="background-image:url(${r.url})"`:''}>${r.url?'':e.toUpperCase().slice(0,4)}</div><div class="nm" title="${r.f.name.replace(/"/g,'')}">${r.f.name.replace(/</g,'&lt;')}</div><button class="act">${r.state==='err'?'Dismiss':r.state==='done'?'Remove':r.state==='fail'?'Retry':'Cancel'}</button><div class="mt">${meta(r)}</div><div class="pg" role="progressbar" aria-label="Upload progress for ${r.f.name.replace(/"/g,'')}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(r.p)}"><i style="width:${r.p}%"></i></div></li>`}).join('');sum()}
+function sum(){const ok=rows.filter(r=>r.state==='done').length,tot=rows.filter(r=>r.state!=='err').reduce((a,r)=>a+r.f.size,0);$('ft').hidden=!rows.length;$('sm').textContent=`${ok} of ${rows.filter(r=>r.state!=='err').length} uploaded · ${size(tot)} total`}
+function drop(r){clearInterval(r.t);if(r.url)URL.revokeObjectURL(r.url);rows=rows.filter(x=>x!==r)}
+fl.onclick=e=>{const b=e.target.closest('.act');if(!b)return;const r=rows.find(x=>x.id==b.closest('.f').dataset.r);if(r.state==='fail'){r.p=0;r.willFail=false;run(r);upd(r)}else{drop(r);render()}};
+$('cl').onclick=()=>{rows.slice().forEach(drop);render()};
+dz.onclick=e=>inp.click();dz.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inp.click()}};
+inp.onchange=()=>{add(inp.files);inp.value=''};
+let dc=0;addEventListener('dragenter',e=>{e.preventDefault();dc++;document.body.classList.add('drag')});addEventListener('dragleave',e=>{dc--;if(dc<=0){dc=0;document.body.classList.remove('drag')}});addEventListener('dragover',e=>e.preventDefault());
+addEventListener('drop',e=>{e.preventDefault();dc=0;document.body.classList.remove('drag');if(e.dataTransfer&&e.dataTransfer.files.length)add(e.dataTransfer.files)});
+addEventListener('paste',e=>{const fs=[...(e.clipboardData?e.clipboardData.files:[])];if(fs.length)add(fs)});
+</script></body></html>

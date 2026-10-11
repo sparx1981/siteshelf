@@ -1,0 +1,11 @@
+Canvas & base: Dark graphite #0f1115 app shell, sidebar #14171d (232px) with 1px #232832 right border, cards #171b22 with 1px #232832 borders and 14px radius. Ink #e8ebf2, muted #8a93a6, accent electric blue #4c8dff, secondary teal #2dd4bf, amber #fbbf24, rose #fb7185, positive #34d399, negative #fb7185.
+
+Typography: "Inter Tight" (400, 500, 600, 700) with tabular-nums for numbers; KPI values 30px 600, card titles 13px 500 muted uppercase with .06em tracking.
+
+Layout: Left sidebar with the product mark "Pulse", nav items (Overview active, Audience, Acquisition, Behaviour, Reports) with simple inline SVG icons, and a bottom user chip. Main area header "Overview" with a date range segmented control (7D, 30D, 90D) and an Export button. A row of 4 KPI cards (Visitors, Sign-ups, Conversion, Revenue) each with value, delta pill (green up or red down) and a tiny sparkline. A large card with a smooth SVG line chart of Visitors vs Sign-ups (two lines, area fill on the first, gridlines, axis labels). A two-column row beneath: a donut chart "Traffic sources" with legend and percentages, and a "Top pages" list with horizontal progress bars.
+
+Interaction: Changing the range regenerates seeded data and redraws everything with a short line-draw animation (stroke-dashoffset). Hovering or touching the line chart shows a vertical crosshair, point markers and a tooltip with the date and both values, and arrow keys move it when the chart is focused. Hovering a donut segment enlarges it and updates the centre label; legend items toggle segments off and on. KPI values count up when the range changes.
+
+Responsive: Sidebar collapses into a top bar with a menu button under 900px; KPI cards go 2 by 2 then 1 column; charts use viewBox and scale. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, SVG charts drawn without libraries, respects prefers-reduced-motion (no draw animation or count up), charts have text alternatives (aria-label summaries) and the tooltip is also readable via an aria-live region.

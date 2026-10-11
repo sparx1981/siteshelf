@@ -1,0 +1,11 @@
+Canvas & base: Full viewport #050805 with a rounded terminal window (max-width 920px, height min(80vh, 640px)) bordered #1d2a1d with a faint outer glow in the theme colour. CRT effects: a repeating-linear-gradient scanline overlay at 8% opacity, a subtle vignette, and a very slight text-shadow glow. Two themes: green (#39ff88 on #050805) and amber (#ffb000 on #080500). Muted text is the theme colour at 60% opacity. Errors #ff5f56.
+
+Typography: "IBM Plex Mono" (400, 500, 700) for all terminal text at 15px/1.6, "VT323" at 28px for the window title bar text.
+
+Layout: A title bar with three small dots, the title "guest@ines-dev: ~" and a theme button. Inside, a scrollable output area with a prompt line "guest@ines:~$" and a blinking block cursor. Beneath the output a row of clickable command chips (help, about, projects, skills, contact) for touch users.
+
+Interaction: On load a short boot sequence types out line by line (skippable with any key or click). Commands: help, about, projects (list of 4 invented projects with one-line descriptions and fake URLs), project <name>, skills (rendered as ASCII bar charts), contact, theme green|amber, clear, whoami, date, and a hidden "sudo hire-me" easter egg. Enter runs the command, Up/Down browse history, Tab autocompletes command names, Ctrl+L clears. Unknown commands print "command not found" with a suggestion. The output auto-scrolls. Clicking a chip types and runs the command. The hidden real input is a visible single-line input styled as the prompt.
+
+Responsive: Window fills the screen at 390px with 13px text; chips wrap. No horizontal scroll, long lines wrap.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries, respects prefers-reduced-motion (no typing animation, no blink, no flicker), the output region is role=log with aria-live=polite so screen readers get every line, all invented names.

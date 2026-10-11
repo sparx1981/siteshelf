@@ -1,0 +1,11 @@
+Canvas & base: Page #f8fafc, content card white with 1px #e2e8f0 border and 14px radius. Header row #f8fafc, zebra off, row hover #f1f5f9, selected row #eef2ff. Ink #0f172a, muted #64748b, accent #4f46e5, status colours: Active #16a34a on #dcfce7, Pending #b45309 on #fef3c7, Paused #475569 on #e2e8f0, Churned #b91c1c on #fee2e2.
+
+Typography: "Geist" is unavailable so use "Inter" (400, 500, 600) with tabular-nums for numeric columns; table text 14px, header 12px uppercase with .06em tracking.
+
+Layout: A page header "Customers" with a count, an "Export" button and an "Add customer" primary button. Above the table a toolbar with a search input, a status select (All, Active, Pending, Paused, Churned) and a density toggle (Comfortable / Compact). The table has columns: checkbox, Customer (avatar initial plus name and email), Plan, Status badge, MRR (right aligned £), Joined date. A footer shows "1 to 10 of 42", a rows-per-page select (10, 25) and Previous/Next with numbered pages. Generate 42 plausible invented customers in JavaScript from small arrays and a seeded random function.
+
+Interaction: Clicking a header sorts (ascending, descending, none) with aria-sort and an arrow indicator; search and status filter combine and reset to page 1. A header checkbox selects the visible page (with an indeterminate state); selecting rows reveals a sticky bulk bar "3 selected" with Export selected (builds CSV text and shows it in a dialog with a copy button), Pause and Clear. Rows are keyboard focusable and Space toggles selection. Empty results show an icon, message and "Clear filters". Density changes row height from 56px to 40px.
+
+Responsive: The table container scrolls horizontally inside itself under 760px with the first two columns sticky; the page itself must not scroll horizontally.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries, respects prefers-reduced-motion, proper table semantics (th scope, aria-sort, labelled checkboxes).

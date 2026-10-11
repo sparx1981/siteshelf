@@ -1,0 +1,11 @@
+Canvas & base: Near-black #08070d with three large blurred blobs (violet #7c3aed, pink #ec4899, cyan #22d3ee at 45% opacity, 60vmax wide) drifting slowly with CSS keyframes, plus a fine noise-like dot grid overlay at 6% opacity. Glass card: rgba(255,255,255,.06) fill, 1px rgba(255,255,255,.14) border, 24px radius, backdrop-filter blur(18px). Text #f5f3ff, muted #b4aed0.
+
+Typography: "Unbounded" (500, 700) for the product name and numbers (name at clamp(44px, 9vw, 104px)), "Manrope" (400, 500, 700) for body and form text.
+
+Layout: Centred column max-width 720px. A small pill "Private beta · opening soon", the product name "Drift", a one-sentence pitch ("The calm inbox for people who hate email."), a four-unit countdown (days, hours, minutes, seconds) in glass tiles targeting a date 21 days from page load, then the signup card with an email field and "Join the waitlist" button and a line "2,418 people are already waiting". After signup the card changes to a success state showing "You are #2,419 in line", a progress meter toward reward tiers (3 referrals: early access, 5: lifetime discount, 10: founder badge) with a copyable referral link and a "Share" row of text buttons.
+
+Interaction: Email validated on submit and blur with a friendly inline message; the button shows a spinner for 900ms before success. The counter animates up by one. A "Copy link" button copies the referral URL (with a clipboard fallback) and flips to "Copied". For demo purposes a small "Simulate a referral" link advances the progress meter, unlocking tiers with a check and a brief confetti burst drawn on a canvas. Countdown ticks every second and uses tabular numbers.
+
+Responsive: Tiles shrink to 64px at 390px, the form stacks vertically. No horizontal scroll, blobs must not cause overflow.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries or images, respects prefers-reduced-motion (static blobs, no confetti), form fields labelled, status announced via aria-live.

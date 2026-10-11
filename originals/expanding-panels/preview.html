@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Where next? — Expanding Panels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+body{margin:0;background:#0e1116;color:#fff;font:400 16px/1.5 'DM Sans',sans-serif;padding:24px;min-height:100dvh}
+:focus-visible{outline:3px solid #fff;outline-offset:-5px}
+.hd{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:end;justify-content:space-between;max-width:1280px;margin:0 auto 18px}
+h1{font:800 clamp(32px,5vw,52px)/1 'Bricolage Grotesque',sans-serif;margin:0;letter-spacing:-.03em}
+.hd p{margin:6px 0 0;color:rgba(255,255,255,.7);max-width:440px}
+.tools{display:flex;gap:10px;align-items:center}
+.pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:999px;padding:8px 16px;font:500 14px 'DM Sans',sans-serif;cursor:pointer}
+.pill:hover{background:rgba(255,255,255,.18)}
+.row{display:flex;gap:10px;height:70vh;min-height:440px;max-width:1280px;margin:0 auto}
+.p{position:relative;flex:1 1 0;min-width:0;border:0;border-radius:22px;padding:0;overflow:hidden;color:#fff;text-align:left;cursor:pointer;background:var(--g);transition:flex-grow .7s cubic-bezier(.3,.8,.2,1)}
+.p.on{flex-grow:5;cursor:default}
+.p:before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.65))}
+.art{position:absolute;inset:0;width:100%;height:100%}
+.n{position:absolute;top:18px;left:20px;font:600 14px 'DM Sans',sans-serif;letter-spacing:.1em;opacity:.85}
+.vn{position:absolute;left:50%;bottom:26px;writing-mode:vertical-rl;transform:translateX(-50%) rotate(180deg);font:800 28px 'Bricolage Grotesque',sans-serif;white-space:nowrap;transition:opacity .3s}
+.p.on .vn{opacity:0}
+.body{position:absolute;left:0;right:0;bottom:0;padding:28px;opacity:0;transform:translateY(14px);transition:opacity .4s,transform .4s;pointer-events:none}
+.p.on .body{opacity:1;transform:none;transition-delay:.25s;pointer-events:auto}
+.body h2{font:800 clamp(34px,5vw,56px)/1 'Bricolage Grotesque',sans-serif;margin:0 0 10px;letter-spacing:-.03em}
+.body p{margin:0 0 14px;max-width:460px;color:rgba(255,255,255,.88)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.chips span{background:rgba(255,255,255,.16);backdrop-filter:blur(6px);border-radius:999px;padding:4px 12px;font-size:13px}
+.go{display:inline-block;background:#fff;color:#0e1116;border-radius:999px;padding:10px 20px;font-weight:500;border:0;cursor:pointer;font:500 15px 'DM Sans',sans-serif}
+.go:hover{background:#ffe8b0}
+.bar{position:absolute;left:0;bottom:0;height:4px;background:#fff;width:0;opacity:.9}
+.p.on .bar.run{animation:fill 6s linear forwards}
+.paused .bar{animation-play-state:paused!important}
+@keyframes fill{to{width:100%}}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#fff;color:#0e1116;border-radius:999px;padding:10px 18px;font-weight:500;opacity:0;transition:.3s;pointer-events:none}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:760px){body{padding:16px}.row{flex-direction:column;height:auto;min-height:0}.p{flex:none;height:64px;transition:height .6s cubic-bezier(.3,.8,.2,1)}.p.on{height:340px}.vn{writing-mode:horizontal-tb;transform:none;left:20px;bottom:18px;font-size:22px}.n{top:20px;left:auto;right:20px}.body{padding:20px}.body h2{font-size:34px}.p:not(.on) .art{opacity:.8}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.bar{display:none}}
+</style></head><body>
+<div class="hd"><div><h1>Where next?</h1><p>Five places worth the long way round. Pick one and we will start the plan.</p></div><div class="tools"><button class="pill" id="auto" aria-pressed="true">Pause</button><span class="pill" aria-live="polite">♥ <span id="hc">0</span> shortlisted</span></div></div>
+<div class="row" id="row" role="group" aria-label="Destinations"></div><div id="toast" role="status"></div>
+<script>
+const D=[
+['Iceland','Black sand, glacier lagoons and a sky that never quite commits to night in June.','Jun – Aug','5 hrs','Wild',['#1d3b4f','#8ecae6'],'mt'],
+['Marrakech','Spice-scented lanes, rooftop sunsets and the best mint tea you will ever be handed.','Mar – May','3.5 hrs','Busy',['#7b2d12','#f4a261'],'sun'],
+['Kyoto','Moss gardens, quiet temples and a city that rewards walking slowly.','Nov, Apr','13 hrs','Calm',['#3b1d2e','#e76f88'],'wave'],
+['Patagonia','Granite towers, turquoise lakes and wind that rearranges your plans.','Dec – Feb','14 hrs','Rugged',['#14301f','#7fb77e'],'mt'],
+['Cape Town','Table Mountain at your shoulder, the ocean at your feet and wine an hour away.','Nov – Mar','11.5 hrs','Easy',['#1b2a5a','#ff9e6d'],'sun']];
+const row=document.getElementById('row');let cur=0,hearts=0,autoOn=true,touched=false,timer=null,hov=null;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;const vertical=()=>matchMedia('(max-width:760px)').matches;
+const scene=(k,c)=>k==='mt'?`<path d="M0 100 L25 55 L45 80 L70 40 L100 85 V100Z" fill="#000" opacity=".3"/><path d="M0 100 L30 72 L55 90 L80 62 L100 90 V100Z" fill="#000" opacity=".35"/><circle cx="72" cy="22" r="8" fill="#fff" opacity=".8"/>`:k==='sun'?`<circle cx="50" cy="52" r="18" fill="#fff" opacity=".75"/><rect y="62" width="100" height="40" fill="#000" opacity=".28"/><path d="M0 70 Q25 62 50 70 T100 68 V100H0Z" fill="#000" opacity=".3"/>`:`<g fill="none" stroke="#fff" opacity=".35" stroke-width=".8">${[0,1,2,3,4,5].map(i=>`<path d="M0 ${52+i*8} Q25 ${44+i*8} 50 ${52+i*8} T100 ${52+i*8}"/>`).join('')}</g><circle cx="76" cy="26" r="9" fill="#fff" opacity=".75"/>`;
+D.forEach((d,i)=>{const b=document.createElement('div');b.className='p';b.tabIndex=0;b.setAttribute('role','button');b.setAttribute('aria-expanded','false');b.setAttribute('aria-label',d[0]);b.style.setProperty('--g',`linear-gradient(160deg,${d[5][0]},${d[5][1]})`);
+ b.innerHTML=`<svg class="art" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${scene(d[6],d[5])}</svg><span class="n">0${i+1}</span><span class="vn">${d[0]}</span><div class="body"><h2>${d[0]}</h2><p>${d[1]}</p><div class="chips"><span>Best: ${d[2]}</span><span>Flight: ${d[3]}</span><span>Vibe: ${d[4]}</span></div><button class="go" type="button">Plan this trip</button></div><span class="bar" aria-hidden="true"></span>`;
+ b.onclick=e=>{if(e.target.closest('.go'))return;touched=true;set(i,true)};
+ b.onkeydown=e=>{const k=e.key,v=vertical();if(e.target.closest('.go'))return;if(k==='Enter'||k===' '){e.preventDefault();touched=true;set(i,true)}
+  else if(k===(v?'ArrowDown':'ArrowRight')||k===(v?'ArrowUp':'ArrowLeft')){e.preventDefault();const n=(i+(k==='ArrowDown'||k==='ArrowRight'?1:-1)+D.length)%D.length;touched=true;set(n,true);row.children[n].focus()}};
+ b.addEventListener('mouseenter',()=>{if(!matchMedia('(hover:hover)').matches||vertical())return;clearTimeout(hov);hov=setTimeout(()=>{touched=true;set(i,true)},120);pause(true)});
+ b.addEventListener('mouseleave',()=>{clearTimeout(hov);pause(false)});
+ b.querySelector('.go').onclick=()=>{hearts++;document.getElementById('hc').textContent=hearts;toast(d[0]+' added to your shortlist')};
+ row.appendChild(b)});
+function set(i,user){cur=i;[...row.children].forEach((b,k)=>{const on=k===i;b.classList.toggle('on',on);b.setAttribute('aria-expanded',on);b.tabIndex=on?0:-1;const bar=b.querySelector('.bar');bar.classList.remove('run');if(on&&!reduce&&autoOn&&!touched){void bar.offsetWidth;bar.classList.add('run')}});schedule()}
+function schedule(){clearTimeout(timer);if(reduce||!autoOn||touched)return;timer=setTimeout(()=>set((cur+1)%D.length),6000)}
+function pause(p){row.classList.toggle('paused',p);if(p)clearTimeout(timer);else schedule()}
+document.getElementById('auto').onclick=function(){autoOn=!autoOn;touched=false;this.setAttribute('aria-pressed',autoOn);this.textContent=autoOn?'Pause':'Play';if(autoOn)set(cur);else{clearTimeout(timer);row.querySelectorAll('.bar').forEach(b=>b.classList.remove('run'))}};
+row.addEventListener('focusin',()=>pause(true));row.addEventListener('focusout',()=>pause(false));
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),2200)}
+set(0);
+</script></body></html>

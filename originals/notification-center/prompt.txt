@@ -1,0 +1,11 @@
+Canvas & base: Light app shell #f5f6f8 with a white header bar (64px, 1px #e4e6eb bottom border), page content area showing placeholder skeleton cards. Panel white with 1px #e4e6eb border, 16px radius and a layered shadow 0 20px 50px -12px rgba(16,24,40,.25). Ink #111827, muted #6b7280, accent #2563eb, unread tint #eff6ff, danger #dc2626.
+
+Typography: "Plus Jakarta Sans" (400, 500, 600, 700) throughout; panel title 18px 700, item title 14px 600, body 13px muted, timestamps 12px.
+
+Layout: A header with the app name "Orbit", a search box placeholder and a bell icon button (inline SVG) with a red numeric badge. The panel starts open so the design is visible on load; clicking the bell toggles it, and it opens a 400px wide dropdown anchored under it, with header (title, "Mark all as read"), three tabs (All, Mentions, System) with unread counts, and a scrolling list grouped under "Today" and "Earlier" subheadings. Each notification has an avatar or icon in a coloured circle, a bold title with the key phrase, a one-line body, a relative time and an unread dot. Include 9 realistic items of varying types (comment, mention, invite, billing, deploy).
+
+Interaction: The panel opens with a scale and fade, closes on outside click, Escape and the bell again, and traps focus while open then returns focus to the bell. Clicking an item marks it read; a hover or focus-visible "×" dismisses it with a height collapse animation and shows an "Undo" toast for 5 seconds that restores it in the right position. "Mark all as read" clears the badge, which then hides at zero. Tabs filter, tab counts update. When the list is empty show an illustration made from CSS shapes and "You are all caught up". A "Simulate new notification" button in the page adds a new item at the top, bumps the badge and shakes the bell once.
+
+Responsive: Under 520px the panel becomes a full-width sheet fixed to the top (below the header) with 12px side margins. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries, respects prefers-reduced-motion, aria-expanded on the bell, role=dialog on the panel, live announcement for new notifications.

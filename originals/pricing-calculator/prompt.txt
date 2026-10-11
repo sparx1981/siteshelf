@@ -1,0 +1,11 @@
+Canvas & base: Light #f4f6f4 page with a centred two-column layout (inputs left, summary right) in white cards with 1px #dde3dd borders, 20px radius. Summary card in deep green #0e3b2e with mint #b8f2d0 highlights. Accent #12b76a, ink #10231c, muted #5f7268, warning #f79009.
+
+Typography: "Sora" (500, 600, 700) for headings and big numbers (56px for the total), "IBM Plex Sans" (400, 500) for labels and notes; tabular-nums for every price.
+
+Layout: Left card "Estimate your bill" with three sliders: Monthly active users (0 to 100,000), API requests in millions (0 to 500) and Storage in GB (0 to 5,000), each with a large live value, min/max ticks and a number input synced to the slider. Below, a Monthly / Annual toggle (Annual saves 20%, with a green "Save 20%" tag). Right card shows "Estimated monthly cost" in huge type, a stacked horizontal bar split by cost component (Platform, Users, Requests, Storage) with a legend, and an itemised table with the tier applied to each line, e.g. "First 10k users at £0.020, next 40k at £0.015". A highlighted callout recommends the cheapest of three plans (Starter, Growth, Scale) and explains why. A "Talk to sales" button appears above a threshold.
+
+Interaction: Everything updates in real time as sliders move, with the total number animating between values. Pricing logic is real: tiered per-unit rates and a platform fee per plan, plan recommendation computed by actually comparing plan totals. Sliders have custom styled thumbs and a filled track. The number inputs clamp to valid ranges and keyboard stepping works. Annual toggle is a switch with aria-checked.
+
+Responsive: Columns stack under 880px with the summary first. Totals scale with clamp. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries, respects prefers-reduced-motion (no number animation), outputs announced politely through aria-live without announcing every pixel of slider movement (debounce).

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Drift — Join the waitlist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{min-height:100dvh;background:#08070d;color:#f5f3ff;font:400 16px/1.55 Manrope,sans-serif;overflow-x:hidden;position:relative}
+:focus-visible{outline:3px solid #22d3ee;outline-offset:3px}
+.bg{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none}
+.bl{position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);opacity:.45;animation:dr 22s ease-in-out infinite alternate}
+.b1{background:#7c3aed;left:-15vmax;top:-20vmax}.b2{background:#ec4899;right:-20vmax;top:10vmax;animation-delay:-7s}.b3{background:#22d3ee;left:20vmax;bottom:-30vmax;animation-delay:-13s}
+@keyframes dr{to{transform:translate(8vmax,6vmax) scale(1.15)}}
+.dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.7) 1px,transparent 1px);background-size:22px 22px;opacity:.06}
+main{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:56px 20px 64px;text-align:center}
+.pill{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);border-radius:999px;padding:6px 16px;font-size:13px;font-weight:500;color:#d9d3f5}
+.pill i{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 0 #34d399;animation:pu 2s infinite}
+@keyframes pu{70%{box-shadow:0 0 0 8px transparent}}
+h1{font:700 clamp(44px,9vw,104px)/1 Unbounded,sans-serif;margin:22px 0 14px;letter-spacing:-.04em;background:linear-gradient(120deg,#fff 30%,#c4b5fd 60%,#f9a8d4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pitch{font-size:clamp(17px,2.4vw,21px);color:#b4aed0;margin:0 0 34px}
+.cd{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:520px;margin:0 auto 34px}
+.t{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:14px 4px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.t b{display:block;font:500 clamp(24px,5vw,38px)/1.1 Unbounded,sans-serif;font-variant-numeric:tabular-nums}
+.t span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#b4aed0}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:26px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);text-align:left}
+form{display:grid;gap:8px}
+.row{display:flex;gap:10px}
+label{font-weight:700;font-size:14px}
+input[type=email]{flex:1;min-width:0;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:14px 16px;font:500 16px Manrope,sans-serif;color:#fff}
+input[type=email]::placeholder{color:#8f89ad}
+input[aria-invalid=true]{border-color:#fb7185}
+.go{background:linear-gradient(120deg,#8b5cf6,#ec4899);border:0;color:#fff;border-radius:12px;padding:0 24px;font:700 16px Manrope,sans-serif;cursor:pointer;min-height:52px;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.go:hover{filter:brightness(1.12)}.go:disabled{opacity:.75;cursor:wait}
+.sp{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.err{color:#fda4af;font-size:14px;min-height:20px;margin:0}
+.who{text-align:center;color:#b4aed0;font-size:14px;margin:10px 0 0}
+.who b{color:#fff;font-variant-numeric:tabular-nums}
+.ok h2{font:700 28px/1.2 Unbounded,sans-serif;margin:0 0 6px}
+.ok h2 span{color:#f9a8d4;font-variant-numeric:tabular-nums}
+.ok p{color:#b4aed0;margin:0 0 18px}
+.meter{height:10px;border-radius:5px;background:rgba(255,255,255,.12);overflow:hidden;margin:6px 0 10px}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,#22d3ee,#8b5cf6,#ec4899);border-radius:5px;transition:width .6s}
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:18px}
+.tr{border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px;font-size:13px;color:#b4aed0;transition:.3s}
+.tr b{display:block;color:#fff;font-size:14px}
+.tr.on{border-color:#34d399;background:rgba(52,211,153,.12);color:#a7f3d0}.tr.on b:before{content:'✓ '}
+.lk{display:flex;gap:8px}
+.lk input{flex:1;min-width:0;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:12px 14px;color:#fff;font:500 14px ui-monospace,Menlo,monospace}
+.lk button{background:#fff;color:#1a1033;border:0;border-radius:12px;padding:0 18px;font:700 14px Manrope,sans-serif;cursor:pointer}
+.sim{background:none;border:0;color:#b4aed0;text-decoration:underline;font:500 13px Manrope,sans-serif;cursor:pointer;margin-top:14px;padding:0}
+canvas#cf{position:fixed;inset:0;width:100%;height:100%;z-index:5;pointer-events:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:520px){.row{flex-direction:column}.cd{gap:8px}.t{border-radius:14px;padding:10px 2px}.tiers{grid-template-columns:minmax(0,1fr)}main{padding-top:36px}.card{padding:18px}}
+@media(prefers-reduced-motion:reduce){.bl,.pill i{animation:none}*{transition:none!important}}
+</style></head><body>
+<div class="bg" aria-hidden="true"><div class="bl b1"></div><div class="bl b2"></div><div class="bl b3"></div><div class="dots"></div></div>
+<main><span class="pill"><i></i>Private beta · opening soon</span><h1>Drift</h1><p class="pitch">The calm inbox for people who hate email.</p>
+<div class="cd" role="timer" aria-label="Time until launch"><div class="t"><b id="d">00</b><span>Days</span></div><div class="t"><b id="h">00</b><span>Hours</span></div><div class="t"><b id="m">00</b><span>Mins</span></div><div class="t"><b id="s">00</b><span>Secs</span></div></div>
+<section class="card" id="card" aria-live="polite">
+<form id="fm" novalidate><label for="em">Get early access</label><div class="row"><input type="email" id="em" placeholder="you@company.com" autocomplete="email" aria-describedby="er"><button class="go" id="go">Join the waitlist</button></div><p class="err" id="er"></p></form>
+<p class="who"><b id="cnt">2,418</b> people are already waiting</p>
+<div class="ok" id="ok" hidden><h2>You are <span id="pos">#2,419</span> in line</h2><p>Move up by inviting friends. Every signup through your link counts.</p>
+<div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" id="mt"><i id="mi"></i></div>
+<div class="tiers"><div class="tr" data-n="3"><b>3 referrals</b>Early access</div><div class="tr" data-n="5"><b>5 referrals</b>Lifetime discount</div><div class="tr" data-n="10"><b>10 referrals</b>Founder badge</div></div>
+<div class="lk"><input id="lk" readonly aria-label="Your referral link" value=""><button id="cp">Copy link</button></div><button class="sim" id="sim">Simulate a referral</button> <span id="rc" style="color:#b4aed0;font-size:13px;margin-left:8px">0 referrals</span></div></section></main>
+<canvas id="cf" aria-hidden="true"></canvas><div class="sr" id="live" aria-live="polite"></div>
+<script>
+const $=i=>document.getElementById(i),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const target=Date.now()+21*864e5+3*36e5;
+function tick(){let s=Math.max(0,Math.floor((target-Date.now())/1000));const d=Math.floor(s/86400);s%=86400;const h=Math.floor(s/3600);s%=3600;[['d',d],['h',h],['m',Math.floor(s/60)],['s',s%60]].forEach(([k,v])=>$(k).textContent=String(v).padStart(2,'0'))}
+tick();setInterval(tick,1000);
+let count=2418,refs=0;const code=Math.random().toString(36).slice(2,8);
+$('lk').value='https://drift.example/r/'+code;
+function valid(v){return/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)}
+function msg(){const v=$('em').value.trim();let m='';if(!v)m='Please enter your email address.';else if(!valid(v))m='That does not look like an email yet. Try name@domain.com.';$('er').textContent=m;$('em').setAttribute('aria-invalid',!!m);return!m}
+$('em').onblur=()=>{if($('em').value)msg()};$('em').oninput=()=>{if($('em').getAttribute('aria-invalid')==='true')msg()};
+$('fm').onsubmit=e=>{e.preventDefault();if(!msg()){$('em').focus();return}const b=$('go');b.disabled=true;b.innerHTML='<span class="sp"></span>Joining';
+ setTimeout(()=>{count++;$('cnt').textContent=count.toLocaleString('en-GB');$('pos').textContent='#'+count.toLocaleString('en-GB');$('fm').hidden=true;document.querySelector('.who').hidden=true;$('ok').hidden=false;$('live').textContent='You are number '+count+' in line.';if(!reduce)burst(40)},900)};
+$('cp').onclick=()=>{const t=$('lk').value;const done=()=>{$('cp').textContent='Copied';setTimeout(()=>$('cp').textContent='Copy link',1600)};(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(done,()=>{$('lk').select();try{document.execCommand('copy')}catch(e){}done()})};
+$('sim').onclick=()=>{refs=Math.min(10,refs+1);$('mi').style.width=refs*10+'%';$('mt').setAttribute('aria-valuenow',refs);$('rc').textContent=refs+(refs===1?' referral':' referrals');
+ let unlocked=false;document.querySelectorAll('.tr').forEach(t=>{if(refs>=+t.dataset.n&&!t.classList.contains('on')){t.classList.add('on');unlocked=true}});
+ $('pos').textContent='#'+Math.max(1,count-refs*40).toLocaleString('en-GB');if(unlocked){$('live').textContent='Reward unlocked.';if(!reduce)burst(70)}};
+const cv=$('cf'),cx=cv.getContext('2d');let ps=[],run=false;
+function burst(n){const r=devicePixelRatio||1;cv.width=innerWidth*r;cv.height=innerHeight*r;cx.setTransform(r,0,0,r,0,0);const C=['#8b5cf6','#ec4899','#22d3ee','#fbbf24','#34d399'];
+ for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,v=4+Math.random()*7;ps.push({x:innerWidth/2,y:innerHeight*.55,vx:Math.cos(a)*v,vy:Math.sin(a)*v-5,c:C[i%5],s:4+Math.random()*5,l:1,rot:Math.random()*6})}
+ if(!run){run=true;requestAnimationFrame(loop)}}
+function loop(){cx.clearRect(0,0,innerWidth,innerHeight);ps=ps.filter(p=>p.l>0);ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.28;p.vx*=.99;p.l-=.012;p.rot+=.2;cx.save();cx.globalAlpha=Math.max(0,p.l);cx.translate(p.x,p.y);cx.rotate(p.rot);cx.fillStyle=p.c;cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);cx.restore()});
+ if(ps.length)requestAnimationFrame(loop);else{run=false;cx.clearRect(0,0,innerWidth,innerHeight)}}
+</script></body></html>

@@ -1,0 +1,11 @@
+Canvas & base: Warm paper #fbf6ee page, recipe sheet white #fffdf9 with a 1px #eadfcb border, 6px radius and a soft shadow, max-width 960px. Accent tomato #c8402a, herb green #3f6b45, ink #2b2118, muted #7d6e5c, hairline #eadfcb. Decorative torn-edge top made with a CSS mask or repeating radial-gradient.
+
+Typography: "Playfair Display" (600, 700, italic 500) for the title (52px) and section headings, "Karla" (400, 500, 700) for body, ingredient lists and controls; numbers in ingredients are bold in the accent colour.
+
+Layout: Header with a generated food illustration drawn in inline SVG (a bowl, steam lines, a few shapes, no photo), the recipe title "Slow-roast tomato and white bean soup", a meta row (Prep 15 min, Cook 1 h 10, Serves 4, Vegan) and a short story paragraph. Two columns: Ingredients on the left (grouped: "For the soup", "To finish") with checkboxes, and Method on the right as numbered steps. Controls above ingredients: a servings stepper (minus, value, plus) and a Metric / US toggle.
+
+Interaction: Changing servings rescales every quantity relative to the base of 4, rounding sensibly and showing fractions (1/2, 1/4, 3/4, 1 1/2) for teaspoons, tablespoons and cups, whole numbers or one decimal for grams. The unit toggle converts g to oz, ml to fl oz or cups, and the rounding stays sensible. Ticking an ingredient strikes it through. A "Start cooking" button enters cook mode: a full-width focused view of one step at a time with large text, Previous and Next buttons, a progress dots row and, for steps that mention a time, a start timer button that counts down, beeps visually (flash) and can be paused. Keyboard arrows move between steps. A "Print" button uses print CSS that hides controls and shows a clean two-column layout.
+
+Responsive: Columns stack under 800px with ingredients first. No horizontal scroll at 390px.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no images or libraries, respects prefers-reduced-motion (no flash, no animations), controls labelled and operable by keyboard, invented recipe copy only.

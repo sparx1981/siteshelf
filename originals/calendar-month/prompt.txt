@@ -1,0 +1,11 @@
+Canvas & base: Page #faf8f5, calendar card white with 1px #e8e2d8 border and 18px radius, grid lines #eee9e0, weekend columns tinted #fcfaf7, today's date a filled #1f3a5f circle with white text, other-month days muted #b5ad9e. Event colours: navy #1f3a5f, coral #e8704f, sage #6a9a7b, gold #d9a441, plum #8a5a9b. Ink #1d1b17.
+
+Typography: "Young Serif" for the month title (40px), "Hanken Grotesk" (400, 500, 600, 700) for everything else; day numbers 13px, event chips 12px 600.
+
+Layout: Two columns, the calendar (about 2fr) and a 320px sidebar. The calendar header has the month and year, previous / next buttons, a "Today" button and a small legend. A 7-column grid starts on Monday with weekday headers; each day cell is at least 110px tall, shows the date and up to 3 event chips plus "+2 more". The sidebar lists "Upcoming" events grouped by date with colour dots and times, and a primary "New event" button.
+
+Interaction: The grid uses role=grid with a roving tabindex; arrow keys move between days, PageUp/PageDown change month, Enter opens the add-event dialog for that date. Clicking a day opens a native dialog with title, date, start time, colour swatches (radio group) and Save. Events appear immediately in the grid and the upcoming list sorted by time. Clicking an event chip opens it for editing with a Delete button. The month change slides content by 12px with a fade. Seed 9 sample events across the current month using real dates computed in JavaScript.
+
+Responsive: Under 900px the sidebar drops below the grid; under 600px cells shrink to 64px with only coloured dots instead of chip text, and tapping a day opens a day list in the dialog. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries, respects prefers-reduced-motion, all controls labelled, dialog focus returns to the opening cell.

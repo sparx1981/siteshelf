@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Brightly — Organize your day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#050505;color:#fff;font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.03;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.hero{position:relative;overflow:hidden;padding-bottom:60px}
+.vid{position:absolute;inset:0;height:900px;background:linear-gradient(160deg,#3a1d12,#7a2a20 40%,#050505)}
+.vid video{width:100%;height:100%;object-fit:cover}
+.fade{position:absolute;left:0;right:0;top:0;height:900px;background:linear-gradient(to bottom,rgba(5,5,5,0) 55%,#050505 85%)}
+nav{position:fixed;top:0;left:0;right:0;height:80px;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,64px);background:linear-gradient(rgba(5,5,5,.6),transparent)}
+.logo{all:unset;cursor:pointer;display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px}.logo:focus-visible,.cta:focus-visible,.ham:focus-visible{outline:3px solid #F97316;outline-offset:3px}
+.lg{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#FF4D4D,#F97316 50%,#EC4899)}
+.links{display:flex;gap:32px;list-style:none;margin:0;padding:0}.links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:14px}.links a:hover{color:#fff}
+.nb{background:#fff;color:#000;border:0;border-radius:99px;padding:9px 20px;font:600 14px Inter;cursor:pointer}
+.ham{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:6px}
+.ovl{position:fixed;inset:0;background:rgba(5,5,5,.96);z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;opacity:0;pointer-events:none;transition:opacity .3s}.ovl.open{opacity:1;pointer-events:auto}
+.ovl a{color:#fff;text-decoration:none;font-size:28px;font-weight:600}.x{position:absolute;top:24px;right:24px;background:none;border:0;color:#fff;font-size:30px;cursor:pointer}
+.c{position:relative;z-index:5;padding:180px 20px 0;text-align:center;max-width:900px;margin:0 auto}
+h1{font-size:clamp(38px,6vw,64px);line-height:1.08;letter-spacing:-.03em;font-weight:700;margin:0}
+.c p{color:#9ca3af;font-size:18px;line-height:1.6;margin:24px auto 0;max-width:620px}
+.w{display:inline-block;opacity:0;filter:blur(8px);animation:rv .6s forwards;animation-delay:calc(var(--i)*80ms)}@keyframes rv{to{opacity:1;filter:none}}
+.cta{margin-top:24px;background:#fff;color:#000;border:0;border-radius:99px;padding:14px 30px;font:600 16px Inter;cursor:pointer;opacity:0;animation:fi .7s 3.5s forwards;transition:transform .25s,background .25s,color .25s}
+.cta:hover,.cta:active{background:linear-gradient(90deg,#F97316,#EF4444);color:#fff;transform:scale(1.05)}
+@keyframes fi{to{opacity:1}}
+.dash{position:relative;z-index:5;max-width:1000px;margin:70px auto 0;padding:0 20px;opacity:0;animation:fi .9s 4s forwards}
+.dash .shot{border-radius:18px;border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 100px rgba(0,0,0,.6);overflow:hidden;background:#111}
+.dash img{display:block;width:100%;height:auto}
+.mock{padding:16px;display:grid;grid-template-columns:150px 1fr;gap:14px;min-height:340px}.mock .sb{background:#171717;border-radius:10px}.mock .mn{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-content:start}.mock .mn i{height:110px;background:#1c1c1c;border-radius:10px}.mock .mn i:nth-child(n+4){height:140px}
+@media(max-width:900px){.links,.nb{display:none}.ham{display:block}}
+@media(prefers-reduced-motion:reduce){.w{animation:none;opacity:1;filter:none}.cta,.dash{animation:none;opacity:1}video{display:none}}
+</style></head><body><div class="grain"></div>
+<nav><button class="logo" id="lg" aria-label="Brightly home, toggle menu"><span class="lg"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg></span>Brightly</button>
+<ul class="links"><li><a href="#">Product</a></li><li><a href="#">Customer</a></li><li><a href="#">Pricing</a></li><li><a href="#">Resources</a></li><li><a href="#">Company</a></li></ul><button class="nb">Get started</button>
+<button class="ham" id="hb" aria-label="Open menu" aria-expanded="false"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></nav>
+<div class="ovl" id="ov" role="dialog" aria-label="Menu"><button class="x" id="cx" aria-label="Close menu">×</button><a href="#">Product</a><a href="#">Customer</a><a href="#">Pricing</a><a href="#">Resources</a><a href="#">Company</a></div>
+<section class="hero"><div class="vid"><video autoplay muted loop playsinline preload="metadata"><source src="https://cdn.sceneai.art/Hero%20Section%20Video/060c6237-0a73-45f0-aea2-80291c52641d.mp4" type="video/mp4"></video></div><div class="fade"></div>
+<div class="c"><h1 id="h" aria-label="Organize your day, master your productivity flow"></h1><p id="s" aria-label="Manage projects effortlessly with smart tools, stay on track, meet deadlines, and keep your team productive."></p><button class="cta">Get started free</button></div>
+<div class="dash"><div class="shot"><img src="https://cdn.sceneai.art/Hero%20section%20image/0af7fd86-98c4-46c6-ad8b-dd299a32456a.png" alt="Brightly dashboard preview" onerror="this.parentNode.innerHTML='<div class=mock><div class=sb></div><div class=mn><i></i><i></i><i></i><i></i><i></i><i></i></div></div>'"></div></div></section>
+<script>
+let i=0;function words(el,t){el.innerHTML=t.split(" ").map(w=>'<span class="w" aria-hidden="true" style="--i:'+(i++)+'">'+w+'&nbsp;</span>').join("")}
+words(document.getElementById("h"),"Organize your day, master your productivity flow");i=Math.round(i*.5);words(document.getElementById("s"),"Manage projects effortlessly with smart tools, stay on track, meet deadlines, and keep your team productive.");
+const ov=document.getElementById("ov"),hb=document.getElementById("hb");function tog(o){ov.classList.toggle("open",o);hb.setAttribute("aria-expanded",o)}
+hb.onclick=()=>tog(true);document.getElementById("cx").onclick=()=>tog(false);document.getElementById("lg").onclick=()=>{if(matchMedia("(max-width:900px)").matches)tog(!ov.classList.contains("open"))};
+addEventListener("keydown",e=>{if(e.key=="Escape")tog(false)});
+</script></body></html>

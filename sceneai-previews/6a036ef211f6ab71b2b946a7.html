@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>What they say about us? — Cliently</title>
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#fff;color:#18181b;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:64px 24px}
+.in{max-width:1400px;width:100%}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:56px}
+.tag{font-size:12px;text-transform:uppercase;letter-spacing:.18em;font-weight:500;margin:0 0 20px}
+h1{margin:0;font-weight:600;letter-spacing:-.03em;line-height:1.05;font-size:clamp(34px,5vw,56px)}
+.sub{margin:16px 0 0;color:#71717a;font-size:16px}
+.w{display:inline-block;opacity:0;transform:translateY(24px);animation:up .8s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes up{to{opacity:1;transform:none}}@keyframes in{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+.nv{display:flex;gap:10px;opacity:0;animation:in .7s 3.2s forwards}
+.nv button{width:46px;height:46px;border-radius:50%;border:0;background:#f4f4f5;cursor:pointer;display:grid;place-items:center;color:#18181b;transition:background .2s}
+.nv button:hover{background:#e4e4e7}.nv button:focus-visible{outline:2px solid #18181b;outline-offset:2px}.nv button:disabled{opacity:.4;cursor:default}
+.nm{display:none;justify-content:center;margin-top:28px}
+.vp{overflow:hidden;opacity:0;transform:translateY(40px);animation:up .9s 3.6s forwards}
+.tr{display:flex;gap:24px;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.cd{--n:1;flex:0 0 calc((100% - (var(--n) - 1)*24px)/var(--n));height:440px;border-radius:32px;position:relative;overflow:hidden;color:#fff;padding:32px;display:flex;flex-direction:column;justify-content:space-between;background:#27272a}
+@media(min-width:768px){.cd{--n:2}}@media(min-width:1024px){.cd{--n:3}}
+.cd img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.5s}.cd:hover img{transform:scale(1.1)}
+.cd .bg{position:absolute;inset:0}
+.cd:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85),transparent 65%),linear-gradient(to top,rgba(0,0,0,.45),transparent 40%)}
+.cd>*{position:relative;z-index:2}
+.lg{font-size:20px;letter-spacing:.04em}
+.qm{font-family:Georgia,serif;font-size:56px;line-height:.6;height:28px}
+.q{font-size:17px;line-height:1.6;margin:0}.au{font-size:14px;text-align:right;opacity:.8;margin:16px 0 0}
+@media(max-width:767px){.top .nv{display:none}.nm{display:flex}.nm .nv{opacity:1;animation:none}.cd{padding:24px}}
+@media(prefers-reduced-motion:reduce){.w,.nv,.vp{animation:none;opacity:1;transform:none}.tr,.cd img{transition:none}}
+</style></head><body><section><div class="in">
+<div class="top"><div><p class="tag" id="tg"></p><h1 id="h"></h1><p class="sub" id="sb"></p></div>
+<div class="nv"><button class="pv" aria-label="Previous"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button><button class="nx" aria-label="Next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div></div>
+<div class="vp"><div class="tr" id="tr"></div></div>
+<div class="nm"><div class="nv"><button class="pv" aria-label="Previous"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button><button class="nx" aria-label="Next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div></div>
+</div></section>
+<script>
+var U="https://cdn.sceneai.art/Hero%20section%20image/";
+var C=[["LOGOIPSUM","They brought clarity to complex problems, breaking down barriers and delivering beyond our expectations.","3654d348-a98c-4320-bc14-3f458b45a50d.png","font-weight:800;letter-spacing:.12em","#3b3f5c,#14151f"],["LOQO","Their insight resolved difficult hurdles, opening new paths and creating highly effective strategies for our team.","2b6256a4-a054-4628-8774-7d43fc1f2646.png","font-style:italic;font-weight:600","#5c3b4a,#1d1218"],["LGO","We found focus for tricky requirements, cutting through noise and providing truly actionable solutions.","32eb126d-51ed-4853-9626-dd702aba04dc.png","font-family:Georgia,serif;font-weight:700","#2f5148,#0f1a17"],["IPSUM","The strategic approach completely changed our trajectory, allowing us to scale faster than we ever anticipated.","8dae17e6-2475-46d6-bce8-f72631954cfe.png","font-weight:300;letter-spacing:.3em","#5a4a2e,#1a150b"]];
+function ww(el,t,d,g){t.split(" ").forEach(function(w,i,a){var s=document.createElement("span");s.className="w";s.textContent=w;s.style.animationDelay=(d+i*g)+"s";el.appendChild(s);if(i<a.length-1)el.appendChild(document.createTextNode(" "))})}
+ww(document.getElementById("tg"),"▪ TESTIMONIALS",.1,.1);ww(document.getElementById("h"),"What they say about us?",.4,.18);ww(document.getElementById("sb"),"Here's what they shared about their experience working with our team.",1.5,.12);
+var tr=document.getElementById("tr");
+C.forEach(function(c){var a=document.createElement("article");a.className="cd";var g=c[4].split(",");
+a.innerHTML='<div class="bg" style="background:linear-gradient(160deg,'+g[0]+','+g[1]+')"></div><img alt="" src="'+U+c[2]+'"><div class="lg" style="'+c[3]+'">'+c[0]+'</div><div><div class="qm">”</div><p class="q">'+c[1]+'</p><p class="au">- John Doe Tech Innovations</p></div>';
+a.querySelector("img").onerror=function(){this.remove()};tr.appendChild(a)});
+var i=0;function per(){return innerWidth>=1024?3:innerWidth>=768?2:1}
+function go(d){var max=C.length-per();i=Math.max(0,Math.min(max,i+d));var w=tr.children[0].offsetWidth+24;tr.style.transform="translateX("+(-i*w)+"px)";document.querySelectorAll(".pv").forEach(function(b){b.disabled=i==0});document.querySelectorAll(".nx").forEach(function(b){b.disabled=i==max})}
+document.querySelectorAll(".pv").forEach(function(b){b.onclick=function(){go(-1)}});document.querySelectorAll(".nx").forEach(function(b){b.onclick=function(){go(1)}});
+addEventListener("resize",function(){go(0)});go(0);
+</script></body></html>

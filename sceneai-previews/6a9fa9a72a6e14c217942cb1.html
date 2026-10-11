@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kova — Onboarding screens</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fff;font-family:-apple-system,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;
+background-image:radial-gradient(1000px 700px at 15% 15%,rgba(236,72,153,.14),transparent 62%),radial-gradient(1000px 700px at 88% 85%,rgba(124,58,237,.18),transparent 62%);background-attachment:fixed}
+a{color:#fff;text-decoration:none}a:hover{color:#e9d5ff}
+.row{display:flex;gap:40px;align-items:center;justify-content:center;padding:40px;min-height:100vh;flex-wrap:wrap}
+.ph{width:300px;height:650px;border-radius:44px;overflow:hidden;background:#000;color:#fff;display:flex;flex-direction:column;position:relative;flex:none}
+.ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fb{position:absolute;inset:0}
+.sc{position:absolute;inset:0}
+.ph>*:not(video):not(.sc):not(.fb){position:relative}
+.sp{flex:1}
+h2{margin:0;font-size:24px;font-weight:500;line-height:1.3;letter-spacing:-.3px;text-align:center;padding:0 30px}
+.b1{width:100%;height:56px;border:0;border-radius:16px;background:linear-gradient(120deg,#fff 0%,#e9d5ff 55%,#c084fc 100%);color:#2e1065;font:600 13px inherit;font-family:inherit;cursor:pointer}
+.b1:hover,.b2:hover{filter:brightness(1.05)}
+.cta{padding:28px 24px 26px}
+.col{display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 24px 26px}
+.col p{margin:0;font-size:14px;line-height:1.45;text-align:center;color:#f5f5f4;max-width:230px}
+.br{display:flex;gap:12px;width:100%;margin-top:8px}
+.br button{flex:1;height:52px;border:0;border-radius:16px;font:600 13px inherit;font-family:inherit;cursor:pointer;color:#2e1065;background:linear-gradient(120deg,#fff,#d8b4fe)}
+.br button:hover{filter:brightness(1.1)}.br button.v{background:linear-gradient(120deg,#8b5cf6,#6d28d9);color:#fff}.br button.v:hover{filter:brightness(1.15)}
+.lg{font-size:12px;font-weight:500;margin-top:4px}
+button:focus-visible,a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+</style></head><body><div class="row">
+<section class="ph" aria-label="Welcome screen"><div class="fb" style="background:linear-gradient(160deg,#f472b6,#7c3aed 60%,#1e1b4b)"></div><video muted loop autoplay playsinline src="https://cdn.sceneai.art/Background%20Videos/1d917612-01e5-49cf-a2f7-4bf518790efd.mp4"></video><div class="sc" style="background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.55) 80%,rgba(0,0,0,.75) 100%)"></div><div class="sp"></div><h2>Turn your ideas into cinematic scenes</h2><div class="cta"><button class="b1">Start creating</button></div></section>
+<section class="ph" aria-label="Style picker screen"><div class="fb" style="background:linear-gradient(200deg,#38bdf8,#6d28d9 55%,#0f0a2a)"></div><video muted loop autoplay playsinline src="https://cdn.sceneai.art/Background%20Videos/22ea08d0-2933-4a84-8fb6-f90557a306d8.mp4"></video><div class="sc" style="background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.55) 75%,rgba(0,0,0,.78) 100%)"></div><div class="sp"></div>
+<div class="col"><h2>Every scene, styled the way you imagine</h2><p>Pick a style, drop a prompt, and Kova renders the rest.</p><div class="br"><button>Explore styles</button><button class="v">Join Kova</button></div><a class="lg" href="#">Already with Kova? Log in</a></div></section></div>
+<script>
+document.querySelectorAll("video").forEach(function(v){v.onerror=function(){v.remove()}});
+setInterval(function(){document.querySelectorAll("video").forEach(function(v){if(v.paused){v.muted=true;var p=v.play();if(p&&p.catch)p.catch(function(){})}})},800);
+document.querySelectorAll("a[href='#']").forEach(function(a){a.onclick=function(e){e.preventDefault()}});
+</script></body></html>

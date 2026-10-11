@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Scalable — Manage your sales and analytics in one place</title>
+<meta name="description" content="Track custom events, increase form submissions, optimise conversion rates and optimise your sales flow with Scalable.">
+<style>
+:root{--bg:oklch(.14 .01 285);--fg:oklch(.97 .005 285);--brand:oklch(.55 .24 280);--brand-fg:oklch(.98 0 0);--pill:oklch(.24 .01 285);--success:oklch(.78 .2 150);--mut:oklch(.97 .005 285/.62);--bd:oklch(1 0 0/.1);--glass:oklch(1 0 0/.04)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.root{min-height:100vh;display:flex;flex-direction:column;align-items:center;overflow-x:hidden;position:relative}
+header{position:sticky;top:0;z-index:50;width:100%;max-width:80rem;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:oklch(.14 .01 285/.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.lg{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:600;letter-spacing:-.025em;color:var(--fg);text-decoration:none}
+.lg i{width:28px;height:28px;border-radius:8px;background:var(--brand);display:grid;place-items:center}.lg i b{width:10px;height:10px;background:#fff;transform:rotate(45deg);display:block}
+nav{display:none;align-items:center;gap:32px;font-size:14px;color:var(--mut)}
+nav a{color:inherit;text-decoration:none;display:inline-flex;gap:6px;align-items:center;transition:color .2s}nav a:hover{color:var(--fg)}
+nav .nw{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--brand);color:var(--brand-fg)}
+@media(min-width:900px){nav{display:flex}}
+.cta{display:inline-block;border:0;border-radius:999px;background:var(--brand);color:var(--brand-fg);font:500 14px Inter,sans-serif;padding:10px 20px;cursor:pointer;text-decoration:none}
+.hero{position:relative;width:100%}
+.vw{position:absolute;left:50%;top:-120px;transform:translateX(-50%);width:140%;height:900px;pointer-events:none;z-index:0;overflow:hidden;background:radial-gradient(ellipse at 30% 40%,oklch(.5 .2 290/.55),transparent 55%),radial-gradient(ellipse at 70% 35%,oklch(.6 .14 220/.45),transparent 55%),radial-gradient(ellipse at 50% 70%,oklch(.65 .12 190/.3),transparent 55%)}
+.vw video{width:100%;height:100%;object-fit:cover;opacity:.55;mix-blend-mode:screen;filter:blur(40px)}
+.hc{position:relative;z-index:1;max-width:48rem;margin:0 auto;padding:64px 24px 0;text-align:center;display:flex;flex-direction:column;align-items:center}
+.pl{display:inline-flex;align-items:center;gap:10px;background:var(--pill);border-radius:999px;padding:6px 14px;font-size:13px}
+.pl i{width:8px;height:8px;border-radius:50%;background:var(--success);box-shadow:0 0 8px var(--success)}
+h1{margin:28px 0 0;font-weight:500;line-height:1.05;letter-spacing:-.035em;font-size:clamp(38px,7vw,76px)}
+h1 em{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:400}
+.sub{margin:24px 0 0;max-width:34rem;color:var(--mut);font-size:17px;line-height:1.6}
+.hc .cta{margin-top:32px;padding:14px 28px;font-size:15px;box-shadow:0 10px 40px -8px var(--brand)}
+.lo{position:relative;z-index:1;max-width:64rem;width:100%;padding:96px 24px 0;text-align:center}
+.lo p{margin:0;font-size:13px;color:var(--mut)}
+.lo div{margin-top:24px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px 40px;font-size:22px;color:var(--mut)}
+.db{position:relative;z-index:1;width:100%;max-width:72rem;padding:64px 24px 80px}
+.gl{border:1px solid var(--bd);background:var(--glass);border-radius:28px;padding:20px;box-shadow:0 30px 80px -20px #000;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.c{border:1px solid var(--bd);background:oklch(1 0 0/.025);border-radius:18px;padding:18px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.g3{display:grid;grid-template-columns:1fr;gap:16px}@media(min-width:768px){.g3{grid-template-columns:repeat(3,1fr)}}
+.sh{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--mut)}
+.dl{font-size:12px;padding:2px 8px;border-radius:999px;background:oklch(.78 .2 150/.15);color:var(--success)}
+.v{margin-top:10px;font-size:30px;font-weight:600;letter-spacing:-.03em}
+.g4{margin-top:16px;display:grid;grid-template-columns:1fr;gap:16px}@media(min-width:1000px){.g4{grid-template-columns:240px 1fr 240px}}
+.wd{display:block;width:100%;margin:16px 0;border-radius:999px}
+hr{border:0;border-top:1px solid var(--bd);margin:12px 0}
+.rw{display:flex;justify-content:space-between;font-size:13px}.rw span:first-child{color:var(--mut)}
+.tb{display:flex;gap:14px;font-size:12px;color:var(--mut)}.tb .a{color:var(--fg)}
+.rh{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}.rh b{font-weight:500;font-size:15px}
+svg.ch{width:100%;height:auto;margin-top:12px;display:block}
+.pr{margin-bottom:16px;font-size:12px;color:var(--mut)}.pr div{height:4px;border-radius:2px;background:oklch(1 0 0/.1);margin-top:8px}.pr div i{display:block;height:100%;border-radius:2px;background:oklch(1 0 0/.45)}
+a:focus-visible,.cta:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+</style></head><body><div class="root">
+<header><a class="lg" href="#"><i><b></b></i>Scalable</a><nav><a href="#">About</a><a href="#">Blog</a><a href="#">Changelog <span class="nw">✦ New</span></a><a href="#">Pricing</a><a href="#">Pages <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></a></nav><a class="cta" href="#">Book Your Demo</a></header>
+<section class="hero"><div class="vw" aria-hidden="true"><video autoplay loop muted playsinline src="https://cdn.sceneai.art/Hero%20Section%20Video/1bcc8fa3-37f6-4c53-8591-0347e4c7f8ac.mp4" onerror="this.remove()"></video></div>
+<div class="hc"><span class="pl"><i></i>New Feature: Zapier Integration</span><h1>Manage your sales and<br>analytics in <em>one place.</em></h1><p class="sub">Track custom events, increase form submissions, optimise conversion rates and optimise your sales flow with Scalable.</p><a class="cta" href="#">Book Your Demo</a></div></section>
+<section class="lo"><p>Used by global powerhouses like</p><div><span style="font-weight:700;letter-spacing:.2em">SAVANNAH</span><span style="font-weight:700">M MILANO</span><span style="font-weight:500">◆ luminous</span><span style="font-family:Georgia,serif;font-style:italic">theo</span><span style="font-weight:500">◐ Amsterdam</span></div></section>
+<section class="db"><div class="gl"><div class="g3">
+<div class="c"><div class="sh">Total Profit<span class="dl">+84%</span></div><div class="v">$9,432.25</div></div>
+<div class="c"><div class="sh">Total Revenue<span class="dl">+47%</span></div><div class="v">$404,585</div></div>
+<div class="c"><div class="sh">Products Sold<span class="dl">+24%</span></div><div class="v">1,457</div></div></div>
+<div class="g4"><div class="c"><div class="sh">Total Balance</div><div class="v">$675,931</div><button class="cta wd">Withdraw</button><hr><div class="rw"><span>Total Income</span><b style="font-weight:500">$21,478</b><span style="color:var(--fg)">92%</span></div><hr><div class="rw"><span>Total Expense</span><span>$9,627</span></div></div>
+<div class="c"><div class="rh"><b>Revenue Overview</b><div class="tb"><span>Daily</span><span>Weekly</span><span class="a">Monthly</span><span>Yearly</span></div></div>
+<svg class="ch" viewBox="0 0 600 200"><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="oklch(.85 .13 195)"/><stop offset="1" stop-color="oklch(.55 .2 260)"/></linearGradient></defs><g stroke="oklch(1 0 0/.08)"><path d="M0 40H600M0 90H600M0 140H600M0 190H600"/></g><path d="M0 150C60 140 90 100 150 110S240 160 300 100 390 50 450 80 540 60 600 30" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linecap="round"/><circle cx="300" cy="100" r="14" fill="oklch(1 0 0/.2)"/><circle cx="300" cy="100" r="5" fill="#fff"/></svg></div>
+<div class="c"><div class="pr">Employee<div><i style="width:90%"></i></div></div><div class="pr">Independent Contractor<div><i style="width:65%"></i></div></div><div class="pr">Contracted Employee<div><i style="width:45%"></i></div></div><div class="pr" style="margin:0">Stakeholders<div><i style="width:78%"></i></div></div></div></div></div></section>
+</div><script>document.querySelectorAll("a[href='#']").forEach(function(a){a.onclick=function(e){e.preventDefault()}})</script></body></html>

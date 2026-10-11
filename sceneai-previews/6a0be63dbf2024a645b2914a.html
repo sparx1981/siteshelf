@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Our feature blogs — Aurelion</title>
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f3f4f4;color:#1a1a1a;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1400px;margin:0 auto;padding:80px 32px 96px}
+@media(max-width:640px){.wrap{padding:64px 16px}}
+.head{text-align:center}
+.lab{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.lab i{width:8px;height:8px;background:#000;display:block}
+h1{margin:20px 0 0;font-weight:500;letter-spacing:-.04em;line-height:1.02;font-size:clamp(36px,7vw,72px)}
+.fd{opacity:0;transform:translateY(30px);animation:up .8s cubic-bezier(.22,1,.36,1) forwards}
+.w{display:inline-block;opacity:0;transform:translateY(30px);animation:up .8s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+.car{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:64px;scrollbar-width:none;padding-bottom:4px}
+.car::-webkit-scrollbar{display:none}
+.card{flex:none;width:85vw;scroll-snap-align:center;background:#fff;border-radius:2rem;padding:18px;transition:background-color .4s;display:flex;flex-direction:column}
+@media(min-width:640px){.card{width:420px;scroll-snap-align:start}}
+.card:hover{background:#f3de58}
+.im{aspect-ratio:4/3;border-radius:1rem;overflow:hidden;margin-bottom:24px;position:relative}
+.im .g{position:absolute;inset:0}
+.im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.card:hover .im img,.card:hover .im .g{transform:scale(1.05)}
+.im .g{transition:transform .7s}
+.d{font-size:14px;font-weight:500;color:#6b7280;margin:0 0 12px}
+.t{font-size:24px;font-weight:500;line-height:1.2;margin:0 0 28px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.more{margin-top:auto;align-self:flex-start;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:inherit;text-decoration:none;border-bottom:1px solid #000;padding-bottom:2px;transition:border-width .2s}
+.more:hover{border-bottom-width:3px}
+.nav{display:flex;justify-content:center;gap:16px;margin-top:40px}
+.nav button{width:56px;height:56px;border-radius:50%;border:0;background:#1c1c1c;color:#f3de58;cursor:pointer;display:grid;place-items:center;transition:background .2s}
+.nav button:hover{background:#000}.nav button:focus-visible{outline:3px solid #f3de58;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.fd,.w{animation:none;opacity:1;transform:none}.card,.im img{transition:none}}
+</style></head><body><div class="wrap">
+<header class="head"><div class="lab fd" style="animation-delay:.05s"><i></i>About Vistal</div>
+<h1 id="h"></h1></header>
+<div class="car fd" id="car" style="animation-delay:1s" tabindex="0" aria-label="Blog posts"></div>
+<div class="nav fd" style="animation-delay:1.1s"><button id="l" aria-label="Previous"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button><button id="r" aria-label="Next"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+</div>
+<script>
+var B="https://cdn.sceneai.art/Image%20for%20any%20section/";
+var P=[["The Green Space Revolution: Is the 'Living Building' the Future of...","October 4, 2024","20009828-ab1c-4b6a-a1d8-59ba1fcc0415.webp","#3f6b4a,#a7c78a"],["Form Meets Function: Why Good Design Starts with Purpose","October 4, 2024","687a21b2-e30f-4df3-93e0-20f43dab94c7.webp","#7c6a55,#d9c7a8"],["5 Ways Functional Architecture Can Add Value to Your Home","October 4, 2024","7fce3708-e690-4b42-bc46-6117a04d0501.png","#4a5a6b,#b8c6d4"],["Sustainable Materials: Building for the Next Generation","October 5, 2024","b0688a16-2d8b-4bfb-8f7f-201788eae921.webp","#6b5a3a,#c9b67e"],["Maximizing Natural Light in Modern Interior Spaces","October 6, 2024","bb56b4f0-50c0-42bf-8aea-d21fa5e55460.webp","#8a6a4a,#f0d9b0"]];
+var h=document.getElementById("h");"Our feature blogs".split(" ").forEach(function(w,i,a){var s=document.createElement("span");s.className="w";s.textContent=w;s.style.animationDelay=(.2+i*.12)+"s";h.appendChild(s);if(i<a.length-1)h.appendChild(document.createTextNode(" "))});
+var car=document.getElementById("car");
+P.forEach(function(p){var a=document.createElement("article");a.className="card";var c=p[3].split(",");
+a.innerHTML='<div class="im"><div class="g" style="background:linear-gradient(135deg,'+c[0]+','+c[1]+')"></div><img alt="" loading="lazy" src="'+B+p[2]+'"></div><p class="d">'+p[1]+'</p><h2 class="t">'+p[0]+'</h2><a class="more" href="#">Learn more</a>';
+a.querySelector("img").onerror=function(){this.remove()};a.querySelector("a").onclick=function(e){e.preventDefault()};car.appendChild(a)});
+function step(d){var c=car.querySelector(".card");car.scrollBy({left:d*(c.offsetWidth+24),behavior:"smooth"})}
+document.getElementById("l").onclick=function(){step(-1)};document.getElementById("r").onclick=function(){step(1)};
+</script></body></html>

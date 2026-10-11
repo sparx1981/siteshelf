@@ -1,0 +1,34 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SceneAI — Create awesome 3D scenes with AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+body{margin:0;background:#000;color:#fff;font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+.bg{position:fixed;inset:0;background:radial-gradient(50% 60% at 78% 45%,#3b1d6e,#0a0612 62%,#000)}.bg video{width:100%;height:100%;object-fit:cover}
+.sh{position:fixed;inset:0;background:linear-gradient(to right,rgba(0,0,0,.8),transparent 70%);filter:blur(2px)}
+header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(18px,4vw,48px);background:rgba(10,10,14,.35);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.1)}
+.lg{display:flex;gap:10px;align-items:center;font-weight:700;font-size:18px}.lg svg{display:block}
+nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0}nav a{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.7);text-decoration:none}nav a:hover{color:#fff}
+.r{display:flex;gap:10px;align-items:center}.ib{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);display:grid;place-items:center;color:#fff;cursor:pointer}
+.sb{background:rgba(20,20,26,.7);color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:11px 20px;font:600 14px Inter;cursor:pointer}
+main{position:relative;z-index:5;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px clamp(18px,6vw,96px) 90px;max-width:900px}
+.tag{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-size:12px;padding:7px 14px;border-radius:99px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);margin-bottom:24px}.tag i{width:8px;height:8px;border-radius:50%;background:#a855f7;box-shadow:0 0 10px 3px #a855f7;animation:p 2s infinite}@keyframes p{50%{opacity:.4}}
+h1{font-size:clamp(40px,6.5vw,80px);line-height:1.02;letter-spacing:-.04em;font-weight:700;margin:0 0 20px;text-shadow:0 4px 24px rgba(0,0,0,.5)}
+.sub{font-size:18px;color:rgba(255,255,255,.8);line-height:1.6;max-width:520px;margin:0 0 34px}
+.bt{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.pr{position:relative;display:inline-flex;align-items:center;gap:14px;padding:8px 8px 8px 28px;border-radius:99px;border:0;background:rgba(20,12,0,.6);color:#fff;font:600 16px Inter;cursor:pointer;isolation:isolate}
+.pr:before{content:"";position:absolute;inset:0;border-radius:inherit;padding:2px;background:conic-gradient(from var(--a),#f97316,#fbbf24,transparent 45%,#f97316);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:r 4s linear infinite;z-index:-1}@keyframes r{to{--a:360deg}}
+.pr .ar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#f97316,#fbbf24);display:grid;place-items:center;transition:transform .3s}.pr:hover .ar{transform:translateX(4px) rotate(-10deg)}
+.wd{padding:17px 30px;border-radius:99px;background:rgba(255,255,255,.08);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.2);color:#fff;font:500 16px Inter;cursor:pointer;transition:.3s}.wd:hover{background:rgba(255,255,255,.16)}
+button:focus-visible,a:focus-visible{outline:3px solid #c4b5fd;outline-offset:3px}
+.stats{display:flex;gap:32px;margin-top:50px}.stats b{display:block;font-size:30px;letter-spacing:-.02em}.stats span{font-size:12px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.14em}.dv{width:1px;background:rgba(255,255,255,.2)}
+footer{position:fixed;bottom:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;padding:16px clamp(18px,4vw,48px);font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.4)}footer a{color:inherit;text-decoration:none;margin-left:20px}footer a:hover{color:#fff}
+@media(max-width:860px){nav{display:none}h1{font-size:44px}.stats{gap:20px}.stats b{font-size:24px}footer{position:static;margin-top:-60px;position:relative;z-index:6}}
+@media(prefers-reduced-motion:reduce){.pr:before,.tag i{animation:none}video{display:none}}
+</style></head><body><div class="bg"><video autoplay muted loop playsinline preload="metadata"><source src="https://cdn.sceneai.art/Hero%20Section%20Video/bea62976-0843-4cfc-9b03-209e2310838b.mp4" type="video/mp4"></video></div><div class="sh"></div>
+<header><span class="lg"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"><path d="M12 3l9 16H3z"/></svg>SceneAI</span><nav aria-label="Main"><ul><li><a href="#">Home</a></li><li><a href="#">How it works</a></li><li><a href="#">Plans</a></li><li><a href="#">Download</a></li></ul></nav>
+<div class="r"><button class="ib" aria-label="Community chat"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 5a16 16 0 0 0-4-1l-.5 1a15 15 0 0 0-5 0L10 4a16 16 0 0 0-4 1C3 9 2.5 13 3 17c1.700 1.300 3.400 2 5 2.500l1-1.600a10 10 0 0 1-1.600-.8l.4-.3a11 11 0 0 0 10.400 0l.4.300a10 10 0 0 1-1.600.8l1 1.600c1.600-.5 3.300-1.200 5-2.500.6-4.700-.8-8.700-3-12zM9.500 14.500c-.8 0-1.500-.8-1.500-1.700s.7-1.800 1.500-1.800 1.500.8 1.500 1.800-.7 1.700-1.500 1.700zm5 0c-.8 0-1.500-.8-1.500-1.700s.7-1.800 1.500-1.800 1.500.8 1.500 1.800-.7 1.700-1.500 1.700z"/></svg></button><button class="sb">Start building</button></div></header>
+<main><span class="tag"><i></i>V2.0 Engine Now Live</span><h1>Create awesome 3D scenes with AI</h1><p class="sub">Describe a world in plain words and watch it render in seconds. Lighting, camera and materials are handled for you.</p>
+<div class="bt"><button class="pr">Generate Now<span class="ar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a0f00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button class="wd">Watch Demo</button></div>
+<div class="stats"><div><b>48K+</b><span>Active Creators</span></div><div class="dv"></div><div><b>1.2M</b><span>Scenes Rendered</span></div></div></main>
+<footer><span>© 2026 SceneAI. All rights reserved.</span><span><a href="#">Privacy</a><a href="#">Support</a></span></footer></body></html>

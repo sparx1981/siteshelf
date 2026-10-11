@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>stories in light — faruq® visual archive</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#2b3342}
+body{font-family:Archivo,system-ui,sans-serif;color:#f0f0ee;-webkit-font-smoothing:antialiased}
+a{color:#f3f2f2;text-underline-offset:3px}a:hover{color:#fff}
+.hero{position:relative;height:100vh;overflow:hidden;background:#2b3342}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:translateZ(0);-webkit-user-drag:none;user-select:none}
+.gold10{opacity:.1;pointer-events:none}
+#rv{opacity:0;transition:opacity .4s ease-out;will-change:opacity;pointer-events:none;-webkit-mask-image:radial-gradient(closest-side,#000 62%,transparent 100%);mask-image:radial-gradient(closest-side,#000 62%,transparent 100%);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:110px 140px;mask-size:110px 140px;-webkit-mask-position:-300px -300px;mask-position:-300px -300px}
+.scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,24,32,.55) 0%,rgba(20,24,32,.12) 45%,rgba(20,24,32,.6) 100%);pointer-events:none}
+.ov{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;padding:44px 64px 40px;pointer-events:none}
+.tb{display:flex;justify-content:space-between;align-items:baseline;font-size:16px;font-weight:500;letter-spacing:.02em}
+.tb div{display:flex}.tb .l{gap:28px}.tb .r{gap:14px}
+.pill{border:1.5px solid #f0f0ee;border-radius:999px;padding:4px 20px;font-size:15px}
+h1{margin:40px 0 0;font-size:clamp(52px,7.4vw,104px);font-weight:500;letter-spacing:-.02em;line-height:.98}
+h1 .m{display:inline-flex;align-items:center;gap:24px}
+.pl{width:.8em;height:.8em;border:1.5px solid #f0f0ee;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.8em;font-weight:400}
+.pl i{font-style:normal;font-size:.45em;line-height:1}
+.bt{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:48px}
+.bt .a{font-size:18px;font-weight:500;line-height:1.45}
+.bt .p{max-width:560px}.bt .p p{margin:0;text-align:justify;font-size:15.5px;line-height:1.6;word-spacing:.15em}
+.bt .p div{margin-top:20px;display:flex;justify-content:space-between;font-size:14px;letter-spacing:.02em}
+@media(max-width:800px){.ov{padding:28px 20px 24px}.tb{font-size:13px}.tb .l{gap:12px;flex-direction:column}.tb .r{display:none}.pill{font-size:12px;padding:3px 12px}.bt{flex-direction:column;align-items:flex-start;gap:20px}.bt .p p{font-size:13.5px}h1{margin-top:32px}}
+@media(max-width:500px){.tb .l span:nth-child(2){display:none}}
+</style></head><body><section class="hero" id="hero">
+<img id="base" alt="" draggable="false" src="https://cdn.sceneai.art/Bg%20images/ddfc017a-6d87-42c8-b9d6-c068c2854910.png">
+<img class="gold10" alt="" draggable="false" src="https://cdn.sceneai.art/Bg%20images/27a6b99b-8093-439e-be9c-1c96311e8fb8.png">
+<img id="rv" alt="" draggable="false" src="https://cdn.sceneai.art/Bg%20images/27a6b99b-8093-439e-be9c-1c96311e8fb8.png">
+<div class="scrim"></div>
+<div class="ov"><div class="tb"><div class="l"><span>faruq®</span><span>visual archive</span></div><div class="pill">©2026</div><div class="r"><span>(</span><span>long exposure</span><span>/</span><span>low light</span><span>)</span></div></div>
+<h1>stories in light<br><span class="m"><span class="pl"><i>+</i></span>motion</span></h1>
+<div class="bt"><div class="a">night work only</div><div class="p"><p>slow shutters, moving light. i make short visual stories after dark — where motion becomes the subject and light does the drawing. no studio, no staging: just time, left open long enough to leave a trace.</p><div><span>selected work — vol.01</span><span>( scroll ↓ )</span></div></div></div></div></section>
+<script>
+(function(){var h=document.getElementById("hero"),rv=document.getElementById("rv"),base=document.getElementById("base");
+base.onerror=function(){h.style.background="radial-gradient(ellipse at 50% 40%,#4a5570,#2b3342 60%,#161a22)";this.remove()};
+document.querySelectorAll(".hero img").forEach(function(i){i.addEventListener("error",function(){i.remove()})});
+if(!matchMedia("(hover: hover) and (pointer: fine)").matches)return;
+var tx=0,ty=0,cx=0,cy=0,run=false,first=true;
+function set(){var v=(cx-55)+"px "+(cy-70)+"px";rv.style.webkitMaskPosition=v;rv.style.maskPosition=v}
+function loop(){cx+=(tx-cx)*.22;cy+=(ty-cy)*.22;set();if(Math.abs(tx-cx)<.3&&Math.abs(ty-cy)<.3){cx=tx;cy=ty;set();run=false;return}requestAnimationFrame(loop)}
+h.addEventListener("mousemove",function(e){var r=h.getBoundingClientRect();tx=e.clientX-r.left;ty=e.clientY-r.top;if(first){cx=tx;cy=ty;set();rv.style.opacity=1;first=false}else rv.style.opacity=1;if(!run){run=true;requestAnimationFrame(loop)}});
+h.addEventListener("mouseleave",function(){rv.style.opacity=0;first=true});
+})();
+</script></body></html>

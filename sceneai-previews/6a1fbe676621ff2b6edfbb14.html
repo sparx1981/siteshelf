@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Peakflow — Get in touch</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fafafa;color:#111827;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.reveal{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.5,0,0,1)}.reveal.active{opacity:1;transform:none}
+.delay-100{transition-delay:.1s}.delay-200{transition-delay:.2s}.delay-300{transition-delay:.3s}.delay-400{transition-delay:.4s}
+.hl{transition:transform .3s}.hl:hover{transform:translateY(-4px)}
+.t{max-width:80rem;margin:0 auto;padding:96px 24px;display:flex;flex-direction:column;gap:64px;align-items:center}
+@media(min-width:1024px){.t{padding:128px 48px;flex-direction:row}.t .a{width:41.666%}.t .b{width:58.333%}}
+.a,.b{width:100%}
+.sb{font-size:14px;letter-spacing:.15em;font-weight:500;color:#6b7280;margin:0 0 16px}
+.t h2{font-size:clamp(36px,5vw,48px);font-weight:500;letter-spacing:-.025em;margin:0 0 24px}
+.ds{font-size:16px;color:#6b7280;margin:0 0 32px;max-width:28rem}@media(min-width:768px){.ds{font-size:18px}}
+.btn{background:#000;color:#fff;border:0;padding:14px 32px;border-radius:12px;font:500 14px Inter,sans-serif;cursor:pointer}
+.im{border-radius:2rem;overflow:hidden;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);height:350px;position:relative;background:linear-gradient(135deg,#d1d5db,#6b7280 60%,#1f2937)}
+@media(min-width:768px){.im{height:450px}}
+.im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s}.im:hover img{transform:scale(1.05)}
+footer{background:#111;color:#9ca3af;padding:96px 0;border-radius:2.5rem 2.5rem 0 0;margin-top:40px}
+.g{max-width:80rem;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr;gap:64px}
+@media(min-width:1024px){.g{padding:0 48px;grid-template-columns:repeat(12,1fr);gap:32px}.lk{grid-column:span 7}.nl{grid-column:span 5;align-items:flex-end;text-align:right}}
+.lk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;font-size:14px}@media(min-width:768px){.lk{font-size:16px}}
+.lk div{display:flex;flex-direction:column;gap:24px}
+.lk a{color:inherit;text-decoration:none;cursor:pointer;transition:color .2s}.lk a:hover{color:#fff}.lk a.c{color:#fff;font-weight:500}
+.nl{display:flex;flex-direction:column;align-items:flex-start}
+.nl h3{font-size:clamp(30px,4vw,36px);font-weight:300;color:#fff;margin:0 0 32px}
+.fm{display:flex;width:100%;max-width:28rem;background:#1a1a1a;border-radius:12px;padding:6px;border:1px solid #2a2a2a}
+.fm input{width:100%;background:transparent;border:0;color:#fff;padding:0 16px;outline:0;font:14px Inter,sans-serif}.fm input::placeholder{color:#6b7280}
+.fm button{background:#fff;color:#000;border:0;padding:10px 24px;border-radius:8px;font:500 14px Inter,sans-serif;cursor:pointer}
+.fm:focus-within{border-color:#555}.btn:focus-visible,.fm button:focus-visible,.lk a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.ok{margin:12px 0 0;font-size:13px;color:#a7f3d0;min-height:18px}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style></head><body>
+<section class="t"><div class="a reveal"><p class="sb">CONNECT</p><h2>Get In touch</h2><p class="ds">We'd love to hear from you. Reach out with any questions or feedback.</p><button class="btn hl">Contact</button></div>
+<div class="b reveal delay-200"><div class="im"><img alt="" src="https://cdn.sceneai.art/Image%20for%20any%20section/922c17a8-8ca8-4fb8-8528-3f357e48a693.avif" onerror="this.remove()"></div></div></section>
+<footer><div class="g reveal delay-100"><div class="lk"><div><a class="c">Home V.1</a><a>Home V.2</a><a>Home V.3</a><a>Listings</a><a>Internal Listing</a></div><div><a>About Us</a><a>Contact V.1</a><a>Contact V.2</a><a>Contact V.3</a></div><div><a>Blog V.1</a><a>Blog V.2</a><a>Blog V.3</a><a>Internal Blog</a></div></div>
+<form class="nl reveal delay-300" id="f"><h3>Subscribe to Updates</h3><div class="fm"><input type="email" required placeholder="Your email here" aria-label="Email"><button class="hl">Join</button></div><p class="ok" id="ok" role="status"></p></form></div></footer>
+<script>var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add("active");o.unobserve(x.target)}})},{threshold:.1});document.querySelectorAll(".reveal").forEach(function(e){o.observe(e)});
+document.getElementById("f").onsubmit=function(e){e.preventDefault();document.getElementById("ok").textContent="Thanks — you're on the list.";e.target.reset()}</script></body></html>

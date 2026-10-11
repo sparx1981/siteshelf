@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lumina Vision — Intelligence Unbound</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+body{margin:0;background:#000;color:#fff;font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+.s{position:relative;min-height:100vh;display:flex;flex-direction:column;padding:0 70px;overflow:hidden;background:radial-gradient(60% 70% at 85% 50%,#16397a,#050a1a 60%,#000)}
+video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center;transform:scale(1.3);transform-origin:right center;filter:brightness(1.1) contrast(1.1)}
+.ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,1) 0%,rgba(0,0,0,.85) 30%,rgba(0,0,0,0) 85%)}
+nav{position:relative;z-index:5;display:flex;align-items:center;padding:28px 0}
+.lg{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5em}
+.lg i{width:26px;height:26px;border:1px solid rgba(255,255,255,.4);display:grid;place-items:center}.lg i:after{content:"";width:8px;height:8px;border-radius:50%;background:#3b82f6;box-shadow:0 0 12px 3px #3b82f6}
+nav ul{display:flex;gap:28px;list-style:none;margin:0 48px 0 auto;padding:0}nav a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.85rem}nav a:hover{color:#fff}
+.pl{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.25);color:#fff;display:grid;place-items:center;cursor:pointer}
+.h{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;transform:translateY(-12%)}
+.tag{font-size:9px;font-weight:700;letter-spacing:.4em;text-transform:uppercase;padding:8px 14px;border-radius:99px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);margin-bottom:12px}
+h1{font-size:80px;line-height:1;letter-spacing:-.04em;font-weight:700;margin:0 0 16px}
+.sub{font-size:16px;color:rgba(255,255,255,.6);max-width:430px;line-height:1.55;margin:0 0 30px}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:14px 26.5px;border-radius:99px;border:0;color:#fff;font:700 12px Inter;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;background:rgba(255,255,255,.25);backdrop-filter:blur(40px);box-shadow:inset 0 0 18px rgba(255,255,255,.2);overflow:hidden;isolation:isolate}
+.btn:before{content:"";position:absolute;inset:0;border-radius:inherit;padding:2.5px;background:conic-gradient(from var(--a),#3b82f6,#a855f7,#ec4899,#f8a170,#eab308,#3b82f6);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:o 6s linear infinite;z-index:-1}
+@keyframes o{to{--a:360deg}}.btn svg{transition:transform .25s}.btn:hover svg{transform:translateX(5px)}
+button:focus-visible,a:focus-visible{outline:3px solid #60a5fa;outline-offset:3px}
+.ft{position:relative;z-index:5;padding:0 0 22px;text-align:center}.ft small{display:block;font-size:9px;font-weight:700;letter-spacing:.6em;opacity:.25;margin-bottom:14px}
+.mq{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}.tr{display:flex;gap:70px;width:max-content;animation:m 24s linear infinite;filter:grayscale(1);opacity:.55}
+.tr span{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;white-space:nowrap}.tr b{width:15px;height:15px;border-radius:4px;background:var(--c)}@keyframes m{to{transform:translateX(-50%)}}
+@media(max-width:900px){.s{padding:0 24px}h1{font-size:48px}nav ul{display:none}.pl{margin-left:auto}.ov{background:linear-gradient(to right,rgba(0,0,0,.95),rgba(0,0,0,.6))}.tr{gap:40px}}
+@media(prefers-reduced-motion:reduce){.btn:before,.tr{animation:none}video{display:none}}
+</style></head><body><section class="s"><video autoplay muted loop playsinline preload="metadata"><source src="https://cdn.sceneai.art/Hero%20Section%20Video/9ad5cc99-2fa4-4154-bcc2-5c9ec152778e.mp4" type="video/mp4"></video><div class="ov"></div>
+<nav><span class="lg"><i></i>auto-automation</span><ul><li><a href="#">Home</a></li><li><a href="#">About</a></li><li><a href="#">Photos</a></li><li><a href="#">Crew</a></li><li><a href="#">Contact</a></li></ul><button class="pl" aria-label="Play showreel"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M8 5l12 7-12 7z"/></svg></button></nav>
+<div class="h"><div class="tag">Initialize vision</div><h1>Intelligence Unbound</h1><p class="sub">Lumina Vision turns raw signals into clear decisions, with a calm interface built to keep every automated system in view.</p>
+<button class="btn">Begin<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+<div class="ft"><small>AUTO-AUTOMATION ECOSYSTEM</small><div class="mq" aria-hidden="true"><div class="tr"><span><b style="--c:#4285f4"></b>Google</span><span><b style="--c:#a855f7"></b>Cust.io</span><span><b style="--c:#f97316"></b>Hummel</span><span><b style="--c:#d97706"></b>Copper</span><span><b style="--c:#ef4444"></b>Tesla</span><span><b style="--c:#4285f4"></b>Google</span><span><b style="--c:#a855f7"></b>Cust.io</span><span><b style="--c:#f97316"></b>Hummel</span><span><b style="--c:#d97706"></b>Copper</span><span><b style="--c:#ef4444"></b>Tesla</span></div></div></div></section></body></html>

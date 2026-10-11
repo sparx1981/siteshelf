@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Designy — Footer</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fafafa;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}
+@media(min-width:768px){body{padding:32px}}@media(min-width:1024px){body{padding:48px}}
+footer{width:100%;max-width:1100px;background:#fff;border:1px solid #f9fafb;border-radius:28px;box-shadow:0 20px 40px -15px rgba(0,0,0,.03);padding:40px 24px}
+@media(min-width:768px){footer{padding:48px}}@media(min-width:1024px){footer{padding:56px 72px}}
+.top{display:flex;flex-direction:column;justify-content:space-between;gap:48px;margin-bottom:48px}
+@media(min-width:1024px){.top{flex-direction:row;gap:32px}.br{width:40%}.ln{width:50%}}
+.lo{display:flex;align-items:center;gap:10px;color:#0a0a0a;font-size:19px;font-weight:700;letter-spacing:-.02em}
+.ds{margin:20px 0 24px;color:#71717a;font-size:13px;line-height:1.6;max-width:340px}
+.so{display:flex;gap:18px}.so a{color:#0a0a0a;transition:opacity .2s;display:block}.so a:hover{opacity:.7}
+.ln{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+@media(min-width:768px){.ln{grid-template-columns:repeat(3,1fr);gap:16px}}
+h4{margin:0 0 20px;color:#0a0a0a;font-size:14px;font-weight:600}
+ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+ul a{color:#71717a;font-size:13px;text-decoration:none;transition:color .2s}ul a:hover{color:#0a0a0a}
+hr{border:0;border-top:1px solid #f4f4f5;margin:0 0 24px;width:100%}
+.bt{display:flex;flex-direction:column-reverse;gap:16px;justify-content:space-between;align-items:flex-start;color:#71717a;font-size:13px}
+@media(min-width:768px){.bt{flex-direction:row;align-items:center}}
+.lg{display:flex;flex-wrap:wrap;gap:16px 24px}
+.lg a{color:#71717a;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#e5e7eb;transition:color .2s,text-decoration-color .2s}
+.lg a:hover{color:#0a0a0a;text-decoration-color:#0a0a0a}
+a:focus-visible{outline:2px solid #0a0a0a;outline-offset:3px;border-radius:2px}
+</style></head><body><footer>
+<div class="top"><div class="br"><div class="lo"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#0a0a0a"/><path d="M7 15 15 7M7 19 19 7M11 19l8-8" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>Designy</div>
+<p class="ds">Designy empowers teams to transform raw data into clear, compelling visuals — making insights easier to share, understand, and act on.</p>
+<div class="so"><a href="#" aria-label="X"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2h3.3l-7.2 8.3L22.8 22h-6.7l-5.2-6.8L5 22H1.7l7.7-8.8L1.2 2h6.9l4.7 6.2zm-1.2 18h1.8L7.1 3.9H5.1z"/></svg></a><a href="#" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a><a href="#" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg></a><a href="#" aria-label="GitHub"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-1-2.6c3.1-.4 6.4-1.5 6.4-7A5.4 5.4 0 0 0 20 4.8 5 5 0 0 0 19.9 1S18.7.6 16 2.5a13.4 13.4 0 0 0-7 0C6.3.6 5.1 1 5.1 1A5 5 0 0 0 5 4.8a5.4 5.4 0 0 0-1.5 3.8c0 5.5 3.3 6.6 6.4 7a3.4 3.4 0 0 0-1 2.6V22"/></svg></a></div></div>
+<nav class="ln" aria-label="Footer"><div><h4>Product</h4><ul><li><a href="#">Features</a></li><li><a href="#">Pricing</a></li><li><a href="#">Integrations</a></li><li><a href="#">Changelog</a></li></ul></div><div><h4>Resources</h4><ul><li><a href="#">Documentation</a></li><li><a href="#">Tutorials</a></li><li><a href="#">Blog</a></li><li><a href="#">Support</a></li></ul></div><div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Careers</a></li><li><a href="#">Contact</a></li><li><a href="#">Partners</a></li></ul></div></nav></div>
+<hr><div class="bt"><span>© <span id="y"></span> Designy. All rights reserved.</span><div class="lg"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookies Settings</a></div></div>
+</footer><script>document.getElementById("y").textContent=new Date().getFullYear();document.querySelectorAll("a[href='#']").forEach(function(a){a.onclick=function(e){e.preventDefault()}})</script></body></html>

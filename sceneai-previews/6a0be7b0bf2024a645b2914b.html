@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Frequently asked questions — Cortexa</title>
+<style>
+*{box-sizing:border-box}
+::selection{background:#000;color:#fff}
+body{margin:0;background:#fff;color:#000;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.in{max-width:1440px;margin:0 auto;padding:96px 24px 96px}
+@media(min-width:768px){.in{padding:128px 48px 96px}}@media(min-width:1024px){.in{padding:128px 96px 96px}}
+.g{display:grid;gap:32px;grid-template-columns:1fr}
+@media(min-width:1024px){.g{grid-template-columns:repeat(12,1fr);gap:64px}.l{grid-column:span 4;margin-top:16px}.r{grid-column:span 8;max-width:54rem;width:100%}}
+.l{margin-top:8px;display:flex;align-items:flex-start;gap:8px;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.l i{width:6px;height:6px;background:#000;margin-top:6px;flex:none}
+h1{margin:0 0 64px;font-weight:500;letter-spacing:-.03em;line-height:1.05;font-size:clamp(36px,6vw,72px)}
+@media(min-width:1024px){h1{margin-bottom:96px}}
+.t{opacity:0;transform:translateY(15px);display:inline-block;animation:fu .7s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes fu{to{opacity:1;transform:none}}
+.it{border-bottom:1px dashed rgba(156,163,175,.8)}
+.q{width:100%;background:none;border:0;padding:24px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;cursor:pointer;font:inherit;color:inherit}
+@media(min-width:768px){.q{padding:32px 0}}
+.q span{font-size:20px;font-weight:500;letter-spacing:-.01em;line-height:1.35;transition:opacity .2s}
+@media(min-width:768px){.q span{font-size:1.7rem}}
+.q:hover span{opacity:.7}.q:focus-visible{outline:2px solid #000;outline-offset:4px}
+.q svg{flex:none;width:24px;height:24px}@media(min-width:768px){.q svg{width:28px;height:28px}}
+.a{display:grid;grid-template-rows:0fr;opacity:0;transition:all .4s ease-in-out}
+.a.o{grid-template-rows:1fr;opacity:1}
+.a>div{overflow:hidden}
+.a p{margin:0;color:#6b7280;font-size:16px;line-height:1.65;padding:0 16px 32px 0}
+@media(min-width:768px){.a p{font-size:18px;padding:0 48px 40px 0}}
+@media(prefers-reduced-motion:reduce){.t{animation:none;opacity:1;transform:none}.a{transition:none}}
+</style></head><body><div class="in"><div class="g">
+<div class="l"><i></i><span id="ab"></span></div>
+<div class="r"><h1 id="h"></h1><div id="list"></div></div></div></div>
+<script>
+var F=[["How do I start the process of buying a home?","The first step is to determine your budget and financing options. If you need a mortgage, getting pre-approved can help you understand how much you can afford. Once you're ready, our real estate experts will assist you in finding properties that meet your needs."],["How can i start a project with Architect?","Starting a project with us is simple. You can reach out through our contact form or call us directly. We'll schedule an initial consultation to discuss your vision, requirements, and the specific scope of your project before moving into the design phase."],["What services does the studio offer?","Our studio provides comprehensive design services ranging from initial concept development and master planning to detailed architectural design, interior styling, and full project management during the construction phase."],["How long does it take to complete a project?","The timeline for completing a project depends heavily on its scale and complexity. A residential renovation might take 3-6 months, whereas a new commercial build could require 1-2 years from initial design to final handover."],["Do you offer advice on sustainable design?","Absolutely. Sustainable design is a core pillar of our practice. We provide guidance on selecting eco-friendly materials, optimizing energy efficiency, and incorporating renewable technologies to minimize the environmental impact of your project."]];
+function at(el,t,d,g){t.split(" ").forEach(function(w,i,a){var s=document.createElement("span");s.className="t";s.textContent=w;s.style.animationDelay=(d+i*g)+"s";el.appendChild(s);if(i<a.length-1)el.appendChild(document.createTextNode(" "))})}
+at(document.getElementById("ab"),"About VISTAL",.1,.08);at(document.getElementById("h"),"Frequently asked questions",.25,.1);
+var PL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>',MI='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14"/></svg>';
+var open=0,list=document.getElementById("list");
+F.forEach(function(f,i){var d=document.createElement("div");d.className="it";
+d.innerHTML='<button class="q" aria-expanded="false" aria-controls="a'+i+'"><span>'+f[0]+'</span><i></i></button><div class="a" id="a'+i+'" role="region"><div><p></p></div></div>';
+var p=d.querySelector("p");if(i==0)at(p,f[1],.8,.025);else p.textContent=f[1];
+d.querySelector("button").onclick=function(){open=open===i?-1:i;draw()};list.appendChild(d)});
+function draw(){list.querySelectorAll(".it").forEach(function(d,i){var o=i===open;d.querySelector(".a").classList.toggle("o",o);var b=d.querySelector("button");b.setAttribute("aria-expanded",o);b.querySelector("i").innerHTML=o?MI:PL})}
+draw();
+</script></body></html>

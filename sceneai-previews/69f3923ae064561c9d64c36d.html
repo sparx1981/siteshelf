@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lexo — Realtime Price Alerts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#0a0f14;color:#fff;font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+.hero{position:relative;min-height:100vh;overflow:hidden;display:flex;flex-direction:column;background:radial-gradient(50% 50% at 75% 40%,#0f3c5a,#0a0f14 70%)}
+video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:screen;opacity:0;animation:fi 1s .1s forwards}
+.sh{position:absolute;right:-8%;bottom:-18%;border-radius:50%;background:#000}.s1{width:60vw;height:60vw;filter:blur(120px)}.s2{width:40vw;height:40vw;filter:blur(80px)}.s3{width:24vw;height:24vw;filter:blur(60px)}
+.gl{position:absolute;left:-10%;top:-10%;width:50vw;height:50vw;border-radius:50%;background:rgba(40,120,200,.12);filter:blur(120px)}
+.st{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;box-shadow:0 0 8px 2px rgba(255,255,255,.7);animation:tw 3s infinite}@keyframes tw{50%{opacity:.3}}
+nav{position:relative;z-index:5;max-width:1280px;width:100%;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;opacity:0;animation:fd .8s .4s forwards}
+.lg{font-weight:700;font-size:22px}nav ul{display:flex;gap:36px;list-style:none;margin:0;padding:0}nav a{color:rgba(255,255,255,.75);text-decoration:none;font-size:14px}nav a:hover{color:#fff}
+.gs{border:1px solid rgba(255,255,255,.3);background:none;color:#fff;border-radius:99px;padding:9px 20px;font:500 14px Inter;cursor:pointer}.gs:hover{background:rgba(255,255,255,.1)}
+.ham{display:none;background:none;border:0;color:#fff;cursor:pointer}.mm{position:fixed;inset:0;z-index:30;background:rgba(5,8,12,.92);backdrop-filter:blur(18px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;opacity:0;pointer-events:none;transition:opacity .3s}.mm.open{opacity:1;pointer-events:auto}.mm a{color:#fff;font-size:26px;text-decoration:none}.mm button.x{position:absolute;top:20px;right:22px;background:none;border:0;color:#fff;font-size:32px;cursor:pointer}
+.c{position:relative;z-index:5;flex:1;max-width:1280px;width:100%;margin:0 auto;padding:110px 24px 0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start}
+h1{font-weight:600;font-size:48px;line-height:1.15;letter-spacing:-.02em;margin:0 0 20px;max-width:640px}
+h1 .l{display:block}.w{display:inline-block;opacity:0;transform:translateY(22px);animation:fu .7s forwards}.w em{font:italic 300 1.1em "Cormorant Garamond",serif}
+.sub{color:#a3acb8;font-size:17px;line-height:1.6;max-width:480px;margin:0 0 28px;opacity:0;animation:fu .7s 2.1s forwards}
+.cta{background:#fff;color:#000;border:0;border-radius:99px;padding:14px 30px;font:600 16px Inter;cursor:pointer;opacity:0;animation:fu .7s 2.6s forwards;transition:transform .25s}.cta:hover{transform:scale(1.05)}
+button:focus-visible,a:focus-visible{outline:3px solid #6cc4ff;outline-offset:3px}
+.lo{position:relative;z-index:5;max-width:1280px;width:100%;margin:0 auto;padding:40px 24px 36px;opacity:0;animation:fi .9s 3.2s forwards}.lo p{font-size:13px;color:#8d97a5;margin:0 0 18px}.lo p b{color:#fff;font-weight:600}
+.lr{display:flex;gap:clamp(24px,5vw,64px);flex-wrap:wrap;align-items:center;color:rgba(255,255,255,.75)}.lr span{display:flex;align-items:center;gap:8px;font-weight:700;font-size:22px}
+@keyframes fu{to{opacity:1;transform:none}}@keyframes fd{to{opacity:1}}@keyframes fi{to{opacity:1}}
+@media(max-width:820px){nav ul,.gs{display:none}.ham{display:block}h1{font-size:34px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important;transform:none!important}video{display:none}}
+</style></head><body><section class="hero"><video autoplay muted loop playsinline preload="metadata"><source src="https://cdn.sceneai.art/Hero%20Section%20Video/736fd4a0-70ac-4f44-9633-55769ead6aca.mp4" type="video/mp4"></video>
+<div class="gl"></div><div class="sh s1"></div><div class="sh s2"></div><div class="sh s3"></div>
+<i class="st" style="left:12%;top:14%"></i><i class="st" style="left:32%;top:9%;animation-delay:.6s"></i><i class="st" style="left:58%;top:18%;animation-delay:1.2s"></i><i class="st" style="left:78%;top:8%;animation-delay:1.8s"></i><i class="st" style="left:90%;top:26%;animation-delay:.9s"></i>
+<nav aria-label="Main"><span class="lg">Lexo</span><ul><li><a href="#">Features</a></li><li><a href="#">Contact</a></li><li><a href="#">Blog</a></li><li><a href="#">Pricing</a></li></ul><button class="gs">Get Started</button><button class="ham" id="hb" aria-label="Open menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></nav>
+<div class="mm" id="mm" role="dialog" aria-label="Menu"><button class="x" id="cx" aria-label="Close menu">×</button><a href="#">Features</a><a href="#">Contact</a><a href="#">Blog</a><a href="#">Pricing</a><a href="#">Get Started</a></div>
+<div class="c"><h1 id="h" aria-label="Stay Ahead With Cutting-Edge Realtime Price Alerts"></h1><p class="sub">Automatically monitor your prices and adjust your offers to stay competitive 24/7</p><button class="cta">Start Tracking</button></div>
+<div class="lo"><p>Tracking data from <b>1000+</b> most popular stores worldwide</p><div class="lr" aria-label="Shopify, Etsy, Amazon, Walmart"><span><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M15 4l-1-1-2 1c-1-2-3-2-3-2L8 4 5 5 3 20l11 2 7-2zM9 8l1 6"/></svg>Shopify</span><span style="font-family:Georgia,serif;font-weight:400;font-style:italic">Etsy</span><span style="letter-spacing:-.04em">amazon</span><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#ffc220"><path d="M12 2l1.200 6.300L18 5l-3.200 5L21 11l-6 1.700L18 19l-5-3.400L12 22l-1-6.400L6 19l3-6.300L3 11l6.200-1L6 5l4.800 3.300z"/></svg>Walmart</span></div></div></section>
+<script>
+const h=document.getElementById("h");let d=.9;const L=[["Stay","Ahead","With","*Cutting-Edge*"],["Realtime","Price","Alerts"]];
+h.innerHTML=L.map(l=>'<span class="l">'+l.map(w=>{const em=w[0]=="*",t=em?w.slice(1,-1):w,s='<span class="w" aria-hidden="true" style="animation-delay:'+d.toFixed(2)+'s">'+(em?"<em>"+t+"</em>":t)+"&nbsp;</span>";d+=.22;return s}).join("")+"</span>").join("");
+const mm=document.getElementById("mm");document.getElementById("hb").onclick=()=>mm.classList.add("open");document.getElementById("cx").onclick=()=>mm.classList.remove("open");addEventListener("keydown",e=>{if(e.key=="Escape")mm.classList.remove("open")});
+</script></body></html>

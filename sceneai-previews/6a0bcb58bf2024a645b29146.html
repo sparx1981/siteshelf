@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Testimonials — Averra</title>
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+::selection{background:#a5e038;color:#000}
+body{margin:0;background:#ebefe5;color:#111;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+main{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 24px}
+.top{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#4b5563;margin:0 0 32px}
+blockquote{margin:0;max-width:1000px;font-weight:400;letter-spacing:-.03em;line-height:1.25;color:#111;font-size:clamp(28px,4.4vw,54px)}
+.w{display:inline-block;opacity:0;transform:translateY(100%);animation:r .8s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes r{to{opacity:1;transform:none}}
+.fi{opacity:0;animation:f .7s ease forwards}@keyframes f{to{opacity:1}}
+.au{display:flex;align-items:center;gap:16px;margin-top:48px;text-align:left}
+.au img{width:56px;height:56px;border-radius:50%;object-fit:cover;background:linear-gradient(135deg,#a5e038,#4b6b1f)}
+.au b{display:block;font-size:18px;font-weight:500;color:#111}.au span{font-size:14px;color:#6b7280}
+.bt{display:flex;gap:12px;margin-top:32px}
+.bt button{width:56px;height:56px;border-radius:16px;border:0;background:#181a15;cursor:pointer;display:grid;place-items:center;transition:background .2s,box-shadow .2s}
+.bt button:hover{background:#000;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.bt svg{transition:transform .2s}.bt .p:hover svg{transform:translateX(-4px)}.bt .n:hover svg{transform:translateX(4px)}
+.bt button:focus-visible{outline:3px solid #a5e038;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.w,.fi{animation:none;opacity:1;transform:none}}
+</style></head><body><main>
+<p class="top">• Testimonials</p>
+<blockquote id="q" aria-live="polite"></blockquote>
+<div class="au fi" id="au"><img id="im" alt=""><div><b id="nm"></b><span id="tt"></span></div></div>
+<div class="bt fi" id="bt"><button class="p" id="pv" aria-label="Previous testimonial"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a5e038" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 5l-7 7 7 7"/></svg></button><button class="n" id="nx" aria-label="Next testimonial"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a5e038" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button></div>
+</main>
+<script>
+var T=[["John Doe","CEO, Tech Innovations","They brought clarity to complex problems, breaking down barriers and delivering innovative solutions.","https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"],["David Smith","Founder, Nexus Dynamics","Their team was an absolute game-changer for our workflow. We scaled faster and with much more confidence.","https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"],["Marcus Chen","VP of Engineering, GlobalCorp","A truly collaborative process from start to finish. The results completely exceeded our initial expectations.","https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"]];
+var i=0,q=document.getElementById("q"),au=document.getElementById("au"),bt=document.getElementById("bt"),im=document.getElementById("im");
+im.onerror=function(){this.removeAttribute("src")};
+function show(){var t=T[i];q.textContent="“";var ws=t[2].split(" ");q.textContent="";
+ws.forEach(function(w,k){var s=document.createElement("span");s.className="w";s.textContent=(k==0?"“":"")+w+(k==ws.length-1?"”":"");s.style.animationDelay=(k*.04)+"s";q.appendChild(s);if(k<ws.length-1)q.appendChild(document.createTextNode(" "))});
+document.getElementById("nm").textContent=t[0];document.getElementById("tt").textContent=t[1];im.src=t[3];im.alt=t[0];
+[au,bt].forEach(function(e,k){e.classList.remove("fi");void e.offsetWidth;e.style.animationDelay=(k?.5:.4)+"s";e.classList.add("fi")})}
+document.getElementById("pv").onclick=function(){i=(i+2)%3;show()};document.getElementById("nx").onclick=function(){i=(i+1)%3;show()};
+show();
+</script></body></html>

@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Market Insights — LaunchPad</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:#111827;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.c{max-width:80rem;margin:0 auto;padding:64px 16px}@media(min-width:768px){.c{padding:64px 32px}}@media(min-width:1024px){.c{padding:64px 64px}}
+.animate-item{opacity:0;transform:translateY(20px);transition:opacity .8s ease-out,transform .8s ease-out}.animate-item.visible{opacity:1;transform:translateY(0)}
+.hd{display:flex;flex-direction:column;justify-content:space-between;margin-bottom:48px;gap:0}
+@media(min-width:768px){.hd{flex-direction:row;align-items:flex-end}}
+h2{font-size:36px;letter-spacing:-.02em;font-weight:700;line-height:1.25;max-width:32rem;margin:0 0 24px;color:#111827}@media(min-width:768px){h2{margin-bottom:0}}
+.rt{display:flex;flex-direction:column;align-items:flex-start;text-align:left}@media(min-width:768px){.rt{align-items:flex-end;text-align:right}}
+.rt p{font-size:15px;color:#6b7280;max-width:20rem;margin:0 0 16px}
+.vb{display:inline-flex;align-items:center;justify-content:center;padding:8px 24px;background:#2563eb;color:#fff;font-weight:500;border-radius:999px;font-size:14px;text-decoration:none;transition:background-color .2s}.vb:hover{background:#1d4ed8}
+.gr{display:grid;grid-template-columns:1fr;gap:32px}@media(min-width:768px){.gr{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.gr{grid-template-columns:repeat(3,1fr)}}
+.cd{display:flex;flex-direction:column}
+.iw{border-radius:1rem;overflow:hidden;aspect-ratio:4/3;margin-bottom:24px;position:relative}
+.iw .g{position:absolute;inset:0}.iw img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}.iw img:hover{transform:scale(1.05)}
+.tg{margin-bottom:16px}.tg span{display:inline-block;padding:4px 12px;background:#f3f4f6;color:#374151;border-radius:999px;font-size:12px;font-weight:500}
+h3{font-size:18px;font-weight:600;margin:0 0 12px;line-height:1.375;color:#111827}
+.ds{font-size:14px;color:#6b7280;margin:0 0 24px;flex-grow:1;line-height:1.625}
+.au{display:flex;align-items:center;margin-top:auto}.au img{width:40px;height:40px;border-radius:50%;margin-right:12px;object-fit:cover;background:#d1d5db}
+.au b{display:block;font-size:14px;font-weight:600;color:#111827}.au small{font-size:12px;color:#6b7280}
+a:focus-visible{outline:2px solid #2563eb;outline-offset:2px}
+@media print{body,h2,h3,p,span,a,div{color:blue!important;border-color:blue!important}}
+@media(prefers-reduced-motion:reduce){.animate-item{opacity:1;transform:none;transition:none}}
+</style></head><body><div class="c">
+<div class="hd animate-item" id="header-section"><h2 style="font-size:36px;letter-spacing:-.02em">Expert Insights for<br>Better Growth</h2><div class="rt"><p style="font-size:15px">We fuel bold ideas, driving them<br>forward with sharp strategy</p><a class="vb" href="#">View Blogs →</a></div></div>
+<div class="gr" id="gr"></div></div>
+<script>
+var I="https://cdn.sceneai.art/Image%20for%20Blog%20section/",M="https://cdn.sceneai.art/Only%20man%20image/";
+var D=[["Marketing","Stop Chasing Vanity Metrics,<br>Start Measuring Real Growth","Stop Mistaking Engagement for Revenue. We detail<br>how to Audit Your Data and Pivot from Likes",I+"88aec046-9b66-4fe6-b23c-b7cb548140da.jpg","Alistair Finch","January 12,2025",M+"0ccd6017-25fc-493b-abdf-321915dde101.jpg","#bfdbfe,#1e3a8a"],["Clarity","Reach Similar Customers Who<br>Convert More Often","Stop wasting ad budget on generic targeting. We<br>reveal the counter-intuitive data points",I+"ef860558-2d11-42d9-aaf9-0ec5e0dca5b7.webp","Liam Walker","August 19,2025",M+"15f51708-d9b1-4faf-abf6-f0cdf7d64f8f.jpg","#ddd6fe,#4c1d95"],["Revenue","Stop Chasing First-Time<br>Customer Growth","This article exposes the critical error that starves<br>long-term profitability optimizing solely",I+"fceff2cf-8c36-4aa6-b0ab-93467e78d68f.webp","Julian Reed","June 24,2025",M+"7e1339ef-7a01-4979-93c8-21d97af291ee.webp","#bbf7d0,#14532d"]];
+var gr=document.getElementById("gr");
+D.forEach(function(d){var c=document.createElement("article");c.className="cd animate-item card-item";var g=d[7].split(",");
+c.innerHTML='<div class="iw"><div class="g" style="background:linear-gradient(135deg,'+g[0]+','+g[1]+')"></div><img alt="" src="'+d[3]+'"></div><div class="tg"><span>'+d[0]+'</span></div><h3 style="font-size:18px">'+d[1]+'</h3><p class="ds" style="font-size:14px">'+d[2]+'</p><div class="au"><img alt="" src="'+d[6]+'"><div><b>'+d[4]+'</b><small>'+d[5]+'</small></div></div>';
+c.querySelectorAll("img").forEach(function(i){i.onerror=function(){i.removeAttribute("src");i.style.visibility="hidden"}});gr.appendChild(c)});
+setTimeout(function(){document.getElementById("header-section").classList.add("visible")},100);
+document.querySelectorAll(".card-item").forEach(function(e,i){setTimeout(function(){e.classList.add("visible")},250+i*150)});
+document.querySelector(".vb").onclick=function(e){e.preventDefault()};
+</script></body></html>

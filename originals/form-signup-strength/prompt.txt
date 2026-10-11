@@ -1,0 +1,13 @@
+Canvas & base: Deep indigo page #0b0a1f with two blurred glows (violet #6d4aff top left, cyan #20d6ff bottom right, both at 28% opacity, 60vmax, blurred 90px). Glass card rgba(255,255,255,.07) with backdrop blur 20px, 1px rgba(255,255,255,.16) border and radius 26px. Text #f1f0ff, secondary #b4b2e0 (8:1). Strength colours: weak #ff5d73, fair #ffb020, good #6fd86f, strong #20d6ff. Invented app "Nimbus Notes".
+
+Typography: "Outfit" 600/700 for headings (title 34px to 44px) and button; "Inter" 400/500/600 for body 16px and labels 14px. Title: "Create your Nimbus account."
+
+Layout: Centred glass card 440px wide. Fields: email, password (with a Show/Hide toggle button inside the field at the right, aria-pressed), confirm password. Under the password a four-segment strength bar and a label ("Weak", "Fair", "Good", "Strong") with a suggestion line, then a rules checklist with six rules each showing an icon that animates from a hollow circle to a tick: at least 10 characters, an uppercase letter, a lowercase letter, a number, a symbol, not a common password (reject password1, qwerty123, letmein, 12345678). Strength = number of rules passed (0-6) mapped: 0-2 weak, 3-4 fair, 5 good, 6 strong with 14+ characters adds a "passphrase bonus" note. Confirm field shows "Passwords match" in green or "Passwords don't match yet" in muted red. A checkbox "I agree to the Terms and Privacy Policy". Submit button "Create account" disabled (aria-disabled) until email valid, rules at least Good and match and terms.
+
+Submit states: idle; loading (spinner and "Creating…" for 900ms); success (card swaps to "Welcome aboard" with a tick animation and a button "Open Nimbus"); error when the email is test@example.com ("That email already has an account. Sign in instead?" with focus on the email field and a "Sign in" link).
+
+Interaction: Meter segments fill with 300ms colour transitions; the checklist updates on each keystroke without moving focus; Show/Hide keeps the caret position; all labels linked; Caps Lock detection shows "Caps Lock is on" under the password.
+
+Responsive: Card full width with 16px gutter under 480px; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Strength announced via aria-live polite (debounced), errors via role=alert, visible focus 3px #20d6ff. Respect prefers-reduced-motion (no tick animation or spinner rotation replaced by dots text). Invented names; example.com only.

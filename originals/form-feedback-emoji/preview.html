@@ -1,0 +1,50 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Emoji Feedback Form — Form</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 10%,#ffd9b5,transparent 40%),#fff1e0;color:#2a1810;font:400 17px/1.55 Nunito,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #2a1810;outline-offset:3px;box-shadow:0 0 0 6px #fff;border-radius:16px}
+header{padding:18px clamp(18px,4vw,48px);font:700 24px 'Baloo 2',sans-serif;display:flex;align-items:center;gap:10px}header i{width:22px;height:22px;border-radius:50%;background:#e8452c;border:2.5px solid #2a1810;box-shadow:inset -4px -4px 0 rgba(0,0,0,.15)}
+.w{max-width:680px;margin:0 auto;padding:10px 18px 70px}h1{font:700 clamp(32px,5.4vw,52px)/1.05 'Baloo 2',sans-serif;margin:10px 0 6px;text-align:center}.sub{text-align:center;color:#6b4a3a;margin:0 0 26px}
+.card{background:#fff;border:2.5px solid #2a1810;border-radius:28px;box-shadow:6px 6px 0 #2a1810;padding:clamp(20px,4vw,34px)}
+.card h2{font:700 24px 'Baloo 2',sans-serif;margin:0 0 14px;text-align:center}
+.fs{display:flex;justify-content:space-between;gap:6px;margin-bottom:6px}
+.fc{all:unset;box-sizing:border-box;flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;padding:6px 2px;border-radius:20px;transition:transform .25s cubic-bezier(.3,1.5,.5,1),opacity .25s}
+.fc:focus-visible{outline:3px solid #2a1810;outline-offset:2px;box-shadow:0 0 0 6px #fff}
+.fc svg{width:64px;height:64px;display:block;transition:transform .25s}.fc:hover svg{transform:translateY(-4px) rotate(-4deg)}
+.fc span{font:800 13px Nunito,sans-serif;color:#6b4a3a}
+.fs.has .fc{opacity:.45}.fs.has .fc[aria-checked=true]{opacity:1;transform:scale(1.15)}.fc[aria-checked=true] svg{filter:drop-shadow(0 0 0 #2a1810);animation:wb .5s}@keyframes wb{40%{transform:scale(1.18) rotate(6deg)}}
+.fc[aria-checked=true] span{color:#2a1810}
+.fu{overflow:hidden;max-height:0;opacity:0;transition:max-height .35s,opacity .3s}.fu.on{max-height:420px;opacity:1}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:6px}.chips button{font:700 15px 'Baloo 2',sans-serif;border:2.5px solid #2a1810;background:#fff;border-radius:99px;padding:6px 16px;cursor:pointer;color:#2a1810;transition:transform .15s,background .15s}.chips button:hover{background:#fff1e0}.chips button[aria-pressed=true]{background:#ffb627;animation:pp .3s}@keyframes pp{50%{transform:scale(1.1)}}
+.f{margin-top:18px}.f label{display:block;font-weight:800;margin-bottom:6px}.f textarea,.f input{width:100%;font:17px Nunito,sans-serif;padding:12px 14px;border:2.5px solid #2a1810;border-radius:16px;background:#fff;color:#2a1810;resize:vertical}.ct{text-align:right;font-size:13px;color:#6b4a3a}.hp{font-size:13px;color:#6b4a3a}
+.btn{display:block;width:100%;margin-top:20px;font:700 20px 'Baloo 2',sans-serif;background:#e8452c;color:#fff;border:2.5px solid #2a1810;border-radius:99px;padding:12px;cursor:pointer;box-shadow:4px 4px 0 #2a1810;transition:transform .15s,box-shadow .15s}.btn:hover{transform:translate(-1px,-1px);box-shadow:6px 6px 0 #2a1810}.btn:active{transform:translate(2px,2px);box-shadow:0 0 0}.btn[aria-disabled=true]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:4px 4px 0 #2a1810}
+.ok{text-align:center;position:relative;padding:16px 0}.ok .big svg{width:120px;height:120px;animation:bn 1s ease-in-out infinite}@keyframes bn{50%{transform:translateY(-12px) scale(1.05)}}
+.ok h2{font-size:32px}.hr{position:absolute;bottom:60px;font-size:22px;animation:fl 2s ease-in infinite;opacity:0}@keyframes fl{0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(-140px);opacity:0}}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:480px){.fc svg{width:52px;height:52px}.fc span{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><i></i>Sunday Supper</header>
+<main class="w"><h1>How was your supper?</h1><p class="sub">Two taps and a note. We read every one.</p>
+<form class="card" id="f" novalidate><h2 id="q1">How did tonight feel?</h2><div class="fs" id="fs" role="radiogroup" aria-labelledby="q1"></div>
+<div class="fu" id="fu" aria-live="polite"><h2 id="q2" style="margin-top:18px"></h2><div class="chips" id="chips" role="group" aria-labelledby="q2"></div></div>
+<div class="f"><label for="nt">Anything else?</label><textarea id="nt" rows="3" maxlength="300"></textarea><div class="ct" id="ct">0 / 300</div></div>
+<div class="f"><label for="em">Email <span style="font-weight:400">(optional)</span></label><input id="em" type="email" autocomplete="email" placeholder="you@example.com"><div class="hp">Only if you'd like a reply.</div></div>
+<button class="btn" type="submit" id="sd" aria-disabled="true">Send feedback</button></form>
+<section class="card ok" id="ok" hidden></section></main>
+<script>
+(function(){
+var F=[['Awful','#e8452c','M20 44q12-10 24 0','sad'],['Not great','#ff9a62','M22 44q10-5 20 0','meh'],['Okay','#ffd23f','M22 42h20','flat'],['Good','#7bcf8e','M20 38q12 12 24 0','smile'],['Delicious','#6ab7f2','M18 36q14 16 28 0','big']];
+var Q=[['What went wrong?',['Cold food','Slow service','Noisy room','Wrong order','Price','Cleanliness']],['What went wrong?',['Cold food','Slow service','Noisy room','Wrong order','Price','Cleanliness']],['What would make it better?',['Bigger portions','Faster service','More choice','Quieter room','Better value','Nicer music']],['What did you love?',['The food','Our server','The atmosphere','The cocktails','The desserts','The value']],['What did you love?',['The food','Our server','The atmosphere','The cocktails','The desserts','The value']]];
+function face(i,big){var f=F[i],eyes=i===4?'<path d="M20 26q4-6 8 0M36 26q4-6 8 0" fill="none" stroke="#2a1810" stroke-width="3" stroke-linecap="round"/>':'<circle cx="24" cy="26" r="3.5" fill="#2a1810"/><circle cx="40" cy="26" r="3.5" fill="#2a1810"/>';var extra=i===0?'<path d="M18 20l10 3M46 20l-10 3" stroke="#2a1810" stroke-width="3" stroke-linecap="round"/>':i===4?'<path d="M26 40q6 8 12 0" fill="#e8452c" stroke="none"/>':'';
+return'<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="'+f[1]+'" stroke="#2a1810" stroke-width="3"/>'+eyes+extra+'<path d="'+f[2]+'" fill="none" stroke="#2a1810" stroke-width="3.5" stroke-linecap="round"/></svg>'}
+var fs=document.getElementById('fs'),sel=-1,chips=document.getElementById('chips'),fu=document.getElementById('fu'),sd=document.getElementById('sd'),pick={};
+F.forEach(function(f,i){var b=document.createElement('button');b.type='button';b.className='fc';b.setAttribute('role','radio');b.setAttribute('aria-checked','false');b.tabIndex=i===2?0:-1;b.setAttribute('aria-label',f[0]);b.innerHTML=face(i)+'<span>'+f[0]+'</span>';b.addEventListener('click',function(){choose(i)});b.addEventListener('keydown',function(e){var k={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];if(k){e.preventDefault();var n=(i+k+5)%5;choose(n);fs.children[n].focus()}});fs.appendChild(b)});
+function choose(i){if(sel!==i)pick={};sel=i;fs.classList.add('has');[].forEach.call(fs.children,function(b,k){b.setAttribute('aria-checked',k===i);b.tabIndex=k===i||(sel<0&&k===2)?0:-1});document.getElementById('q2').textContent=Q[i][0];chips.innerHTML='';Q[i][1].forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent=c;b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){pick[c]=!pick[c];b.setAttribute('aria-pressed',!!pick[c])});chips.appendChild(b)});fu.classList.add('on');sd.setAttribute('aria-disabled','false')}
+var nt=document.getElementById('nt');nt.addEventListener('input',function(){document.getElementById('ct').textContent=nt.value.length+' / 300'});
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();if(sd.getAttribute('aria-disabled')==='true'){fs.firstChild.focus();return}sd.textContent='Sending…';var em=document.getElementById('em').value.trim(),low=sel<2;
+setTimeout(function(){var f=document.getElementById('f'),ok=document.getElementById('ok');f.hidden=true;ok.hidden=false;var hearts='';for(var i=0;i<7;i++)hearts+='<span class="hr" style="left:'+(14+i*11)+'%;animation-delay:'+(i*.3)+'s" aria-hidden="true">'+(low?'✦':'♥')+'</span>';
+ok.innerHTML=hearts+'<div class="big">'+face(sel)+'</div><h2 tabindex="-1" id="th">Thank you, we read every note.</h2><p>'+(low?(em?'A manager will reply to '+em+' within 24 hours.':'We are sorry tonight fell short. We will use this to do better.'):'We are so glad you enjoyed it. See you next Sunday!')+'</p><button class="btn" type="button" id="again" style="max-width:260px;margin:14px auto 0">Leave another</button>';document.getElementById('th').focus();document.getElementById('again').addEventListener('click',function(){location.reload()})},700)});
+})();
+</script></body></html>

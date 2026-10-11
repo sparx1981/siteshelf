@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contact With Office Hours — Form</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#f5efe3;color:#14120e;font:400 16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #e4472b;outline-offset:3px;border-radius:6px}
+header{display:flex;align-items:center;gap:26px;padding:20px clamp(18px,4vw,56px)}.logo{font:400 28px 'Instrument Serif',serif;margin-right:auto}header a{color:#5d564a;text-decoration:none;font-size:15px;font-weight:500}header a:hover{color:#14120e}
+.w{max-width:1240px;margin:0 auto;padding:10px clamp(18px,4vw,56px) 70px}h1{font:400 clamp(44px,8vw,108px)/.95 'Instrument Serif',serif;letter-spacing:-.02em;margin:10px 0 40px;max-width:12ch}h1 em{color:#e4472b}
+.g{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:56px;align-items:start}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}.pills button{font:500 15px Inter,sans-serif;border:1.5px solid #14120e;background:transparent;border-radius:99px;padding:9px 18px;cursor:pointer;color:#14120e;transition:background .2s,color .2s}.pills button:hover{background:#ebe3d2}.pills button[aria-checked=true]{background:#14120e;color:#f5efe3}
+.f{margin-bottom:26px}.f label{display:block;font:600 12px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#5d564a;margin-bottom:4px}
+.f input,.f select,.f textarea{width:100%;font:400 22px/1.4 'Instrument Serif',serif;padding:8px 0;border:0;border-bottom:1.5px solid rgba(20,18,14,.4);background:transparent;color:#14120e;border-radius:0}.f textarea{resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-bottom-color:#e4472b;box-shadow:0 2px 0 #e4472b}.f [aria-invalid=true]{border-bottom-color:#b3261e}
+.er{color:#b3261e;font-size:13px;font-weight:500;margin-top:4px}.ct{font-size:12px;color:#5d564a;margin-top:4px}
+.bd{overflow:hidden;max-height:120px;transition:max-height .3s,opacity .3s}.bd.off{max-height:0;opacity:0;pointer-events:none}.bd.off *{visibility:hidden}
+.btn{font:600 16px Inter,sans-serif;background:#e4472b;color:#fff;border:0;border-radius:99px;padding:16px 30px;cursor:pointer;display:inline-flex;gap:12px;align-items:center;transition:background .2s}.btn:hover{background:#c93a20}.btn span{display:inline-block;transition:transform .25s}.btn:hover span{transform:translateX(6px)}
+.pn{background:#1e3a2f;color:#e8f0ea;border-radius:26px;padding:30px;position:sticky;top:16px}.pn h2{font:400 32px 'Instrument Serif',serif;margin:0 0 14px}
+.pl{display:inline-flex;gap:10px;align-items:center;background:rgba(255,255,255,.1);border-radius:99px;padding:7px 16px;font-weight:600;font-size:14px}.pl i{width:10px;height:10px;border-radius:50%;background:#6ee09a;animation:pu 1.6s infinite}.pl.cl i{background:#9aa89f;animation:none}@keyframes pu{0%{box-shadow:0 0 0 0 rgba(110,224,154,.6)}100%{box-shadow:0 0 0 10px rgba(110,224,154,0)}}
+.hr{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}.hr td{padding:7px 0;border-bottom:1px solid rgba(255,255,255,.14)}.hr td:last-child{text-align:right}.hr tr.td{color:#fff;font-weight:600}.hr tr.td td:first-child:before{content:"● ";color:#6ee09a;font-size:10px}
+.es{background:rgba(255,255,255,.08);border-radius:16px;padding:14px 16px;margin-bottom:16px}.es small{font:600 11px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#a8c0b2}.es b{display:block;font:400 22px 'Instrument Serif',serif;transition:opacity .25s}.es b.sw{opacity:0}
+.pn p{margin:0 0 4px;font-size:15px;color:#cfe0d4}.pn a{color:#fff}
+.ok h2{font:400 clamp(36px,5vw,56px)/1 'Instrument Serif',serif;margin:0 0 12px}.ok .rf{display:inline-block;font:600 15px Inter,sans-serif;background:#ebe3d2;border-radius:10px;padding:5px 14px}.ok dl{margin:20px 0;border-top:1px solid rgba(20,18,14,.2)}.ok dt{font:600 12px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#5d564a;margin-top:12px}.ok dd{margin:2px 0 0;font:400 20px 'Instrument Serif',serif}
+@media(max-width:900px){.g{grid-template-columns:minmax(0,1fr);gap:36px}.pn{position:static}header a{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div class="logo">Harbourside</div><a href="#">Work</a><a href="#">Studio</a><a href="#">Contact</a></header>
+<main class="w"><h1>Let's <em>talk</em> about your project.</h1>
+<div class="g"><div><form id="f" novalidate><div class="pills" id="pills" role="radiogroup" aria-label="What is this about?"></div>
+<div class="f"><label for="nm">Your name</label><input id="nm" autocomplete="name"><div class="er" id="nme"></div></div>
+<div class="f"><label for="em">Email</label><input id="em" type="email" autocomplete="email"><div class="er" id="eme"></div></div>
+<div class="f bd" id="bd"><label for="bg">Budget</label><select id="bg"><option>Under £10k</option><option selected>£10 to 25k</option><option>£25 to 60k</option><option>£60k+</option></select></div>
+<div class="f"><label for="ms">Message</label><textarea id="ms" rows="5"></textarea><div class="ct" id="ct">0 / 20 minimum</div><div class="er" id="mse"></div></div>
+<button class="btn" type="submit">Send message <span>→</span></button></form>
+<section class="ok" id="ok" hidden><h2 tabindex="-1" id="oh">Message sent.</h2><span class="rf">Reference HS-4821</span><dl><dt>Topic</dt><dd id="o1"></dd><dt>From</dt><dd id="o2"></dd><dt>What happens next</dt><dd id="o3"></dd></dl><button class="btn" type="button" id="again">Send another</button></section></div>
+<aside class="pn"><h2>Office hours</h2><span class="pl" id="pl" role="status"><i></i><span id="pt"></span></span><table class="hr" id="hr"></table><div class="es"><small>Typical reply</small><b id="es">Usually within 4 working hours</b></div><p><a href="mailto:hello@harbourside.example">hello@harbourside.example</a></p><p>+44 1752 555 0148</p><p>14 Barbican Wharf, Plymouth PL1 0AA</p></aside></div></main>
+<script>
+(function(){
+var T=[['New project','Usually within 4 working hours'],['Support','Within 1 working hour'],['Press','Same day'],['Say hello','Whenever we can, usually a day']],ti=0,pills=document.getElementById('pills'),es=document.getElementById('es'),bd=document.getElementById('bd'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+T.forEach(function(t,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','radio');b.textContent=t[0];b.addEventListener('click',function(){pick(i)});b.addEventListener('keydown',function(e){var k={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];if(k){e.preventDefault();pick((ti+k+4)%4);pills.children[ti].focus()}});pills.appendChild(b)});
+function pick(i){ti=i;[].forEach.call(pills.children,function(b,k){b.setAttribute('aria-checked',k===i);b.tabIndex=k===i?0:-1});es.classList.add('sw');setTimeout(function(){es.textContent=T[i][1];es.classList.remove('sw')},reduce?0:200);bd.classList.toggle('off',i!==0)}pick(0);
+var D=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+function hours(){var n=new Date(),d=n.getDay(),m=n.getHours()*60+n.getMinutes(),open=d>0&&d<6&&m>=540&&m<1050,pl=document.getElementById('pl'),pt=document.getElementById('pt');pl.classList.toggle('cl',!open);
+if(open){var l=1050-m;pt.textContent='Open now · closes 17:30 ('+Math.floor(l/60)+'h '+('0'+l%60).slice(-2)+'m left)'}else{var nx=d===5&&m>=1050?'Monday':d===6?'Monday':d===0?'Monday':m>=1050?D[(d+1)%7]:'today';pt.textContent='Closed · opens '+(nx==='today'?'today':nx)+' 09:00'}
+document.getElementById('hr').innerHTML=[['Monday to Friday','09:00 to 17:30'],['Saturday','Closed'],['Sunday','Closed']].map(function(r,i){var td=i===0&&d>0&&d<6||i===1&&d===6||i===2&&d===0;return'<tr class="'+(td?'td':'')+'"><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'}).join('')}hours();setInterval(hours,60000);
+var ms=document.getElementById('ms'),ct=document.getElementById('ct');ms.addEventListener('input',function(){var n=ms.value.trim().length;ct.textContent=n>=20?n+' characters':n+' / 20 minimum'});
+function bad(id,m){var e=document.getElementById(id),er=document.getElementById(id+'e');e.setAttribute('aria-invalid','true');e.setAttribute('aria-describedby',id+'e');er.textContent=m;return e}
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();['nm','em','ms'].forEach(function(i){var x=document.getElementById(i);x.removeAttribute('aria-invalid');document.getElementById(i+'e').textContent=''});var errs=[];
+if(document.getElementById('nm').value.trim().length<2)errs.push(bad('nm','Please tell us your name.'));if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(document.getElementById('em').value.trim()))errs.push(bad('em','Enter a valid email so we can reply.'));if(ms.value.trim().length<20)errs.push(bad('ms','Please write at least 20 characters so we can help properly.'));
+if(errs.length){errs[0].focus();return}
+document.getElementById('f').hidden=true;var ok=document.getElementById('ok');ok.hidden=false;document.getElementById('o1').textContent=T[ti][0]+(ti===0?', budget '+document.getElementById('bg').value:'');document.getElementById('o2').textContent=document.getElementById('nm').value.trim()+' · '+document.getElementById('em').value.trim();document.getElementById('o3').textContent=T[ti][1]+'.';document.getElementById('oh').focus()});
+document.getElementById('again').addEventListener('click',function(){document.getElementById('ok').hidden=true;document.getElementById('f').hidden=false;ms.value='';ct.textContent='0 / 20 minimum'});
+})();
+</script></body></html>

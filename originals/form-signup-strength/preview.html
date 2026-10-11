@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sign-Up With Strength Meter — Form</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#0b0a1f;color:#f1f0ff;font:400 16px/1.55 Inter,system-ui,sans-serif;overflow-x:hidden;display:grid;place-items:center;padding:24px 16px;position:relative}
+.bl{position:fixed;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);opacity:.28;pointer-events:none}.b1{background:#6d4aff;left:-20vmax;top:-20vmax}.b2{background:#20d6ff;right:-20vmax;bottom:-25vmax}
+:focus-visible{outline:3px solid #20d6ff;outline-offset:3px;border-radius:12px}
+.card{position:relative;width:min(100%,440px);background:rgba(255,255,255,.07);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.16);border-radius:26px;padding:clamp(22px,5vw,34px)}
+.logo{font:700 20px Outfit,sans-serif;display:flex;align-items:center;gap:10px;margin-bottom:18px}.logo i{width:26px;height:18px;border-radius:99px;background:linear-gradient(90deg,#6d4aff,#20d6ff)}
+h1{font:700 clamp(30px,6vw,38px)/1.1 Outfit,sans-serif;letter-spacing:-.02em;margin:0 0 6px}.sub{color:#b4b2e0;margin:0 0 20px;font-size:15px}
+.f{margin-bottom:16px}.f label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+.in{position:relative}.in input{width:100%;font:16px Inter,sans-serif;padding:13px 14px;border-radius:14px;border:1.5px solid rgba(255,255,255,.2);background:rgba(8,7,28,.55);color:#f1f0ff;transition:border-color .2s}.in input::placeholder{color:#7d7aa8}.in input:focus{border-color:#20d6ff}.in input[aria-invalid=true]{border-color:#ff5d73}
+.in input.pw{padding-right:72px}.tg{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:0;color:#d9d7ff;font:600 13px Inter,sans-serif;border-radius:10px;padding:6px 10px;cursor:pointer}.tg:hover{background:rgba(255,255,255,.18)}
+.er{font-size:13px;color:#ff8c9c;margin-top:5px;min-height:0}.er a{color:#8fe6ff}
+.mt{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0 6px}.mt i{height:6px;border-radius:99px;background:rgba(255,255,255,.14);transition:background .3s}
+.ml{display:flex;justify-content:space-between;font-size:13px;color:#b4b2e0}.ml b{font-weight:600;transition:color .3s}
+.rl{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 12px}.rl li{display:flex;gap:8px;align-items:center;font-size:13px;color:#9b98c8;transition:color .25s}
+.rl li i{width:16px;height:16px;border-radius:50%;border:2px solid #6c69a0;display:grid;place-items:center;flex:none;transition:background .25s,border-color .25s,transform .25s;font-style:normal;font-size:10px;color:transparent}
+.rl li.ok{color:#d6fbe0}.rl li.ok i{background:#4bd67a;border-color:#4bd67a;color:#06210f;transform:scale(1.15)}
+.cm{font-size:13px;margin-top:5px;min-height:19px}.cm.y{color:#7ce2a0}.cm.n{color:#ff9aa8}.cl{font-size:13px;color:#ffc66b;margin-top:5px}
+.ck{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#d4d2f5;margin:6px 0 18px}.ck input{width:20px;height:20px;accent-color:#20d6ff;margin-top:1px;flex:none}.ck a{color:#8fe6ff}
+.btn{width:100%;font:700 17px Outfit,sans-serif;padding:15px;border-radius:16px;border:0;background:linear-gradient(90deg,#6d4aff,#20d6ff);color:#06061a;cursor:pointer;transition:transform .2s,box-shadow .2s,opacity .2s;display:flex;justify-content:center;align-items:center;gap:10px}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(32,214,255,.3)}.btn[aria-disabled=true]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.sp{width:16px;height:16px;border:3px solid rgba(6,6,26,.3);border-top-color:#06061a;border-radius:50%;animation:r .7s linear infinite}@keyframes r{to{transform:rotate(360deg)}}
+.si{text-align:center;color:#b4b2e0;margin-top:14px;font-size:14px}.si a{color:#8fe6ff}
+.ok{text-align:center;padding:10px 0}.tick{width:80px;height:80px;margin:0 auto 14px}.tick circle{fill:none;stroke:#4bd67a;stroke-width:5;stroke-dasharray:252;stroke-dashoffset:252;animation:dr .6s forwards}.tick path{fill:none;stroke:#4bd67a;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:dr .4s .5s forwards}@keyframes dr{to{stroke-dashoffset:0}}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:420px){.rl{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.tick circle,.tick path{stroke-dashoffset:0}}
+</style></head><body><i class="bl b1"></i><i class="bl b2"></i>
+<main class="card"><form id="f" novalidate><div class="logo"><i></i>Nimbus Notes</div><h1>Create your Nimbus account.</h1><p class="sub">Free for personal use. No card needed.</p>
+<div class="f"><label for="em">Email</label><div class="in"><input id="em" type="email" autocomplete="email" placeholder="you@example.com"></div><div class="er" id="eme" role="alert"></div></div>
+<div class="f"><label for="pw">Password</label><div class="in"><input id="pw" class="pw" type="password" autocomplete="new-password" aria-describedby="ml rl"><button class="tg" id="tg" type="button" aria-pressed="false" aria-label="Show password">Show</button></div><div class="cl" id="cl" hidden>Caps Lock is on</div>
+<div class="mt" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="ml" id="ml"><span>Password strength</span><b id="sl">Too short</b></div><ul class="rl" id="rl"></ul></div>
+<div class="f"><label for="cf">Confirm password</label><div class="in"><input id="cf" type="password" autocomplete="new-password"></div><div class="cm" id="cm" aria-live="polite"></div></div>
+<div class="ck"><input type="checkbox" id="tm"><label for="tm">I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</label></div>
+<button class="btn" id="sb" type="submit" aria-disabled="true">Create account</button><p class="si">Already have an account? <a href="#">Sign in</a></p><div class="vh" id="lv" aria-live="polite"></div></form>
+<section class="ok" id="ok" hidden><svg class="tick" viewBox="0 0 90 90" aria-hidden="true"><circle cx="45" cy="45" r="40"/><path d="M28 47l12 12 23-26"/></svg><h1 tabindex="-1" id="oh" style="font-size:30px">Welcome aboard.</h1><p class="sub">Your account is ready. We sent a quick hello to <b id="oe"></b>.</p><button class="btn" type="button" id="op">Open Nimbus</button></section></main>
+<script>
+(function(){
+var R=[['10+ characters',function(p){return p.length>=10}],['An uppercase letter',function(p){return/[A-Z]/.test(p)}],['A lowercase letter',function(p){return/[a-z]/.test(p)}],['A number',function(p){return/\d/.test(p)}],['A symbol',function(p){return/[^A-Za-z0-9]/.test(p)}],['Not a common password',function(p){return p.length>0&&['password1','qwerty123','letmein','12345678','password','iloveyou1'].indexOf(p.toLowerCase())<0}]];
+var rl=document.getElementById('rl'),pw=document.getElementById('pw'),cf=document.getElementById('cf'),em=document.getElementById('em'),sb=document.getElementById('sb'),tm=document.getElementById('tm'),segs=[].slice.call(document.querySelectorAll('.mt i')),sl=document.getElementById('sl'),lv=document.getElementById('lv'),cm=document.getElementById('cm'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,tt;
+R.forEach(function(r){var li=document.createElement('li');li.innerHTML='<i>✓</i>'+r[0];rl.appendChild(li)});
+var CL=['#ff5d73','#ffb020','#6fd86f','#20d6ff'],LB=['Weak','Fair','Good','Strong'];
+function level(p){var n=R.filter(function(r){return r[1](p)}).length;if(!p.length)return{n:0,l:-1};return{n:n,l:n<=2?0:n<=4?1:n===5?2:3}}
+function upd(){var p=pw.value,v=level(p);[].forEach.call(rl.children,function(li,i){li.classList.toggle('ok',R[i][1](p))});segs.forEach(function(s,i){s.style.background=i<=v.l?CL[v.l]:''});
+sl.textContent=v.l<0?'Too short':LB[v.l]+(v.l===3&&p.length>=14?' · passphrase bonus':'');sl.style.color=v.l<0?'':CL[v.l];
+clearTimeout(tt);tt=setTimeout(function(){lv.textContent=v.l<0?'':'Password strength: '+LB[v.l]},500);
+var c=cf.value;cm.className='cm'+(c?(c===p?' y':' n'):'');cm.textContent=c?(c===p?'✓ Passwords match':'Passwords don\'t match yet'):'';
+var okE=/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(em.value.trim()),ok=okE&&v.l>=2&&c===p&&c.length>0&&tm.checked;sb.setAttribute('aria-disabled',!ok)}
+[pw,cf,em,tm].forEach(function(e){e.addEventListener('input',upd);e.addEventListener('change',upd)});upd();
+var tg=document.getElementById('tg');tg.addEventListener('click',function(){var s=pw.selectionStart,e=pw.selectionEnd,show=pw.type==='password';pw.type=cf.type=show?'text':'password';tg.setAttribute('aria-pressed',show);tg.textContent=show?'Hide':'Show';tg.setAttribute('aria-label',show?'Hide password':'Show password');pw.focus();try{pw.setSelectionRange(s,e)}catch(x){}});
+[pw,cf].forEach(function(e){e.addEventListener('keydown',function(ev){document.getElementById('cl').hidden=!(ev.getModifierState&&ev.getModifierState('CapsLock'))});e.addEventListener('keyup',function(ev){document.getElementById('cl').hidden=!(ev.getModifierState&&ev.getModifierState('CapsLock'))});e.addEventListener('blur',function(){document.getElementById('cl').hidden=true})});
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();if(sb.getAttribute('aria-disabled')==='true'){if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(em.value.trim())){em.setAttribute('aria-invalid','true');document.getElementById('eme').textContent='Enter a valid email address.';em.focus()}return}
+em.removeAttribute('aria-invalid');document.getElementById('eme').textContent='';sb.setAttribute('aria-disabled','true');sb.innerHTML=reduce?'Creating…':'<span class="sp"></span>Creating…';
+setTimeout(function(){if(em.value.trim().toLowerCase()==='test@example.com'){sb.innerHTML='Create account';em.setAttribute('aria-invalid','true');document.getElementById('eme').innerHTML='That email already has an account. <a href="#">Sign in instead?</a>';em.focus();upd();return}
+document.getElementById('f').hidden=true;document.getElementById('ok').hidden=false;document.getElementById('oe').textContent=em.value.trim();document.getElementById('oh').focus()},900)});
+})();
+</script></body></html>

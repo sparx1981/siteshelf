@@ -1,0 +1,11 @@
+Canvas & base: Paper page #f3ede2, ink #151515, accent red #d93a2b, secondary tones #1f4f46 (deep green) and #e8b64a (mustard). 1px ink rule lines. Invented magazine "The Margin", issue 14.
+
+Typography: "Playfair Display" 900 and italic 900 for the masthead and headline (masthead clamp 60px to 190px, tracking -.03em; headline clamp 36px to 78px, line-height 1); "Inter" 400/500/600 for body 16px and uppercase 11px labels (.16em tracking); "DM Mono" 400 for issue numbers and dates.
+
+Layout: A 12-column grid, max-width 1360px. Row 1: thin top strip with "Issue 14", "Autumn 2026", "£9.50" separated by rules. Row 2: masthead "The Margin" spanning full width. Row 3: left 7 columns hold the lead story: kicker "Cover story", headline "The Long Way Round", a 3-line standfirst, byline "Words by Idris Calloway, photographs by Mei-Lin Ashby" and a red "Read the story" link with an arrow. Right 5 columns hold a cover-art block built purely from CSS shapes (a mustard circle, deep green arch, red rectangle, ink half-circle) with a rotating circular text badge (SVG textPath) reading "ISSUE 14 · AUTUMN · ISSUE 14 · AUTUMN ·". Row 4: three numbered feature cards (01 "The last night ferry", 02 "A year of bread", 03 "Letters from a lighthouse") each with a category tag and read time.
+
+Interaction: Rule lines draw from left to right on load (scaleX 0 to 1, 900ms, staggered). The cover art shapes drift slowly (each its own 9 to 14s ease-in-out loop) and the badge rotates 20s linear. Feature cards lift 6px, flip their number to red and show an arrow on hover and focus. Pointer movement over the cover art shifts shapes by up to 10px (parallax). A "Subscribe" button in the top strip opens nothing but has hover and focus states.
+
+Responsive: Under 900px the columns stack (lead story then art then cards), masthead scales to 17vw; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Visible focus, aria-labels, decorative art aria-hidden. Respect prefers-reduced-motion by disabling all drift, draw and rotation. Invented names only.

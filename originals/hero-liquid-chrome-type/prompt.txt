@@ -1,0 +1,11 @@
+Canvas & base: Full-viewport dark page, background radial-gradient(ellipse at 50% 20%, #1c2026 0%, #0b0c0e 68%). Invented metalworks studio "Alloy & Oak". Text #aab0b8 on dark (8:1), headings chrome. Chrome finish stops #4b4f56, #e9edf2, #8b9098, #ffffff, #6b7078, #cfd5dc; Gold finish #6e5217, #ffe9a8, #b8923a, #fff6d6, #8a6a1f, #f1d27a; Copper finish #5e2a18, #ffc9a0, #a8552f, #ffe3cf, #7a3b22, #e8a37a. Primary button #e9edf2 with #0b0c0e text, ghost button 1px #3a3f47 border.
+
+Typography: "Archivo Black" 400 for the headline, uppercase, clamp(40px, 8.4vw, 124px), line-height .9, letter-spacing -.03em. "Inter" 400/500/600 for all other text: 17px body, 12px uppercase labels with .14em tracking. Headline copy: "Forged to last." on line one and "Shaped to feel." on line two.
+
+Layout: Top bar with wordmark "ALLOY & OAK", links Work, Process, Studio, and a pill "Book a visit". Hero centred vertically: small label "Metalwork and furniture, Leeds", the two-line headline, a 54ch paragraph ("Hand-finished steel, brass and oak pieces, made to order in runs of twelve."), then buttons "See the collection" and "How we make it". A row of three finish switches under the buttons labelled Chrome, Gold, Copper (radio-style buttons with aria-pressed). Bottom strip with three facts: "12 pieces per run", "6 week lead time", "25 year guarantee".
+
+Interaction: Moving the pointer over the hero sets CSS variables so a bright specular spot follows the cursor on the headline and the gradient band slides with horizontal position. With no pointer movement for 2 seconds, a slow idle shimmer sweeps across (8s loop). The finish switches swap the metal palette with a 600ms transition of the gradient position and update an aria-live label "Finish: Gold". Buttons lift 2px on hover and show a 3px #e9edf2 focus ring offset 3px. Touch devices follow touch position.
+
+Responsive: Under 760px the top links hide behind a single "Menu" button that toggles a simple list, the headline uses 12.5vw, buttons stack full width, the facts strip becomes one column. No horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus styles, aria-labels, keyboard operable. Respect prefers-reduced-motion by disabling idle shimmer and transitions. Invented names only.

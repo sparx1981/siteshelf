@@ -1,0 +1,11 @@
+Canvas & base: Near-black #0f0f0f page with a subtle 3% white dot grid (24px). Accent electric yellow #ffe14d, secondary white #f5f5f0, muted #a8a89c (7:1). Reel windows are #1a1a18 with a 2px #2e2e2a border, 18px radius, inner top and bottom fade masks. Invented analytics tool "Tallyho".
+
+Typography: "Space Grotesk" 700 for large numerals (clamp 64px to 150px, tabular-nums, line-height 1) and headings; "DM Mono" 400/500 for labels and small stats at 13px; "Inter" 400 for body 17px. Headline above the reels: "Numbers that move your team." Label under the reels: "teams already tracking".
+
+Layout: Top bar with "Tallyho" wordmark with a yellow dot, links Product, Pricing, Docs and a yellow "Start free" button. Centred hero: label chip "Analytics without the spreadsheet", headline, a row of reel columns showing 12,480 (big) with comma separators, then two smaller figures to its right: "98.6%" uptime and "4.9" rating, each with its own reels and a DM Mono caption. Under that, an email field with a "Get early access" button and helper text "No card needed. Cancel any time."
+
+Interaction: On load and whenever scrolled into view, each digit reel (a vertical strip of digits 0 to 9 repeated three times) rolls with a staggered duration (1.2s plus 160ms per column) using cubic-bezier(.2,.9,.2,1) and settles on its target digit. A "Spin again" button re-rolls with new random in-between lengths. Pressing Enter in the email field validates it (inline error "That email looks incomplete" or a success message "You're on the list, check your inbox"). The full number is also present as a visually hidden text so screen readers read "12,480 teams".
+
+Responsive: Header links hide under 560px except the button; numerals scale with vw; secondary figures wrap below on phones; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Visible focus, labelled field, aria-live status. Respect prefers-reduced-motion by showing final digits instantly. Invented names only.

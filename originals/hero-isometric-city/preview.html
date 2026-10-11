@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Isometric City Hero — Hero Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:linear-gradient(rgba(20,50,45,.05) 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,rgba(20,50,45,.05) 1px,transparent 1px) 0 0/32px 32px,#eef3f2;color:#10302c;font:400 17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #4f7cff;outline-offset:3px;border-radius:6px}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px clamp(18px,4vw,56px)}
+.logo{font:700 22px 'Space Grotesk',sans-serif;letter-spacing:-.02em}.logo i{color:#ff8a5b;font-style:normal}
+header a{color:#4a6560;text-decoration:none;font-weight:500}
+.wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:30px;align-items:center;max-width:1300px;margin:0 auto;padding:10px clamp(18px,4vw,56px) 50px}
+.lab{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#4a6560}
+h1{font:700 clamp(40px,5.6vw,80px)/1.02 'Space Grotesk',sans-serif;letter-spacing:-.03em;margin:14px 0 18px}
+.sub{color:#4a6560;max-width:46ch;margin:0 0 26px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.btn{font:600 16px Inter,sans-serif;padding:14px 24px;border-radius:12px;border:1.5px solid #10302c;background:transparent;color:#10302c;cursor:pointer;transition:transform .2s}.btn.pr{background:#10302c;color:#eef3f2}.btn:hover{transform:translateY(-2px)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{font:500 14px Inter,sans-serif;padding:8px 14px;border-radius:99px;border:1px solid #b9ccc8;background:#fff;color:#10302c;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .2s}
+.chips i{width:10px;height:10px;border-radius:3px;display:block}
+.chips button[aria-pressed=true]{background:#10302c;color:#fff;border-color:#10302c}
+.map{position:relative}
+svg{width:100%;height:auto;display:block;overflow:visible}
+.b{cursor:pointer;transition:opacity .3s,transform .25s;transform-box:fill-box;transform-origin:50% 100%;animation:rise .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*45ms)}
+.b:hover,.b:focus-visible{transform:translateY(-6px)}
+.b:focus-visible{outline:none}.b:focus-visible .t{stroke:#10302c;stroke-width:2}
+.b.dim{opacity:.22}
+@keyframes rise{from{transform:scaleY(0);opacity:0}to{transform:scaleY(1);opacity:1}}
+.tip{position:absolute;pointer-events:none;background:#10302c;color:#fff;border-radius:12px;padding:10px 14px;font-size:14px;line-height:1.4;opacity:0;transform:translate(-50%,-110%);transition:opacity .2s;white-space:nowrap;z-index:3}
+.tip.show{opacity:1}.tip b{display:block;font:700 15px 'Space Grotesk',sans-serif}
+.rp{position:absolute;right:0;bottom:-8px;border:1px solid #b9ccc8;background:#fff;border-radius:99px;padding:6px 14px;font:500 13px Inter,sans-serif;cursor:pointer;color:#10302c}
+@media(max-width:960px){.wrap{grid-template-columns:minmax(0,1fr)}.rp{bottom:-34px}}
+@media(prefers-reduced-motion:reduce){.b{animation:none}}
+</style></head><body>
+<header><div class="logo">Metro<i>form</i></div><a href="#">Case studies</a></header>
+<main class="wrap"><section><div class="lab">Urban planning studio</div>
+<h1>Cities, planned like a conversation.</h1>
+<p class="sub">Metroform helps councils test where homes, offices and parks should go before a single brick is laid.</p>
+<div class="btns"><button class="btn pr" type="button">Explore the model</button><button class="btn" type="button">Our method</button></div>
+<div class="chips" role="group" aria-label="Filter districts">
+<button type="button" aria-pressed="true" data-t="all">All</button><button type="button" aria-pressed="false" data-t="Housing"><i style="background:#ff8a5b"></i>Housing</button><button type="button" aria-pressed="false" data-t="Offices"><i style="background:#4f7cff"></i>Offices</button><button type="button" aria-pressed="false" data-t="Parks"><i style="background:#3fbf84"></i>Parks</button><button type="button" aria-pressed="false" data-t="Civic"><i style="background:#f5c542"></i>Civic</button></div></section>
+<section class="map" aria-label="Isometric city model"><svg id="svg" viewBox="-215 -135 430 345" role="group" aria-label="City model"></svg><div class="tip" id="tip"></div><button class="rp" id="rp" type="button">Replay</button></section></main>
+<script>
+(function(){
+var T={Housing:['#ff8a5b','#d96a3f','#b9532d'],Offices:['#4f7cff','#3a5fd0','#2b48a6'],Parks:['#3fbf84','#2c9a69','#1f7a52'],Civic:['#f5c542','#d2a428','#a98318']};
+var N={Housing:['Alder Court','Mill Row','Kestrel Flats','Saffron Terrace','Linden Mews','Harbour Homes'],Offices:['Quay Tower','Ledger House','Beacon Works','Pilot Place','Orchard Exchange','Foundry Hub'],Parks:['Fern Green','Rowan Park','Common Meadow','Willow Pocket'],Civic:['Town Library','Health Centre','Market Hall','Swim Centre']};
+var seed=11;function rnd(){seed=(seed*9301+49297)%233280;return seed/233280}
+var svg=document.getElementById('svg'),tip=document.getElementById('tip'),n=6,tw=64,th=32,fl=16,list=[];
+function pt(x,y,z){return[(x-y)*tw/2*1,(x+y)*th/2-z]}
+function poly(p,f,c){return '<polygon class="'+c+'" points="'+p.map(function(a){return a.join(',')}).join(' ')+'" fill="'+f+'"/>'}
+var out='<polygon points="'+[pt(-.3,-.3,0),pt(n+.3,-.3,0),pt(n+.3,n+.3,0),pt(-.3,n+.3,0)].map(function(a){return a.join(',')}).join(' ')+'" fill="#dfe8e6"/>',cnt=0,ci=0;
+var cells=[];for(var y=0;y<n;y++)for(var x=0;x<n;x++)cells.push([x,y]);
+cells.forEach(function(c,k){
+var x=c[0],y=c[1],r=rnd(),t=r<.34?'Housing':r<.62?'Offices':r<.82?'Parks':'Civic';
+var h=t==='Housing'?1+Math.floor(rnd()*3):t==='Offices'?3+Math.floor(rnd()*5):t==='Civic'?2+Math.floor(rnd()*2):.3;
+var nm=N[t][k%N[t].length],H=h*fl,i=.1,a=x+i,b=y+i,c2=x+1-i,d=y+1-i,col=T[t];
+var tl=pt(a,b,H),tr=pt(c2,b,H),br=pt(c2,d,H),bl=pt(a,d,H),gr=pt(c2,b,0),gb=pt(c2,d,0),gl=pt(a,d,0);
+var g='<g class="b" tabindex="0" role="img" aria-label="'+nm+', '+t+', '+(t==='Parks'?'open space':Math.round(h)+' floors')+'" data-t="'+t+'" data-n="'+nm+'" data-h="'+(t==='Parks'?'Open space':Math.round(h)+' floors')+'" style="--i:'+(x+y)*1+'">'
++poly([bl,br,gb,gl],col[1],'l')+poly([br,tr,gr,gb],col[2],'r')+poly([tl,tr,br,bl],col[0],'t');
+if(t==='Parks'){var m=pt(x+.5,y+.5,H);g+='<circle cx="'+m[0]+'" cy="'+(m[1]-8)+'" r="9" fill="#1f7a52"/><circle cx="'+(m[0]+9)+'" cy="'+(m[1]-4)+'" r="6" fill="#2c9a69"/>'}
+g+='</g>';list.push({k:x+y,g:g});
+});
+list.sort(function(a,b){return a.k-b.k});
+svg.innerHTML=out+list.map(function(o){return o.g}).join('');
+var bs=[].slice.call(svg.querySelectorAll('.b')),map=svg.parentNode;
+function show(b){var r=b.getBoundingClientRect(),m=map.getBoundingClientRect();tip.innerHTML='<b>'+b.dataset.n+'</b>'+b.dataset.t+' · '+b.dataset.h;tip.style.left=(r.left+r.width/2-m.left)+'px';tip.style.top=(r.top-m.top)+'px';tip.classList.add('show')}
+bs.forEach(function(b){['pointerenter','focus'].forEach(function(e){b.addEventListener(e,function(){show(b)})});['pointerleave','blur'].forEach(function(e){b.addEventListener(e,function(){tip.classList.remove('show')})})});
+var cs=[].slice.call(document.querySelectorAll('.chips button'));
+cs.forEach(function(c){c.addEventListener('click',function(){cs.forEach(function(o){o.setAttribute('aria-pressed',o===c)});bs.forEach(function(b){b.classList.toggle('dim',c.dataset.t!=='all'&&b.dataset.t!==c.dataset.t)})})});
+document.getElementById('rp').addEventListener('click',function(){bs.forEach(function(b){b.style.animation='none';void b.getBoundingClientRect();b.style.animation=''})});
+})();
+</script></body></html>

@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Editorial Grid Hero — Hero Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f3ede2;color:#151515;font:400 16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #d93a2b;outline-offset:3px}
+.wrap{max-width:1360px;margin:0 auto;padding:0 clamp(18px,3vw,40px) 50px}
+.rule{height:1px;background:#151515;transform-origin:left;animation:draw .9s cubic-bezier(.7,0,.2,1) both;animation-delay:calc(var(--i,0)*150ms)}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.strip{display:flex;gap:26px;align-items:center;padding:14px 0;font:400 12px 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase}
+.strip .sp{margin-left:auto}.strip button{background:#151515;color:#f3ede2;border:0;border-radius:99px;padding:8px 16px;font:600 12px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s}.strip button:hover{background:#d93a2b}
+.mast{font:900 clamp(60px,15.5vw,210px)/.9 'Playfair Display',serif;letter-spacing:-.03em;margin:10px 0 6px;text-align:center}.mast i{color:#d93a2b}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:30px;padding:30px 0}
+.lead{grid-column:span 7;display:flex;flex-direction:column;justify-content:center}
+.k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#d93a2b}
+h1{font:900 clamp(36px,5.8vw,82px)/1 'Playfair Display',serif;letter-spacing:-.02em;margin:14px 0 18px}h1 em{font-style:italic}
+.st{font-size:18px;max-width:46ch;margin:0 0 16px}.by{font:400 12px 'DM Mono',monospace;margin-bottom:22px;color:#4a463e}
+.rd{color:#d93a2b;font-weight:600;text-decoration:none;display:inline-flex;gap:8px;align-items:center;border-bottom:2px solid currentColor;width:fit-content;padding-bottom:2px}.rd span{transition:transform .25s}.rd:hover span{transform:translateX(6px)}
+.art{grid-column:span 5;position:relative;aspect-ratio:1/1.05;background:#e5dccb;overflow:hidden}
+.sh{position:absolute;transition:transform .3s ease-out}.sh i{display:block;width:100%;height:100%;animation:drift var(--t,10s) ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(var(--dx,8px),var(--dy,-14px))}}
+.c1{width:52%;height:50%;left:8%;top:8%;--t:11s}.c1 i{background:#e8b64a;border-radius:50%}
+.c2{width:44%;height:60%;right:8%;bottom:0;--t:13s;--dx:-10px}.c2 i{background:#1f4f46;border-radius:999px 999px 0 0}
+.c3{width:34%;height:22%;left:10%;bottom:12%;--t:9s;--dx:14px}.c3 i{background:#d93a2b}
+.c4{width:30%;height:15%;right:10%;top:12%;--t:12s}.c4 i{background:#151515;border-radius:999px 999px 0 0}
+.badge{position:absolute;left:50%;top:48%;width:34%;aspect-ratio:1;margin:-17% 0 0 -17%;animation:spin 20s linear infinite}
+.badge svg{width:100%;height:100%;display:block}.badge text{font:500 11.5px 'DM Mono',monospace;fill:#151515;letter-spacing:.18em}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;padding-top:24px}
+.card{display:block;text-decoration:none;color:inherit;border-top:1px solid #151515;padding-top:16px;transition:transform .3s}
+.card:hover,.card:focus-visible{transform:translateY(-6px)}
+.n{font:900 44px/1 'Playfair Display',serif;transition:color .25s}.card:hover .n,.card:focus-visible .n{color:#d93a2b}
+.card h2{font:900 26px/1.1 'Playfair Display',serif;margin:12px 0 8px}.card .m{font:400 12px 'DM Mono',monospace;color:#4a463e;display:flex;justify-content:space-between}
+@media(max-width:900px){.lead,.art{grid-column:1/-1}.cards{grid-template-columns:minmax(0,1fr)}.mast{font-size:17vw}.strip{gap:12px;flex-wrap:wrap}.strip .sp{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><div class="wrap">
+<div class="rule"></div><div class="strip"><span>Issue 14</span><span>Autumn 2026</span><span>£9.50</span><span class="sp"><button type="button">Subscribe</button></span></div><div class="rule" style="--i:1"></div>
+<div class="mast">The <i>M</i>argin</div><div class="rule" style="--i:2"></div>
+<main class="grid"><section class="lead"><div class="k">Cover story</div><h1>The Long <em>Way</em> Round</h1><p class="st">Four ferries, one stubborn bicycle and a coastline that refuses to be hurried. A slow journey up the western edge of Scotland.</p><div class="by">Words by Idris Calloway · photographs by Mei-Lin Ashby</div><a class="rd" href="#">Read the story <span>→</span></a></section>
+<div class="art" id="art" aria-hidden="true"><div class="sh c1"><i></i></div><div class="sh c2"><i></i></div><div class="sh c3"><i></i></div><div class="sh c4"><i></i></div>
+<div class="badge"><svg viewBox="0 0 100 100"><defs><path id="p" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><circle cx="50" cy="50" r="48" fill="#f3ede2"/><text><textPath href="#p">ISSUE 14 · AUTUMN · ISSUE 14 · AUTUMN ·</textPath></text></svg></div></div></main>
+<div class="rule" style="--i:3"></div>
+<div class="cards"><a class="card" href="#"><div class="n">01</div><div class="k" style="margin-top:8px">Travel</div><h2>The last night ferry</h2><div class="m"><span>Essay</span><span>12 min read</span></div></a>
+<a class="card" href="#"><div class="n">02</div><div class="k" style="margin-top:8px">Food</div><h2>A year of bread</h2><div class="m"><span>Long read</span><span>18 min read</span></div></a>
+<a class="card" href="#"><div class="n">03</div><div class="k" style="margin-top:8px">Letters</div><h2>Letters from a lighthouse</h2><div class="m"><span>Archive</span><span>9 min read</span></div></a></div></div>
+<script>
+(function(){
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var a=document.getElementById('art'),s=a.querySelectorAll('.sh');
+a.addEventListener('pointermove',function(e){var r=a.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;s.forEach(function(el,i){var d=(i%2?1:-1)*(6+i*2);el.style.transform='translate('+x*d+'px,'+y*d+'px)'})});
+a.addEventListener('pointerleave',function(){s.forEach(function(el){el.style.transform=''})});
+})();
+</script></body></html>

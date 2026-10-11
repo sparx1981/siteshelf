@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aurora Ribbon Hero — Hero Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#05070d;color:#eef1ff;font:400 17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+body:after{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 40%,rgba(5,7,13,.85));pointer-events:none;z-index:1}
+.page{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column}
+:focus-visible{outline:3px solid #2ee6c5;outline-offset:3px;border-radius:8px}
+header{display:flex;align-items:center;gap:28px;padding:24px clamp(18px,4vw,56px)}
+.logo{font:400 28px 'Instrument Serif',serif;letter-spacing:.02em;margin-right:auto}
+nav{display:flex;gap:26px}nav a{color:#a9b0d0;text-decoration:none;font-weight:500;font-size:15px;transition:color .2s}nav a:hover{color:#fff}
+.pause{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);color:#eef1ff;font:500 14px Inter,sans-serif;padding:8px 16px;border-radius:99px;cursor:pointer;backdrop-filter:blur(6px)}
+.pause[aria-pressed=true]{background:#eef1ff;color:#05070d}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;width:100%;max-width:1240px;margin:0 auto;padding:30px clamp(18px,4vw,56px)}
+.lab{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#2ee6c5;margin-bottom:20px}
+h1{font:400 clamp(48px,9vw,132px)/.96 'Instrument Serif',serif;letter-spacing:-.02em;margin:0 0 26px;max-width:11ch}
+h1 span{display:inline-block;opacity:0;transform:translateY(24px);animation:up .9s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i)*80ms)}
+h1 em{font-style:italic;color:#c9bdff}
+@keyframes up{to{opacity:1;transform:none}}
+.deck{max-width:52ch;color:#a9b0d0;margin:0 0 30px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{font:600 16px Inter,sans-serif;padding:15px 26px;border-radius:99px;border:1px solid rgba(255,255,255,.28);background:transparent;color:#eef1ff;text-decoration:none;transition:transform .2s,background .2s}
+.btn.pr{background:#eef1ff;color:#05070d;border-color:#eef1ff}.btn:hover{transform:translateY(-2px)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.14);margin:0 clamp(18px,4vw,56px);max-width:1128px;width:calc(100% - 2*clamp(18px,4vw,56px));align-self:center}
+.facts div{padding:20px 0;font-size:14px;color:#a9b0d0}.facts b{display:block;color:#eef1ff;font:400 24px 'Instrument Serif',serif}
+@media(max-width:700px){nav{display:none}h1{font-size:13vw}.btn{width:100%;text-align:center}.facts{grid-template-columns:minmax(0,1fr)}.facts div{padding:12px 0}}
+@media(prefers-reduced-motion:reduce){h1 span{animation:none;opacity:1;transform:none}}
+</style></head><body>
+<canvas id="cv" aria-hidden="true"></canvas>
+<div class="page">
+<header><div class="logo">Vesper</div><nav aria-label="Main"><a href="#">Issues</a><a href="#">Essays</a><a href="#">Subscribe</a></nav><button class="pause" id="pause" type="button" aria-pressed="false">Pause motion</button></header>
+<main>
+<div class="lab">Issue 09, Winter</div>
+<h1 aria-label="A quarterly for the northern lights."><span style="--i:0" aria-hidden="true">A</span> <span style="--i:1" aria-hidden="true">quarterly</span> <span style="--i:2" aria-hidden="true">for</span> <span style="--i:3" aria-hidden="true">the</span> <em style="display:inline"><span style="--i:4" aria-hidden="true">northern</span> <span style="--i:5" aria-hidden="true">lights.</span></em></h1>
+<p class="deck">Essays, photography and field notes from people who chase the sky. Four issues a year, printed on recycled paper.</p>
+<div class="btns"><a class="btn pr" href="#">Subscribe, £28 a year</a><a class="btn" href="#">Read a sample</a></div>
+</main>
+<div class="facts"><div><b>96 pages</b>of long reads</div><div><b>Printed in Glasgow</b>on recycled stock</div><div><b>Free shipping</b>anywhere in the UK</div></div>
+</div>
+<script>
+(function(){
+var cv=document.getElementById('cv'),ctx=cv.getContext('2d'),W,H,dpr,mx=.5,my=.5,sx=.5,sy=.5,paused=false,btn=document.getElementById('pause');
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var R=[['46,230,197',.2,.9,1.1],['138,107,255',.22,1.3,.8],['255,95,168',.16,.7,1.4],['78,161,255',.2,1.6,.6],['200,255,107',.14,1.0,1.8]];
+function size(){dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+function y(i,x,t,amp){var r=R[i],k=x/W;return H*(.28+i*.1)+Math.sin(k*3.2*r[2]+t*.0004*r[3]+i)*H*.08*amp+Math.sin(k*7+t*.0003*r[3]*.6+i*2)*H*.03*amp+(sy-.5)*H*.08}
+function draw(t){
+sx+=(mx-sx)*.05;sy+=(my-sy)*.05;
+ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,W,H);ctx.globalCompositeOperation='lighter';
+var amp=.8+Math.abs(sx-.5)*.9;
+for(var i=0;i<R.length;i++){
+var r=R[i],g=ctx.createLinearGradient(0,H*.1,0,H*.9);
+var a=r[1];g.addColorStop(0,'rgba('+r[0]+',0)');g.addColorStop(.5,'rgba('+r[0]+','+a+')');g.addColorStop(1,'rgba('+r[0]+',0)');
+ctx.fillStyle=g;ctx.beginPath();
+var step=Math.max(8,W/90),x;
+for(x=0;x<=W+step;x+=step)ctx.lineTo(x,y(i,x,t,amp));
+for(x=W+step;x>=0;x-=step)ctx.lineTo(x,y(i,x,t,amp)+H*(.16+.03*i));
+ctx.closePath();ctx.fill();
+}
+}
+function loop(t){if(!paused){draw(t)}requestAnimationFrame(loop)}
+addEventListener('resize',function(){size();draw(performance.now())});
+addEventListener('pointermove',function(e){mx=e.clientX/W;my=e.clientY/H});
+btn.addEventListener('click',function(){paused=!paused;btn.setAttribute('aria-pressed',paused);btn.textContent=paused?'Play motion':'Pause motion'});
+size();
+if(reduce){paused=true;btn.setAttribute('aria-pressed','true');btn.textContent='Play motion';draw(4000)}
+requestAnimationFrame(loop);
+})();
+</script></body></html>

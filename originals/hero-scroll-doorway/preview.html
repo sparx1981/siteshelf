@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Doorway Zoom Hero — Hero Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:#2a1d16;color:#f7ecdc;font:400 17px/1.6 Karla,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #f6c98a;outline-offset:3px;border-radius:6px}
+.skip{position:fixed;top:14px;right:14px;z-index:20;background:#2a1d16;color:#f7ecdc;padding:8px 14px;border-radius:99px;font-size:14px;text-decoration:none;border:1px solid rgba(247,236,220,.4)}
+.run{height:300vh;position:relative}
+.stage{position:sticky;top:0;height:100vh;overflow:hidden}
+.in{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:radial-gradient(circle at 50% 40%,rgba(246,201,138,.35),transparent 55%),#2a1d16;transform:scale(.8);opacity:0;will-change:transform,opacity}
+.in h2{font:500 clamp(44px,8vw,112px)/1 'Cormorant Garamond',serif;margin:0 0 30px;max-width:14ch}.in h2 em{color:#f6c98a}
+.cards{display:flex;gap:16px;margin-bottom:30px;flex-wrap:wrap;justify-content:center}
+.cards div{border:1px solid rgba(247,236,220,.25);border-radius:16px;padding:16px 22px;backdrop-filter:blur(4px);background:rgba(247,236,220,.05);font-size:15px;opacity:0;transform:translateY(18px)}
+.cards b{display:block;font:500 24px 'Cormorant Garamond',serif}
+.btn{font:600 16px Karla,sans-serif;background:#f6c98a;color:#2a1d16;border:0;padding:15px 30px;border-radius:99px;cursor:pointer;opacity:0;transform:translateY(18px);transition:box-shadow .2s}
+.btn:hover{box-shadow:0 8px 28px rgba(246,201,138,.4)}
+.wall{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 38px,rgba(0,0,0,.025) 38px 40px),#d9c9b4;color:#2a1d16;transform-origin:50% 62%;will-change:transform,opacity;display:flex;flex-direction:column;align-items:center}
+.wall header{padding-top:7vh;text-align:center}
+.wall header .l{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+.wall header h1{font:500 clamp(44px,8vw,120px)/1 'Cormorant Garamond',serif;margin:6px 0 0}.wall h1 em{color:#8a5a3b}
+.door{position:absolute;left:50%;bottom:0;width:max(220px,26vw);aspect-ratio:.55;transform:translateX(-50%);border:14px solid #8a5a3b;border-bottom:0;border-radius:999px 999px 0 0;background:radial-gradient(circle at 50% 35%,#f6c98a,#8a4b2a 75%);box-shadow:inset 0 0 40px rgba(0,0,0,.4),0 0 0 6px rgba(138,90,59,.3)}
+.hint{position:absolute;bottom:3vh;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:6px;z-index:3;color:#2a1d16}
+.hint i{width:10px;height:10px;border-right:2px solid;border-bottom:2px solid;transform:rotate(45deg);animation:bob 1.4s ease-in-out infinite}
+@keyframes bob{50%{transform:rotate(45deg) translate(4px,4px)}}
+.after{background:#2a1d16;padding:90px 24px;text-align:center}.after p{max-width:56ch;margin:0 auto;color:#d9c9b4}
+@media(max-width:700px){.door{width:54vw}.wall header h1{font-size:11vw}.in h2{font-size:12vw}}
+@media(prefers-reduced-motion:reduce){.run{height:auto}.stage{position:relative;height:auto;min-height:100vh}.wall,.hint{display:none}.in{position:relative;transform:none;opacity:1;min-height:100vh}.cards div,.btn{opacity:1;transform:none}}
+</style></head><body>
+<a class="skip" href="#after">Skip intro</a>
+<div class="run" id="run"><div class="stage">
+<section class="in" id="in" aria-label="Welcome to Casa Marren"><h2>Come in, <em>the light is on.</em></h2>
+<div class="cards"><div><b>Nine rooms</b>each with its own tiled floor</div><div><b>Courtyard breakfast</b>orange trees, warm bread</div><div><b>Rooftop at dusk</b>the cathedral turns gold</div></div>
+<button class="btn" type="button">Check availability</button></section>
+<div class="wall" id="wall"><header><div class="l">Boutique hotel, Seville</div><h1>Casa <em>Marren</em></h1></header><div class="door" aria-hidden="true"></div></div>
+<div class="hint" id="hint"><span>Scroll to enter</span><i></i></div>
+</div></div>
+<section class="after" id="after" tabindex="-1"><p>Casa Marren is a nine-room house on a quiet street behind the old tobacco factory. Breakfast is served in the courtyard from eight, and the roof stays open until the last guest goes down.</p></section>
+<script>
+(function(){
+var run=document.getElementById('run'),wall=document.getElementById('wall'),inn=document.getElementById('in'),hint=document.getElementById('hint');
+var cards=inn.querySelectorAll('.cards div'),btn=inn.querySelector('.btn');
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+function c(v,a,b){return Math.max(0,Math.min(1,(v-a)/(b-a)))}
+function tick(){
+var r=run.getBoundingClientRect(),p=c(-r.top,0,r.height-innerHeight);
+var s=1+Math.pow(p,1.6)*16;
+wall.style.transform='scale('+s+')';wall.style.opacity=1-c(p,.5,.72);
+wall.style.pointerEvents=p>.7?'none':'';
+var ip=c(p,.25,.7);inn.style.opacity=ip;inn.style.transform='scale('+(.8+.2*ip)+')';
+hint.style.opacity=1-c(p,0,.06);
+var st=c(p,.62,.95);
+cards.forEach(function(el,i){var q=c(st,i*.15,i*.15+.4);el.style.opacity=q;el.style.transform='translateY('+(18*(1-q))+'px)'});
+var b=c(st,.5,1);btn.style.opacity=b;btn.style.transform='translateY('+(18*(1-b))+'px)';
+}
+addEventListener('scroll',function(){requestAnimationFrame(tick)},{passive:true});addEventListener('resize',tick);tick();
+})();
+</script></body></html>

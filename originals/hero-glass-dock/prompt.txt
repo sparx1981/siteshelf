@@ -1,0 +1,11 @@
+Canvas & base: Background #0b1020 with three blurred blobs (60vmax radius, filter blur 80px) in #5a6bff, #ff6fb5 and #2fe0c0 at 45% opacity slowly drifting (22s, 28s, 34s alternate loops). Frosted glass surfaces: rgba(255,255,255,.1) with backdrop-filter blur(24px) saturate(160%), 1px rgba(255,255,255,.22) border. Text #f4f6ff, secondary #b9c0e6 (8:1). Invented app "Lattice", a calm workspace for small studios.
+
+Typography: "Manrope" 800 for the headline (clamp 40px to 88px, line-height 1.02, tracking -.03em) and 600 for UI; "Inter" 400/500 for body 17px. Headline: "Everything within reach." Sub: "Lattice keeps your notes, tasks, files and calendar in one quiet workspace. Nothing shouts, everything is one tap away."
+
+Layout: Centred hero with a small glass pill "Now in public beta", the headline, sub, and buttons "Download for Mac" (white background, #0b1020 text) and "See it in action" (glass). Below the copy a wide glass dock (height 84px, radius 28px, centred, padding 12px) holding seven icon tiles (56px, radius 16px) with simple inline SVG glyphs and gradient fills: Notes, Tasks, Calendar, Files, Chat, Search, Settings. A tooltip label sits above the hovered tile.
+
+Interaction: Dock magnification: icon scale = 1 + 0.75 * exp(-(distance/90px)^2) based on the pointer's x distance to each tile centre, smoothed with requestAnimationFrame lerp; neighbours push apart naturally because tiles are flex items. Keyboard: tiles are buttons; focus magnifies the focused tile and its neighbours (1.6, 1.25), arrow keys move focus, Enter bounces the tile once (translateY -18px, 500ms) and shows a small "Opened Notes" status toast. Touch: tapping bounces the tile.
+
+Responsive: Under 700px the dock shows five tiles (Settings and Search hidden), tiles 46px, no magnification (scale only on focus); no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Visible focus ring 3px #ffffff, aria-labels on all tiles, aria-live toast. Respect prefers-reduced-motion by stopping blob drift, using no bounce and instant scale. Invented names only.

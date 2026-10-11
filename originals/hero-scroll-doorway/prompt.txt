@@ -1,0 +1,11 @@
+Canvas & base: A tall scroll section (300vh) with a sticky 100vh stage. Outside wall colour #d9c9b4 with subtle vertical plaster stripes (repeating-linear-gradient 2px lines rgba(0,0,0,.025)); interior colour #2a1d16 with warm light (radial-gradient #f6c98a at 50% 40%, 35% opacity). Invented boutique hotel "Casa Marren". Text on wall #2a1d16, text inside #f7ecdc (12:1).
+
+Typography: "Cormorant Garamond" 500 and italic 500 for display (clamp 44px to 120px); "Karla" 400/600 for labels and body at 17px; labels uppercase 12px with .2em tracking.
+
+Layout: Sticky stage with the wall layer holding a centred arched doorway (width 26vw min 220px, aspect 0.55, border-radius 999px 999px 0 0, 14px #8a5a3b frame, inner glow). Above the arch the word "Casa Marren" and label "Boutique hotel, Seville". Behind the door is the interior layer: a headline "Come in, the light is on." with three small cards ("Nine rooms", "Courtyard breakfast", "Rooftop at dusk") and a button "Check availability".
+
+Interaction: Scroll progress 0 to 1 scales the wall layer from 1 to 14 around the door centre (transform-origin at the door), fading wall text out by progress .25, while the interior scales from .8 to 1 and fades in from .3. Interior content staggers in after .6. A small "Scroll to enter" hint with a bobbing arrow fades at progress .05. Keyboard: Space and PageDown scroll naturally; a visible "Skip intro" link jumps past the sequence. The button has hover lift and 3px #f6c98a focus ring.
+
+Responsive: Door width 54vw on phones, cards stack, headline 11vw. No horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. [hidden]{display:none!important}. Accessible: the interior content is real text in the DOM at all times (never hidden from assistive tech), skip link, reduced motion shows the interior statically with no scroll scaling. Invented names only.

@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Liquid Chrome Headline — Hero Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+:root{--c1:#4b4f56;--c2:#e9edf2;--c3:#8b9098;--c4:#fff;--c5:#6b7078;--c6:#cfd5dc;--mx:50%;--my:40%;--p:.5}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 20%,#1c2026 0%,#0b0c0e 68%);color:#aab0b8;font:400 17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+body[data-f=gold]{--c1:#6e5217;--c2:#ffe9a8;--c3:#b8923a;--c4:#fff6d6;--c5:#8a6a1f;--c6:#f1d27a}
+body[data-f=copper]{--c1:#5e2a18;--c2:#ffc9a0;--c3:#a8552f;--c4:#ffe3cf;--c5:#7a3b22;--c6:#e8a37a}
+a,button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #e9edf2;outline-offset:3px;border-radius:6px}
+header{display:flex;align-items:center;gap:28px;padding:22px clamp(18px,4vw,56px)}
+.logo{font:400 18px 'Archivo Black',sans-serif;letter-spacing:.06em;color:#e9edf2;text-decoration:none;margin-right:auto}
+nav{display:flex;gap:28px}nav a{color:#aab0b8;text-decoration:none;font-weight:500;font-size:15px;transition:color .2s}nav a:hover{color:#fff}
+.pill{border:1px solid #3a3f47;border-radius:99px;padding:9px 18px;text-decoration:none;color:#e9edf2;font-weight:500;font-size:14px;transition:background .2s}.pill:hover{background:#1a1e24}
+.menu{display:none;background:none;border:1px solid #3a3f47;border-radius:99px;padding:8px 16px;cursor:pointer;color:#e9edf2}
+.hero{position:relative;padding:clamp(28px,7vh,80px) clamp(18px,4vw,56px) 40px;max-width:1440px;margin:0 auto}
+.lab{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#8b9098;display:flex;align-items:center;gap:12px}.lab:before{content:"";width:36px;height:1px;background:currentColor}
+h1{margin:22px 0 26px;font:400 clamp(40px,8.4vw,124px)/.9 'Archivo Black',sans-serif;letter-spacing:-.03em;text-transform:uppercase}
+h1 span{display:block;background:radial-gradient(circle at var(--mx) var(--my),rgba(255,255,255,.95) 0,rgba(255,255,255,0) 16%),linear-gradient(105deg,var(--c1) 0%,var(--c2) 18%,var(--c3) 32%,var(--c4) 48%,var(--c5) 62%,var(--c6) 78%,var(--c1) 100%);background-size:100% 100%,240% 100%;background-position:0 0,calc(var(--p)*100%) 0;-webkit-background-clip:text;background-clip:text;color:transparent;transition:background-position .6s cubic-bezier(.2,.7,.2,1)}
+h1 span+span{margin-top:.04em}
+.idle h1 span{animation:sweep 8s ease-in-out infinite alternate}
+@keyframes sweep{from{background-position:0 0,0% 0}to{background-position:0 0,100% 0}}
+.hero p.l{max-width:54ch;font-size:18px;margin:0 0 30px}
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:15px 26px;border-radius:99px;border:1px solid #3a3f47;color:#e9edf2;transition:transform .2s,background .2s}
+.btn.pr{background:#e9edf2;color:#0b0c0e;border-color:#e9edf2}.btn:hover{transform:translateY(-2px)}.btn:not(.pr):hover{background:#1a1e24}
+.fin{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px}
+.fin b{font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:#8b9098;margin-right:6px}
+.fin button{cursor:pointer;background:#14171b;border:1px solid #2c3037;border-radius:99px;padding:8px 16px;display:flex;align-items:center;gap:8px;color:#cfd5dc;transition:border-color .2s,background .2s}
+.fin button i{width:14px;height:14px;border-radius:50%;display:block}
+.fin button[aria-pressed=true]{border-color:#e9edf2;background:#1d2127;color:#fff}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:clamp(30px,6vh,70px);border-top:1px solid #23272d}
+.facts div{padding:22px 0}.facts strong{display:block;font:400 26px 'Archivo Black',sans-serif;color:#e9edf2;letter-spacing:-.01em}.facts span{font-size:14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:760px){nav,.pill{display:none}.menu{display:block}nav.open{display:flex;flex-direction:column;position:absolute;top:66px;right:18px;background:#14171b;border:1px solid #2c3037;border-radius:14px;padding:16px 22px;gap:14px;z-index:5}h1{font-size:12.5vw}.btns .btn{width:100%;text-align:center}.facts{grid-template-columns:minmax(0,1fr)}.facts div{border-bottom:1px solid #1b1f24;padding:16px 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><a class="logo" href="#" aria-label="Alloy and Oak home">ALLOY &amp; OAK</a>
+<nav id="nav" aria-label="Main"><a href="#">Work</a><a href="#">Process</a><a href="#">Studio</a></nav>
+<a class="pill" href="#">Book a visit</a><button class="menu" id="menu" aria-expanded="false" aria-controls="nav">Menu</button></header>
+<main class="hero" id="hero">
+<div class="lab">Metalwork and furniture, Leeds</div>
+<h1 aria-label="Forged to last. Shaped to feel."><span aria-hidden="true">Forged to last.</span><span aria-hidden="true">Shaped to feel.</span></h1>
+<p class="l">Hand-finished steel, brass and oak pieces, made to order in runs of twelve.</p>
+<div class="btns"><a class="btn pr" href="#">See the collection</a><a class="btn" href="#">How we make it</a></div>
+<div class="fin" role="group" aria-label="Metal finish"><b>Finish</b>
+<button type="button" aria-pressed="true" data-f="chrome"><i style="background:linear-gradient(135deg,#4b4f56,#fff,#8b9098)"></i>Chrome</button>
+<button type="button" aria-pressed="false" data-f="gold"><i style="background:linear-gradient(135deg,#6e5217,#fff6d6,#b8923a)"></i>Gold</button>
+<button type="button" aria-pressed="false" data-f="copper"><i style="background:linear-gradient(135deg,#5e2a18,#ffe3cf,#a8552f)"></i>Copper</button></div>
+<div class="sr" aria-live="polite" id="live">Finish: Chrome</div>
+<div class="facts"><div><strong>12</strong><span>pieces per run</span></div><div><strong>6 weeks</strong><span>average lead time</span></div><div><strong>25 years</strong><span>on every weld</span></div></div>
+</main>
+<script>
+(function(){
+var hero=document.getElementById('hero'),root=document.body,t,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function idle(){if(!reduce)hero.classList.add('idle')}
+function move(x,y){var r=hero.getBoundingClientRect();root.style.setProperty('--mx',((x-r.left)/r.width*100)+'%');root.style.setProperty('--my',((y-r.top)/r.height*100)+'%');root.style.setProperty('--p',Math.max(0,Math.min(1,(x-r.left)/r.width)));hero.classList.remove('idle');clearTimeout(t);t=setTimeout(idle,2000)}
+hero.addEventListener('pointermove',function(e){move(e.clientX,e.clientY)});
+hero.addEventListener('touchmove',function(e){var q=e.touches[0];move(q.clientX,q.clientY)},{passive:true});
+idle();
+var live=document.getElementById('live');
+document.querySelectorAll('.fin button').forEach(function(b){b.addEventListener('click',function(){
+document.querySelectorAll('.fin button').forEach(function(o){o.setAttribute('aria-pressed',o===b)});
+root.dataset.f=b.dataset.f;live.textContent='Finish: '+b.textContent})});
+var m=document.getElementById('menu'),n=document.getElementById('nav');
+m.addEventListener('click',function(){var o=n.classList.toggle('open');m.setAttribute('aria-expanded',o)});
+})();
+</script></body></html>

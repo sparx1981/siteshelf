@@ -1,0 +1,11 @@
+Canvas & base: Ink-dark page #0e0d14. Invented festival "Static Parade", a three-day music weekend. Words are outlined with -webkit-text-stroke 2px #f3efff and transparent fill; the active word is filled by an animated gradient (linear-gradient 100deg: #ff4d8d, #ffb84d, #4de3ff, #8a5bff, #ff4d8d at 300% width, moving 6s linear infinite) clipped to text. Body text #c9c4e4 (9:1).
+
+Typography: "Bricolage Grotesque" 800 for the huge words (clamp 56px to 170px, line-height .9, tracking -.04em, uppercase), "Inter" 400/500/600 for the rest (17px, labels 12px uppercase .16em). Words: "LOUD." "BRIGHT." "TOGETHER."
+
+Layout: Slim top bar with "STATIC PARADE" wordmark and a "Tickets" pill. Three stacked words fill the left two thirds; right column holds the date "14 to 16 June, Harrow Fields", a doors countdown in four tabular cells (days, hrs, min, sec), and the button "Get a weekend pass, £139" (gradient background, #0e0d14 text) plus a text link "See the line-up". A thin marquee strip along the bottom repeats "Three stages · Forty acts · One field ·" in outlined 28px type.
+
+Interaction: Every 2.4s the next word becomes active and fills with the gradient (the others stay outlined). Hovering or focusing a word makes it active and pauses the auto-cycle; leaving resumes it. Words are focusable (tabindex 0) with a visible dashed focus ring. The countdown ticks each second. The marquee scrolls left at 30s per loop and pauses on hover.
+
+Responsive: Under 800px the words use 17vw and the right column moves below; marquee smaller; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. [hidden]{display:none!important}. aria-live is not used on the cycling; the words are plain text so screen readers read them once. Respect prefers-reduced-motion by disabling cycling and marquee, keeping all words outlined with the first filled. Invented names only.

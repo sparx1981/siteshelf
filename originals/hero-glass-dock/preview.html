@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Glass Dock Hero — Hero Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#0b1020;color:#f4f6ff;font:400 17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden;position:relative;display:flex;flex-direction:column}
+.blob{position:fixed;width:60vmax;height:60vmax;border-radius:50%;filter:blur(80px);opacity:.45;z-index:0;animation:dr var(--t) ease-in-out infinite alternate}
+.b1{background:#5a6bff;left:-15vmax;top:-20vmax;--t:22s}.b2{background:#ff6fb5;right:-20vmax;top:10vmax;--t:28s}.b3{background:#2fe0c0;left:10vmax;bottom:-35vmax;--t:34s}
+@keyframes dr{to{transform:translate(6vmax,4vmax) scale(1.1)}}
+:focus-visible{outline:3px solid #fff;outline-offset:3px;border-radius:12px}
+.glass{background:rgba(255,255,255,.1);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border:1px solid rgba(255,255,255,.22)}
+header{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:22px clamp(18px,4vw,56px)}
+.logo{font:800 20px Manrope,sans-serif;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}.logo i{width:22px;height:22px;border-radius:7px;background:conic-gradient(#5a6bff,#ff6fb5,#2fe0c0,#5a6bff)}
+header a{color:#b9c0e6;text-decoration:none;font-size:15px}
+main{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px 20px 40px}
+.pill{border-radius:99px;padding:7px 16px;font-size:14px;color:#dfe3ff}
+h1{font:800 clamp(40px,7vw,88px)/1.02 Manrope,sans-serif;letter-spacing:-.03em;margin:22px 0 16px;max-width:14ch}
+.sub{max-width:56ch;color:#b9c0e6;margin:0 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:54px}
+.btn{font:600 16px Manrope,sans-serif;padding:15px 26px;border-radius:99px;color:#f4f6ff;cursor:pointer;transition:transform .2s}.btn:hover{transform:translateY(-2px)}
+.btn.w{background:#fff;color:#0b1020;border:0}
+.dock{display:flex;align-items:flex-end;gap:10px;padding:12px;height:84px;border-radius:28px;position:relative}
+.t{position:relative;width:56px;height:56px;flex:none;display:flex;justify-content:center;align-items:flex-end;transform-origin:50% 100%}
+.t button{all:unset;cursor:pointer;width:100%;height:100%;border-radius:16px;display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .15s}
+.t button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.t svg{width:55%;height:55%;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.lb{position:absolute;bottom:calc(100% + 14px);left:50%;transform:translateX(-50%) scale(1);transform-origin:50% 100%;background:rgba(10,14,32,.88);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:4px 10px;font:600 13px Manrope,sans-serif;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s}
+.t.on .lb{opacity:1}
+.t.bn button{animation:bn .5s ease}
+@keyframes bn{30%{transform:translateY(-18px)}60%{transform:translateY(0)}80%{transform:translateY(-6px)}}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:5;border-radius:99px;padding:8px 18px;font-size:14px;opacity:0;transition:opacity .25s}.toast.show{opacity:1}
+@media(max-width:700px){.t:nth-child(n+6){display:none}.t{width:46px;height:46px}.dock{height:72px;gap:8px}}
+@media(prefers-reduced-motion:reduce){.blob{animation:none}.t.bn button{animation:none}}
+</style></head><body>
+<i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i>
+<header><div class="logo"><i></i>Lattice</div><a href="#">Sign in</a></header>
+<main><span class="pill glass">Now in public beta</span><h1>Everything within reach.</h1>
+<p class="sub">Lattice keeps your notes, tasks, files and calendar in one quiet workspace. Nothing shouts, everything is one tap away.</p>
+<div class="btns"><button class="btn w" type="button">Download for Mac</button><button class="btn glass" type="button">See it in action</button></div>
+<div class="dock glass" id="dock" role="toolbar" aria-label="Lattice apps"></div></main>
+<div class="toast glass" id="toast" role="status"></div>
+<script>
+(function(){
+var A=[["Notes","#ff9a5a,#ff5d7a",'<path d="M7 4h8l4 4v12H7z"/><path d="M10 12h6M10 16h6"/>'],["Tasks","#5ad1ff,#4a6bff",'<path d="M5 12l4 4 10-10"/>'],["Calendar","#ff7fb5,#a45cff",'<rect x="4" y="6" width="16" height="14" rx="2"/><path d="M4 11h16M9 3v4M15 3v4"/>'],["Files","#ffd15a,#ff9a3c",'<path d="M3 7h6l2 2h10v10H3z"/>'],["Chat","#4de3b8,#1fa8d8",'<path d="M4 5h16v11H9l-5 4z"/>'],["Search","#9a8bff,#5a6bff",'<circle cx="11" cy="11" r="6"/><path d="M20 20l-4-4"/>'],["Settings","#8a93b8,#4a5380",'<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/>']];
+var dock=document.getElementById('dock'),toast=document.getElementById('toast'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,tiles=[],mx=null,tt;
+A.forEach(function(a,i){var t=document.createElement('div');t.className='t';t.innerHTML='<span class="lb">'+a[0]+'</span><button type="button" aria-label="'+a[0]+'" style="background:linear-gradient(145deg,'+a[1]+')"><svg viewBox="0 0 24 24" aria-hidden="true">'+a[2]+'</svg></button>';dock.appendChild(t);
+var b=t.querySelector('button');
+b.addEventListener('click',function(){t.classList.remove('bn');void t.offsetWidth;if(!reduce)t.classList.add('bn');toast.textContent='Opened '+a[0];toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},1400)});
+b.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){e.preventDefault();var n=dock.querySelectorAll('button')[(i+k+A.length)%A.length];n.focus()}});
+tiles.push({t:t,b:b,s:1,i:i})});
+dock.addEventListener('pointermove',function(e){mx=e.clientX});dock.addEventListener('pointerleave',function(){mx=null});
+function vis(t){return t.t.offsetParent!==null}
+function frame(){var small=innerWidth<=700,fi=tiles.findIndex(function(x){return document.activeElement===x.b&&x.b.matches(':focus-visible')});
+tiles.forEach(function(x){if(!vis(x))return;var r=x.t.getBoundingClientRect(),c=r.left+r.width/2,s=1;
+if(mx!==null&&!small){var d=(mx-c)/90;s=1+.75*Math.exp(-d*d)}
+else if(fi>-1){var dd=Math.abs(x.i-fi);s=dd===0?1.6:dd===1?1.25:1}
+x.s=reduce?s:x.s+(s-x.s)*.22;x.t.style.transform='scale('+x.s.toFixed(3)+')';x.t.classList.toggle('on',(mx!==null&&!small&&x.s>1.45)||fi===x.i)});
+requestAnimationFrame(frame)}
+frame();
+})();
+</script></body></html>

@@ -1,0 +1,11 @@
+Canvas & base: Stage background #120a0c with a warm spotlight radial-gradient(circle at var(--sx) 40%, rgba(255,214,150,.28), transparent 45%) that follows the pointer. Two curtain panels (each 50vw wide, full height) in velvet #7a1426 with folds made by repeating-linear-gradient(90deg, rgba(0,0,0,.28) 0 14px, rgba(255,255,255,.05) 14px 28px, transparent 28px 44px) and an inner shadow at the centre seam; gold trim #d4a24c along the bottom 8px. Invented venue "The Marlowe Playhouse". Text #fbefd8 on dark (13:1), gold #e7bb6a for accents.
+
+Typography: "Playfair Display" 700 and italic 700 for the headline (clamp 44px to 120px, line-height 1); "DM Sans" 400/500/700 for body 17px and labels (uppercase 12px, .18em tracking). Headline: "Tonight, the curtain rises." with "curtain" in gold italic.
+
+Layout: Content sits behind the curtains, centred: label "Autumn season, nine nights only", the headline, a 50ch line "A new staging of The Lantern Keeper, with live music and a company of fourteen.", buttons "Book seats from £18" (gold #e7bb6a text #120a0c) and "Cast and crew" (ghost). Below, a three-column listings strip (Thu 12 Oct 7:30pm, Sat 14 Oct 2:00pm, Sat 14 Oct 7:30pm) each with a small availability tag. A top bar with "THE MARLOWE" wordmark and "Replay curtain" button.
+
+Interaction: On load after 500ms both curtains slide outward (translateX -100% and 100%) over 2.2s with cubic-bezier(.7,0,.2,1) and a slight skew, then content fades up. "Replay curtain" closes the curtains (1.2s) and re-opens them. Pointer movement updates the spotlight position with easing. Listings are focusable cards with lifted hover and focus ring #e7bb6a.
+
+Responsive: Curtains stay 50vw each; headline 12vw under 700px; listings stack. No horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Content is always in the DOM and readable by assistive tech; curtains are aria-hidden and inert. Respect prefers-reduced-motion by starting open with no animation. Invented names only.

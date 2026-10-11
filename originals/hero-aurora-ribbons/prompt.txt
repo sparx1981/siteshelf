@@ -1,0 +1,11 @@
+Canvas & base: Near-black page #05070d. A full-bleed canvas behind everything draws five translucent ribbons (additive blending, 'lighter') in teal #2ee6c5, violet #8a6bff, magenta #ff5fa8, blue #4ea1ff and lime #c8ff6b at 0.16 to 0.28 alpha, each a filled band between two sine-sum curves with a vertical gradient fading to transparent. Soft vignette on top. Invented publication "Vesper Journal", an arts quarterly. Text #eef1ff, secondary #a9b0d0 (8:1).
+
+Typography: "Instrument Serif" 400 and italic for the headline (clamp 48px to 132px, line-height .96, tracking -.02em); "Inter" 400/500/600 for body 17px and 12px uppercase labels (.16em tracking). Headline: "A quarterly for the northern lights." with "northern lights" in italic.
+
+Layout: Top bar with wordmark "Vesper", links Issues, Essays, Subscribe, and a pill button "Pause motion" (aria-pressed). Hero left-aligned in a 1200px container, vertically centred: label "Issue 09, Winter", headline, 52ch deck "Essays, photography and field notes from people who chase the sky. Four issues a year, printed on recycled paper.", buttons "Subscribe, £28 a year" (solid #eef1ff text #05070d) and "Read a sample" (ghost). A bottom row of three small facts separated by 1px rules: "96 pages", "Printed in Glasgow", "Free shipping in the UK".
+
+Interaction: Ribbons drift continuously using time-based sine offsets (never faster than 0.0004 rad per ms). Pointer position gently steers wave amplitude and hue shift within 20 degrees. The Pause motion button freezes the canvas and flips its label to "Play motion". Headline words fade up with 80ms stagger on load. Buttons lift 2px on hover with a 3px #2ee6c5 focus ring.
+
+Responsive: Canvas resizes with devicePixelRatio capped at 2. Under 700px nav links collapse, headline 13vw, buttons full width, facts stack. No horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. [hidden]{display:none!important}. Accessibility: canvas aria-hidden, visible focus, keyboard operable. Respect prefers-reduced-motion by drawing one static frame and starting paused. Invented names only.

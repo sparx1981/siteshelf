@@ -1,0 +1,11 @@
+Canvas & base: Light page #eef3f2 with a faint 32px grid (rgba(20,50,45,.05) lines). Invented planning studio "Metroform". Ink #10302c, secondary #4a6560 (6:1). District colours: Housing #ff8a5b (sides #d96a3f, #b9532d), Offices #4f7cff (#3a5fd0, #2b48a6), Parks #3fbf84 (#2c9a69, #1f7a52), Civic #f5c542 (#d2a428, #a98318). Roads are #d6e0de tiles.
+
+Typography: "Space Grotesk" 700 for headline (clamp 40px to 80px, line-height 1.02, tracking -.03em), "Inter" 400/500/600 for the rest at 17px. Headline: "Cities, planned like a conversation." Sub: "Metroform helps councils test where homes, offices and parks should go before a single brick is laid."
+
+Layout: Two columns above 960px. Left: label "Urban planning studio", headline, sub, buttons "Explore the model" (solid #10302c) and "Our method" (outline), then four filter chips (All, Housing, Offices, Parks, Civic). Right: an SVG isometric city of 6 by 6 plots generated in JavaScript with a seeded random so heights are repeatable (housing 1 to 3 floors, offices 3 to 7, civic 2 to 3, parks flat). Each building is three polygons (left face, right face, top). A tooltip card shows name, type and height.
+
+Interaction: On load buildings rise from the ground one after another (CSS animation scaleY with transform-box fill-box and origin bottom, 60ms stagger, 700ms each). Hover or focus on a building lifts it 6px and shows the tooltip near it; buildings are focusable (tabindex 0, role img with aria-label). Filter chips (aria-pressed) dim non-matching buildings to 25% opacity with a 300ms transition. A small "Replay" icon button re-runs the rise animation.
+
+Responsive: Under 960px the SVG sits below the text at full width; the tooltip becomes a fixed card under the model. No horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS and JS, no libraries or external images. [hidden]{display:none!important}. Visible focus, aria-labels, keyboard operable. Respect prefers-reduced-motion by skipping the rise animation. Invented names only.

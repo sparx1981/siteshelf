@@ -1,0 +1,11 @@
+Canvas & base: Deep indigo page #0d0b24 with two soft radial glows (#5b3df5 at 25% 30% at 35% opacity, #19c3b1 at 80% 70% at 22% opacity). Invented product "Halo Lamp" by "Nimbus & Pine". Text #f2f0ff, secondary #b6b1e6 (7.5:1). Disc: radial-gradient(circle at 35% 30%, #fff4c9, #ffb454 45%, #e0572f 100%) with a 120px glow shadow rgba(255,180,84,.45).
+
+Typography: "Sora" 700 for the headline (clamp 40px to 76px, line-height 1.02, tracking -.02em) and chip titles; "Inter" 400/500 for the rest at 17px. Headline: "Light that keeps you company." Sub: "Halo is a dimmable table lamp with a warm sunrise mode, a 40 hour battery and a touch ring you can find in the dark."
+
+Layout: Two columns above 900px. Left: label "New, spring edition", headline, sub, price "£129" with "Pre-order" button and "Watch the film" ghost button. Right: a 520px square stage with three concentric ring outlines (rgba(255,255,255,.14), 1px) at 200, 320 and 440px, the glowing disc in the centre (150px) and three round chips orbiting on the rings: "40h battery", "Sunrise mode", "Touch ring". Under the stage a detail card showing the title and one sentence of the active chip.
+
+Interaction: Chips orbit at different speeds (24s, 36s, 52s) with CSS animation; chips counter-rotate so text stays upright. Hover or focus on a chip pauses all orbits (animation-play-state), enlarges the chip to 1.15 and updates the detail card with a 250ms fade. Chips are buttons; arrow keys cycle the active chip. Click toggles a pinned state (aria-pressed) that keeps the orbit paused until clicked again. The disc pulses slowly (6s) and brightens when a chip is active.
+
+Responsive: Under 900px the columns stack, the stage scales to 92vw max 420px with rings scaled by a CSS variable. No horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Visible focus, aria-labels, keyboard support. Respect prefers-reduced-motion by stopping orbits (chips sit at fixed angles). Invented names only.

@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gradient Mask Headline — Hero Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#0e0d14;color:#c9c4e4;font:400 17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden;display:flex;flex-direction:column}
+:focus-visible{outline:3px dashed #4de3ff;outline-offset:6px;border-radius:6px}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px clamp(18px,4vw,56px)}
+.logo{font:800 20px 'Bricolage Grotesque',sans-serif;letter-spacing:.06em;color:#f3efff}
+.pill{color:#f3efff;border:1px solid #3a3752;border-radius:99px;padding:9px 18px;text-decoration:none;font-weight:500;font-size:14px;transition:background .2s}.pill:hover{background:#1c1a2b}
+main{flex:1;display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:40px;align-items:center;padding:10px clamp(18px,4vw,56px) 30px;max-width:1500px;margin:0 auto;width:100%}
+h1{margin:0;font:800 clamp(56px,10vw,170px)/.9 'Bricolage Grotesque',sans-serif;letter-spacing:-.04em;text-transform:uppercase}
+h1 span{display:block;width:fit-content;max-width:100%;color:transparent;-webkit-text-stroke:2px #f3efff;cursor:default;background:linear-gradient(100deg,#ff4d8d,#ffb84d,#4de3ff,#8a5bff,#ff4d8d) 0 0/300% 100%;-webkit-background-clip:text;background-clip:text;background-repeat:repeat-x;background-position:0 0;animation:flow 6s linear infinite;animation-play-state:paused;transition:color .4s,-webkit-text-stroke-color .4s;-webkit-text-fill-color:transparent}
+h1 span.on{animation-play-state:running;-webkit-text-stroke-color:transparent}
+h1 span:not(.on){background-image:none}
+@keyframes flow{to{background-position:300% 0}}
+.side .dt{font:600 12px Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#ffb84d;margin-bottom:8px}
+.side h2{font:800 30px/1.1 'Bricolage Grotesque',sans-serif;color:#f3efff;margin:0 0 22px}
+.cd{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:26px}
+.cd div{background:#17152a;border:1px solid #2a2744;border-radius:14px;padding:12px 6px;text-align:center}.cd b{display:block;font:800 30px 'Bricolage Grotesque',sans-serif;color:#f3efff;font-variant-numeric:tabular-nums}.cd span{font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.cta{display:block;text-align:center;font:600 17px Inter,sans-serif;color:#0e0d14;text-decoration:none;padding:16px 22px;border-radius:99px;background:linear-gradient(100deg,#ff4d8d,#ffb84d,#4de3ff);background-size:200% 100%;transition:background-position .6s,transform .2s}.cta:hover{background-position:100% 0;transform:translateY(-2px)}
+.lnk{display:inline-block;margin-top:16px;color:#f3efff;font-weight:500}
+.mq{overflow:hidden;border-top:1px solid #23203a;padding:16px 0;white-space:nowrap}
+.mq div{display:inline-block;animation:mq 30s linear infinite;font:800 28px 'Bricolage Grotesque',sans-serif;color:transparent;-webkit-text-stroke:1px #6d67a0;text-transform:uppercase}
+.mq:hover div{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media(max-width:800px){main{grid-template-columns:minmax(0,1fr)}h1{font-size:17vw}.mq div{font-size:20px}}
+@media(prefers-reduced-motion:reduce){h1 span,.mq div{animation:none!important}}
+</style></head><body>
+<header><div class="logo">STATIC PARADE</div><a class="pill" href="#">Tickets</a></header>
+<main><h1 id="words"><span class="on" tabindex="0">Loud.</span><span tabindex="0">Bright.</span><span tabindex="0">Together.</span></h1>
+<aside class="side"><div class="dt">14 to 16 June, Harrow Fields</div><h2>Three days. One very big field.</h2>
+<div class="cd" role="timer" aria-label="Time until doors open"><div><b id="d">00</b><span>Days</span></div><div><b id="h">00</b><span>Hrs</span></div><div><b id="m">00</b><span>Min</span></div><div><b id="s">00</b><span>Sec</span></div></div>
+<a class="cta" href="#">Get a weekend pass, £139</a><a class="lnk" href="#">See the line-up</a></aside></main>
+<div class="mq" aria-hidden="true"><div>Three stages · Forty acts · One field · Three stages · Forty acts · One field · Three stages · Forty acts · One field · Three stages · Forty acts · One field ·&nbsp;</div></div>
+<script>
+(function(){
+var sp=[].slice.call(document.querySelectorAll('#words span')),i=0,hold=false,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function set(k){i=k;sp.forEach(function(s,j){s.classList.toggle('on',j===k)})}
+sp.forEach(function(s,k){['pointerenter','focus'].forEach(function(ev){s.addEventListener(ev,function(){hold=true;set(k)})});['pointerleave','blur'].forEach(function(ev){s.addEventListener(ev,function(){hold=false})})});
+if(!reduce)setInterval(function(){if(!hold)set((i+1)%sp.length)},2400);
+var end=Date.now()+1000*(60*60*24*37+3600*5+60*12);
+function p(n){return String(n).padStart(2,'0')}
+function tick(){var s=Math.max(0,Math.floor((end-Date.now())/1000));d.textContent=p(Math.floor(s/86400));h.textContent=p(Math.floor(s%86400/3600));m.textContent=p(Math.floor(s%3600/60));document.getElementById('s').textContent=p(s%60)}
+var d=document.getElementById('d'),h=document.getElementById('h'),m=document.getElementById('m');tick();setInterval(tick,1000);
+})();
+</script></body></html>

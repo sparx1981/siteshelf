@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Orbiting Product Hero — Hero Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#0d0b24;color:#f2f0ff;font:400 17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden;position:relative}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 25% 30%,rgba(91,61,245,.35),transparent 45%),radial-gradient(circle at 80% 70%,rgba(25,195,177,.22),transparent 40%);pointer-events:none}
+:focus-visible{outline:3px solid #19c3b1;outline-offset:3px;border-radius:10px}
+header{position:relative;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(18px,5vw,64px)}
+.logo{font:700 18px Sora,sans-serif;letter-spacing:.02em}.logo i{color:#ffb454;font-style:normal}
+header a.s{color:#b6b1e6;text-decoration:none;font-size:15px}
+.wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;max-width:1240px;margin:0 auto;padding:20px clamp(18px,5vw,64px) 60px}
+.tag{display:inline-flex;gap:8px;align-items:center;font-size:13px;color:#b6b1e6;border:1px solid rgba(255,255,255,.16);padding:6px 14px;border-radius:99px}.tag:before{content:"";width:7px;height:7px;border-radius:50%;background:#19c3b1;box-shadow:0 0 10px #19c3b1}
+h1{font:700 clamp(40px,5.6vw,76px)/1.02 Sora,sans-serif;letter-spacing:-.02em;margin:22px 0 18px}
+.sub{color:#b6b1e6;max-width:46ch;margin:0 0 28px}
+.buy{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.price{font:700 28px Sora,sans-serif;margin-right:6px}
+.btn{font:600 16px Inter,sans-serif;padding:14px 26px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:transparent;color:#f2f0ff;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn.pr{background:linear-gradient(135deg,#ffb454,#ff7a45);border:0;color:#2a1405;box-shadow:0 10px 30px rgba(255,140,60,.35)}.btn:hover{transform:translateY(-2px)}
+.stage{--s:1;position:relative;width:min(100%,520px);aspect-ratio:1;margin:0 auto}
+.ring{position:absolute;left:50%;top:50%;border:1px solid rgba(255,255,255,.14);border-radius:50%;transform:translate(-50%,-50%)}
+.r1{width:calc(200px*var(--s));height:calc(200px*var(--s))}.r2{width:calc(320px*var(--s));height:calc(320px*var(--s))}.r3{width:calc(440px*var(--s));height:calc(440px*var(--s))}
+.disc{position:absolute;left:50%;top:50%;width:calc(150px*var(--s));height:calc(150px*var(--s));margin:calc(-75px*var(--s));border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff4c9,#ffb454 45%,#e0572f 100%);box-shadow:0 0 120px rgba(255,180,84,.45);animation:pulse 6s ease-in-out infinite;transition:box-shadow .4s}
+.stage.act .disc{box-shadow:0 0 170px rgba(255,200,110,.7)}
+@keyframes pulse{50%{transform:scale(1.06)}}
+.orb{position:absolute;left:50%;top:50%;width:0;height:0;animation:spin var(--d) linear infinite;animation-delay:var(--o)}
+.stage.pause .orb,.stage.pause .chip{animation-play-state:paused}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes unspin{to{transform:translate(-50%,-50%) rotate(-360deg)}}
+.chip{position:absolute;left:var(--r);top:0;transform:translate(-50%,-50%);animation:unspin var(--d) linear infinite;animation-delay:var(--o);white-space:nowrap}
+.chip button{display:block;font:600 14px Sora,sans-serif;color:#f2f0ff;background:rgba(30,26,80,.85);border:1px solid rgba(255,255,255,.26);padding:10px 16px;border-radius:99px;cursor:pointer;backdrop-filter:blur(6px);transition:transform .25s,background .25s,border-color .25s}
+.chip button:hover,.chip button[aria-pressed=true],.chip button.on{transform:scale(1.15);background:#2d2780;border-color:#ffb454}
+.detail{margin:22px auto 0;max-width:420px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:16px 20px;min-height:92px}
+.detail h2{font:700 17px Sora,sans-serif;margin:0 0 4px;color:#ffb454}.detail p{margin:0;color:#d9d5ff;font-size:15px}
+.detail>*{transition:opacity .25s}.detail.sw>*{opacity:0}
+@media(max-width:900px){.wrap{grid-template-columns:minmax(0,1fr)}.stage{--s:.8;width:min(92vw,420px)}}
+@media(max-width:480px){.stage{--s:.62;width:min(92vw,330px)}.chip button{font-size:12px;padding:8px 12px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.orb{transform:rotate(var(--a))}.chip{transform:translate(-50%,-50%) rotate(calc(var(--a)*-1))}}
+</style></head><body>
+<header><div class="logo">Nimbus<i>&amp;</i>Pine</div><a class="s" href="#">Support</a></header>
+<main class="wrap">
+<section><span class="tag">New, spring edition</span>
+<h1>Light that keeps you company.</h1>
+<p class="sub">Halo is a dimmable table lamp with a warm sunrise mode, a 40 hour battery and a touch ring you can find in the dark.</p>
+<div class="buy"><span class="price">£129</span><button class="btn pr" type="button">Pre-order</button><button class="btn" type="button">Watch the film</button></div></section>
+<section aria-label="Halo Lamp features">
+<div class="stage" id="stage"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="disc" role="img" aria-label="Glowing Halo Lamp"></div>
+<div class="orb" style="--d:24s;--o:0s;--a:20deg"><div class="chip" style="--r:calc(100px*var(--s));--d:24s;--o:0s;--a:20deg"><button type="button" data-i="0" aria-pressed="false">40h battery</button></div></div>
+<div class="orb" style="--d:36s;--o:-12s;--a:160deg"><div class="chip" style="--r:calc(160px*var(--s));--d:36s;--o:-12s;--a:160deg"><button type="button" data-i="1" aria-pressed="false">Sunrise mode</button></div></div>
+<div class="orb" style="--d:52s;--o:-30s;--a:280deg"><div class="chip" style="--r:calc(220px*var(--s));--d:52s;--o:-30s;--a:280deg"><button type="button" data-i="2" aria-pressed="false">Touch ring</button></div></div></div>
+<div class="detail" id="detail" aria-live="polite"><h2>40h battery</h2><p>Eight evenings on medium brightness, and a full charge takes under two hours over USB-C.</p></div>
+</section></main>
+<script>
+(function(){
+var D=[["40h battery","Eight evenings on medium brightness, and a full charge takes under two hours over USB-C."],["Sunrise mode","Over thirty minutes the glow climbs from deep amber to soft daylight, so mornings start gently."],["Touch ring","Slide a finger round the base to dim, tap to switch. The ring has a raised edge you can feel in the dark."]];
+var stage=document.getElementById('stage'),det=document.getElementById('detail'),bs=[].slice.call(stage.querySelectorAll('button')),cur=0,pinned=-1;
+function show(i){cur=i;bs.forEach(function(b,k){b.classList.toggle('on',k===i)});det.classList.add('sw');setTimeout(function(){det.querySelector('h2').textContent=D[i][0];det.querySelector('p').textContent=D[i][1];det.classList.remove('sw')},180);stage.classList.add('act','pause')}
+function rest(){if(pinned<0){stage.classList.remove('act','pause');bs.forEach(function(b){b.classList.remove('on')})}}
+bs.forEach(function(b,i){
+b.addEventListener('pointerenter',function(){if(pinned<0)show(i)});
+b.addEventListener('pointerleave',rest);
+b.addEventListener('focus',function(){if(pinned<0)show(i)});
+b.addEventListener('blur',rest);
+b.addEventListener('click',function(){if(pinned===i){pinned=-1;b.setAttribute('aria-pressed','false');rest()}else{pinned=i;bs.forEach(function(o){o.setAttribute('aria-pressed',o===b)});show(i)}});
+b.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();var n=(i+(e.key==='ArrowRight'?1:2))%3;bs[n].focus();if(pinned>=0){pinned=n;bs.forEach(function(o,k){o.setAttribute('aria-pressed',k===n)});show(n)}}});
+});
+})();
+</script></body></html>

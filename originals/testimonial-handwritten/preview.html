@@ -1,0 +1,98 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Handwritten Note Wall — Testimonials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;800&family=Kalam:wght@400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(#d9cdb4 1px,transparent 1.4px) 0 0/22px 22px,#efe6d4;color:#2b2418;font:400 15px/1.55 Inter,system-ui,sans-serif;overflow-x:hidden;box-shadow:inset 0 0 160px rgba(120,90,40,.18)}
+:focus-visible{outline:3px solid #d9482b;outline-offset:3px;box-shadow:0 0 0 6px #fff}
+.w{max-width:1120px;margin:0 auto;padding:56px 24px 64px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+.eb{font:600 13px Inter;text-transform:uppercase;letter-spacing:.14em;color:#d9482b;margin:0 0 10px}
+h1{font:800 clamp(36px,6vw,64px)/1 Inter;letter-spacing:-.03em;margin:0;max-width:11ch;position:relative}
+h1 svg{display:block;width:min(260px,70%);height:16px;margin-top:6px}
+.bt{all:unset;box-sizing:border-box;cursor:pointer;background:#d9482b;color:#fff;font:600 16px Inter;padding:13px 24px;border-radius:999px;min-height:48px;box-shadow:0 8px 20px -8px rgba(217,72,43,.7);transition:transform .15s,background .2s}.bt:hover{background:#bf3a1f;transform:translateY(-2px)}.bt:focus-visible{outline:3px solid #2b2418;outline-offset:3px}
+.sc{background:#fff;color:#2b2418;border:1.5px solid #2b2418}
+.wall{list-style:none;margin:0;padding:14px 10px;columns:3;column-gap:22px}
+.wall>li{break-inside:avoid;margin:0 0 26px;display:block;position:relative}
+.n{all:unset;box-sizing:border-box;position:relative;display:block;width:100%;cursor:pointer;background:var(--p);padding:34px 24px 20px;box-shadow:2px 6px 18px rgba(80,60,20,.25);transform:rotate(var(--r));transition:transform .22s cubic-bezier(.3,1.3,.5,1),box-shadow .22s;text-align:left}
+.n:hover,.n:focus-visible{transform:rotate(0) scale(1.04);box-shadow:4px 18px 34px rgba(80,60,20,.35);z-index:5;position:relative}
+.n:focus-visible{outline:3px solid #d9482b;outline-offset:4px}
+.n:before{content:"";position:absolute;top:-12px;left:50%;width:84px;height:26px;margin-left:-42px;background:rgba(255,255,255,.55);border:1px solid rgba(0,0,0,.05);transform:rotate(var(--t,-3deg));box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.n p{font:600 clamp(24px,2.4vw,28px)/1.15 Caveat,cursive;margin:0 0 14px}
+.n footer{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;font:700 21px Caveat,cursive;color:#5a4e3a}
+.n svg.dd{width:44px;height:44px;flex:none;stroke:#d9482b;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.yo{position:absolute;top:8px;right:8px;font:600 11px Inter;background:#d9482b;color:#fff;border-radius:999px;padding:1px 8px;letter-spacing:.04em}
+.dl{all:unset;box-sizing:border-box;position:absolute;top:-10px;left:-10px;width:44px;height:44px;display:grid;place-items:center;cursor:pointer;border-radius:50%;z-index:8;font:700 22px Inter;color:#5a4e3a;background:rgba(255,255,255,.85);box-shadow:0 2px 6px rgba(0,0,0,.2)}.dl:hover{background:rgba(0,0,0,.08)}.dl:focus-visible{outline:3px solid #d9482b}.dl svg{width:16px;height:16px;stroke:#5a4e3a;stroke-width:2.2;fill:none;stroke-linecap:round}
+.ph{all:unset;box-sizing:border-box;display:grid;place-items:center;text-align:center;width:100%;min-height:150px;border:2.5px dashed #b6a785;border-radius:6px;cursor:pointer;font:700 26px Caveat,cursive;color:#7a6c4f;padding:20px;transition:background .2s,color .2s}.ph:hover{background:rgba(255,255,255,.5);color:#d9482b;border-color:#d9482b}.ph:focus-visible{outline:3px solid #d9482b;outline-offset:3px}
+@keyframes drop{from{opacity:0;transform:translateY(-30px) rotate(-8deg)}}.n.new{animation:drop .5s cubic-bezier(.3,1.4,.5,1)}
+.ft{margin-top:20px;color:#5a4e3a;font-size:14px;display:flex;gap:16px;flex-wrap:wrap}.ft a{color:#5a4e3a}
+dialog{border:0;padding:0;background:transparent;color:#2b2418;max-width:min(560px,94vw);width:100%;overflow:visible}
+dialog::backdrop{background:rgba(43,36,24,.55);backdrop-filter:blur(3px)}
+.dc{background:var(--p,#fff6a8);padding:40px 36px 26px;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);position:relative;transform:rotate(-1deg)}
+.dc:before{content:"";position:absolute;top:-14px;left:50%;width:96px;height:30px;margin-left:-48px;background:rgba(255,255,255,.6);transform:rotate(2deg)}
+.dc blockquote{font:600 clamp(28px,5vw,38px)/1.15 Caveat,cursive;margin:0 0 16px}.dc cite{font:700 26px Caveat,cursive;font-style:normal;color:#5a4e3a;display:block}
+.dn{display:flex;gap:10px;margin-top:22px;justify-content:space-between;flex-wrap:wrap}
+.dn button{all:unset;box-sizing:border-box;cursor:pointer;padding:10px 18px;border-radius:999px;border:1.5px solid #2b2418;font:600 14px Inter;min-height:44px;background:rgba(255,255,255,.7)}.dn button:hover{background:#fff}.dn button:focus-visible{outline:3px solid #d9482b;outline-offset:2px}
+form{display:grid;gap:14px}
+label{font:600 14px Inter;display:grid;gap:6px}
+input[type=text],textarea{font:400 20px Kalam,cursive;padding:10px 12px;border:1.5px solid #2b2418;border-radius:8px;background:#fffdf5;color:#2b2418;width:100%}
+textarea{min-height:110px;resize:vertical}
+.cn{font:500 12px Inter;color:#5a4e3a;text-align:right}
+.sw{display:flex;gap:10px;border:0;padding:0;margin:0}.sw legend{font:600 14px Inter;margin-bottom:6px;padding:0}
+.sw label{display:block;position:relative}.sw input{position:absolute;opacity:0}.sw span{display:block;width:40px;height:40px;border-radius:50%;border:2px solid #2b2418;background:var(--c)}.sw input:checked+span{box-shadow:0 0 0 3px #fff,0 0 0 6px #d9482b}.sw input:focus-visible+span{outline:3px solid #d9482b;outline-offset:5px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:980px){.wall{columns:2}}
+@media (max-width:620px){.wall{columns:1}.w{padding:36px 16px 48px}dialog{max-width:100vw;margin:auto 0 0;border-radius:0}.dc{padding:34px 22px 22px}}
+@media (prefers-reduced-motion:reduce){.n,.n.new{transition:none;animation:none}.n:hover,.n:focus-visible{transform:rotate(var(--r))}}
+</style></head><body>
+<div class="w"><header class="hd"><div><p class="eb">Pinned up by our customers</p><h1>Notes from the garden gate<svg viewBox="0 0 260 16" aria-hidden="true"><path d="M3 10 Q 25 0 48 9 T 94 8 T 140 9 T 186 7 T 232 10 T 257 6" fill="none" stroke="#d9482b" stroke-width="4" stroke-linecap="round"/></svg></h1></div><button class="bt" id="add" type="button">Add your note</button></header>
+<ul class="wall" id="wall"></ul>
+<div class="ft"><span>Notes are read by a human before they appear for everyone.</span><a href="#" id="rs">Reset wall</a></div></div>
+<dialog id="dv" aria-label="Note"><div class="dc" id="dc"><blockquote id="dq"></blockquote><cite id="dcite"></cite><div class="dn"><button type="button" id="dp">Previous</button><button type="button" id="dx">Close</button><button type="button" id="dnx">Next</button></div></div></dialog>
+<dialog id="df" aria-labelledby="dft"><div class="dc" style="--p:#fff6a8"><h2 id="dft" style="font:800 24px Inter;margin:0 0 14px">Pin your note</h2>
+<form id="fm"><label>Your name<input type="text" id="fn" maxlength="24" required autocomplete="off"></label><label>Where from<input type="text" id="fp" maxlength="24" autocomplete="off" placeholder="Hollin Row"></label>
+<label>Your note<textarea id="ft" maxlength="140" required></textarea></label><div class="cn" id="cn" aria-live="polite">0 / 140</div>
+<fieldset class="sw" id="sw"><legend>Paper</legend></fieldset>
+<div class="dn"><button type="button" id="fc">Cancel</button><button type="submit" style="background:#d9482b;color:#fff;border-color:#d9482b">Pin it</button></div></form></div></dialog>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var COL=['#fff6a8','#ffd6e0','#cfeedd','#cfe3ff','#ffe0b8','#ffffff'],NAMES=['Sunshine','Blush','Mint','Sky','Peach','White'];
+var DOO=['<path d="M24 38C8 28 6 14 15 10c5-2 8 1 9 5 1-4 4-7 9-5 9 4 7 18-9 28z"/>','<path d="M22 22c0-3 4-3 4 0s-6 6-9 3-2-12 5-14 15 2 15 12-8 17-19 15"/>','<circle cx="22" cy="22" r="7"/><path d="M22 4v6M22 34v6M4 22h6M34 22h6M9 9l4 4M31 31l4 4M35 9l-4 4M13 31l-4 4"/>','<path d="M8 38C8 20 20 8 38 6c0 18-12 30-30 32zM8 38L26 20"/>','<path d="M22 4l5 13 14 1-11 9 4 14-12-8-12 8 4-14L3 18l14-1z"/>','<path d="M5 34c8-2 20-4 30-20M35 14l-10 1M35 14l-2 10"/>'];
+var BASE=[
+['Bought three tomato plants on a Saturday, ate a tomato on a Saturday. Don’t ask me how. Magic soil, I assume.','Gwen','Hollin Row',0],
+['The lady who runs the herb table remembered my name AND my dog’s. I now buy basil I don’t need.','Arjun','Pennick Bay',1],
+['Delivered in a box so well packed I wanted to keep the box. My fern arrived smiling.','Marta','Lantern Cove',2],
+['Told them my garden was “mostly shade and regret”. They sent me hostas. Hostas are doing great.','Ollie','Kestrel Lane',3],
+['My daughter chose a cactus and named it Gerald. Gerald has flowered. We are all very proud.','Bronwen','Saltmarsh',4],
+['Best bulb advice I’ve ever had, and nobody tried to sell me a bigger spade.','Hamid','Orchard Street',5],
+['Came for compost. Left with a lemon tree, a lecture on mulch and a free biscuit.','Rosalind','Harbour Steps',1],
+['I killed everything for ten years. This spring I have a sweet pea tower. Thank you.','Fenn','Wren Valley',0],
+['The kids’ seed-planting Saturday should be compulsory for adults too. Messy. Wonderful.','Ines','Maple Court',2]];
+var notes=[],mine=[];
+try{mine=JSON.parse(localStorage.getItem('lo-notes')||'[]')||[]}catch(e){mine=[]}
+var rot=[-3.2,2.4,-1.4,3.6,-2.2,1.6,-3.8,2.9,-.8,3.1];
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function all(){return mine.map(function(m){return {q:m.q,n:m.n,p:m.p,c:m.c,mine:1,id:m.id}}).concat(BASE.map(function(b,i){return {q:b[0],n:b[1],p:b[2],c:COL[b[3]],i:i}}))}
+function build(newId){var L=all(),h='';notes=L;
+ L.forEach(function(n,i){var r=n.mine?rot[(i*3+1)%rot.length]:rot[i%rot.length],t=((i*7)%9-4);
+  h+='<li><button type="button" class="n'+(n.id&&n.id===newId?' new':'')+'" style="--p:'+n.c+';--r:'+r+'deg;--t:'+t+'deg" data-i="'+i+'" aria-label="Open note from '+esc(n.n)+'">'+(n.mine?'<span class="yo">Yours</span>':'')+'<p>'+esc(n.q)+'</p><footer><span>— '+esc(n.n)+(n.p?', '+esc(n.p):'')+'</span><svg class="dd" viewBox="0 0 44 44" aria-hidden="true">'+DOO[i%DOO.length]+'</svg></footer></button>'+(n.mine?'<button type="button" class="dl" data-d="'+n.id+'" aria-label="Delete your note">×</button>':'')+'</li>'});
+ h+='<li><button type="button" class="ph" id="ph">Pin yours here →</button></li>';$('#wall').innerHTML=h}
+build();
+var cur=0,dv=$('#dv');
+function showNote(i){cur=(i+notes.length)%notes.length;var n=notes[cur];$('#dc').style.setProperty('--p',n.c);$('#dq').textContent='“'+n.q+'”';$('#dcite').textContent='— '+n.n+(n.p?', '+n.p:'')}
+$('#wall').addEventListener('click',function(e){var d=e.target.closest('[data-d]');if(d){var id=d.getAttribute('data-d');mine=mine.filter(function(m){return String(m.id)!==id});save();build();return}
+ if(e.target.closest('#ph')){openForm();return}var b=e.target.closest('.n');if(!b)return;showNote(+b.dataset.i);dv.showModal()});
+$('#dp').addEventListener('click',function(){showNote(cur-1)});$('#dnx').addEventListener('click',function(){showNote(cur+1)});$('#dx').addEventListener('click',function(){dv.close()});
+dv.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();showNote(cur+1)}else if(e.key==='ArrowLeft'){e.preventDefault();showNote(cur-1)}});
+dv.addEventListener('click',function(e){if(e.target===dv)dv.close()});
+function save(){try{localStorage.setItem('lo-notes',JSON.stringify(mine))}catch(e){}}
+var df=$('#df'),sw=$('#sw'),sel=0;
+COL.forEach(function(c,i){var l=document.createElement('label');l.innerHTML='<input type="radio" name="pc" value="'+i+'"'+(i===0?' checked':'')+'><span style="--c:'+c+'"></span><span class="sr">'+NAMES[i]+'</span>';sw.appendChild(l)});
+function openForm(){$('#fm').reset();$('#cn').textContent='0 / 140';df.showModal();$('#fn').focus()}
+$('#add').addEventListener('click',openForm);$('#fc').addEventListener('click',function(){df.close()});
+df.addEventListener('click',function(e){if(e.target===df)df.close()});
+$('#ft').addEventListener('input',function(){$('#cn').textContent=this.value.length+' / 140'});
+$('#fm').addEventListener('submit',function(e){e.preventDefault();var id=Date.now();mine.unshift({id:id,n:$('#fn').value.trim()||'Anonymous',p:$('#fp').value.trim(),q:$('#ft').value.trim(),c:COL[+document.querySelector('[name=pc]:checked').value]});mine=mine.slice(0,6);save();df.close();build(id);window.scrollTo({top:0,behavior:'smooth'})});
+$('#rs').addEventListener('click',function(e){e.preventDefault();mine=[];save();build()});
+})();
+</script></body></html>

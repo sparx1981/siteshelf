@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rocket Back-To-Top — Footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:auto}
+body{margin:0;background:radial-gradient(700px 520px at 25% 8%,rgba(75,42,168,.4),transparent 70%),radial-gradient(600px 460px at 85% 30%,rgba(15,111,209,.3),transparent 70%),#070b1f;color:#eef1ff;font:400 17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden;position:relative}
+:focus-visible{outline:3px solid #5ce1ff;outline-offset:3px;box-shadow:0 0 0 6px #070b1f}
+#sk{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+#sk circle{animation:tw 4s ease-in-out infinite}@keyframes tw{50%{opacity:.2}}
+.w{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 24px}
+.nv{display:flex;justify-content:space-between;align-items:center;padding:26px 0;font:800 22px Outfit,sans-serif}.nv b{display:flex;gap:10px;align-items:center}.nv svg{width:26px;height:26px}.nv a{font:500 15px Inter;color:#aab4e6;text-decoration:none;margin-left:20px}
+.hero{padding:44px 0 56px}
+h1{font:800 clamp(40px,7vw,84px)/.98 Outfit,sans-serif;margin:0 0 20px;letter-spacing:-.025em;max-width:13ch;outline:0}
+.lead{color:#aab4e6;max-width:48ch;font-size:19px;margin:0 0 26px}
+.bt{display:inline-block;font:700 16px Outfit;padding:13px 24px;border-radius:999px;text-decoration:none;margin-right:10px;border:1.5px solid #5ce1ff;color:#5ce1ff;min-height:46px}.bt.p{background:#5ce1ff;color:#04122a}.bt:hover{filter:brightness(1.12)}
+.gr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding-bottom:80px}
+.mc{background:#101735;border:1px solid #26306b;border-radius:20px;padding:22px;display:grid;grid-template-columns:72px minmax(0,1fr);gap:18px;align-items:center}
+.mc svg{width:72px;height:72px}.mc small{color:#ff9a5c;font:600 13px Inter;letter-spacing:.1em}.mc h2{font:700 22px Outfit;margin:2px 0 4px}.mc p{margin:0;color:#aab4e6;font-size:15px}
+.ft{position:relative;z-index:1;background:linear-gradient(#0b1230,#04061a);border-top:1px solid #26306b;padding:0 0 24px;margin-top:20px}
+.pad{position:relative;height:220px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding-bottom:0}
+.pad svg.base{pointer-events:none;z-index:0;position:absolute;left:0;right:0;bottom:0;width:100%;height:60px}
+.rk{z-index:1;position:relative;width:96px;height:150px;margin-left:min(10%,90px);margin-bottom:26px;transition:opacity .5s}
+.rk svg{width:100%;height:100%;overflow:visible}
+.rk.gone{opacity:0}
+.fl{transform-origin:50% 0;animation:fk .12s infinite alternate;opacity:0}.ign .fl,.fly .fl{opacity:1}@keyframes fk{from{transform:scaleY(.8)}to{transform:scaleY(1.25)}}
+.ign .rk{animation:sh .08s infinite alternate}@keyframes sh{from{transform:translateX(-2px)}to{transform:translateX(2px)}}
+.cd{position:absolute;left:calc(min(10%,90px) + 130px);bottom:90px;font:800 40px Outfit;color:#ffd24a;min-width:80px;text-shadow:0 0 18px rgba(255,210,74,.6)}
+.lb{all:unset;position:relative;z-index:2;box-sizing:border-box;cursor:pointer;display:flex;gap:12px;align-items:center;font:700 18px Outfit;padding:14px 24px;border-radius:999px;background:linear-gradient(135deg,#ff7a2f,#ffb347);color:#1a0a00;margin-bottom:34px;min-height:52px;box-shadow:0 14px 30px -12px rgba(255,122,47,.8);transition:transform .15s,filter .2s}
+.lb:hover{filter:brightness(1.08);transform:translateY(-2px)}.lb:active{transform:scale(.97)}.lb:focus-visible{outline:3px solid #5ce1ff;outline-offset:4px}.lb svg{width:22px;height:22px}
+.lb[aria-disabled=true]{opacity:.6;cursor:default;transform:none}
+.cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;padding:36px 0 26px;border-top:1px solid #1d2759}
+.cols h3{font:700 16px Outfit;margin:0 0 10px;color:#5ce1ff}.cols ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}.cols a{color:#c4ccf2;text-decoration:none;font-size:15px;padding:5px 0;display:inline-block}.cols a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}
+.bar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#8e99d4;font-size:14px;border-top:1px solid #1d2759;padding-top:18px}.ok:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#4ade80;margin-right:8px;box-shadow:0 0 8px #4ade80}
+.fm{position:fixed;right:24px;bottom:24px;width:56px;height:56px;border-radius:50%;background:#101735;border:1.5px solid #5ce1ff;display:grid;place-items:center;cursor:pointer;z-index:40;opacity:0;transform:translateY(20px) scale(.8);pointer-events:none;transition:opacity .3s,transform .3s cubic-bezier(.3,1.4,.5,1);box-shadow:0 12px 30px -10px rgba(92,225,255,.5);padding:0}
+.fm.on{opacity:1;transform:none;pointer-events:auto}.fm svg{width:26px;height:26px}.fm:hover{background:#18224d}.fm:focus-visible{outline:3px solid #5ce1ff;outline-offset:4px}
+.clone{position:fixed;z-index:80;pointer-events:none;width:96px;height:150px}.clone svg{width:100%;height:100%;overflow:visible}
+.puff{position:fixed;z-index:70;border-radius:50%;background:rgba(220,228,255,.55);pointer-events:none;animation:pf 1.1s ease-out forwards}@keyframes pf{to{transform:scale(3.4);opacity:0}}
+.toast{position:fixed;left:50%;top:24px;transform:translate(-50%,-20px);background:#101735;border:1px solid #5ce1ff;color:#eef1ff;padding:10px 20px;border-radius:999px;font:600 15px Outfit;opacity:0;transition:.3s;z-index:90;pointer-events:none}.toast.on{opacity:1;transform:translate(-50%,0)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:860px){.cols{grid-template-columns:repeat(2,minmax(0,1fr))}.gr{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.rk{width:72px;height:112px;margin-left:0}.cd{left:90px;bottom:60px;font-size:30px}.pad{height:190px}.lb{font-size:16px;padding:12px 18px}.fm{right:16px;bottom:16px}.mc{grid-template-columns:56px minmax(0,1fr)}.mc svg{width:56px;height:56px}.nv a{display:none}.clone{width:72px;height:112px}}
+@media (prefers-reduced-motion:reduce){#sk circle{animation:none}*{transition:none!important}}
+</style></head><body>
+<svg id="sk" aria-hidden="true" preserveAspectRatio="none"></svg>
+<div class="w"><div class="nv"><b><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="#ff7a2f" stroke-width="3"/><path d="M16 5l3 8h8l-6.5 5 2.5 8-7-5-7 5 2.5-8L5 13h8z" fill="#ffd24a"/></svg>Starling Almanac</b><span><a href="#">Missions</a><a href="#">Archive</a><a href="#">Subscribe</a></span></div>
+<main><section class="hero"><h1 id="top" tabindex="-1">Every launch begins with a countdown.</h1><p class="lead">A quarterly almanac of small rockets, patient engineers and the missions that nearly did not fly. Scroll to the end and press the big orange button.</p><a class="bt p" href="#log">Read the log</a><a class="bt" href="#">Latest issue</a></section>
+<section aria-label="Mission log" id="log"><div class="gr" id="gr"></div></section></main></div>
+<footer class="ft"><div class="w"><div class="pad" id="pad"><div class="rk" id="rk"><svg viewBox="0 0 96 150" aria-hidden="true"><g class="fl"><path d="M36 112 Q48 170 60 112Z" fill="#ff7a2f"/><path d="M42 112 Q48 146 54 112Z" fill="#ffd24a"/></g><path d="M20 90 L4 120 L26 112Z M76 90 L92 120 L70 112Z" fill="#ff7a2f"/><path d="M48 4 Q74 36 70 100 L26 100 Q22 36 48 4Z" fill="#f4f6ff"/><path d="M48 4 Q60 16 64 34 L32 34 Q36 16 48 4Z" fill="#ff7a2f"/><circle cx="48" cy="58" r="11" fill="#5ce1ff" stroke="#2a3a7a" stroke-width="3"/><rect x="26" y="96" width="44" height="16" rx="4" fill="#c4ccf2"/></svg></div>
+<div class="cd" id="cd" aria-hidden="true"></div>
+<button class="lb" id="lb" type="button"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#1a0a00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 3 4 7 3 12H9c-1-5 0-9 3-12zM9 15l-4 3 1-5M15 15l4 3-1-5M12 17v4"/></svg>Launch to top</button>
+<svg class="base" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true"><rect y="34" width="1000" height="26" fill="#1a2250"/><path d="M60 34V2h10v32M80 34V8h6v26M60 14h26M60 24h26" stroke="#3a4a9a" stroke-width="3" fill="none"/></svg></div>
+<div class="cols"><div><h3>Almanac</h3><ul><li><a href="#">Latest issue</a></li><li><a href="#">Back issues</a></li><li><a href="#">Subscribe</a></li></ul></div><div><h3>Missions</h3><ul><li><a href="#">Lantern-1</a></li><li><a href="#">Kestrel Probe</a></li><li><a href="#">Meridian Lander</a></li></ul></div><div><h3>Learn</h3><ul><li><a href="#">Orbits explained</a></li><li><a href="#">Glossary</a></li><li><a href="#">For teachers</a></li></ul></div><div><h3>Contact</h3><ul><li><a href="#">Write to us</a></li><li><a href="#">Press</a></li><li><a href="#">hello@starling-almanac.example.com</a></li></ul></div></div>
+<div class="bar"><span>© Starling Almanac</span><span class="ok">All systems nominal</span></div></div></footer>
+<button class="fm" id="fm" type="button" aria-label="Launch to top"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#5ce1ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 3 4 7 3 12H9c-1-5 0-9 3-12zM9 15l-4 3 1-5M15 15l4 3-1-5M12 17v4"/></svg></button>
+<div class="toast" id="toast" aria-hidden="true">Touchdown at the top</div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,busy=false,abort=false;
+var s=17;function r(){s=(s*9301+49297)%233280;return s/233280}
+var sk=$('#sk'),dh=Math.max(document.documentElement.scrollHeight,1600);
+function stars(){var h=document.documentElement.scrollHeight,w=innerWidth,o='';sk.setAttribute('viewBox','0 0 '+w+' '+h);for(var i=0;i<Math.round(w*h/9000);i++)o+='<circle cx="'+(r()*w).toFixed(0)+'" cy="'+(r()*h).toFixed(0)+'" r="'+(.5+r()*1.3).toFixed(1)+'" fill="#fff" opacity="'+(.3+r()*.6).toFixed(2)+'" style="animation-delay:'+(-r()*4).toFixed(1)+'s"/>';sk.innerHTML=o}
+var M=[['Lantern-1','1998','First small satellite to relight its own engine in orbit.'],['Kestrel Probe','2004','Skimmed a comet’s tail and sent back a very long postcard.'],['Meridian Lander','2011','Landed within eight metres of its target on a crater rim.'],['Tern Relay','2015','A nine-satellite chain that kept a polar station online.'],['Wren Observer','2019','Spotted a dozen new asteroids before breakfast.'],['Heron Return','2022','Brought a pea-sized sample home in a very careful capsule.'],['Plover-3','2024','The cheapest launch to carry a school’s experiment.'],['Ember Crossing','2026','Tested a sail that steers using sunlight alone.']];
+$('#gr').innerHTML=M.map(function(m,i){var c=['#ff7a2f','#5ce1ff','#ffd24a','#c084fc'][i%4];return '<article class="mc"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="33" fill="#0b1230" stroke="'+c+'" stroke-width="3"/><circle cx="36" cy="36" r="24" fill="none" stroke="'+c+'" stroke-width="1.5" stroke-dasharray="3 4"/><path d="M36 14 L42 32 L60 36 L42 40 L36 58 L30 40 L12 36 L30 32Z" fill="'+c+'" opacity=".9"/></svg><div><small>'+m[1]+'</small><h2>'+m[0]+'</h2><p>'+m[2]+'</p></div></article>'}).join('');
+stars();addEventListener('resize',stars);
+var fm=$('#fm'),lb=$('#lb'),rk=$('#rk'),live=$('#live'),pad=$('#pad');
+function scrolled(){fm.classList.toggle('on',(window.scrollY||0)>600&&!busy)}addEventListener('scroll',scrolled,{passive:true});scrolled();
+function say(t){live.textContent=t}
+function sleep(ms){return new Promise(function(res){setTimeout(res,ms)})}
+function toTop(){var h=$('#top');try{h.focus({preventScroll:true})}catch(e){h.focus()}}
+async function launch(){if(busy)return;busy=true;abort=false;lb.setAttribute('aria-disabled','true');fm.classList.remove('on');
+ if(reduce){window.scrollTo(0,0);toTop();say('Back at the top of the page.');busy=false;lb.removeAttribute('aria-disabled');return}
+ var cd=$('#cd');say('Countdown started');
+ for(var n=3;n>=1;n--){cd.textContent=n;say(String(n));await sleep(700);if(abort){cd.textContent='';busy=false;lb.removeAttribute('aria-disabled');say('Launch aborted');return}}
+ cd.textContent='Go!';say('Ignition');pad.classList.add('ign');await sleep(500);
+ var b=rk.getBoundingClientRect(),cl=document.createElement('div');cl.className='clone fly';cl.innerHTML=rk.innerHTML;cl.style.left=b.left+'px';cl.style.top=b.top+'px';document.body.appendChild(cl);rk.classList.add('gone');pad.classList.remove('ign');cd.textContent='';
+ var start=performance.now(),dur=1700,y0=b.top,y1=-260,sy=window.scrollY,puffT=0;say('Liftoff');
+ await new Promise(function(done){(function f(t){var p=Math.min(1,(t-start)/dur),e=p*p*p;cl.style.top=(y0+(y1-y0)*e)+'px';window.scrollTo(0,sy*(1-Math.pow(p,1.4)));
+  if(t-puffT>60&&p<.95){puffT=t;var pf=document.createElement('i');pf.className='puff';var sz=14+r()*14,cx=parseFloat(cl.style.left)+38+r()*20-10;pf.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+cx+'px;top:'+(parseFloat(cl.style.top)+140)+'px';document.body.appendChild(pf);setTimeout(function(){pf.remove()},1100)}
+  if(p<1)requestAnimationFrame(f);else done()})(start)});
+ cl.remove();window.scrollTo(0,0);toTop();var tt=$('#toast');tt.classList.add('on');setTimeout(function(){tt.classList.remove('on')},2000);say('Touchdown at the top of the page.');
+ setTimeout(function(){rk.classList.remove('gone');busy=false;lb.removeAttribute('aria-disabled');scrolled()},800)}
+lb.addEventListener('click',launch);fm.addEventListener('click',launch);
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&busy)abort=true});
+})();
+</script></body></html>

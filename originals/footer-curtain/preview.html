@@ -1,0 +1,78 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Curtain Reveal Footer — Footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:#121212;color:#1d1a16;font:400 16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #1d1a16;outline-offset:3px;box-shadow:0 0 0 6px #f3ede2}
+.ft :focus-visible{outline-color:#e8d3a8;box-shadow:0 0 0 6px #121212}
+.sheet{position:relative;z-index:2;background:#f3ede2;border-radius:0 0 36px 36px;margin-bottom:var(--fh,640px);box-shadow:0 40px 80px -10px rgba(0,0,0,.6)}
+.static .sheet{margin-bottom:0}
+.w{max-width:1180px;margin:0 auto;padding:0 24px}
+.nv{display:flex;justify-content:space-between;align-items:center;padding:24px 0;font:800 22px Syne,sans-serif;letter-spacing:-.01em}.nv b{display:flex;gap:10px;align-items:center}.nv svg{width:28px;height:28px}.nv nav{display:flex;gap:24px;font:500 15px Inter}.nv a{color:inherit;text-decoration:none;padding:6px 0}.nv a:hover{text-decoration:underline;text-underline-offset:5px}
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:center;padding:36px 0 80px}
+h1{font:800 clamp(40px,6.6vw,92px)/.96 Syne,sans-serif;margin:0 0 22px;letter-spacing:-.03em;outline:0}
+.lead{font-size:19px;color:#5f574b;max-width:42ch;margin:0 0 28px}
+.bt{display:inline-block;background:#1d1a16;color:#f3ede2;font:600 16px Inter;padding:15px 28px;border-radius:999px;text-decoration:none;min-height:50px;transition:transform .15s,background .2s}.bt:hover{background:#3a332b;transform:translateY(-2px)}
+.hero svg{width:100%;height:auto;max-height:420px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding-bottom:88px}
+.cd{background:#fff;border-radius:24px;padding:20px;border:1px solid #e3d9c6}.cd svg{width:100%;height:160px;display:block;margin-bottom:12px}.cd h2{font:700 24px Syne;margin:0 0 4px}.cd p{margin:0 0 10px;color:#5f574b;font-size:15px}.cd b{font-weight:600}
+.st{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:center;padding-bottom:88px}
+.st h2{font:800 clamp(30px,4vw,52px)/1 Syne;margin:0 0 16px;letter-spacing:-.02em}.st p{color:#5f574b;margin:0;font-size:18px;max-width:50ch}
+.nm{display:grid;gap:12px}.nm div{border-top:1.5px solid #1d1a16;padding-top:10px;display:flex;justify-content:space-between;align-items:baseline}.nm b{font:800 40px Syne}.nm span{color:#5f574b}
+.bn{background:#1d1a16;color:#f3ede2;border-radius:28px;padding:48px 40px;margin-bottom:56px;display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap}
+.bn h2{font:800 clamp(28px,3.6vw,46px)/1.05 Syne;margin:0;letter-spacing:-.02em;max-width:16ch}.bn .bt{background:#e8d3a8;color:#1d1a16}
+.bn :focus-visible{outline-color:#e8d3a8;box-shadow:0 0 0 6px #1d1a16}
+.ft{position:fixed;left:0;right:0;bottom:0;z-index:1;background:#121212;color:#f3ede2;overflow:hidden}
+.static .ft{position:relative}
+.fi{max-width:1180px;margin:0 auto;padding:56px 24px 22px;will-change:transform}
+.wm{font:800 clamp(26px,6.6vw,96px)/.9 Syne,sans-serif;text-transform:uppercase;letter-spacing:-.04em;margin:0 0 36px;display:flex;flex-wrap:wrap;column-gap:.28em;overflow:hidden;color:#e8d3a8}.wm .wd{display:flex;white-space:nowrap}
+.wm span{display:inline-block;will-change:transform}
+.fg{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:28px;margin-bottom:34px}
+.fg h3{font:700 13px Inter;letter-spacing:.14em;text-transform:uppercase;color:#a59d8e;margin:0 0 12px}.fg ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}.fg a{color:#f3ede2;text-decoration:none;padding:5px 0;display:inline-block;overflow-wrap:anywhere}.fg a:hover{color:#e8d3a8;text-decoration:underline;text-underline-offset:4px}
+.nl p{margin:0 0 12px;color:#a59d8e;max-width:34ch}.nl form{display:flex;gap:8px}.nl input{flex:1;min-width:0;font:400 16px Inter;padding:13px 16px;border-radius:12px;border:1.5px solid #4a443b;background:#1b1a18;color:#f3ede2;min-height:48px}.nl input::placeholder{color:#8f8779}.nl input[aria-invalid=true]{border-color:#ff9a8a}
+.nl button{all:unset;box-sizing:border-box;cursor:pointer;background:#e8d3a8;color:#1d1a16;font:600 16px Inter;padding:13px 20px;border-radius:12px;min-height:48px}.nl button:hover{background:#f3e3bf}.nl button:focus-visible{outline:3px solid #e8d3a8;outline-offset:3px}
+.msg{display:block;min-height:22px;font-size:14px;margin-top:6px;color:#ffb5a6}.msg.ok{color:#bde8c4}
+.bt2{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;border-top:1px solid #2b2924;padding-top:16px;color:#a59d8e;font-size:14px}
+.clk{font-variant-numeric:tabular-nums;color:#f3ede2}.clk:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#7bd88f;margin-right:8px}
+.up{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:8px;align-items:center;padding:10px 16px;border:1.5px solid #4a443b;border-radius:999px;color:#f3ede2;font:600 14px Inter;min-height:44px}.up:hover{border-color:#e8d3a8;color:#e8d3a8}.up:focus-visible{outline:3px solid #e8d3a8;outline-offset:3px}
+@media (max-width:860px){.hero,.st{grid-template-columns:minmax(0,1fr)}.cards{grid-template-columns:minmax(0,1fr)}.fg{grid-template-columns:repeat(2,minmax(0,1fr))}.nl{grid-column:1/-1}.nv nav{display:none}}
+@media (max-width:700px){.sheet{border-radius:0 0 24px 24px}.wm{line-height:.92}.bn{padding:32px 24px}.fi{padding:40px 16px 20px}.w{padding:0 16px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<div class="sheet"><div class="w"><header class="nv"><b><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#1d1a16"/><path d="M9 20c0-8 6-12 14-12 0 8-4 14-14 12z" fill="#e8d3a8"/></svg>Obsidian &amp; Oat</b><nav aria-label="Main"><a href="#">Coffee</a><a href="#">Subscribe</a><a href="#">Visit</a><a href="#">Journal</a></nav></header>
+<main><section class="hero"><div><h1 id="top" tabindex="-1">Roasted slowly. Delivered warmly.</h1><p class="lead">Small-batch coffee from four farms we have visited, roasted twice a week in a stone barn and posted the same morning.</p><a class="bt" href="#">Choose your first bag</a></div><div id="hs" aria-hidden="true"></div></section>
+<section aria-label="Coffees"><div class="cards" id="cards"></div></section>
+<section class="st"><div><h2>Four farms, one barn, no rush.</h2><p>We buy from the same families every year and pay before the harvest. The roast is light enough to taste the place and dark enough to forgive a rushed morning.</p></div><div class="nm"><div><b>4</b><span>farms we know by name</span></div><div><b>48 hrs</b><span>from roast to your door</span></div><div><b>100%</b><span>compostable packaging</span></div></div></section>
+<div class="bn"><h2>Your first bag is on us.</h2><a class="bt" href="#">Claim it</a></div></main></div></div>
+<footer class="ft" id="ft" aria-label="Site footer"><div class="fi" id="fi"><p class="wm" id="wm" aria-label="Obsidian and Oat"></p>
+<div class="fg"><div class="nl"><h3>The Friday letter</h3><p>One short email on Fridays: what we roasted, what we drank, what went wrong.</p><form id="nf" novalidate><input id="em" type="email" placeholder="you@example.com" aria-label="Email address" aria-describedby="ms" autocomplete="email"><button type="submit">Join</button></form><span class="msg" id="ms" role="status"></span></div>
+<div><h3>Coffee</h3><ul><li><a href="#">Shop all</a></li><li><a href="#">Subscriptions</a></li><li><a href="#">Brew guides</a></li><li><a href="#">Gift cards</a></li></ul></div><div><h3>Visit</h3><ul><li><a href="#">The barn</a></li><li><a href="#">Opening hours</a></li><li><a href="#">Tastings</a></li><li><a href="#">Find us</a></li></ul></div><div><h3>Company</h3><ul><li><a href="#">Our farms</a></li><li><a href="#">Journal</a></li><li><a href="#">Careers</a></li><li><a href="#">hello@obsidianandoat.example.com</a></li></ul></div></div>
+<div class="bt2"><span>© Obsidian &amp; Oat</span><span class="clk" id="clk">Pennick Bay · 00:00</span><button class="up" id="up" type="button"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>Back to top</button></div></div></footer>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var ft=$('#ft'),fi=$('#fi'),body=document.body,fh=640,letters=[];
+var wm=$('#wm');'OBSIDIAN & OAT'.split('').forEach(function(ch,i){var s=document.createElement('span');s.setAttribute('aria-hidden','true');s.textContent=ch===' '?' ':ch;wm.appendChild(s);letters.push(s)});
+var s=9;function r(){s=(s*9301+49297)%233280;return s/233280}
+var bagCols=[['#8a4b2a','#e8d3a8','Barn Blend','Cocoa, toasted oat, orange peel','£9.50'],['#2f5a47','#f3ede2','Kestrel Washed','Jasmine, peach, black tea','£11.00'],['#a0432f','#fbe9c8','Ember Natural','Blueberry jam, brown sugar','£12.50']];
+$('#cards').innerHTML=bagCols.map(function(b){return '<article class="cd"><svg viewBox="0 0 160 160" aria-hidden="true"><rect width="160" height="160" rx="16" fill="#efe6d3"/><path d="M44 36h72l10 108H34z" fill="'+b[0]+'"/><path d="M44 36h72l-4 20H48z" fill="#00000026"/><rect x="50" y="76" width="60" height="36" rx="4" fill="'+b[1]+'"/><path d="M60 94h40M64 102h32" stroke="'+b[0]+'" stroke-width="3" stroke-linecap="round"/></svg><h2>'+b[2]+'</h2><p>'+b[3]+'</p><b>'+b[4]+'</b> <span style="color:#5f574b;font-size:14px">· 250 g</span></article>'}).join('');
+$('#hs').innerHTML='<svg viewBox="0 0 420 420"><circle cx="210" cy="210" r="190" fill="#e8d3a8"/><circle cx="210" cy="210" r="150" fill="#d9bd87"/><path d="M130 110h160l22 220H108z" fill="#1d1a16"/><path d="M130 110h160l-8 44H138z" fill="#00000044"/><rect x="146" y="200" width="128" height="80" rx="8" fill="#f3ede2"/><path d="M166 232h88M174 252h72" stroke="#1d1a16" stroke-width="6" stroke-linecap="round"/><path d="M180 92c0-24 20-24 20-48M220 92c0-24 20-24 20-48" stroke="#8a4b2a" stroke-width="6" fill="none" stroke-linecap="round" opacity=".6"/></svg>';
+function measure(){var h=ft.offsetHeight;fh=h;var tall=h>innerHeight*.98||reduce;body.classList.toggle('static',tall);document.documentElement.style.setProperty('--fh',h+'px');upd()}
+var tick=false;
+function upd(){tick=false;if(body.classList.contains('static')){fi.style.transform='';letters.forEach(function(l){l.style.transform='';l.style.opacity=''});return}
+ var remain=document.documentElement.scrollHeight-(window.scrollY+innerHeight),p=Math.max(0,Math.min(1,1-remain/fh));
+ fi.style.transform='translateY('+((p-1)*40).toFixed(1)+'px)';
+ letters.forEach(function(l,i){var q=Math.max(0,Math.min(1,(p-.15-i*.02)/.35));l.style.transform='translateY('+((1-q)*40).toFixed(1)+'px)';l.style.opacity=q.toFixed(2)})}
+function req(){if(!tick){tick=true;requestAnimationFrame(upd)}}
+addEventListener('scroll',req,{passive:true});addEventListener('resize',measure);
+if('ResizeObserver' in window)new ResizeObserver(measure).observe(ft);
+measure();
+ft.addEventListener('focusin',function(){if(!body.classList.contains('static')){var remain=document.documentElement.scrollHeight-(window.scrollY+innerHeight);if(remain>4)window.scrollTo({top:document.documentElement.scrollHeight,behavior:'auto'})}});
+function clock(){var t;try{t=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/London'}).format(new Date())}catch(e){var d=new Date();t=('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)}$('#clk').textContent='Pennick Bay · '+t}
+clock();setInterval(clock,30000);
+$('#up').addEventListener('click',function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});setTimeout(function(){var h=$('#top');try{h.focus({preventScroll:true})}catch(e){h.focus()}},reduce?0:700)});
+$('#nf').addEventListener('submit',function(e){e.preventDefault();var v=$('#em').value.trim(),m=$('#ms');if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){$('#em').setAttribute('aria-invalid','true');m.className='msg';m.textContent='Please enter a valid email, like name@example.com.';$('#em').focus()}else{$('#em').removeAttribute('aria-invalid');m.className='msg ok';m.textContent='You are on the list. See you on Friday.';$('#em').value=''}});
+})();
+</script></body></html>

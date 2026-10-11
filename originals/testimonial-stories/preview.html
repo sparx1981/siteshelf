@@ -1,0 +1,103 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Story Style Testimonials — Testimonials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(700px 500px at 72% 40%,rgba(194,48,125,.35),transparent 70%),#1a1020;color:#f6eef8;font:400 16px/1.55 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #fff;outline-offset:3px;box-shadow:0 0 0 6px #1a1020}
+.w{max-width:1160px;margin:0 auto;padding:56px 22px;display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:72px;align-items:center;min-height:100vh}
+.eb{font:600 13px Inter;text-transform:uppercase;letter-spacing:.14em;color:#ff9a7a;margin:0 0 14px}
+h1{font:800 clamp(38px,5.4vw,68px)/1 "Bricolage Grotesque",sans-serif;margin:0 0 18px;letter-spacing:-.025em}
+.lead{color:#cbbbd2;max-width:42ch;font-size:18px;margin:0 0 26px}
+.bt{all:unset;box-sizing:border-box;cursor:pointer;padding:13px 24px;border-radius:999px;background:#fff;color:#1a1020;font-weight:600;min-height:46px;transition:transform .15s,background .2s}.bt:hover{background:#ffd9cc}.bt:active{transform:scale(.97)}.bt:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.hint{display:block;margin-top:14px;color:#a692ad;font-size:14px}
+.card{position:relative;width:390px;height:700px;border-radius:28px;overflow:hidden;box-shadow:0 50px 100px -30px rgba(0,0,0,.7);background:#000;isolation:isolate;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.pb{position:absolute;top:12px;left:12px;right:12px;display:flex;gap:4px;z-index:6}
+.pb i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.35);overflow:hidden;position:relative}
+.pb i b{position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left}
+.pb i.done b{transform:scaleX(1)}
+.pb i.run b{animation:fill var(--d,5.5s) linear forwards}.card.paused .pb i.run b{animation-play-state:paused}
+@keyframes fill{to{transform:scaleX(1)}}
+.hd{position:absolute;top:26px;left:14px;right:14px;display:flex;align-items:center;gap:10px;z-index:6;color:inherit}
+.av{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:700 13px "Bricolage Grotesque";background:rgba(255,255,255,.9);color:#1a1020;flex:none}
+.hd b{font-size:14px;font-weight:600;display:block;line-height:1.2}.hd span{font-size:12px;opacity:.85}
+.hd .tm{margin-left:auto;font-size:12px;opacity:.8}
+.pp{all:unset;box-sizing:border-box;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer;margin:-6px -6px -6px 0;position:relative;z-index:8}
+.pp:hover{background:rgba(255,255,255,.2)}.pp:focus-visible{outline:3px solid #fff;outline-offset:0;box-shadow:0 0 0 5px rgba(0,0,0,.55)}
+.pp svg{width:18px;height:18px;fill:currentColor}
+.pn{position:absolute;inset:0;padding:96px 28px 40px;display:flex;flex-direction:column;justify-content:center;gap:24px;opacity:0;transition:opacity .35s;pointer-events:none}
+.pn.on{opacity:1}
+.pn q{display:block;font:700 clamp(26px,7.2vw,32px)/1.12 "Bricolage Grotesque",sans-serif;letter-spacing:-.015em;quotes:none;position:relative;z-index:2}
+.pn q:before{content:"\201C";display:block;font:800 90px/.7 "Bricolage Grotesque";opacity:.35;margin-bottom:6px}
+.st{position:relative;z-index:2;border-top:1.5px solid currentColor;padding-top:16px;display:flex;align-items:flex-end;justify-content:space-between;gap:14px}
+.st b{font:800 44px/.95 "Bricolage Grotesque";letter-spacing:-.03em;display:block}.st span{font-size:14px;font-weight:500;max-width:15ch;display:block}
+.rm{font:600 13px Inter;padding:8px 14px;border-radius:999px;border:1.5px solid currentColor;white-space:nowrap}
+.sh{position:absolute;inset:0;overflow:hidden;z-index:1}.sh svg{position:absolute;inset:0;width:100%;height:100%}
+.sh .f{animation:fl 9s ease-in-out infinite alternate}@keyframes fl{to{transform:translate(14px,-18px) rotate(6deg)}}
+.tz{position:absolute;top:84px;bottom:0;z-index:4;cursor:pointer;-webkit-tap-highlight-color:transparent}.tz.l{left:0;width:40%}.tz.r{right:0;width:60%}
+.end{position:absolute;inset:0;z-index:5;background:#1a1020;display:grid;place-content:center;gap:18px;text-align:center;padding:30px}
+.end h2{font:800 36px/1.05 "Bricolage Grotesque";margin:0}.end p{margin:0;color:#cbbbd2}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:900px){.w{grid-template-columns:minmax(0,1fr);gap:32px;padding:32px 16px 44px;min-height:0;justify-items:center}.w>div:first-child{justify-self:stretch}.card{width:100%;max-width:420px;height:min(78vh,700px);min-height:560px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.pb i.run b{transform:scaleX(1)}}
+</style></head><body>
+<div class="w"><div><p class="eb">Real families, real results</p><h1>Six stories from the kitchen table.</h1>
+<p class="lead">Lumen Learning pairs pupils with a patient tutor for twenty minutes a night. Here is what happened next, in their own words.</p>
+<button class="bt" id="again" type="button">Watch again</button><span class="hint">Tap right or left, hold to pause, or use the arrow keys.</span></div>
+<section class="card" id="card" aria-roledescription="carousel" aria-label="Customer stories" tabindex="0">
+<div class="pb" id="pb" aria-hidden="true"></div>
+<div class="hd" id="hd"><span class="av" id="av"></span><div><b id="nm"></b><span id="rl"></span></div><span class="tm" id="tm"></span><button class="pp" id="pp" type="button" aria-label="Pause stories"><svg viewBox="0 0 24 24" aria-hidden="true" id="ppi"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button></div>
+<div id="ps"></div>
+<div class="tz l" id="zl" aria-hidden="true"></div><div class="tz r" id="zr" aria-hidden="true"></div>
+<div class="end" id="end" hidden><h2>That’s every story.</h2><p>Want yours to be next? Try a free first lesson.</p><button class="bt" id="again2" type="button">Watch again</button></div>
+</section></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var S=[
+{n:'Odette Marlow',r:'Parent of Wren, 14',t:'2d',g:['#ff7a5c','#c2307d'],c:'#fff',q:'She stopped hiding her maths book. That was the first win. The grade came later.',s:'A in GCSE Maths',d:'in just 8 weeks'},
+{n:'Kwame Boateng',r:'Year 6 teacher',t:'3d',g:['#16b3a6','#3b3bb3'],c:'#fff',q:'Half my class arrives with a question prepared. I have never seen that before.',s:'31 questions',d:'asked before first bell'},
+{n:'Priya Raman',r:'Parent of two',t:'5d',g:['#ffb84d','#d4531f'],c:'#1c0d05',q:'Homework used to take until nine. Now we’re done before the pasta is.',s:'42 min',d:'saved every night'},
+{n:'Ellis Hartnoll',r:'Sixth-form student',t:'1w',g:['#b6e04a','#1f7a4d'],c:'#0b1d10',q:'My tutor didn’t give me answers. She gave me better questions. Annoying. Effective.',s:'+2 grades',d:'in Physics this term'},
+{n:'Saoirse Quill',r:'Parent of Fionn, 9',t:'1w',g:['#4cb8ff','#6a3fd0'],c:'#fff',q:'He asked to do his reading lesson on a Saturday. I checked he was feeling okay.',s:'0 → 5 days',d:'of reading a week'},
+{n:'Dev Anand-Cole',r:'Home-school parent',t:'2w',g:['#ff8fb3','#7a2a6a'],c:'#fff',q:'We use Lumen for the subjects I fear. Chemistry has never been so quietly calm.',s:'4.9 / 5',d:'from our whole household'}];
+var N=S.length,cur=0,paused=false,userStopped=false,hold=0,holdT,dur=5500,timer=null,left=0,startAt=0,visible=true,ended=false;
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var card=$('#card'),pb=$('#pb'),ps=$('#ps'),live=$('#live');
+var seed=5;function r(){seed=(seed*9301+49297)%233280;return seed/233280}
+function shapes(i){seed=i*71+9;var o='<svg viewBox="0 0 390 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">';for(var k=0;k<7;k++){var x=r()*390,y=r()*700,rad=30+r()*110;o+='<circle class="f" style="animation-delay:'+(-r()*8).toFixed(1)+'s" cx="'+x.toFixed(0)+'" cy="'+y.toFixed(0)+'" r="'+rad.toFixed(0)+'" fill="#fff" opacity="'+(.05+r()*.1).toFixed(2)+'"/>'}
+ for(var j=0;j<3;j++){var a=r()*390,b=r()*700;o+='<path class="f" d="M'+a.toFixed(0)+' '+b.toFixed(0)+' q40 -50 80 0 t80 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".3"/>'}return o+'</svg>'}
+S.forEach(function(s,i){var p=document.createElement('div');p.className='pn';p.setAttribute('role','group');p.setAttribute('aria-roledescription','slide');p.setAttribute('aria-label','Story '+(i+1)+' of '+N);p.hidden=true;p.style.cssText='background:linear-gradient(160deg,'+s.g[0]+','+s.g[1]+');color:'+s.c;
+ p.innerHTML='<div class="sh">'+shapes(i)+'</div><q>'+s.q+'</q><div class="st"><div><b>'+s.s+'</b><span>'+s.d+'</span></div><span class="rm" aria-hidden="true">Read more</span></div>';ps.appendChild(p);
+ var b=document.createElement('i');b.innerHTML='<b></b>';pb.appendChild(b)});
+var panels=[].slice.call(ps.children),bars=[].slice.call(pb.children);
+function ini(n){return n.split(' ').map(function(w){return w[0]}).join('')}
+function show(i){cur=i;ended=false;$('#end').hidden=true;
+ panels.forEach(function(p,k){var on=k===i;p.hidden=!on;p.inert=!on;p.classList.toggle('on',on)});
+ requestAnimationFrame(function(){panels[i].classList.add('on')});
+ bars.forEach(function(b,k){b.className=k<i?'done':'';});
+ var s=S[i];$('#av').textContent=ini(s.n);$('#nm').textContent=s.n;$('#rl').textContent=s.r;$('#tm').textContent=s.t;$('#hd').style.color=s.c;$('#pp').style.color=s.c;
+ live.textContent='Story '+(i+1)+' of '+N+': '+s.n+', '+s.r+'. '+s.q;
+ void pb.offsetWidth;left=dur;
+ if(!reduce)bars[i].className='run';else bars[i].className='done';
+ start()}
+function clearT(){clearTimeout(timer);timer=null}
+function start(){clearT();if(reduce||paused||userStopped||!visible||ended||document.hidden)return;startAt=performance.now();timer=setTimeout(next,left)}
+function stop(){if(timer){left=Math.max(0,left-(performance.now()-startAt));clearT()}}
+function setPaused(v,fromUser){paused=v;card.classList.toggle('paused',v||userStopped);if(v)stop();else start();ppUi()}
+function ppUi(){var on=paused||userStopped;$('#ppi').innerHTML=on?'<path d="M7 4l13 8-13 8z"/>':'<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>';$('#pp').setAttribute('aria-label',on?'Play stories':'Pause stories')}
+function next(){if(cur>=N-1){finish();return}show(cur+1)}
+function prev(){show(Math.max(0,cur-1))}
+function finish(){ended=true;clearT();bars.forEach(function(b){b.className='done'});$('#end').hidden=false;panels.forEach(function(p){p.hidden=true});live.textContent='End of stories'}
+function restart(){userStopped=false;paused=false;card.classList.remove('paused');ppUi();show(0)}
+$('#again').addEventListener('click',restart);$('#again2').addEventListener('click',restart);
+$('#pp').addEventListener('click',function(){if(paused||userStopped){userStopped=false;setPaused(false)}else{userStopped=true;card.classList.add('paused');stop();ppUi()}});
+function press(e){if(e.target.closest('.pp'))return;hold=0;clearTimeout(holdT);holdT=setTimeout(function(){hold=1;if(!userStopped){paused=true;card.classList.add('paused');stop()}},180)}
+function release(){clearTimeout(holdT);if(hold){hold=0;if(!userStopped){paused=false;card.classList.remove('paused');start()}}}
+['zl','zr'].forEach(function(id){var z=$('#'+id);z.addEventListener('pointerdown',press);z.addEventListener('pointerup',function(e){var wasHold=hold;release();if(!wasHold){if(ended)return;(id==='zr'?next:prev)()}});z.addEventListener('pointerleave',release);z.addEventListener('pointercancel',release)});
+card.addEventListener('keydown',function(e){var k=e.key;if(k==='ArrowRight'){e.preventDefault();userStopped=true;ppUi();card.classList.add('paused');stop();if(!ended)next()}else if(k==='ArrowLeft'){e.preventDefault();userStopped=true;ppUi();card.classList.add('paused');stop();prev()}else if(k==='Home'){e.preventDefault();userStopped=true;ppUi();show(0)}else if(k==='End'){e.preventDefault();userStopped=true;ppUi();show(N-1)}else if((k===' '||k==='k'||k==='K')&&e.target===card){e.preventDefault();$('#pp').click()}else if(k==='Escape'){userStopped=true;card.classList.add('paused');stop();ppUi()}});
+document.addEventListener('visibilitychange',function(){if(document.hidden)stop();else start()});
+new IntersectionObserver(function(es){visible=es[0].isIntersecting;if(visible)start();else stop()},{threshold:.5}).observe(card);
+show(0);
+})();
+</script></body></html>

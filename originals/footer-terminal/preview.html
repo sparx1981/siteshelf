@@ -1,0 +1,91 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Terminal Footer — Footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+:root{--ph:#5df2a0}
+body{margin:0;background:#0b0f0d;color:#d8e6dd;font:400 16px/1.6 "Space Grotesk",system-ui,sans-serif;overflow-x:hidden;min-height:100vh}
+:focus-visible{outline:3px solid var(--ph);outline-offset:3px;box-shadow:0 0 0 6px #0b0f0d}
+.hero{max-width:980px;margin:0 auto;padding:44px 24px 32px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:38px;font:700 20px "Space Grotesk"}.nav b{display:flex;gap:10px;align-items:center}.nav i{width:22px;height:22px;border:3px solid var(--ph);border-radius:6px;display:block;position:relative}.nav i:after{content:"";position:absolute;inset:4px;background:var(--ph);border-radius:2px}
+h1{font:700 clamp(36px,6vw,66px)/1 "Space Grotesk";margin:0 0 14px;letter-spacing:-.025em;max-width:14ch}
+.lead{max-width:50ch;color:#a9bbb0;margin:0 0 22px;font-size:18px}
+.bt{display:inline-block;font:700 15px "Space Grotesk";padding:12px 20px;border-radius:10px;text-decoration:none;margin-right:10px;border:1.5px solid var(--ph);color:var(--ph);min-height:44px;line-height:20px}.bt.p{background:var(--ph);color:#04140b}.bt:hover{filter:brightness(1.15)}
+.tw{max-width:980px;margin:0 auto;padding:0 24px 18px}
+.term{border:1px solid #23332b;border-radius:14px;background:#0f1512;overflow:hidden;box-shadow:0 0 0 1px rgba(93,242,160,.04),0 30px 80px -30px rgba(0,0,0,.9),inset 0 0 80px rgba(93,242,160,.04);position:relative;font:400 15px/1.65 "JetBrains Mono",monospace}
+.term:after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,rgba(255,255,255,.035) 2px 3px)}
+.tt{display:flex;gap:8px;align-items:center;padding:10px 14px;background:#16201b;border-bottom:1px solid #23332b;color:#7f968a;font-size:13px}
+.tt i{width:11px;height:11px;border-radius:50%;background:#2f4238}.tt i:nth-child(1){background:#ff6b5e}.tt i:nth-child(2){background:#ffc561}.tt i:nth-child(3){background:#5df2a0}.tt span{margin-left:10px}
+.out{height:340px;overflow:auto;padding:16px 18px 4px;overscroll-behavior:contain;scroll-behavior:auto}
+.ln{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;color:#d8e6dd}
+.ln.cm{color:var(--ph)}.ln.mu{color:#7f968a}.ln.wr{color:#ffc561}
+.ln a{color:#7fd6ff;text-decoration:underline;text-underline-offset:3px}.ln a:hover{background:rgba(127,214,255,.15)}
+.ln .d{color:var(--ph);font-weight:700}
+.pl{display:flex;gap:10px;padding:6px 18px 16px;align-items:center}
+.ps{color:var(--ph);white-space:nowrap;font-weight:700}
+#in{flex:1;min-width:0;background:none;border:0;color:#d8e6dd;font:inherit;caret-color:var(--ph);outline:none;padding:6px 0}
+.pl:focus-within{background:rgba(93,242,160,.04)}
+.cur{display:inline-block;width:9px;height:1.1em;background:var(--ph);vertical-align:-3px;animation:bl 1s steps(2) infinite}@keyframes bl{50%{opacity:0}}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chips button{all:unset;box-sizing:border-box;cursor:pointer;font:500 13px "JetBrains Mono",monospace;padding:8px 12px;border:1px solid #2c4136;border-radius:8px;color:#a9bbb0;min-height:36px;transition:border-color .2s,color .2s,background .2s}
+.chips button:hover{border-color:var(--ph);color:var(--ph);background:rgba(93,242,160,.07)}.chips button:focus-visible{outline:3px solid var(--ph);outline-offset:2px}
+.bar{max-width:980px;margin:0 auto;padding:10px 24px 40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;font-size:14px;color:#7f968a}
+.bar nav{display:flex;gap:6px 18px;flex-wrap:wrap}.bar a{color:#a9bbb0;text-decoration:none;padding:6px 0;display:inline-block}.bar a:hover{color:var(--ph);text-decoration:underline;text-underline-offset:4px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#16201b;border:1px solid var(--ph);color:var(--ph);padding:10px 18px;border-radius:10px;font:500 14px "JetBrains Mono",monospace;opacity:0;pointer-events:none;transition:.25s;z-index:20}.toast.on{opacity:1;transform:translate(-50%,0)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:640px){.term{font-size:13px}.tt i{display:none}.out{height:300px}.hero{padding:28px 16px 22px}.tw{padding:0 16px 14px}.bar{padding:6px 16px 32px;flex-direction:column;align-items:flex-start}.pl{padding:4px 12px 12px}.out{padding:12px 12px 4px}.ps{max-width:46%;overflow:hidden;text-overflow:ellipsis}}
+@media (prefers-reduced-motion:reduce){.cur{animation:none}*{transition:none!important}}
+</style></head><body>
+<main class="hero"><div class="nav"><b><i></i>Kernel &amp; Cog</b><span style="color:#7f968a;font-size:15px">v4.2 · stable</span></div>
+<h1>Tools that stay out of your way.</h1><p class="lead">A build cache, a log viewer and a deploy button that behave the same on your laptop and in production.</p><a class="bt p" href="#">Start free</a><a class="bt" href="#">Read the docs</a></main>
+<footer class="tw" aria-label="Site footer"><div class="term" id="term"><div class="tt" aria-hidden="true"><i></i><i></i><i></i><span>visitor@kernelcog: <b id="ttp" style="font-weight:500">~</b></span></div>
+<div class="out" id="out" role="log" aria-live="polite" aria-label="Terminal output"></div>
+<div class="pl"><label class="ps" id="ps" for="in">visitor@kernelcog:~$</label><input id="in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command"></div></div>
+<div class="chips" id="chips" role="group" aria-label="Quick commands"></div></footer>
+<div class="bar"><span>© Kernel &amp; Cog · hello@kernelcog.example.com</span><nav aria-label="Footer"><a href="#">Docs</a><a href="#">Pricing</a><a href="#">Changelog</a><a href="#">Status</a><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a></nav></div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var out=$('#out'),inp=$('#in'),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var FS={product:['Build cache','Log viewer','Deploy button','Pricing'],docs:['Quickstart','CLI reference','API','Changelog'],company:['About','Careers','Press','Contact'],legal:['Privacy','Terms','Security','Status']};
+var cwd='',hist=[],hi=0,busy=false;
+var CMDS=['help','ls','cd','open','whoami','date','echo','history','theme','clear','sudo'];
+function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+function line(h,cls){var p=document.createElement('p');p.className='ln'+(cls?' '+cls:'');p.innerHTML=h;out.appendChild(p);out.scrollTop=out.scrollHeight;return p}
+function prompt(){var p='visitor@kernelcog:'+(cwd?'~/'+cwd:'~')+'$';$('#ps').textContent=p;$('#ttp').textContent=cwd?'~/'+cwd:'~'}
+function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){t.classList.remove('on')},1800)}
+function slug(n){return n.toLowerCase().replace(/[^a-z0-9]+/g,'-')}
+function lev(a,b){var m=[],i,j;for(i=0;i<=b.length;i++)m[i]=[i];for(j=0;j<=a.length;j++)m[0][j]=j;for(i=1;i<=b.length;i++)for(j=1;j<=a.length;j++)m[i][j]=Math.min(m[i-1][j]+1,m[i][j-1]+1,m[i-1][j-1]+(b[i-1]===a[j-1]?0:1));return m[b.length][a.length]}
+function run(raw){var cmd=raw.trim();line('<span class="d">'+esc($('#ps').textContent)+'</span> '+esc(cmd),'cm');if(!cmd)return;hist.push(cmd);hi=hist.length;
+ var a=cmd.split(/\s+/),c=a[0].toLowerCase(),arg=a.slice(1).join(' ');
+ if(c==='help'){line('Commands:');[['help','this list'],['ls','list sections or links'],['cd <dir>','enter a section (cd .. to go back)'],['open <name>','follow a link'],['theme [green|amber|ice]','change colours'],['whoami, date, echo, history, clear','the usual']].forEach(function(r){line('  '+esc(r[0])+'  <span style="color:#7f968a">'+esc(r[1])+'</span>')})}
+ else if(c==='ls'){if(!cwd){line(Object.keys(FS).map(function(k){return '<span class="d">'+k+'/</span>'}).join('   '))}else{FS[cwd].forEach(function(n){line('  <a href="#" data-o="'+esc(n)+'">'+esc(n)+'</a>')})}}
+ else if(c==='cd'){var t=arg.replace(/\/$/,'').toLowerCase();if(!t||t==='~'||t==='..'||t==='/'){cwd=''}else if(FS[t]){cwd=t}else line('cd: no such directory: '+esc(arg),'wr');prompt()}
+ else if(c==='open'){var all=[].concat.apply([],Object.keys(FS).map(function(k){return FS[k]})),f=all.filter(function(n){return n.toLowerCase()===arg.toLowerCase()||slug(n)===slug(arg)})[0];if(f){line('Opening '+esc(f)+' …','mu');toast('Opening '+f)}else line('open: '+(arg?'unknown link: '+esc(arg):'which link? try ls'),'wr')}
+ else if(c==='whoami')line('visitor — a person we are pleased to see');
+ else if(c==='date')line(new Date().toDateString());
+ else if(c==='echo')line(esc(arg));
+ else if(c==='history'){hist.forEach(function(h,i){line(' '+(i+1)+'  '+esc(h),'mu')})}
+ else if(c==='theme'){var m={green:'#5df2a0',amber:'#ffb454',ice:'#8fd1ff'},k=arg.toLowerCase();if(m[k]){document.documentElement.style.setProperty('--ph',m[k]);line('Theme set to '+k+'.')}else line('usage: theme green | amber | ice','wr')}
+ else if(c==='clear'){out.innerHTML=''}
+ else if(c==='sudo')line('visitor is not in the sudoers file. This incident will be reported to the kettle.','wr');
+ else{var best=CMDS.map(function(x){return [x,lev(c,x)]}).sort(function(p,q){return p[1]-q[1]})[0];line('command not found: '+esc(c)+(best[1]<=2?'. Did you mean “'+best[0]+'”?':'. Try help.'),'wr')}}
+out.addEventListener('click',function(e){var a=e.target.closest('a[data-o]');if(a){e.preventDefault();toast('Opening '+a.dataset.o)}});
+inp.addEventListener('keydown',function(e){var k=e.key;
+ if(k==='Enter'){e.preventDefault();var v=inp.value;inp.value='';run(v)}
+ else if(k==='ArrowUp'){e.preventDefault();if(hi>0){hi--;inp.value=hist[hi]}}
+ else if(k==='ArrowDown'){e.preventDefault();if(hi<hist.length-1){hi++;inp.value=hist[hi]}else{hi=hist.length;inp.value=''}}
+ else if(k==='Tab'&&inp.value&&!e.shiftKey){var v=inp.value,parts=v.split(/\s+/);if(parts.length===1){var m=CMDS.filter(function(c){return c.indexOf(v)===0});if(m.length===1){e.preventDefault();inp.value=m[0]+' '}}else if(parts[0]==='cd'){var d=Object.keys(FS).filter(function(x){return x.indexOf(parts[1])===0});if(d.length===1){e.preventDefault();inp.value='cd '+d[0]}}}
+ else if((e.ctrlKey||e.metaKey)&&k.toLowerCase()==='l'){e.preventDefault();out.innerHTML=''}});
+$('#term').addEventListener('click',function(e){if(!window.getSelection().toString()&&!e.target.closest('a'))inp.focus()});
+['help','ls','cd product','cd company','theme amber','clear'].forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent=c;b.addEventListener('click',function(){typeCmd(c)});$('#chips').appendChild(b)});
+function typeCmd(c){if(busy)return;busy=true;inp.value='';inp.focus();if(reduce){inp.value=c;finish();return}var i=0;(function t(){inp.value=c.slice(0,++i);if(i<c.length)setTimeout(t,25);else setTimeout(finish,160)})();function finish(){var v=inp.value;inp.value='';busy=false;run(v)}}
+/* greeting */
+var greet='Welcome to Kernel & Cog. Type help, or press a chip below.';
+var gp=line('','mu');
+if(reduce){gp.textContent=greet}else{var gi=0;(function g(){gp.textContent=greet.slice(0,++gi);out.scrollTop=out.scrollHeight;if(gi<greet.length)setTimeout(g,16);else{gp.innerHTML=esc(greet)}})()}
+line('Last login: today from your browser','mu');
+prompt();
+if(!reduce)setTimeout(function(){if(!hist.length&&!inp.value)typeCmd('ls')},1700);
+})();
+</script></body></html>

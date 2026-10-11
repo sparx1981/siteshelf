@@ -1,0 +1,11 @@
+Canvas & base: Page background #fff6d6 (butter yellow), ink #111111, accents hot pink #ff4fa3, electric blue #3b5bff, lime #b8ff4f. Every box has a 3px solid #111 border and a hard offset shadow of 6px 6px 0 #111 with no blur. Body margin 0, max content width 1160px with 24px gutters.
+
+Typography: "Space Grotesk" (500, 700) for body and headings, "Space Mono" (400, 700) for labels. Hero headline 104px/0.92 weight 700, uppercase, letter-spacing -0.04em (clamp down to 52px on mobile). Labels 13px mono uppercase.
+
+Layout: 1) Top bar: logo block "MIRA.OKAFOR" in a bordered white box, nav links Work, About, Contact as bordered pills, and a pink "Hire me" button. 2) Hero: a two-column grid; left has the headline "I make loud little websites." with the word "loud" on a pink highlighter block, a 20px paragraph and two buttons; right has a bordered blue card holding a circular rotating text sticker ("AVAILABLE FOR WORK · AVAILABLE FOR WORK ·") spinning 12s linear infinite. 3) A black ticker band 56px tall with yellow mono text scrolling right to left forever. 4) "Selected work" grid of 6 project cards (3 columns desktop, 2 tablet, 1 mobile), each with a coloured pattern block (stripes, dots, grid, checkers made with CSS gradients), a title, year and tag. 5) About box with a short bio and a skills list of bordered chips. 6) Footer with a huge mono email address.
+
+Interaction: Buttons and cards move up-left by 4px and their shadow grows to 10px on hover, and press down to 0 shadow on active (120ms). The ticker pauses on hover. A "Hire me" click scrolls smoothly to the footer.
+
+Responsive: Hero stacks, nav pills wrap, the card grid collapses, and nothing overflows at 390px.
+
+Rules: Respect prefers-reduced-motion by stopping the ticker and the sticker. No images, no libraries, one HTML file.

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Weekender — The Last Lighthouse Keepers of Brittany</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:#f4efe6;color:#1b1814;font:400 19px/1.7 "Source Serif 4",Georgia,serif}
+#pg{position:fixed;top:0;left:0;height:4px;width:100%;background:#8c1d18;transform:scaleX(0);transform-origin:left;z-index:50}
+.w{max-width:1100px;margin:0 auto;padding:0 32px}
+.k{font:600 12px Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em}
+.strip{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid #1b1814}
+.strip a{color:inherit}
+.mast{border-bottom:1px solid #1b1814;padding:18px 0 22px;text-align:center;position:relative}
+.mast:before{content:"";position:absolute;left:0;right:0;top:-5px;border-top:1px solid #1b1814}
+.mast h1{font:900 clamp(48px,11.5vw,158px)/.85 "Playfair Display",Georgia,serif;letter-spacing:-.04em;margin:0}
+.fh{text-align:center;padding:56px 0 40px;max-width:860px;margin:0 auto}
+.fh>.k{color:#8c1d18}
+h2.t{font:700 64px/1.02 "Playfair Display",Georgia,serif;letter-spacing:-.02em;margin:18px 0 22px}
+.dek{font:italic 400 22px/1.5 "Source Serif 4",Georgia,serif;color:#3d372f;margin:0 auto 26px;max-width:36em}
+.by{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 20px;color:#6b6459;padding-top:18px;border-top:1px solid #1b1814}
+.lay{display:grid;grid-template-columns:220px minmax(0,680px);gap:64px;justify-content:center;padding-bottom:40px}
+.toc{position:sticky;top:90px;align-self:start}
+.toc .k{display:block;color:#6b6459;margin-bottom:12px}
+.toc a{display:block;padding:9px 0 9px 14px;border-left:2px solid #d8d0c1;color:#6b6459;text-decoration:none;font:500 15px/1.35 Inter,sans-serif}
+.toc a.on{border-color:#8c1d18;color:#1b1814;font-weight:600}
+.art p{margin:0 0 1.2em}
+.art>section:first-of-type>p:first-of-type:first-letter{font:900 5.4em/.78 "Playfair Display",Georgia,serif;float:left;color:#8c1d18;padding:.06em .1em 0 0}
+.art h3{font:700 32px/1.15 "Playfair Display",Georgia,serif;letter-spacing:-.01em;margin:2em 0 .6em}
+.art a{color:#8c1d18;text-underline-offset:4px;text-decoration-thickness:1px}
+.art a:hover{text-decoration-thickness:2px}
+.pull{margin:2.2em 0;padding:6px 0 6px 28px;border-left:4px solid #8c1d18;font:italic 400 40px/1.2 "Playfair Display",Georgia,serif;color:#1b1814}
+.fig{margin:2em 0}
+.fig div{height:300px;background:linear-gradient(180deg,#f0c98a 0,#e29a62 38%,#2b3a55 38.2%,#1c2a40 100%);position:relative;overflow:hidden}
+.fig div:before{content:"";position:absolute;left:50%;bottom:30%;width:34px;height:150px;margin-left:-17px;background:linear-gradient(90deg,#f4efe6 0 33%,#8c1d18 33% 66%,#f4efe6 66%);clip-path:polygon(25% 0,75% 0,100% 100%,0 100%)}
+.fig div:after{content:"";position:absolute;left:50%;bottom:calc(30% + 150px);width:44px;height:22px;margin-left:-22px;background:#1b1814;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.fig figcaption{font:500 13px/1.4 Inter,sans-serif;color:#6b6459;padding-top:10px;border-top:1px solid #1b1814;margin-top:10px}
+.more{border-top:1px solid #1b1814;padding:40px 0 80px}
+.more .g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;margin-top:20px}
+.more a{display:block;color:inherit;text-decoration:none;padding-top:14px;border-top:3px solid #1b1814}
+.more a:hover h4{text-decoration:underline;text-decoration-color:#8c1d18;text-decoration-thickness:2px;text-underline-offset:5px}
+.more h4{font:700 26px/1.15 "Playfair Display",Georgia,serif;margin:8px 0}
+.more p{margin:0;color:#6b6459;font-size:16px;line-height:1.5}
+@media(max-width:900px){
+ .w{padding:0 20px}.lay{grid-template-columns:minmax(0,1fr);gap:0}
+ .toc{position:sticky;top:4px;z-index:40;background:#f4efe6;margin:0 -20px 20px;padding:10px 20px;border-bottom:1px solid #d8d0c1;display:flex;gap:8px;overflow-x:auto}
+ .toc .k{display:none}.toc a{white-space:nowrap;border:1px solid #d8d0c1;border-radius:999px;padding:6px 14px}.toc a.on{background:#1b1814;color:#f4efe6;border-color:#1b1814}
+ h2.t{font-size:38px}.pull{font-size:28px;padding-left:18px}.more .g{grid-template-columns:minmax(0,1fr)}.art{font-size:18px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<div id="pg" aria-hidden="true"></div>
+<div class="w">
+ <div class="strip k"><span>Sunday 11 October</span><span>Issue 07</span><a href="#more">Subscribe</a></div>
+ <div class="mast"><h1>The Weekender</h1></div>
+ <header class="fh"><span class="k">Long read · 14 min</span><h2 class="t">The Last Lighthouse Keepers of Brittany</h2><p class="dek">Automation ended the profession decades ago. A handful of people on the Atlantic coast never quite got the message.</p><div class="by k"><span>By Élodie Marchetti</span><span>Photographs by Jan Roux</span><span>11 Oct 2026</span></div></header>
+ <div class="lay">
+  <nav class="toc" aria-label="Sections"><span class="k">In this story</span><a href="#a" class="on">The night shift</a><a href="#b">What the light is for</a><a href="#c">A town that remembers</a><a href="#d">The last winter</a></nav>
+  <article class="art">
+   <section id="a"><p>At a quarter to five in the afternoon, Yannick Le Goff climbs three hundred and twelve steps to the top of a granite tower he has never owned and will never leave. The wind is already pulling at the rail. Below him the sea is the colour of slate, and somewhere beyond the reef a fishing boat is turning for home.</p><p>He does not need to be here. The lamp was automated in 1991, and a small box in a cupboard now decides when it turns on. But every evening Yannick climbs anyway, checks the lens, wipes the salt from the brass, and writes a line in a logbook that nobody has asked to read in thirty years.</p>
+    <h3>The night shift</h3><p>The job once had a rhythm. Keepers worked in threes, four weeks on the rock and two weeks ashore, and the station ran on routine: oil, wicks, polish, weather. The routine was the point. A lighthouse is only useful if it never fails, and nothing never fails without people who care about it more than is strictly sensible.</p><p>Yannick joined at nineteen, the youngest keeper on the coast by a decade. He remembers the first storm, the way the whole tower hummed like a struck bell, and the older man who handed him a mug of coffee and said only, “Now you know what it is for.”</p></section>
+   <blockquote class="pull">“A light is a promise you make to strangers.”</blockquote>
+   <section id="b"><h3>What the light is for</h3><p>It is easy to say that satellites made the lighthouse obsolete. Every ship carries a screen that knows its position within a metre. But screens fail, batteries die and signals drift, and there are sailors on this coast who still look for a beam on the horizon before they trust anything else.</p>
+    <figure class="fig"><div role="img" aria-label="Illustration of a striped lighthouse at dusk"></div><figcaption>Dusk at Pointe de Kermorvan. The lamp now switches itself on, and a keeper still checks it.</figcaption></figure>
+    <p>“The light is not for the ships that are fine,” Yannick says. “It is for the one that is not.” He tells the story of a winter night in 2009 when the automatic system froze and a trawler with a broken engine steered by his hand-lit lamp for six hours until the tugs arrived.</p></section>
+   <section id="c"><h3>A town that remembers</h3><p>In the village below the tower, the lighthouse is more than infrastructure. Children are brought on school trips to see the lens. Weddings are photographed on the headland. When the beam sweeps across the kitchen windows at dusk, people pause for a second without noticing they are doing it.</p><p>The town council has voted three times to keep the station staffed, at a cost that its own treasurer calls “irrational and non-negotiable.” A volunteer rota now fills the gaps. There are forty-one names on it, and a waiting list.</p></section>
+   <section id="d"><h3>The last winter</h3><p>Yannick is sixty-eight. He has begun to teach, quietly, to a former trawlerman, a retired nurse and a teenager who arrived on a school visit and never really left. They learn the lamp, the logbook, the signals and the weather, and, harder to teach, the habit of attention.</p><p>On the last evening of my visit, the wind drops. The lamp comes on by itself, as it always does, and Yannick watches it for a long while without speaking. Then he picks up the logbook, writes the date, and adds a single line: “All well.”</p></section>
+  </article>
+ </div>
+ <section class="more" id="more"><span class="k">Continue reading</span><div class="g"><a href="#"><span class="k" style="color:#8c1d18">Food</span><h4>The bakers who still start at midnight</h4><p>Inside Lyon’s oldest guild and its stubborn loaves.</p></a><a href="#"><span class="k" style="color:#8c1d18">Travel</span><h4>Ten slow trains across the Alps</h4><p>Eleven days, six countries and no flights.</p></a></div></section>
+</div>
+<script>
+(function(){
+var bar=document.getElementById('pg');
+function p(){var h=document.documentElement,max=h.scrollHeight-innerHeight;bar.style.transform='scaleX('+(max>0?Math.min(scrollY/max,1):0)+')'}
+addEventListener('scroll',p,{passive:true});addEventListener('resize',p);p();
+var links=[].slice.call(document.querySelectorAll('.toc a')),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var i=secs.indexOf(e.target);links.forEach(function(l,j){l.classList.toggle('on',j===i)});if(innerWidth<=900)links[i].scrollIntoView({inline:'center',block:'nearest'})}})},{rootMargin:'-20% 0px -65% 0px'});
+secs.forEach(function(s){io.observe(s)});
+})();
+</script>
+</body></html>

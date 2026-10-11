@@ -1,0 +1,11 @@
+Canvas & base: White section (#ffffff) on a #fafaf9 page, ink #0f1419, muted #5b6470, hairline #e7e5e4, accent #2563eb. Section padding 96px 0, content max-width 1120px, marquees run full-bleed. Body margin 0.
+
+Typography: "Plus Jakarta Sans" (400, 500, 700, 800). Eyebrow 13px 700 uppercase tracking 0.12em muted. Headline 44px/1.1 weight 800, letter-spacing -0.03em (30px on mobile), centred, max-width 18ch. Sub 18px muted. Stats numbers 36px 800.
+
+Layout: centred eyebrow "Trusted by teams everywhere", headline "Great products are built on great partners", sub paragraph. Then two full-width marquee rows 88px tall. Each holds 8 logo wordmarks (repeated twice per group so wide screens never show a gap) drawn as inline SVG or styled text with distinct shapes (a circle plus text, a square plus text, a triangle plus text, and so on), all in muted grey #9aa1ab at rest, ink on hover. Row one moves left, row two moves right, each duplicated for a seamless loop. Left and right edges fade to white with 120px gradient masks. Below, a speed segmented control (Slow, Normal, Fast), then a 4-column stat strip separated by hairlines: 4,200+ teams, 98% renewal, 41 countries, 24/7 support.
+
+Interaction: Hovering a row pauses it; hovering a logo turns it ink and lifts it 2px. The speed control changes animation duration (60s, 36s, 18s) live and remembers nothing. Focusable logos show a focus ring.
+
+Responsive: Stats become 2 columns at 700px, headline shrinks, marquee height 72px on mobile.
+
+Rules: Loops must be seamless with transform translateX(-50%) on a doubled track. prefers-reduced-motion stops both rows and lets them scroll manually with overflow-x auto. Logos are fictional brands only. No images, no libraries, one HTML file.

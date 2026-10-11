@@ -1,0 +1,11 @@
+Canvas & base: Page #f5f6f8, a centred feed column 600px wide max, cards #ffffff with 1px #e5e7eb border and radius 16px, padding 18px, gap 14px. Ink #111827, muted #6b7280, accent #e11d48 (for likes), link #2563eb. Skeleton blocks use a base #e5e7eb with a moving highlight gradient (#e5e7eb, #f3f4f6, #e5e7eb) sweeping left to right every 1.4s.
+
+Typography: "Figtree" (400, 500, 600, 700). Names 16px 600, handles and times 14px muted, post text 16px/1.55.
+
+Layout: A sticky 56px header with the title "Pulse" and a round Refresh button. Below, a vertical list of post cards. Each real post has a 44px circular gradient avatar with initials, name, @handle, relative time, 1 to 3 lines of text, an optional CSS-drawn image block (16:9 gradient) and an action bar (like with heart and count, comment count, share). The skeleton post mirrors this exact layout (circle, two text lines, three body lines, an image block, action bar) so nothing jumps when content arrives. At the bottom a small spinner row appears while more posts load, and an "You are all caught up" line when the 30 mock posts have been shown.
+
+Interaction: On load show 4 skeleton posts for 1.4s, then replace each with the real post using a staggered fade-and-rise (60ms apart). Scrolling near the bottom (IntersectionObserver sentinel) shows 2 skeletons and loads 5 more after 900ms. The Like button toggles the heart fill and count with a small pop. The Refresh button clears the feed and replays the skeleton phase. A small "Simulate offline" checkbox in the header makes the next load fail, showing an inline error card ("Could not load posts") with a Retry button that then succeeds.
+
+Responsive: Full width under 640px with 12px gutters; header stays sticky; nothing overflows at 390px.
+
+Rules: Skeleton containers use aria-busy="true" and are replaced when loaded; the shimmer stops under prefers-reduced-motion (static grey). Generate the 30 posts from a seeded in-page array (varied names, short plausible texts, some with images). No images, no libraries, one HTML file.

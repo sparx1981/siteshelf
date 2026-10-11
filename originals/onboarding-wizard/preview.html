@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Welcome — Set up your account</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{min-height:100svh;display:grid;place-items:center;padding:24px 16px;background:radial-gradient(900px 500px at 0 0,#e0dbff,transparent 70%),#f3f1ff;color:#1c1a2e;font:500 16px/1.5 Manrope,system-ui,sans-serif}
+.card{width:min(760px,100%);background:#fff;border:1px solid #e6e2fb;border-radius:24px;padding:40px;box-shadow:0 24px 60px rgba(60,40,160,.12);overflow:hidden}
+.rail{display:flex;align-items:flex-start;margin-bottom:36px}
+.st{display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:0;padding:0;font:inherit;color:#6d6a85;min-width:0;flex:none;cursor:default}
+.st[data-done=true]{cursor:pointer}
+.dot{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:2px solid #d9d4f7;background:#fff;font-weight:800;font-size:14px;transition:all .25s}
+.st[data-cur=true] .dot{border-color:#5b46f0;color:#5b46f0;box-shadow:0 0 0 5px rgba(91,70,240,.15)}
+.st[data-done=true] .dot{background:#5b46f0;border-color:#5b46f0;color:#fff}
+.st span.l{font-size:13px;font-weight:700}
+.st[data-cur=true] span.l{color:#1c1a2e}
+.ln{flex:1;height:2px;background:#e6e2fb;margin:17px 8px 0;position:relative;border-radius:2px;min-width:12px}
+.ln i{position:absolute;inset:0;background:#5b46f0;transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.ln.on i{transform:none}
+.vw{overflow:hidden}
+.trk{position:relative}
+.step{display:none}
+.step.cur{display:block;animation:sin .26s ease-out}
+.step.cur.back{animation-name:sback}
+@keyframes sin{from{opacity:0;transform:translateX(40px)}}
+@keyframes sback{from{opacity:0;transform:translateX(-40px)}}
+h1{font:800 30px/1.15 Manrope,sans-serif;letter-spacing:-.03em;margin:0 0 6px}
+.help{color:#6d6a85;margin:0 0 24px}
+.f{display:block;margin-bottom:18px}
+.f>b{display:block;font-size:14px;margin-bottom:6px}
+input[type=text],input[type=email],input[type=password]{width:100%;height:48px;border:1.5px solid #ddd9f3;border-radius:12px;padding:0 14px;font:inherit;color:inherit;background:#fff}
+input:focus-visible,button:focus-visible{outline:3px solid rgba(91,70,240,.35);outline-offset:2px}
+input[aria-invalid=true]{border-color:#d93a4a}
+.er{color:#d93a4a;font-size:13.5px;min-height:0;margin:6px 0 0}
+.pw{position:relative}.pw button{position:absolute;right:6px;top:6px;height:36px;border:0;background:#f3f1ff;color:#5b46f0;border-radius:8px;padding:0 12px;font:700 13px Manrope,sans-serif;cursor:pointer}
+.sb{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}.sb i{height:5px;border-radius:3px;background:#e6e2fb;transition:background .2s}
+.sbt{font-size:13px;color:#6d6a85;margin-top:6px}
+.roles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.role{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:10px;text-align:left;border:1.5px solid #e6e2fb;border-radius:16px;background:#fff;padding:16px;font:inherit;color:inherit;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s}
+.role:hover{border-color:#b9b0f7;transform:translateY(-2px)}
+.role[aria-checked=true]{border-color:#5b46f0;box-shadow:0 0 0 3px rgba(91,70,240,.14);background:#faf9ff}
+.role svg{color:#5b46f0}.role b{font-weight:700}
+.role .ck{position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:50%;background:#5b46f0;color:#fff;display:none;place-items:center}
+.role[aria-checked=true] .ck{display:grid}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:6px}
+.chip{border:1.5px solid #ddd9f3;border-radius:999px;background:#fff;padding:9px 16px;font:700 14px Manrope,sans-serif;color:#1c1a2e;cursor:pointer}
+.chip[aria-pressed=true]{background:#5b46f0;border-color:#5b46f0;color:#fff}
+.seg{display:inline-flex;flex-wrap:wrap;background:#f3f1ff;border-radius:12px;padding:4px;gap:2px}
+.seg button{border:0;background:none;padding:9px 16px;border-radius:9px;font:700 14px Manrope,sans-serif;color:#6d6a85;cursor:pointer}
+.seg button[aria-checked=true]{background:#fff;color:#1c1a2e;box-shadow:0 1px 4px rgba(60,40,160,.18)}
+.sum{list-style:none;margin:0 0 18px;padding:0;border:1px solid #e6e2fb;border-radius:16px}
+.sum li{display:flex;justify-content:space-between;gap:16px;padding:14px 18px;border-top:1px solid #efecfc}
+.sum li:first-child{border-top:0}
+.sum small{display:block;color:#6d6a85;font-weight:600;font-size:13px}
+.sum a{color:#5b46f0;font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap}
+.sum a:hover{text-decoration:underline}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:15px}.chk input{margin-top:4px;width:18px;height:18px;accent-color:#5b46f0}
+.ft{display:flex;justify-content:space-between;gap:12px;margin-top:30px}
+.btn{height:48px;border-radius:12px;padding:0 26px;font:800 16px Manrope,sans-serif;cursor:pointer;border:0}
+.btn.p{background:#5b46f0;color:#fff;box-shadow:0 8px 20px rgba(91,70,240,.3)}.btn.p:hover{background:#4b37e0}
+.btn.g{background:none;color:#6d6a85;border:1.5px solid #e6e2fb}.btn.g[hidden]{display:block;visibility:hidden}
+.ok{text-align:center;padding:30px 0 10px}
+.ok svg{width:84px;height:84px}.ok circle{stroke-dasharray:252;stroke-dashoffset:252;animation:dr .6s .1s forwards}.ok path{stroke-dasharray:60;stroke-dashoffset:60;animation:dr .4s .6s forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.ok a{color:#5b46f0;font-weight:700;cursor:pointer}
+@media(max-width:640px){.card{padding:22px}.st span.l{display:none}.roles{grid-template-columns:repeat(2,minmax(0,1fr))}.ft{flex-direction:column-reverse}.btn{width:100%}h1{font-size:25px}.btn.g[hidden]{display:none}}
+@media(prefers-reduced-motion:reduce){.step.cur{animation:none}*{transition:none!important}.ok circle,.ok path{animation:none;stroke-dashoffset:0}}
+</style></head><body>
+<div class="card" id="card">
+ <div class="rail" id="rail"></div>
+ <form class="vw" id="form" novalidate>
+  <div class="trk">
+   <section class="step" data-s="0"><h1>Create your account</h1><p class="help">It takes about a minute. No card needed.</p>
+    <label class="f"><b>Full name</b><input type="text" id="name" autocomplete="name"><p class="er" id="e-name" aria-live="polite"></p></label>
+    <label class="f"><b>Work email</b><input type="email" id="email" autocomplete="email"><p class="er" id="e-email" aria-live="polite"></p></label>
+    <div class="f"><b id="pl">Password</b><div class="pw"><input type="password" id="pw" autocomplete="new-password" aria-labelledby="pl"><button type="button" id="tg" aria-pressed="false">Show</button></div><div class="sb" id="sb"><i></i><i></i><i></i><i></i></div><p class="sbt" id="sbt">Use 8 or more characters with a mix of letters and numbers.</p><p class="er" id="e-pw" aria-live="polite"></p></div>
+   </section>
+   <section class="step" data-s="1"><h1>What best describes you?</h1><p class="help">We use this to tailor your first week.</p>
+    <div class="roles" id="roles" role="radiogroup" aria-label="Role"></div><p class="er" id="e-role" aria-live="polite"></p></section>
+   <section class="step" data-s="2"><h1>What are you here to do?</h1><p class="help">Pick at least one goal.</p>
+    <div class="chips" id="chips"></div><p class="er" id="e-goal" aria-live="polite"></p>
+    <div class="f" style="margin-top:22px"><b>Team size</b><div class="seg" id="size" role="radiogroup" aria-label="Team size"></div></div></section>
+   <section class="step" data-s="3"><h1>Review and finish</h1><p class="help">Check everything looks right.</p>
+    <ul class="sum" id="sum"></ul><label class="chk"><input type="checkbox" id="terms"><span>I agree to the Terms and Privacy Policy.</span></label><p class="er" id="e-terms" aria-live="polite"></p></section>
+   <section class="step ok" data-s="4"><svg viewBox="0 0 84 84" fill="none" stroke="#12a05c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="42" cy="42" r="40"/><path d="M26 43l11 11 21-23"/></svg><h1 style="margin-top:18px">You are all set</h1><p class="help" id="okmsg"></p><a id="again" role="button" tabindex="0">Start over</a></section>
+  </div>
+  <div class="ft" id="ft"><button type="button" class="btn g" id="back" hidden>Back</button><button type="submit" class="btn p" id="next">Continue</button></div>
+ </form>
+</div>
+<script>
+(function(){
+var names=['Account','Role','Goals','Review'],cur=0,maxDone=-1,S={name:'',email:'',pw:'',role:'',goals:[],size:'2-10'};
+var $=function(i){return document.getElementById(i)};
+var roles=[['Designer','<path d="M12 3l9 9-9 9-9-9z"/>'],['Developer','<path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/>'],['Founder','<path d="M4 20V10l8-6 8 6v10z"/>'],['Marketer','<path d="M3 11v2l14 6V5zM17 8a4 4 0 010 8"/>'],['Student','<path d="M2 9l10-5 10 5-10 5zM6 12v5c3 2 9 2 12 0v-5"/>'],['Other','<circle cx="12" cy="12" r="9"/><path d="M9 10a3 3 0 115 2c-1 1-2 1-2 3M12 18h.01"/>']];
+var goals=['Ship faster','Collaborate','Learn','Automate','Report','Invite my team'],sizes=['Just me','2-10','11-50','50+'];
+function rail(){var h='';names.forEach(function(n,i){var done=i<=maxDone&&i!==cur||i<cur;
+ h+='<button type="button" class="st" data-i="'+i+'" data-cur="'+(i===cur)+'" data-done="'+(i<cur||i<=maxDone&&i!==cur)+'"'+(i===cur?' aria-current="step"':'')+'><span class="dot">'+(i<cur||i<=maxDone&&i!==cur?'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>':i+1)+'</span><span class="l">'+n+'</span></button>';
+ if(i<3)h+='<div class="ln'+(i<cur?' on':'')+'"><i></i></div>'});$('rail').innerHTML=h;
+ [].forEach.call($('rail').querySelectorAll('.st[data-done=true]'),function(b){b.onclick=function(){go(+b.dataset.i)}})}
+function drawRoles(){$('roles').innerHTML=roles.map(function(r,i){return'<button type="button" class="role" role="radio" aria-checked="'+(S.role===r[0])+'" tabindex="'+((S.role===r[0]||!S.role&&i===0)?0:-1)+'" data-r="'+r[0]+'"><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg></span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+r[1]+'</svg><b>'+r[0]+'</b></button>'}).join('');
+ [].forEach.call($('roles').children,function(b,i,all){b.onclick=function(){S.role=b.dataset.r;$('e-role').textContent='';drawRoles();$('roles').children[i].focus()};
+  b.onkeydown=function(e){var d={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];if(d){e.preventDefault();var n=(i+d+all.length)%all.length;S.role=all[n].dataset.r;drawRoles();$('roles').children[n].focus()}}})}
+function drawGoals(){$('chips').innerHTML=goals.map(function(g){return'<button type="button" class="chip" aria-pressed="'+(S.goals.indexOf(g)>-1)+'">'+g+'</button>'}).join('');
+ [].forEach.call($('chips').children,function(b,i){b.onclick=function(){var g=goals[i],k=S.goals.indexOf(g);k>-1?S.goals.splice(k,1):S.goals.push(g);$('e-goal').textContent='';drawGoals();$('chips').children[i].focus()}});
+ $('size').innerHTML=sizes.map(function(z){return'<button type="button" role="radio" aria-checked="'+(S.size===z)+'">'+z+'</button>'}).join('');
+ [].forEach.call($('size').children,function(b,i){b.onclick=function(){S.size=sizes[i];drawGoals();$('size').children[i].focus()}})}
+function summary(){var rows=[['Name',S.name,0],['Email',S.email,0],['Password','•'.repeat(Math.max(S.pw.length,8)),0],['Role',S.role,1],['Goals',S.goals.join(', '),2],['Team size',S.size,2]];
+ $('sum').innerHTML=rows.map(function(r){return'<li><span><small>'+r[0]+'</small>'+r[1].replace(/</g,'&lt;')+'</span><a href="#" data-g="'+r[2]+'">Edit</a></li>'}).join('');
+ [].forEach.call($('sum').querySelectorAll('a'),function(a){a.onclick=function(e){e.preventDefault();go(+a.dataset.g)}})}
+function strength(p){var s=0;if(p.length>=8)s++;if(/[a-z]/.test(p)&&/[A-Z]/.test(p))s++;if(/\d/.test(p))s++;if(/[^A-Za-z0-9]/.test(p)||p.length>=12)s++;return s}
+$('pw').addEventListener('input',function(){var s=strength($('pw').value),c=['#e6e2fb','#d93a4a','#e8a21a','#7bbf2a','#12a05c'][s],t=['Use 8 or more characters with a mix of letters and numbers.','Weak','Fair','Good','Strong'][s];
+ [].forEach.call($('sb').children,function(b,i){b.style.background=i<s?c:'#e6e2fb'});$('sbt').textContent=t});
+$('tg').onclick=function(){var sh=$('pw').type==='password';$('pw').type=sh?'text':'password';$('tg').textContent=sh?'Hide':'Show';$('tg').setAttribute('aria-pressed',String(sh))};
+function err(id,input,msg){$('e-'+id).textContent=msg;if(input)input.setAttribute('aria-invalid','true');return input||null}
+function validate(){var bad=null,f;
+ [$('name'),$('email'),$('pw')].forEach(function(i){i.removeAttribute('aria-invalid')});
+ if(cur===0){S.name=$('name').value.trim();S.email=$('email').value.trim();S.pw=$('pw').value;
+  $('e-name').textContent=$('e-email').textContent=$('e-pw').textContent='';
+  if(S.name.length<2){f=err('name',$('name'),'Please enter your full name.');bad=bad||f}
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(S.email)){f=err('email',$('email'),'Enter a valid email like you@company.com.');bad=bad||f}
+  if(strength(S.pw)<2||S.pw.length<8){f=err('pw',$('pw'),'Use at least 8 characters with letters and numbers.');bad=bad||f}}
+ if(cur===1&&!S.role){$('e-role').textContent='Choose the option that fits you best.';bad=$('roles').querySelector('.role')}
+ if(cur===2&&!S.goals.length){$('e-goal').textContent='Pick at least one goal to continue.';bad=$('chips').querySelector('.chip')}
+ if(cur===3&&!$('terms').checked){$('e-terms').textContent='Please accept the terms to finish.';bad=$('terms')}
+ if(bad){bad.focus();return false}return true}
+function show(back){[].forEach.call(document.querySelectorAll('.step'),function(s){var on=+s.dataset.s===cur;s.classList.toggle('cur',on);s.classList.toggle('back',on&&back)});
+ $('back').hidden=cur===0||cur===4;$('ft').hidden=cur===4;$('next').textContent=cur===3?'Finish':'Continue';rail();if(cur===3)summary()}
+function go(n){var back=n<cur;if(n>cur&&!validate())return;cur=n;show(back);var f=document.querySelector('.step.cur input,.step.cur .role,.step.cur .chip');if(f&&cur!==3)f.focus({preventScroll:true})}
+$('form').addEventListener('submit',function(e){e.preventDefault();if(!validate())return;maxDone=Math.max(maxDone,cur);if(cur===3){cur=4;$('okmsg').textContent='Welcome aboard, '+S.name.split(' ')[0]+'. We sent a confirmation to '+S.email+'.';show(false);rail();return}cur++;show(false);var f=document.querySelector('.step.cur input,.step.cur .role,.step.cur .chip');if(f)f.focus({preventScroll:true})});
+$('back').onclick=function(){maxDone=Math.max(maxDone,cur-1);cur--;show(true)};
+function reset(){S={name:'',email:'',pw:'',role:'',goals:[],size:'2-10'};cur=0;maxDone=-1;['name','email','pw'].forEach(function(i){$(i).value=''});$('terms').checked=false;$('sbt').textContent='Use 8 or more characters with a mix of letters and numbers.';[].forEach.call($('sb').children,function(b){b.style.background=''});drawRoles();drawGoals();show(false)}
+$('again').onclick=reset;$('again').onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();reset()}};
+drawRoles();drawGoals();show(false);
+})();
+</script>
+</body></html>

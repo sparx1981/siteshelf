@@ -1,0 +1,11 @@
+Canvas & base: A three-column documentation layout on #ffffff (dark theme #0d1117 toggled by a button). Colours light: text #1f2328, muted #656d76, border #d8dee4, sidebar #f6f8fa, accent #0969da, code background #f6f8fa. Dark: text #e6edf3, muted #8b949e, border #30363d, sidebar #010409, accent #58a6ff, code #161b22. Top bar 60px sticky.
+
+Typography: "Inter" (400, 500, 600, 700) for text at 16px/1.7, "JetBrains Mono" (400, 500) for code at 13.5px. H1 40px 700, H2 26px 650 with a 1px bottom border, H3 20px. Sidebar items 14px.
+
+Layout: Top bar: logo "forge/docs", a search field with a "/" keycap hint, a version select (v2.4, v2.3), and a theme toggle button. Left: a 280px sidebar tree with four groups (Getting started, Guides, API reference, Resources), each a collapsible button with a chevron that rotates and a nested list; the current page is highlighted with a left accent bar. Centre: the article (max 720px) showing the page "Authentication" with breadcrumbs, intro, H2 sections, an info callout, a note callout, a table of status codes, and three code blocks (curl, JavaScript, JSON) each with a language label and a Copy button, followed by previous and next page cards. Right: a 220px "On this page" table of contents that follows scroll.
+
+Interaction: Groups collapse and expand with a 200ms height transition and their open state is kept in a JS variable (not storage). Typing in search filters the tree to matching items and auto-expands groups with matches; "/" focuses the search; Escape clears it. Clicking a sidebar item swaps the heading and breadcrumb (the article body stays the same demo content). The TOC highlights the section in view. Copy buttons copy the code and flash "Copied" for 1.5s. The theme toggle switches all colours.
+
+Responsive: Below 1100px the right TOC hides; below 800px the sidebar becomes an off-canvas drawer opened by a menu button in the top bar, with a scrim.
+
+Rules: Use semantic nav, aria-expanded on group buttons, aria-current on the active item. prefers-reduced-motion disables transitions. No images, no libraries, one HTML file.

@@ -1,0 +1,11 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background #07080c. Two stacked layers of identical layout: a dim base layer (text #3a3f4d, grid lines #151824) and a bright reveal layer (text #f4f1ff with gradient accents violet #8b5cf6 to cyan #22d3ee, grid lines #3b4263). The bright layer is masked by a radial-gradient circle of 260px radius centred on the pointer (transparent beyond, soft 60% falloff) via CSS custom properties --x and --y.
+
+Typography: "Syne" (700, 800) for the headline at clamp(48px, 9vw, 132px), line-height 0.95, letter-spacing -0.04em; "Inter" (400, 500) for the subtext at 19px. Small mono-style label in Inter uppercase 12px tracking 0.18em.
+
+Layout: centred column. Label "Move your cursor", the headline "Find the light in the dark." (the words "light" and "dark" in the accent gradient on the bright layer), a subtext paragraph, and a pill button "Start exploring" with a 1px border. A 56px grid pattern sits behind the text on both layers. A small nav row on top (logo "lumen", three links).
+
+Interaction: The spotlight position eases toward the pointer (lerp 0.12 per frame) rather than jumping. On touch devices it follows the finger. After 2.5s without input it drifts along a slow figure-eight path until the pointer moves again. The button gets a subtle magnetic pull toward the cursor within 80px. Clicking the button pulses the spotlight radius to 420px and back over 600ms.
+
+Responsive: Spotlight radius drops to 180px under 700px, text scales with clamp, nothing overflows at 390px.
+
+Rules: Both layers must contain the same text so screen readers get it once (the base layer is aria-hidden=false, the bright layer aria-hidden=true). With prefers-reduced-motion the spotlight is static at the centre. No images, no libraries, one HTML file.

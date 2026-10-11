@@ -1,0 +1,11 @@
+Canvas & base: Paper-toned page #f4efe6, ink #1b1814, muted #6b6459, rule #1b1814 at 1px, accent oxblood #8c1d18. Content max-width 1100px centred with 32px gutters. A 4px reading-progress bar fixed to the top in the accent colour grows with scroll. Body margin 0.
+
+Typography: "Playfair Display" (700, 900, italic 400) for the masthead and headings, "Source Serif 4" (400, 600, italic 400) for body at 19px/1.7, "Inter" (500, 600) uppercase 12px tracking 0.14em for kickers and meta. Masthead clamp(48px, 11.5vw, 158px) weight 900, letter-spacing -0.04em, line-height 0.85. Article title 64px/1.02 (38px on mobile).
+
+Layout: A thin top strip with the date, "Issue 07" and a link. Under a double rule, the centred masthead "The Weekender". Then a feature header: kicker "Long read · 14 min", title "The Last Lighthouse Keepers of Brittany", a dek paragraph in italic 22px, a byline row with author, date and reading time. The article body is a 2-column layout: a sticky 220px table of contents on the left and the text column (max 680px) on the right, with an ornamental first-letter drop cap (5 lines tall) in the accent colour, 4 section headings, a full-bleed pull quote between sections (italic 40px, accent left rule), and one inline figure made from CSS gradients with a caption. Close with a footer rule and "Continue reading" cards for two more stories.
+
+Interaction: The progress bar tracks scroll depth. The table of contents highlights the section in view using IntersectionObserver and smooth-scrolls on click. Links underline with a 2px accent offset on hover.
+
+Responsive: Under 900px the table of contents becomes a horizontal scrolling chip row pinned under the progress bar, and the body is a single column with 20px gutters.
+
+Rules: Body text must be real prose written for this page, at least 450 words. prefers-reduced-motion disables smooth scroll. No images, no libraries, one HTML file.

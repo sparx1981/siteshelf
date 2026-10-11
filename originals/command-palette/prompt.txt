@@ -1,0 +1,11 @@
+Canvas & base: A mock app workspace page in dark mode (#0e0f13 background, panels #16181e, border #262932, text #e7e9ee, muted #8a90a0, accent #7c8cff). A light theme (#f6f7f9 background, #ffffff panels, #e3e5ea borders, #14161b text, accent #4f5df5) is applied by an action in the palette. Body margin 0.
+
+Typography: "Inter" (400, 500, 600) with "JetBrains Mono" (400, 500) for keyboard hints. Palette input 18px, results 15px, group labels 12px uppercase tracking 0.08em muted.
+
+Layout: Behind the palette, a faux app: a 220px sidebar with project links and a main area with a heading "Workspace", three stat cards and a hint pill "Press Cmd K or Ctrl K". The palette is a centred modal 620px wide, radius 14px, top offset 14vh, with a backdrop blur and dim scrim. Inside: a search input with a magnifier icon and "esc" hint, grouped results (Navigation, Actions, Settings), each row with a 28px icon square, a title with the matched letters highlighted in the accent colour, an optional shortcut shown as small keycaps on the right, and a footer bar with the hints "↑↓ navigate", "↵ select", "esc close". When the input is empty a "Recent" group shows the last 3 chosen commands.
+
+Interaction: Cmd/Ctrl+K toggles the palette, and a button also opens it. Typing filters with a simple fuzzy match (characters in order) and ranks by earliest and tightest match; the first result is active. ArrowUp and ArrowDown move the active row (wrapping, scrolling into view), Enter runs it, Escape closes it. Hover moves the active row. Running an action closes the palette and shows a toast: Navigation items change the page heading, "Toggle theme" really switches the theme, "Copy link" copies, "New project" appends a stat card. An empty state reads "No commands match" with the query.
+
+Responsive: The modal is 100% wide minus 24px on mobile with the sidebar hidden, and the keycap hints are hidden under 600px.
+
+Rules: Trap focus in the palette while open, set role="dialog" aria-modal and use a listbox with aria-activedescendant. Restore focus on close. prefers-reduced-motion removes the scale and fade animation. No images, no libraries, one HTML file.

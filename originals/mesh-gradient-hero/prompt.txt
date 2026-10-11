@@ -1,0 +1,11 @@
+Canvas & base: Full-viewport hero, min-height 100svh, background #fdf7f2. Behind everything, a mesh gradient made of five absolutely positioned blurred circles (filter blur(80px), opacity 0.85): peach #ffb48a, rose #ff7aa8, lavender #a98bff, sky #7cc4ff, mint #8be8c4. Each drifts on its own 18 to 30 second ease-in-out infinite alternate keyframe path (translate and scale). A subtle film-grain overlay (an inline SVG feTurbulence noise as a data URI, opacity 0.12, mix-blend-mode multiply) covers the section. Ink #1d1530, muted #5d5473.
+
+Typography: "Instrument Serif" (400, italic 400) for the headline at clamp(56px, 9vw, 128px), line-height 0.95, letter-spacing -0.02em, with one word in italic; "DM Sans" (400, 500, 700) for everything else, subtext 20px.
+
+Layout: Top nav (logo "halo", 4 links, a dark pill button "Get started"). Centred content: a glass announcement pill ("New · Halo 2.0 is here →") with backdrop blur and a 1px white border, the headline "Software that feels like *light*", a 20px subtext, an email form (input plus dark button, in a single glass capsule 520px wide), and a line of small trust text. Three floating glass cards (stat tiles: "2.4M users", "99.99% uptime", "4.9★ rating") positioned low-left, low-right and bottom centre (clear of the headline) at different tilt angles (-4deg, 3deg, -2deg), each bobbing up and down on a 6s ease-in-out loop with different delays.
+
+Interaction: The blobs also shift slightly with pointer movement (parallax of 20px max, eased). The form validates the email on submit and swaps the button to a "You are on the list ✓" confirmation with a gentle scale pop. Cards lift 6px on hover.
+
+Responsive: On mobile the three floating cards move below the form as a horizontal row of stacked cards without tilt, and the nav collapses to the logo plus the button.
+
+Rules: Grain and blobs are decorative (aria-hidden). prefers-reduced-motion stops all drifting and bobbing. Keep contrast of text on the gradient AA. No images, no libraries, one HTML file.

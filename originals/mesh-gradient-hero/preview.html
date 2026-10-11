@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Halo — Software that feels like light</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#fdf7f2;color:#1d1530;font:400 17px/1.5 "DM Sans",system-ui,sans-serif}
+.hero{position:relative;min-height:100svh;overflow:hidden;display:flex;flex-direction:column;isolation:isolate}
+.mesh{position:absolute;inset:0;z-index:-2;transition:transform .4s ease-out}
+.b{position:absolute;border-radius:50%;filter:blur(80px);opacity:.85}
+.b1{width:46vmax;height:46vmax;left:-10%;top:-20%;background:#ffb48a;animation:d1 22s ease-in-out infinite alternate}
+.b2{width:40vmax;height:40vmax;right:-8%;top:-10%;background:#ff7aa8;animation:d2 26s ease-in-out infinite alternate}
+.b3{width:44vmax;height:44vmax;left:25%;top:20%;background:#a98bff;animation:d3 30s ease-in-out infinite alternate}
+.b4{width:38vmax;height:38vmax;right:-10%;bottom:-25%;background:#7cc4ff;animation:d4 20s ease-in-out infinite alternate}
+.b5{width:36vmax;height:36vmax;left:-8%;bottom:-20%;background:#8be8c4;animation:d5 24s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate(18vw,12vh) scale(1.2)}}
+@keyframes d2{to{transform:translate(-16vw,18vh) scale(.85)}}
+@keyframes d3{to{transform:translate(-14vw,-10vh) scale(1.15)}}
+@keyframes d4{to{transform:translate(-20vw,-12vh) scale(1.1)}}
+@keyframes d5{to{transform:translate(22vw,-14vh) scale(.9)}}
+.grain{position:absolute;inset:0;z-index:-1;opacity:.12;mix-blend-mode:multiply;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+.nav{display:flex;align-items:center;gap:32px;padding:24px max(20px,5vw)}
+.nav b{font:400 30px "Instrument Serif",serif;letter-spacing:-.02em;margin-right:auto}
+.nav a{color:inherit;text-decoration:none;font-weight:500;font-size:15px}
+.nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.pillb{background:#1d1530;color:#fff!important;padding:10px 20px;border-radius:999px}
+.pillb:hover{background:#34264f;text-decoration:none!important}
+.cn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px max(20px,5vw) 90px;position:relative}
+.ann{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:999px;padding:7px 16px;font-size:14px;font-weight:500;color:#1d1530;text-decoration:none;margin-bottom:28px}
+.ann b{background:#1d1530;color:#fff;border-radius:999px;padding:1px 9px;font-size:12px}
+h1{font:400 clamp(56px,9vw,128px)/.95 "Instrument Serif",Georgia,serif;letter-spacing:-.02em;margin:0 0 24px;max-width:9em}
+h1 em{font-style:italic}
+.sub{font-size:20px;color:#3c3350;max-width:34em;margin:0 0 34px}
+.form{display:flex;width:min(520px,100%);background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:999px;padding:6px;box-shadow:0 10px 40px rgba(80,40,140,.12)}
+.form input{flex:1;min-width:0;border:0;background:none;padding:0 18px;font:500 16px "DM Sans",sans-serif;color:#1d1530;outline:0}
+.form input::placeholder{color:#6d6483}
+.form button{border:0;background:#1d1530;color:#fff;border-radius:999px;padding:14px 24px;font:700 15px "DM Sans",sans-serif;cursor:pointer;white-space:nowrap;transition:transform .2s}
+.form button.ok{background:#12805c;animation:pop .35s}
+@keyframes pop{50%{transform:scale(1.06)}}
+.form:focus-within{box-shadow:0 0 0 3px rgba(29,21,48,.35),0 10px 40px rgba(80,40,140,.12)}
+.er{color:#a3123a;font-weight:500;font-size:14px;height:20px;margin:8px 0 0}
+.tr{font-size:14px;color:#4a4060;margin:6px 0 0}
+.cd{position:absolute;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:20px;padding:16px 22px;box-shadow:0 18px 44px rgba(80,40,140,.14);animation:bob 6s ease-in-out infinite;transition:translate .2s}
+.cd:hover{translate:0 -6px}
+.cd strong{display:block;font:400 38px/1 "Instrument Serif",serif}
+.cd span{font-size:14px;color:#4a4060}
+.c1{left:5%;top:64%;--r:-4deg}.c2{right:5%;top:58%;--r:3deg;animation-delay:-2s}.c3{left:50%;bottom:3%;margin-left:-80px;--r:-2deg;animation-delay:-4s}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-14px) rotate(var(--r))}}
+.hp{position:absolute;width:1px;height:1px;opacity:0}
+@media(max-width:900px){.cn{padding-bottom:40px}.cd{position:static;animation:none;margin:0}.cds{display:flex;gap:12px;margin-top:40px;overflow-x:auto;max-width:100%;padding-bottom:6px}.cd{flex:none;transform:none!important}.nav a:not(.pillb){display:none}.nav{padding:18px 20px}}
+@media(min-width:901px){.cds{display:contents}}
+@media(max-width:600px){.sub{font-size:18px}.form{flex-direction:column;border-radius:24px;gap:6px}.form input{height:46px}}
+@media(prefers-reduced-motion:reduce){.b,.cd{animation:none}.mesh{transition:none}}
+</style></head><body>
+<section class="hero" id="hero">
+ <div class="mesh" id="mesh" aria-hidden="true"><i class="b b1"></i><i class="b b2"></i><i class="b b3"></i><i class="b b4"></i><i class="b b5"></i></div>
+ <div class="grain" aria-hidden="true"></div>
+ <nav class="nav"><b>halo</b><a href="#">Product</a><a href="#">Pricing</a><a href="#">Customers</a><a href="#">Docs</a><a class="pillb" href="#">Get started</a></nav>
+ <div class="cn">
+  <a class="ann" href="#"><b>New</b> Halo 2.0 is here →</a>
+  <h1>Software that feels like <em>light</em></h1>
+  <p class="sub">Halo brings your tasks, docs and conversations into one calm, fast workspace your whole team will actually enjoy opening.</p>
+  <form class="form" id="f" novalidate><input id="em" type="email" placeholder="you@company.com" aria-label="Email address" autocomplete="email"><button type="submit" id="bt">Join the waitlist</button></form>
+  <p class="er" id="er" role="alert"></p>
+  <p class="tr">Free for 14 days · No card required</p>
+  <div class="cds"><div class="cd c1"><strong>2.4M</strong><span>People using Halo</span></div><div class="cd c2"><strong>99.99%</strong><span>Uptime, last 12 months</span></div><div class="cd c3"><strong>4.9★</strong><span>Average rating</span></div></div>
+ </div>
+</section>
+<script>
+(function(){
+var f=document.getElementById('f'),em=document.getElementById('em'),er=document.getElementById('er'),bt=document.getElementById('bt'),mesh=document.getElementById('mesh');
+f.addEventListener('submit',function(e){e.preventDefault();var v=em.value.trim();
+ if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v)){er.textContent='Please enter a valid email address.';em.setAttribute('aria-invalid','true');em.focus();return}
+ er.textContent='';em.removeAttribute('aria-invalid');bt.textContent='You are on the list ✓';bt.className='ok';bt.disabled=true;em.disabled=true});
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!rm)addEventListener('pointermove',function(e){var x=(e.clientX/innerWidth-.5)*40,y=(e.clientY/innerHeight-.5)*40;mesh.style.transform='translate('+x+'px,'+y+'px)'},{passive:true});
+})();
+</script>
+</body></html>

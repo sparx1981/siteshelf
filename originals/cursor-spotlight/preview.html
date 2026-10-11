@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lumen — Find the light</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#07080c;font:400 19px/1.55 Inter,system-ui,sans-serif}
+.hero{position:relative;min-height:100svh;overflow:hidden;--x:50%;--y:50%;--r:260px;touch-action:pan-y}
+.layer{position:absolute;inset:0;display:flex;flex-direction:column;padding:28px max(20px,5vw)}
+.layer.base{color:#3a3f4d;background-image:linear-gradient(#151824 1px,transparent 1px),linear-gradient(90deg,#151824 1px,transparent 1px);background-size:56px 56px}
+.layer.lit{color:#f4f1ff;background-color:#07080c;background-image:linear-gradient(#3b4263 1px,transparent 1px),linear-gradient(90deg,#3b4263 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(circle var(--r) at var(--x) var(--y),#000 0,rgba(0,0,0,.4) 60%,transparent 100%);mask-image:radial-gradient(circle var(--r) at var(--x) var(--y),#000 0,rgba(0,0,0,.4) 60%,transparent 100%);pointer-events:none}
+.nav{display:flex;align-items:center;gap:28px;font-size:15px;font-weight:500}
+.nav b{font:800 22px Syne,sans-serif;letter-spacing:-.03em;margin-right:auto}
+.nav a{color:inherit;text-decoration:none}
+.cn{margin:auto;text-align:center;max-width:1100px;display:flex;flex-direction:column;align-items:center;padding:40px 0}
+.lb{font:500 12px Inter,sans-serif;text-transform:uppercase;letter-spacing:.18em;margin:0 0 24px}
+h1{font:800 clamp(48px,9vw,132px)/.95 Syne,sans-serif;letter-spacing:-.04em;margin:0 0 28px}
+h1 em{font-style:normal}.lit h1 em{background:linear-gradient(90deg,#8b5cf6,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cn p.sub{max-width:44ch;margin:0 0 36px}
+.btn{font:500 16px Inter,sans-serif;color:inherit;background:none;border:1px solid currentColor;border-radius:999px;padding:14px 28px;cursor:pointer;display:inline-block;will-change:transform}
+.base .btn{pointer-events:auto}
+.btn:focus-visible{outline:2px solid #22d3ee;outline-offset:4px}
+@media(max-width:700px){.hero{--r:180px}.nav{gap:16px;font-size:14px}.nav a:nth-of-type(3){display:none}}
+</style></head><body>
+<div class="hero" id="hero">
+ <div class="layer base">
+  <div class="nav"><b>lumen</b><a href="#">Work</a><a href="#">Studio</a><a href="#">Contact</a></div>
+  <div class="cn"><p class="lb">Move your cursor</p><h1>Find the <em>light</em> in the <em>dark.</em></h1><p class="sub">An interface that only shows itself when you look closely. Nothing is hidden, it is just waiting for a little attention.</p><button class="btn" id="btn" type="button">Start exploring</button></div>
+ </div>
+ <div class="layer lit" aria-hidden="true">
+  <div class="nav"><b>lumen</b><a href="#" tabindex="-1">Work</a><a href="#" tabindex="-1">Studio</a><a href="#" tabindex="-1">Contact</a></div>
+  <div class="cn"><p class="lb">Move your cursor</p><h1>Find the <em>light</em> in the <em>dark.</em></h1><p class="sub">An interface that only shows itself when you look closely. Nothing is hidden, it is just waiting for a little attention.</p><button class="btn" id="btn2" type="button" tabindex="-1">Start exploring</button></div>
+ </div>
+</div>
+<script>
+(function(){
+var hero=document.getElementById('hero'),btn=document.getElementById('btn'),btn2=document.getElementById('btn2');
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var W=innerWidth,H=innerHeight,tx=W/2,ty=H/2,x=tx,y=ty,last=performance.now(),idle=false,t0=0,pulse=0,base;
+function rad(){return innerWidth<700?180:260}
+function set(){hero.style.setProperty('--x',x+'px');hero.style.setProperty('--y',y+'px');hero.style.setProperty('--r',(base+pulse)+'px')}
+base=rad();
+if(rm){x=innerWidth/2;y=innerHeight/2;set();return}
+function move(e){var p=e.touches?e.touches[0]:e;tx=p.clientX;ty=p.clientY;last=performance.now();idle=false;
+ var r=btn.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,dx=tx-cx,dy=ty-cy,d=Math.hypot(dx,dy);
+ var s=d<80+r.width/2?'translate('+dx*.18+'px,'+dy*.3+'px)':'';btn.style.transform=btn2.style.transform=s}
+addEventListener('pointermove',move,{passive:true});addEventListener('touchmove',move,{passive:true});addEventListener('touchstart',move,{passive:true});
+btn.addEventListener('mouseleave',function(){btn.style.transform=btn2.style.transform=''});
+btn.addEventListener('click',function(){var s=performance.now();(function f(n){var t=Math.min((n-s)/600,1);pulse=(420-base)*Math.sin(Math.PI*t);if(t<1)requestAnimationFrame(f);else pulse=0})(s)});
+addEventListener('resize',function(){base=rad()});
+(function loop(n){
+ base=rad();
+ if(n-last>2500){if(!idle){idle=true;t0=n}var t=(n-t0)/4000;tx=innerWidth/2+Math.sin(t)*innerWidth*.3;ty=innerHeight/2+Math.sin(t*2)*innerHeight*.22}
+ x+=(tx-x)*.12;y+=(ty-y)*.12;set();requestAnimationFrame(loop)
+})(performance.now());
+})();
+</script>
+</body></html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mira Okafor — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff6d6;color:#111;font:500 17px/1.5 "Space Grotesk",system-ui,sans-serif}
+.w{max-width:1160px;margin:0 auto;padding:0 24px}
+.bx{border:3px solid #111;box-shadow:6px 6px 0 #111;background:#fff}
+.mono{font:400 13px "Space Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.06em}
+.btn{display:inline-block;font:700 15px "Space Grotesk",sans-serif;padding:12px 20px;border:3px solid #111;background:#fff;color:#111;text-decoration:none;box-shadow:6px 6px 0 #111;transition:transform .12s,box-shadow .12s;cursor:pointer}
+.btn:hover,.card:hover{transform:translate(-4px,-4px);box-shadow:10px 10px 0 #111}
+.btn:active,.card:active{transform:translate(6px,6px);box-shadow:0 0 0 #111}
+.btn:focus-visible,a:focus-visible{outline:3px solid #3b5bff;outline-offset:3px}
+.pink{background:#ff4fa3}.blue{background:#3b5bff;color:#fff}.lime{background:#b8ff4f}
+.top{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:22px 0}
+.logo{font:700 18px "Space Mono",monospace;padding:8px 14px}
+.top nav{display:flex;flex-wrap:wrap;gap:10px;margin-left:auto}
+.pill{border:3px solid #111;border-radius:999px;padding:6px 16px;background:#fff;color:#111;text-decoration:none;font-weight:700;font-size:15px}
+.pill:hover{background:#b8ff4f}
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px;align-items:center;padding:40px 0 64px}
+h1{font:700 clamp(52px,8.4vw,104px)/.92 "Space Grotesk",sans-serif;letter-spacing:-.04em;text-transform:uppercase;margin:0 0 28px}
+h1 mark{background:#ff4fa3;padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero p{font-size:20px;max-width:34ch;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:16px}
+.stk{aspect-ratio:1;display:grid;place-items:center;padding:24px}
+.stk svg{width:100%;max-width:300px;animation:spin 12s linear infinite}
+.stk text{font:700 15px "Space Mono",monospace;fill:#111;letter-spacing:2px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tick{background:#111;color:#b8ff4f;border-block:3px solid #111;overflow:hidden;white-space:nowrap}
+.tick div{display:inline-block;padding:16px 0;animation:mq 22s linear infinite}
+.tick:hover div{animation-play-state:paused}
+.tick span{padding:0 28px}
+@keyframes mq{to{transform:translateX(-50%)}}
+h2{font:700 clamp(34px,5vw,56px)/1 "Space Grotesk",sans-serif;letter-spacing:-.03em;text-transform:uppercase;margin:0}
+.wk{padding:80px 0 40px}.wk header{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:36px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.card{display:block;color:inherit;text-decoration:none;transition:transform .12s,box-shadow .12s}
+.art{height:170px;border-bottom:3px solid #111}
+.cb{padding:14px 16px 18px}.cb h3{font:700 22px "Space Grotesk",sans-serif;margin:0 0 6px}.cb .mono{display:flex;justify-content:space-between;gap:8px}
+.a1{background:repeating-linear-gradient(45deg,#ff4fa3 0 14px,#fff6d6 14px 28px)}
+.a2{background:radial-gradient(#111 22%,transparent 24%) 0 0/24px 24px,#b8ff4f}
+.a3{background:linear-gradient(#111 3px,transparent 3px) 0 0/32px 32px,linear-gradient(90deg,#111 3px,transparent 3px) 0 0/32px 32px,#3b5bff}
+.a4{background:conic-gradient(#111 25%,#fff 0 50%,#111 0 75%,#fff 0) 0 0/48px 48px}
+.a5{background:repeating-linear-gradient(90deg,#3b5bff 0 20px,#ff4fa3 20px 40px)}
+.a6{background:radial-gradient(circle at 30% 30%,#fff 0 28px,transparent 29px),radial-gradient(circle at 70% 70%,#111 0 40px,transparent 41px),#ff4fa3}
+.ab{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;margin:72px 0;padding:36px}
+.ab p{margin:12px 0 0;max-width:46ch}
+.chips{display:flex;flex-wrap:wrap;gap:10px;align-content:start}
+.chips span{border:3px solid #111;padding:4px 12px;background:#fff6d6;font-weight:700}
+footer{background:#111;color:#fff6d6;padding:64px 0;margin-top:40px}
+footer a{display:block;font:700 clamp(22px,5.6vw,72px)/1 "Space Mono",monospace;color:#b8ff4f;text-decoration:none;word-break:break-word;margin-top:16px}
+footer a:hover{color:#ff4fa3}
+@media(max-width:900px){.hero,.ab{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stk{max-width:360px}}
+@media(max-width:600px){.grid{grid-template-columns:minmax(0,1fr)}.top nav{margin-left:0}.ab{padding:22px}.hero p{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.stk svg,.tick div{animation:none}.btn,.card{transition:none}html{scroll-behavior:auto}}
+</style></head><body>
+<div class="w">
+ <div class="top"><div class="logo bx" style="box-shadow:4px 4px 0 #111">MIRA.OKAFOR</div>
+  <nav><a class="pill" href="#work">Work</a><a class="pill" href="#about">About</a><a class="pill" href="#contact">Contact</a><a class="btn pink" href="#contact" id="hire" style="padding:6px 18px;box-shadow:4px 4px 0 #111">Hire me</a></nav></div>
+ <section class="hero">
+  <div><h1>I make <mark>loud</mark> little websites.</h1><p>Independent designer and developer. Bold brands, strange layouts, fast pages.</p>
+   <div class="cta"><a class="btn lime" href="#work">See the work</a><a class="btn" href="#contact">Say hello</a></div></div>
+  <div class="bx blue stk"><svg viewBox="0 0 200 200" role="img" aria-label="Available for work"><defs><path id="c" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/></defs><circle cx="100" cy="100" r="92" fill="#b8ff4f" stroke="#111" stroke-width="3"/><text><textPath href="#c">AVAILABLE FOR WORK · AVAILABLE FOR WORK ·</textPath></text><circle cx="100" cy="100" r="22" fill="#ff4fa3" stroke="#111" stroke-width="3"/></svg></div>
+ </section>
+</div>
+<div class="tick" aria-hidden="true"><div><span>BRANDING ✱</span><span>WEB DESIGN ✱</span><span>MOTION ✱</span><span>TYPE ✱</span><span>PRINT ✱</span><span>BRANDING ✱</span><span>WEB DESIGN ✱</span><span>MOTION ✱</span><span>TYPE ✱</span><span>PRINT ✱</span><span>BRANDING ✱</span><span>WEB DESIGN ✱</span><span>MOTION ✱</span><span>TYPE ✱</span><span>PRINT ✱</span><span>BRANDING ✱</span><span>WEB DESIGN ✱</span><span>MOTION ✱</span><span>TYPE ✱</span><span>PRINT ✱</span></div></div>
+<div class="w">
+ <section class="wk" id="work"><header><h2>Selected work</h2><span class="mono">06 projects</span></header>
+  <div class="grid">
+   <a class="card bx" href="#work"><div class="art a1"></div><div class="cb"><h3>Stripe Bakery</h3><div class="mono"><span>Branding</span><span>2025</span></div></div></a>
+   <a class="card bx" href="#work"><div class="art a2"></div><div class="cb"><h3>Dot Dot Records</h3><div class="mono"><span>Web</span><span>2025</span></div></div></a>
+   <a class="card bx" href="#work"><div class="art a3"></div><div class="cb"><h3>Gridlock Co-op</h3><div class="mono"><span>Identity</span><span>2024</span></div></div></a>
+   <a class="card bx" href="#work"><div class="art a4"></div><div class="cb"><h3>Checkmate Chess</h3><div class="mono"><span>App</span><span>2024</span></div></div></a>
+   <a class="card bx" href="#work"><div class="art a5"></div><div class="cb"><h3>Loudspeaker Fest</h3><div class="mono"><span>Poster</span><span>2023</span></div></div></a>
+   <a class="card bx" href="#work"><div class="art a6"></div><div class="cb"><h3>Moonwalk Tours</h3><div class="mono"><span>Web</span><span>2023</span></div></div></a>
+  </div></section>
+ <section class="ab bx" id="about"><div><h2>About</h2><p>I'm Mira, a designer who codes. Eight years of making brands that refuse to blend in, for studios, record labels and very small bakeries.</p></div>
+  <div class="chips"><span>Branding</span><span>Webflow</span><span>Vanilla JS</span><span>Illustration</span><span>Motion</span><span>Type design</span></div></section>
+</div>
+<footer id="contact"><div class="w"><span class="mono">Got a project?</span><a href="mailto:hello@miraokafor.example">hello@miraokafor.example</a></div></footer>
+<script>document.getElementById('hire').addEventListener('click',function(e){e.preventDefault();document.getElementById('contact').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})});</script>
+</body></html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEON//CADE — Retro Arcade, Rebooted</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#12002b;color:#f5eaff;font:500 20px/1.5 Rajdhani,system-ui,sans-serif}
+.hero{position:relative;min-height:100svh;overflow:hidden;display:flex;flex-direction:column}
+canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.nav{position:relative;z-index:2;display:flex;align-items:center;gap:30px;padding:24px max(20px,5vw)}
+.nav b{font:900 20px Orbitron,sans-serif;letter-spacing:.06em;color:#22e3ff;text-shadow:0 0 12px #22e3ff;margin-right:auto}
+.nav a{color:#f5eaff;text-decoration:none;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:15px}
+.nav a:hover{color:#ffe14d}
+.cn{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px 20px 12vh}
+.lb{font:700 14px Orbitron,sans-serif;letter-spacing:.3em;color:#fff;margin:0 0 20px;text-shadow:0 0 10px #ff2e93,0 0 20px #12002b}
+h1{position:relative;font:900 clamp(40px,7.6vw,104px)/.95 Orbitron,sans-serif;text-transform:uppercase;letter-spacing:.02em;margin:0 0 24px;color:#fff;text-shadow:0 0 12px #ff2e93,0 0 40px #ff2e93;cursor:default}
+h1:before,h1:after{content:attr(data-t);position:absolute;inset:0;pointer-events:none;opacity:0}
+h1:before{color:#22e3ff;text-shadow:none;transform:translateX(-4px)}
+h1:after{color:#ff2e93;text-shadow:none;transform:translateX(4px)}
+h1.g:before,h1.g:after{opacity:.9;animation:gl .4s steps(2) 1}
+h1.g:before{animation-name:gl1}h1.g:after{animation-name:gl2}
+@keyframes gl1{0%{clip-path:inset(10% 0 70% 0);transform:translateX(-8px)}25%{clip-path:inset(60% 0 10% 0);transform:translateX(6px)}50%{clip-path:inset(30% 0 40% 0);transform:translateX(-5px)}75%{clip-path:inset(80% 0 0 0);transform:translateX(7px)}100%{clip-path:inset(0);opacity:0}}
+@keyframes gl2{0%{clip-path:inset(70% 0 10% 0);transform:translateX(8px)}25%{clip-path:inset(5% 0 75% 0);transform:translateX(-6px)}50%{clip-path:inset(45% 0 25% 0);transform:translateX(5px)}75%{clip-path:inset(15% 0 60% 0);transform:translateX(-7px)}100%{clip-path:inset(0);opacity:0}}
+.cn p.d{max-width:34em;margin:0 0 32px;color:#fff;text-shadow:0 0 8px #12002b,0 0 18px #12002b,0 0 28px #12002b}
+.coin{font:700 18px Orbitron,sans-serif;letter-spacing:.12em;background:rgba(18,0,43,.6);color:#22e3ff;border:2px solid #22e3ff;border-radius:999px;padding:16px 34px;cursor:pointer;box-shadow:0 0 16px #22e3ff,inset 0 0 16px rgba(34,227,255,.3);text-shadow:0 0 8px #22e3ff;transition:transform .15s,background .15s}
+.coin:hover{background:rgba(34,227,255,.18);transform:translateY(-2px)}
+.coin:active{transform:translateY(1px)}
+.coin:focus-visible{outline:3px solid #ffe14d;outline-offset:4px}
+.sec{background:linear-gradient(#ff2e93 0,#2a0650 140px,#12002b 100%);padding:100px max(20px,5vw) 60px}
+.sec>div{max-width:1100px;margin:0 auto}
+h2{font:900 clamp(26px,4vw,44px) Orbitron,sans-serif;letter-spacing:.06em;color:#ffe14d;text-shadow:0 0 14px #ffe14d;margin:0 0 28px;text-transform:uppercase}
+.pan{border:2px solid #22e3ff;box-shadow:0 0 18px rgba(34,227,255,.55),inset 0 0 18px rgba(34,227,255,.15);border-radius:6px;background:rgba(18,0,43,.75);overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:480px}
+th,td{padding:14px 20px;text-align:left;border-bottom:2px dashed rgba(34,227,255,.35)}
+tr:last-child td{border-bottom:0}
+th{font:700 13px Orbitron,sans-serif;letter-spacing:.18em;color:#b79ad6}
+td{font:700 20px Rajdhani,sans-serif}
+td.s,th.s{text-align:right;font:700 20px Orbitron,sans-serif;font-variant-numeric:tabular-nums}
+tr.t td{color:#ffe14d;text-shadow:0 0 10px #ffe14d}
+.lu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:70px 0 0}
+.gm{border:2px solid #ff2e93;box-shadow:0 0 18px rgba(255,46,147,.55),inset 0 0 18px rgba(255,46,147,.15);border-radius:6px;padding:22px;background:rgba(18,0,43,.75);transition:transform .2s}
+.gm:hover{transform:translateY(-4px)}
+.gm i{display:block;height:110px;margin-bottom:16px;border-radius:4px;background:#12002b}
+.gm b{font:900 18px Orbitron,sans-serif;letter-spacing:.05em;color:#fff;display:block;margin-bottom:6px}
+.gm span{color:#b79ad6;font-size:17px}
+.gi1{background:linear-gradient(90deg,transparent 48%,#22e3ff 48% 52%,transparent 52%) 0 0/60px 40px,linear-gradient(#12002b,#2a0650)!important}
+.gi2{background:radial-gradient(circle at 20% 30%,#ffe14d 0 5px,transparent 6px),radial-gradient(circle at 50% 30%,#ffe14d 0 5px,transparent 6px),radial-gradient(circle at 80% 30%,#ffe14d 0 5px,transparent 6px),radial-gradient(circle at 35% 70%,#ff2e93 0 5px,transparent 6px),radial-gradient(circle at 65% 70%,#ff2e93 0 5px,transparent 6px),#12002b!important}
+.gi3{background:repeating-linear-gradient(90deg,#22e3ff 0 22px,#12002b 22px 26px) 0 0/100% 18px repeat-y,#12002b!important}
+footer{text-align:center;padding:50px 20px 70px;color:#b79ad6;font-size:18px;letter-spacing:.06em}
+footer b{color:#22e3ff;font-family:Orbitron,sans-serif}
+@media(max-width:800px){.lu{grid-template-columns:minmax(0,1fr)}.nav a{display:none}.nav a:last-child{display:none}}
+@media(prefers-reduced-motion:reduce){.coin{transition:none}h1.g:before,h1.g:after{animation:none;opacity:0}}
+</style></head><body>
+<section class="hero" id="hero">
+ <canvas id="cv" aria-hidden="true"></canvas>
+ <nav class="nav"><b>NEON//CADE</b><a href="#sc">Games</a><a href="#sc">Scores</a><a href="#ft">Visit</a></nav>
+ <div class="cn"><p class="lb" id="lb">INSERT COIN TO PLAY</p><h1 id="h1" data-t="RETRO ARCADE, REBOOTED">RETRO ARCADE, REBOOTED</h1><p class="d">Forty cabinets, a neon-lit bar and the loudest soundtrack in town. Pockets full of tokens recommended.</p><button class="coin" id="coin" type="button">▶ INSERT COIN</button></div>
+</section>
+<section class="sec" id="sc"><div>
+ <h2>High scores</h2>
+ <div class="pan"><table><thead><tr><th>RANK</th><th>PLAYER</th><th>GAME</th><th class="s">SCORE</th></tr></thead><tbody id="tb">
+  <tr class="t"><td>1ST</td><td>ACE</td><td>Void Invaders</td><td class="s" data-v="982450">0</td></tr>
+  <tr><td>2ND</td><td>MXR</td><td>Pixel Racer</td><td class="s" data-v="871200">0</td></tr>
+  <tr><td>3RD</td><td>JOY</td><td>Brick Breaker 2000</td><td class="s" data-v="764030">0</td></tr>
+  <tr><td>4TH</td><td>ZED</td><td>Void Invaders</td><td class="s" data-v="702115">0</td></tr>
+  <tr><td>5TH</td><td>KAT</td><td>Pixel Racer</td><td class="s" data-v="655900">0</td></tr></tbody></table></div>
+ <div class="lu"><div class="gm"><i class="gi1"></i><b>PIXEL RACER</b><span>Two-player split screen racing.</span></div><div class="gm"><i class="gi2"></i><b>VOID INVADERS</b><span>Wave after wave. No continues.</span></div><div class="gm"><i class="gi3"></i><b>BRICK BREAKER 2000</b><span>Physics, power-ups and pure rage.</span></div></div>
+</div></section>
+<footer id="ft"><b>OPEN</b> Tue–Sun · 4pm until late · Last tokens at 11:30pm</footer>
+<script>
+(function(){
+var cv=document.getElementById('cv'),cx=cv.getContext('2d'),rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var W,H,dpr,sparks=[],flash=0,t0=performance.now();
+function size(){dpr=Math.min(devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}
+function draw(now){
+ var t=(now-t0)/1000,hz=H*.58;
+ var g=cx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#12002b');g.addColorStop(.5,'#3a0a5e');g.addColorStop(.58,'#ff2e93');g.addColorStop(.581,'#12002b');g.addColorStop(1,'#12002b');cx.fillStyle=g;cx.fillRect(0,0,W,H);
+ var R=Math.min(W*.3,H*.3)*(1+(rm?0:Math.sin(t*1.5)*.015))+flash*12;
+ cx.save();cx.beginPath();cx.rect(0,0,W,hz);cx.clip();
+ var sg=cx.createLinearGradient(0,hz-R*2,0,hz);sg.addColorStop(0,'#ffe14d');sg.addColorStop(1,flash>0?'#fff':'#ff2e93');
+ cx.fillStyle=sg;cx.shadowColor='#ff2e93';cx.shadowBlur=60;cx.beginPath();cx.arc(W/2,hz-R,R,0,7);cx.fill();cx.shadowBlur=0;
+ cx.fillStyle='#3a0a5e';for(var i=0;i<9;i++){var y=hz-R*1.05+i*(R*1.05/9)*1.9+R*.05,h=2+i*i*.55;if(y<hz)cx.fillRect(W/2-R-2,y,R*2+4,h)}
+ cx.restore();
+ cx.fillStyle='#12002b';cx.fillRect(0,hz,W,H-hz);
+ cx.strokeStyle='#22e3ff';cx.shadowColor='#22e3ff';cx.shadowBlur=8;cx.lineWidth=1.5;
+ var vp=W/2;cx.beginPath();for(var k=-24;k<=24;k++){cx.moveTo(vp+k*W*.012,hz);cx.lineTo(vp+k*W*.14,H)}cx.stroke();
+ var off=rm?0:(t*.45)%1;cx.beginPath();for(var j=0;j<14;j++){var p=(j+off)/14,y2=hz+(H-hz)*p*p;cx.moveTo(0,y2);cx.lineTo(W,y2)}cx.stroke();cx.shadowBlur=0;
+ cx.fillStyle='#ffe14d';for(var s=sparks.length-1;s>=0;s--){var q=sparks[s];q.vy+=.35;q.x+=q.vx;q.y+=q.vy;q.l--;if(q.l<=0){sparks.splice(s,1);continue}cx.globalAlpha=q.l/60;cx.fillRect(q.x,q.y,4,4)}cx.globalAlpha=1;
+ if(flash>0)flash-=.04;
+ if(!rm||sparks.length||flash>0)requestAnimationFrame(draw)
+}
+size();addEventListener('resize',function(){size();if(rm)draw(performance.now())});
+if(rm)draw(performance.now());else requestAnimationFrame(draw);
+var coin=document.getElementById('coin'),lb=document.getElementById('lb');
+coin.addEventListener('click',function(){lb.textContent='CREDIT 01 — PRESS START';flash=1;
+ for(var i=0;i<24;i++)sparks.push({x:W/2,y:H*.58-Math.min(W,H)*.2,vx:(Math.random()-.5)*10,vy:-Math.random()*9-2,l:60});
+ if(rm)requestAnimationFrame(draw)});
+var h1=document.getElementById('h1');
+if(!rm)h1.addEventListener('mouseenter',function(){h1.classList.remove('g');void h1.offsetWidth;h1.classList.add('g');setTimeout(function(){h1.classList.remove('g')},420)});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);var v=+e.target.dataset.v,s=performance.now();
+ if(rm){e.target.textContent=v.toLocaleString('en-GB');return}
+ (function f(n){var p=Math.min((n-s)/1400,1),q=1-Math.pow(1-p,3);e.target.textContent=Math.round(v*q).toLocaleString('en-GB');if(p<1)requestAnimationFrame(f)})(s)})},{threshold:.6});
+[].forEach.call(document.querySelectorAll('[data-v]'),function(c){io.observe(c)});
+})();
+</script>
+</body></html>

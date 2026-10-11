@@ -1,0 +1,11 @@
+Canvas & base: Full-page dark background, a vertical gradient #12002b to #3a0a5e to #ff2e93 at the horizon. Neon palette: magenta #ff2e93, cyan #22e3ff, yellow #ffe14d, text #f5eaff, muted #b79ad6. A full-width hero canvas (min-height 100svh) draws (1) a striped retro sun (a circle with a yellow-to-magenta gradient and horizontal gaps that widen toward the bottom) sitting on the horizon at 58% of the canvas height, and (2) a perspective floor grid below the horizon in cyan lines that scrolls toward the viewer continuously, with a faint glow.
+
+Typography: "Orbitron" (700, 900) for the headline and numbers, "Rajdhani" (500, 600, 700) for body and nav. Headline clamp(40px, 7.6vw, 104px) uppercase, line-height 0.95, letter-spacing 0.02em, with a double text-shadow glow (0 0 12px magenta, 0 0 40px magenta) and a cyan offset outline copy. Body 20px.
+
+Layout: Top nav with the logo "NEON//CADE" and links (Games, Scores, Visit). Hero content centred over the sun: white glowing label "INSERT COIN TO PLAY", headline "RETRO ARCADE, REBOOTED", a paragraph, and a pill button "▶ INSERT COIN" (neon cyan border, glow). Below the hero: a "High scores" section with a 5-row table (rank, three-letter initials, game, score) in a bordered neon panel, rows separated by dashed lines, the top row highlighted yellow, plus a "Cabinet lineup" row of 3 neon-bordered cards (Pixel Racer, Void Invaders, Brick Breaker 2000) each with a CSS-drawn glyph. Footer with opening hours.
+
+Interaction: The grid scrolls forward at a constant speed (a time-based offset so it is smooth at any frame rate) and the sun slowly pulses. Hovering the headline triggers a 400ms RGB-split glitch (clip-path slices shifting horizontally). Clicking "INSERT COIN" turns the label into "CREDIT 01 — PRESS START", flashes the sun and spawns a brief burst of 24 pixel sparks that fall with gravity on the canvas. High score rows count up to their values when scrolled into view.
+
+Responsive: Canvas resizes with devicePixelRatio handling and the layout is a single column under 800px; the table scrolls horizontally inside its panel if it must but the page never does.
+
+Rules: Respect prefers-reduced-motion with a static frame and no glitch. The canvas is aria-hidden. No images, no libraries, one HTML file.

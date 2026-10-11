@@ -1,0 +1,11 @@
+Canvas & base: Page background #f3f1ff with a soft radial glow (#e0dbff) top-left. A centred white card 760px wide max, radius 24px, padding 40px, shadow 0 24px 60px rgba(60,40,160,0.12), 1px #e6e2fb border. Ink #1c1a2e, muted #6d6a85, accent #5b46f0, success #12a05c, error #d93a4a. Body margin 0, min-height 100svh, centred.
+
+Typography: "Manrope" (500, 600, 700, 800). Step title 30px 800 letter-spacing -0.03em, helper text 16px muted, labels 14px 700, inputs 16px.
+
+Layout: Top of the card: a progress rail of 4 numbered circles (Account, Role, Goals, Review) joined by lines that fill with the accent colour as steps complete; the current circle has a soft ring. Below: the step content, then a footer with a ghost "Back" button and a primary "Continue" button (the last step says "Finish"). Step 1: name, work email, and a password field with a show/hide toggle and a 4-segment strength bar. Step 2: six selectable role cards in a 3-column grid (Designer, Developer, Founder, Marketer, Student, Other) each with an emoji-free SVG icon and a check badge when selected (single choice). Step 3: multi-select goal chips (Ship faster, Collaborate, Learn, Automate, Report, Invite my team) with a minimum of one, plus a team-size segmented control (Just me, 2-10, 11-50, 50+). Step 4: a summary list of all answers, each with an "Edit" link that jumps back to its step, and a terms checkbox.
+
+Interaction: Continue validates the current step only: inline error messages appear under the field with aria-live, the first invalid field is focused, and the step does not advance. Steps slide horizontally (260ms, ease-out) with a fade; Back reverses the direction. Enter submits the step; arrow keys move between role cards. The progress rail shows a completed check on done steps and allows clicking a completed step to return. Finish shows a success panel with a check animation and a "Start over" link.
+
+Responsive: Under 640px the card padding is 22px, role cards become 2 columns, the rail hides labels and keeps circles, buttons stack full width.
+
+Rules: No data leaves the page. prefers-reduced-motion disables the slide and uses an instant swap. No images, no libraries, one HTML file.

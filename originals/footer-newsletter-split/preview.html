@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Footer with Newsletter Split — Footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#17140d;--cr:#f4efe2;--mut:#a39d8d;--ac:#ffd84d;--hl:#2d2a20}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#faf6ea;color:var(--ink);font:400 16px/1.6 'DM Sans',system-ui,sans-serif}
+:focus-visible{outline:3px solid #2b6cff;outline-offset:3px;border-radius:6px}
+.pg{max-width:760px;margin:0 auto;padding:60px 20px 80px;min-height:60vh}
+.pg h1{font:800 clamp(34px,5vw,56px)/1.05 'Bricolage Grotesque';margin:0 0 14px;outline:0}.pg p{color:#5d5646}
+.band{background:var(--ac);padding:clamp(40px,7vw,80px) 20px;position:relative;overflow:hidden}
+.band .w{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:center}
+.band h2{font:800 clamp(30px,5vw,56px)/1 'Bricolage Grotesque';margin:0;letter-spacing:-.02em}
+.band p{margin:10px 0 0;font-size:18px}
+.fm{display:flex;gap:10px;flex-wrap:wrap}
+.fm input[type=email]{flex:1 1 220px;min-width:0;min-height:54px;border-radius:14px;border:2px solid var(--ink);background:#fff;padding:0 18px;font:500 17px 'DM Sans'}
+.fm input[aria-invalid=true]{border-color:#c0261d;background:#fff4f2}
+.fm .sb{min-height:54px;border:0;border-radius:14px;background:var(--ink);color:var(--ac);padding:0 28px;font:700 17px 'DM Sans';cursor:pointer}
+.fm .sb:hover{background:#000}
+.freq{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;border:0;padding:0}
+.freq legend{font-weight:700;font-size:14px;margin-bottom:6px;padding:0}
+.freq label{position:relative}
+.freq input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.freq span{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:99px;border:2px solid var(--ink);font-weight:700;font-size:14px;background:transparent}
+.freq input:checked+span{background:var(--ink);color:var(--ac)}
+.freq input:focus-visible+span{outline:3px solid #2b6cff;outline-offset:2px}
+.msg{min-height:24px;margin-top:8px;font-weight:500;font-size:14.5px}
+.msg.er{color:#8a1710;font-weight:700}
+.ok{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-weight:700}
+.ok a{color:inherit}
+.dots span{position:absolute;width:10px;height:10px;border-radius:50%;animation:cf 1.2s ease-out forwards;opacity:0}
+@keyframes cf{0%{opacity:1;transform:translate(0,0)}100%{opacity:0;transform:translate(var(--x),var(--y))}}
+.ft{background:var(--ink);color:var(--cr);padding:56px 20px 24px}
+.ft .w{max-width:1100px;margin:0 auto}
+.cols{display:grid;grid-template-columns:1.5fr repeat(4,minmax(0,1fr));gap:30px}
+.br .lg{font:800 24px 'Bricolage Grotesque';display:flex;gap:10px;align-items:center}
+.br .lg i{width:22px;height:22px;border-radius:50%;background:var(--ac)}
+.br p{color:var(--mut);margin:12px 0 0;font-size:15px;max-width:30ch}
+.col h3{font:700 13px 'DM Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--ac);margin:0 0 14px}
+.col h3 button{all:unset;cursor:default;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit;display:flex;justify-content:space-between;width:100%}
+.col ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.col a{color:var(--cr);text-decoration:none;font-size:15px;display:inline-block;padding:2px 0}
+.col a:hover{color:var(--ac);text-decoration:underline}
+.ut{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;margin-top:44px;padding-top:24px;border-top:1px solid var(--hl)}
+.ut select{min-height:44px;background:#221f15;color:var(--cr);border:1px solid #3a3628;border-radius:10px;padding:0 12px;font:500 14px 'DM Sans'}
+.st{display:inline-flex;gap:8px;align-items:center;font-size:14px;color:var(--cr);background:#221f15;border-radius:99px;padding:8px 14px}
+.st i{width:9px;height:9px;border-radius:50%;background:#4ade80;animation:pu 2s infinite}
+.st.cl i{background:#f87171;animation:none}
+@keyframes pu{50%{opacity:.35}}
+.soc{display:flex;gap:8px}
+.soc a{width:44px;height:44px;border-radius:50%;border:1px solid #3a3628;display:grid;place-items:center;color:var(--cr)}
+.soc a:hover{background:var(--ac);color:var(--ink);border-color:var(--ac)}
+.soc svg{width:18px;height:18px}
+.lg2{display:flex;flex-wrap:wrap;gap:12px 22px;justify-content:space-between;align-items:center;margin-top:20px;color:var(--mut);font-size:13.5px}
+.lg2 nav{display:flex;gap:18px;flex-wrap:wrap}.lg2 a{color:var(--mut)}
+.top{min-height:44px;border:1px solid #3a3628;background:none;color:var(--cr);border-radius:99px;padding:0 18px;font:700 14px 'DM Sans';cursor:pointer}
+.top:hover{background:var(--ac);color:var(--ink)}
+.pn{font-size:14px;color:var(--mut)}
+@media(max-width:1000px){.cols{grid-template-columns:repeat(3,minmax(0,1fr))}.br{grid-column:1/-1}.band .w{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:700px){.cols{grid-template-columns:minmax(0,1fr);gap:0}.br{margin-bottom:24px}.col{border-top:1px solid var(--hl)}.col h3{margin:0}.col h3 button{cursor:pointer;min-height:52px;align-items:center}.col h3 button::after{content:"+";font-size:20px}.col h3 button[aria-expanded=true]::after{content:"–"}.col ul{padding-bottom:16px}.col.js ul[hidden]{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}html{scroll-behavior:auto}}
+</style></head><body>
+<main class="pg" id="top"><h1 tabindex="-1">The back room</h1><p>Scroll down — the interesting part is the footer. Marigold Press is an independent bookshop and café with a very long mailing list and an even longer to-read pile.</p><p>Below you will find a newsletter signup with validation, a link grid that collapses into accordions on small screens, and a live opening-hours chip.</p></main>
+<section class="band" aria-labelledby="bh"><div class="w"><div><h2 id="bh">Letters from the back room</h2><p>New arrivals, recipes from the café and one good book a month.</p></div>
+<div><form class="fm" id="fm" novalidate><label for="em" style="position:absolute;left:-9999px">Email address</label><input id="em" type="email" placeholder="you@example.com" autocomplete="email" aria-describedby="ms"><button class="sb" type="submit">Subscribe</button>
+<fieldset class="freq" style="flex-basis:100%"><legend>How often?</legend><label><input type="radio" name="f" value="Weekly" checked><span>Weekly</span></label><label><input type="radio" name="f" value="Monthly"><span>Monthly</span></label><label><input type="radio" name="f" value="Only events"><span>Only events</span></label></fieldset></form>
+<div class="msg" id="ms" role="status"></div><div class="pn">We’ll never share your address. Unsubscribe in one click.</div></div></div><div class="dots" id="dt" aria-hidden="true"></div></section>
+<footer class="ft"><div class="w"><div class="cols" id="cs">
+<div class="br"><div class="lg"><i></i>Marigold Press</div><p>An independent bookshop and café at 14 Mill Lane, open every day except Christmas.</p></div>
+<div class="col"><h3><button aria-expanded="true" aria-controls="c1">Shop</button></h3><ul id="c1"><li><a href="#">New arrivals</a></li><li><a href="#">Staff picks</a></li><li><a href="#">Gift cards</a></li><li><a href="#">Signed editions</a></li><li><a href="#">Book subscriptions</a></li></ul></div>
+<div class="col"><h3><button aria-expanded="true" aria-controls="c2">Visit</button></h3><ul id="c2"><li><a href="#">Opening hours</a></li><li><a href="#">Café menu</a></li><li><a href="#">Events</a></li><li><a href="#">Book a table</a></li><li><a href="#">Accessibility</a></li></ul></div>
+<div class="col"><h3><button aria-expanded="true" aria-controls="c3">Company</button></h3><ul id="c3"><li><a href="#">Our story</a></li><li><a href="#">Booksellers</a></li><li><a href="#">Press</a></li><li><a href="#">Careers</a></li><li><a href="#">Wholesale</a></li></ul></div>
+<div class="col"><h3><button aria-expanded="true" aria-controls="c4">Help</button></h3><ul id="c4"><li><a href="#">Delivery</a></li><li><a href="#">Returns</a></li><li><a href="#">Contact</a></li><li><a href="#">FAQs</a></li><li><a href="#">Order status</a></li></ul></div></div>
+<div class="ut"><label class="sr" style="position:absolute;left:-9999px" for="lg">Language and region</label><select id="lg"><option value="£|English (UK)">English (UK) · £</option><option value="€|Français">Français · €</option><option value="$|English (US)">English (US) · $</option></select><span class="pn" id="cu">Prices shown in £.</span><span class="st" id="st" role="status"></span>
+<div class="soc"><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a><a href="#" aria-label="Mastodon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8c0-3 2-4 7-4s7 1 7 4v5c0 3-2 4-6 4H9c0 2 2 3 6 3M9 9v5M12 14V9l3 4V9"/></svg></a><a href="#" aria-label="RSS"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5a14 14 0 0114 14M5 11a8 8 0 018 8"/><circle cx="6" cy="18" r="1.5" fill="currentColor"/></svg></a></div></div>
+<div class="lg2"><span>© Marigold Press Ltd · Registered in England 0099123</span><nav aria-label="Legal"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Cookies</a></nav><button class="top" id="tp">↑ Back to top</button></div></div></footer>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const em=$('#em'),ms=$('#ms');let lastOk=null;
+const val=v=>/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v);
+function setErr(t){em.setAttribute('aria-invalid',!!t);ms.className='msg'+(t?' er':'');ms.textContent=t||''}
+em.addEventListener('blur',()=>{if(em.value.trim()&&!val(em.value.trim()))setErr('That email doesn’t look right — check for typos.')});
+em.addEventListener('input',()=>{if(em.getAttribute('aria-invalid')==='true'&&val(em.value.trim()))setErr('')});
+$('#fm').onsubmit=e=>{e.preventDefault();const v=em.value.trim();if(!v){setErr('Please enter your email address.');em.focus();return}if(!val(v)){setErr('That email doesn’t look right — check for typos.');em.focus();return}
+ const f=document.querySelector('[name=f]:checked').value;setErr('');lastOk=v;ms.className='msg';ms.textContent='';const o=document.createElement('span');o.className='ok';o.append('✓ Subscribed as '+v+' · '+f+'. ');const u=document.createElement('a');u.href='#';u.textContent='Undo';u.onclick=ev=>{ev.preventDefault();ms.textContent='Unsubscribed. No hard feelings.';em.value='';$('#fm').hidden=false;em.focus()};o.append(u);ms.append(o);$('#fm').hidden=true;
+ if(!rm){const d=$('#dt');d.textContent='';const r=$('.band').getBoundingClientRect();for(let i=0;i<26;i++){const s=document.createElement('span');s.style.cssText=`left:${40+Math.random()*20}%;top:50%;background:${['#17140d','#fff','#e4572e','#2e86ab'][i%4]};--x:${(Math.random()-.5)*600}px;--y:${(Math.random()-.8)*260}px;animation-delay:${Math.random()*.15}s`;d.append(s)}}};
+/* accordions */
+const mq=matchMedia('(max-width:700px)');
+function acc(){const m=mq.matches;$$('.col').forEach(c=>{c.classList.toggle('js',m);const b=c.querySelector('button'),ul=c.querySelector('ul');if(m){b.setAttribute('aria-expanded','false');ul.hidden=true}else{b.setAttribute('aria-expanded','true');ul.hidden=false}})}
+$$('.col button').forEach(b=>b.onclick=()=>{if(!mq.matches)return;const o=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',o);document.getElementById(b.getAttribute('aria-controls')).hidden=!o});
+mq.addEventListener('change',acc);acc();
+/* status */
+function status(){const n=new Date(),d=n.getDay(),h=n.getHours()+n.getMinutes()/60;const open=d===0?[10,16]:d===6?[8,18]:[8,18];const o=h>=open[0]&&h<open[1];const st=$('#st');st.className='st'+(o?'':' cl');st.innerHTML='<i></i>';const lab=o?'Café open until '+(open[1]>12?open[1]-12:open[1])+' pm':'Café closed · opens '+(d===6?'8':d===5?'10 Sun':'8')+' am';st.append(lab)}
+status();setInterval(status,60000);
+$('#lg').onchange=e=>{const[c]=e.target.value.split('|');$('#cu').textContent='Prices shown in '+c+'.';document.documentElement.lang=e.target.value.includes('Fran')?'fr':'en'};
+$('#tp').onclick=()=>{scrollTo({top:0,behavior:rm?'auto':'smooth'});setTimeout(()=>$('#top h1').focus({preventScroll:true}),rm?0:500)};
+</script></body></html>

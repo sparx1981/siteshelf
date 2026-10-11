@@ -1,0 +1,11 @@
+Canvas & base: A stage on #dfe3ea with a centred phone frame (380×760px, 36px radius, 10px #101216 bezel). Inside, the app screen is #f7f8fa with white story cards, ink #12151c, secondary #6b7280, accent orange #ff6a2b, indicator track #e5e7eb. Invented app "Daybreak News".
+
+Typography: "Manrope" (500,700,800) for UI; story headlines 16px at 800.
+
+Layout: Inside the phone a sticky header ("Daybreak" wordmark, a refresh icon button, last-updated text), a scrollable feed of eight story cards (generated colour thumbnail, category chip, headline, source, time ago), and the pull indicator that sits above the first card (a circle with an arrow that rotates and a progress ring). A toast "4 new stories" slides from the top after refresh.
+
+Interaction: When the feed is scrolled to top, dragging down (pointer or touch) stretches the content with resistance (rubber-band easing); the indicator's ring fills toward a 72px threshold and the arrow flips. Releasing past the threshold holds at 56px with a spinning ring for 1.4s (simulated fetch), then inserts 3–5 new stories at the top with a slide-in and updates "Updated just now". Releasing before the threshold springs back. A header refresh button and the R key trigger the same refresh programmatically. Respect reduced motion by using a non-elastic fade and a text status "Refreshing…". The feed announces "Feed updated, 4 new stories" in a polite live region. Cards truncate headlines to three lines.
+
+Responsive: On narrow screens the phone frame becomes full width/height with no bezel; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, invented names only.

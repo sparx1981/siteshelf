@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mono & Moss Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2efe8;--ink:#0e0e0e;--lime:#c8ff2e;--mut:#6a675f}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "DM Sans",system-ui,sans-serif;overflow-x:hidden}
+.an{font-family:Anton,Impact,sans-serif;text-transform:uppercase;font-weight:400;margin:0}
+nav{position:sticky;top:0;z-index:30;background:#f2efeeee;backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 24px;border-bottom:2px solid var(--ink)}
+.logo{font:400 22px Anton;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+nav .ls{display:flex;gap:6px;align-items:center}
+nav a{color:var(--ink);text-decoration:none;font-weight:700;padding:0 12px;min-height:44px;display:inline-flex;align-items:center;border-radius:99px}
+nav a.on{background:var(--ink);color:#fff}
+nav a.pill{background:var(--lime);border:2px solid var(--ink)}
+.hero{padding:56px 24px 40px;position:relative;max-width:1300px;margin:0 auto}
+.hero h1{font-size:clamp(56px,13vw,180px);line-height:.92}
+.hl{background:var(--lime);padding:0 .12em;display:inline-block;transform:rotate(-1.5deg)}
+.hero p{max-width:480px;font-size:18px;margin:28px 0 0}
+.badge{position:absolute;right:24px;bottom:30px;width:130px;height:130px}
+.badge svg{width:100%;height:100%;animation:rot 14s linear infinite}
+.badge text{font:700 11px "DM Sans";letter-spacing:3px;text-transform:uppercase;fill:var(--ink)}
+@keyframes rot{to{transform:rotate(360deg)}}
+.tick{background:var(--ink);color:var(--lime);overflow:hidden;white-space:nowrap;padding:14px 0}
+.tick:hover .tr{animation-play-state:paused}
+.tr{display:inline-flex;gap:40px;animation:mq 26s linear infinite;font:400 34px Anton;text-transform:uppercase}
+@keyframes mq{to{transform:translateX(-50%)}}
+.sec{max-width:1300px;margin:0 auto;padding:72px 24px}
+.sec h2{font-size:clamp(40px,7vw,88px);line-height:.95;margin-bottom:32px}
+.sv{border-top:2px solid var(--ink)}
+.sv button{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:60px minmax(0,1fr) 44px;align-items:center;gap:12px;padding:18px 0;cursor:pointer;border-bottom:2px solid var(--ink);font:400 clamp(30px,6vw,72px)/1 Anton;text-transform:uppercase;transition:background .2s,padding .2s}
+.sv button:hover,.sv button:focus-visible,.sv button[aria-expanded=true]{background:var(--lime);padding-left:14px;padding-right:14px}
+.sv button:focus-visible{outline:3px solid var(--ink);outline-offset:-3px}
+.sv small{font:700 14px "DM Sans";color:var(--mut)}
+.sv .ar{font:400 32px "DM Sans";transition:transform .25s}
+.sv button[aria-expanded=true] .ar{transform:rotate(45deg)}
+.pn{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+.pn.open{grid-template-rows:1fr}
+.pn>div{overflow:hidden}
+.pn p{margin:16px 0 8px 72px;max-width:560px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px 72px}
+.tags span{border:2px solid var(--ink);border-radius:99px;padding:2px 12px;font-weight:700;font-size:13px}
+.gr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;position:relative;cursor:none}
+.cs{border:2px solid var(--ink);border-radius:18px;overflow:hidden;background:#fff;text-decoration:none;color:var(--ink);display:block}
+.cs .art{aspect-ratio:4/3;position:relative;overflow:hidden;transition:transform .4s}
+.cs:hover .art{transform:scale(1.04)}
+.cs div.in{padding:14px 18px;display:flex;justify-content:space-between;border-top:2px solid var(--ink);background:#fff;position:relative}
+.cs b{font:400 24px Anton;text-transform:uppercase}.cs span{color:var(--mut)}
+.art i{position:absolute;display:block}
+.cur{position:fixed;left:0;top:0;pointer-events:none;background:var(--lime);border:2px solid var(--ink);border-radius:99px;padding:6px 16px;font-weight:700;transform:translate(-50%,-50%) scale(0);transition:transform .15s;z-index:40}
+.cur.on{transform:translate(-50%,-50%) scale(1)}
+.nums{background:var(--ink);color:#fff}
+.nums .sec{padding:56px 24px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.nums b{display:block;font:400 clamp(48px,8vw,110px)/1 Anton;color:var(--lime)}
+.nums span{color:#bdb9ae}
+.ft{background:var(--lime);border-top:2px solid var(--ink)}
+.ft .sec{text-align:center;padding:80px 24px}
+.ft h2{font-size:clamp(56px,13vw,200px);line-height:.9}
+.ft a.m{display:inline-block;margin-top:24px;font:400 clamp(24px,4vw,44px) Anton;color:var(--ink);text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:6px;overflow-wrap:anywhere}
+.cp{display:block;margin:16px auto 0;background:var(--ink);color:#fff;border:0;border-radius:99px;padding:0 24px;min-height:48px;font:700 15px "DM Sans";cursor:pointer}
+a:focus-visible,.cp:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+@media(max-width:700px){nav{padding:8px 12px}nav .ls a:not(.pill){display:none}.gr{grid-template-columns:minmax(0,1fr);cursor:auto}.cur{display:none}.nums .sec{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.badge{display:none}.pn p,.tags{margin-left:0}.sv button{grid-template-columns:36px minmax(0,1fr) 36px}}
+@media(hover:none){.cur{display:none}.gr{cursor:auto}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.tr{transform:none}}
+</style></head><body>
+<nav aria-label="Main"><a class="logo" href="#top">Mono &amp; Moss</a><div class="ls"><a href="#work">Work</a><a href="#services">Services</a><a href="#numbers">Numbers</a><a class="pill" href="#contact">Start a project</a></div></nav>
+<header class="hero" id="top"><h1 class="an">We build <span class="hl">brands</span><br>that refuse<br>to whisper.</h1><p>Mono &amp; Moss is an independent studio of designers, writers and engineers making identities, sites and campaigns with a very loud voice.</p>
+<div class="badge" aria-hidden="true"><svg viewBox="0 0 130 130"><defs><path id="c" d="M65 65m-50 0a50 50 0 1 1 100 0a50 50 0 1 1-100 0"/></defs><circle cx="65" cy="65" r="62" fill="#c8ff2e" stroke="#0e0e0e" stroke-width="2"/><text><textPath href="#c">Available for new work • Spring • </textPath></text></svg></div></header>
+<div class="tick" aria-hidden="true"><div class="tr"><span>Branding ✺ Web ✺ Motion ✺ Packaging ✺ Campaigns ✺ Naming ✺ </span><span>Branding ✺ Web ✺ Motion ✺ Packaging ✺ Campaigns ✺ Naming ✺ </span></div></div>
+<section class="sec" id="services"><h2 class="an">What we do</h2><div class="sv" id="sv"></div></section>
+<section class="sec" id="work" style="padding-top:0"><h2 class="an">Selected work</h2><div class="gr" id="gr"></div></section>
+<section class="nums" id="numbers"><div class="sec"><div><b data-n="14">0</b><span>Years loud</span></div><div><b data-n="212">0</b><span>Projects shipped</span></div><div><b data-n="37">0</b><span>Awards, politely accepted</span></div><div><b data-n="9400">0</b><span>Cups of coffee</span></div></div></section>
+<footer class="ft" id="contact"><div class="sec"><h2 class="an">Let's make noise</h2><a class="m" id="em" href="mailto:hello@monomoss.example">hello@monomoss.example</a><button class="cp" id="cp">Copy email</button></div></footer>
+<div class="cur" id="cur" aria-hidden="true">View</div><div id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div>
+<script>
+const $=s=>document.querySelector(s);
+const S=[["Brand identity","Logos, systems and voice that hold up from a favicon to a billboard.",["Strategy","Logo","Guidelines"]],["Websites","Fast, accessible sites built to be edited by humans, not developers.",["Design","Build","CMS"]],["Motion","Titles, loops and product films with a point of view.",["2D","3D","Sound"]],["Packaging","Shelf-stopping boxes, labels and unboxing moments.",["Dielines","Print","Finishes"]],["Campaigns","Ideas with legs across social, outdoor and email.",["Concept","Copy","Media"]]];
+const sv=$("#sv");S.forEach((s,i)=>{const b=document.createElement("button");b.id="sb"+i;b.setAttribute("aria-expanded","false");b.setAttribute("aria-controls","sp"+i);b.innerHTML=`<small>0${i+1}</small><span>${s[0]}</span><span class="ar" aria-hidden="true">+</span>`;const p=document.createElement("div");p.className="pn";p.id="sp"+i;p.setAttribute("role","region");p.setAttribute("aria-labelledby","sb"+i);p.innerHTML=`<div><p>${s[1]}</p><div class="tags">${s[2].map(t=>`<span>${t}</span>`).join("")}</div></div>`;b.onclick=()=>{const o=b.getAttribute("aria-expanded")=="true";sv.querySelectorAll("button").forEach(x=>{x.setAttribute("aria-expanded","false");$("#"+x.getAttribute("aria-controls")).classList.remove("open")});if(!o){b.setAttribute("aria-expanded","true");p.classList.add("open")}};sv.append(b,p)});
+const W=[["Kelp & Co.","Identity",["#1f4d3a","#c8ff2e","#f2efe8"]],["Halden Rail","Website",["#ff5a36","#0e0e0e","#ffd8a8"]],["Tin Lantern","Packaging",["#3b3bd6","#f2efe8","#ff9ec7"]],["Oatly Moon","Campaign",["#f6c945","#0e0e0e","#7be0c3"]]];
+W.forEach(w=>{const a=document.createElement("a");a.href="#";a.className="cs";a.setAttribute("aria-label",w[0]+", "+w[1]+" case study");a.onclick=e=>e.preventDefault();const[c1,c2,c3]=w[2];a.innerHTML=`<div class="art" style="background:${c1}"><i style="width:55%;aspect-ratio:1;border-radius:50%;background:${c2};left:8%;top:14%"></i><i style="width:38%;aspect-ratio:1;background:${c3};right:8%;bottom:10%;transform:rotate(12deg);border-radius:18%"></i></div><div class="in"><b>${w[0]}</b><span>${w[1]}</span></div>`;$("#gr").append(a)});
+const cur=$("#cur"),gr=$("#gr");gr.addEventListener("pointermove",e=>{if(e.pointerType=="touch")return;cur.style.left=e.clientX+"px";cur.style.top=e.clientY+"px";cur.classList.add("on")});gr.addEventListener("pointerleave",()=>cur.classList.remove("on"));
+const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);const n=+e.target.dataset.n;if(rm){e.target.textContent=n.toLocaleString();return}const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/1400);e.target.textContent=Math.round(n*(1-Math.pow(1-k,3))).toLocaleString();if(k<1)requestAnimationFrame(f)})(t0)}),{threshold:.5});
+document.querySelectorAll("[data-n]").forEach(b=>io.observe(b));
+$("#cp").onclick=async()=>{const b=$("#cp");try{await navigator.clipboard.writeText($("#em").textContent)}catch(e){}b.textContent="Copied ✓";$("#live").textContent="Email copied";setTimeout(()=>b.textContent="Copy email",1800)};
+const links=[...document.querySelectorAll("nav .ls a:not(.pill)")],secs=links.map(a=>$(a.getAttribute("href")));
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")=="#"+e.target.id))}),{rootMargin:"-40% 0px -55% 0px"});secs.forEach(s=>so.observe(s));
+</script></body></html>

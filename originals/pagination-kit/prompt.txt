@@ -1,0 +1,11 @@
+Canvas & base: Warm paper background #f6f3ec, white result card with 1px #e4dfd2 border and 18px radius, ink #1d1b16, secondary #6f6a5c, accent forest #1f6f54, accent tint #e3f1ea. Invented catalogue "Fernlight Library" with 96 generated titles.
+
+Typography: "Fraunces" (600,700) for the heading, "Inter" (400,500,600) at 15px for everything else; tabular numerals on counts.
+
+Layout: A 760px column. Heading, a segmented control choosing the pager style (Numbered, Prev/Next, Load more, Dots), a page-size select (6, 12, 24), a result summary ("Showing 7–12 of 96"), a list of result rows (cover swatch, title, author, year), and the pager underneath.
+
+Interaction: Numbered pager shows first, last, current and two neighbours with ellipses that expand a small popover of hidden pages; current has aria-current="page". Prev/Next has a number input with Go button, validates range, and disables at ends. Load more appends the next page, updates a progress bar and "Showing X of 96", and moves focus to the first new row. Dots pager shows one dot per page with arrow keys moving between them. Left/Right arrow keys on the list page when focus is in the pager. Page and size sync to location.hash and restore on load. Announce page changes in a polite live region and scroll the list to top smoothly.
+
+Responsive: Under 560px the numbered pager shows only current plus neighbours, the segmented control scrolls horizontally, rows shrink their cover swatch.
+
+Rules: No libraries or external images, generated data only, minmax(0,1fr) grids, hidden attribute respected, honour prefers-reduced-motion, 44px touch targets, invented titles only.

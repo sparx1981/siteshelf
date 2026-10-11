@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pull-to-Refresh Feed — Loaders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#12151c;--mut:#6b7280;--ac:#ff6a2b}
+*{box-sizing:border-box}
+body{margin:0;background:#dfe3ea;font:500 15px/1.45 Manrope,system-ui,sans-serif;color:var(--ink);min-height:100svh;display:grid;place-items:center;padding:20px}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px;border-radius:8px}
+.ph{width:380px;max-width:100%;height:760px;max-height:calc(100svh - 40px);border:10px solid #101216;border-radius:36px;background:#f7f8fa;overflow:hidden;position:relative;display:flex;flex-direction:column;box-shadow:0 30px 70px rgba(16,18,22,.3)}
+.hd{display:flex;align-items:center;gap:10px;padding:14px 16px 10px;background:#fff;border-bottom:1px solid #eceef2;z-index:3}
+.hd h1{font:800 22px Manrope;margin:0;letter-spacing:-.02em}.hd h1 i{color:var(--ac);font-style:normal}
+.up{margin-left:auto;font-size:12.5px;color:var(--mut)}
+.rf{width:44px;height:44px;border-radius:50%;border:0;background:#f1f3f6;cursor:pointer;display:grid;place-items:center;color:var(--ink)}
+.rf svg{width:20px;height:20px}
+.rf.sp svg{animation:sp 1s linear infinite}
+.sc{flex:1;overflow-y:auto;overscroll-behavior:contain;position:relative;touch-action:pan-y}
+.in{position:absolute;left:50%;top:0;margin-left:-22px;width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.15);display:grid;place-items:center;z-index:2;opacity:0;pointer-events:none}
+.in svg{width:30px;height:30px;transform:rotate(-90deg)}
+.in circle{fill:none;stroke-width:3.5}
+.in .tr{stroke:#e5e7eb}.in .pg{stroke:var(--ac);stroke-linecap:round;stroke-dasharray:75.4;stroke-dashoffset:75.4}
+.in .ar{position:absolute;font:800 16px Manrope;color:var(--ac);transition:transform .2s}
+.in.go svg{animation:sp .8s linear infinite}
+.in.go .ar{opacity:0}
+@keyframes sp{to{transform:rotate(270deg)}}
+.rf.sp svg{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fd{padding:12px;display:flex;flex-direction:column;gap:10px;will-change:transform}
+.cd{background:#fff;border-radius:16px;padding:12px;display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.cd.nw{animation:ni .5s both}
+@keyframes ni{from{opacity:0;transform:translateY(-16px)}}
+.th{width:76px;height:76px;border-radius:12px}
+.ct{display:inline-block;font:800 10.5px Manrope;letter-spacing:.1em;text-transform:uppercase;border-radius:99px;padding:2px 9px;margin-bottom:4px}
+.cd h2{font:800 15.5px/1.3 Manrope;margin:0 0 4px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.cd small{color:var(--mut);font-size:12.5px}
+.ts{position:absolute;left:50%;top:70px;transform:translate(-50%,-80px);background:var(--ink);color:#fff;padding:9px 18px;border-radius:99px;font:700 13.5px Manrope;z-index:6;transition:transform .35s cubic-bezier(.3,1.3,.5,1);white-space:nowrap}
+.ts.on{transform:translate(-50%,0)}
+.sr{position:absolute;left:-9999px}
+.hint{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-size:12px;color:var(--mut);pointer-events:none}
+@media(max-width:460px){body{padding:0;display:block}.ph{width:100%;height:100svh;max-height:none;border:0;border-radius:0}}
+@media(prefers-reduced-motion:reduce){.cd.nw{animation:none}.in.go svg,.rf.sp svg{animation-duration:2s}}
+</style></head><body>
+<div class="ph"><header class="hd"><h1>Day<i>break</i></h1><span class="up" id="up">Updated 9:41</span><button class="rf" id="rf" aria-label="Refresh feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 11-2.6-5.9M20 4v5h-5"/></svg></button></header>
+<div class="sc" id="sc" tabindex="0" aria-label="News feed. Pull down or press R to refresh."><div class="in" id="in" aria-hidden="true"><svg viewBox="0 0 30 30"><circle class="tr" cx="15" cy="15" r="12"/><circle class="pg" id="pg" cx="15" cy="15" r="12"/></svg><span class="ar" id="ar">↓</span></div><div class="fd" id="fd" role="feed" aria-label="Top stories"></div></div>
+<div class="ts" id="ts" role="status"></div><div class="sr" id="lv" aria-live="polite"></div></div>
+<script>
+const $=s=>document.querySelector(s),mk=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const CAT={World:['#dbeafe','#1e40af','#3b82f6'],Tech:['#ede9fe','#5b21b6','#8b5cf6'],Culture:['#fce7f3','#9d174d','#ec4899'],Science:['#dcfce7','#166534','#22c55e'],Sport:['#ffedd5','#9a3412','#f97316']};
+const POOL=[['World','Harbour towns brace for record spring tide','The Gazette'],['Tech','A pocket-sized telescope that fits in a coat','Circuit Daily'],['Culture','Why the village cinema sold out every night this week','Arts Wire'],['Science','Researchers hear whales singing in a new key','Nature Notes'],['Sport','Underdogs seal promotion in a seven-goal thriller','The Pitch'],['World','Rail strike ends after marathon overnight talks','The Gazette'],['Tech','Open-source maps project hits a billion edits','Circuit Daily'],['Culture','The bookshop that lends you a stranger’s favourite novel','Arts Wire'],['Science','Bees seen using tools to pry open stubborn flowers','Nature Notes'],['Sport','Marathon record falls on a rain-soaked course','The Pitch'],['World','Coastal path reopens after storm repairs','The Gazette'],['Tech','Why your next laptop might be repairable by design','Circuit Daily'],['Culture','A choir of two hundred sings in the old tram depot','Arts Wire'],['Science','Tiny sensors map the quiet life of a peat bog','Nature Notes']];
+let idx=0,items=[];const next=()=>POOL[idx++%POOL.length];
+function card(s,nw){const c=mk('article','cd'+(nw?' nw':''));c.tabIndex=0;c.setAttribute('role','article');const k=CAT[s[0]];const th=mk('div','th');th.style.background=`linear-gradient(135deg,${k[0]},${k[2]})`;
+ const b=mk('div');const ct=mk('span','ct',s[0]);ct.style.background=k[0];ct.style.color=k[1];b.append(ct,mk('h2',null,s[1]),mk('small',null,s[2]+' · '+(nw?'just now':Math.floor(Math.random()*50+5)+' min ago')));c.append(th,b);c.setAttribute('aria-label',s[1]);return c}
+for(let i=0;i<8;i++)$('#fd').append(card(next(),false));
+const sc=$('#sc'),fd=$('#fd'),ind=$('#in'),pg=$('#pg'),ar=$('#ar');const TH=72,HOLD=56;
+let busy=false,drag=null;
+const set=(y)=>{fd.style.transform=y?`translateY(${y}px)`:'';ind.style.transform=`translateY(${Math.max(-30,y-44-6)}px)`;ind.style.opacity=Math.min(1,y/30);pg.style.strokeDashoffset=75.4*(1-Math.min(1,y/TH));ar.style.transform=y>=TH?'rotate(180deg)':'none'};
+function time(){const d=new Date();return 'Updated '+d.getHours()+':'+String(d.getMinutes()).padStart(2,'0')}
+sc.addEventListener('pointerdown',e=>{if(busy||sc.scrollTop>0||e.pointerType==='mouse'&&e.button!==0)return;drag={y:e.clientY,d:0};});
+sc.addEventListener('pointermove',e=>{if(!drag)return;const dy=e.clientY-drag.y;if(dy<=0||sc.scrollTop>0){if(drag.d>0){drag.d=0;set(0)}return}drag.d=dy;const r=rm?Math.min(dy,TH):TH*1.8*(1-Math.exp(-dy/(TH*1.8)));fd.style.transition='none';ind.style.transition='none';set(r);drag.r=r;if(e.pointerType!=='mouse')e.preventDefault()},{passive:false});
+function release(){if(!drag)return;const r=drag.r||0;drag=null;fd.style.transition='transform .35s cubic-bezier(.2,.9,.3,1)';ind.style.transition='transform .35s,opacity .3s';if(r>=TH*.92)refresh();else set(0)}
+sc.addEventListener('pointerup',release);sc.addEventListener('pointercancel',release);sc.addEventListener('lostpointercapture',()=>{});
+document.addEventListener('pointerup',release);
+function refresh(){if(busy)return;busy=true;fd.style.transition='transform .3s';ind.style.transition='transform .3s,opacity .2s';set(HOLD);ind.classList.add('go');$('#rf').classList.add('sp');$('#rf').disabled=true;$('#up').textContent='Refreshing…';
+ setTimeout(()=>{const n=3+Math.floor(Math.random()*3);for(let i=0;i<n;i++)fd.prepend(card(next(),true));ind.classList.remove('go');$('#rf').classList.remove('sp');$('#rf').disabled=false;set(0);sc.scrollTop=0;busy=false;$('#up').textContent=time();
+  const t=$('#ts');t.textContent=n+' new stories';t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2200);$('#lv').textContent='';setTimeout(()=>$('#lv').textContent='Feed updated, '+n+' new stories',40);
+  [...fd.children].slice(n+20).forEach(c=>c.remove())},1400)}
+$('#rf').onclick=()=>{sc.scrollTo({top:0});refresh()};
+document.addEventListener('keydown',e=>{if((e.key==='r'||e.key==='R')&&!e.ctrlKey&&!e.metaKey&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName))refresh()});
+sc.addEventListener('wheel',e=>{if(sc.scrollTop<=0&&e.deltaY<-60&&!busy){refresh()}},{passive:true});
+</script></body></html>

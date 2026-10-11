@@ -1,0 +1,11 @@
+Canvas & base: Dark graphite #12141a, cards #1c1f28 with 1px #2a2e3a border and 18px radius, ink #f1f3f8, secondary #8a92a6, accent warm amber #ffb547 (lights on), cool blue #5aa9ff (cooling), heat orange #ff7a45, green #3ddc97. Invented system "Hearth".
+
+Typography: "Inter Tight" (400,500,600,700) at 14px, large numerals 48px tabular.
+
+Layout: Header with greeting, home mode chip and a scene row (Movie, Away, Good night). Room tabs (Living, Kitchen, Bedroom, Office). A responsive grid: thermostat card with SVG dial (target temperature, current, mode heat/cool/off), light cards for the active room with switch and brightness slider, a lock/door card, an energy card with SVG sparkline and kWh today, and an activity log card.
+
+Interaction: Room tabs change which lights show. Light toggle glows the card; slider sets brightness and card glow intensity. Thermostat dial: drag around the arc or use +/- buttons or arrow keys, 16–30°C in 0.5 steps, mode buttons recolour the dial; announce target. Lock toggles locked/unlocked with a 5-second "Auto-lock in" countdown when unlocked. Scenes apply preset states across all rooms (Movie dims living to 20%, Away turns all off and locks, Good night turns off all except bedroom at 10%) and log an entry. Every change prepends a timestamped entry to the activity log (max 20). Energy sparkline animates in and updates a little when lights change.
+
+Responsive: Grid collapses to one column under 640px; dial scales.
+
+Rules: No libraries or external images, hidden attribute respected, slider and switches are native inputs with labels, 44px targets, prefers-reduced-motion, invented content.

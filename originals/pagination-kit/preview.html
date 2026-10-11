@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pagination Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f3ec;--ink:#1d1b16;--mut:#6f6a5c;--line:#e4dfd2;--ac:#1f6f54;--tint:#e3f1ea}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif;padding:32px 16px 64px}
+.w{max-width:760px;margin:0 auto}
+h1{font:700 32px/1.1 Fraunces,Georgia,serif;margin:0 0 4px}
+.sub{color:var(--mut);margin:0 0 20px}
+.bar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}
+.seg{display:flex;gap:4px;background:#ebe6d9;padding:4px;border-radius:12px;overflow-x:auto;max-width:100%}
+.seg button{border:0;background:none;padding:10px 14px;border-radius:9px;font:600 14px Inter;color:var(--mut);cursor:pointer;white-space:nowrap;min-height:44px}
+.seg button[aria-pressed=true]{background:#fff;color:var(--ink);box-shadow:0 1px 3px #0002}
+label.sz{display:flex;gap:8px;align-items:center;color:var(--mut);font-size:14px}
+select,input{font:inherit;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 12px;min-height:44px;color:var(--ink)}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.sum{padding:14px 18px;border-bottom:1px solid var(--line);color:var(--mut);font-variant-numeric:tabular-nums;display:flex;justify-content:space-between;gap:10px}
+.sum b{color:var(--ink)}
+ul{list-style:none;margin:0;padding:0}
+li{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 18px;border-bottom:1px solid var(--line)}
+li:last-child{border:0}
+li .cv{width:44px;height:56px;border-radius:4px 8px 8px 4px;box-shadow:inset 4px 0 0 #0002}
+li h3{margin:0;font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+li p{margin:0;color:var(--mut);font-size:13px}
+li time{color:var(--mut);font-variant-numeric:tabular-nums;font-size:13px}
+li.new{animation:in .5s}
+@keyframes in{from{background:var(--tint)}}
+.pg{padding:16px 18px;border-top:1px solid var(--line);display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap;position:relative}
+.pg button{min-width:44px;min-height:44px;border:1px solid var(--line);background:#fff;border-radius:10px;font:600 14px Inter;color:var(--ink);cursor:pointer;padding:0 12px;font-variant-numeric:tabular-nums}
+.pg button:hover:not(:disabled){border-color:var(--ac)}
+.pg button[aria-current=page]{background:var(--ac);border-color:var(--ac);color:#fff}
+.pg button:disabled{opacity:.4;cursor:not-allowed}
+.pg button:focus-visible,select:focus-visible,input:focus-visible,.seg button:focus-visible{outline:3px solid #1f6f5466;outline-offset:2px}
+.el{position:relative}
+.pop{position:absolute;bottom:52px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px;display:flex;gap:4px;flex-wrap:wrap;width:max-content;max-width:260px;box-shadow:0 10px 30px #0002;z-index:5}
+.jump{display:flex;gap:8px;align-items:center}
+.jump input{width:84px;text-align:center}
+.err{color:#b42318;font-size:13px;width:100%;text-align:center}
+.more{flex-direction:column;gap:10px}
+.prog{width:min(320px,100%);height:6px;background:#ebe6d9;border-radius:9px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--ac);transition:width .4s}
+.more .go{background:var(--ac);color:#fff;border-color:var(--ac);padding:0 24px}
+.dots{gap:10px}
+.dots .d{min-width:44px;width:44px;padding:0;border:0;background:none;display:grid;place-items:center}
+.dots .d::before{content:"";width:10px;height:10px;border-radius:50%;background:#cfc8b5;transition:.2s}
+.dots .d[aria-current=page]::before{background:var(--ac);width:26px;border-radius:9px}
+.dots .a{font-size:18px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:560px){h1{font-size:26px}li{grid-template-columns:36px minmax(0,1fr) auto;gap:10px;padding:10px 12px}li .cv{width:36px;height:46px}.sum,.pg{padding-left:12px;padding-right:12px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style></head><body><div class="w">
+<h1>Fernlight Library</h1><p class="sub">Browse 96 invented titles with four pager styles.</p>
+<div class="bar"><div class="seg" role="group" aria-label="Pager style" id="seg"></div>
+<label class="sz">Per page <select id="size"><option>6</option><option selected>12</option><option>24</option></select></label></div>
+<section class="card" aria-label="Results"><div class="sum" id="sum"></div><ul id="list"></ul><nav class="pg" id="pg" aria-label="Pagination"></nav></section>
+<div class="sr" id="live" aria-live="polite"></div></div>
+<script>
+const A=["Ash","Brine","Cinder","Dune","Ember","Fable","Gale","Harbor","Ivory","Juniper","Kelp","Lantern"],B=["Atlas","Almanac","Letters","Orchard","Tides","Garden","Weather","Maps","Hours","Archive","Songs","Ledger"];
+const AU=["Mara Quillon","Tobias Wren","Isla Ferndale","Odile Marsh","Jonas Pell","Wren Alder","Priya Holt","Corin Vale"];
+const COL=["#1f6f54","#b5651d","#3b5b92","#8a3a5c","#6b7d2c","#a1432f","#4b4b7a","#2f7a7a"];
+const D=[];for(let i=0;i<96;i++)D.push({t:A[i%12]+" "+B[(i*5+3)%12],a:AU[(i*3)%8],y:1950+(i*7)%74,c:COL[i%8]});
+const $=s=>document.querySelector(s);let mode="num",size=12,page=1,shown=1;
+const modes=[["num","Numbered"],["pn","Prev/Next"],["more","Load more"],["dots","Dots"]];
+const seg=$("#seg");modes.forEach(([k,l])=>{const b=document.createElement("button");b.textContent=l;b.dataset.k=k;b.setAttribute("aria-pressed",k==mode);b.onclick=()=>{mode=k;shown=page;sync();render()};seg.append(b)});
+const total=()=>Math.ceil(96/size);
+function say(m){const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)}
+function sync(){seg.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k==mode));try{history.replaceState(null,"","#p="+page+"&s="+size+"&m="+mode)}catch(e){}}
+function go(p,focusNew){p=Math.max(1,Math.min(total(),p));page=p;shown=p;sync();render();$("#sum").scrollIntoView({block:"nearest",behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"});say("Page "+p+" of "+total())}
+function rows(from,to,newFrom){const u=$("#list");u.innerHTML="";D.slice(from,to).forEach((d,i)=>{const li=document.createElement("li");if(newFrom!=null&&from+i>=newFrom)li.className="new";li.innerHTML=`<span class="cv" style="background:${d.c}"></span><div><h3></h3><p></p></div><time>${d.y}</time>`;li.querySelector("h3").textContent=d.t;li.querySelector("p").textContent=d.a;li.tabIndex=-1;u.append(li)})}
+function btn(l,p,o={}){const b=document.createElement("button");b.textContent=l;b.type="button";if(o.aria)b.setAttribute("aria-label",o.aria);if(o.cur)b.setAttribute("aria-current","page");if(o.dis)b.disabled=true;b.onclick=o.fn||(()=>go(p));return b}
+function nums(){const T=total(),s=new Set([1,T,page,page-1,page+1]);if(innerWidth>560){s.add(page-2);s.add(page+2)}const a=[...s].filter(n=>n>=1&&n<=T).sort((x,y)=>x-y);const out=[];a.forEach((n,i)=>{if(i&&n-a[i-1]>1)out.push({gap:[a[i-1]+1,n-1]});out.push(n)});return out}
+function render(){const pg=$("#pg"),T=total(),from=(page-1)*size,to=Math.min(96,page*size);pg.innerHTML="";pg.className="pg";
+if(mode=="more"){const end=Math.min(96,page*size);rows(0,end,shown>0?from:null);$("#sum").innerHTML=`<span>Showing <b>1–${end}</b> of <b>96</b></span><span>${Math.round(end/96*100)}%</span>`;pg.classList.add("more");const pr=document.createElement("div");pr.className="prog";pr.innerHTML=`<i style="width:${end/96*100}%"></i>`;pr.setAttribute("role","progressbar");pr.setAttribute("aria-valuenow",end);pr.setAttribute("aria-valuemax",96);pr.setAttribute("aria-label","Titles loaded");const b=btn(end>=96?"All 96 loaded":"Load "+Math.min(size,96-end)+" more",0,{dis:end>=96,fn:()=>{const f=end;page++;sync();render();say("Loaded more, showing "+Math.min(96,page*size)+" of 96");const n=$("#list").children[f];if(n)n.focus()}});b.classList.add("go");pg.append(pr,b);return}
+rows(from,to);$("#sum").innerHTML=`<span>Showing <b>${from+1}–${to}</b> of <b>96</b></span><span>Page ${page} / ${T}</span>`;
+if(mode=="num"){pg.append(btn("‹",page-1,{aria:"Previous page",dis:page==1}));nums().forEach(n=>{if(n.gap){const w=document.createElement("span");w.className="el";const b=btn("…",0,{aria:"Show hidden pages",fn:()=>{const ex=w.querySelector(".pop");if(ex){ex.remove();b.setAttribute("aria-expanded","false");return}b.setAttribute("aria-expanded","true");const p=document.createElement("div");p.className="pop";for(let k=n.gap[0];k<=n.gap[1];k++)p.append(btn(k,k));w.append(p);p.querySelector("button").focus()}});b.setAttribute("aria-expanded","false");w.append(b);w.onkeydown=e=>{if(e.key=="Escape"){const p=w.querySelector(".pop");if(p){p.remove();b.focus()}}};pg.append(w)}else pg.append(btn(n,n,{cur:n==page,aria:"Page "+n}))});pg.append(btn("›",page+1,{aria:"Next page",dis:page==T}))}
+else if(mode=="pn"){pg.append(btn("← Prev",page-1,{dis:page==1}));const j=document.createElement("form");j.className="jump";j.noValidate=true;j.innerHTML=`<label class="sr" for="jp">Go to page</label><input id="jp" type="number" min="1" max="${T}" value="${page}" inputmode="numeric"><button type="submit">Go</button>`;j.onsubmit=e=>{e.preventDefault();const v=+j.querySelector("input").value;let er=pg.querySelector(".err");if(!(v>=1&&v<=T)){if(!er){er=document.createElement("div");er.className="err";er.setAttribute("role","alert");pg.append(er)}er.textContent="Enter a page from 1 to "+T;return}go(v)};pg.append(j,btn("Next →",page+1,{dis:page==T}))}
+else{pg.classList.add("dots");pg.append(btn("‹",page-1,{aria:"Previous page",dis:page==1}));const g=document.createElement("div");g.setAttribute("role","group");g.setAttribute("aria-label","Pages");g.style.display="flex";for(let k=1;k<=T;k++){const d=btn("",k,{cur:k==page,aria:"Page "+k});d.className="d";d.tabIndex=k==page?0:-1;g.append(d)}g.onkeydown=e=>{if(e.key=="ArrowRight"||e.key=="ArrowLeft"){e.preventDefault();go(page+(e.key=="ArrowRight"?1:-1));const c=$("#pg [aria-current=page]");c&&c.focus()}};pg.append(g,btn("›",page+1,{aria:"Next page",dis:page==T}))}}
+$("#size").onchange=e=>{size=+e.target.value;page=1;shown=1;sync();render();say("Showing "+size+" per page")};
+(function(){const h=new URLSearchParams(location.hash.slice(1));if(["num","pn","more","dots"].includes(h.get("m")))mode=h.get("m");if([6,12,24].includes(+h.get("s"))){size=+h.get("s");$("#size").value=size}page=Math.max(1,Math.min(total(),+h.get("p")||1));shown=0})();
+sync();render();addEventListener("resize",()=>{if(mode=="num")render()});
+</script></body></html>

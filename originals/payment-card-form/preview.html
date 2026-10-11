@@ -1,0 +1,92 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Payment Card Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#101828;--mut:#667085;--ac:#19c39a;--er:#e5484d}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(900px 500px at 15% 0,#1d3a7a,transparent),#0b1226;color:#fff;font:15px/1.5 Manrope,system-ui,sans-serif;padding:32px 16px;display:grid;place-items:center}
+.wrap{width:100%;max-width:980px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.left{display:grid;gap:24px;justify-items:center}
+.scene{perspective:1000px;width:min(100%,380px);aspect-ratio:1.586}
+.card{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,.8,.3,1)}
+.card.flip{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:18px;backface-visibility:hidden;padding:22px;background:linear-gradient(135deg,#2c4fd6,#7b3fe4 60%,#c03fd0);box-shadow:0 24px 50px #0008;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.face::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:#ffffff14;right:-100px;top:-120px}
+.back{transform:rotateY(180deg);padding:22px 0}
+.strip{height:44px;background:#111;margin-top:6px}
+.sig{margin:18px 22px 0;background:#fff;color:#111;height:40px;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding:0 12px;font:700 16px "Space Mono",monospace}
+.chip{width:44px;height:34px;border-radius:7px;background:linear-gradient(135deg,#f5d77a,#c79a2c)}
+.r1{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}
+.brand{font-weight:800;font-style:italic;letter-spacing:.5px;font-size:20px;min-height:24px}
+.num{font:700 clamp(15px,4.6vw,21px) "Space Mono",monospace;letter-spacing:1.5px;position:relative;z-index:1}
+.r3{display:flex;justify-content:space-between;gap:12px;font-size:12px;text-transform:uppercase;letter-spacing:1px;position:relative;z-index:1}
+.r3 small{display:block;opacity:.7;font-size:9px}.r3 b{font:700 14px "Space Mono",monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;max-width:200px}
+.sum{width:min(100%,380px);background:#ffffff12;border:1px solid #ffffff22;border-radius:16px;padding:16px 18px}
+.sum div{display:flex;justify-content:space-between;color:#c7d0e6;padding:3px 0}.sum .t{color:#fff;font-weight:800;border-top:1px solid #ffffff22;margin-top:6px;padding-top:10px}
+form,.ok{background:#fff;color:var(--ink);border-radius:24px;padding:28px;display:grid;gap:16px}
+h1{margin:0;font-size:22px;font-weight:800}
+.f{display:grid;gap:6px}.f label{font-weight:600;font-size:13px}
+.f input{font:inherit;font-size:16px;border:1.5px solid #d0d5dd;border-radius:12px;padding:0 14px;min-height:48px;width:100%;color:var(--ink)}
+.f input.n{font-family:"Space Mono",monospace;letter-spacing:1px}
+.f input:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 4px #19c39a33}
+.f input[aria-invalid=true]{border-color:var(--er)}
+.msg{color:var(--er);font-size:13px;min-height:0}
+.g3{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:12px}
+.hint{font-size:13px;color:var(--mut)}
+.sw{display:flex;gap:10px;align-items:center;min-height:44px;cursor:pointer;font-weight:600}
+.sw input{appearance:none;width:42px;height:24px;border-radius:99px;background:#d0d5dd;position:relative;cursor:pointer;transition:.2s;flex:none}
+.sw input::after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}
+.sw input:checked{background:var(--ac)}.sw input:checked::after{left:21px}
+.sw input:focus-visible{outline:3px solid #19c39a66;outline-offset:2px}
+.pay{border:0;border-radius:14px;background:var(--ac);color:#04251d;font:800 16px Manrope;min-height:52px;cursor:pointer;display:flex;gap:10px;align-items:center;justify-content:center}
+.pay:disabled{opacity:.7;cursor:progress}
+.sp{width:18px;height:18px;border:3px solid #04251d44;border-top-color:#04251d;border-radius:50%;animation:s .7s linear infinite}
+@keyframes s{to{transform:rotate(360deg)}}
+.ok{text-align:center;justify-items:center}
+.ck{width:72px;height:72px;border-radius:50%;background:var(--ac);display:grid;place-items:center}
+.ck svg{width:40px;height:40px;stroke:#04251d;stroke-width:4;fill:none;stroke-dasharray:40;stroke-dashoffset:40;animation:d .5s .1s forwards}
+@keyframes d{to{stroke-dashoffset:0}}
+.lk{background:none;border:0;color:#2f5bd6;font:700 14px Manrope;cursor:pointer;min-height:44px}
+@media(max-width:860px){.wrap{grid-template-columns:minmax(0,1fr);gap:24px}.sum{display:none}form,.ok{padding:20px}}
+@media(prefers-reduced-motion:reduce){.card{transition:none}.sp,.ck svg{animation:none}.ck svg{stroke-dashoffset:0}}
+</style></head><body><div class="wrap">
+<div class="left"><div class="scene" aria-hidden="true"><div class="card" id="card">
+<div class="face"><div class="r1"><span class="chip"></span><span class="brand" id="br"></span></div><div class="num" id="pn">•••• •••• •••• ••••</div><div class="r3"><div><small>Card holder</small><b id="pnm">YOUR NAME</b></div><div><small>Expires</small><b id="pex">MM/YY</b></div></div></div>
+<div class="face back"><div class="strip"></div><div class="sig" id="pcv">•••</div></div></div></div>
+<div class="sum"><div><span>Linen throw × 1</span><span>$64.00</span></div><div><span>Ceramic mug × 2</span><span>$28.00</span></div><div><span>Shipping</span><span>$6.00</span></div><div class="t"><span>Total</span><span>$98.00</span></div></div></div>
+<div><form id="f" novalidate><h1>Pay Tidewell Goods</h1>
+<div class="f"><label for="nm">Name on card</label><input id="nm" autocomplete="cc-name" placeholder="Maren Oakley" aria-describedby="e-nm"><div class="msg" id="e-nm" role="alert"></div></div>
+<div class="f"><label for="cn">Card number</label><input id="cn" class="n" inputmode="numeric" autocomplete="cc-number" placeholder="4242 4242 4242 4242" aria-describedby="e-cn h-cn"><div class="hint" id="h-cn">Test numbers only. Nothing is sent anywhere.</div><div class="msg" id="e-cn" role="alert"></div></div>
+<div class="g3"><div class="f"><label for="ex">Expiry</label><input id="ex" class="n" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5" aria-describedby="e-ex"><div class="msg" id="e-ex" role="alert"></div></div>
+<div class="f"><label for="cv">CVC</label><input id="cv" class="n" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="4" aria-describedby="e-cv"><div class="msg" id="e-cv" role="alert"></div></div>
+<div class="f"><label for="zp">ZIP</label><input id="zp" autocomplete="postal-code" placeholder="94107"></div></div>
+<label class="sw"><input type="checkbox" role="switch"> Save this card for next time</label>
+<button class="pay" id="pay">Pay $98.00</button></form>
+<div class="ok" id="ok" hidden><div class="ck"><svg viewBox="0 0 40 40"><path d="M9 21l8 8 14-17"/></svg></div><h1>Payment received</h1><p class="hint" style="margin:0">Order #TG-48213 is on its way. A receipt would be emailed to you.</p><button class="lk" id="again">Start over</button></div></div>
+</div><div class="sr" id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div>
+<script>
+const $=s=>document.querySelector(s),cn=$("#cn"),ex=$("#ex"),cv=$("#cv"),nm=$("#nm");
+function say(m){const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)}
+function brand(d){if(/^4/.test(d))return"VISA";if(/^(5[1-5]|2[2-7])/.test(d))return"MASTERCARD";if(/^3[47]/.test(d))return"AMEX";if(/^(6011|65|64[4-9])/.test(d))return"DISCOVER";return""}
+function group(d,b){const p=b=="AMEX"?[4,6,5]:[4,4,4,4,4];let o=[],i=0;for(const n of p){if(i>=d.length)break;o.push(d.slice(i,i+n));i+=n}return o.join(" ")}
+function digits(){return cn.value.replace(/\D/g,"")}
+function max(b){return b=="AMEX"?15:16}
+cn.addEventListener("input",()=>{const b=brand(digits());const d=digits().slice(0,max(b));const pos=cn.selectionStart,before=cn.value.length;cn.value=group(d,b);if(pos<before)cn.setSelectionRange(pos,pos);prev();clr("cn")});
+function prev(){const d=digits(),b=brand(d);$("#br").textContent=b;let t=group(d.padEnd(b=="AMEX"?15:16,"•"),b);$("#pn").textContent=t;$("#pnm").textContent=(nm.value||"YOUR NAME").toUpperCase();$("#pex").textContent=ex.value||"MM/YY";$("#pcv").textContent=cv.value||"•••"}
+ex.addEventListener("input",e=>{let d=ex.value.replace(/\D/g,"").slice(0,4);if(d.length==1&&+d>1)d="0"+d;if(d.length>=3)d=d.slice(0,2)+"/"+d.slice(2);if(e.inputType=="deleteContentBackward"&&ex.value.endsWith("/"))d=d.slice(0,-1);ex.value=d;prev();clr("ex")});
+cv.addEventListener("input",()=>{cv.value=cv.value.replace(/\D/g,"").slice(0,4);prev();clr("cv")});
+nm.addEventListener("input",()=>{prev();clr("nm")});
+cv.addEventListener("focus",()=>$("#card").classList.add("flip"));cv.addEventListener("blur",()=>$("#card").classList.remove("flip"));
+function luhn(s){let t=0,a=false;for(let i=s.length-1;i>=0;i--){let n=+s[i];if(a){n*=2;if(n>9)n-=9}t+=n;a=!a}return t%10==0}
+function set(id,m){const i=$("#"+id),e=$("#e-"+id);e.textContent=m||"";if(m)i.setAttribute("aria-invalid","true");else i.removeAttribute("aria-invalid");return!m}
+function clr(id){if($("#"+id).getAttribute("aria-invalid"))set(id,"")}
+const V={nm:()=>set("nm",nm.value.trim().length<2?"Enter the name on the card":""),
+cn:()=>{const d=digits(),b=brand(d);return set("cn",d.length<(b=="AMEX"?15:13)?"Card number is too short":!luhn(d)?"That card number doesn't look right":"")},
+ex:()=>{const m=ex.value.match(/^(\d\d)\/(\d\d)$/);if(!m)return set("ex","Use MM/YY");const mo=+m[1],y=2000+ +m[2],n=new Date();if(mo<1||mo>12)return set("ex","Month must be 01–12");if(y<n.getFullYear()||(y==n.getFullYear()&&mo<n.getMonth()+1))return set("ex","Card has expired");return set("ex","")},
+cv:()=>{const L=brand(digits())=="AMEX"?4:3;return set("cv",cv.value.length!=L?"CVC must be "+L+" digits":"")}};
+Object.keys(V).forEach(k=>$("#"+k).addEventListener("blur",()=>{if($("#"+k).value)V[k]()}));
+$("#f").onsubmit=e=>{e.preventDefault();const r=Object.keys(V).map(k=>V[k]());if(r.includes(false)){const bad=Object.keys(V).find((k,i)=>!r[i]);$("#"+bad).focus();say("Please fix the highlighted fields");return}
+const b=$("#pay");b.disabled=true;b.innerHTML='<span class="sp"></span> Processing';setTimeout(()=>{$("#f").hidden=true;$("#ok").hidden=false;say("Payment received");$("#ok h1").tabIndex=-1;$("#ok h1").focus()},1400)};
+$("#again").onclick=()=>{$("#f").reset();$("#f").hidden=false;$("#ok").hidden=true;const b=$("#pay");b.disabled=false;b.textContent="Pay $98.00";prev();nm.focus()};
+cn.addEventListener("paste",e=>{e.preventDefault();const t=(e.clipboardData.getData("text")||"").replace(/\D/g,"").slice(0,16);cn.value=group(t,brand(t));prev()});
+prev();
+</script></body></html>

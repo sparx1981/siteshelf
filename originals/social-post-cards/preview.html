@@ -1,0 +1,100 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Social Post Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eaf0f8;--ink:#0f1a2b;--mut:#5b6b82;--line:#dde5f0;--ac:#2f6bff;--like:#ff4d6d;--rp:#12a37a}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Plus Jakarta Sans",system-ui,sans-serif;padding:0 12px 64px}
+.feed{max-width:600px;margin:0 auto}
+header{position:sticky;top:0;z-index:20;background:#eaf0f8ee;backdrop-filter:blur(8px);padding:16px 0 10px}
+h1{margin:0 0 10px;font-size:22px}
+.chips{display:flex;gap:8px}
+.chips button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:0 16px;min-height:44px;font:600 14px inherit;font-family:inherit;color:var(--mut);cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+article{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0;position:relative}
+.top{display:flex;gap:12px;align-items:center}
+.av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;flex:none}
+.who{min-width:0;flex:1}.who b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.who span{color:var(--mut);font-size:13px}
+.ic{width:44px;height:44px;border:0;background:none;border-radius:50%;cursor:pointer;color:var(--mut);display:grid;place-items:center}
+.ic:hover{background:#eef3fb}
+.body{margin:12px 0 0;overflow-wrap:anywhere}
+.clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.lnk{background:none;border:0;color:var(--ac);font:600 14px inherit;font-family:inherit;cursor:pointer;padding:6px 0;min-height:32px}
+.art{height:220px;border-radius:12px;margin-top:12px;position:relative;overflow:hidden}
+.art i{position:absolute;border-radius:50%}
+.poll{margin-top:12px;display:grid;gap:8px}
+.opt{position:relative;border:1px solid var(--line);border-radius:10px;min-height:44px;background:#fff;text-align:left;padding:0 14px;font:600 14px inherit;font-family:inherit;color:var(--ink);cursor:pointer;overflow:hidden;display:flex;justify-content:space-between;align-items:center}
+.opt .f{position:absolute;inset:0 auto 0 0;width:0;background:#dbe6ff;transition:width .6s}
+.opt span{position:relative}
+.opt.mine{border-color:var(--ac)}
+.opt:disabled{cursor:default;opacity:1}
+.meta{color:var(--mut);font-size:13px}
+.lp{display:grid;grid-template-columns:140px minmax(0,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:12px}
+.lp .im{background:linear-gradient(135deg,#ffb86b,#ff5e7e)}
+.lp div:last-child{padding:12px;min-width:0}.lp b{display:block}.lp small{color:var(--mut)}
+.acts{display:flex;justify-content:space-between;margin:10px -8px -8px}
+.acts button{display:flex;gap:6px;align-items:center;border:0;background:none;min-height:44px;padding:0 10px;border-radius:99px;color:var(--mut);font:600 13px inherit;font-family:inherit;cursor:pointer;font-variant-numeric:tabular-nums}
+.acts button:hover{background:#eef3fb}
+.acts [data-k=like][aria-pressed=true]{color:var(--like)}
+.acts [data-k=rp][aria-pressed=true]{color:var(--rp)}
+.acts svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+[data-k=like][aria-pressed=true] svg{fill:currentColor;animation:pop .35s}
+@keyframes pop{50%{transform:scale(1.35)}}
+.menu{position:absolute;right:12px;top:58px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px #0f1a2b22;padding:6px;z-index:10;min-width:200px}
+.menu button{display:block;width:100%;text-align:left;border:0;background:none;padding:0 12px;min-height:44px;border-radius:8px;font:500 14px inherit;font-family:inherit;color:var(--ink);cursor:pointer}
+.menu button:hover,.menu button:focus-visible{background:#eef3fb}
+.comp{margin-top:12px;border-top:1px solid var(--line);padding-top:12px;display:grid;gap:8px}
+textarea{width:100%;min-height:72px;border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit;resize:vertical}
+.cr{display:flex;justify-content:flex-end;align-items:center;gap:12px}
+.ring{width:26px;height:26px}
+.post{background:var(--ac);color:#fff;border:0;border-radius:99px;padding:0 20px;min-height:44px;font:700 14px inherit;font-family:inherit;cursor:pointer}
+.post:disabled{opacity:.4;cursor:not-allowed}
+.rep{margin-top:10px;padding:10px 12px;background:#f3f7fd;border-radius:10px;font-size:14px;overflow-wrap:anywhere}
+.muted{background:#dfe7f3;border-radius:12px;padding:0 16px;min-height:52px;margin:12px 0;display:flex;align-items:center;justify-content:space-between;color:var(--mut)}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:99px;font-weight:600;font-size:14px;z-index:50}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+button:focus-visible,textarea:focus-visible{outline:3px solid #2f6bff66;outline-offset:2px}
+@media(max-width:600px){.lp{grid-template-columns:minmax(0,1fr)}.lp .im{height:90px}.art{height:180px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><div class="feed">
+<header><h1>Home</h1><div class="chips" role="group" aria-label="Filter"><button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="media">Media</button><button aria-pressed="false" data-f="poll">Polls</button></div></header>
+<main id="feed"></main></div><div class="sr" id="live" aria-live="polite"></div><div id="tw"></div>
+<script>
+const $=s=>document.querySelector(s);
+const IC={rep:'<svg viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg>',like:'<svg viewBox="0 0 24 24"><path d="M12 20s-8-4.7-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5C20 15.300 12 20 12 20z"/></svg>',re:'<svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>',sh:'<svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v7h14v-7"/></svg>',dots:'<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></svg>'};
+const P=[
+{id:1,t:"text",n:"Odile Marsh",h:"@odilem",c:"#6c4bf4,#f43f8e",ago:"2h",body:"Spent the weekend rebuilding our team's release checklist from scratch. Turns out half the steps existed only in one person's head. We now have a single page, a named owner for every line, and a rule that anything unowned gets deleted at the end of the quarter. It already caught two surprises this week, and nobody had to stay late. If your process lives in someone's memory, write it down before they go on holiday.",l:412,r:38,rp:12},
+{id:2,t:"media",n:"Tobias Wren",h:"@tobiaswren",c:"#14b8a6,#2f6bff",ago:"5h",body:"Evening light over the quay.",art:1,l:1280,r:96,rp:20},
+{id:3,t:"poll",n:"Priya Holt",h:"@priyaholt",c:"#f59e0b,#ff4d6d",ago:"1d",body:"Honest question for the team: when do you do your deepest work?",opts:["Early morning","Mid-morning","Afternoon","Late night"],v:[46,71,33,58],l:204,r:61,rp:9},
+{id:4,t:"link",n:"Jonas Pell",h:"@jonaspell",c:"#12a37a,#2f6bff",ago:"1d",body:"Worth reading before your next planning session.",lk:["Why small batches beat big launches","fernnotes.example"],l:96,r:7,rp:14},
+{id:5,t:"text",n:"Isla Ferndale",h:"@islaf",c:"#2f6bff,#6c4bf4",ago:"2d",body:"Tiny win: replaced a 300-line config with eleven lines and a sensible default.",l:2310,r:144,rp:203}];
+const fmt=n=>n>=1000?(n/1000).toFixed(n>=10000?0:1).replace(".0","")+"K":""+n;
+function say(m){const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)}
+function toast(m){const t=document.createElement("div");t.className="toast";t.textContent=m;t.setAttribute("role","status");$("#tw").append(t);setTimeout(()=>t.remove(),2200)}
+function ring(n){const r=10,c=2*Math.PI*r,p=Math.min(1,n/140);return `<svg class="ring" viewBox="0 0 26 26"><circle cx="13" cy="13" r="${r}" fill="none" stroke="#dde5f0" stroke-width="3"/><circle cx="13" cy="13" r="${r}" fill="none" stroke="${n>140?'#ff4d6d':n>120?'#f59e0b':'#2f6bff'}" stroke-width="3" stroke-dasharray="${c}" stroke-dashoffset="${c*(1-p)}" transform="rotate(-90 13 13)"/></svg>`}
+function art(){return `<div class="art" role="img" aria-label="Abstract sunset over water" style="background:linear-gradient(#ffb86b,#ff5e7e 55%,#2b3a67 55%,#1b2547)"><i style="width:90px;height:90px;background:#fff3c4;left:55%;top:52px;box-shadow:0 0 60px #ffe9a8"></i><i style="width:220px;height:6px;border-radius:9px;background:#ffd9a0aa;left:40%;top:60%"></i><i style="width:160px;height:5px;border-radius:9px;background:#ffd9a077;left:46%;top:68%"></i></div>`}
+function card(p){const a=document.createElement("article");a.dataset.id=p.id;a.dataset.t=p.t;
+a.innerHTML=`<div class="top"><div class="av" style="background:linear-gradient(135deg,${p.c.split(",")[0]},${p.c.split(",")[1]})">${p.n[0]}</div><div class="who"><b>${p.n}</b><span>${p.h} · ${p.ago}</span></div><button class="ic" aria-label="More options" aria-haspopup="menu" aria-expanded="false">${IC.dots}</button></div><p class="body${p.body.length>200?" clamp":""}"></p>${p.body.length>200?'<button class="lnk" aria-expanded="false">Show more</button>':""}`;
+a.querySelector(".body").textContent=p.body;
+if(p.art)a.insertAdjacentHTML("beforeend",art());
+if(p.opts){const w=document.createElement("div");w.className="poll";w.setAttribute("role","group");w.setAttribute("aria-label","Poll");p.opts.forEach((o,i)=>{const b=document.createElement("button");b.className="opt";b.innerHTML='<span class="f"></span><span></span><span class="pc"></span>';b.children[1].textContent=o;b.onclick=()=>vote(p,a,i);w.append(b)});const m=document.createElement("div");m.className="meta";w.append(m);a.append(w);poll(p,a)}
+if(p.lk)a.insertAdjacentHTML("beforeend",`<div class="lp"><div class="im"></div><div><b>${p.lk[0]}</b><small>${p.lk[1]}</small></div></div>`);
+const ac=document.createElement("div");ac.className="acts";
+ac.innerHTML=`<button data-k="re" aria-label="Reply">${IC.re}<span>${fmt(p.r)}</span></button><button data-k="rp" aria-pressed="false" aria-label="Repost">${IC.rep}<span>${fmt(p.rp)}</span></button><button data-k="like" aria-pressed="false" aria-label="Like">${IC.like}<span>${fmt(p.l)}</span></button><button data-k="sh" aria-label="Share" aria-haspopup="menu">${IC.sh}</button>`;
+a.append(ac);
+const lk=a.querySelector(".lnk");if(lk)lk.onclick=()=>{const c=a.querySelector(".body").classList.toggle("clamp");lk.textContent=c?"Show more":"Show less";lk.setAttribute("aria-expanded",!c)};
+ac.querySelector("[data-k=like]").onclick=e=>{const b=e.currentTarget,on=b.getAttribute("aria-pressed")!="true";b.setAttribute("aria-pressed",on);p.l+=on?1:-1;b.querySelector("span").textContent=fmt(p.l);say(on?"Liked":"Like removed")};
+ac.querySelector("[data-k=rp]").onclick=e=>{const b=e.currentTarget,on=b.getAttribute("aria-pressed")!="true";b.setAttribute("aria-pressed",on);p.rp+=on?1:-1;b.querySelector("span").textContent=fmt(p.rp);say(on?"Reposted":"Repost removed")};
+ac.querySelector("[data-k=re]").onclick=()=>composer(p,a);
+ac.querySelector("[data-k=sh]").onclick=e=>menu(a,e.currentTarget,[["Copy link",()=>toast("Link copied")],["Send in message",()=>toast("Message draft opened")],["Bookmark",()=>toast("Bookmarked")]],true);
+a.querySelector(".ic").onclick=e=>menu(a,e.currentTarget,[["Mute this post",()=>mute(a)],["Copy link",()=>toast("Link copied")],["Report post",()=>toast("Report sent")]]);
+return a}
+function poll(p,a,mine){const tot=p.v.reduce((x,y)=>x+y,0),bs=a.querySelectorAll(".opt");bs.forEach((b,i)=>{b.classList.toggle("mine",mine===i);b.disabled=mine!=null;b.querySelector(".f").style.width=mine!=null?(p.v[i]/tot*100)+"%":"0";b.querySelector(".pc").textContent=mine!=null?Math.round(p.v[i]/tot*100)+"%":""});const m=a.querySelector(".meta");m.innerHTML="";m.append(tot.toLocaleString()+" votes");if(mine!=null){const c=document.createElement("button");c.className="lnk";c.textContent="Change vote";c.style.marginLeft="10px";c.onclick=()=>{p.v[mine]--;p.mine=null;poll(p,a)};m.append(c)}}
+function vote(p,a,i){p.v[i]++;p.mine=i;poll(p,a,i);say("Voted "+p.opts[i])}
+function closeMenus(){document.querySelectorAll(".menu").forEach(m=>{m.previousFocus&&m.previousFocus.setAttribute("aria-expanded","false");m.remove()})}
+function menu(a,trig,items,fromActs){const open=a.querySelector(".menu");closeMenus();if(open)return;const m=document.createElement("div");m.className="menu";m.setAttribute("role","menu");m.previousFocus=trig;if(fromActs)m.style.top="auto",m.style.bottom="56px";items.forEach(([l,fn])=>{const b=document.createElement("button");b.setAttribute("role","menuitem");b.textContent=l;b.onclick=()=>{closeMenus();fn()};m.append(b)});trig.setAttribute("aria-expanded","true");a.append(m);m.firstChild.focus();m.onkeydown=e=>{const bs=[...m.children],i=bs.indexOf(document.activeElement);if(e.key=="Escape"){closeMenus();trig.focus()}else if(e.key=="ArrowDown"){e.preventDefault();bs[(i+1)%bs.length].focus()}else if(e.key=="ArrowUp"){e.preventDefault();bs[(i-1+bs.length)%bs.length].focus()}}}
+document.addEventListener("click",e=>{if(!e.target.closest(".menu,.ic,[data-k=sh]"))closeMenus()});
+function mute(a){const row=document.createElement("div");row.className="muted";row.dataset.t=a.dataset.t;row.innerHTML="<span>Post muted.</span>";const u=document.createElement("button");u.className="lnk";u.textContent="Undo";row.append(u);a.replaceWith(row);say("Post muted");const tm=setTimeout(()=>row.remove(),6000);u.onclick=()=>{clearTimeout(tm);row.replaceWith(a);say("Post restored")}}
+function composer(p,a){const ex=a.querySelector(".comp");if(ex){ex.remove();return}const c=document.createElement("form");c.className="comp";c.innerHTML=`<label class="sr" for="c${p.id}">Reply to ${p.n}</label><textarea id="c${p.id}" placeholder="Post your reply"></textarea><div class="cr"><span class="rg">${ring(0)}</span><span class="meta cn">0/140</span><button class="post" disabled>Reply</button></div>`;const ta=c.querySelector("textarea"),pb=c.querySelector(".post");ta.oninput=()=>{const n=ta.value.length;c.querySelector(".rg").innerHTML=ring(n);c.querySelector(".cn").textContent=n+"/140";pb.disabled=!n||n>140};c.onsubmit=e=>{e.preventDefault();if(pb.disabled)return;const d=document.createElement("div");d.className="rep";d.textContent="You: "+ta.value;a.querySelector(".acts").before(d);p.r++;a.querySelector("[data-k=re] span").textContent=fmt(p.r);c.remove();toast("Reply posted");say("Reply posted")};a.append(c);ta.focus()}
+const F=$("#feed");P.forEach(p=>F.append(card(p)));
+document.querySelectorAll(".chips button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".chips button").forEach(x=>x.setAttribute("aria-pressed",x==b));const f=b.dataset.f;F.querySelectorAll("[data-t]").forEach(el=>el.hidden=!(f=="all"||el.dataset.t==f));say("Showing "+f)});
+</script></body></html>

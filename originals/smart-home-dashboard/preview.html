@@ -1,0 +1,97 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hearth Smart Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#12141a;--cd:#1c1f28;--ln:#2a2e3a;--ink:#f1f3f8;--mut:#8a92a6;--am:#ffb547;--bl:#5aa9ff;--or:#ff7a45;--gr:#3ddc97}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 "Inter Tight",system-ui,sans-serif;padding:24px 16px 60px}
+.w{max-width:1000px;margin:0 auto}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+h1{margin:0;font-size:24px}.hm{color:var(--mut)}
+.sc{display:flex;gap:8px;flex-wrap:wrap}
+button{font:inherit;color:inherit;cursor:pointer}
+.sc button,.tabs button{border:1px solid var(--ln);background:var(--cd);border-radius:99px;padding:0 16px;min-height:44px;font-weight:600}
+.sc button:hover{border-color:var(--am)}
+.tabs{display:flex;gap:8px;overflow-x:auto;margin-bottom:16px;padding-bottom:2px}
+.tabs button{white-space:nowrap;color:var(--mut)}
+.tabs button[aria-selected=true]{background:var(--ink);color:#12141a;border-color:var(--ink)}
+.g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.cd{background:var(--cd);border:1px solid var(--ln);border-radius:18px;padding:18px;min-width:0}
+.cd h2{margin:0 0 12px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut)}
+.th{grid-row:span 2;display:grid;justify-items:center;gap:10px}
+.dial{width:min(100%,280px);touch-action:none;cursor:grab}
+.dial text{fill:var(--ink)}
+.big{font:700 48px/1 "Inter Tight";font-variant-numeric:tabular-nums}
+.stp{display:flex;gap:12px;align-items:center}
+.stp button{width:48px;height:48px;border-radius:50%;border:1px solid var(--ln);background:#262a36;font-size:22px}
+.md{display:flex;gap:6px;background:#12141a;padding:4px;border-radius:99px}
+.md button{border:0;background:none;border-radius:99px;padding:0 16px;min-height:40px;font-weight:600;color:var(--mut)}
+.md button[aria-pressed=true]{background:#262a36;color:var(--ink)}
+.lt{--g:0;position:relative;overflow:hidden;transition:.3s}
+.lt::before{content:"";position:absolute;inset:-40% -20% auto auto;width:200px;height:200px;border-radius:50%;background:radial-gradient(var(--am),transparent 65%);opacity:var(--g);pointer-events:none}
+.lt>*{position:relative}
+.lr{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.lr b{font-size:16px}
+.sw{appearance:none;width:52px;height:30px;border-radius:99px;background:#3a3f4e;position:relative;cursor:pointer;transition:.2s;flex:none}
+.sw::after{content:"";position:absolute;left:3px;top:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:.2s}
+.sw:checked{background:var(--am)}.sw:checked::after{left:25px}
+input[type=range]{width:100%;margin:12px 0 0;accent-color:var(--am);min-height:44px}
+.pct{color:var(--mut);font-variant-numeric:tabular-nums}
+.lk{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.lk .st{font:700 20px inherit}.lk .st.u{color:var(--or)}.lk .st.l{color:var(--gr)}
+.lkb{border:1px solid var(--ln);background:#262a36;border-radius:12px;padding:0 18px;min-height:48px;font-weight:700}
+.en svg{width:100%;height:80px;display:block}
+.en .row{display:flex;justify-content:space-between;align-items:baseline}
+.sp{stroke-dasharray:600;stroke-dashoffset:600;animation:dw 1.2s forwards}
+@keyframes dw{to{stroke-dashoffset:0}}
+.lg{grid-column:1/-1}
+ol{list-style:none;padding:0;margin:0;max-height:180px;overflow:auto}
+ol li{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--ln)}ol li time{color:var(--mut);font-variant-numeric:tabular-nums;flex:none}
+button:focus-visible,input:focus-visible,.dial:focus-visible{outline:3px solid #5aa9ff88;outline-offset:2px;border-radius:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden}
+@media(max-width:640px){.g{grid-template-columns:minmax(0,1fr)}.th{grid-row:auto}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.sp{stroke-dashoffset:0}}
+</style></head><body><div class="w">
+<header><div><h1 id="gr">Good evening, Avery</h1><div class="hm">Home mode: <b id="mode">Home</b></div></div><div class="sc" role="group" aria-label="Scenes"><button data-sc="movie">🎬 Movie</button><button data-sc="away">🚪 Away</button><button data-sc="night">🌙 Good night</button></div></header>
+<div class="tabs" role="tablist" aria-label="Rooms" id="tabs"></div>
+<div class="g">
+<section class="cd th" aria-label="Thermostat"><h2>Thermostat</h2>
+<svg class="dial" id="dial" viewBox="0 0 200 170" tabindex="0" role="slider" aria-label="Target temperature" aria-valuemin="16" aria-valuemax="30" aria-valuenow="21" aria-valuetext="21 degrees"><path id="trk" fill="none" stroke="#2a2e3a" stroke-width="14" stroke-linecap="round"/><path id="val" fill="none" stroke="var(--or)" stroke-width="14" stroke-linecap="round"/><circle id="kn" r="11" fill="#fff"/><text id="tt" x="100" y="100" text-anchor="middle" font-size="42" font-weight="700">21.0°</text><text x="100" y="122" text-anchor="middle" font-size="12" fill="#8a92a6" style="fill:#8a92a6">Now <tspan id="cur">20.4°</tspan></text></svg>
+<div class="stp"><button id="mn" aria-label="Lower target">−</button><button id="pl" aria-label="Raise target">+</button></div>
+<div class="md" role="group" aria-label="Mode"><button data-m="heat" aria-pressed="true">Heat</button><button data-m="cool" aria-pressed="false">Cool</button><button data-m="off" aria-pressed="false">Off</button></div></section>
+<div id="lights" style="display:contents"></div>
+<section class="cd lk" aria-label="Front door"><div><h2 style="margin:0">Front door</h2><div class="st l" id="ls">Locked</div><div class="pct" id="al" hidden></div></div><button class="lkb" id="lb">Unlock</button></section>
+<section class="cd en" aria-label="Energy"><h2>Energy today</h2><div class="row"><span class="big" id="kw">6.4</span><span class="pct">kWh · ▲ 3% vs yesterday</span></div><svg viewBox="0 0 300 80" preserveAspectRatio="none" aria-hidden="true"><path id="spk" class="sp" fill="none" stroke="var(--gr)" stroke-width="2.5" stroke-linejoin="round"/></svg></section>
+<section class="cd lg"><h2>Activity</h2><ol id="log" aria-label="Activity log"></ol></section></div></div>
+<div class="sr" id="live" aria-live="polite"></div>
+<script>
+const $=s=>document.querySelector(s);
+const R={Living:[["Ceiling",1,70],["Floor lamp",0,40]],Kitchen:[["Island pendants",1,90],["Under-cabinet",0,60]],Bedroom:[["Bedside left",0,30],["Bedside right",0,30]],Office:[["Desk lamp",1,80],["Shelf strip",0,50]]};
+const S={};for(const r in R)S[r]=R[r].map(l=>({n:l[0],on:!!l[1],b:l[2]}));
+let room="Living",tgt=21,mode="heat",locked=true,alT=null,al=0;
+function say(m){const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)}
+function log(m){const li=document.createElement("li");li.innerHTML='<time>'+new Date().toLocaleTimeString("en",{hour:"2-digit",minute:"2-digit",second:"2-digit"})+'</time><span></span>';li.lastChild.textContent=m;const o=$("#log");o.prepend(li);while(o.children.length>20)o.lastChild.remove();say(m)}
+const h=new Date().getHours();$("#gr").textContent=(h<12?"Good morning":h<18?"Good afternoon":"Good evening")+", Avery";
+function tabs(){const t=$("#tabs");t.innerHTML="";Object.keys(R).forEach(r=>{const b=document.createElement("button");b.setAttribute("role","tab");b.setAttribute("aria-selected",r==room);b.tabIndex=r==room?0:-1;b.textContent=r;b.onclick=()=>{room=r;tabs();lights()};b.onkeydown=e=>{const k=Object.keys(R),i=k.indexOf(r);if(e.key=="ArrowRight"||e.key=="ArrowLeft"){e.preventDefault();room=k[(i+(e.key=="ArrowRight"?1:k.length-1))%k.length];tabs();t.querySelector("[aria-selected=true]").focus();lights()}};t.append(b)})}
+function lights(){const c=$("#lights");c.innerHTML="";S[room].forEach((l,i)=>{const s=document.createElement("section");s.className="cd lt";s.setAttribute("aria-label",l.n);s.style.setProperty("--g",l.on?l.b/130:0);s.innerHTML=`<h2>${room}</h2><div class="lr"><b></b><input class="sw" type="checkbox" role="switch"></div><div class="lr pct" style="margin-top:8px"><span>Brightness</span><span class="pv"></span></div><input type="range" min="1" max="100">`;s.querySelector("b").textContent=l.n;const sw=s.querySelector(".sw"),rg=s.querySelector("[type=range]");sw.setAttribute("aria-label",l.n);rg.setAttribute("aria-label",l.n+" brightness");sw.checked=l.on;rg.value=l.b;s.querySelector(".pv").textContent=l.on?l.b+"%":"Off";rg.disabled=!l.on;
+sw.onchange=()=>{l.on=sw.checked;log(l.n+" turned "+(l.on?"on":"off"));lights();en()};rg.oninput=()=>{l.b=+rg.value;s.style.setProperty("--g",l.b/130);s.querySelector(".pv").textContent=l.b+"%"};rg.onchange=()=>{log(l.n+" set to "+l.b+"%");en()};c.append(s)})}
+// dial
+const CX=100,CY=95,Rr=70,A0=150,A1=390;
+const pt=a=>[CX+Rr*Math.cos(a*Math.PI/180),CY+Rr*Math.sin(a*Math.PI/180)];
+function arc(a,b){const[p,q]=[pt(a),pt(b)];return `M${p[0]} ${p[1]}A${Rr} ${Rr} 0 ${b-a>180?1:0} 1 ${q[0]} ${q[1]}`}
+function dial(){const f=(tgt-16)/14,a=A0+f*(A1-A0),col=mode=="cool"?"var(--bl)":mode=="off"?"#5b6376":"var(--or)";$("#trk").setAttribute("d",arc(A0,A1));$("#val").setAttribute("d",f>0?arc(A0,a):"");$("#val").setAttribute("stroke",col);const p=pt(a);$("#kn").setAttribute("cx",p[0]);$("#kn").setAttribute("cy",p[1]);$("#tt").textContent=tgt.toFixed(1)+"°";const d=$("#dial");d.setAttribute("aria-valuenow",tgt);d.setAttribute("aria-valuetext",tgt.toFixed(1)+" degrees, "+mode)}
+let tm;function set(v,silent){tgt=Math.max(16,Math.min(30,Math.round(v*2)/2));dial();if(!silent){clearTimeout(tm);tm=setTimeout(()=>log("Thermostat target "+tgt.toFixed(1)+"°C"),500)}}
+$("#mn").onclick=()=>set(tgt-.5);$("#pl").onclick=()=>set(tgt+.5);
+$("#dial").addEventListener("keydown",e=>{if(["ArrowUp","ArrowRight"].includes(e.key)){e.preventDefault();set(tgt+.5)}if(["ArrowDown","ArrowLeft"].includes(e.key)){e.preventDefault();set(tgt-.5)}});
+let drag=false;function mv(e){const r=$("#dial").getBoundingClientRect(),sx=200/r.width,x=(e.clientX-r.left)*sx-CX,y=(e.clientY-r.top)*sx-CY;let a=Math.atan2(y,x)*180/Math.PI;if(a<0)a+=360;if(a<A0-360+360&&a<90)a+=360;if(a>A1)a=a>A1+(360-(A1-A0))/2+0?A0:A1;a=Math.max(A0,Math.min(A1,a));set(16+(a-A0)/(A1-A0)*14)}
+$("#dial").addEventListener("pointerdown",e=>{drag=true;$("#dial").setPointerCapture(e.pointerId);mv(e)});$("#dial").addEventListener("pointermove",e=>{if(drag)mv(e)});$("#dial").addEventListener("pointerup",()=>drag=false);
+document.querySelectorAll(".md button").forEach(b=>b.onclick=()=>{mode=b.dataset.m;document.querySelectorAll(".md button").forEach(x=>x.setAttribute("aria-pressed",x==b));dial();log("Thermostat mode: "+mode)});
+// lock
+function lock(){$("#ls").textContent=locked?"Locked":"Unlocked";$("#ls").className="st "+(locked?"l":"u");$("#lb").textContent=locked?"Unlock":"Lock now";$("#al").hidden=locked;clearInterval(alT);if(!locked){al=5;$("#al").textContent="Auto-lock in 5s";alT=setInterval(()=>{al--;$("#al").textContent="Auto-lock in "+al+"s";if(al<=0){locked=true;lock();log("Front door auto-locked")}},1000)}}
+$("#lb").onclick=()=>{locked=!locked;lock();log("Front door "+(locked?"locked":"unlocked"))};
+// energy
+let base=[22,30,26,40,34,48,44,38,52,46,40,36];
+function en(){const on=Object.values(S).flat().filter(l=>l.on).reduce((s,l)=>s+l.b/100,0);const d=base.map((v,i)=>i==base.length-1?v+on*6:v);const mx=Math.max(...d)+6;$("#spk").setAttribute("d",d.map((v,i)=>(i?"L":"M")+(i*300/(d.length-1)).toFixed(1)+" "+(76-v/mx*70).toFixed(1)).join(""));$("#kw").textContent=(6.4+on*.3).toFixed(1)}
+// scenes
+document.querySelectorAll("[data-sc]").forEach(b=>b.onclick=()=>{const k=b.dataset.sc;for(const r in S)S[r].forEach(l=>{if(k=="movie"){if(r=="Living"){l.on=true;l.b=20}}else if(k=="away"){l.on=false}else{l.on=r=="Bedroom"&&l.n=="Bedside left";if(l.on)l.b=10}});if(k=="away"){locked=true;lock();$("#mode").textContent="Away"}else $("#mode").textContent=k=="movie"?"Movie":"Night";lights();en();log("Scene applied: "+b.textContent.replace(/^\S+\s/,""))});
+tabs();lights();dial();lock();en();
+</script></body></html>

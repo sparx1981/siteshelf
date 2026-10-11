@@ -1,0 +1,11 @@
+Canvas & base: Soft sky background #eaf0f8, white cards with 1px #dde5f0 border and 16px radius, ink #0f1a2b, secondary #5b6b82, accent azure #2f6bff, like coral #ff4d6d, repost green #12a37a. Invented network "Chirpwell" with invented people only.
+
+Typography: "Plus Jakarta Sans" (400,500,600,700) at 15px; handles in secondary colour.
+
+Layout: A 600px feed column with a sticky header ("Home", filter chips All / Media / Polls), then five post cards: a text post with long body that clamps to 4 lines with "Show more", an image post (CSS-gradient artwork, no external images), a poll post, a link-preview post, and a reply thread post. Each card has avatar (initial on gradient), name, handle, relative time, overflow menu, and an action row (reply, repost, like, share) with counts.
+
+Interaction: Like toggles with a heart pop animation and optimistic count change; repost toggles; counts format 1.2K. Poll lets one vote, then reveals animated percentage bars and total votes, with a Change vote link. Share opens a small menu (Copy link, Send in message, Bookmark) with Escape to close and toast feedback. Reply opens an inline composer with a 140-character counter ring, disabled Post button when empty or over limit, and posting prepends the reply. Overflow menu offers Mute this post which collapses the card to a slim "Post muted. Undo" row for 6 seconds. Filter chips hide non-matching cards. Live-region announcements for counts and toasts.
+
+Responsive: Full-bleed cards under 600px with 12px gutters; action row spreads evenly; poll bars and link preview stack.
+
+Rules: No libraries or external images, hidden attribute respected, minmax(0,1fr), 44px touch targets, prefers-reduced-motion, invented content only.

@@ -1,0 +1,11 @@
+Canvas & base: Off-white #f2efe8 background, near-black #0e0e0e text, accent electric lime #c8ff2e used as fills and highlights, secondary #6a675f. Invented agency "Mono & Moss Studio" with invented clients.
+
+Typography: "Anton" for giant headlines (clamp 56px to 180px, uppercase, line-height .92), "DM Sans" (400,500,700) at 16px for body.
+
+Layout: Sticky slim nav (logo, links, "Start a project" lime pill). Hero with a three-line giant headline where one word is highlighted in a lime block, a short paragraph and a rotating circular badge. An infinite marquee ticker of disciplines on a black band. A services list of five full-width rows (number, name in large type, arrow) that expand on hover/focus/click to reveal a description and tags. A case-study grid of four cards with colour-block artwork and a custom cursor label "View" that follows the pointer within the grid. A numbers band (years, projects, awards, coffees) that counts up on scroll into view. A giant footer CTA "Let's make noise" with an email link and a copy-email button.
+
+Interaction: Marquee pauses on hover; services behave as an accordion with aria-expanded; cursor label hidden on touch; counters use IntersectionObserver once; copy button shows "Copied" state; nav links smooth-scroll and the active link highlights.
+
+Responsive: Headlines scale with clamp; services rows stack tags under names; grid becomes one column below 700px.
+
+Rules: No libraries or external images, reduced-motion stops marquee, badge rotation and counters (shows final values), hidden attribute respected, 44px targets, invented content only.

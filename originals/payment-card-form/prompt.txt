@@ -1,0 +1,11 @@
+Canvas & base: Deep navy #0b1226 page with a radial glow, form panel #ffffff on a 24px radius, ink #101828, secondary #667085, accent mint #19c39a, error #e5484d. Invented shop "Tidewell Goods". Test numbers only (4242 4242 4242 4242 style) with a visible hint.
+
+Typography: "Manrope" (400,600,800) at 15px; card number in "Space Mono" 400,700 with letter-spacing.
+
+Layout: Two columns above 860px: left a 3D credit card preview (aspect 1.586) that flips to show the CVC strip when the CVC field is focused, plus an order summary; right the form (name on card, card number, expiry, CVC, ZIP, save-card switch, Pay button showing the total).
+
+Interaction: Number input groups digits by 4 (Amex 4-6-5), detects brand (Visa, Mastercard, Amex, Discover) from prefix and shows a brand mark on the card and field; the card preview mirrors name, number masked with bullets and expiry live. Validation on blur and on submit: Luhn for the number, month 01–12 and not in the past for expiry, CVC length by brand (3 or 4), non-empty name; errors use aria-invalid and aria-describedby with inline messages. Pay shows a spinner for 1.4s then a success panel with a check animation and Start over. Paste handling strips non-digits; backspace over a space works correctly; autocomplete attributes set. Announce errors and success.
+
+Responsive: Single column under 860px with the card on top at max 340px; inputs 16px to avoid zoom on iOS.
+
+Rules: Never transmits anything, no libraries or external images, hidden attribute respected, prefers-reduced-motion disables flip animation, 44px targets, minmax(0,1fr).

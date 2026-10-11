@@ -1,0 +1,11 @@
+Canvas & base: Dark teal #0a1a1f background with subtle grid, panel #12272e, ink #e8f6f4, secondary #8fb0b0, accent amber #ffb020, online green #3ddc97, offline red #ff6b6b. Invented app "Harbourline".
+
+Typography: "Space Grotesk" (400,500,700) at 16px; headline 44px.
+
+Layout: Centered 640px column: animated illustration of a plug and socket drifting apart with a flickering spark (pure SVG/CSS), headline "You're offline", explanatory copy, a status chip (Offline / Back online), Try again button with attempt counter, a "Available offline" list of 3 cached pages as links, and a mini runner game card (press Space or tap to jump over blocks, score and best score).
+
+Interaction: Listens to online/offline events and shows the status chip live; a Simulate toggle lets the viewer flip the state for demo. Try again shows a spinner for 1.2s, increments attempts, and if the simulated state is online shows a success banner that replaces the illustration with a joined plug. The runner uses requestAnimationFrame on a canvas, Space/Up/click/tap jumps, auto-pauses when the page is hidden, Enter restarts after game over, best score kept in memory. Announce state changes.
+
+Responsive: Illustration scales; game canvas is 100% width at 3:1.
+
+Rules: No libraries or external images, hidden attribute respected, reduced-motion disables spark flicker and slows nothing in game but disables decorative drift, 44px targets, invented content only.

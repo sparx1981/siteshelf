@@ -1,0 +1,90 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Project Roadmap Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f6fa;--ink:#172033;--mut:#62708a;--line:#e1e6ef;--pl:#8b97ad;--ip:#2f6bff;--sh:#12a37a;--ar:#f59e0b}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Sora,system-ui,sans-serif;padding:20px 16px 48px}
+.w{max-width:1100px;margin:0 auto}
+.tb{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+h1{font-size:20px;margin:0 auto 0 0}
+.ch{display:flex;gap:6px;flex-wrap:wrap}
+button{font:inherit;cursor:pointer;color:var(--ink)}
+.ch button,.z button,.td{border:1px solid var(--line);background:#fff;border-radius:99px;padding:0 14px;min-height:44px;font-weight:600;font-size:13px}
+.ch button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.z{display:flex;background:#e8ecf4;border-radius:99px;padding:3px}
+.z button{border:0;background:none;min-height:38px}
+.z button[aria-pressed=true]{background:#fff;box-shadow:0 1px 3px #0002}
+.sc{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:auto;position:relative}
+.gd{position:relative;min-width:100%}
+.hd{display:flex;position:sticky;top:0;z-index:4;background:#fff;border-bottom:1px solid var(--line);height:38px}
+.cn{position:sticky;left:0;z-index:5;width:110px;flex:none;background:#fff;border-right:1px solid var(--line)}
+.mo{flex:none;border-left:1px solid var(--line);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);padding:10px 8px;white-space:nowrap}
+.ln{display:flex;border-bottom:1px solid var(--line);position:relative}
+.ln:nth-child(even){background:#fbfcfe}
+.ln .cn{background:inherit;padding:14px 12px;font-weight:700;display:flex;align-items:flex-start}
+.tr{position:relative;flex:none}
+.bar{position:absolute;height:40px;border:0;border-radius:10px;color:#fff;text-align:left;padding:0 12px;font-weight:600;font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;box-shadow:0 2px 6px #17203322}
+.bar i{position:absolute;inset:auto 0 0 0;height:4px;background:#ffffff88;transform-origin:left}
+.bar[data-s=planned]{background:var(--pl)}.bar[data-s=progress]{background:var(--ip)}.bar[data-s=shipped]{background:var(--sh)}.bar[data-s=risk]{background:var(--ar);color:#2b1d00}
+.bar:focus-visible{outline:3px solid var(--ink);outline-offset:2px;z-index:3}
+.td-l{position:absolute;top:38px;bottom:0;width:2px;background:#e5484d;z-index:3;pointer-events:none}
+.td-l::before{content:"Today";position:absolute;top:-22px;left:-18px;background:#e5484d;color:#fff;font-size:10px;padding:1px 6px;border-radius:6px}
+.dr{position:fixed;right:0;top:0;bottom:0;width:340px;max-width:100%;background:#fff;border-left:1px solid var(--line);box-shadow:-12px 0 40px #17203322;padding:22px;z-index:30;display:flex;flex-direction:column;gap:12px;animation:sl .25s}
+@keyframes sl{from{transform:translateX(30px);opacity:0}}
+.dr h2{margin:0;font-size:18px}.dr dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px}.dr dt{color:var(--mut)}.dr dd{margin:0}
+.dr select{font:inherit;border:1px solid var(--line);border-radius:10px;min-height:44px;padding:0 10px;background:#fff}
+.pb{height:8px;background:#e8ecf4;border-radius:9px;overflow:hidden}.pb i{display:block;height:100%;background:var(--ip)}
+.x{align-self:flex-end;border:0;background:#eef1f7;border-radius:50%;width:44px;height:44px;font-size:18px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden}
+button:focus-visible,select:focus-visible{outline:3px solid #2f6bff66;outline-offset:2px}
+@media(max-width:700px){.cn{width:88px}.dr{top:auto;width:100%;border-left:0;border-top:1px solid var(--line);border-radius:20px 20px 0 0;max-height:70vh;overflow:auto;animation:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head><body><div class="w">
+<div class="tb"><h1>Orbit Notes roadmap</h1><div class="ch" role="group" aria-label="Lanes" id="ch"></div><div class="z" role="group" aria-label="Zoom"><button aria-pressed="true" data-z="1">Quarter</button><button aria-pressed="false" data-z="2.5">Month</button></div><button class="td" id="td">Today</button></div>
+<div class="sc" id="sc"><div class="gd" id="gd"></div></div></div>
+<aside class="dr" id="dr" hidden role="dialog" aria-label="Item details"><button class="x" id="x" aria-label="Close details">×</button><h2 id="dt"></h2><dl id="dl"></dl><div class="pb"><i id="dp"></i></div><label for="ds">Status</label><select id="ds"><option value="planned">Planned</option><option value="progress">In progress</option><option value="shipped">Shipped</option><option value="risk">At risk</option></select></aside>
+<div class="sr" id="live" aria-live="polite"></div>
+<script>
+const $=s=>document.querySelector(s);
+const now=new Date(),Y=now.getFullYear(),Q=Math.floor(now.getMonth()/3);
+const start=new Date(Y,Q*3,1),end=new Date(Y,Q*3+3,0);
+const D=(m,d)=>new Date(Y,Q*3+m,d);
+const LN=["Design","Web","Mobile","Platform"];
+const I=[
+["Design","Colour system refresh",D(0,3),D(1,10),"shipped",100,"Maya Ortiz","New tokens across all surfaces."],
+["Design","Onboarding redesign",D(1,12),D(2,20),"progress",55,"Maya Ortiz","Three-step flow with a sample notebook."],
+["Web","Public pricing page",D(0,10),D(1,2),"shipped",100,"Idris Kade","Launched with annual toggle."],
+["Web","Template gallery",D(1,5),D(2,12),"risk",40,"Noor Linden","Waiting on content review."],
+["Web","Referral landing",D(2,15),D(2,30),"planned",0,"Noor Linden","Depends on referral API."],
+["Mobile","Offline mode",D(0,5),D(1,25),"progress",70,"Theo Marsh","Sync conflict handling remains."],
+["Mobile","Widget for home screen",D(2,2),D(2,28),"planned",0,"Theo Marsh","Quick capture widget."],
+["Platform","Search v2",D(0,1),D(1,18),"shipped",100,"Sana Pike","Typo tolerance and filters."],
+["Platform","Public API beta",D(1,20),D(2,30),"progress",35,"Sana Pike","Rate limits and keys."],
+["Platform","Audit log",D(2,8),D(2,29),"planned",0,"Idris Kade","Admin-only export."]];
+const ST={planned:"Planned",progress:"In progress",shipped:"Shipped",risk:"At risk"};
+let ppd=3,on=new Set(LN),sel=null,last=null;
+const day=86400000,days=Math.round((end-start)/day)+1;
+const fd=d=>d.toLocaleDateString("en",{month:"short",day:"numeric"});
+function say(m){const l=$("#live");l.textContent="";setTimeout(()=>l.textContent=m,60)}
+function build(){const g=$("#gd"),w=days*ppd;g.innerHTML="";g.style.width=(110+w)+"px";
+const h=document.createElement("div");h.className="hd";h.innerHTML='<div class="cn"></div>';
+for(let m=0;m<3;m++){const s=new Date(Y,Q*3+m,1),e=new Date(Y,Q*3+m+1,0),el=document.createElement("div");el.className="mo";el.style.width=((e-s)/day+1)*ppd+"px";el.textContent=s.toLocaleDateString("en",{month:"long"});h.append(el)}g.append(h);
+const rows=LN.filter(l=>on.has(l));
+rows.forEach(l=>{const its=I.filter(i=>i[0]==l);const ln=document.createElement("div");ln.className="ln";ln.dataset.lane=l;const lanes=[];const pl=its.map(it=>{let r=0;while(lanes[r]&&lanes[r]>it[2])r++;lanes[r]=new Date(+it[3]+day);return[it,r]});
+ln.innerHTML=`<div class="cn">${l}</div>`;const tr=document.createElement("div");tr.className="tr";tr.style.width=w+"px";tr.style.height=Math.max(1,lanes.length)*52+12+"px";
+pl.forEach(([it,r])=>{const b=document.createElement("button");b.className="bar";b.dataset.s=it[4];b.dataset.i=I.indexOf(it);b.style.left=((it[2]-start)/day*ppd)+"px";b.style.width=(((it[3]-it[2])/day+1)*ppd-4)+"px";b.style.top=6+r*52+"px";b.innerHTML=`${it[1]}<i style="width:${it[5]}%"></i>`;b.setAttribute("aria-label",`${it[1]}, ${l}, ${ST[it[4]]}, ${fd(it[2])} to ${fd(it[3])}`);b.onclick=()=>open(+b.dataset.i,b);tr.append(b)});
+ln.append(tr);g.append(ln)});
+if(now>=start&&now<=end){const t=document.createElement("div");t.className="td-l";t.style.left=110+((now-start)/day)*ppd+"px";g.append(t)}}
+function open(i,b){sel=i;last=b;const it=I[i];$("#dt").textContent=it[1];$("#dl").innerHTML=`<dt>Lane</dt><dd>${it[0]}</dd><dt>Dates</dt><dd>${fd(it[2])} – ${fd(it[3])}</dd><dt>Owner</dt><dd>${it[6]}</dd><dt>Notes</dt><dd>${it[7]}</dd>`;$("#dp").style.width=it[5]+"%";$("#ds").value=it[4];$("#dr").hidden=false;$("#x").focus();say("Opened "+it[1])}
+function close(){$("#dr").hidden=true;if(last){const b=document.querySelector(`.bar[data-i="${sel}"]`)||last;b.focus()}}
+$("#x").onclick=close;
+$("#ds").onchange=e=>{I[sel][4]=e.target.value;const b=document.querySelector(`.bar[data-i="${sel}"]`);b.dataset.s=e.target.value;b.setAttribute("aria-label",b.getAttribute("aria-label").replace(/, (Planned|In progress|Shipped|At risk),/,", "+ST[e.target.value]+","));say("Status set to "+ST[e.target.value])};
+document.addEventListener("keydown",e=>{if(e.key=="Escape"&&!$("#dr").hidden){close();return}const b=document.activeElement;if(!b||!b.classList.contains("bar"))return;const bars=[...document.querySelectorAll(".bar")],lane=b.closest(".ln"),mine=[...lane.querySelectorAll(".bar")].sort((x,y)=>x.offsetLeft-y.offsetLeft);let t=null;const k=e.key;
+if(k=="ArrowRight")t=mine[mine.indexOf(b)+1];else if(k=="ArrowLeft")t=mine[mine.indexOf(b)-1];else if(k=="ArrowDown"||k=="ArrowUp"){const ls=[...document.querySelectorAll(".ln")],n=ls[ls.indexOf(lane)+(k=="ArrowDown"?1:-1)];if(n){const c=[...n.querySelectorAll(".bar")];t=c.sort((x,y)=>Math.abs(x.offsetLeft-b.offsetLeft)-Math.abs(y.offsetLeft-b.offsetLeft))[0]}}
+if(t){e.preventDefault();t.focus()}});
+$("#ch").innerHTML="";LN.forEach(l=>{const b=document.createElement("button");b.textContent=l;b.setAttribute("aria-pressed","true");b.onclick=()=>{if(on.has(l)){if(on.size==1)return;on.delete(l)}else on.add(l);b.setAttribute("aria-pressed",on.has(l));build();say(l+(on.has(l)?" shown":" hidden"))};$("#ch").append(b)});
+document.querySelectorAll(".z button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".z button").forEach(x=>x.setAttribute("aria-pressed",x==b));zm=+b.dataset.z;fit();build();say("Zoom "+b.textContent)});
+$("#td").onclick=()=>{const s=$("#sc");const x=110+((now-start)/day)*ppd-s.clientWidth/2;s.scrollTo({left:Math.max(0,x),behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"});say("Scrolled to today")};
+let zm=1;function fit(){const b=Math.max(4,($("#sc").clientWidth-112)/days);ppd=b*zm}
+fit();build();addEventListener("resize",()=>{fit();build()});
+</script></body></html>

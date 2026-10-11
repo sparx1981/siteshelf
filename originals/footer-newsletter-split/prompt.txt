@@ -1,0 +1,11 @@
+Canvas & base: A footer-focused page with a light placeholder article above. Newsletter band in #ffd84d with ink #17140d, main footer in #17140d with text #f4efe2, secondary #a39d8d, accent #ffd84d, hairlines #2d2a20. Invented brand "Marigold Press — independent bookshop and café".
+
+Typography: "Bricolage Grotesque" (700,800) for the band headline (clamp(30px,5vw,56px)); "DM Sans" (400,500,700) for the rest.
+
+Layout: Above the footer a short sample page section so the footer feels anchored. Newsletter band: headline "Letters from the back room", a short line, an email field and Subscribe button on one row, beneath it frequency radio chips (Weekly, Monthly, Only events), and a privacy note. Footer: five columns (brand blurb with logo and address, Shop, Visit, Company, Help), each with 5 links; then a utility row with language/region select, a status chip ("Café open until 6 pm"), social icon buttons (inline SVG), and a legal line with Terms, Privacy, Cookies and a back-to-top button.
+
+Interaction: Email validates on submit and on blur with inline messages (aria-invalid, aria-describedby), shows a success state with confetti dots (CSS only, disabled under reduced motion) and a "Subscribed as x" line with an Undo link. Frequency chips are a radiogroup. Footer columns collapse into accordions below 700px using buttons with aria-expanded. The status chip computes open/closed from the current local time and weekday. Back-to-top scrolls smoothly and moves focus to the top of the page. Language select changes a visible "Prices in £/€/$" note.
+
+Responsive: Columns 5 → 3 → accordion; band form stacks below 560px; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented names only.

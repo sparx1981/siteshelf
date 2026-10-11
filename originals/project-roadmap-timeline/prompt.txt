@@ -1,0 +1,11 @@
+Canvas & base: Light slate #f4f6fa canvas, white panels, ink #172033, secondary #62708a, lanes in alternating #fbfcfe, status colours: planned #8b97ad, in progress #2f6bff, shipped #12a37a, at risk #f59e0b. Invented product "Orbit Notes".
+
+Typography: "Sora" (400,600,700) at 14px; quarter labels 12px uppercase.
+
+Layout: Toolbar (title, lane filter chips Design / Web / Mobile / Platform, zoom toggle Quarter ⇄ Month, "Today" button). A horizontally scrollable grid: sticky left lane-name column, header with months, 10 roadmap bars placed by start/end across 4 lanes, a vertical red today line. Clicking a bar opens a right-side drawer with title, dates, owner, status, progress and notes.
+
+Interaction: Chips toggle lanes; zoom changes pixel-per-day scale; Today scrolls the line into view; bars are focusable buttons, Arrow Left/Right moves between bars in the same lane, Up/Down between lanes, Enter opens the drawer; Escape closes the drawer and returns focus; drawer has a status select that recolours the bar; progress shown as an inner fill. Announce drawer open and status changes.
+
+Responsive: Lane column shrinks to 88px, drawer becomes a bottom sheet under 700px.
+
+Rules: Date maths with plain Date, no libraries or images, sticky positions not inside overflow-breaking containers (use sticky left inside the scroller only), hidden attribute respected, 44px hit areas for bars, reduced motion.

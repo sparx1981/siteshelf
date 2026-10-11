@@ -1,0 +1,11 @@
+Canvas & base: A neon arcade look on #0a0d1a with a glowing play field on #0f1430 (1px #2a3170 border, 18px radius, soft cyan outer glow). Snake gradient from #19f0c2 (head) to #2a7bff (tail), food #ff4d8d with pulse, bonus pellet #ffd23f, grid faint #1a2050. Invented title "Pixel Serpent".
+
+Typography: "Orbitron" (500, 700) for score and headings, "Rubik" (400, 500) for hints.
+
+Layout: A header with title and best score pill. A stats row (Score, Length, Speed). A square canvas sized min(92vw, 520px) rendered at devicePixelRatio. Beneath: controls row with Pause, Restart, a Walls toggle (Solid or Wrap) and Speed select (Slow, Normal, Fast). On touch devices a swipe area is the canvas itself and an on-screen D-pad appears below 700px. Overlays inside the canvas wrapper for Start (press any arrow), Paused and Game over (score, best, new-best flair, Play again).
+
+Interaction: Fixed-timestep logic at a speed-dependent tick (e.g., 140, 105, 75 ms) decoupled from rendering via requestAnimationFrame with interpolation so movement looks smooth. Arrow keys and WASD steer; direction changes are queued (up to 2) to prevent self-reversal; swipes over 24px steer; D-pad buttons steer. Eating food grows the snake, adds 10 points (multiplied by speed level) and every 5 foods spawns a bonus pellet that expires after 6 seconds for 30 points. Solid walls end the game; Wrap mode wraps edges. P or Space pauses; the game auto-pauses when the tab loses focus. Best score per mode stored in localStorage (try/catch). Sound is not used. A polite live region announces score milestones and game over.
+
+Responsive: The canvas scales; page never scrolls on arrow keys (preventDefault on game keys); no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, prefers-reduced-motion removes glow pulses and shake, invented names only.

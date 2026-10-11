@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mega Footer — Footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#10201c;--pn:#17302a;--bd:#25423a;--ink:#eef5f1;--mut:#9db8ae;--ac:#5fe0b7;--am:#ffc666}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f6f3ec;color:#1e2a26;font:400 16px/1.6 'Public Sans',system-ui,sans-serif}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+.pg{max-width:900px;margin:0 auto;padding:70px 24px 90px;text-align:center}
+.pg h1{font:800 clamp(34px,6vw,60px)/1.05 'Epilogue',sans-serif;margin:0 0 14px;letter-spacing:-.03em}
+.pg p{color:#566660;max-width:52ch;margin:0 auto}
+.sp{height:min(70vh,520px)}
+footer{background:var(--bg);color:var(--ink);position:relative}
+.w{max-width:1160px;margin:0 auto;padding:0 24px}
+.nl{padding:56px 0 40px;border-bottom:1px solid var(--bd);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:center}
+.nl h2{font:800 clamp(28px,4vw,40px)/1.1 'Epilogue',sans-serif;margin:0 0 10px;letter-spacing:-.02em}
+.nl p{color:var(--mut);margin:0}
+.fm{display:flex;gap:0;background:var(--pn);border:1.5px solid var(--bd);border-radius:16px;padding:6px}
+.fm:focus-within{border-color:var(--ac)}
+.fm input{flex:1;min-width:0;background:none;border:0;color:var(--ink);font:400 16px 'Public Sans',sans-serif;padding:0 14px;min-height:48px;outline:0}
+.fm.bad{border-color:#ff7a7a}
+.fm button{background:var(--ac);color:#06241b;border:0;border-radius:11px;padding:0 22px;min-height:48px;font:700 15px 'Epilogue',sans-serif;cursor:pointer}
+.fm button:hover{filter:brightness(1.08)}
+.er{color:#ffa3a3;font-size:14px;min-height:22px;margin:6px 4px 0}
+.cs{font-size:13px;color:var(--mut);margin:4px 4px 0}
+.ok{background:var(--pn);border:1.5px solid var(--ac);border-radius:16px;padding:16px 20px}
+.ok button{background:none;border:0;color:var(--ac);text-decoration:underline;cursor:pointer;font:600 14px 'Public Sans',sans-serif;min-height:36px;padding:0}
+.mid{padding:48px 0 40px;display:grid;grid-template-columns:minmax(0,1.3fr) repeat(4,minmax(0,1fr));gap:32px}
+.br b{font:800 22px 'Epilogue',sans-serif;display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.br b i{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--ac),#2aa6c9)}
+.br p{color:var(--mut);font-size:15px;margin:0 0 18px;max-width:30ch}
+.so{display:flex;gap:10px}
+.so a{width:44px;height:44px;border-radius:12px;background:var(--pn);display:grid;place-items:center;color:var(--ink);transition:background .2s,transform .2s}
+.so a:hover{background:var(--ac);color:#06241b;transform:translateY(-2px)}
+.so svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.col h3{margin:0 0 14px;font:700 13px 'Epilogue',sans-serif;text-transform:uppercase;letter-spacing:.1em;color:var(--ac)}
+.col h3 button{all:unset;display:block;width:100%;cursor:default}
+.col ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.col a{color:#cfe1d9;text-decoration:none;display:inline-block;padding:6px 0;font-size:15px;position:relative}
+.col a:hover{color:#fff}
+.col a:after{content:"";position:absolute;left:0;bottom:3px;height:1.5px;width:0;background:var(--ac);transition:width .25s}
+.col a:hover:after{width:100%}
+.col .nw{background:var(--am);color:#2b1c00;font:700 10px 'Public Sans',sans-serif;border-radius:4px;padding:1px 6px;margin-left:8px;text-transform:uppercase;letter-spacing:.06em}
+.bt{border-top:1px solid var(--bd);padding:22px 0 28px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;color:var(--mut);font-size:14px}
+.bt .lg{display:flex;gap:18px;flex-wrap:wrap}.bt a{color:var(--mut);text-decoration:none;padding:6px 0}.bt a:hover{color:#fff}
+.sel{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+.sel select{background:var(--pn);color:var(--ink);border:1.5px solid var(--bd);border-radius:10px;min-height:44px;padding:0 12px;font:500 14px 'Public Sans',sans-serif}
+.stt{display:inline-flex;gap:8px;align-items:center;background:var(--pn);border-radius:99px;padding:6px 14px;color:var(--ink);font-size:13px}
+.stt i{width:9px;height:9px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 0 rgba(95,224,183,.6);animation:pu 2s infinite}
+@keyframes pu{70%{box-shadow:0 0 0 8px rgba(95,224,183,0)}100%{box-shadow:0 0 0 0 rgba(95,224,183,0)}}
+.sum{width:100%;font-size:13px;color:var(--mut)}
+.tp{position:absolute;right:24px;top:-26px;width:52px;height:52px;border-radius:50%;background:var(--ac);color:#06241b;border:4px solid #f6f3ec;font-size:20px;font-weight:800;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.25);transition:opacity .3s,transform .3s}
+.tp[hidden]{display:none}
+@media(max-width:1000px){.mid{grid-template-columns:repeat(2,minmax(0,1fr))}.br{grid-column:1/-1}}
+@media(max-width:720px){.nl{grid-template-columns:minmax(0,1fr)}.mid{grid-template-columns:minmax(0,1fr);gap:0}.br{margin-bottom:20px}.col{border-top:1px solid var(--bd)}.col h3{margin:0}.col h3 button{display:flex;justify-content:space-between;align-items:center;cursor:pointer;min-height:56px;font:inherit;text-transform:inherit;letter-spacing:inherit;color:inherit}.col h3 button:after{content:"+";font-size:22px;font-weight:400;transition:transform .2s}.col h3 button[aria-expanded=true]:after{transform:rotate(45deg)}.col ul{padding-bottom:14px}.sel{margin-left:0;width:100%}.sel select{flex:1}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.stt i{animation:none}*{transition:none!important}}
+</style></head><body>
+<div class="pg" id="top" tabindex="-1"><h1>Harborlight Outfitters</h1><p>Kit for people who go outside whatever the forecast says. Scroll down to explore the footer, or resize the window to see the link columns fold into an accordion.</p><div class="sp"></div></div>
+<footer><button class="tp" id="tp" type="button" aria-label="Back to top" hidden>↑</button>
+<div class="w"><div class="nl"><div><h2 id="nh">Field notes, once a fortnight</h2><p id="nt">New kit, trail reports and the odd discount. No spam, ever.</p></div>
+<div><form id="nf" novalidate><div class="fm" id="fm"><label for="em" style="position:absolute;left:-9999px">Email address</label><input id="em" type="email" placeholder="you@example.com" autocomplete="email" aria-describedby="er"><button type="submit" id="sb">Subscribe</button></div><div class="er" id="er" role="alert"></div><p class="cs">By subscribing you agree to our privacy policy.</p></form><div class="ok" id="ok" hidden></div></div></div>
+<div class="mid"><div class="br"><b><i></i>Harborlight</b><p id="tg">Honest outdoor kit, repaired for life.</p><div class="so" aria-label="Social links"><a href="#" aria-label="Trailgram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a><a href="#" aria-label="Cairn video"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></svg></a><a href="#" aria-label="Fieldchat"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></a><a href="#" aria-label="Newsletter feed"><svg viewBox="0 0 24 24"><path d="M5 19a1 1 0 1 0 0-.01M5 12a7 7 0 0 1 7 7M5 5a14 14 0 0 1 14 14"/></svg></a></div></div>
+<div id="cols" style="display:contents"></div></div>
+<div class="bt"><span>© 2025 Harborlight Outfitters Ltd</span><span class="lg" id="lg"></span><span class="stt"><i></i>All systems normal</span><div class="sel"><label><span style="position:absolute;left:-9999px">Language</span><select id="ln"><option value="en">English</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="es">Español</option></select></label><label><span style="position:absolute;left:-9999px">Currency</span><select id="cu"><option>GBP</option><option>EUR</option><option>USD</option></select></label></div><span class="sum" id="sm" aria-live="polite"></span></div></div></footer>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+var D={en:{h:['Shop','Support','Company','Community'],l:[['Tents & shelter','Sleeping bags','Packs','Clothing','Footwear','Repairs'],['Contact us','Delivery','Returns','Size guides','Warranty','Store finder'],['Our story','Careers','Press','Sustainability','Affiliates'],['Trail reports','Events','Ambassadors','Forum','Gift cards']],nh:'Field notes, once a fortnight',nt:'New kit, trail reports and the odd discount. No spam, ever.',tg:'Honest outdoor kit, repaired for life.',leg:['Privacy','Terms','Cookies','Accessibility'],sub:'Subscribe',sum:'Shopping in'},
+de:{h:['Shop','Hilfe','Unternehmen','Community'],l:[['Zelte','Schlafsäcke','Rucksäcke','Kleidung','Schuhe','Reparatur'],['Kontakt','Lieferung','Rückgabe','Größentabellen','Garantie','Filialen'],['Über uns','Karriere','Presse','Nachhaltigkeit','Partner'],['Tourenberichte','Events','Botschafter','Forum','Geschenkkarten']],nh:'Feldnotizen, alle zwei Wochen',nt:'Neue Ausrüstung, Tourenberichte und gelegentlich Rabatte. Kein Spam.',tg:'Ehrliche Outdoor-Ausrüstung, lebenslang repariert.',leg:['Datenschutz','AGB','Cookies','Barrierefreiheit'],sub:'Abonnieren',sum:'Einkaufen in'},
+fr:{h:['Boutique','Aide','Entreprise','Communauté'],l:[['Tentes','Sacs de couchage','Sacs à dos','Vêtements','Chaussures','Réparations'],['Nous contacter','Livraison','Retours','Guides des tailles','Garantie','Magasins'],['Notre histoire','Carrières','Presse','Durabilité','Affiliés'],['Récits de sentier','Événements','Ambassadeurs','Forum','Cartes cadeaux']],nh:'Carnet de terrain, tous les quinze jours',nt:'Nouveautés, récits de sentier et petites remises. Jamais de spam.',tg:'Du matériel honnête, réparé à vie.',leg:['Confidentialité','Conditions','Cookies','Accessibilité'],sub:'S’abonner',sum:'Achats en'},
+es:{h:['Tienda','Ayuda','Empresa','Comunidad'],l:[['Tiendas de campaña','Sacos de dormir','Mochilas','Ropa','Calzado','Reparaciones'],['Contacto','Envíos','Devoluciones','Guías de tallas','Garantía','Tiendas'],['Nuestra historia','Empleo','Prensa','Sostenibilidad','Afiliados'],['Rutas','Eventos','Embajadores','Foro','Tarjetas regalo']],nh:'Notas de campo, cada quince días',nt:'Novedades, crónicas de ruta y algún descuento. Nada de spam.',tg:'Equipo honesto, reparado de por vida.',leg:['Privacidad','Términos','Cookies','Accesibilidad'],sub:'Suscribirse',sum:'Comprando en'}};
+var LN={en:'English',de:'Deutsch',fr:'Français',es:'Español'};
+var lang='en',openCol=-1;
+function mob(){return window.matchMedia('(max-width:720px)').matches}
+function draw(){var d=D[lang];$('#cols').innerHTML=d.h.map(function(h,i){var o=!mob()||openCol===i;return '<div class="col"><h3><button type="button" data-c="'+i+'" aria-expanded="'+o+'" aria-controls="cl'+i+'" '+(mob()?'':'tabindex="-1" aria-disabled="true"')+'>'+h+'</button></h3><ul id="cl'+i+'"'+(o?'':' hidden')+'>'+d.l[i].map(function(x,k){return '<li><a href="#">'+x+(i===0&&k===5?'<span class="nw">New</span>':'')+'</a></li>'}).join('')+'</ul></div>'}).join('');
+ $('#nh').textContent=d.nh;$('#nt').textContent=d.nt;$('#tg').textContent=d.tg;$('#sb').textContent=d.sub;$('#lg').innerHTML=d.leg.map(function(x){return '<a href="#">'+x+'</a>'}).join('');document.documentElement.lang=lang;sum()}
+function sum(){$('#sm').textContent=D[lang].sum+' '+LN[lang]+' · '+$('#cu').value}
+$('#cols').addEventListener('click',function(e){var b=e.target.closest('[data-c]');if(!b||!mob())return;var i=+b.dataset.c;openCol=openCol===i?-1:i;draw();$('#cols [data-c="'+i+'"]').focus()});
+window.matchMedia('(max-width:720px)').addEventListener&&window.matchMedia('(max-width:720px)').addEventListener('change',draw);
+$('#ln').addEventListener('change',function(){lang=this.value;draw()});$('#cu').addEventListener('change',sum);
+var em=$('#em');
+function chk(){var v=em.value.trim(),ok=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);$('#fm').classList.toggle('bad',!ok&&v!=='');em.setAttribute('aria-invalid',!ok);$('#er').textContent=ok?'':(v?'Please enter a complete email address.':'Please enter your email address.');return ok}
+em.addEventListener('blur',function(){if(em.value)chk()});
+$('#nf').addEventListener('submit',function(e){e.preventDefault();if(!chk()){em.focus();return}var v=em.value.trim();$('#nf').hidden=true;var o=$('#ok');o.hidden=false;o.innerHTML='<b>You’re on the list.</b> We’ll write to <span></span> every other Thursday. <button type="button" id="un">Undo</button>';o.querySelector('span').textContent=v;$('#un').onclick=function(){o.hidden=true;$('#nf').hidden=false;em.value='';$('#er').textContent='';em.focus()}});
+var tp=$('#tp');function sc(){tp.hidden=scrollY<400}addEventListener('scroll',sc,{passive:true});sc();
+tp.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});setTimeout(function(){$('#top').focus({preventScroll:true})},rm?0:500)});
+draw();
+})();
+</script></body></html>

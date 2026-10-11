@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live Poll Widget — Widgets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#fff7ea;--ink:#2a1e0f;--mut:#8a7656;--bd:#f0e2c8;--ac:#f2512a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.5 'Figtree',system-ui,sans-serif;padding:32px 16px;min-height:100svh}
+:focus-visible{outline:3px solid #3a7bd5;outline-offset:2px}
+.w{max-width:560px;margin:0 auto}
+.cd{background:#fff;border:1px solid var(--bd);border-radius:24px;padding:28px;box-shadow:0 20px 50px rgba(120,70,0,.12)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.lv{display:inline-flex;gap:8px;align-items:center;background:#ffeae3;color:#c1330f;font:700 12px 'Figtree',sans-serif;letter-spacing:.1em;border-radius:99px;padding:4px 12px}
+.lv i{width:8px;height:8px;border-radius:50%;background:var(--ac);animation:pu 1.2s infinite}
+.lv.off{background:#eee;color:#777}.lv.off i{background:#999;animation:none}
+@keyframes pu{50%{opacity:.25}}
+.vc{color:var(--mut);font-size:14px;font-variant-numeric:tabular-nums}
+.cl{font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink)}
+h1{font:800 clamp(26px,5vw,34px)/1.1 'Bricolage Grotesque',sans-serif;margin:0 0 6px;letter-spacing:-.02em}
+.by{color:var(--mut);margin:0 0 18px;font-size:15px}
+.md{display:inline-flex;background:#faf1de;border-radius:12px;padding:3px;margin-bottom:16px}
+.md button{background:none;border:0;border-radius:9px;min-height:40px;padding:0 16px;cursor:pointer;font:600 14px 'Figtree',sans-serif;color:var(--mut)}
+.md button[aria-pressed=true]{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.md button:disabled{opacity:.5;cursor:not-allowed}
+.op{display:grid;gap:10px;position:relative}
+.o{position:relative;display:flex;align-items:center;gap:14px;border:2px solid var(--bd);border-radius:16px;background:#fff;padding:0 16px;min-height:60px;cursor:pointer;font-weight:600;transition:border-color .15s,background .15s}
+.o:hover{border-color:#f2b9a8}
+.o input{position:absolute;opacity:0}
+.o .e{font-size:26px}
+.o .ck{margin-left:auto;width:24px;height:24px;border-radius:50%;border:2px solid #d9c8a5;display:grid;place-items:center;color:#fff;font-size:14px;flex:none}
+.o.m .ck{border-radius:7px}
+.o:has(input:checked){border-color:var(--ac);background:#fff3ef}
+.o:has(input:checked) .ck{background:var(--ac);border-color:var(--ac)}
+.o:has(input:focus-visible){outline:3px solid #3a7bd5;outline-offset:2px}
+.hint{min-height:22px;color:#b8420f;font-size:14px;margin:8px 2px 0}
+.act{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.vb{flex:1;min-width:140px;background:var(--ac);color:#fff;border:0;border-radius:14px;min-height:54px;font:700 17px 'Figtree',sans-serif;cursor:pointer}
+.vb:disabled{opacity:.4;cursor:not-allowed}
+.vb:hover:not(:disabled){filter:brightness(1.08)}
+.ln{background:none;border:0;color:var(--mut);text-decoration:underline;cursor:pointer;min-height:44px;padding:0 10px;font:600 14px 'Figtree',sans-serif}
+.rs{display:grid;gap:10px;position:relative}
+.r{position:relative;border:2px solid var(--bd);border-radius:16px;overflow:hidden;min-height:60px;display:flex;align-items:center;padding:0 16px;gap:12px;background:#fff;will-change:transform}
+.r.mine{border-color:var(--c)}
+.r .bar{position:absolute;left:0;top:0;bottom:0;background:var(--c);opacity:.18;width:0;transition:width .7s cubic-bezier(.2,.8,.2,1)}
+.r.top1 .bar{opacity:.3}
+.r>*{position:relative}
+.r .e{font-size:24px}
+.r .nm{font-weight:600;flex:1;min-width:0}
+.r .nm small{display:block;color:var(--mut);font-weight:500;font-size:13px;font-variant-numeric:tabular-nums}
+.r .pc{font:800 24px 'Bricolage Grotesque',sans-serif;font-variant-numeric:tabular-nums;min-width:62px;text-align:right}
+.r .tk{background:var(--c);color:#fff;border-radius:50%;width:22px;height:22px;display:grid;place-items:center;font-size:12px;flex:none}
+.win{background:linear-gradient(90deg,#fff3c4,#ffe3a0);border:1.5px solid #f2c84a;border-radius:14px;padding:12px 16px;margin-bottom:14px;font-weight:600}
+.sh{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:18px;flex-wrap:wrap}
+.sh button{background:#faf1de;border:0;border-radius:12px;min-height:44px;padding:0 18px;cursor:pointer;font:700 14px 'Figtree',sans-serif;color:var(--ink)}
+.sh button:hover{background:#f5e6c4}
+.tp{margin-top:20px;background:#fff;border:1px solid var(--bd);border-radius:20px;padding:20px 24px}
+.tp h2{font:700 16px 'Bricolage Grotesque',sans-serif;margin:0 0 10px}
+.tp ol{margin:0;padding:0;list-style:none;display:grid;gap:8px;counter-reset:n}
+.tp li{display:flex;gap:12px;align-items:center;counter-increment:n}
+.tp li:before{content:counter(n);width:26px;height:26px;border-radius:50%;background:#faf1de;display:grid;place-items:center;font-weight:700;font-size:13px}
+.tp li b{margin-left:auto;font-variant-numeric:tabular-nums}
+.live{position:absolute;left:-9999px}
+@media(max-width:480px){.cd{padding:20px 16px}.o{padding:0 12px}}
+@media(prefers-reduced-motion:reduce){.r .bar{transition:none}.lv i{animation:none}*{transition:none!important}}
+</style></head><body>
+<div class="w"><div class="cd"><div class="top"><span class="lv" id="lb"><i></i>LIVE</span><span class="vc"><span id="vt">0</span> votes · closes in <span class="cl" id="cl">2:00</span></span></div>
+<h1>What should we add to the autumn menu?</h1><p class="by">A poll from Corner Table Cafe</p>
+<div id="win" class="win" hidden></div>
+<div id="vw"><div class="md" role="group" aria-label="Voting mode"><button type="button" data-m="1" aria-pressed="true">Pick one</button><button type="button" data-m="2" aria-pressed="false">Pick up to 2</button></div>
+<div class="op" id="op" role="group" aria-label="Poll options"></div><div class="hint" id="ht" role="alert"></div>
+<div class="act"><button class="vb" id="vb" type="button" disabled>Vote</button><button class="ln" id="sr" type="button">See results</button></div></div>
+<div id="rw" hidden><div class="rs" id="rs" role="list" aria-label="Results"></div><div class="act"><button class="ln" id="cv" type="button">Change my vote</button></div></div>
+<div class="sh"><span style="color:var(--mut);font-size:14px" id="mv"></span><button id="sb" type="button">Share results</button></div></div>
+<div class="tp"><h2>Top picks right now</h2><ol id="tp"></ol></div><div class="live" id="lr" aria-live="polite"></div></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+var O=[['🎃','Pumpkin soup','#f2512a',142],['🍎','Apple crumble','#f2a22a',188],['☕','Chestnut latte','#3fae7a',167],['🥣','Maple granola','#3a7bd5',74],['🍐','Spiced pear tart','#8a5cd6',109]];
+var votes=O.map(function(o){return o[3]}),mine=[],mode=1,sel=[],voted=false,closed=false,left=120,showR=false,order=[0,1,2,3,4];
+function total(){return votes.reduce(function(a,b){return a+b},0)}
+function opts(){$('#op').setAttribute('role',mode===1?'radiogroup':'group');$('#op').innerHTML=O.map(function(o,i){return '<label class="o'+(mode===2?' m':'')+'"><input type="'+(mode===1?'radio':'checkbox')+'" name="o" value="'+i+'" '+(sel.indexOf(i)>-1?'checked':'')+'><span class="e" aria-hidden="true">'+o[0]+'</span>'+o[1]+'<span class="ck" aria-hidden="true">✓</span></label>'}).join('');$('#vb').disabled=!sel.length||closed}
+$('#op').addEventListener('change',function(e){var i=+e.target.value;if(mode===1)sel=[i];else{if(e.target.checked){if(sel.length>=2){e.target.checked=false;$('#ht').textContent='You can choose up to 2 options. Untick one first.';return}sel.push(i)}else sel=sel.filter(function(x){return x!==i})}$('#ht').textContent='';$('#vb').disabled=!sel.length||closed});
+document.querySelector('.md').addEventListener('click',function(e){var b=e.target.closest('[data-m]');if(!b||voted)return;mode=+b.dataset.m;sel=[];this.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});$('#ht').textContent='';opts()});
+function view(){$('#vw').hidden=voted||showR;$('#rw').hidden=!(voted||showR);$('#cv').hidden=!voted||closed;$('#mv').textContent=voted?'You voted for '+mine.map(function(i){return O[i][1]}).join(' and '):''}
+function rank(){return O.map(function(_,i){return i}).sort(function(a,b){return votes[b]-votes[a]||a-b})}
+var pos={};
+function results(animate){var t=total(),r=rank();$('#vt').textContent=t.toLocaleString('en-GB');
+ var first={};if(animate&&!rm)[].forEach.call($('#rs').children,function(el){first[el.dataset.i]=el.getBoundingClientRect().top});
+ if(!$('#rs').children.length||$('#rs').children.length!==O.length){$('#rs').innerHTML=O.map(function(o,i){return '<div class="r" role="listitem" data-i="'+i+'" style="--c:'+o[2]+'"><div class="bar"></div><span class="e" aria-hidden="true">'+o[0]+'</span><div class="nm">'+o[1]+'<small></small></div><span class="tk" hidden aria-label="Your vote">✓</span><span class="pc"></span></div>'}).join('')}
+ r.forEach(function(i,k){var el=$('#rs [data-i="'+i+'"]');$('#rs').appendChild(el);el.classList.toggle('top1',k===0);el.classList.toggle('mine',mine.indexOf(i)>-1);el.querySelector('.tk').hidden=mine.indexOf(i)<0;var pc=t?votes[i]/t*100:0;el.querySelector('.bar').style.width=pc+'%';el.querySelector('.pc').textContent=Math.round(pc)+'%';el.querySelector('small').textContent=votes[i].toLocaleString('en-GB')+' votes'});
+ if(animate&&!rm)[].forEach.call($('#rs').children,function(el){var d=first[el.dataset.i]-el.getBoundingClientRect().top;if(d){el.style.transition='none';el.style.transform='translateY('+d+'px)';requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.transition='transform .5s cubic-bezier(.2,.8,.2,1)';el.style.transform=''})})}});
+ $('#tp').innerHTML=r.slice(0,3).map(function(i){return '<li><span class="e" aria-hidden="true">'+O[i][0]+'</span>'+O[i][1]+'<b>'+Math.round(votes[i]/t*100)+'%</b></li>'}).join('')}
+$('#vb').addEventListener('click',function(){if(!sel.length||closed)return;mine=sel.slice();mine.forEach(function(i){votes[i]++});voted=true;view();results(false);$('#lr').textContent='Thanks, your vote for '+mine.map(function(i){return O[i][1]}).join(' and ')+' is in.';$('#cv').focus()});
+$('#sr').addEventListener('click',function(){showR=true;view();results(false)});
+$('#cv').addEventListener('click',function(){mine.forEach(function(i){votes[i]--});sel=mine.slice();mine=[];voted=false;showR=false;opts();view();var f=$('#op input');if(f)f.focus()});
+$('#sb').addEventListener('click',function(){var r=rank(),t=total(),s='Autumn menu poll at Corner Table Cafe ('+t+' votes):\n'+r.map(function(i,k){return (k+1)+'. '+O[i][1]+' '+Math.round(votes[i]/t*100)+'%'}).join('\n');try{navigator.clipboard.writeText(s).catch(function(){})}catch(e){}var b=this;b.textContent='Copied ✓';setTimeout(function(){b.textContent='Share results'},1600)});
+function clock(){var m=Math.floor(left/60),s=left%60;$('#cl').textContent=m+':'+String(s).padStart(2,'0')}
+var sim=setInterval(function(){if(closed)return;var i=Math.floor(Math.random()*5);if(Math.random()<.35)i=[1,2,1,0,2][Math.floor(Math.random()*5)];votes[i]++;if(voted||showR)results(true);else $('#vt').textContent=total().toLocaleString('en-GB')},1400);
+var cd=setInterval(function(){left--;clock();if(left<=0){clearInterval(cd);clearInterval(sim);closed=true;$('#lb').className='lv off';$('#lb').innerHTML='<i></i>CLOSED';var w=rank()[0],t=total();$('#win').hidden=false;$('#win').innerHTML='🏆 <b>'+O[w][1]+'</b> wins with '+Math.round(votes[w]/t*100)+'% of '+t.toLocaleString('en-GB')+' votes.';$('#lr').textContent='Poll closed. Winner: '+O[w][1];showR=true;view();results(false);$('#cv').hidden=true}},1000);
+opts();view();results(false);$('#vt').textContent=total().toLocaleString('en-GB');
+})();
+</script></body></html>

@@ -1,0 +1,11 @@
+Canvas & base: A friendly help centre on #f4f7fb with a deep navy hero #11284b containing the search, white content cards (1px #dfe6f1 border, 16px radius), ink #14213a, secondary #5d6b86, accent azure #2f7bff and success #1f9d6b. Invented company "Tidyloop" (a home-cleaning booking service) and invented policies.
+
+Typography: "Nunito" (600, 700, 800) for headings and "Source Sans 3" (400, 600) for body.
+
+Layout: Hero with heading "How can we help?", a big search field with a clear button and popular search chips (refund, reschedule, pets, pricing). Below: category tabs with counts (All, Booking, Payments, Cleaners, Safety, Account), a two-column layout with the accordion list on the left (16 questions across categories) and a sticky sidebar on the right with "Still stuck?" contact card (chat, email, phone hours) and a "Most read" list.
+
+Interaction: Typing filters questions live by question and answer text, wraps matches in mark, expands matching items automatically when there are fewer than 4 results, and updates the tab counts and a results line. Tabs combine with search. Accordion buttons use aria-expanded and aria-controls, only multiple open allowed; the URL hash updates when an item opens and a hash on load opens and scrolls to that item. Each answer ends with "Was this helpful?" Yes/No buttons that show a thank-you (No offers a textarea for a short note and Send). Related questions below each answer are links that open and scroll to that item. No-results state suggests clearing the search and shows the contact card prominently. Press / to focus search, Escape to clear.
+
+Responsive: Sidebar moves below the list under 900px; tabs scroll horizontally; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Escape all text before highlighting, visible focus, prefers-reduced-motion, invented names only.

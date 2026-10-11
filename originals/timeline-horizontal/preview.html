@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Horizontal History Timeline — Timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#14110f;--paper:#f3e9d6;--br:#c9973f;--ink:#241c12;--dawn:#d97a4a;--sail:#3f8fa6;--steam:#8a7f6e;--sig:#7a5cc2}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(900px 500px at 50% 0,#2a2118,var(--bg));color:#eee3cf;font:400 16px/1.55 'Work Sans',system-ui,sans-serif;min-height:100svh;overflow-x:hidden}
+:focus-visible{outline:3px solid var(--br);outline-offset:3px}
+.w{max-width:1200px;margin:0 auto;padding:36px 20px 40px}
+h1{font:600 clamp(34px,5vw,56px)/1 'Cormorant Garamond',serif;margin:0 0 6px;color:#f7ecd6}
+h1 em{color:var(--br)}
+.sub{color:#b3a68e;margin:0 0 22px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tab{background:none;border:1.5px solid #4a3f2f;color:#d8ccb4;border-radius:99px;min-height:44px;padding:0 20px;cursor:pointer;font:600 14px 'Work Sans',sans-serif;display:inline-flex;align-items:center;gap:8px}
+.tab i{width:10px;height:10px;border-radius:50%}
+.tab[aria-pressed=true]{background:var(--br);border-color:var(--br);color:#1c1408}
+.stage{position:relative}
+.trk{overflow-x:auto;scroll-snap-type:x proximity;display:flex;padding:0 40px;height:470px;cursor:grab;scrollbar-width:none;position:relative;touch-action:pan-x}
+.trk::-webkit-scrollbar{display:none}
+.trk.dg{cursor:grabbing;scroll-snap-type:none}
+.trk:before{content:"";position:absolute;left:0;right:0;top:50%;height:3px;background:linear-gradient(90deg,transparent,var(--br) 3%,var(--br) 97%,transparent);transform:translateY(-50%);pointer-events:none;min-width:var(--tw)}
+.ev{flex:none;width:300px;position:relative;scroll-snap-align:center;transition:opacity .3s,filter .3s}
+.ev.dim{opacity:.28;filter:grayscale(1)}
+.ev button.cd{position:absolute;left:10px;right:10px;background:var(--paper);color:var(--ink);border:0;border-radius:16px;padding:16px 18px;text-align:left;cursor:pointer;font:inherit;box-shadow:0 14px 30px rgba(0,0,0,.4);transition:transform .25s,box-shadow .25s;height:190px;overflow:hidden}
+.ev:nth-child(odd) button.cd{top:6px}
+.ev:nth-child(even) button.cd{bottom:6px}
+.ev button.cd:hover{transform:translateY(-3px)}
+.ev button.cd[aria-expanded=true]{height:auto;min-height:190px;z-index:5;box-shadow:0 0 0 3px var(--ec),0 20px 40px rgba(0,0,0,.5)}
+.ev:nth-child(odd) button.cd[aria-expanded=true]{top:6px}
+.dot{position:absolute;left:50%;top:50%;width:20px;height:20px;border-radius:50%;background:var(--ec);border:4px solid var(--bg);transform:translate(-50%,-50%);z-index:2}
+.stem{position:absolute;left:50%;width:2px;background:var(--ec);transform:translateX(-1px)}
+.ev:nth-child(odd) .stem{top:196px;height:calc(50% - 196px)}
+.ev:nth-child(even) .stem{bottom:196px;height:calc(50% - 196px)}
+.yr{font:italic 600 44px/1 'Cormorant Garamond',serif;color:var(--ec)}
+.cd h3{font:700 20px/1.15 'Cormorant Garamond',serif;margin:2px 0 6px}
+.cd p{margin:0;font-size:14px;color:#4a3d2a}
+.cd .ill{position:absolute;right:14px;top:12px;width:58px;height:58px}
+.cd .more{display:none;margin-top:8px;border-top:1px dashed #b9a98a;padding-top:8px}
+.cd[aria-expanded=true] .more{display:block}
+.cd[aria-expanded=true] p.s{display:block}
+.era{display:inline-block;font:600 11px 'Work Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--ec);margin-bottom:4px}
+.nv{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(20,17,15,.85);border:1.5px solid #4a3f2f;color:#fff;font-size:22px;cursor:pointer;z-index:6}
+.nv:hover{border-color:var(--br)}.nv:disabled{opacity:.3}
+.nv.l{left:-6px}.nv.r{right:-6px}
+.mini{position:relative;height:46px;margin-top:18px;background:#1e1912;border:1px solid #3a3022;border-radius:12px;touch-action:none;cursor:pointer}
+.mini i{position:absolute;top:12px;width:3px;height:22px;border-radius:2px;background:var(--ec);transform:translateX(-1px)}
+.mini i.dim{opacity:.2}
+.win{position:absolute;top:3px;bottom:3px;border:2px solid var(--br);border-radius:9px;background:rgba(201,151,63,.14);cursor:grab}
+.pr{display:flex;justify-content:space-between;color:#b3a68e;font-size:14px;margin-top:10px;font-variant-numeric:tabular-nums}
+.live{position:absolute;left:-9999px}
+@media(max-width:700px){.ev{width:78vw}.trk{height:auto;min-height:0;padding:0 16px;gap:0}.nv{display:none}.trk{height:360px}.ev:nth-child(odd) button.cd,.ev:nth-child(even) button.cd{top:auto;bottom:6px}.ev .stem{display:none}.trk:before{top:calc(100% - 20px)}.dot{top:auto;bottom:-14px;transform:translate(-50%,0)}.ev:nth-child(odd) button.cd,.ev:nth-child(even) button.cd{height:230px}.trk{padding-bottom:36px;height:320px}.ev:nth-child(odd) button.cd[aria-expanded=true],.ev:nth-child(even) button.cd[aria-expanded=true]{top:auto;bottom:6px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.trk{scroll-behavior:auto}}
+</style></head><body>
+<div class="w"><h1>The Meridian <em>Society</em></h1><p class="sub">Four centuries of imaginary exploration. Drag the timeline, or use ← → to step through.</p>
+<div class="tabs" id="tb" role="group" aria-label="Filter by era"></div>
+<div class="stage"><button class="nv l" id="pv" type="button" aria-label="Previous event">‹</button><div class="trk" id="tk" tabindex="-1" aria-label="Timeline of events"></div><button class="nv r" id="nx" type="button" aria-label="Next event">›</button></div>
+<div class="mini" id="mn" aria-hidden="true"><div class="win" id="wn"></div></div><div class="pr"><span id="pl">Event 1 of 16</span><span>Scroll, drag or use the overview</span></div><div class="live" id="lv" aria-live="polite"></div></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+var ER={Dawn:'#d97a4a',Sail:'#3f8fa6',Steam:'#a89c86',Signal:'#9a7ce0'};
+var E=[[1620,'Dawn','The First Charter','Eleven founders sign a charter above a fishmonger’s shop in Port Alder.','They pledged to chart only what they had walked or sailed themselves, a rule the Society still quotes.','compass'],
+[1655,'Dawn','Map of the Salt Coast','The first Meridian map is drawn on sheepskin and hung in the harbour office.','It was wrong by nine miles in the north, and the correction took forty years.','map'],
+[1702,'Sail','The Curlew Voyage','A three-masted ship named Curlew sails south past the Ember Isles.','The log survives, mostly stains, and records an unnamed star that has never been identified.','ship'],
+[1744,'Sail','Navigator’s Almanac','The Society prints its first almanac of tides and winds.','It sold out in a week and was copied illegally in six harbours within a year.','book'],
+[1781,'Sail','The Lantern Rule','Lighthouse keepers are enrolled as honorary members.','A tradition begins: new members light a lantern at the old Fennick light.','lantern'],
+[1809,'Sail','Chronometer Trials','Brass chronometers from three makers race across a stormy winter.','The smallest won by eleven seconds, and made the Society’s first fortune.','clock'],
+[1838,'Steam','Iron Hull, Quiet Engine','The paddle steamer Wren makes the first crossing without sails.','Passengers reported the quiet as unsettling and the soot as unforgettable.','steam'],
+[1866,'Steam','The Great Atlas','A twelve-volume atlas is completed after nineteen years of survey.','Each volume weighed as much as a small child and was printed on rag paper.','atlas'],
+[1892,'Steam','Rail to the Highlands','A survey railway reaches the Bellmoor plateau.','For the first time members could reach the summit before breakfast.','rail'],
+[1914,'Steam','The Balloon Years','Hydrogen balloons carry the first aerial surveys over the Marram Fens.','Photographs taken with a basket-mounted camera still hang in the main hall.','balloon'],
+[1938,'Signal','Wireless Station Nine','The Society builds a radio station on the island of Tern.','Weather reports from the island reached forty ships by the first winter.','antenna'],
+[1957,'Signal','The Northern Silence','A four-month polar relay is run entirely by Society volunteers.','Nobody lost more than a toe, and everyone gained a lasting fondness for tinned peaches.','snow'],
+[1974,'Signal','Satellite Fix','The first satellite position fix is logged in the Society journal.','The entry reads simply: “Correct. Alarmingly correct.”','sat'],
+[1993,'Signal','The Open Chart','Every Society chart is released into the public domain.','Membership tripled in a year and the tea budget did not survive.','open'],
+[2008,'Signal','Citizen Surveyors','A phone app lets anyone submit a coastline correction.','Within a decade the Salt Coast was the most accurately mapped stretch in the country.','phone'],
+[2020,'Signal','Meridian Online','The archive is digitised, with every log and chart searchable.','Members now argue about the old star in forums instead of the library, and miss the biscuits.','globe']];
+var ILL={compass:'<circle cx="30" cy="30" r="22" fill="none" stroke="#241c12" stroke-width="3"/><path d="M30 12 L36 30 L30 48 L24 30Z" fill="#c9973f"/><circle cx="30" cy="30" r="3" fill="#241c12"/>',map:'<path d="M8 14 L22 10 L38 16 L52 12 V46 L38 50 L22 44 L8 48Z" fill="#e5d3a8" stroke="#241c12" stroke-width="2.5"/><path d="M22 10V44M38 16V50" stroke="#241c12" stroke-width="1.8"/>',ship:'<path d="M8 38 H52 L46 48 H14Z" fill="#241c12"/><path d="M30 8 V38" stroke="#241c12" stroke-width="3"/><path d="M30 10 L48 32 H30Z" fill="#c9973f"/><path d="M28 14 L14 32 H28Z" fill="#e5d3a8" stroke="#241c12" stroke-width="2"/>',book:'<rect x="10" y="10" width="40" height="40" rx="3" fill="#7a3a2a"/><rect x="16" y="16" width="28" height="8" fill="#e5d3a8"/><path d="M16 32H44M16 38H38" stroke="#e5d3a8" stroke-width="2"/>',lantern:'<rect x="20" y="16" width="20" height="30" rx="4" fill="#e8b84a" stroke="#241c12" stroke-width="3"/><path d="M24 16V10H36V16" fill="none" stroke="#241c12" stroke-width="3"/><circle cx="30" cy="31" r="6" fill="#fff4c0"/>',clock:'<circle cx="30" cy="30" r="22" fill="#e5d3a8" stroke="#241c12" stroke-width="3"/><path d="M30 16V30L40 36" stroke="#241c12" stroke-width="3" fill="none" stroke-linecap="round"/>',steam:'<rect x="10" y="30" width="38" height="14" rx="3" fill="#241c12"/><rect x="18" y="14" width="8" height="16" fill="#8a7f6e"/><circle cx="22" cy="10" r="5" fill="#cfc6b4"/><circle cx="30" cy="6" r="4" fill="#cfc6b4"/>',atlas:'<rect x="8" y="12" width="44" height="34" rx="3" fill="#3a5a4a"/><circle cx="30" cy="29" r="12" fill="none" stroke="#e5d3a8" stroke-width="2.5"/><path d="M18 29H42M30 17V41" stroke="#e5d3a8" stroke-width="2"/>',rail:'<path d="M6 44 L54 44" stroke="#241c12" stroke-width="3"/><path d="M12 48V40M24 48V40M36 48V40M48 48V40" stroke="#8a7f6e" stroke-width="4"/><path d="M10 38 L26 14 L54 38" fill="none" stroke="#241c12" stroke-width="3"/>',balloon:'<ellipse cx="30" cy="22" rx="16" ry="18" fill="#d97a4a"/><path d="M22 38 L26 48 M38 38 L34 48" stroke="#241c12" stroke-width="2"/><rect x="24" y="48" width="12" height="8" fill="#241c12"/>',antenna:'<path d="M30 52V18M20 52L30 18L40 52" fill="none" stroke="#241c12" stroke-width="3"/><path d="M18 14 Q30 4 42 14M12 8 Q30 -4 48 8" fill="none" stroke="#7a5cc2" stroke-width="3"/>',snow:'<path d="M30 6V54M8 18L52 42M8 42L52 18" stroke="#241c12" stroke-width="3" stroke-linecap="round"/>',sat:'<rect x="24" y="22" width="12" height="16" fill="#241c12"/><rect x="6" y="26" width="16" height="8" fill="#7a5cc2"/><rect x="38" y="26" width="16" height="8" fill="#7a5cc2"/>',open:'<circle cx="30" cy="30" r="22" fill="none" stroke="#241c12" stroke-width="3"/><path d="M30 12 V30 H46" fill="none" stroke="#7a5cc2" stroke-width="3"/>',phone:'<rect x="18" y="6" width="24" height="48" rx="5" fill="#241c12"/><rect x="21" y="12" width="18" height="30" fill="#7a5cc2"/><circle cx="30" cy="48" r="2" fill="#fff"/>',globe:'<circle cx="30" cy="30" r="22" fill="#3f8fa6" stroke="#241c12" stroke-width="3"/><path d="M8 30H52M30 8C20 20 20 40 30 52M30 8C40 20 40 40 30 52" fill="none" stroke="#f3e9d6" stroke-width="2"/>'};
+var era='All',open=null,tk=$('#tk');
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function tabs(){$('#tb').innerHTML=['All','Dawn','Sail','Steam','Signal'].map(function(e){return '<button class="tab" type="button" data-e="'+e+'" aria-pressed="'+(e===era)+'">'+(e==='All'?'':'<i style="background:'+ER[e]+'"></i>')+e+'</button>'}).join('')}
+function build(){tk.innerHTML=E.map(function(e,i){var c=ER[e[1]],m=era==='All'||e[1]===era;return '<div class="ev'+(m?'':' dim')+'" data-i="'+i+'" style="--ec:'+c+'"><div class="stem"></div><div class="dot"></div><button class="cd" type="button" aria-expanded="'+(open===i)+'" data-i="'+i+'" aria-label="'+e[0]+', '+esc(e[2])+'. '+e[1]+' era. Press Enter to read more."><svg class="ill" viewBox="0 0 60 60" aria-hidden="true">'+ILL[e[5]]+'</svg><span class="era">'+e[1]+' era</span><div class="yr">'+e[0]+'</div><h3>'+esc(e[2])+'</h3><p class="s">'+esc(e[3])+'</p><p class="more">'+esc(e[4])+'</p></button></div>'}).join('');
+ tk.style.setProperty('--tw',tk.scrollWidth+'px');
+ $('#mn').querySelectorAll('i').forEach(function(x){x.remove()});
+ E.forEach(function(e,i){var t=document.createElement('i');t.style.left=(2+(i+.5)/E.length*96)+'%';t.style.background=ER[e[1]];if(!(era==='All'||e[1]===era))t.className='dim';$('#mn').insertBefore(t,$('#wn'))});
+ sync()}
+function cards(){return[].slice.call(tk.querySelectorAll('.cd'))}
+function cur(){var c=tk.scrollLeft+tk.clientWidth/2,best=0,bd=1e9;[].slice.call(tk.children).forEach(function(el,i){var m=el.offsetLeft+el.offsetWidth/2,d=Math.abs(m-c);if(d<bd){bd=d;best=i}});return best}
+function sync(){var max=tk.scrollWidth-tk.clientWidth,w=Math.min(1,tk.clientWidth/tk.scrollWidth);$('#wn').style.width=(w*100)+'%';$('#wn').style.left=(max>0?tk.scrollLeft/tk.scrollWidth*100:0)+'%';var i=cur();$('#pl').textContent='Event '+(i+1)+' of '+E.length+' · '+E[i][0];$('#pv').disabled=tk.scrollLeft<=2;$('#nx').disabled=tk.scrollLeft>=max-2}
+function go(i,focus){var el=tk.children[i];if(!el)return;tk.scrollTo({left:el.offsetLeft+el.offsetWidth/2-tk.clientWidth/2,behavior:rm?'auto':'smooth'});if(focus)el.querySelector('.cd').focus({preventScroll:true})}
+tk.addEventListener('scroll',sync,{passive:true});
+$('#pv').addEventListener('click',function(){go(Math.max(0,cur()-1),false)});$('#nx').addEventListener('click',function(){go(Math.min(E.length-1,cur()+1),false)});
+$('#tb').addEventListener('click',function(e){var b=e.target.closest('[data-e]');if(!b)return;era=b.dataset.e;tabs();build();var f=E.findIndex(function(x){return era==='All'||x[1]===era});go(f,false);$('#lv').textContent=era==='All'?'Showing all events':'Showing '+era+' era events'});
+tk.addEventListener('click',function(e){if(moved)return;var b=e.target.closest('.cd');if(!b)return;var i=+b.dataset.i;open=open===i?null:i;var y=tk.scrollLeft;build();tk.scrollLeft=y;var n=tk.children[i].querySelector('.cd');n.focus({preventScroll:true});if(open===i)go(i,false)});
+tk.addEventListener('keydown',function(e){var a=document.activeElement.closest&&document.activeElement.closest('.cd');if(!a)return;var i=+a.dataset.i;if(e.key==='ArrowRight'&&i<E.length-1){e.preventDefault();go(i+1,true)}if(e.key==='ArrowLeft'&&i>0){e.preventDefault();go(i-1,true)}if(e.key==='Home'){e.preventDefault();go(0,true)}if(e.key==='End'){e.preventDefault();go(E.length-1,true)}});
+var d=null,moved=false;
+tk.addEventListener('pointerdown',function(e){if(e.pointerType==='touch')return;d={x:e.clientX,s:tk.scrollLeft};moved=false});
+window.addEventListener('pointermove',function(e){if(!d)return;var dx=e.clientX-d.x;if(Math.abs(dx)>5){moved=true;tk.classList.add('dg')}if(moved)tk.scrollLeft=d.s-dx});
+window.addEventListener('pointerup',function(){if(!d)return;d=null;tk.classList.remove('dg');setTimeout(function(){moved=false},0)});
+tk.addEventListener('wheel',function(e){if(Math.abs(e.deltaY)>Math.abs(e.deltaX)&&!e.shiftKey){tk.scrollLeft+=e.deltaY;e.preventDefault()}},{passive:false});
+var mn=$('#mn'),md=false;
+function mv(e){var r=mn.getBoundingClientRect(),p=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));tk.scrollLeft=p*tk.scrollWidth-tk.clientWidth/2}
+mn.addEventListener('pointerdown',function(e){md=true;mn.setPointerCapture(e.pointerId);mv(e)});mn.addEventListener('pointermove',function(e){if(md)mv(e)});mn.addEventListener('pointerup',function(){md=false});
+window.addEventListener('resize',function(){tk.style.setProperty('--tw',tk.scrollWidth+'px');sync()});
+tabs();build();
+})();
+</script></body></html>

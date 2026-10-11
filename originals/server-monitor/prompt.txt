@@ -1,0 +1,11 @@
+Canvas & base: A dark ops console on #0b0f14 with panels #121820 (1px #1f2833 border, 14px radius), ink #e6edf5, secondary #8795a8, accent cyan #38d5ff, ok #3ddc97, warn #ffb454, crit #ff5d6c, violet #9a7cff. Invented company "Harbor Ops" monitoring invented services (api-gateway, auth, payments, search, queue, db-primary).
+
+Typography: "Sora" (500, 700) for headings and "JetBrains Mono" (400, 500) for numbers and logs; tabular numerals.
+
+Layout: Top bar with title, environment pills (prod, staging), time range select (5 min, 15 min, 1 hour), a Live/Paused toggle and a "Simulate incident" button. KPI row: four tiles (Requests/s, p95 latency, Error rate, Uptime 30d) each with a sparkline and delta. A 2x2 chart grid: CPU by host (multi-line), Memory, Requests and Latency, drawn on canvas or SVG with grid lines, dashed threshold lines (CPU 80%, error 2%), a hover crosshair with tooltip and a legend with toggles. A service status grid (6 cards with status dot, response time, 24 tiny uptime bars). An alert feed table with severity chips and a filter row (All, Critical, Warning, Info), acknowledging an alert dims it.
+
+Interaction: A fake telemetry engine ticks once a second adding data points with smooth random walks; Pause freezes it; range select changes the visible window. Simulate incident spikes CPU and error rate on payments, turns its card amber then red, adds critical alerts and decays back after 20 seconds. Legend entries toggle series. Hover shows values for all series at that time. Alerts can be acknowledged with a button; the filter chips update counts. Keyboard: tooltips follow focus on chart containers with arrow keys moving the crosshair.
+
+Responsive: Grid goes 2 columns then 1; tables become cards under 700px; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS (hand-drawn SVG or canvas, no libraries), no external images. Add [hidden]{display:none!important}. aria-live for new critical alerts, visible focus, prefers-reduced-motion reduces animation, invented names only.

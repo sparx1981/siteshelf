@@ -1,0 +1,11 @@
+Canvas & base: A split contact page on #f7f3ee. Left panel on deep plum #2b1b3a with a soft radial highlight, holding contact details; right a white form card (22px radius, shadow 0 24px 60px rgba(43,27,58,.12)). Ink #231a2d, secondary #75687f, accent magenta #c2306b, success #1f9d6b, error #d63b3b. Invented studio "Foxglove Studio".
+
+Typography: "Fraunces" (600, 700) for headings and "Outfit" (400, 500, 600) for form text at 16px.
+
+Layout: Left panel with headline "Let's make something good", short text, three contact rows (email, phone, studio address) and a hours note. Right card with heading "Tell us about your project" and fields: Full name, Email, Phone (optional), Topic as four radio cards (New project, Quote, Support, Just saying hi), Budget select, Message textarea with live counter (0 / 600), an attachment dropzone button with file chips and a consent checkbox. A submit button with spinner state.
+
+Interaction: Labels float on focus or when filled. Fields validate on blur (name at least 2 words, valid email, phone digits only if filled, message at least 20 characters) and again on submit; invalid fields get an aria-invalid state, inline message with an icon, and the first invalid field is focused after an error summary appears at the top with links to each field. Valid fields show a subtle green tick. Attachments (up to 3 files, 2 MB each, images or PDF) are validated and listed as removable chips; oversize files show an error. Submit simulates a 1.4 s network request with a spinner, disables the form, then shows a success panel with a reference code and "Send another". Counter turns amber at 90% and red at limit; the textarea prevents typing past 600.
+
+Responsive: Below 900px the plum panel becomes a compact header above the form; topic cards go 2 columns then 1; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Use novalidate and custom validation, associate errors with aria-describedby, role=alert for summary, visible focus, prefers-reduced-motion, invented names only.

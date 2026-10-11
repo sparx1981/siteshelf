@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Testimonial Wall — Testimonials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#fbfaf7;--ink:#1e1b16;--mut:#6f695d;--bd:#ebe6da;--ac:#f0562a;--cr:#fff0e4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 'Hanken Grotesk',system-ui,sans-serif;padding:56px 20px}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+.w{max-width:1160px;margin:0 auto}
+.top{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:32px}
+h1{font:400 clamp(40px,6vw,72px)/1 'Instrument Serif',serif;margin:0;letter-spacing:-.02em}
+h1 em{color:var(--ac)}
+.sm{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:18px 20px}
+.sm .n{display:flex;align-items:baseline;gap:10px}
+.sm .n b{font:400 54px/1 'Instrument Serif',serif}
+.sm .n span{color:var(--mut);font-size:14px}
+.st{color:#f2a413;letter-spacing:2px}
+.dist{display:grid;gap:4px;margin-top:10px}
+.dist button{display:grid;grid-template-columns:28px minmax(0,1fr) 36px;gap:8px;align-items:center;background:none;border:0;padding:0;cursor:pointer;font:500 13px 'Hanken Grotesk',sans-serif;color:var(--mut);min-height:24px;text-align:left}
+.dist button[aria-pressed=true]{color:var(--ink);font-weight:700}
+.dist i{display:block;height:8px;border-radius:4px;background:#f1ece0;overflow:hidden}
+.dist i span{display:block;height:100%;background:#f2a413;border-radius:4px}
+.dist button:hover i span{background:var(--ac)}
+.tools{display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.chips{display:flex;gap:8px;overflow-x:auto;flex:1;padding:2px 2px 8px;scrollbar-width:none}
+.chip{flex:none;border:1.5px solid var(--bd);background:#fff;border-radius:99px;padding:0 18px;min-height:44px;cursor:pointer;font:600 14px 'Hanken Grotesk',sans-serif;color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+select{border:1.5px solid var(--bd);border-radius:12px;min-height:44px;padding:0 14px;font:600 14px 'Hanken Grotesk',sans-serif;background:#fff;color:var(--ink)}
+.cnt{color:var(--mut);font-size:14px;margin:0 0 18px}
+.wall{column-count:3;column-gap:18px}
+.q{break-inside:avoid;background:#fff;border:1px solid var(--bd);border-radius:18px;padding:22px;margin:0 0 18px;transition:box-shadow .2s,transform .2s;animation:in .45s both;animation-delay:calc(var(--i)*40ms)}
+.q:hover{box-shadow:0 14px 30px rgba(30,27,22,.1);transform:translateY(-2px)}
+@keyframes in{from{opacity:0;transform:translateY(14px) scale(.98)}}
+.q p{margin:12px 0 16px;font-size:16px}
+.q p.cl{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.rm{background:none;border:0;color:var(--ac);font:700 13px 'Hanken Grotesk',sans-serif;cursor:pointer;padding:0;min-height:32px;margin:-8px 0 8px}
+.who{display:flex;gap:12px;align-items:center}
+.av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:14px;flex:none}
+.who b{display:block;font-size:15px;line-height:1.2}.who span{color:var(--mut);font-size:13px}
+.dt{margin-left:auto;color:var(--mut);font-size:12px;align-self:flex-start}
+.ft{background:var(--cr);border-color:#fbd9bf}
+.ft blockquote{margin:14px 0 18px;font:400 clamp(26px,3vw,34px)/1.15 'Instrument Serif',serif;letter-spacing:-.01em}
+.vid{position:relative;aspect-ratio:16/10;border-radius:14px;background:linear-gradient(135deg,#f0562a,#8a2a6a 60%,#2a1a4a);display:grid;place-items:center;overflow:hidden;margin-bottom:14px;border:0;width:100%;cursor:pointer;padding:0}
+.vid:after{content:"";position:absolute;left:-20%;top:-30%;width:70%;height:120%;background:radial-gradient(circle,rgba(255,255,255,.3),transparent 60%)}
+.vid span{position:relative;width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.95);display:grid;place-items:center;z-index:1;transition:transform .2s}
+.vid:hover span{transform:scale(1.1)}
+.vid span:after{content:"";border-left:18px solid var(--ac);border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:5px}
+.em{text-align:center;padding:60px 20px;color:var(--mut)}
+.em button{margin-top:10px;background:var(--ink);color:#fff;border:0;border-radius:12px;min-height:46px;padding:0 22px;font:700 15px 'Hanken Grotesk',sans-serif;cursor:pointer}
+dialog{border:0;border-radius:22px;padding:0;width:min(640px,92vw);background:#16120d;color:#fff}
+dialog::backdrop{background:rgba(10,8,5,.7)}
+.pl{aspect-ratio:16/9;background:linear-gradient(135deg,#f0562a,#8a2a6a 60%,#2a1a4a);display:grid;place-items:center;font:400 28px 'Instrument Serif',serif;padding:24px;text-align:center}
+.pb{height:5px;background:#3a342b}.pb i{display:block;height:100%;width:0;background:var(--ac);animation:pg 14s linear forwards}
+@keyframes pg{to{width:100%}}
+.pf{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;font-size:14px}
+.pf button{background:#fff;color:#16120d;border:0;border-radius:10px;min-height:40px;padding:0 16px;font:700 14px 'Hanken Grotesk',sans-serif;cursor:pointer}
+.live{position:absolute;left:-9999px}
+@media(max-width:900px){.top{grid-template-columns:minmax(0,1fr)}.wall{column-count:2}}
+@media(max-width:600px){.wall{column-count:1}body{padding:36px 16px}}
+@media(prefers-reduced-motion:reduce){.q{animation:none}.pb i{animation:none;width:35%}*{transition:none!important}}
+</style></head><body>
+<div class="w"><div class="top"><div><h1>Teams that stopped <em>chasing</em> status updates</h1></div>
+<div class="sm"><div class="n"><b>4.9</b><div><div class="st" aria-hidden="true">★★★★★</div><span>from 1,208 reviews of Pacepoint</span></div></div><div class="dist" id="ds" role="group" aria-label="Filter by star rating"></div></div></div>
+<div class="tools"><div class="chips" id="ch" role="group" aria-label="Filter by role"></div><label><span class="live">Minimum rating</span><select id="sr"><option value="0">All ratings</option><option value="5">5 stars only</option><option value="4">4 stars and up</option></select></label></div>
+<p class="cnt" id="ct" aria-live="polite"></p><div class="wall" id="wl"></div></div>
+<dialog id="dg" aria-label="Customer video"><div class="pl" id="pq">“We finally know what ships on Friday.”</div><div class="pb"><i></i></div><div class="pf"><span id="pn">Nadia Okafor · Founder, Larkfield Studio</span><button id="dc" type="button">Close</button></div></dialog>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var C=['#f0562a','#3d6bff','#16a085','#8a5cff','#e0457b','#c98a00'];
+var R=[['Nadia Okafor','Founder','Larkfield Studio',5,'We replaced three spreadsheets and a weekly status call with one Pacepoint board. I get my Mondays back and the team gets clarity. It is the first tool nobody had to be nagged to use.','Mar 2025'],
+['Joel Brandt','Engineer','Quillstack',5,'Dependencies between sprints finally make sense. The critical-path view alone paid for the year in the first month.','Feb 2025'],
+['Amara Linde','Designer','Finch & Pine',4,'Beautiful, calm, and fast. I wish the file attachments were a touch smarter, but handoff conversations are shorter now.','Feb 2025'],
+['Priyanka Varma','Ops','Harbourline Freight',5,'We run forty drivers’ schedules through it. When a delivery slips, everything downstream re-plans in seconds and the right people hear about it. It used to take a phone tree.','Jan 2025'],
+['Teo Marchetti','Founder','Saltmarsh Coffee',5,'I am not a project manager and do not want to be. Pacepoint lets me act like one for ten minutes a day.','Jan 2025'],
+['Wren Caldecott','Engineer','Nimbus Forge',4,'Great API, great webhooks. Our release checklist now builds itself from tickets.','Dec 2024'],
+['Isla Fenwick','Designer','Gridwork',5,'Design reviews moved from chaotic threads to one timeline. Stakeholders can see exactly where we are without asking.','Dec 2024'],
+['Marcus Oyelaran','Ops','Tidewell Clinics',5,'Rotas, rooms and equipment bookings in one place. The conflict warnings have saved us from at least a dozen double-bookings.','Nov 2024'],
+['Hana Kobayashi','Engineer','Orbitly',3,'Solid, though the mobile app could use offline mode. The desktop experience is excellent and the support team replies within the hour.','Nov 2024'],
+['Dewi Pritchard','Founder','Greenfold Packaging',5,'Customers now get delivery estimates we actually hit. That has done more for repeat orders than any discount.','Oct 2024'],
+['Luca Ferrante','Designer','Plume Studio',4,'The brief templates are lovely, and the review links make clients feel looked after.','Oct 2024'],
+['Sofia Almeida','Ops','Brightkiln Ceramics',5,'Seasonal peaks used to be panic. Now we plan a quarter ahead and still adjust daily without drama.','Sep 2024'],
+['Ravi Menon','Engineer','Parcelwise',5,'Pacepoint’s timeline export slots straight into our board pack. We stopped redrawing Gantt charts every month.','Sep 2024'],
+['Freya Lindqvist','Founder','Moss & Maker',4,'It took an afternoon to set up and a week for the team to stop using sticky notes. Worth every minute.','Aug 2024'],
+['Kofi Mensah','Ops','Atlas Cargo',5,'A shared source of truth for sixty people across three time zones. Nobody asks “what is the plan?” any more.','Aug 2024'],
+['Elin Strand','Designer','Northbound',5,'The calm interface matters more than I expected. People actually open it.','Jul 2024'],
+['Oscar Whitlow','Engineer','Fennel Labs',4,'Keyboard shortcuts everywhere, which makes me a happy person. Would love more chart types.','Jul 2024'],
+['Mina Castellanos','Founder','Cobalt & Cedar',5,'We went from missing launch dates to hitting them for six quarters straight.','Jun 2024']];
+var roles=['All','Founders','Designers','Engineers','Ops'],role='All',minr=0,expanded={};
+var items=R.map(function(r,i){return{n:r[0],r:r[1],c:r[2],s:r[3],q:r[4],d:r[5],i:i}});
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function ini(n){return n.split(' ').map(function(w){return w[0]}).join('')}
+function stars(n){return '<span class="st" role="img" aria-label="'+n+' out of 5 stars">'+'★'.repeat(n)+'<span style="color:#e3dccb">'+'★'.repeat(5-n)+'</span></span>'}
+function chips(){$('#ch').innerHTML=roles.map(function(r){return '<button class="chip" type="button" aria-pressed="'+(r===role)+'" data-r="'+r+'">'+r+'</button>'}).join('')}
+function dist(){var tot=items.length,h='';[5,4,3,2,1].forEach(function(s){var n=items.filter(function(x){return x.s===s}).length;var pct={5:78,4:16,3:4,2:1,1:1}[s];h+='<button type="button" data-s="'+s+'" aria-pressed="'+(minr===s)+'" aria-label="'+s+' stars, '+pct+' percent"><span>'+s+' ★</span><i><span style="width:'+pct+'%"></span></i><span>'+pct+'%</span></button>'});$('#ds').innerHTML=h}
+function vis(){return items.filter(function(x){return(role==='All'||x.r+'s'===role)&&(minr===0||(minr===5?x.s===5:x.s>=minr))})}
+function render(){var l=vis();$('#ct').textContent='Showing '+l.length+' of '+items.length+' reviews';
+ if(!l.length){$('#wl').innerHTML='<div class="em" style="column-span:all"><b>No reviews match those filters.</b><br><button type="button" id="rs">Reset filters</button></div>';return}
+ var h='';l.forEach(function(x,k){var long=x.q.length>150,ex=expanded[x.i];
+  if(x.i===0){h+='<article class="q ft" style="--i:'+k+'"><button class="vid" type="button" id="pv" aria-label="Play customer story from '+esc(x.n)+'"><span></span></button><blockquote>“We finally know what ships on Friday.”</blockquote><div class="who"><span class="av" style="background:'+C[0]+'">'+ini(x.n)+'</span><div><b>'+esc(x.n)+'</b><span>'+x.r+', '+esc(x.c)+'</span></div></div></article>';return}
+  h+='<article class="q" style="--i:'+k+'"><div style="display:flex;justify-content:space-between;align-items:center">'+stars(x.s)+'<span class="dt" style="margin:0">'+x.d+'</span></div><p class="'+(long&&!ex?'cl':'')+'" id="p'+x.i+'">'+esc(x.q)+'</p>'+(long?'<button class="rm" type="button" data-e="'+x.i+'" aria-expanded="'+!!ex+'" aria-controls="p'+x.i+'">'+(ex?'Show less':'Read more')+'</button>':'')+'<div class="who"><span class="av" style="background:'+C[x.i%6]+'">'+ini(x.n)+'</span><div><b>'+esc(x.n)+'</b><span>'+x.r+', '+esc(x.c)+'</span></div></div></article>'});
+ $('#wl').innerHTML=h}
+$('#ch').addEventListener('click',function(e){var b=e.target.closest('[data-r]');if(b){role=b.dataset.r;chips();render()}});
+$('#ds').addEventListener('click',function(e){var b=e.target.closest('[data-s]');if(!b)return;var s=+b.dataset.s;minr=minr===s?0:s;$('#sr').value=minr===5?'5':minr===4?'4':'0';dist();render()});
+$('#sr').addEventListener('change',function(){minr=+this.value;dist();render()});
+$('#wl').addEventListener('click',function(e){var b=e.target.closest('[data-e]');if(b){var i=b.dataset.e;expanded[i]=!expanded[i];var y=scrollY;render();var n=document.querySelector('[data-e="'+i+'"]');if(n)n.focus({preventScroll:true});scrollTo(0,y);return}
+ if(e.target.closest('#pv')){$('#dg').showModal();var p=$('#dg .pb i');p.style.animation='none';void p.offsetWidth;p.style.animation=''}
+ if(e.target.id==='rs'){role='All';minr=0;$('#sr').value='0';chips();dist();render()}});
+$('#dc').addEventListener('click',function(){$('#dg').close()});
+$('#dg').addEventListener('click',function(e){if(e.target===this)this.close()});
+chips();dist();render();
+})();
+</script></body></html>

@@ -1,0 +1,11 @@
+Canvas & base: A tidy retro-modern board on #e8ecef with a raised panel #f7f9fa (1px #c9d1d6 border, 16px radius, shadow 0 10px 30px rgba(20,40,50,.12)). Cell hidden #c7d0d6 with a light bevel, revealed #eef2f4, numbers coloured: 1 #2f6bff, 2 #1f9d6b, 3 #e5484d, 4 #6a3bd6, 5 #b3541e, 6 #0f8a9d, 7 #222, 8 #666. Mines #1c2733 on a red #ffd2d2 cell when hit. Flags in #e5484d. Invented title "Sweep Lane".
+
+Typography: "Chakra Petch" (500, 700) for UI and counters, "Roboto Mono" (500, 700) for the digit displays and cell numbers.
+
+Layout: Header with title and a difficulty select (Beginner 9x9 with 10 mines, Intermediate 16x16 with 40, Expert 30x16 with 99). A status bar with a three-digit mine counter, a centred face button (smile, worried when pressing, cool on win, dizzy on loss) and a three-digit timer. The grid below scales to fit the screen using a CSS variable cell size. Under the grid, best times for each difficulty and a short help line.
+
+Interaction: The first click is always safe (mines placed after, avoiding the clicked cell and neighbours). Left click or tap reveals; empty cells flood-fill. Right click, or a long press (450 ms) on touch, toggles a flag; a Flag/Dig mode toggle button is also provided for touch devices. Clicking a revealed number whose flags match chords open the neighbours. Keyboard: arrow keys move a roving focus, Space or Enter reveals, F flags, C chords, N starts a new game. The timer starts on first reveal and stops on win or loss. Win reveals flags on all mines and stores best time per difficulty in localStorage (try/catch). Loss reveals all mines and marks wrong flags. Announce results via a live region.
+
+Responsive: Expert board scrolls horizontally inside its own container on small screens with cells at least 28px; no page-level overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images (faces and mines are inline SVG or CSS). Add [hidden]{display:none!important}. Cells are buttons with aria-labels, visible focus, prefers-reduced-motion, invented names only.

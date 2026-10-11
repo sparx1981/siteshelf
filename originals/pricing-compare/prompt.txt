@@ -1,0 +1,11 @@
+Canvas & base: A confident SaaS pricing page on #0f1115 with panels #181b22 (1px #272b35 border, 20px radius), ink #f2f4f8, secondary #9aa3b5, accent lime #c8f169 on the recommended plan and violet #8b7bff secondary. Invented product "Cadence Cloud" with plans Starter, Team and Scale.
+
+Typography: "Bricolage Grotesque" (500, 700, 800) for headings and prices, "Inter" (400, 500, 600) for body. Prices at clamp(40px,5vw,56px) with tabular-nums.
+
+Layout: Hero text, a billing toggle (Monthly / Yearly, with a "Save 20%" badge), a seats slider (1 to 50 users) with a live number readout, three plan cards (the middle one lifted with a lime outline and "Most popular" ribbon) showing price per seat per month, the total for the selected seats, a CTA and 5 bullet features. Below it a full comparison table with grouped sections (Core, Collaboration, Security, Support) and rows with check, dash or text values; the header row with plan names and CTAs is sticky on scroll. Term tooltips on a few rows (SSO, Audit logs, SLA).
+
+Interaction: Toggling billing animates the price numbers (count tween) and updates totals; yearly applies 20% off. The seats slider recomputes totals per plan, with Starter capped at 5 seats (shows "Max 5 seats" and disables selection beyond) and Scale showing a minimum of 10 seats. A small "Find my plan" question set (team size and need for SSO) highlights the recommended plan with a subtle pulse. Tooltips open on hover and focus. Table groups can collapse with aria-expanded buttons.
+
+Responsive: Below 900px the plan cards stack and the comparison table becomes a horizontally scrollable region with a sticky first column; no page-level overflow at 390px.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Check and dash use text plus aria-label, visible focus, prefers-reduced-motion, invented names only.

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact Form with Live Validation — Form</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#f7f3ee;--pl:#2b1b3a;--ink:#231a2d;--mut:#75687f;--ac:#c2306b;--ok:#1f9d6b;--er:#d63b3b;--bd:#ddd3e3}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 'Outfit',system-ui,sans-serif;padding:32px 20px}
+:focus-visible{outline:3px solid #8a5cff;outline-offset:2px}
+.wr{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);border-radius:28px;overflow:hidden;box-shadow:0 24px 60px rgba(43,27,58,.14)}
+.lf{background:radial-gradient(500px 400px at 0 0,#5a2f6b,transparent),var(--pl);color:#f3e9f7;padding:48px 40px;display:flex;flex-direction:column;gap:22px}
+.lf .lg{font:700 20px 'Fraunces',serif;display:flex;gap:10px;align-items:center}
+.lf .lg i{width:24px;height:24px;border-radius:50% 50% 50% 8px;background:var(--ac)}
+.lf h1{font:700 clamp(32px,4vw,46px)/1.05 'Fraunces',serif;margin:20px 0 0;letter-spacing:-.02em}
+.lf p{margin:0;color:#cdb8d8;max-width:34ch}
+.ci{display:grid;gap:16px;margin-top:10px}
+.ci div{display:flex;gap:14px;align-items:flex-start}
+.ci svg{width:22px;height:22px;stroke:#f0a6c6;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none;margin-top:2px}
+.ci b{display:block;font-weight:600}.ci span{color:#cdb8d8;font-size:15px}
+.hr{margin-top:auto;font-size:14px;color:#a994b6;border-top:1px solid rgba(255,255,255,.14);padding-top:16px}
+.rt{background:#fff;padding:44px 44px 40px}
+.rt h2{font:700 28px 'Fraunces',serif;margin:0 0 4px}.rt .sb{margin:0 0 22px;color:var(--mut)}
+.sum{background:#fff1f1;border:1.5px solid var(--er);border-radius:14px;padding:14px 18px;margin-bottom:20px}
+.sum b{color:var(--er)}.sum ul{margin:6px 0 0;padding-left:20px}.sum a{color:var(--er);font-weight:500}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.f{position:relative;margin-bottom:18px}
+.f input,.f textarea,.f select{width:100%;border:1.5px solid var(--bd);border-radius:12px;background:#fff;padding:22px 14px 8px;font:400 16px 'Outfit',sans-serif;color:var(--ink);min-height:56px;transition:border-color .15s,box-shadow .15s}
+.f select{padding-top:24px;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--mut) 50%),linear-gradient(135deg,var(--mut) 50%,transparent 50%);background-position:calc(100% - 20px) 26px,calc(100% - 15px) 26px;background-size:5px 5px;background-repeat:no-repeat}
+.f textarea{min-height:130px;resize:vertical}
+.f label{position:absolute;left:15px;top:17px;color:var(--mut);pointer-events:none;transition:all .15s;transform-origin:left top}
+.f input:focus+label,.f input:not(:placeholder-shown)+label,.f textarea:focus+label,.f textarea:not(:placeholder-shown)+label,.f select+label{top:7px;font-size:12px;font-weight:500}
+.f input:focus,.f textarea:focus,.f select:focus{border-color:var(--ac);box-shadow:0 0 0 4px rgba(194,48,107,.12);outline:0}
+.f.ok input,.f.ok textarea{border-color:#9bd7bb}
+.f.bad input,.f.bad textarea,.f.bad select{border-color:var(--er);background:#fffafa}
+.f .tk{position:absolute;right:14px;top:18px;color:var(--ok);font-weight:700;display:none}
+.f.ok .tk{display:block}
+.er{display:none;color:var(--er);font-size:14px;margin:6px 4px 0;gap:6px;align-items:center}
+.f.bad .er{display:flex}
+.ct{display:flex;justify-content:space-between;font-size:13px;color:var(--mut);margin:-12px 4px 16px}
+.ct.am{color:#b8700b}.ct.rd{color:var(--er);font-weight:600}
+fieldset{border:0;padding:0;margin:0 0 20px}
+legend{font-weight:600;margin-bottom:10px;padding:0}
+.tp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.tp label{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;border:1.5px solid var(--bd);border-radius:14px;padding:14px 6px;cursor:pointer;font-size:14px;font-weight:500;min-height:84px;justify-content:center;transition:border-color .15s,background .15s}
+.tp .e{font-size:22px}
+.tp input{position:absolute;opacity:0}
+.tp label:hover{border-color:var(--ac)}
+.tp label:has(input:checked){border-color:var(--ac);background:#fdeef4;color:#8c1d4b}
+.tp label:has(input:focus-visible){outline:3px solid #8a5cff;outline-offset:2px}
+.dz{display:flex;align-items:center;gap:12px;width:100%;border:1.5px dashed #bba9c7;border-radius:14px;background:#fbf8fc;min-height:60px;padding:0 16px;cursor:pointer;color:var(--mut);font:500 15px 'Outfit',sans-serif;text-align:left}
+.dz:hover{border-color:var(--ac);color:var(--ac)}
+.dz.dr{border-color:var(--ac);background:#fdeef4}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.chip{display:inline-flex;gap:8px;align-items:center;background:#f2ebf6;border-radius:99px;padding:4px 6px 4px 14px;font-size:14px;max-width:100%}
+.chip span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:200px}
+.chip button{border:0;background:rgba(0,0,0,.08);border-radius:50%;width:26px;height:26px;cursor:pointer;line-height:1}
+.fe{color:var(--er);font-size:14px;margin:6px 4px 0}
+.ck{display:flex;gap:12px;align-items:flex-start;margin:6px 0 4px;font-size:15px;cursor:pointer}
+.ck input{width:20px;height:20px;accent-color:var(--ac);margin-top:2px;flex:none}
+.sbm{width:100%;margin-top:18px;background:var(--ac);color:#fff;border:0;border-radius:14px;min-height:56px;font:600 17px 'Outfit',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:filter .15s}
+.sbm:hover:not(:disabled){filter:brightness(1.1)}.sbm:disabled{opacity:.75;cursor:progress}
+.sp{width:20px;height:20px;border-radius:50%;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;animation:s .7s linear infinite}
+@keyframes s{to{transform:rotate(360deg)}}
+.dn{text-align:center;padding:50px 10px}
+.dn .ck2{width:76px;height:76px;border-radius:50%;background:#dff4e6;display:grid;place-items:center;margin:0 auto 18px}
+.dn svg{width:40px;height:40px;stroke:var(--ok);fill:none;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:40;stroke-dashoffset:40;animation:t .5s .1s forwards}
+@keyframes t{to{stroke-dashoffset:0}}
+.dn h2{margin-bottom:8px}.dn code{background:#f2ebf6;border-radius:8px;padding:2px 10px;font-size:16px}
+.dn button{margin-top:22px;background:var(--pl);color:#fff;border:0;border-radius:12px;min-height:50px;padding:0 26px;font:600 16px 'Outfit',sans-serif;cursor:pointer}
+@media(max-width:900px){.wr{grid-template-columns:minmax(0,1fr)}.lf{padding:28px 24px;gap:14px}.lf h1{margin-top:6px;font-size:32px}.ci{grid-template-columns:repeat(2,minmax(0,1fr))}.hr{margin-top:0}.rt{padding:30px 22px}}
+@media(max-width:600px){.tp{grid-template-columns:repeat(2,minmax(0,1fr))}.row2{grid-template-columns:minmax(0,1fr);gap:0}.ci{grid-template-columns:minmax(0,1fr)}body{padding:16px 12px}}
+@media(prefers-reduced-motion:reduce){.sp{animation-duration:1.8s}.dn svg{animation:none;stroke-dashoffset:0}*{transition:none!important}}
+</style></head><body>
+<div class="wr"><aside class="lf"><div class="lg"><i></i>Foxglove Studio</div><h1>Let’s make something good</h1><p>A small design studio for brands that care about the details. Tell us what you’re planning and we’ll reply within one working day.</p>
+<div class="ci"><div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 8l9 6 9-6"/></svg><span><b>hello@foxglove.example</b><span>New projects and quotes</span></span></div><div><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><b>+44 20 7946 0123</b><span>Mon–Fri, 9–5</span></span></div><div><svg viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span><b>8 Bellwether Yard</b><span>Marrow Bridge, MB2 4QX</span></span></div></div>
+<div class="hr">We read every message ourselves. No bots, no sales scripts.</div></aside>
+<main class="rt"><form id="fm" novalidate><h2>Tell us about your project</h2><p class="sb">Fields marked * are required.</p>
+<div class="sum" id="sm" role="alert" tabindex="-1" hidden></div>
+<div class="row2"><div class="f" data-f="nm"><input id="nm" name="name" placeholder=" " autocomplete="name" aria-describedby="e_nm" required><label for="nm">Full name *</label><span class="tk" aria-hidden="true">✓</span><div class="er" id="e_nm"></div></div>
+<div class="f" data-f="em"><input id="em" name="email" type="email" placeholder=" " autocomplete="email" aria-describedby="e_em" required><label for="em">Email *</label><span class="tk" aria-hidden="true">✓</span><div class="er" id="e_em"></div></div></div>
+<div class="row2"><div class="f" data-f="ph"><input id="ph" name="phone" type="tel" placeholder=" " autocomplete="tel" aria-describedby="e_ph"><label for="ph">Phone (optional)</label><span class="tk" aria-hidden="true">✓</span><div class="er" id="e_ph"></div></div>
+<div class="f" data-f="bu"><select id="bu"><option>Not sure yet</option><option>Under £5k</option><option>£5k – £15k</option><option>£15k – £50k</option><option>£50k+</option></select><label for="bu">Budget</label></div></div>
+<fieldset><legend>What’s this about?</legend><div class="tp" role="radiogroup" aria-label="Topic"><label><input type="radio" name="t" value="project" checked><span class="e" aria-hidden="true">🚀</span>New project</label><label><input type="radio" name="t" value="quote"><span class="e" aria-hidden="true">🧾</span>Quote</label><label><input type="radio" name="t" value="support"><span class="e" aria-hidden="true">🛟</span>Support</label><label><input type="radio" name="t" value="hi"><span class="e" aria-hidden="true">👋</span>Just saying hi</label></div></fieldset>
+<div class="f" data-f="ms"><textarea id="ms" name="message" placeholder=" " maxlength="600" aria-describedby="e_ms ct" required></textarea><label for="ms">Your message *</label><div class="er" id="e_ms"></div></div><div class="ct" id="ct"><span>Share goals, timing and anything we should know.</span><span id="cn">0 / 600</span></div>
+<div style="margin-bottom:6px"><input type="file" id="fl" multiple accept="image/*,.pdf" hidden><button class="dz" id="dz" type="button" aria-describedby="fe"><span aria-hidden="true">📎</span>Attach files — drag here or click (max 3, 2 MB each)</button><div class="chips" id="cp"></div><div class="fe" id="fe" role="alert"></div></div>
+<div class="f" style="margin:14px 0 0" data-f="ck"><label class="ck" style="position:static;pointer-events:auto"><input type="checkbox" id="ck" aria-describedby="e_ck"><span>I agree to Foxglove Studio storing my details to reply to this message. *</span></label><div class="er" id="e_ck"></div></div>
+<button class="sbm" id="sb" type="submit">Send message</button></form>
+<div class="dn" id="dn" hidden><div class="ck2"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div><h2>Message sent</h2><p style="color:var(--mut);margin:0 0 10px">Thanks <span id="dnm"></span>, we’ll reply to <b id="dem"></b> within one working day.</p><p style="margin:0">Your reference: <code id="rf"></code></p><button id="an" type="button">Send another</button></div></main></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var files=[],touched={};
+var V={nm:function(v){v=v.trim();return v.split(/\s+/).filter(Boolean).length>=2&&v.length>=4?'':'Please enter your first and last name.'},
+em:function(v){v=v.trim();return!v?'Please enter your email address.':/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)?'':'That email doesn’t look right. Check for typos.'},
+ph:function(v){v=v.trim();return!v||/^[+()\d\s-]{7,18}$/.test(v)?'':'Use digits, spaces and + ( ) - only.'},
+ms:function(v){v=v.trim();return v.length>=20?'':'Please write at least 20 characters ('+v.length+' so far).'},
+ck:function(){return $('#ck').checked?'':'Please tick to agree so we can reply.'}};
+var LAB={nm:'Full name',em:'Email',ph:'Phone',ms:'Message',ck:'Consent'};
+var ID={nm:'nm',em:'em',ph:'ph',ms:'ms',ck:'ck'};
+function val(k){var el=$('#'+ID[k]);return V[k](el.value||'')}
+function show(k,msg){var f=document.querySelector('[data-f="'+k+'"]'),el=$('#'+ID[k]),er=$('#e_'+ID[k]);if(!f)return;f.classList.toggle('bad',!!msg);f.classList.toggle('ok',!msg&&(k==='ck'?false:el.value.trim()!==''));el.setAttribute('aria-invalid',!!msg);if(er)er.innerHTML=msg?'<span aria-hidden="true">⚠</span> '+msg:''}
+['nm','em','ph','ms'].forEach(function(k){var el=$('#'+ID[k]);el.addEventListener('blur',function(){touched[k]=1;show(k,val(k))});el.addEventListener('input',function(){if(touched[k])show(k,val(k))})});
+$('#ck').addEventListener('change',function(){touched.ck=1;show('ck',val('ck'))});
+$('#ms').addEventListener('input',function(){var n=this.value.length,c=$('#ct');$('#cn').textContent=n+' / 600';c.className='ct'+(n>=600?' rd':n>=540?' am':'')});
+var fe=$('#fe');
+function chips(){$('#cp').innerHTML=files.map(function(f,i){return '<span class="chip"><span title="'+f.name.replace(/"/g,'')+'">'+f.name.replace(/[<>&]/g,'')+'</span><small>'+(f.size/1024<1024?Math.round(f.size/1024)+' KB':(f.size/1048576).toFixed(1)+' MB')+'</small><button type="button" data-r="'+i+'" aria-label="Remove '+f.name.replace(/[<>&"]/g,'')+'">×</button></span>'}).join('')}
+function add(list){var err=[];[].slice.call(list).forEach(function(f){if(files.length>=3){err.push('Only 3 files can be attached.');return}if(!/^image\//.test(f.type)&&!/\.pdf$/i.test(f.name)){err.push(f.name+' isn’t an image or PDF.');return}if(f.size>2097152){err.push(f.name+' is over 2 MB.');return}files.push(f)});fe.textContent=err.filter(function(x,i,a){return a.indexOf(x)===i}).join(' ');chips()}
+$('#dz').addEventListener('click',function(){$('#fl').click()});$('#fl').addEventListener('change',function(){add(this.files);this.value=''});
+$('#cp').addEventListener('click',function(e){var b=e.target.closest('[data-r]');if(b){files.splice(+b.dataset.r,1);fe.textContent='';chips();$('#dz').focus()}});
+['dragenter','dragover'].forEach(function(ev){$('#dz').addEventListener(ev,function(e){e.preventDefault();this.classList.add('dr')})});['dragleave','drop'].forEach(function(ev){$('#dz').addEventListener(ev,function(e){e.preventDefault();this.classList.remove('dr')})});$('#dz').addEventListener('drop',function(e){if(e.dataTransfer)add(e.dataTransfer.files)});
+$('#fm').addEventListener('submit',function(e){e.preventDefault();var bad=[];['nm','em','ph','ms','ck'].forEach(function(k){touched[k]=1;var m=val(k);show(k,m);if(m)bad.push([k,m])});
+ var s=$('#sm');if(bad.length){s.hidden=false;s.innerHTML='<b>Please fix '+bad.length+' thing'+(bad.length===1?'':'s')+' before sending:</b><ul>'+bad.map(function(b){return '<li><a href="#'+ID[b[0]]+'" data-g="'+ID[b[0]]+'">'+LAB[b[0]]+'</a>: '+b[1]+'</li>'}).join('')+'</ul>';s.focus();return}
+ s.hidden=true;var b=$('#sb');b.disabled=true;b.innerHTML='<span class="sp"></span>Sending…';[].forEach.call(document.querySelectorAll('#fm input,#fm textarea,#fm select,#fm button'),function(x){if(x!==b)x.disabled=true});
+ setTimeout(function(){$('#fm').hidden=true;$('#dn').hidden=false;$('#dnm').textContent=$('#nm').value.trim().split(' ')[0];$('#dem').textContent=$('#em').value.trim();$('#rf').textContent='FG-'+Math.random().toString(36).slice(2,8).toUpperCase();$('#dn h2').setAttribute('tabindex','-1');$('#dn h2').focus()},1400)});
+$('#sm').addEventListener('click',function(e){var a=e.target.closest('[data-g]');if(a){e.preventDefault();$('#'+a.dataset.g).focus()}});
+$('#an').addEventListener('click',function(){var f=$('#fm');f.reset();[].forEach.call(f.querySelectorAll('input,textarea,select,button'),function(x){x.disabled=false});files=[];touched={};chips();fe.textContent='';document.querySelectorAll('.f').forEach(function(x){x.classList.remove('ok','bad')});$('#sb').textContent='Send message';$('#cn').textContent='0 / 600';$('#ct').className='ct';f.hidden=false;$('#dn').hidden=true;$('#nm').focus()});
+})();
+</script></body></html>

@@ -1,0 +1,11 @@
+Canvas & base: A museum-style dark timeline on #14110f with warm paper cards #f3e9d6 and a brass accent #c9973f; era colours: Dawn #d97a4a, Sail #3f8fa6, Steam #8a7f6e, Signal #7a5cc2. Invented subject: "The Meridian Society", an imaginary exploration club, with invented events from 1620 to 2020.
+
+Typography: "Cormorant Garamond" (500, 600, 700 italic) for years and titles at large sizes, "Work Sans" (400, 500, 600) for body and UI.
+
+Layout: Header with title and era tabs (All, Dawn, Sail, Steam, Signal). Below, a horizontally scrolling track (scroll-snap) with a central brass line and 16 event cards alternating above and below it, each with a year in large italic, a title, a one-line summary and a small CSS-drawn illustration (ship, compass, lantern, telegraph, balloon, etc. made from simple shapes). A mini scrubber bar beneath shows all events as ticks with a draggable viewport window and a progress label "Event 5 of 16 · 1744". Prev and Next buttons flank the track.
+
+Interaction: Drag the track with the pointer (with inertia-free simple drag and snap on release) or use the wheel horizontally; Prev/Next and Left/Right arrow keys move focus between event cards and scroll them into view. Clicking or pressing Enter on a card expands it in place into a detail card with a longer paragraph (aria-expanded) and collapses the others. Era tabs filter the visible events and scroll to the first match, dimming others. The scrubber syncs both ways: dragging the window scrolls the track and scrolling moves the window. Reduced motion uses instant scrolling.
+
+Responsive: Cards narrow to 78vw on mobile, alternate layout becomes all-below; the page never scrolls sideways, only the track; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Cards are buttons with aria-labels, visible focus, invented names only.

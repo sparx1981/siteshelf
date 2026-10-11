@@ -1,0 +1,11 @@
+Canvas & base: A friendly community-poll card on a #fff7ea page with a white poll card (24px radius, shadow 0 20px 50px rgba(120,70,0,.12), 1px #f0e2c8 border). Ink #2a1e0f, secondary #8a7656, accent tomato #f2512a, option bar colours from a warm palette (#f2512a, #f2a22a, #3fae7a, #3a7bd5, #8a5cd6). Invented venue "Corner Table Cafe" asking "What should we add to the autumn menu?".
+
+Typography: "Bricolage Grotesque" (600, 700, 800) for the question and "Figtree" (400, 500, 600, 700) for options and UI. Percentages large and tabular.
+
+Layout: Poll card with a small LIVE badge and voter count, the question, a mode switch (Pick one / Pick up to 2), five options with emoji icons (pumpkin soup, apple crumble, chestnut latte, maple granola, spiced pear tart), a Vote button, a closing countdown, and below the card a share row and a "Top picks" list. After voting (or choosing "See results") options become result rows with an animated bar, percentage, vote count and a check on the user's choices.
+
+Interaction: Before voting options are radio cards (single mode) or checkbox cards (multi mode, max 2, a third selection is blocked with an inline hint). Voting records the choice locally (in memory only), then a simulated stream adds a vote from "other voters" every 1 to 3 seconds, updating counts, percentages, bar widths (with smooth transitions) and reordering rows when ranks change using FLIP animation; reduced motion skips the animation. "Change my vote" returns to selection and moves the user's votes. A countdown from 2:00 closes the poll with a winner banner and disables voting. Share button copies a text summary to the clipboard with try/catch. Announce the winner and the user's vote via aria-live but not every simulated vote.
+
+Responsive: Card is max 560px and fluid; option cards stay 56px tall; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, role=radiogroup/group semantics, prefers-reduced-motion, invented names only.

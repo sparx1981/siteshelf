@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pricing Comparison Table — Pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#0f1115;--pn:#181b22;--bd:#272b35;--ink:#f2f4f8;--mut:#9aa3b5;--ac:#c8f169;--vi:#8b7bff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 'Inter',system-ui,sans-serif;padding:56px 20px 80px}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+.w{max-width:1120px;margin:0 auto}
+.hd{text-align:center;max-width:640px;margin:0 auto 28px}
+.hd h1{font:800 clamp(36px,6vw,60px)/1.02 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em;margin:0 0 12px}
+.hd p{color:var(--mut);margin:0}
+.ctl{display:flex;flex-direction:column;align-items:center;gap:20px;margin-bottom:34px}
+.tg{display:inline-flex;background:var(--pn);border:1px solid var(--bd);border-radius:99px;padding:4px}
+.tg button{background:none;border:0;color:var(--mut);min-height:44px;padding:0 24px;border-radius:99px;cursor:pointer;font:600 15px 'Inter',sans-serif;display:flex;align-items:center;gap:8px}
+.tg button[aria-pressed=true]{background:var(--ink);color:#0f1115}
+.tg em{background:var(--ac);color:#10140a;border-radius:99px;font-style:normal;font-size:11px;font-weight:700;padding:1px 8px}
+.sd{width:min(520px,100%);display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center}
+.sd label{font-weight:600}.sd output{font:800 22px 'Bricolage Grotesque',sans-serif;min-width:70px;text-align:right;font-variant-numeric:tabular-nums}
+.sd input{accent-color:var(--ac);height:44px;width:100%}
+.fy{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center;color:var(--mut);font-size:14px}
+.fy label{display:inline-flex;gap:8px;align-items:center;min-height:36px;cursor:pointer}
+.fy input{width:18px;height:18px;accent-color:var(--ac)}
+.fy button{background:none;border:1px solid var(--bd);color:var(--ink);border-radius:99px;padding:0 16px;min-height:40px;cursor:pointer;font:600 14px 'Inter',sans-serif}
+.fy button:hover{border-color:var(--ac)}
+.pl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.pc{position:relative;background:var(--pn);border:1px solid var(--bd);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:6px;transition:transform .25s,border-color .25s}
+.pc.rec{border-color:var(--ac);background:linear-gradient(180deg,#1d2214,#181b22 60%);transform:translateY(-10px);box-shadow:0 0 0 1px var(--ac),0 24px 60px rgba(200,241,105,.1)}
+.pc.pulse{animation:pu 1.2s 2}
+@keyframes pu{50%{box-shadow:0 0 0 6px rgba(200,241,105,.3)}}
+.rb{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--ac);color:#10140a;font:700 12px 'Inter',sans-serif;padding:3px 14px;border-radius:99px;letter-spacing:.06em;text-transform:uppercase}
+.pc h2{font:700 22px 'Bricolage Grotesque',sans-serif;margin:0}
+.pc .ds{color:var(--mut);font-size:14px;min-height:42px}
+.pr{font:800 clamp(40px,5vw,56px)/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em;font-variant-numeric:tabular-nums;margin-top:10px}
+.pr small{font:500 14px 'Inter',sans-serif;color:var(--mut);letter-spacing:0}
+.tt{color:var(--mut);font-size:14px;min-height:22px;font-variant-numeric:tabular-nums}
+.tt.w2{color:#ffb86b}
+.cta{margin:16px 0;min-height:50px;border-radius:14px;border:1.5px solid var(--bd);background:transparent;color:var(--ink);font:700 15px 'Inter',sans-serif;cursor:pointer}
+.cta:hover{border-color:var(--ac)}
+.rec .cta{background:var(--ac);color:#10140a;border-color:var(--ac)}
+.pc ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:15px}
+.pc li:before{content:"✓";color:var(--ac);font-weight:800;margin-right:10px}
+.cm{margin-top:64px}
+.cm h2{font:800 32px 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;margin:0 0 18px;text-align:center}
+.sc{border:1px solid var(--bd);border-radius:20px;background:var(--pn)}
+table{width:100%;min-width:680px;border-collapse:separate;border-spacing:0}
+thead th{position:sticky;top:0;z-index:3;background:#1d212b;padding:16px 14px;text-align:center;font:700 16px 'Bricolage Grotesque',sans-serif;border-bottom:1px solid var(--bd)}
+thead th:first-child{text-align:left;left:0;z-index:4}
+thead th small{display:block;font:400 12px 'Inter',sans-serif;color:var(--mut)}
+thead th.rec{color:var(--ac)}
+tbody th{text-align:left;font-weight:500;padding:14px;position:sticky;left:0;background:var(--pn);border-bottom:1px solid #20242d;z-index:1;min-width:190px}
+td{text-align:center;padding:14px;border-bottom:1px solid #20242d;color:#d6dbe6;font-size:15px}
+td.rec{background:rgba(200,241,105,.04)}
+tr.g th{background:#1d212b;font:700 12px 'Inter',sans-serif;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);padding:0}
+tr.g button{width:100%;display:flex;justify-content:space-between;background:none;border:0;color:inherit;font:inherit;padding:14px;cursor:pointer;min-height:48px;text-align:left}
+tr.g td{background:#1d212b}
+.y{color:var(--ac);font-weight:800}.n{color:#586070}
+.tp{position:relative;display:inline-flex;align-items:center}
+.tp button{background:none;border:0;border-bottom:1px dotted var(--mut);color:inherit;font:inherit;cursor:help;padding:0;min-height:24px}
+.tp span{position:absolute;left:0;top:calc(100% + 6px);width:220px;background:#2a2f3c;border:1px solid #3a4050;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.4;color:var(--ink);z-index:10;box-shadow:0 12px 30px rgba(0,0,0,.4);display:none;white-space:normal;font-weight:400}
+.tp:hover span,.tp button:focus+span{display:block}
+.live{position:absolute;left:-9999px}
+@media(max-width:900px){.sc{overflow-x:auto}.pl{grid-template-columns:minmax(0,1fr);max-width:480px;margin:0 auto}.pc.rec{transform:none;order:-1}.sd{grid-template-columns:minmax(0,1fr) auto}.sd label{grid-column:1/-1}}
+@media(prefers-reduced-motion:reduce){.pc.pulse{animation:none}*{transition:none!important}}
+</style></head><body>
+<div class="w"><div class="hd"><h1>Pricing that scales with your team</h1><p>Start small, grow without surprises. Every plan includes unlimited projects and a 14-day trial.</p></div>
+<div class="ctl"><div class="tg" role="group" aria-label="Billing period"><button type="button" data-b="m" aria-pressed="false">Monthly</button><button type="button" data-b="y" aria-pressed="true">Yearly <em>Save 20%</em></button></div>
+<div class="sd"><label for="se">Team size</label><input type="range" id="se" min="1" max="50" value="8"><output id="so" for="se">8 seats</output></div>
+<div class="fy"><span>Not sure?</span><label><input type="checkbox" id="sso"> I need SSO</label><button type="button" id="fp">Find my plan</button><span id="fr" role="status"></span></div></div>
+<div class="pl" id="pl"></div>
+<section class="cm" aria-labelledby="ch"><h2 id="ch">Compare every feature</h2><div class="sc"><table id="tb"></table></div></section></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+var P=[{id:'st',n:'Starter',p:9,d:'For small teams getting organised.',max:5,min:1,f:['Up to 5 seats','Unlimited projects','Board and list views','7-day activity history','Community support']},
+{id:'tm',n:'Team',p:19,d:'For growing teams that plan together.',max:50,min:1,rec:1,f:['Unlimited seats','Timeline and dependencies','Guest access','1-year activity history','Priority email support']},
+{id:'sc',n:'Scale',p:39,d:'For organisations with security needs.',max:200,min:10,f:['Minimum 10 seats','Everything in Team','SSO and SCIM','Unlimited audit logs','Dedicated success manager']}];
+var yr=true,seats=8,cur={st:0,tm:0,sc:0};
+function price(p){return Math.round(p.p*(yr?.8:1)*100)/100}
+function fmt(n){return '£'+(Math.round(n*100)%100?n.toFixed(2):Math.round(n))}
+function tot(p){var s=Math.min(Math.max(seats,p.min),p.max);return price(p)*s}
+function cards(){$('#pl').innerHTML=P.map(function(p){var over=seats>p.max,under=seats<p.min,s=Math.min(Math.max(seats,p.min),p.max);
+ return '<article class="pc'+(p.rec?' rec':'')+'" id="c_'+p.id+'">'+(p.rec?'<span class="rb">Most popular</span>':'')+'<h2>'+p.n+'</h2><div class="ds">'+p.d+'</div><div class="pr"><span id="pp_'+p.id+'">'+fmt(price(p))+'</span><small> /seat /mo</small></div><div class="tt'+(over||under?' w2':'')+'" id="t_'+p.id+'">'+(over?'Max '+p.max+' seats — '+fmt(tot(p))+'/mo for '+s:under?'Min '+p.min+' seats — '+fmt(tot(p))+'/mo':fmt(tot(p))+'/mo for '+s+' seat'+(s===1?'':'s'))+(yr?' · billed yearly':'')+'</div><button class="cta" type="button"'+(over?' aria-disabled="true"':'')+'>'+(over?'Needs a bigger plan':p.id==='sc'?'Talk to sales':'Start free trial')+'</button><ul>'+p.f.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></article>'}).join('');
+ P.forEach(function(p){cur[p.id]=price(p)})}
+function tween(){if(rm){cards();return}var from=Object.assign({},cur),t0=performance.now();cards();P.forEach(function(p){var el=$('#pp_'+p.id),to=price(p);el.textContent=fmt(from[p.id]);(function f(t){var k=Math.min(1,(t-t0)/450),e=1-Math.pow(1-k,3);el.textContent=fmt(from[p.id]+(to-from[p.id])*e);if(k<1)requestAnimationFrame(f)})(t0)})}
+var ROWS=[['Core',[['Projects','Unlimited','Unlimited','Unlimited'],['Board and list views',1,1,1],['Timeline and dependencies',0,1,1],['Custom fields','3','Unlimited','Unlimited'],['Activity history','7 days','1 year','Unlimited']]],
+['Collaboration',[['Seats','Up to 5','Unlimited','10+'],['Guest access',0,1,1],['Shared dashboards',0,1,1],['Comments and mentions',1,1,1]]],
+['Security',[['{SSO}|Single sign-on with your identity provider, such as Okta or Entra.',0,0,1],['{Audit logs}|A tamper-evident record of who changed what, and when.',0,'30 days','Unlimited'],['Two-factor authentication',1,1,1],['Data residency',0,0,'EU or US']]],
+['Support',[['Email support','Community','Priority','Priority'],['{SLA}|Guaranteed response times: 4 business hours on Team, 1 hour on Scale.',0,'4 hours','1 hour'],['Success manager',0,0,1]]]];
+var open={};
+function cell(v,c){var r=c==='tm'?' rec':'';if(v===1)return '<td class="'+r+'"><span class="y" aria-label="Included">✓</span></td>';if(v===0)return '<td class="'+r+'"><span class="n" aria-label="Not included">—</span></td>';return '<td class="'+r+'">'+v+'</td>'}
+function tbl(){var h='<thead><tr><th scope="col">Features</th>'+P.map(function(p){return '<th scope="col" class="'+(p.rec?'rec':'')+'">'+p.n+'<small>'+fmt(price(p))+' /seat</small></th>'}).join('')+'</tr></thead><tbody>';
+ ROWS.forEach(function(g,gi){var o=!open[gi];h+='<tr class="g"><th scope="rowgroup" colspan="1"><button type="button" data-g="'+gi+'" aria-expanded="'+o+'">'+g[0]+'<span aria-hidden="true">'+(o?'−':'+')+'</span></button></th><td></td><td></td><td></td></tr>';
+  if(o)g[1].forEach(function(r){var lab=r[0],m=lab.match(/^\{(.+)\}\|(.+)$/);var l=m?'<span class="tp"><button type="button" aria-describedby="tp'+gi+m[1]+'">'+m[1]+'</button><span role="tooltip" id="tp'+gi+m[1]+'">'+m[2]+'</span></span>':lab;h+='<tr><th scope="row">'+l+'</th>'+cell(r[1],'st')+cell(r[2],'tm')+cell(r[3],'sc')+'</tr>'})});
+ $('#tb').innerHTML=h+'</tbody>'}
+$('.tg').addEventListener('click',function(e){var b=e.target.closest('[data-b]');if(!b)return;yr=b.dataset.b==='y';this.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});tween();tbl()});
+$('#se').addEventListener('input',function(){seats=+this.value;$('#so').textContent=seats+' seat'+(seats===1?'':'s');cards()});
+$('#tb').addEventListener('click',function(e){var b=e.target.closest('[data-g]');if(!b)return;var g=b.dataset.g;open[g]=!open[g];tbl();$('#tb [data-g="'+g+'"]').focus()});
+$('#fp').addEventListener('click',function(){var s=seats,sso=$('#sso').checked,id=sso||s>=10&&s>=30?'sc':s<=5&&!sso?'st':'tm';if(s>=10&&sso)id='sc';if(sso&&s<10)id='sc';
+ var n=P.filter(function(p){return p.id===id})[0].n;$('#fr').textContent='We’d suggest '+n+' for '+s+' seat'+(s===1?'':'s')+(sso?' with SSO':'')+'.';
+ document.querySelectorAll('.pc').forEach(function(c){c.classList.remove('pulse')});var c=$('#c_'+id);void c.offsetWidth;c.classList.add('pulse')});
+cards();tbl();
+})();
+</script></body></html>

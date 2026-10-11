@@ -1,0 +1,11 @@
+Canvas & base: A short demo page ("Harborlight Outfitters", an invented outdoor kit shop) with a tall dark footer on #10201c, panels #17302a, ink #eef5f1, secondary #9db8ae, accent seafoam #5fe0b7 and a warm amber #ffc666 for small highlights.
+
+Typography: "Epilogue" (500, 700, 800) for headings and "Public Sans" (400, 500, 600) for links and body. Column headings 13px 700 uppercase tracking .1em in seafoam.
+
+Layout: A band above the footer with a one-line page teaser so the footer feels attached to something. Footer top: a large newsletter block (heading, text, email field with inline Subscribe button, consent line). Middle: logo with tagline and four link columns (Shop, Support, Company, Community) with 5 to 6 links each, plus a social row (inline SVG icons for four invented networks). Bottom bar: copyright, legal links, language select (English, Deutsch, Français, Español), currency select (GBP, EUR, USD) and a status pill "All systems normal" with a pulsing dot. A floating "Back to top" button appears after scrolling and lives inside the footer's right edge.
+
+Interaction: The newsletter form validates the email inline, shows a confirmation message replacing the form and offers an undo link. On widths below 720px the link columns become accordions (buttons with aria-expanded, only one open). Language and currency selects update a small live summary line ("Shopping in Deutsch · EUR") and switch the footer's own heading labels between languages via a small dictionary. Back to top scrolls smoothly (instant under reduced motion) and moves focus to the top of the page.
+
+Responsive: Four columns, then two, then accordions; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, prefers-reduced-motion, invented names only.

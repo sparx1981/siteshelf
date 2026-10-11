@@ -1,0 +1,11 @@
+Canvas & base: A bright social-proof page on #fbfaf7 with white cards (1px #ebe6da border, 18px radius, soft shadow on hover), ink #1e1b16, secondary #6f695d, accent persimmon #f0562a and a cream highlight #fff0e4. Invented product "Pacepoint", a project scheduling tool, with invented customers and companies.
+
+Typography: "Instrument Serif" (400, italic) for the headline and large pull quotes, "Hanken Grotesk" (400, 500, 700) for body and UI.
+
+Layout: Headline "Teams that stopped chasing status updates", a rating summary (4.9 average, 1,208 reviews) with a distribution bar for 5 to 1 stars, filter chips by role (All, Founders, Designers, Engineers, Ops), a star filter select, and a 3-column CSS multi-column masonry of 18 quote cards (avatar initials in coloured circles, name, role and company, stars, quote, date). One featured card spans the first column with a large serif pull quote and a faux video play thumbnail made from CSS gradient.
+
+Interaction: Chips and star filter combine and update a live count "Showing 11 of 18"; cards fade and scale in with a short stagger when filtered. Long quotes are clamped to 5 lines with a Read more toggle (aria-expanded). Clicking a rating distribution bar sets the star filter. The featured play button opens a native dialog with a fake player (CSS progress animation) that can be closed with Escape. Empty state with Reset filters.
+
+Responsive: Columns go 3, 2, 1; chips scroll horizontally; no overflow at 390px.
+
+Rules: Single HTML file with Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, prefers-reduced-motion disables stagger, invented names only.

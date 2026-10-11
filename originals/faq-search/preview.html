@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Searchable FAQ Centre — FAQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#f4f7fb;--nv:#11284b;--ink:#14213a;--mut:#5d6b86;--bd:#dfe6f1;--ac:#2f7bff;--ok:#1f9d6b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 'Source Sans 3',system-ui,sans-serif}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.hero{background:radial-gradient(700px 300px at 80% -20%,#2a56a8,transparent),var(--nv);color:#fff;padding:56px 20px 64px;text-align:center}
+.hero .lg{font:800 18px 'Nunito',sans-serif;opacity:.85;margin-bottom:18px;display:inline-flex;gap:8px;align-items:center}
+.hero .lg i{width:20px;height:20px;border-radius:6px;background:#7fd6b2;display:inline-block}
+.hero h1{font:800 clamp(34px,6vw,54px)/1.05 'Nunito',sans-serif;margin:0 0 22px;letter-spacing:-.02em}
+.sb{max-width:640px;margin:0 auto;position:relative}
+.sb input{width:100%;min-height:60px;border-radius:16px;border:0;padding:0 56px 0 52px;font:400 18px 'Source Sans 3',sans-serif;color:var(--ink);box-shadow:0 14px 34px rgba(0,0,0,.25)}
+.sb input:focus{outline:3px solid #8fb8ff}
+.sb .ic{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:22px;height:22px;stroke:var(--mut);fill:none;stroke-width:2.2;stroke-linecap:round;pointer-events:none}
+.sb .x{position:absolute;right:8px;top:8px;width:44px;height:44px;border:0;background:#eef2f9;border-radius:12px;cursor:pointer;font-size:18px;color:var(--mut)}
+.pop{margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;align-items:center;font-size:15px;color:#bcd0f0}
+.pop button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:99px;min-height:40px;padding:0 16px;cursor:pointer;font:600 14px 'Source Sans 3',sans-serif}
+.pop button:hover{background:rgba(255,255,255,.22)}
+.w{max-width:1100px;margin:0 auto;padding:28px 20px 70px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 10px;margin-bottom:6px;scrollbar-width:none}
+.tab{flex:none;background:#fff;border:1.5px solid var(--bd);border-radius:99px;min-height:44px;padding:0 18px;cursor:pointer;font:700 15px 'Nunito',sans-serif;color:var(--ink);display:inline-flex;gap:8px;align-items:center}
+.tab span{background:#eaf0fb;border-radius:99px;padding:0 8px;font-size:13px;color:var(--mut)}
+.tab[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.tab[aria-selected=true] span{background:rgba(255,255,255,.2);color:#fff}
+.rs{color:var(--mut);font-size:15px;margin:10px 2px 14px}
+.lay{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;align-items:start}
+.it{background:#fff;border:1px solid var(--bd);border-radius:16px;margin-bottom:12px;overflow:hidden;scroll-margin-top:20px}
+.it:target,.it.hl{border-color:var(--ac);box-shadow:0 0 0 3px rgba(47,123,255,.15)}
+.it h2{margin:0;font:inherit}
+.it>h2>button{width:100%;display:flex;align-items:center;gap:14px;text-align:left;background:none;border:0;padding:18px 22px;cursor:pointer;font:700 18px/1.3 'Nunito',sans-serif;color:var(--ink);min-height:64px}
+.it .ct{font:700 11px 'Nunito',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--ac);background:#eaf1ff;border-radius:6px;padding:2px 8px;flex:none}
+.it .pl{margin-left:auto;font-size:24px;font-weight:400;color:var(--mut);transition:transform .25s;flex:none}
+.it button[aria-expanded=true] .pl{transform:rotate(45deg)}
+.pn{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+.pn.o{grid-template-rows:1fr}
+.pn>div{overflow:hidden}
+.pn .in{padding:0 22px 20px}
+.pn p{margin:0 0 12px}
+mark{background:#ffe58a;color:inherit;border-radius:3px;padding:0 1px}
+.hf{border-top:1px solid var(--bd);padding-top:14px;margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:15px;color:var(--mut)}
+.hf button{background:#fff;border:1.5px solid var(--bd);border-radius:10px;min-height:40px;padding:0 16px;cursor:pointer;font:700 14px 'Nunito',sans-serif;color:var(--ink)}
+.hf button:hover{border-color:var(--ac)}
+.hf textarea{width:100%;border:1.5px solid var(--bd);border-radius:10px;padding:10px;font:400 15px 'Source Sans 3',sans-serif;min-height:70px}
+.th{color:var(--ok);font-weight:600}
+.rl{margin-top:12px;font-size:15px}.rl b{display:block;margin-bottom:4px;color:var(--mut);font:700 12px 'Nunito',sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.rl a{display:block;color:var(--ac);padding:4px 0;font-weight:600;text-decoration:none}.rl a:hover{text-decoration:underline}
+.sd{position:sticky;top:16px;display:grid;gap:16px}
+.cd{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:20px}
+.cd h3{font:800 18px 'Nunito',sans-serif;margin:0 0 6px}.cd p{margin:0 0 14px;color:var(--mut);font-size:15px}
+.cb{display:block;width:100%;text-align:center;background:var(--ac);color:#fff;border:0;border-radius:12px;min-height:48px;line-height:48px;font:700 15px 'Nunito',sans-serif;cursor:pointer;margin-bottom:8px}
+.cb.g{background:#eef3fc;color:var(--ink)}
+.mr a{display:block;color:var(--ink);padding:8px 0;border-bottom:1px solid #eef2f8;text-decoration:none;font-weight:600;font-size:15px}.mr a:hover{color:var(--ac)}.mr a:last-child{border:0}
+.em{background:#fff;border:1px dashed #bcc9de;border-radius:16px;padding:36px 24px;text-align:center}
+.em h2{font:800 22px 'Nunito',sans-serif;margin:0 0 6px}
+.em button{background:var(--ink);color:#fff;border:0;border-radius:12px;min-height:46px;padding:0 22px;font:700 15px 'Nunito',sans-serif;cursor:pointer;margin-top:8px}
+.live{position:absolute;left:-9999px}
+@media(max-width:900px){.lay{grid-template-columns:minmax(0,1fr)}.sd{position:static}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style></head><body>
+<div class="hero"><div class="lg"><i></i>Tidyloop Help</div><h1>How can we help?</h1>
+<div class="sb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><label for="q" class="live">Search help articles</label><input id="q" type="search" placeholder="Search for answers…  ( / )" autocomplete="off"><button class="x" id="x" type="button" aria-label="Clear search" hidden>✕</button></div>
+<div class="pop"><span>Popular:</span><button type="button">refund</button><button type="button">reschedule</button><button type="button">pets</button><button type="button">pricing</button></div></div>
+<main class="w"><div class="tabs" role="tablist" aria-label="Categories" id="tb"></div><p class="rs" id="rs" aria-live="polite"></p>
+<div class="lay"><div id="ls"></div><aside class="sd"><div class="cd"><h3>Still stuck?</h3><p>Our team replies in about 4 minutes during opening hours.</p><button class="cb" type="button">Start a chat</button><button class="cb g" type="button">Email support</button><p style="margin:8px 0 0;font-size:14px">Phone: Mon–Sat, 8am–8pm</p></div><div class="cd mr"><h3>Most read</h3><a href="#q-reschedule">Can I reschedule a visit?</a><a href="#q-refund">How do refunds work?</a><a href="#q-pets">Is it safe around my pets?</a><a href="#q-supplies">Do cleaners bring supplies?</a></div></aside></div></main>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var CATS=['All','Booking','Payments','Cleaners','Safety','Account'];
+var Q=[['reschedule','Booking','Can I reschedule a visit?','Yes. You can move any booking up to 24 hours before it starts at no cost. Open the booking in your account, choose “Change time” and pick a new slot. Changes inside 24 hours may carry a small fee, which we always show before you confirm.',['cancel','refund']],
+['cancel','Booking','How do I cancel a booking?','Cancel from your account under “Upcoming visits”. Cancellations more than 24 hours ahead are free. Inside that window we may charge 50 percent of the visit to cover the cleaner’s time.',['reschedule','refund']],
+['recurring','Booking','How do recurring visits work?','Choose weekly, fortnightly or four-weekly when you book. You keep the same cleaner where possible, and you can skip or pause any single visit with 24 hours’ notice.',['reschedule']],
+['length','Booking','How long will a visit take?','A one-bedroom flat usually takes about two hours with one cleaner. Larger homes take longer, or we send two cleaners. The booking page shows an estimate before you pay.',['pricing']],
+['pricing','Payments','How is pricing calculated?','Prices depend on the number of bedrooms and bathrooms, the visit length and any add-ons such as oven or fridge cleaning. There are no hidden fees, and the final price is shown before you pay.',['refund','methods']],
+['refund','Payments','How do refunds work?','If you are unhappy with a visit, tell us within 48 hours and we will either send a cleaner back free of charge or refund the affected part. Approved refunds return to your original payment method within 3 to 5 working days.',['pricing','cancel']],
+['methods','Payments','Which payment methods do you accept?','Visa, Mastercard, American Express, Apple Pay and Google Pay. Payment is taken after the visit is complete, never before.',['pricing']],
+['tips','Payments','Can I tip my cleaner?','Tips are always optional and go entirely to your cleaner. You can add one in the app after the visit within 7 days.',['methods']],
+['vetting','Cleaners','How do you vet your cleaners?','Every cleaner passes an identity check, a criminal-record check, a reference check and a paid trial visit with a trainer before they join. They are employed, insured and trained by us.',['pets','supplies']],
+['supplies','Cleaners','Do cleaners bring supplies?','Yes. Cleaners bring plant-based products and a vacuum. If you prefer your own products or have a specific surface to care for, add a note to the booking.',['vetting']],
+['keys','Cleaners','What if I am not home?','Many customers leave a key safe code or give a keyholder. Cleaners are never given a key unless you choose that, and every entry is logged in the app.',['vetting','pets']],
+['pets','Safety','Is it safe around my pets?','Our products are pet-friendly. Add your pets to the booking and your cleaner will see their names, any quirks and where they like to hide. Please secure anxious animals if you can.',['vetting','supplies']],
+['damage','Safety','What if something gets damaged?','Tell us within 48 hours with a photo. Every visit is covered by public liability insurance up to £2 million, and we handle the claim for you.',['refund']],
+['password','Account','I forgot my password','Choose “Forgot password” on the sign-in page and we will email a reset link valid for 30 minutes. If the email does not arrive, check spam and then contact support.',['delete']],
+['delete','Account','How do I delete my account?','Open Settings, choose Privacy and select “Delete my account”. We remove personal data within 30 days, keeping only invoices that we must hold by law.',['password']],
+['address','Account','Can I save more than one address?','Yes, add as many as you like in your account. Each booking uses the address you pick at checkout, and access notes are saved per address.',['keys']]];
+var cat='All',q='',opened={},voted={};
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function rx(){return q?new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'):null}
+function hl(s){s=esc(s);var r=rx();return r?s.replace(r,'<mark>$1</mark>'):s}
+function match(x){return !q||(x[2]+' '+x[3]+' '+x[0]).toLowerCase().indexOf(q.toLowerCase())>-1}
+function counts(){var c={};CATS.forEach(function(k){c[k]=Q.filter(function(x){return(k==='All'||x[1]===k)&&match(x)}).length});return c}
+function tabs(){var c=counts();$('#tb').innerHTML=CATS.map(function(k){return '<button class="tab" role="tab" aria-selected="'+(k===cat)+'" tabindex="'+(k===cat?0:-1)+'" data-c="'+k+'">'+k+'<span>'+c[k]+'</span></button>'}).join('')}
+function list(){return Q.filter(function(x){return(cat==='All'||x[1]===cat)&&match(x)})}
+function item(x){var id='q-'+x[0],o=!!opened[x[0]],v=voted[x[0]];
+ var rel=x[4].map(function(r){var t=Q.filter(function(y){return y[0]===r})[0];return t?'<a href="#q-'+r+'" data-go="'+r+'">'+esc(t[2])+'</a>':''}).join('');
+ var fb=v==='y'?'<span class="th">Thanks, glad it helped!</span>':v==='n'?'<span class="th">Thanks for the feedback. We’ll use it to improve this answer.</span>':v==='nn'?'<div style="width:100%"><label for="n_'+x[0]+'" class="live">What was missing?</label><textarea id="n_'+x[0]+'" placeholder="What was missing? (optional)"></textarea><button type="button" data-send="'+x[0]+'" style="margin-top:8px">Send</button></div>':'Was this helpful? <button type="button" data-v="y" data-k="'+x[0]+'">Yes</button><button type="button" data-v="n" data-k="'+x[0]+'">No</button>';
+ return '<article class="it" id="'+id+'"><h2><button type="button" id="b_'+x[0]+'" aria-expanded="'+o+'" aria-controls="p_'+x[0]+'" data-t="'+x[0]+'"><span class="ct">'+x[1]+'</span><span>'+hl(x[2])+'</span><span class="pl" aria-hidden="true">+</span></button></h2><div class="pn'+(o?' o':'')+'" id="p_'+x[0]+'" role="region" aria-labelledby="b_'+x[0]+'"><div><div class="in"><p>'+hl(x[3])+'</p><div class="hf">'+fb+'</div><div class="rl"><b>Related</b>'+rel+'</div></div></div></div></article>'}
+function render(keep){var l=list(),t=$('#tb');var f=keep&&document.activeElement&&document.activeElement.id==='q';
+ $('#rs').textContent=q?l.length+' result'+(l.length===1?'':'s')+' for “'+q+'”':'Showing '+l.length+' question'+(l.length===1?'':'s')+(cat==='All'?'':' in '+cat);
+ if(q&&l.length<4)l.forEach(function(x){opened[x[0]]=true});
+ $('#ls').innerHTML=l.length?l.map(item).join(''):'<div class="em"><h2>No answers found for “'+esc(q)+'”</h2><p style="color:var(--mut);margin:0">Try a shorter word, or talk to a person.</p><button type="button" id="cl">Clear search</button></div>';
+ tabs();$('#x').hidden=!q}
+function openItem(id,scroll){opened[id]=true;var x=Q.filter(function(y){return y[0]===id})[0];if(!x)return;if(cat!=='All'&&x[1]!==cat)cat='All';if(q&&!match(x))q='',$('#q').value='';render();var el=document.getElementById('q-'+id);if(el){el.classList.add('hl');setTimeout(function(){el.classList.remove('hl')},1800);if(scroll)el.scrollIntoView({behavior:'smooth',block:'start'})}}
+$('#q').addEventListener('input',function(){q=this.value.trim();opened={};render(true)});
+$('#x').addEventListener('click',function(){q='';$('#q').value='';opened={};render();$('#q').focus()});
+$('#tb').addEventListener('click',function(e){var b=e.target.closest('[data-c]');if(!b)return;cat=b.dataset.c;render();$('#tb [aria-selected=true]').focus()});
+$('#tb').addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(!d)return;e.preventDefault();cat=CATS[(CATS.indexOf(cat)+d+CATS.length)%CATS.length];render();$('#tb [aria-selected=true]').focus()});
+document.addEventListener('click',function(e){
+ var t=e.target.closest('[data-t]');if(t){var k=t.dataset.t;opened[k]=!opened[k];if(opened[k])history.replaceState(null,'','#q-'+k);var p=document.getElementById('p_'+k);p.classList.toggle('o',opened[k]);t.setAttribute('aria-expanded',opened[k]);return}
+ var v=e.target.closest('[data-v]');if(v){voted[v.dataset.k]=v.dataset.v==='y'?'y':'nn';var s=window.scrollY;render();scrollTo(0,s);return}
+ var sd=e.target.closest('[data-send]');if(sd){voted[sd.dataset.send]='n';var s2=window.scrollY;render();scrollTo(0,s2);return}
+ var g=e.target.closest('[data-go]');if(g){e.preventDefault();openItem(g.dataset.go,true);history.replaceState(null,'','#q-'+g.dataset.go);return}
+ var m=e.target.closest('.mr a');if(m){e.preventDefault();openItem(m.getAttribute('href').slice(3),true);return}
+ var pp=e.target.closest('.pop button');if(pp){q=pp.textContent;$('#q').value=q;opened={};render();return}
+ if(e.target.id==='cl'){q='';$('#q').value='';render()}});
+document.addEventListener('keydown',function(e){if(e.key==='/'&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();$('#q').focus()}if(e.key==='Escape'&&q){q='';$('#q').value='';opened={};render()}});
+render();var h=location.hash.match(/^#q-(.+)/);if(h)openItem(h[1],true);
+})();
+</script></body></html>

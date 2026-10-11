@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enterprise Quote Builder — Pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#eef1f6;color:#0f1b2d;font:400 16px/1.55 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #2f6bff;outline-offset:3px;border-radius:10px}
+header{display:flex;align-items:center;padding:18px clamp(18px,4vw,48px);gap:16px}.logo{font:800 20px Manrope,sans-serif;margin-right:auto;display:flex;gap:8px;align-items:center}.logo i{width:20px;height:20px;background:#2f6bff;border-radius:6px 6px 6px 0}
+header span{color:#52617a;font-size:14px}
+.w{max-width:1200px;margin:0 auto;padding:10px clamp(18px,4vw,48px) 80px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:28px;align-items:start}
+h1{grid-column:1/-1;font:800 clamp(34px,4.6vw,58px)/1.08 Manrope,sans-serif;letter-spacing:-.02em;margin:10px 0 6px}.lead{grid-column:1/-1;margin:0 0 6px;color:#52617a;max-width:56ch}
+.step{background:#fff;border:1px solid #dbe2ee;border-radius:18px;padding:22px;margin-bottom:16px}.step h2{font:800 17px Manrope,sans-serif;margin:0 0 14px;display:flex;gap:10px;align-items:center}.step h2 i{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#2f6bff;color:#fff;font:700 13px Manrope,sans-serif;font-style:normal}
+.mods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.m{display:flex;gap:12px;align-items:flex-start;text-align:left;background:#fff;border:1.5px solid #dbe2ee;border-radius:14px;padding:14px;cursor:pointer;font:inherit;color:inherit;transition:border-color .2s,background .2s,transform .2s}
+.m:hover{transform:translateY(-2px)}.m[aria-pressed=true]{border-color:#2f6bff;background:#f1f5ff}
+.ck{flex:none;width:22px;height:22px;border-radius:7px;border:2px solid #aab6cc;display:grid;place-items:center;color:#fff;font-size:13px;transition:background .2s,border-color .2s}.m[aria-pressed=true] .ck{background:#2f6bff;border-color:#2f6bff}
+.m b{display:block;font:700 15px Manrope,sans-serif}.m span{font-size:13px;color:#52617a}.m em{display:block;font-style:normal;font-weight:600;font-size:13px;margin-top:4px;color:#2f6bff}
+.seat{display:flex;gap:16px;align-items:center}.seat input[type=range]{flex:1;accent-color:#2f6bff;height:32px}.seat input[type=number]{width:96px;font:700 18px Manrope,sans-serif;padding:8px 10px;border:1.5px solid #dbe2ee;border-radius:10px;text-align:center}
+.terms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.t{text-align:center;background:#fff;border:1.5px solid #dbe2ee;border-radius:14px;padding:14px 8px;cursor:pointer;font:inherit;color:inherit}.t[aria-checked=true]{border-color:#2f6bff;background:#f1f5ff}.t b{display:block;font:700 15px Manrope,sans-serif}.t span{font-size:13px;color:#17b890;font-weight:700}
+select{width:100%;font:500 16px Inter,sans-serif;padding:12px;border:1.5px solid #dbe2ee;border-radius:12px;background:#fff}
+.rc{position:sticky;top:16px;background:#0f2a52;color:#e8eefc;border-radius:22px;padding:24px}
+.rc h2{font:800 18px Manrope,sans-serif;margin:0 0 14px}.ln{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.18);font:400 14px 'DM Mono',monospace}.ln span:first-child{font-family:Inter,sans-serif;color:#c3d2f2}.ln.d span:last-child{color:#5ff0c6}
+.tot{margin-top:16px}.tot small{font-size:13px;color:#9fb4de}.tot b{display:block;font:800 38px/1.1 Manrope,sans-serif;font-variant-numeric:tabular-nums}.tot span{font-size:14px;color:#9fb4de}
+.sv{display:inline-block;margin-top:10px;background:rgba(95,240,198,.15);color:#5ff0c6;font-weight:700;font-size:13px;padding:4px 12px;border-radius:99px}
+.em{padding:24px 0;color:#9fb4de}
+.btn{display:block;width:100%;text-align:center;font:700 15px Manrope,sans-serif;padding:14px;border-radius:12px;border:0;background:#2f6bff;color:#fff;cursor:pointer;margin-top:12px;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px);background:#4a7fff}.btn.o{background:transparent;border:1.5px solid #3b5a92;color:#e8eefc}.btn[aria-disabled=true]{opacity:.45;cursor:not-allowed;transform:none}
+dialog{border:0;border-radius:22px;padding:26px;max-width:460px;width:calc(100% - 32px);color:#0f1b2d}dialog::backdrop{background:rgba(15,27,45,.6)}dialog h3{font:800 24px Manrope,sans-serif;margin:0 0 6px}
+dialog p.s{margin:0 0 12px;color:#52617a;font-size:14px;background:#eef1f6;border-radius:10px;padding:10px 12px}dialog label{display:block;font-weight:600;font-size:14px;margin:12px 0 4px}dialog input{width:100%;font:16px Inter,sans-serif;padding:11px 12px;border:1.5px solid #dbe2ee;border-radius:10px}dialog input[aria-invalid=true]{border-color:#d92d20}.er{color:#d92d20;font-size:13px;min-height:16px}
+.row{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}.row .btn{width:auto;margin:0;padding:11px 20px}.row .btn.o{border-color:#dbe2ee;color:#0f1b2d}
+.bar{display:none}
+@media(max-width:960px){.w{grid-template-columns:minmax(0,1fr)}.rc{position:static}.mods{grid-template-columns:minmax(0,1fr)}.bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#0f2a52;color:#fff;padding:12px 18px;justify-content:space-between;align-items:center}.bar b{font:800 20px Manrope,sans-serif}.bar a{color:#fff;font-weight:700;text-decoration:underline}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header><div class="logo"><i></i>Northgate</div><span>Sales: sales@northgate.example</span></header>
+<main class="w"><h1>Build your Northgate quote.</h1><p class="lead">Choose modules, seats and term. Your price updates as you go, and a named account manager will confirm it within one working day.</p>
+<div><section class="step"><h2><i>1</i>Choose modules</h2><div class="mods" id="mods"></div></section>
+<section class="step"><h2><i>2</i>Seats</h2><div class="seat"><label class="sr" for="rg" style="position:absolute;left:-9999px">Seats slider</label><input type="range" id="rg" min="10" max="500" value="60"><label for="nm" style="position:absolute;left:-9999px">Seat count</label><input type="number" id="nm" min="10" max="500" value="60"></div></section>
+<section class="step"><h2><i>3</i>Term</h2><div class="terms" role="radiogroup" aria-label="Contract term" id="terms"></div></section>
+<section class="step"><h2><i>4</i>Support</h2><label for="sp" style="position:absolute;left:-9999px">Support level</label><select id="sp"><option value="0">Standard (included)</option><option value="0.1">Priority, +10%</option><option value="0.2">Dedicated, +20%</option></select></section></div>
+<aside class="rc" aria-label="Quote receipt"><h2>Your quote</h2><div id="lines"></div><div id="emp" class="em" hidden>Pick at least one module to see a price.</div><div class="tot" aria-live="polite" id="totw"><small>Annual total (ex VAT)</small><b id="tot">£0</b><span id="pps"></span><br><span class="sv" id="sv" hidden></span></div>
+<button class="btn" type="button" id="rq">Request this quote</button><button class="btn o" type="button" id="cp">Copy summary</button></aside></main>
+<div class="bar" aria-hidden="true"><span>Annual total</span><b id="bt">£0</b></div>
+<dialog id="dlg" aria-labelledby="dt"><form id="f" novalidate method="dialog"><div id="fm"><h3 id="dt">Request your quote</h3><p class="s" id="ds"></p><label for="n1">Your name</label><input id="n1" autocomplete="name"><div class="er" id="e1"></div><label for="n2">Work email</label><input id="n2" type="email" autocomplete="email"><div class="er" id="e2"></div><label for="n3">Company</label><input id="n3" autocomplete="organization"><div class="er" id="e3"></div><div class="row"><button class="btn o" value="cancel" formnovalidate>Cancel</button><button class="btn" id="sd" type="submit">Send request</button></div></div><div id="ok" hidden><h3>Request sent</h3><p id="okt"></p><div class="row"><button class="btn" value="x">Close</button></div></div></form></dialog>
+<script>
+(function(){
+var M=[['Dispatch','Route planning and live job board',18],['Fleet tracking','GPS, fuel and driver scores',12],['Warehouse','Bins, picking and stock counts',22],['Customer portal','Self-serve tracking for clients',9],['Analytics','Dashboards and scheduled reports',14],['Billing','Invoices and proof of delivery',11],['API access','REST and webhooks',6],['SSO and audit','SAML and a full audit trail',8]],sel={0:1,1:1,4:1},seats=60,term=0,sup=0,shown=0,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var T=[['1 year',''],['2 years','−8%'],['3 years','−15%']],TD=[0,.08,.15];
+var mods=document.getElementById('mods'),terms=document.getElementById('terms'),rg=document.getElementById('rg'),nm=document.getElementById('nm');
+var gbp=function(v){return'£'+Math.round(v).toLocaleString('en-GB')};
+M.forEach(function(m,i){var b=document.createElement('button');b.type='button';b.className='m';b.innerHTML='<span class="ck">✓</span><span><b>'+m[0]+'</b><span>'+m[1]+'</span><em>£'+m[2]+' per seat a month</em></span>';b.addEventListener('click',function(){sel[i]=!sel[i];calc()});mods.appendChild(b)});
+T.forEach(function(t,i){var b=document.createElement('button');b.type='button';b.className='t';b.setAttribute('role','radio');b.innerHTML='<b>'+t[0]+'</b><span>'+(t[1]||'Standard')+'</span>';b.addEventListener('click',function(){term=i;calc()});b.addEventListener('keydown',function(e){var d={ArrowRight:1,ArrowLeft:-1}[e.key];if(d){e.preventDefault();term=(i+d+3)%3;calc();terms.children[term].focus()}});terms.appendChild(b)});
+rg.addEventListener('input',function(){seats=+rg.value;nm.value=seats;calc()});nm.addEventListener('input',function(){var v=Math.max(10,Math.min(500,+nm.value||10));seats=v;rg.value=v;calc()});document.getElementById('sp').addEventListener('change',function(e){sup=+e.target.value;calc()});
+var cur=null;
+function calc(){var chosen=M.map(function(m,i){return sel[i]?i:-1}).filter(function(i){return i>-1}),per=chosen.reduce(function(a,i){return a+M[i][2]},0),list=per*seats*12;
+var vd=seats>=300?.15:seats>=150?.1:seats>=50?.05:0,sub=per*seats,afterV=sub*(1-vd),afterT=afterV*(1-TD[term]),sp=afterT*sup,month=afterT+sp,annual=month*12;
+[].forEach.call(mods.children,function(b,i){b.setAttribute('aria-pressed',!!sel[i])});[].forEach.call(terms.children,function(b,i){b.setAttribute('aria-checked',i===term);b.tabIndex=i===term?0:-1});
+var L=document.getElementById('lines'),empty=!chosen.length;document.getElementById('emp').hidden=!empty;document.getElementById('totw').hidden=empty;['rq','cp'].forEach(function(id){document.getElementById(id).setAttribute('aria-disabled',empty)});
+L.innerHTML=empty?'':chosen.map(function(i){return'<div class="ln"><span>'+M[i][0]+' × '+seats+'</span><span>'+gbp(M[i][2]*seats)+'/mo</span></div>'}).join('')+'<div class="ln"><span>Monthly subtotal</span><span>'+gbp(sub)+'</span></div>'+(vd?'<div class="ln d"><span>Volume discount '+Math.round(vd*100)+'%</span><span>−'+gbp(sub*vd)+'</span></div>':'')+(TD[term]?'<div class="ln d"><span>'+T[term][0]+' term '+T[term][1]+'</span><span>−'+gbp(afterV*TD[term])+'</span></div>':'')+(sup?'<div class="ln"><span>Support uplift</span><span>+'+gbp(sp)+'</span></div>':'');
+var sv=list-annual,svEl=document.getElementById('sv');svEl.hidden=!(sv>1);svEl.textContent='You save '+gbp(sv)+' vs list';document.getElementById('pps').textContent=empty?'':gbp(month/seats*1)+' per seat per month (average '+(month/seats).toFixed(2)+')';document.getElementById('pps').textContent=empty?'':'£'+(month/seats).toFixed(2)+' per seat per month';
+tween(annual);cur={chosen:chosen,annual:annual,seats:seats};}
+function tween(to){var from=shown,t0=performance.now();shown=to;var el=document.getElementById('tot'),bt=document.getElementById('bt');if(reduce){el.textContent=bt.textContent=gbp(to);return}(function f(n){var k=Math.min(1,(n-t0)/300),v=from+(to-from)*k;el.textContent=bt.textContent=gbp(v);if(k<1)requestAnimationFrame(f)})(t0)}
+calc();
+function summary(){return'Northgate quote: '+cur.chosen.map(function(i){return M[i][0]}).join(', ')+' for '+cur.seats+' seats, '+T[term][0]+', total '+gbp(cur.annual)+' a year ex VAT.'}
+document.getElementById('cp').addEventListener('click',function(){if(!cur.chosen.length)return;var b=this;try{navigator.clipboard.writeText(summary()).then(d,d)}catch(e){d()}function d(){b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy summary'},1500)}});
+var dlg=document.getElementById('dlg'),fm=document.getElementById('fm'),ok=document.getElementById('ok');
+document.getElementById('rq').addEventListener('click',function(){if(!cur.chosen.length)return;fm.hidden=false;ok.hidden=true;document.getElementById('ds').textContent=summary();dlg.showModal()});
+document.getElementById('f').addEventListener('submit',function(e){if(!e.submitter||e.submitter.id!=='sd')return;e.preventDefault();var a=document.getElementById('n1'),b=document.getElementById('n2'),c=document.getElementById('n3'),bad=false;
+[[a,a.value.trim(),'e1','Please enter your name'],[b,/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(b.value.trim()),'e2','Enter a valid work email'],[c,c.value.trim(),'e3','Please enter your company']].forEach(function(x){var good=!!x[1];x[0].setAttribute('aria-invalid',!good);document.getElementById(x[2]).textContent=good?'':x[3];if(!good&&!bad){bad=true;x[0].focus()}});if(bad)return;
+fm.hidden=true;ok.hidden=false;document.getElementById('okt').textContent='Thanks '+a.value.trim().split(' ')[0]+'. Your account manager will email '+b.value.trim()+' within one working day.'});
+})();
+</script></body></html>

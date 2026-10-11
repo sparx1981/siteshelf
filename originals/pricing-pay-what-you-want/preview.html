@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pay What You Want — Pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:repeating-linear-gradient(45deg,rgba(120,90,40,.025) 0 2px,transparent 2px 5px),repeating-linear-gradient(-45deg,rgba(120,90,40,.02) 0 3px,transparent 3px 7px),#f8f1e3;color:#2a2118;font:400 17px/1.6 Karla,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #c2452d;outline-offset:3px;border-radius:12px}
+.w{max-width:980px;margin:0 auto;padding:clamp(30px,6vh,70px) clamp(18px,4vw,40px) 60px}
+.hd{text-align:center;margin-bottom:30px}.lb{font:700 12px Karla,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#c2452d}
+h1{font:600 clamp(38px,6.4vw,74px)/1.02 Fraunces,serif;letter-spacing:-.02em;margin:12px 0 12px}h1 em{color:#c2452d}.sub{max-width:50ch;margin:0 auto;color:#6b5c48}
+.card{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:30px;background:#fffaf0;border:1.5px solid #e3d5b8;border-radius:26px;padding:clamp(20px,3vw,34px);box-shadow:0 30px 60px -40px rgba(80,50,10,.5)}
+.jar{display:grid;place-items:center}.jar svg{width:min(100%,260px);overflow:visible}
+.coin{transition:transform .35s cubic-bezier(.3,1.4,.5,1),opacity .2s}
+.amt{font:700 clamp(54px,8vw,84px)/1 Fraunces,serif;color:#2a2118;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.msg{min-height:30px;font:italic 600 22px Fraunces,serif;color:#4d6b3a;margin:4px 0 14px}
+input[type=range]{width:100%;accent-color:#c2452d;height:32px;margin:0}
+.tk{display:flex;justify-content:space-between;font-size:13px;color:#6b5c48;margin:0 2px 14px}
+.ch{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:16px}.ch button{font:700 15px Karla,sans-serif;border:1.5px solid #cdbb94;background:#fff;border-radius:99px;padding:8px 16px;cursor:pointer;color:#2a2118;transition:background .2s}.ch button:hover{background:#f6ebd2}.ch button[aria-pressed=true]{background:#2a2118;color:#fff;border-color:#2a2118}
+.cu{display:flex;align-items:center;gap:6px;font-weight:700}.cu input{width:84px;font:700 16px Karla,sans-serif;padding:8px 10px;border:1.5px solid #cdbb94;border-radius:12px;background:#fff}
+.bar{display:flex;height:16px;border-radius:99px;overflow:hidden;margin:6px 0 10px;background:#eadfc5}.bar i{display:block;height:100%;transition:width .3s}
+.lg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px;font-size:14px;color:#6b5c48}.lg span{display:flex;align-items:center;gap:8px}.lg b{margin-left:auto;color:#2a2118;font-variant-numeric:tabular-nums}.lg i{width:10px;height:10px;border-radius:3px;flex:none}
+.pay{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:20px}
+.btn{font:700 17px Karla,sans-serif;padding:15px 30px;border-radius:99px;border:0;background:#c2452d;color:#fff;cursor:pointer;transition:transform .2s,box-shadow .2s;min-width:150px}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(194,69,45,.35)}
+.fr{background:none;border:0;text-decoration:underline;font:700 15px Karla,sans-serif;color:#6b5c48;cursor:pointer}
+.ok{text-align:center;padding:30px 10px}.ok h2{font:600 44px Fraunces,serif;margin:0 0 8px}
+.cf{position:fixed;width:14px;height:14px;border-radius:50%;background:#e8a93a;border:2px solid #b7791a;z-index:50;pointer-events:none;animation:cf 1s ease-in forwards}@keyframes cf{from{transform:translateY(-20px)}to{transform:translate(var(--x),100vh) rotate(var(--r))}}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:760px){.card{grid-template-columns:minmax(0,1fr)}.jar svg{width:190px}.lg{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.cf{display:none}}
+</style></head><body><main class="w">
+<div class="hd"><div class="lb">Kettle &amp; Pen 2.0</div><h1>Pay what <em>feels fair.</em></h1><p class="sub">There's no paywall. Use it free for as long as you like, or put whatever you can into the jar to keep me writing code.</p></div>
+<section class="card" id="card"><div class="jar"><svg viewBox="0 0 200 260" role="img" aria-label="A glass jar that fills with coins as the amount rises"><rect x="40" y="14" width="120" height="22" rx="8" fill="#6b5c48"/><path d="M52 36h96v18c14 10 22 22 22 40v120a26 26 0 0 1-26 26H56a26 26 0 0 1-26-26V94c0-18 8-30 22-40z" fill="#eaf4f0" fill-opacity=".55" stroke="#9db8ae" stroke-width="3"/><g id="coins"></g><path d="M44 90v110" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".7"/><rect x="62" y="160" width="76" height="30" rx="6" fill="#fffaf0" stroke="#cdbb94"/><text x="100" y="180" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="14" fill="#2a2118">THE JAR</text></svg></div>
+<div><div class="amt" id="amt" aria-live="polite">£15</div><div class="msg" id="msg" aria-live="polite"></div>
+<label class="vh" for="rg">Amount in pounds</label><input type="range" id="rg" min="0" max="100" step="1" value="15" aria-valuetext="£15"><div class="tk" aria-hidden="true"><span>£0</span><span>£25</span><span>£50</span><span>£100</span></div>
+<div class="ch" id="ch" role="group" aria-label="Quick amounts"></div><div class="cu"><label for="nm">Custom £</label><input id="nm" type="number" min="0" max="500" value="15"></div>
+<div style="margin-top:20px"><b style="font:700 13px Karla,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#6b5c48">Where it goes</b><div class="bar" id="bar" aria-hidden="true"></div><div class="lg" id="lg"></div></div>
+<div class="pay"><button class="btn" id="pay" type="button">Pay £15</button><button class="fr" id="fr" type="button">Keep it free</button></div></div></section>
+<section class="card ok" id="ok" hidden style="grid-template-columns:minmax(0,1fr)"><div><h2 id="okh">Thank you!</h2><p id="okt"></p><button class="fr" id="again" type="button">Start again</button></div></section></main>
+<script>
+(function(){
+var rg=document.getElementById('rg'),nm=document.getElementById('nm'),amt=document.getElementById('amt'),msg=document.getElementById('msg'),coins=document.getElementById('coins'),pay=document.getElementById('pay'),v=15,shown=15,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,drawn=0,seed=3;
+var SPL=[['Developer',.6,'#c2452d'],['Hosting and tools',.15,'#4d6b3a'],['Charity (Dyslexia Action)',.1,'#e8a93a'],['Tax',.15,'#6b5c48']];
+function rnd(){seed=(seed*9301+49297)%233280;return seed/233280}
+var slots=[];for(var r=0;r<9;r++){var cols=r%2?4:5;for(var c=0;c<cols;c++)slots.push([r%2?73+c*24:61+c*24,244-r*14-(r%2?0:0)])}
+function setCoins(n){n=Math.min(slots.length,n);if(n===drawn)return;while(drawn<n){var s=slots[drawn],g=document.createElementNS('http://www.w3.org/2000/svg','g');g.setAttribute('class','coin');g.innerHTML='<ellipse cx="'+s[0]+'" cy="'+s[1]+'" rx="12" ry="9" fill="#e8a93a" stroke="#b7791a" stroke-width="2"/><ellipse cx="'+s[0]+'" cy="'+(s[1]-1.5)+'" rx="7" ry="4.5" fill="none" stroke="#f7d27a" stroke-width="1.5"/>';if(!reduce){g.style.transform='translateY(-'+(120+rnd()*40)+'px)';g.style.opacity=0;coins.appendChild(g);void g.getBoundingClientRect();g.style.transform='translateY(0)';g.style.opacity=1}else coins.appendChild(g);drawn++}
+while(drawn>n){coins.removeChild(coins.lastChild);drawn--}}
+function money(x){return'£'+x}
+function render(){rg.value=Math.min(100,v);rg.setAttribute('aria-valuetext',money(v));nm.value=v;pay.textContent=v?'Pay '+money(v):'Keep it free';
+var t=v===0?'Free is fine. Enjoy every word.':v<10?"A coffee's worth, thank you!":v<25?"You're keeping the kettle on.":v<50?'Honestly, you\'re brilliant.':"Legend. I'm putting your name in the credits (optional).";msg.textContent=t;
+[].forEach.call(document.getElementById('ch').children,function(b){b.setAttribute('aria-pressed',+b.dataset.v===v)});
+setCoins(Math.round(v/2));
+var from=shown,t0=performance.now();shown=v;if(reduce)amt.textContent=money(v);else(function f(n){var k=Math.min(1,(n-t0)/250);amt.textContent=money(Math.round(from+(v-from)*k));if(k<1)requestAnimationFrame(f)})(t0);
+document.getElementById('bar').innerHTML=SPL.map(function(s){return'<i style="width:'+s[1]*100+'%;background:'+s[2]+'"></i>'}).join('');
+document.getElementById('lg').innerHTML=SPL.map(function(s){return'<span><i style="background:'+s[2]+'"></i>'+s[0]+'<b>£'+(v*s[1]).toFixed(2)+'</b></span>'}).join('')}
+[5,10,15,25,50].forEach(function(a){var b=document.createElement('button');b.type='button';b.textContent='£'+a;b.dataset.v=a;b.addEventListener('click',function(){v=a;render()});document.getElementById('ch').appendChild(b)});
+rg.addEventListener('input',function(){v=+rg.value;render()});rg.addEventListener('keydown',function(e){if(e.shiftKey&&(e.key==='ArrowRight'||e.key==='ArrowUp'||e.key==='ArrowLeft'||e.key==='ArrowDown')){e.preventDefault();v=Math.max(0,Math.min(100,v+(e.key==='ArrowRight'||e.key==='ArrowUp'?5:-5)));render()}});
+nm.addEventListener('input',function(){v=Math.max(0,Math.min(500,Math.round(+nm.value||0)));render()});
+function done(txt){document.getElementById('card').hidden=true;var ok=document.getElementById('ok');ok.hidden=false;document.getElementById('okt').textContent=txt;ok.querySelector('h2').focus&&0;
+if(!reduce)for(var i=0;i<22;i++){var c=document.createElement('i');c.className='cf';c.style.cssText='left:'+(10+Math.random()*80)+'vw;--x:'+((Math.random()-.5)*120)+'px;--r:'+(Math.random()*720)+'deg;animation-delay:'+(Math.random()*.4)+'s';document.body.appendChild(c);setTimeout(function(e){e.remove()},1600,c)}}
+pay.addEventListener('click',function(){if(!v){done('Enjoy it for free, as long as you like. No account needed.');return}pay.textContent='…';setTimeout(function(){done(money(v)+' in the jar. Thank you for keeping Kettle & Pen going. A receipt is on its way to you.')},reduce?0:600)});
+document.getElementById('fr').addEventListener('click',function(){done('Enjoy it for free, as long as you like. No account needed.')});
+document.getElementById('again').addEventListener('click',function(){document.getElementById('ok').hidden=true;document.getElementById('card').hidden=false;render()});
+render();
+})();
+</script></body></html>

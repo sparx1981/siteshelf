@@ -1,0 +1,11 @@
+Canvas & base: Warm clay-and-sage page #f6efe4, ink #2b241b, secondary #6a5e4f (5.9:1), sage #7d9a6a, deep leaf #2f4a35, terracotta #cb6a45, cream cards #fffaf1 with 1.5px #e7dac3 borders and 22px radius. Invented plant delivery "Loamly".
+
+Typography: "Gloock" 400 for headings and questions (headline clamp 38px to 72px, line-height 1, question 22px); "Nunito" 400/700 for body 17px. Headline: "Plant questions, answered."
+
+Layout: Header with wordmark "loamly" with a leaf glyph and a link "Care guides". Centre column 860px: label, headline, sub "Everything about getting a happy plant from our greenhouse to your windowsill." Then five accordion items. Each item is a full-width button row with the question and a round plus icon. An open item shows a two-column panel: left the answer text (3 to 4 lines) and a small "Read the guide" link; right a 180px square illustration card (SVG, flat colours) with a subtle looping animation. Questions and illustrations: (1) "How are plants packed?" a cardboard box with leaves peeking, lid flaps wobbling; (2) "How much light does my plant need?" a window with a sun whose rays rotate and a plant leaning toward it; (3) "How often should I water?" a watering can tilting and pouring drops into a pot; (4) "Are your plants pet-safe?" a cat silhouette beside a plant with a green tick badge pulsing; (5) "What if my plant arrives damaged?" a box with a heart and a circular arrows icon rotating.
+
+Interaction: One open at a time; opening animates height with grid-template-rows (250ms) and the illustration fades and scales in from .9. Arrow Up/Down, Home and End move between headers; Enter and Space toggle. Hover on a closed row nudges the icon.
+
+Responsive: Under 640px the illustration moves above the text at 140px; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Illustrations are aria-hidden with the answer text carrying all meaning. aria-expanded and aria-controls on buttons; visible focus 3px #2f4a35. Respect prefers-reduced-motion (no illustration animation or height animation). Invented names only.

@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tier Carousel Pricing — Pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 0,rgba(32,201,176,.22),transparent 45%),#07202b;color:#e9f7f5;font:400 16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #20c9b0;outline-offset:3px;border-radius:14px}
+.hd{text-align:center;padding:clamp(36px,7vh,80px) 20px 20px}.lb{font:600 12px Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#20c9b0}
+h1{font:700 clamp(36px,5.4vw,64px)/1.05 Outfit,sans-serif;letter-spacing:-.02em;margin:12px auto 12px;max-width:16ch}.sub{color:#9bc2c0;max-width:46ch;margin:0 auto 22px}
+.cur{display:inline-flex;background:#0e3140;border:1px solid #1d5063;border-radius:99px;padding:4px}.cur button{font:600 14px Inter,sans-serif;background:none;border:0;color:#9bc2c0;padding:8px 18px;border-radius:99px;cursor:pointer}.cur button[aria-checked=true]{background:#20c9b0;color:#04231e}
+.track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:36px calc(50% - 150px) 40px;scrollbar-width:none;outline-offset:-4px}.track::-webkit-scrollbar{display:none}
+.card{flex:none;width:300px;scroll-snap-align:center;background:#0e3140;border:1px solid #1d5063;border-radius:26px;padding:26px;cursor:pointer;opacity:.65;transform:scale(.94);transition:transform .25s,opacity .25s,border-color .25s,box-shadow .25s;position:relative}
+.card.on{opacity:1;transform:scale(1.06);border:2px solid #20c9b0;box-shadow:0 30px 70px -30px rgba(32,201,176,.6);cursor:default}
+.bg{position:absolute;top:-12px;right:20px;background:#ff7a59;color:#2a0d05;font:700 11px Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:99px}
+.card h2{font:700 24px Outfit,sans-serif;margin:0 0 2px}.card .d{color:#9bc2c0;font-size:14px;margin:0 0 14px}
+.pr{display:flex;align-items:baseline;gap:6px;height:62px;overflow:hidden}.pr b{font:700 52px/62px Outfit,sans-serif;letter-spacing:-.03em;transition:transform .2s,opacity .2s;font-variant-numeric:tabular-nums}.pr b.sw{transform:translateY(-12px);opacity:0}.pr span{color:#9bc2c0;font-size:14px}
+.mo{display:inline-block;margin:6px 0 14px;font-weight:600;font-size:14px;background:#12485a;border-radius:99px;padding:4px 12px}
+.card ul{list-style:none;margin:0 0 20px;padding:0}.card li{display:flex;gap:10px;padding:5px 0;font-size:15px}.card li:before{content:"✓";color:#20c9b0;font-weight:700}
+.b{display:block;width:100%;text-align:center;font:600 15px Inter,sans-serif;padding:13px;border-radius:14px;border:1.5px solid #3b7487;background:transparent;color:#e9f7f5;cursor:pointer;transition:background .2s}.card.on .b{background:#20c9b0;border-color:#20c9b0;color:#04231e}.b:hover{background:#12485a}.card.on .b:hover{background:#4bdcc6}
+.ctl{display:flex;justify-content:center;align-items:center;gap:16px;padding-bottom:50px}
+.ar{width:46px;height:46px;border-radius:50%;border:1.5px solid #3b7487;background:transparent;color:#e9f7f5;font-size:20px;cursor:pointer;transition:background .2s}.ar:hover{background:#12485a}.ar[aria-disabled=true]{opacity:.35;cursor:not-allowed}
+.dots{display:flex;gap:8px}.dots button{width:12px;height:12px;border-radius:50%;border:0;background:#2a5b6e;cursor:pointer;padding:0;transition:width .25s,background .25s}.dots button[aria-current=true]{width:30px;border-radius:99px;background:#20c9b0}
+.cnt{color:#9bc2c0;font-size:14px;min-width:60px;text-align:center}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:600px){.card{width:min(78vw,300px)}.track{padding-left:calc(50% - min(39vw,150px));padding-right:calc(50% - min(39vw,150px))}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.track{scroll-behavior:auto}}
+</style></head><body>
+<header class="hd"><div class="lb">Pricing</div><h1>Pick the plan that fits your harbour.</h1><p class="sub">Know the moment your site goes down. Every plan includes SSL checks and instant alerts.</p><div class="cur" role="radiogroup" aria-label="Currency" id="cur"></div></header>
+<main><div class="track" id="track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Pricing plans"></div>
+<div class="ctl"><button class="ar" id="pv" type="button" aria-label="Previous plan">←</button><div class="dots" id="dots"></div><span class="cnt" id="cnt"></span><button class="ar" id="nx" type="button" aria-label="Next plan">→</button></div><div class="sr" aria-live="polite" id="live"></div></main>
+<script>
+(function(){
+var PL=[['Dinghy','For a hobby site',0,3,['1-minute checks','Email alerts','7-day history','1 status page']],['Skiff','For side projects',9,20,['30-second checks','Email and SMS alerts','30-day history','SSL expiry warnings','Public status page']],['Cutter','For growing sites',29,60,['15-second checks','Slack and webhook alerts','1-year history','Multi-region probes','Custom status domain']],['Schooner','For busy teams',79,200,['10-second checks','On-call rota and escalation','2-year history','API and Terraform','Maintenance windows']],['Galleon','For serious fleets',199,1000,['5-second checks','SSO and audit log','Unlimited history','Dedicated support','99.99% SLA']]];
+var CUR={GBP:['£',1],EUR:['€',1.17],USD:['$',1.27]},cc='GBP',act=2,track=document.getElementById('track'),dots=document.getElementById('dots'),cnt=document.getElementById('cnt'),live=document.getElementById('live'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,cards=[],ds=[];
+function price(v){return v===0?'0':Math.round(v*CUR[cc][1])}
+PL.forEach(function(p,i){var c=document.createElement('article');c.className='card';c.setAttribute('role','group');c.setAttribute('aria-roledescription','slide');c.setAttribute('aria-label','Plan '+(i+1)+' of 5, '+p[0]);
+c.innerHTML=(i===2?'<span class="bg">Most chosen</span>':'')+'<h2>'+p[0]+'</h2><p class="d">'+p[1]+'</p><div class="pr"><b>'+CUR.GBP[0]+price(p[2])+'</b><span>/ month</span></div><div class="mo">'+p[3].toLocaleString('en-GB')+' monitors</div><ul>'+p[4].map(function(f){return'<li>'+f+'</li>'}).join('')+'</ul><button class="b" type="button">'+(p[2]===0?'Start free':'Choose '+p[0])+'</button>';
+c.addEventListener('click',function(e){if(i!==act&&e.target.tagName!=='BUTTON')go(i)});track.appendChild(c);cards.push(c);
+var d=document.createElement('button');d.type='button';d.setAttribute('aria-label','Go to plan '+(i+1)+', '+p[0]);d.addEventListener('click',function(){go(i)});dots.appendChild(d);ds.push(d)});
+function go(i){i=Math.max(0,Math.min(4,i));var c=cards[i];track.scrollTo({left:c.offsetLeft-(track.clientWidth-c.offsetWidth)/2,behavior:reduce?'auto':'smooth'})}
+function setAct(i){if(i===act&&cards[i].classList.contains('on'))return;act=i;cards.forEach(function(c,k){c.classList.toggle('on',k===i);c.setAttribute('aria-current',k===i)});ds.forEach(function(d,k){if(k===i)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')});cnt.textContent=(i+1)+' of 5';live.textContent='Plan '+(i+1)+' of 5: '+PL[i][0];document.getElementById('pv').setAttribute('aria-disabled',i===0);document.getElementById('nx').setAttribute('aria-disabled',i===4)}
+var raf;function near(){var mid=track.scrollLeft+track.clientWidth/2,best=0,bd=1e9;cards.forEach(function(c,k){var d=Math.abs(c.offsetLeft+c.offsetWidth/2-mid);if(d<bd){bd=d;best=k}});setAct(best)}
+track.addEventListener('scroll',function(){cancelAnimationFrame(raf);raf=requestAnimationFrame(near)},{passive:true});
+track.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(act+1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(act-1)}});
+document.getElementById('pv').addEventListener('click',function(){go(act-1)});document.getElementById('nx').addEventListener('click',function(){go(act+1)});
+var cu=document.getElementById('cur');Object.keys(CUR).forEach(function(k,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','radio');b.textContent=CUR[k][0]+' '+k;b.addEventListener('click',function(){cc=k;[].forEach.call(cu.children,function(x,j){x.setAttribute('aria-checked',x===b);x.tabIndex=x===b?0:-1});cards.forEach(function(c,n){var el=c.querySelector('.pr b');el.classList.add('sw');setTimeout(function(){el.textContent=CUR[cc][0]+price(PL[n][2]);el.classList.remove('sw')},reduce?0:200)})});b.addEventListener('keydown',function(e){var d={ArrowRight:1,ArrowLeft:-1}[e.key];if(d){e.preventDefault();cu.children[(i+d+3)%3].click();cu.children[(i+d+3)%3].focus()}});cu.appendChild(b)});cu.firstChild.setAttribute('aria-checked','true');cu.firstChild.tabIndex=0;cu.children[1].tabIndex=-1;cu.children[2].tabIndex=-1;cu.children[1].setAttribute('aria-checked','false');cu.children[2].setAttribute('aria-checked','false');
+requestAnimationFrame(function(){var c=cards[2];track.scrollLeft=c.offsetLeft-(track.clientWidth-c.offsetWidth)/2;setAct(2)});
+})();
+</script></body></html>

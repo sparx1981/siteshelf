@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FAQ Card Swipe — FAQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:linear-gradient(rgba(35,25,66,.05) 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,rgba(35,25,66,.05) 1px,transparent 1px) 0 0/32px 32px,#efe9fb;color:#231942;font:400 16px/1.55 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #231942;outline-offset:3px;box-shadow:0 0 0 6px #fff;border-radius:16px}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,4vw,48px)}.logo{font:400 26px 'DM Serif Display',serif;display:flex;align-items:center;gap:10px}.logo i{width:20px;height:20px;background:conic-gradient(#ef476f 0 25%,#ffd166 0 50%,#06d6a0 0 75%,#8ecae6 0);border-radius:6px;border:2px solid #231942}header a{color:#5d5278;font-weight:700;text-decoration:none;font-size:15px}
+.w{max-width:760px;margin:0 auto;padding:10px 20px 70px;text-align:center}h1{font:400 clamp(36px,5.6vw,64px)/1.02 'DM Serif Display',serif;margin:6px 0 10px}.sub{color:#5d5278;max-width:44ch;margin:0 auto 30px}
+.st{position:relative;width:min(88vw,340px);height:440px;margin:0 auto 56px;touch-action:pan-y}
+.cd{position:absolute;inset:0;border-radius:28px;border:2.5px solid #231942;box-shadow:6px 6px 0 #231942;padding:24px;text-align:left;display:flex;flex-direction:column;user-select:none;transition:transform .35s cubic-bezier(.3,1.2,.5,1),opacity .3s}
+.cd.drag{transition:none;cursor:grabbing}.cd.top{cursor:grab}
+.cd .n{display:flex;justify-content:space-between;font:700 13px 'DM Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase}.cd .n span:last-child{background:#231942;color:#fff;border-radius:99px;padding:2px 12px}
+.cd h2{font:400 29px/1.1 'DM Serif Display',serif;margin:24px 0 14px}.cd p{margin:0;font-size:16px}.cd .hint{margin-top:auto;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+.cd.saved:after{content:"♥";position:absolute;right:22px;bottom:18px;font-size:26px}
+.c0{background:#ffd166}.c1{background:#c9254f;color:#fff}.c1 .n span:last-child{background:#fff;color:#231942}.c2{background:#06d6a0}.c3{background:#8ecae6}.c4{background:#cdb4ff}.c5{background:#ffb08a}
+.ctl{display:flex;gap:14px;justify-content:center;align-items:center;margin-bottom:16px}
+.rb{width:56px;height:56px;border-radius:50%;border:2.5px solid #231942;background:#fff;box-shadow:3px 3px 0 #231942;font-size:22px;cursor:pointer;color:#231942;transition:transform .15s,box-shadow .15s}.rb:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 #231942}.rb:active{transform:translate(2px,2px);box-shadow:0 0 0}.rb[aria-pressed=true]{background:#ef476f;color:#fff}.rb[aria-disabled=true]{opacity:.4;cursor:not-allowed}
+.dots{display:flex;gap:8px;justify-content:center;margin-bottom:8px}.dots i{width:10px;height:10px;border-radius:50%;background:#cfc5ea;border:2px solid #231942}.dots i.on{background:#231942}.dots i.sv{background:#ef476f}
+.cn{font-size:14px;font-weight:700;color:#5d5278}
+.sd{margin-top:28px}.sd h3{font:400 24px 'DM Serif Display',serif;margin:0 0 10px}.sd ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}.sd button{font:700 14px 'DM Sans',sans-serif;border:2px solid #231942;background:#fff;border-radius:99px;padding:7px 14px;cursor:pointer;color:#231942}.sd p{color:#5d5278;margin:0}
+.fin{align-items:center;justify-content:center;text-align:center;background:#fff}.fin h2{margin-top:0}.btn{font:700 16px 'DM Sans',sans-serif;border:2.5px solid #231942;background:#ffd166;border-radius:99px;padding:12px 24px;cursor:pointer;box-shadow:3px 3px 0 #231942;margin-top:18px;color:#231942}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:420px){.st{height:420px}.cd h2{font-size:26px}}
+@media(prefers-reduced-motion:reduce){.cd{transition:none!important}}
+</style></head><body>
+<header><div class="logo"><i></i>Mosaic</div><a href="#">Plan your visit</a></header>
+<main class="w"><h1>Planning a visit? Swipe through.</h1><p class="sub">Eight things people ask before they come. Drag a card away, or use the buttons.</p>
+<div class="st" id="st" role="group" aria-roledescription="carousel" aria-label="Visitor questions" tabindex="0"></div>
+<div class="ctl"><button class="rb" id="pv" type="button" aria-label="Previous card">←</button><button class="rb" id="sv" type="button" aria-label="Save this card for later" aria-pressed="false">♥</button><button class="rb" id="nx" type="button" aria-label="Next card">→</button></div>
+<div class="dots" id="dots" aria-hidden="true"></div><div class="cn" id="cn"></div>
+<section class="sd" aria-label="Saved cards"><h3>Saved cards</h3><ul id="sl"></ul><p id="se">Nothing saved yet.</p></section><div class="vh" aria-live="polite" id="live"></div></main>
+<script>
+(function(){
+var Q=[['Tickets','Is the museum free?','General entry is free every day. Special exhibitions cost £12, or £8 for students and under 25s. Under 5s always go free.'],['Visiting','What are the opening hours?','Tuesday to Sunday, 10am to 6pm, and until 9pm on the first Friday of every month. We are closed on Mondays.'],['Access','Is it accessible?','Yes. Every floor has step-free access, lifts are large enough for powered chairs, and quiet sensory hours run on Wednesday mornings.'],['Visiting','Can I take photos?','Photos without flash are welcome in the permanent collection. Some loans are marked with a no-photo sign, and tripods need a permit.'],['Family','Is it good for kids?','Very. The Making Room has free drop-in sessions every weekend at 11am and 2pm, and families get a free trail pack at the desk.'],['Food','Can I bring a picnic?','There is a picnic room on the ground floor with tables, and the courtyard garden is open when the weather is kind.'],['Getting here','How do I get there?','We are a six-minute walk from Weavers Lane tram stop, and there are bike racks outside. Parking is limited, so please use public transport.'],['Facilities','Is there a cloakroom?','Yes, free on the ground floor. Large bags and umbrellas must be left there, and you can keep a small bag with you.']];
+var C=['c0','c1','c2','c3','c4','c5'],st=document.getElementById('st'),idx=0,saved={},seen={0:1},cards=[],reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,live=document.getElementById('live'),N=Q.length;
+function mk(i){var q=Q[i],d=document.createElement('div');d.className='cd '+C[i%6];d.innerHTML='<div class="n"><span>'+q[0]+'</span><span>'+('0'+(i+1)).slice(-2)+' / 0'+N+'</span></div><h2>'+q[1]+'</h2><p>'+q[2]+'</p><div class="hint">Drag, or press → for next</div>';return d}
+function layout(){st.innerHTML='';var fin=idx>=N;
+if(fin){var f=document.createElement('div');f.className='cd fin';f.innerHTML='<h2>You\'ve seen them all.</h2><p>Saved '+Object.keys(saved).length+' card'+(Object.keys(saved).length===1?'':'s')+'. See you soon at the museum.</p><button class="btn" id="again" type="button">Start again</button>';st.appendChild(f);document.getElementById('again').addEventListener('click',function(){idx=0;seen={0:1};layout()});upd();return}
+for(var k=2;k>=0;k--){var i=idx+k;if(i>=N)continue;var c=mk(i);c.style.transform=k?'translateY('+(k*24)+'px) scale('+(1-k*.05)+')':'';c.style.zIndex=10-k;if(k){c.setAttribute('aria-hidden','true')}else{c.classList.add('top');if(saved[i])c.classList.add('saved');bind(c)}st.appendChild(c)}upd()}
+function upd(){var d=document.getElementById('dots');d.innerHTML=Q.map(function(_,i){return'<i class="'+(i===idx?'on':saved[i]?'sv':'')+'"></i>'}).join('');var sv=Object.keys(saved).length,sn=Object.keys(seen).length;document.getElementById('cn').textContent='Seen '+Math.min(sn,N)+' of '+N+' · Saved '+sv;
+document.getElementById('pv').setAttribute('aria-disabled',idx===0);document.getElementById('nx').setAttribute('aria-disabled',idx>=N);var sb=document.getElementById('sv');sb.setAttribute('aria-pressed',!!saved[idx]);sb.setAttribute('aria-disabled',idx>=N);
+var sl=document.getElementById('sl');sl.innerHTML='';Object.keys(saved).forEach(function(k){var li=document.createElement('li'),b=document.createElement('button');b.type='button';b.textContent='♥ '+Q[k][1];b.addEventListener('click',function(){idx=+k;seen[idx]=1;layout()});li.appendChild(b);sl.appendChild(li)});document.getElementById('se').hidden=sv>0;
+if(idx<N)live.textContent='Card '+(idx+1)+' of '+N+': '+Q[idx][1]}
+function go(dir,fromDrag){if(dir>0&&idx>=N||dir<0&&idx===0)return;var top=st.querySelector('.cd.top');
+if(dir>0&&top&&!reduce){top.style.transition='transform .35s ease-in,opacity .35s';top.style.transform='translateX('+(fromDrag||600)+'px) rotate(25deg)';top.style.opacity=0;setTimeout(function(){idx++;seen[idx]=1;layout()},300)}
+else if(dir<0&&!reduce){idx--;layout();var t=st.querySelector('.cd.top');if(t){t.style.transition='none';t.style.transform='translateX(-600px) rotate(-25deg)';void t.offsetWidth;t.style.transition='';t.style.transform=''}}
+else{idx+=dir;if(dir>0)seen[idx]=1;layout()}}
+function bind(c){var sx,sy,dx=0,drag=false,t0=0,lx=0,v=0;
+c.addEventListener('pointerdown',function(e){drag=true;sx=e.clientX;dx=0;t0=performance.now();lx=e.clientX;c.classList.add('drag');c.setPointerCapture(e.pointerId)});
+c.addEventListener('pointermove',function(e){if(!drag)return;dx=e.clientX-sx;var n=performance.now();v=(e.clientX-lx)/Math.max(1,n-t0);lx=e.clientX;t0=n;c.style.transform='translateX('+dx+'px) rotate('+dx/20+'deg)'});
+function end(){if(!drag)return;drag=false;c.classList.remove('drag');if(Math.abs(dx)>110||Math.abs(v)>.6&&Math.abs(dx)>30){var d=(dx||v)>0?1:-1;if(d>0)go(1,Math.max(600,dx*3));else{c.style.transform='';go(-1)}}else{c.style.transform=''}}
+c.addEventListener('pointerup',end);c.addEventListener('pointercancel',end)}
+document.getElementById('pv').addEventListener('click',function(){go(-1)});document.getElementById('nx').addEventListener('click',function(){go(1)});
+function toggleSave(){if(idx>=N)return;if(saved[idx])delete saved[idx];else saved[idx]=1;live.textContent=saved[idx]?'Saved for later.':'Removed from saved.';layout()}
+document.getElementById('sv').addEventListener('click',toggleSave);
+st.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}else if(e.key==='Enter'||e.key===' '){if(e.target===st){e.preventDefault();toggleSave()}}});
+layout();
+})();
+</script></body></html>

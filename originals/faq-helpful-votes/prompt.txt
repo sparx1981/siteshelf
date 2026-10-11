@@ -1,0 +1,11 @@
+Canvas & base: Fresh off-white page #f6faf6, ink #14281c, secondary #50685a (6:1), leaf green #1f9d57 accent, deep forest #0f3d24 for the header band, lemon #ffe66d highlights, cards white with 1px #dbe7dc borders and 16px radius. Invented bike-share "Pedalo" in a UK city.
+
+Typography: "Fraunces" 600 for headings (clamp 34px to 60px, line-height 1.05, tracking -.02em) and question titles at 20px; "Inter" 400/500/600 for body 16px. Headline: "Questions riders actually ask."
+
+Layout: Forest-green header band with wordmark "Pedalo", headline in white and a 48ch sub. Under it a toolbar: a "Sort by" segmented control (Default order, Most helpful) and a count "8 questions". A list of 8 accordion items (each a button with the question and a plus/minus icon); an open item reveals a paragraph answer (2 to 4 lines of specific copy: unlock fee £1, £0.12 a minute, how to report a broken bike, what happens if you park outside a zone, helmet policy, student discount, how to pause a ride, lost-property process) and below it a vote row: "Was this helpful?" with two buttons, Yes (thumb up icon) and No (thumb down), live counts, and a result line "86% of 142 riders found this helpful" with a thin bar. Voting once highlights the chosen button (aria-pressed), increments its count, shows "Thanks for the feedback", and can be changed or removed by pressing the same button again. Seed counts per question so percentages differ (for example 142/20, 98/31, 210/12, 64/40, 77/9, 55/22, 120/8, 33/17).
+
+Interaction: One item open at a time with a 250ms height animation (grid-template-rows 0fr to 1fr). Sort by Most helpful reorders items by helpful percentage using a FLIP animation (300ms) and announces "Sorted by most helpful". Votes are saved in localStorage inside try/catch and restored on load. Question buttons support arrow-key navigation (Up/Down/Home/End) between headers.
+
+Responsive: Single column at all sizes, toolbar wraps; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Accordion buttons with aria-expanded and aria-controls, votes announced in aria-live, visible focus 3px #1f9d57. Respect prefers-reduced-motion (no height animation or FLIP). Invented names only.

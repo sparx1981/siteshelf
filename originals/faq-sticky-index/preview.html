@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sticky Index FAQ — FAQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:#0e1218;color:#e8edf5;font:400 16px/1.65 'IBM Plex Sans',system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #4cc9f0;outline-offset:3px;border-radius:8px}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;padding:14px clamp(18px,4vw,48px);background:rgba(14,18,24,.92);backdrop-filter:blur(10px);border-bottom:1px solid #26303d}
+.logo{font:600 20px 'IBM Plex Sans',sans-serif;margin-right:auto;display:flex;align-items:center;gap:8px}.logo i{width:16px;height:16px;border:3px solid #4cc9f0;border-radius:5px}
+.sb{font:400 13px 'IBM Plex Mono',monospace;color:#9aa8bb;background:#151b24;border:1px solid #26303d;border-radius:10px;padding:8px 14px;cursor:pointer}
+.hero{max-width:1180px;margin:0 auto;padding:clamp(30px,6vh,70px) clamp(18px,4vw,48px) 10px}h1{font:600 clamp(34px,5.4vw,56px)/1.08 'IBM Plex Sans',sans-serif;letter-spacing:-.02em;margin:0 0 10px}.sub{color:#9aa8bb;max-width:52ch;margin:0}
+.g{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:260px minmax(0,1fr);gap:48px;padding:30px clamp(18px,4vw,48px) 80px}
+.ix{position:sticky;top:90px;align-self:start}.ix h2{font:400 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#9aa8bb;margin:0 0 12px}.ix ul{list-style:none;margin:0;padding:0}
+.ix a{display:flex;justify-content:space-between;gap:8px;color:#9aa8bb;text-decoration:none;padding:9px 14px;border-left:3px solid #26303d;transition:color .2s,border-color .2s,background .2s}.ix a:hover{color:#e8edf5;background:#151b24}
+.ix a[aria-current=true]{border-color:#4cc9f0;color:#fff;font-weight:500;background:#151b24}.ix a span{font:400 12px 'IBM Plex Mono',monospace;color:#6f7e93}
+.sec{margin-bottom:44px;scroll-margin-top:90px}.sec h2{font:600 28px 'IBM Plex Sans',sans-serif;margin:0 0 16px;letter-spacing:-.01em}
+details{background:#151b24;border:1px solid #26303d;border-radius:14px;margin-bottom:10px;scroll-margin-top:90px;transition:border-color .2s}details[open]{border-color:#3a4a60}
+summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 18px;font:500 18px/1.35 'IBM Plex Sans',sans-serif;border-radius:14px}summary::-webkit-details-marker{display:none}
+summary:before{content:"";width:9px;height:9px;border-right:2px solid #4cc9f0;border-bottom:2px solid #4cc9f0;transform:rotate(-45deg);transition:transform .25s;flex:none}details[open] summary:before{transform:rotate(45deg)}
+summary span{flex:1}.cp{opacity:0;font:400 13px 'IBM Plex Mono',monospace;color:#4cc9f0;background:#0e1218;border:1px solid #26303d;border-radius:8px;padding:3px 9px;cursor:pointer;transition:opacity .2s}summary:hover .cp,.cp:focus-visible,summary:focus-within .cp{opacity:1}
+details>div{padding:0 18px 18px 39px;color:#c4cfdf}details p{margin:0 0 10px}details code{font:400 14px 'IBM Plex Mono',monospace;background:#0e1218;border-radius:6px;padding:1px 6px;color:#ffc857}
+.stk{background:linear-gradient(135deg,#17303d,#151b24);border:1px solid #2a4a5c;border-radius:16px;padding:26px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}.stk h2{margin:0 0 4px;font-size:22px}.stk p{margin:0;color:#9aa8bb}
+.btn{font:600 15px 'IBM Plex Sans',sans-serif;background:#4cc9f0;color:#06222c;border:0;border-radius:10px;padding:12px 22px;cursor:pointer;text-decoration:none;transition:transform .2s}.btn:hover{transform:translateY(-2px)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#e8edf5;color:#0e1218;font-weight:600;padding:10px 20px;border-radius:99px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:40}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.g{grid-template-columns:minmax(0,1fr);gap:0;padding-top:0}.ix{position:sticky;top:57px;z-index:15;margin:0 calc(-1*clamp(18px,4vw,48px)) 20px;padding:10px clamp(18px,4vw,48px);background:rgba(14,18,24,.95);border-bottom:1px solid #26303d}.ix h2{display:none}.ix ul{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}.ix a{border:1px solid #26303d;border-left-width:1px;border-radius:99px;white-space:nowrap;padding:6px 14px}.ix a span{display:none}.ix a[aria-current=true]{border-color:#4cc9f0}.cp{opacity:1}summary{padding:14px}details>div{padding:0 14px 16px 14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style></head><body>
+<div class="top"><div class="logo"><i></i>vaultline</div><button class="sb" type="button">Search help ⌘K</button></div>
+<header class="hero"><h1>Help, indexed.</h1><p class="sub">Find answers fast. Everything is grouped by topic and every question has a link you can share.</p></header>
+<div class="g"><nav class="ix" aria-label="Topics"><h2>ON THIS PAGE</h2><ul id="ix"></ul></nav><main id="main"></main></div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function(){
+var S=[['start','Getting started',[['How much storage do I get for free?','Every account starts with <code>5 GB</code> free. Verify your phone number to unlock a further 3 GB, and invite friends for 1 GB each, up to 10 GB.'],['How do I upload a whole folder?','Drag the folder into the browser or the desktop app. Folders sync in the background, and you can pause uploads from the tray icon.'],['Which devices are supported?','Windows 10 and later, macOS 12 and later, iOS 16 and later, Android 10 and later, and any modern browser.']]],
+['sync','Syncing',[['Why is my sync stuck on "Waiting"?','Waiting usually means a file is open in another app or the name has a character we cannot sync, such as <code>:</code> or <code>?</code>. Close the file, rename it and sync resumes in a minute.'],['Can I choose which folders sync?','Yes. Open Settings, then Selective sync, and untick folders you only need online. They stay in your account but free up disk space.'],['How long are old versions kept?','Previous versions of every file are kept for 30 days on free plans and 180 days on paid plans. Restore them from the file menu.']]],
+['share','Sharing',[['How do I share a file securely?','Press Share, choose "Anyone with the link" or "Specific people", and set a password and an expiry. Expiry options go from one hour to one year.'],['Can I stop someone downloading?','Yes. Switch the link to "View only" and the download button disappears. Recipients can still see the file but cannot save it.'],['Why did my link stop working?','Links expire when their time is up or when the file is moved to the bin. Create a fresh link from the file menu.']]],
+['bill','Billing',[['Where can I find my VAT invoice?','Go to Account, then Billing, then Invoices. Each invoice shows your VAT number and can be downloaded as a PDF. Add your company details first so they appear on it.'],['How do I change or cancel my plan?','Change plans any time under Billing. If you cancel, you keep paid features until the end of the billing period and your files stay safe for 60 days.'],['Do you offer refunds?','Yes, within 14 days of a new subscription or renewal, no questions asked. Contact support with your account email.']]],
+['sec','Security',[['Do you support two-step login?','Yes. Turn on two-step login under Security using an authenticator app or a hardware key. We also give you ten backup codes.'],['Are my files encrypted?','Files are encrypted in transit with TLS 1.3 and at rest with AES-256. Vault folders add end-to-end encryption that even we cannot read.'],['What happens if I lose my phone?','Sign in with a backup code, then remove the lost device under Security, then Devices. All its sessions end immediately.']]]];
+var main=document.getElementById('main'),ix=document.getElementById('ix'),toast=document.getElementById('toast'),tt;
+S.forEach(function(s,i){var sec=document.createElement('section');sec.className='sec';sec.id=s[0];sec.innerHTML='<h2>'+s[1]+'</h2>';
+s[2].forEach(function(q,j){var id=s[0]+'-'+(j+1),d=document.createElement('details');d.id=id;d.innerHTML='<summary><span>'+q[0]+'</span><button class="cp" type="button" aria-label="Copy link to '+q[0].replace(/"/g,'&quot;')+'">#</button></summary><div><p>'+q[1]+'</p></div>';
+d.querySelector('.cp').addEventListener('click',function(e){e.preventDefault();e.stopPropagation();copy(location.href.split('#')[0]+'#'+id)});sec.appendChild(d)});main.appendChild(sec);
+var li=document.createElement('li');li.innerHTML='<a href="#'+s[0]+'"><b style="font-weight:inherit">'+s[1]+'</b><span>'+s[2].length+'</span></a>';ix.appendChild(li)});
+var stk=document.createElement('section');stk.className='sec';stk.innerHTML='<div class="stk"><div><h2>Still stuck?</h2><p>Real people answer within a few hours. help@vaultline.example</p></div><a class="btn" href="mailto:help@vaultline.example">Contact support</a></div>';main.appendChild(stk);
+function say(t){toast.textContent=t;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},1800)}
+function copy(t){try{navigator.clipboard.writeText(t).then(function(){say('Link copied')},function(){say('Press Ctrl+C to copy')})}catch(e){say('Press Ctrl+C to copy')}}
+var links=[].slice.call(ix.querySelectorAll('a')),secs=[].slice.call(main.querySelectorAll('.sec[id]'));
+function act(i){links.forEach(function(a,k){if(k===i)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});if(innerWidth<=900&&links[i])links[i].scrollIntoView({inline:'center',block:'nearest'})}
+var vis={};var io=new IntersectionObserver(function(es){es.forEach(function(e){vis[e.target.id]=e.isIntersecting?e.intersectionRatio:0});var best=-1,bv=0;secs.forEach(function(s,k){if(vis[s.id]>bv){bv=vis[s.id];best=k}});if(best>-1)act(best)},{rootMargin:'-90px 0px -50% 0px',threshold:[0,.1,.3,.6,1]});secs.forEach(function(s){io.observe(s)});act(0);
+links.forEach(function(a){a.addEventListener('click',function(){history.replaceState(null,'',a.getAttribute('href'))})});
+var h=location.hash.slice(1);if(h){var t=document.getElementById(h);if(t&&t.tagName==='DETAILS'){t.open=true;t.scrollIntoView()}}else document.getElementById('start-1').open=true;
+})();
+</script></body></html>

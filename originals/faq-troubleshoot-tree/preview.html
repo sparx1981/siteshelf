@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Troubleshooting Flowchart — FAQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#f3f7fc;color:#0e2038;font:400 17px/1.55 Figtree,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #1d5fe0;outline-offset:3px;border-radius:12px}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,4vw,48px)}.logo{font:700 24px Figtree,sans-serif;letter-spacing:-.02em}.logo i{display:inline-block;width:14px;height:14px;background:#1d5fe0;border-radius:50% 50% 50% 0;margin-right:8px}header a{color:#4f6280;text-decoration:none;font-weight:600;font-size:15px}
+.w{max-width:1120px;margin:0 auto;padding:10px clamp(18px,4vw,40px) 60px}h1{font:700 clamp(34px,5vw,58px)/1.06 Figtree,sans-serif;letter-spacing:-.02em;margin:6px 0 24px}
+.g{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px;align-items:start}
+.card{background:#fff;border:1px solid #dbe4f1;border-radius:22px;padding:28px;box-shadow:0 24px 50px -36px rgba(14,32,56,.5);min-height:330px}
+.bc{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13px;color:#4f6280;margin-bottom:18px}.bc b{font-weight:700}.bc span{background:#e8f0fd;color:#1d4ab4;border-radius:99px;padding:2px 12px;font-weight:600}
+.stp{animation:in .25s}@keyframes in{from{opacity:0;transform:translateX(16px)}}
+.qh{font:700 clamp(24px,3vw,30px)/1.2 Figtree,sans-serif;margin:0 0 8px;outline:0}.hp{color:#4f6280;margin:0 0 22px;font-size:16px}
+.ans{display:flex;gap:12px;flex-wrap:wrap}.ans button{font:600 18px Figtree,sans-serif;padding:14px 28px;border-radius:14px;border:2px solid #1d5fe0;background:#fff;color:#1d5fe0;cursor:pointer;display:flex;gap:10px;align-items:center;transition:background .2s,color .2s,transform .15s}.ans button:hover{background:#1d5fe0;color:#fff;transform:translateY(-2px)}.ans kbd{font:600 12px Figtree,sans-serif;border:1px solid currentColor;border-radius:6px;padding:0 6px;opacity:.7}
+.sol h2{font:700 28px Figtree,sans-serif;margin:0 0 4px}.sol .tm{display:inline-block;background:#e6f6ef;color:#0b6e48;border-radius:99px;padding:2px 12px;font-size:13px;font-weight:700;margin-bottom:14px}
+.sol ol{padding-left:22px;margin:0 0 20px}.sol li{padding:5px 0}.sol li::marker{font-weight:700;color:#1d5fe0}
+.act{display:flex;gap:10px;flex-wrap:wrap}.act button{font:700 16px Figtree,sans-serif;padding:12px 22px;border-radius:12px;border:0;cursor:pointer}.act .ok{background:#14a36b;color:#fff}.act .no{background:#fff;border:1.5px solid #b9c7dc;color:#0e2038}
+.big{font-size:46px}.ct p{margin:4px 0}.ct b{font:700 24px Figtree,sans-serif}
+.nv{display:flex;gap:10px;margin-top:16px}.nv button{font:600 15px Figtree,sans-serif;background:none;border:1.5px solid #b9c7dc;border-radius:99px;padding:8px 18px;cursor:pointer;color:#0e2038}.nv button[aria-disabled=true]{opacity:.4;cursor:not-allowed}
+.map{background:#fff;border:1px solid #dbe4f1;border-radius:22px;padding:18px}.map h2{font:700 15px Figtree,sans-serif;margin:0 0 10px;letter-spacing:.06em;text-transform:uppercase;color:#4f6280}
+.map svg{width:100%;height:auto;display:block}.nd rect{fill:#f1f4f9;stroke:#c9d4e6;stroke-width:1.5;transition:fill .3s,stroke .3s}.nd text{font:600 10.5px Figtree,sans-serif;fill:#4f6280}.nd.v rect{fill:#e3edff;stroke:#7fa6f2}.nd.v text{fill:#1d4ab4}.nd.c rect{fill:#1d5fe0;stroke:#1d5fe0}.nd.c text{fill:#fff}.nd.s rect{rx:14}.nd.s.v rect,.nd.s.c rect{fill:#14a36b;stroke:#14a36b}.nd.s.v text,.nd.s.c text{fill:#fff}
+.ln{stroke:#c9d4e6;stroke-width:2;fill:none}.ln.v{stroke:#1d5fe0;stroke-width:3;stroke-dasharray:200;stroke-dashoffset:0;animation:dr .5s}@keyframes dr{from{stroke-dashoffset:200}}
+details.mb{display:none}
+@media(max-width:900px){.g{grid-template-columns:minmax(0,1fr)}.map.dk{display:none}details.mb{display:block;background:#fff;border:1px solid #dbe4f1;border-radius:16px;padding:12px 16px;margin-top:14px}details.mb summary{font-weight:700;cursor:pointer}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div class="logo"><i></i>brightwire</div><a href="#">Contact us</a></header>
+<main class="w"><h1>Let's get you back online.</h1>
+<div class="g"><div><section class="card" id="card" aria-live="polite"></section><div class="nv"><button type="button" id="bk" aria-disabled="true">← Back</button><button type="button" id="rs">Restart</button></div>
+<details class="mb"><summary>Show map</summary><div id="mm"></div></details></div>
+<aside class="map dk" aria-label="Troubleshooting map"><h2>Your path</h2><div id="mp"></div></aside></div></main>
+<script>
+(function(){
+var N={q1:{t:'q',q:'Are the lights on your router on?',h:'Look at the front of the box. Any light counts.',a:[['Yes','q2'],['No','s1']]},
+q2:{t:'q',q:'Is the "Internet" light green?',h:'It might be labelled with a globe icon.',a:[['Yes','q3'],['No','q4']]},
+q3:{t:'q',q:'Is the internet missing on every device?',h:'Try your phone and one other device.',a:[['Yes, all of them','s3'],['No, just one','s2']]},
+q4:{t:'q',q:'Is the "Internet" light red, or off?',h:'Red usually means the line has dropped.',a:[['Red','s4'],['Off','s5']]},
+s1:{t:'s',n:'Power check',m:'3 minutes',st:['Check the power cable is pushed firmly into the router and the wall.','Try a different socket, avoiding extension leads if you can.','Press the power button on the back, if there is one, then wait two minutes.','If the lights stay off, the router may need replacing. Contact us.']},
+s2:{t:'s',n:'Single device fix',m:'5 minutes',st:['Turn Wi-Fi off and on again on the affected device.','Forget the "Brightwire" network and reconnect, entering the password on the router sticker.','Restart the device fully.','If other devices work, update the device software and try again.']},
+s3:{t:'s',n:'Restart and test',m:'6 minutes',st:['Unplug the router from the power for 30 seconds.','Plug it back in and wait for the Internet light to turn green (about two minutes).','Connect one device by cable and try a web page.','If it still fails, run a line test from the Brightwire app.']},
+s4:{t:'s',n:'Line fault',m:'10 minutes',st:['Check the phone line cable from the wall socket to the router for damage.','Try the master socket (the first socket in your home) if you use an extension.','Report the fault in the app. We will book an engineer, usually within 2 working days.']},
+s5:{t:'s',n:'Cable and filter check',m:'5 minutes',st:['Make sure the grey broadband cable is pushed into the router DSL port.','Remove any filter and plug the cable straight into the wall socket.','Wait two minutes for the lights to settle.','If the light stays off, contact us and mention "DSL light off".']}};
+var POS={q1:[110,20],q2:[110,100],q3:[40,180],q4:[180,180],s1:[200,20],s2:[0,260],s3:[80,260],s4:[160,260],s5:[240,260]},E=[['q1','q2'],['q1','s1'],['q2','q3'],['q2','q4'],['q3','s2'],['q3','s3'],['q4','s4'],['q4','s5']];
+var path=['q1'],card=document.getElementById('card'),bk=document.getElementById('bk'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,state='';
+var label={q1:'Lights on?',q2:'Internet light green?',q3:'All devices?',q4:'Red or off?',s1:'Power check',s2:'Single device',s3:'Restart',s4:'Line fault',s5:'Cable check'};
+function map(){var cur=path[path.length-1],h='<svg viewBox="-4 0 328 316" role="img" aria-label="Map of the troubleshooting steps">';
+E.forEach(function(e){var a=POS[e[0]],b=POS[e[1]],v=path.indexOf(e[0])>-1&&path.indexOf(e[1])>-1&&path.indexOf(e[1])===path.indexOf(e[0])+1;h+='<path class="ln'+(v?' v':'')+'" d="M'+(a[0]+36)+' '+(a[1]+34)+'C'+(a[0]+36)+' '+(a[1]+62)+' '+(b[0]+36)+' '+(b[1]-28)+' '+(b[0]+36)+' '+b[1]+'"/>'});
+Object.keys(POS).forEach(function(k){var p=POS[k],v=path.indexOf(k)>-1,c=k===cur;h+='<g class="nd '+(k[0]==='s'?'s ':'')+(c?'c':v?'v':'')+'"><rect x="'+p[0]+'" y="'+p[1]+'" width="76" height="34" rx="8"/><text x="'+(p[0]+38)+'" y="'+(p[1]+21)+'" text-anchor="middle">'+(v&&!c?'✓ ':'')+label[k]+'</text></g>'});
+document.getElementById('mp').innerHTML=h+'</svg>';document.getElementById('mm').innerHTML=h+'</svg>'}
+function render(focus){var k=path[path.length-1],n=N[k],h='';var qn=path.filter(function(x){return x[0]==='q'}).length;
+var bc='<div class="bc"><b>'+(n.t==='q'?'Step '+qn+' of about 3':'Your fix')+'</b>'+path.slice(0,-1).map(function(p){return'<span>'+(label[p])+'</span>'}).join('')+'</div>';
+if(n.t==='q'){h=bc+'<div class="stp"><h2 class="qh" tabindex="-1" id="qh">'+n.q+'</h2><p class="hp">'+n.h+'</p><div class="ans">'+n.a.map(function(a,i){return'<button type="button" data-t="'+a[1]+'">'+a[0]+' <kbd>'+(i+1)+'</kbd></button>'}).join('')+'</div></div>'}
+else if(state==='fixed'){h='<div class="stp sol"><div class="big" aria-hidden="true">🎉</div><h2 tabindex="-1" id="qh">Brilliant, you\'re back online!</h2><p>Glad that worked. If it happens again, the Brightwire app can run these checks for you in one tap.</p></div>'}
+else if(state==='contact'){h='<div class="stp sol ct"><h2 tabindex="-1" id="qh">Let us take it from here</h2><p>Our engineers are on hand every day, 8am to 10pm.</p><p><b>0800 555 0199</b></p><p>Or start a web chat in the Brightwire app. Quote reference <b style="font-size:inherit">BW-4821</b>.</p></div>'}
+else{h=bc+'<div class="stp sol"><h2 tabindex="-1" id="qh">'+n.n+'</h2><span class="tm">Takes about '+n.m+'</span><ol>'+n.st.map(function(s){return'<li>'+s+'</li>'}).join('')+'</ol><div class="act"><button class="ok" type="button" data-a="fixed">That fixed it</button><button class="no" type="button" data-a="contact">Still not working</button></div></div>'}
+card.innerHTML=h;bk.setAttribute('aria-disabled',path.length<2&&!state);map();
+card.querySelectorAll('.ans button').forEach(function(b){b.addEventListener('click',function(){go(b.dataset.t)})});card.querySelectorAll('.act button').forEach(function(b){b.addEventListener('click',function(){state=b.dataset.a;render(true)})});
+if(focus){var q=document.getElementById('qh');q&&q.focus()}}
+function go(t){path.push(t);state='';render(true)}
+bk.addEventListener('click',function(){if(bk.getAttribute('aria-disabled')==='true')return;if(state){state=''}else path.pop();render(true)});
+document.getElementById('rs').addEventListener('click',function(){path=['q1'];state='';render(true)});
+document.addEventListener('keydown',function(e){if(/^[1-3]$/.test(e.key)&&!e.ctrlKey&&!e.metaKey&&!/INPUT|TEXTAREA|SELECT/.test((document.activeElement||{}).tagName)){var b=card.querySelectorAll('.ans button')[+e.key-1];if(b)b.click()}});
+render(false);
+})();
+</script></body></html>

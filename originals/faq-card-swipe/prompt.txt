@@ -1,0 +1,11 @@
+Canvas & base: Soft lilac page #efe9fb with a faint grid, ink #231942, secondary #5d5278 (6.3:1). Cards use six flat colours with ink text: #ffd166 (sun), #ef476f (rose, white text #fff on #c9254f for contrast), #06d6a0 mint (ink), #8ecae6 sky (ink), #cdb4ff lilac (ink), #ffb08a peach (ink). Cards 340px by 440px, radius 28px, 2.5px ink border, 6px 6px 0 ink shadow. Invented venue "The Mosaic Museum".
+
+Typography: "DM Serif Display" 400 for card questions (28px, line-height 1.1) and the headline (clamp 36px to 64px); "DM Sans" 400/500/700 for answers (16px/1.55) and UI. Headline: "Planning a visit? Swipe through." 
+
+Layout: Header with wordmark "Mosaic" and a link "Plan your visit". Centre: headline, sub "Eight things people ask before they come. Drag a card away, or use the buttons." then the card stack: the top card fully visible and two cards behind it peeking (scale .95 and .90, offset down 24px and 48px). Each card shows a number "03 / 08", a category tag, the question in the serif font and the answer text. Under the stack: round buttons Previous, "Save for later" (heart) and Next, then progress dots and counters "Seen 3 of 8 · Saved 1". A "Saved cards" list appears below (empty state "Nothing saved yet") listing saved questions as chips that jump back to that card.
+
+Interaction: Pointer drag on the top card moves it with rotation (x/20 degrees); releasing beyond 110px or with velocity above .6px/ms flings it away (350ms) and brings the next card up; releasing earlier springs back (300ms). Dragging right = Next, left = Previous (comes back from behind with a reverse animation). Buttons and keys: Right/Left arrows, Enter/Space on the focused card saves it. After the last card, a "You've seen them all" card appears with a "Start again" button. All motion has keyboard equivalents; the card region is a focusable role=group with aria-live polite announcing "Card 3 of 8: question".
+
+Responsive: Card width 88vw (max 340px) and height 420px on phones; no horizontal scroll at 390px; touch-action pan-y on cards.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Visible focus 3px #231942 with a white halo. Respect prefers-reduced-motion (no fling animation, instant swaps). Invented names only.

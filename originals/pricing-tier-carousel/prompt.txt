@@ -1,0 +1,13 @@
+Canvas & base: Deep ocean page #07202b with a soft teal glow top left (radial-gradient rgba(32,201,176,.22), transparent 45%). Cards #0e3140 with 1px #1d5063 borders and 26px radius; the centred (active) card gets a 2px #20c9b0 border and a lifted shadow. Text #e9f7f5, secondary #9bc2c0 (7:1), accent teal #20c9b0, coral #ff7a59 for badges. Invented product "Harbourlight", uptime monitoring for small websites.
+
+Typography: "Outfit" 600/700 for headings and prices (headline clamp 36px to 64px, line-height 1.05, tracking -.02em); "Inter" 400/500/600 for body 16px. Headline: "Pick the plan that fits your harbour."
+
+Layout: Centred header with label "Pricing", headline, 46ch sub and a currency switch (GBP £, EUR €, USD $ as a three-button radiogroup). Below, a horizontally scrolling track (scroll-snap-type x mandatory, 20px gaps, padding so the first and last card can centre) of five plan cards each 300px wide: Dinghy (free), Skiff £9, Cutter £29 (badge "Most chosen"), Schooner £79, Galleon £199 (all monthly). Each card: name, one line, price in 52px Outfit, "/ month", a "monitors" line (3, 20, 60, 200, 1,000) and 5 features with checks, plus a button "Start free" or "Choose Skiff" etc. Controls below: previous and next round buttons and five dots (buttons with aria-labels), plus text "3 of 5".
+
+Prices: base GBP [0, 9, 29, 79, 199]; EUR x1.17 rounded; USD x1.27 rounded.
+
+Interaction: On desktop the active card (nearest to track centre) is scaled 1.06 and others dimmed to .65 opacity and scale .94 with 250ms transitions; scrolling updates active card via scroll events (rAF throttled). Clicking a non-active card, arrow buttons, dots, or Left/Right keys scroll smoothly to centre it. The track is focusable with a visible outline, role=region with aria-roledescription=carousel and aria-label; each card is role=group aria-label "Plan 3 of 5, Cutter". Currency changes animate prices with a quick vertical swap (200ms). On first load the Cutter card is centred.
+
+Responsive: Cards are 78vw wide under 600px (max 300px); the track keeps snap behaviour; no horizontal page scroll at 390px (only the track scrolls).
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. aria-live polite announces the active plan. Respect prefers-reduced-motion (instant scrolling, no scaling transitions). Invented names only.

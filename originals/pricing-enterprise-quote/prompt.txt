@@ -1,0 +1,13 @@
+Canvas & base: Light grey-blue page #eef1f6, ink #0f1b2d, secondary #52617a (6:1), navy #0f2a52 for the receipt panel, electric blue #2f6bff for primary, mint #17b890 for savings. Cards white with 1px #dbe2ee borders, radius 18px. Invented vendor "Northgate Systems", an operations platform for logistics firms.
+
+Typography: "Manrope" 600/700/800 for headings and numbers (headline clamp 34px to 58px, line-height 1.08, tracking -.02em); "Inter" 400/500/600 for body 16px; "DM Mono" 400 for receipt amounts at 14px. Headline: "Build your Northgate quote."
+
+Layout: Two-column layout (main 1.4fr, receipt 1fr, sticky). Left: step 1 "Choose modules": eight toggle cards in a 2-column grid (Dispatch £18 per seat, Fleet tracking £12, Warehouse £22, Customer portal £9, Analytics £14, Billing £11, API access £6, SSO and audit £8); each card shows name, one line, price per seat per month, and a custom checkbox; step 2 "Seats": a slider 10 to 500 (default 60) with a number input; step 3 "Term": three radio cards (1 year, 2 years -8%, 3 years -15%); step 4 "Support": a select (Standard included, Priority +10%, Dedicated +20%). Right: the receipt: lists each chosen module with seats x price per month, subtotal, volume discount (5% from 50 seats, 10% from 150, 15% from 300), term discount, support uplift, "Annual total" in 36px and "Per seat per month" below. A savings chip "You save £x vs list". Buttons: "Request this quote" (opens a native dialog with name, work email, company, phone optional, a summary and a Send button with validation and a success state) and "Copy summary".
+
+Calculation: monthly = sum(module price) * seats; after volume and term discount; support uplift on the discounted figure; annual = monthly * 12; savings = list annual - final annual.
+
+Interaction: Toggle cards respond to Space/Enter with pressed styling; changing any input recalculates with a 300ms number tween. If no module is selected the receipt shows an empty state "Pick at least one module to see a price." and disables the buttons (aria-disabled). Copy summary uses clipboard in try/catch with "Copied" feedback.
+
+Responsive: Under 960px the receipt moves below and is no longer sticky, with a compact total bar fixed to the bottom showing the annual total; no horizontal scroll at 390px.
+
+Rules: Single HTML file, Google Fonts link, inline CSS/JS, no libraries or external images. [hidden]{display:none!important}. Native dialog showModal, labelled fields, aria-live on the total. Respect prefers-reduced-motion (instant numbers). Invented names; example.com addresses only.

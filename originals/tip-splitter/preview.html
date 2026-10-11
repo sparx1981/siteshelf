@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tip &amp; Bill Splitter — Widgets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#14231c;--mut:#5b7367;--ac:#1f9d6b;--dk:#0f3d2e;--mint:#5ee6a8;--bd:#d4e5dc}
+*{box-sizing:border-box}
+body{margin:0;background:#e8f3ee;color:var(--ink);font:500 16px/1.5 'DM Sans',system-ui,sans-serif;min-height:100svh;display:grid;place-items:center;padding:24px 16px}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px;border-radius:10px}
+.card{width:100%;max-width:880px;background:#fff;border-radius:28px;padding:16px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;box-shadow:0 24px 60px rgba(15,61,46,.15)}
+.in{padding:20px 18px;display:flex;flex-direction:column;gap:22px}
+.brand{font:700 20px 'DM Sans';letter-spacing:-.01em;display:flex;gap:8px;align-items:center}
+.brand i{width:20px;height:20px;border-radius:50%;background:linear-gradient(90deg,var(--ac) 50%,var(--mint) 50%)}
+label.h,.h{font-weight:700;font-size:14px;color:var(--mut);display:flex;justify-content:space-between;margin-bottom:8px}
+.err{color:#d6336c}
+.fld{position:relative}
+.fld span{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--mut);font-weight:700}
+.fld input{width:100%;min-height:54px;border:2px solid var(--bd);border-radius:14px;background:#f3faf6;padding:0 16px 0 34px;font:500 24px 'DM Mono',monospace;text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+.fld input:focus{border-color:var(--ac);outline:0;background:#fff}
+.fld.bad input{border-color:#d6336c}
+.tips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.tips button{min-height:52px;border:0;border-radius:12px;background:var(--dk);color:#fff;font:700 18px 'DM Sans';cursor:pointer;transition:background .15s,color .15s}
+.tips button:hover{background:#1c5a45}
+.tips button[aria-checked=true]{background:var(--mint);color:var(--dk)}
+.tips input{min-height:52px;border:2px solid var(--bd);border-radius:12px;background:#f3faf6;text-align:center;font:700 16px 'DM Sans';width:100%;min-width:0;color:var(--ink)}
+.tips input::placeholder{color:var(--mut)}
+.tips input:focus{border-color:var(--ac);outline:0}
+.stp{display:flex;align-items:center;border:2px solid var(--bd);border-radius:14px;background:#f3faf6;overflow:hidden}
+.stp button{width:56px;height:52px;border:0;background:none;font:700 26px 'DM Sans';cursor:pointer;color:var(--ac)}
+.stp button:hover{background:#e0f3ea}
+.stp button:disabled{opacity:.3;cursor:not-allowed}
+.stp input{flex:1;min-width:0;text-align:center;border:0;background:none;font:500 24px 'DM Mono',monospace;color:var(--ink);padding:0}
+.stp input:focus{outline:0}
+.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;background:#f3faf6;border:2px solid var(--bd);border-radius:14px;padding:4px}
+.seg button{min-height:42px;border:0;background:none;border-radius:10px;font:700 14px 'DM Sans';color:var(--mut);cursor:pointer}
+.seg button[aria-checked=true]{background:var(--ac);color:#fff}
+.out{background:var(--dk);color:#fff;border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:14px}
+.big{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.big small{display:block;color:#a9d9c4;font-weight:500;font-size:14px}
+.big b{font:500 clamp(30px,5vw,46px)/1 'DM Mono',monospace;color:var(--mint);font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+.big small span{display:block;font-size:12.5px}
+.rows{border-top:1px solid #1e5f48;padding-top:10px;display:grid;gap:6px;font-size:15px}
+.rows div{display:flex;justify-content:space-between;color:#cfe9dd}.rows div b{font-family:'DM Mono',monospace;color:#fff;font-weight:500}
+.rnd{font-size:13.5px;color:#a9d9c4;min-height:20px}
+.rc{background:#fff;color:var(--ink);border-radius:6px;padding:16px 18px 20px;font:500 13.5px/1.7 'DM Mono',monospace;position:relative;-webkit-mask:radial-gradient(circle 6px at 6px 100%,#0000 98%,#000) bottom/12px 100% repeat-x,linear-gradient(#000 0 0);mask-composite:intersect;}
+.rc{-webkit-mask:none;mask:none;background:#fff;background-image:linear-gradient(135deg,transparent 33%,#fff 33%),linear-gradient(225deg,transparent 33%,#fff 33%)}
+.rc::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:8px;background:conic-gradient(from -45deg at bottom,#0000,#fff 1deg 90deg,#0000 91deg) 0 0/12px 8px repeat-x}
+.rc .l{display:flex;justify-content:space-between}
+.rc hr{border:0;border-top:1px dashed #b8c7bf;margin:8px 0}
+.cp,.rs{min-height:48px;border-radius:12px;border:0;font:700 15px 'DM Sans';cursor:pointer}
+.cp{background:var(--mint);color:var(--dk)}
+.rs{background:#1c5a45;color:#fff}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sr{position:absolute;left:-9999px}
+@media(max-width:760px){.card{grid-template-columns:minmax(0,1fr)}.out{order:2}}
+@media(max-width:420px){.in{padding:14px 8px}.out{padding:20px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<main class="card"><section class="in" aria-label="Inputs">
+ <div class="brand"><i></i>Splitly</div>
+ <div><label class="h" for="bl">Bill <span class="err" id="e1"></span></label><div class="fld" id="fb"><span>£</span><input id="bl" inputmode="decimal" value="84.60" autocomplete="off"></div></div>
+ <div><div class="h" id="tl">Select tip %</div><div class="tips" role="radiogroup" aria-labelledby="tl" id="tp"></div></div>
+ <div><label class="h" for="np">Number of people <span class="err" id="e2"></span></label><div class="stp"><button id="mi" aria-label="One fewer person">−</button><input id="np" inputmode="numeric" value="4"><button id="pl" aria-label="One more person">+</button></div></div>
+ <div><div class="h" id="rl">Round</div><div class="seg" role="radiogroup" aria-labelledby="rl" id="sg"><button role="radio" aria-checked="true" data-r="exact">Exact</button><button role="radio" aria-checked="false" tabindex="-1" data-r="up">Up</button><button role="radio" aria-checked="false" tabindex="-1" data-r="half">To 50p</button></div></div>
+</section>
+<section class="out" aria-label="Results"><div class="big"><div><small>Tip amount<span>/ person</span></small></div><b id="o1">£0.00</b></div><div class="big"><div><small>Total<span>/ person</span></small></div><b id="o2">£0.00</b></div><div class="rnd" id="rn"></div>
+ <div class="rows"><div><span>Bill</span><b id="r1"></b></div><div><span>Tip (<span id="rp"></span>)</span><b id="r2"></b></div><div><span>Grand total</span><b id="r3"></b></div></div>
+ <div class="rc" id="rc" aria-label="Receipt"></div>
+ <div class="btns"><button class="cp" id="cp">Copy summary</button><button class="rs" id="rs">Reset</button></div></section>
+<div class="sr" id="lv" aria-live="polite"></div></main>
+<script>
+const $=s=>document.querySelector(s),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const F=new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'});
+const PRE=[10,12.5,15,18,20];let tip=15,custom=null,round='exact',cur={o1:0,o2:0};
+const tp=$('#tp');PRE.forEach((p,i)=>{const b=document.createElement('button');b.textContent=p+'%';b.setAttribute('role','radio');b.setAttribute('aria-checked',p===tip);b.tabIndex=p===tip?0:-1;b.onclick=()=>pick(i);b.onkeydown=e=>{let n=-1;if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%5;else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i+4)%5;if(n>=0){e.preventDefault();pick(n);tp.children[n].focus()}};tp.append(b)});
+const ci=document.createElement('input');ci.placeholder='Custom';ci.setAttribute('aria-label','Custom tip percent');ci.inputMode='decimal';tp.append(ci);
+function pick(i){tip=PRE[i];custom=null;ci.value='';[...tp.children].forEach((b,k)=>{if(k<5){b.setAttribute('aria-checked',k===i);b.tabIndex=k===i?0:-1}});calc()}
+ci.oninput=()=>{const v=parseFloat(ci.value);if(!isNaN(v)&&v>=0&&v<=100){custom=v;tip=v;[...tp.children].forEach((b,k)=>{if(k<5){b.setAttribute('aria-checked','false');b.tabIndex=k?-1:0}})}else{custom=null}calc()};
+const sg=[...$('#sg').children];sg.forEach((b,i)=>{b.onclick=()=>rd(i);b.onkeydown=e=>{let n=-1;if(e.key==='ArrowRight')n=(i+1)%3;else if(e.key==='ArrowLeft')n=(i+2)%3;if(n>=0){e.preventDefault();rd(n);sg[n].focus()}}});
+function rd(i){round=sg[i].dataset.r;sg.forEach((b,k)=>{b.setAttribute('aria-checked',k===i);b.tabIndex=k===i?0:-1});calc()}
+$('#bl').oninput=()=>calc();$('#np').oninput=()=>calc();
+const step=d=>{const n=parseInt($('#np').value)||1;$('#np').value=Math.max(1,Math.min(99,n+d));calc()};$('#mi').onclick=()=>step(-1);$('#pl').onclick=()=>step(1);
+function roll(el,key,to){if(rm){cur[key]=to;el.textContent=F.format(to);return}const from=cur[key];cur[key]=to;let t0;const f=t=>{t0=t0||t;const p=Math.min(1,(t-t0)/250);el.textContent=F.format(from+(to-from)*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
+let say=0,lastSay='';
+function calc(){const bill=parseFloat($('#bl').value.replace(/,/g,'')),n=parseInt($('#np').value);
+ $('#fb').classList.toggle('bad',isNaN(bill)||bill<0);$('#e1').textContent=isNaN(bill)||bill<0?'Enter a valid amount':'';$('#e2').textContent=!(n>0)?'Can’t be zero':'';$('#mi').disabled=!(n>1);
+ if(isNaN(bill)||bill<0||!(n>0)){['o1','o2','r1','r2','r3'].forEach(k=>$('#'+k).textContent='—');$('#rc').innerHTML='';$('#rn').textContent='';return}
+ const t=bill*tip/100;let pp=(bill+t)/n,adj=0;
+ if(round==='up'){const r=Math.ceil(pp-1e-9);adj=r-pp;pp=r}else if(round==='half'){const r=Math.ceil(pp*2-1e-9)/2;adj=r-pp;pp=r}
+ const tpp=t/n+adj,grand=pp*n;
+ roll($('#o1'),'o1',tpp);roll($('#o2'),'o2',pp);$('#r1').textContent=F.format(bill);$('#r2').textContent=F.format(t+adj*n);$('#r3').textContent=F.format(grand);$('#rp').textContent=(Math.round(tip*10)/10)+'%';
+ $('#rn').textContent=Math.abs(adj)>0.004?'Rounded +'+F.format(adj)+' each':'';
+ $('#rc').innerHTML='';const lines=[['Bill',F.format(bill)],['Tip '+(Math.round(tip*10)/10)+'%',F.format(t+adj*n)],['hr'],['Total',F.format(grand)],['Split ×'+n,F.format(pp)+' ea']];lines.forEach(l=>{if(l[0]==='hr'){$('#rc').append(document.createElement('hr'));return}const d=document.createElement('div');d.className='l';const a=document.createElement('span'),b=document.createElement('span');a.textContent=l[0];b.textContent=l[1];d.append(a,b);$('#rc').append(d)});
+ const msg=n+' people pay '+F.format(pp)+' each';if(msg!==lastSay&&Date.now()-say>900){say=Date.now();lastSay=msg;$('#lv').textContent=msg}}
+$('#cp').onclick=async()=>{const t=[...$('#rc').children].map(e=>e.tagName==='HR'?'-----':e.children[0].textContent+': '+e.children[1].textContent).join('\n');let ok=false;try{await navigator.clipboard.writeText('Splitly\n'+t);ok=true}catch(e){try{const a=document.createElement('textarea');a.value='Splitly\n'+t;document.body.append(a);a.select();ok=document.execCommand('copy');a.remove()}catch(e2){}}
+ $('#cp').textContent=ok?'Copied ✓':'Select & copy';$('#lv').textContent=ok?'Summary copied':'Copy failed';setTimeout(()=>$('#cp').textContent='Copy summary',1600)};
+$('#rs').onclick=()=>{$('#bl').value='84.60';$('#np').value=4;ci.value='';custom=null;pick(2);rd(0);calc()};
+calc();
+</script></body></html>

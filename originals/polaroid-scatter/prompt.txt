@@ -1,0 +1,11 @@
+Canvas & base: A wooden desk surface #8b6a4a with subtle plank lines (repeating linear-gradients) and a vignette. Polaroid frames #fdfbf5 with soft shadows; photo areas are generated scenes (CSS gradients and simple SVG shapes: mountains, sunsets, a cat silhouette, a lighthouse, a city skyline, a lake). Ink for captions #3a2f25. Invented album "Summer at Gull Point".
+
+Typography: "Reenie Beanie" for captions at 22px and back-of-photo notes; "Karla" (500,700) for UI at 14px.
+
+Layout: A top toolbar (title, Shuffle, Tidy up, Flip all, photo count). The desk area fills the viewport; ten polaroids (200×240px, rotated -12° to 12°) are scattered around. Each polaroid has the scene, a handwritten caption and a date. The back side (shown on flip) is a cream card with a handwritten note and a tiny stamp.
+
+Interaction: Pointer drag moves a polaroid (captured pointer, bring to front on grab, lifts with shadow and straightens a few degrees); double-click or the flip button (visible on focus/hover) flips the card with a 3D rotateY transition revealing the note. Shuffle animates all cards to new random positions with random rotation; Tidy up animates them into a neat grid; Flip all toggles every card. Keyboard: focus a card and use arrow keys to nudge (Shift for bigger), Enter to flip, + to bring to front. Positions clamp within the desk. Reduced motion uses instant moves and no flip animation (cross-fade).
+
+Responsive: On narrow screens cards are 160×196px; tidy grid adapts to columns that fit; the desk scrolls internally rather than the page; no horizontal page overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, invented names only.

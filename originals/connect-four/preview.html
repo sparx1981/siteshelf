@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Connect Four vs Computer — Games</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--sz:min(92vw,560px);--red:#ff4d5e;--yel:#ffd23f}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 50% 0,#1d3566,#12203d 60%);color:#f4f7ff;font:500 16px/1.4 Fredoka,system-ui,sans-serif;min-height:100svh;display:flex;flex-direction:column;align-items:center;padding:22px 12px 40px;gap:14px}
+:focus-visible{outline:3px solid #5ee0ff;outline-offset:3px;border-radius:12px}
+h1{font:700 clamp(34px,9vw,48px)/1 Fredoka;margin:0;letter-spacing:-.01em}h1 i{font-style:normal;color:var(--red)}h1 b{color:var(--yel)}
+.row{width:var(--sz);display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.seg{display:inline-flex;background:#0b1530;border-radius:12px;padding:3px}
+.seg button{min-height:40px;border:0;background:none;color:#9db0d8;border-radius:9px;padding:0 14px;font:600 14px Fredoka;cursor:pointer}
+.seg button[aria-checked=true]{background:#5ee0ff;color:#06203a}
+select{min-height:44px;border:0;border-radius:12px;background:#0b1530;color:#f4f7ff;padding:0 12px;font:600 14px Fredoka}
+.sb{width:var(--sz);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;text-align:center}
+.sb div{background:#0b1530;border-radius:14px;padding:8px}
+.sb small{display:block;color:#9db0d8;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.sb b{font:700 28px Fredoka}
+.sb .r b{color:var(--red)}.sb .y b{color:var(--yel)}
+.tn{width:var(--sz);display:flex;align-items:center;justify-content:center;gap:10px;font:600 22px Fredoka;min-height:40px}
+.sw{width:26px;height:26px;border-radius:50%}
+.sw.r{background:var(--red)}.sw.y{background:var(--yel)}
+.bw{position:relative;width:var(--sz)}
+.cols{display:grid;grid-template-columns:repeat(7,1fr);padding:0 2.2%;height:calc(var(--sz)/7*.8)}
+.cols button{background:none;border:0;cursor:pointer;position:relative;border-radius:12px;padding:0}
+.cols button:disabled{cursor:not-allowed}
+.cols button::after{content:"";position:absolute;left:12%;right:12%;top:4%;aspect-ratio:1;border-radius:50%;background:var(--gh,#fff);opacity:0;transition:opacity .15s}
+.cols button:hover:not(:disabled)::after,.cols button:focus-visible::after,.cols button.cur::after{opacity:.55}
+.cols button.cur{outline:3px solid #5ee0ff44}
+.bd{position:relative;background:#1f4bd8;border-radius:18px;padding:2.2%;box-shadow:inset 0 -6px 0 #1738a8,0 18px 40px rgba(0,0,0,.45)}
+.gr{display:grid;grid-template-columns:repeat(7,1fr);gap:2.2%}
+.ce{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 50%,#0b1530 62%,#0b1530 100%);box-shadow:inset 0 4px 8px rgba(0,0,0,.6);position:relative;overflow:visible}
+.dc{position:absolute;inset:6%;border-radius:50%;animation:dr var(--t,.5s) cubic-bezier(.5,0,.8,.6),bn .25s var(--t,.5s)}
+.dc.r{background:radial-gradient(circle at 35% 30%,#ff8a95,var(--red) 55%,#d12d3e);box-shadow:inset 0 0 0 5px #e03545,inset 0 0 0 9px #ff7380}
+.dc.y{background:radial-gradient(circle at 35% 30%,#ffe98a,var(--yel) 55%,#e0a900);box-shadow:inset 0 0 0 5px #efb800,inset 0 0 0 9px #ffe27a}
+@keyframes dr{from{transform:translateY(var(--from))}}
+@keyframes bn{50%{transform:translateY(-6%)}}
+.dc.w{animation:wn .8s infinite alternate;box-shadow:0 0 0 4px #fff,0 0 22px 6px #fff}
+@keyframes wn{from{filter:brightness(1)}to{filter:brightness(1.4)}}
+.btns{display:flex;gap:10px}
+.b{min-height:46px;border:0;border-radius:12px;padding:0 22px;font:600 16px Fredoka;cursor:pointer;background:#5ee0ff;color:#06203a}
+.b.g{background:#2a3d6e;color:#f4f7ff}.b:disabled{opacity:.4;cursor:not-allowed}
+.sr{position:absolute;left:-9999px}
+@media(prefers-reduced-motion:reduce){.dc{animation:none!important}.dc.w{animation:none!important}}
+</style></head><body>
+<h1>Drop <i>F</i><b>our</b></h1>
+<div class="row"><div class="seg" role="radiogroup" aria-label="Mode" id="md"><button role="radio" aria-checked="true" data-m="cpu">vs Computer</button><button role="radio" aria-checked="false" tabindex="-1" data-m="two">2 Players</button></div>
+<label class="sr" for="df">Difficulty</label><select id="df"><option value="2">Easy</option><option value="4" selected>Medium</option><option value="6">Hard</option></select></div>
+<div class="sb"><div class="r"><small id="l1">You</small><b id="s1">0</b></div><div><small>Draws</small><b id="s0">0</b></div><div class="y"><small id="l2">Computer</small><b id="s2">0</b></div></div>
+<div class="tn" id="tn" role="status"><span class="sw r" id="tw"></span><span id="tt">Your turn</span></div>
+<div class="bw"><div class="cols" id="cl" role="group" aria-label="Drop a disc in column"></div><div class="bd"><div class="gr" id="gr" role="img" aria-label="Game board"></div></div></div>
+<div class="btns"><button class="b" id="nw">New game</button><button class="b g" id="un">Undo</button></div>
+<div class="sr" id="lv" aria-live="polite"></div>
+<script>
+const $=s=>document.querySelector(s),R=6,C=7;
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let b,turn,mode='cpu',depth=4,hist=[],over=false,busy=false,cur=3,sc=[0,0,0],starter=1;
+const say=t=>{$('#lv').textContent='';setTimeout(()=>$('#lv').textContent=t,40)};
+const gr=$('#gr'),cl=$('#cl'),cells=[];
+for(let r=0;r<R;r++)for(let c=0;c<C;c++){const d=document.createElement('div');d.className='ce';gr.append(d);cells.push(d)}
+const cols=[];for(let c=0;c<C;c++){const k=document.createElement('button');k.setAttribute('aria-label','Column '+(c+1));k.onclick=()=>play(c,true);k.onmouseenter=()=>{cur=c;mark()};k.onfocus=()=>{cur=c;mark()};cl.append(k);cols.push(k)}
+function mark(){cols.forEach((k,i)=>k.classList.toggle('cur',i===cur&&document.activeElement===k))}
+function fresh(){b=Array.from({length:R},()=>Array(C).fill(0));turn=starter;over=false;busy=false;hist=[];cells.forEach(c=>c.innerHTML='');upd();if(mode==='cpu'&&turn===2)setTimeout(cpu,500)}
+function drop(bd,c){for(let r=R-1;r>=0;r--)if(!bd[r][c])return r;return -1}
+function winLine(bd,p){const D=[[0,1],[1,0],[1,1],[1,-1]];for(let r=0;r<R;r++)for(let c=0;c<C;c++){if(bd[r][c]!==p)continue;for(const[dr,dc]of D){const L=[[r,c]];for(let k=1;k<4;k++){const rr=r+dr*k,cc=c+dc*k;if(rr<0||rr>=R||cc<0||cc>=C||bd[rr][cc]!==p)break;L.push([rr,cc])}if(L.length===4)return L}}return null}
+function full(bd){return bd[0].every(x=>x)}
+function play(c,human){if(over||busy)return;if(human&&mode==='cpu'&&turn===2)return;const r=drop(b,c);if(r<0){say('Column '+(c+1)+' is full');return}
+ b[r][c]=turn;hist.push([r,c,turn]);const d=document.createElement('div');d.className='dc '+(turn===1?'r':'y');const dist=r+1;d.style.setProperty('--from',`${-(dist*108)-60}%`);d.style.setProperty('--t',(rm?0:.18+dist*.07)+'s');cells[r*C+c].append(d);
+ const who=turn;const w=winLine(b,turn);
+ if(w){over=true;w.forEach(([rr,cc])=>setTimeout(()=>cells[rr*C+cc].firstChild.classList.add('w'),rm?0:400));sc[who]++;upd();say((who===1?(mode==='cpu'?'You win':'Red wins'):(mode==='cpu'?'Computer wins':'Yellow wins'))+'!');return}
+ if(full(b)){over=true;sc[0]++;upd();say('Draw');return}
+ say((mode==='cpu'?(who===1?'You':'Computer'):(who===1?'Red':'Yellow'))+' dropped in column '+(c+1));
+ turn=3-turn;upd();if(mode==='cpu'&&turn===2){busy=true;setTimeout(()=>{busy=false;cpu()},450)}}
+function upd(){$('#s1').textContent=sc[1];$('#s2').textContent=sc[2];$('#s0').textContent=sc[0];$('#l1').textContent=mode==='cpu'?'You':'Red';$('#l2').textContent=mode==='cpu'?'Computer':'Yellow';
+ const tw=$('#tw');tw.className='sw '+(turn===1?'r':'y');
+ const t=over?(winLine(b,1)?(mode==='cpu'?'You win! 🎉':'Red wins! 🎉'):winLine(b,2)?(mode==='cpu'?'Computer wins':'Yellow wins! 🎉'):'It’s a draw'):(mode==='cpu'?(turn===1?'Your turn':'Thinking…'):(turn===1?'Red’s turn':'Yellow’s turn'));$('#tt').textContent=t;
+ cols.forEach((k,c)=>k.disabled=over||drop(b,c)<0||(mode==='cpu'&&turn===2));$('#cl').style.setProperty('--gh',turn===1?'#ff4d5e':'#ffd23f');cols.forEach(k=>k.style.setProperty('--gh',turn===1?'#ff4d5e':'#ffd23f'));$('#un').disabled=!hist.length}
+/* AI */
+const ORDER=[3,2,4,1,5,0,6];
+function score4(w,p){const o=3-p,a=w.filter(x=>x===p).length,e=w.filter(x=>!x).length,q=w.filter(x=>x===o).length;if(a===4)return 1e5;if(a===3&&e===1)return 50;if(a===2&&e===2)return 8;if(q===3&&e===1)return -60;return 0}
+function evalB(bd,p){let s=0;for(let r=0;r<R;r++)if(bd[r][3]===p)s+=6;else if(bd[r][3]===3-p)s-=6;
+ for(let r=0;r<R;r++)for(let c=0;c<C;c++){if(c+3<C)s+=score4([0,1,2,3].map(k=>bd[r][c+k]),p);if(r+3<R)s+=score4([0,1,2,3].map(k=>bd[r+k][c]),p);if(r+3<R&&c+3<C)s+=score4([0,1,2,3].map(k=>bd[r+k][c+k]),p);if(r+3<R&&c-3>=0)s+=score4([0,1,2,3].map(k=>bd[r+k][c-k]),p)}return s}
+function mm(bd,d,al,be,max,p){const w1=winLine(bd,p),w2=winLine(bd,3-p);if(w1)return 1e6+d;if(w2)return -1e6-d;if(full(bd))return 0;if(d===0)return evalB(bd,p);
+ if(max){let v=-Infinity;for(const c of ORDER){const r=drop(bd,c);if(r<0)continue;bd[r][c]=p;v=Math.max(v,mm(bd,d-1,al,be,false,p));bd[r][c]=0;al=Math.max(al,v);if(al>=be)break}return v}
+ let v=Infinity;for(const c of ORDER){const r=drop(bd,c);if(r<0)continue;bd[r][c]=3-p;v=Math.min(v,mm(bd,d-1,al,be,true,p));bd[r][c]=0;be=Math.min(be,v);if(al>=be)break}return v}
+function cpu(){if(over)return;const bd=b.map(r=>r.slice());let best=-Infinity,pick=[];for(const c of ORDER){const r=drop(bd,c);if(r<0)continue;bd[r][c]=2;const v=mm(bd,depth-1,-Infinity,Infinity,false,2);bd[r][c]=0;if(depth<=2)(v+Math.random()*30>best)&&(best=v+Math.random()*30,pick=[c]);else if(v>best){best=v;pick=[c]}else if(v===best)pick.push(c)}
+ play(pick[Math.floor(Math.random()*pick.length)]??pick[0],false)}
+$('#nw').onclick=()=>{starter=mode==='cpu'?(starter===1?2:1):(starter===1?2:1);fresh()};
+$('#un').onclick=()=>{if(!hist.length||busy)return;let n=mode==='cpu'?(hist[hist.length-1][2]===2?2:1):1;if(over)n=mode==='cpu'?(hist[hist.length-1][2]===2?2:1):1;
+ if(over){const L=winLine(b,hist[hist.length-1][2]);if(L){sc[hist[hist.length-1][2]]--}else sc[0]--;over=false}
+ while(n-->0&&hist.length){const[r,c,p]=hist.pop();b[r][c]=0;cells[r*C+c].innerHTML='';turn=p}
+ cells.forEach(c=>c.firstChild&&c.firstChild.classList.remove('w'));upd();say('Move undone')};
+const mb=[...$('#md').children];mb.forEach((x,i)=>{x.onclick=()=>{mode=x.dataset.m;mb.forEach(y=>{y.setAttribute('aria-checked',y===x);y.tabIndex=y===x?0:-1});$('#df').disabled=mode!=='cpu';sc=[0,0,0];starter=1;fresh()};x.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const o=mb[1-i];o.click();o.focus()}}});
+$('#df').onchange=e=>{depth=+e.target.value};
+document.addEventListener('keydown',e=>{if(document.activeElement.closest('select,#md'))return;
+ if(e.key==='ArrowRight'){cur=Math.min(C-1,cur+1);cols[cur].focus();e.preventDefault()}else if(e.key==='ArrowLeft'){cur=Math.max(0,cur-1);cols[cur].focus();e.preventDefault()}
+ else if(/^[1-7]$/.test(e.key)){play(+e.key-1,true)}else if((e.key==='Enter'||e.key===' ')&&document.activeElement.closest('#cl')){}});
+fresh();
+</script></body></html>

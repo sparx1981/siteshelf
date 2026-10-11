@@ -1,0 +1,11 @@
+Canvas & base: A calm showcase page on #f4f1fb with white surfaces, ink #1d1730, secondary #6f6890, accent violet #6d4aff, tint #ece7ff, border #ddd6f3. Invented site "Orchid Notes".
+
+Typography: "Sora" (500,600,700) at 15px; page title 32px at 700.
+
+Layout: A centred 900px column with three demos. 1) Pill nav: five links in a rounded bar; a single absolutely-positioned pill element slides and resizes to the hovered or focused link and rests on the current link when the pointer leaves. 2) Scroll-spy tabs: a sticky bar of section links with an animated underline; below it a scrollable region with four sections tall enough to scroll, where the active tab follows scroll position. 3) Icon dock: seven inline-SVG icon buttons whose size scales with pointer distance (macOS-style magnification) with labels as tooltips.
+
+Interaction: The pill measures offsetLeft and offsetWidth and animates via transform and width; it handles resize with ResizeObserver. Links are real anchors with aria-current on the active one; arrow keys move focus between links and Enter selects. Scroll-spy uses IntersectionObserver within the scroll container and smooth-scrolls on click; the underline animates. Dock magnification is based on pointer x distance with a smooth falloff, disabled for coarse pointers and reduced motion; tooltips show on hover and focus and are tied with aria-labelledby. Selecting a dock item shows a small toast and sets a pressed state.
+
+Responsive: Pill nav scrolls horizontally inside its own container at narrow widths; dock icons shrink; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented names only.

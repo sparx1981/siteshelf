@@ -1,0 +1,11 @@
+Canvas & base: A corkboard surface (#c8a574 with a subtle noise built from layered radial-gradients) inside a #5a3d1e frame (14px border, 18px radius). Note colours: yellow #fff176, pink #ff9ec7, mint #9df2c0, sky #9bd5ff, lilac #d2b6ff. Ink #2b2418 on notes, UI chips #fff8ea. Invented tool "Pinboard Lane".
+
+Typography: "Caveat" (600) for note text at 24px; "Nunito" (600,700) for UI at 14px.
+
+Layout: A top toolbar (Add note button with colour swatches, Clear board, note count, Undo). The board fills the remaining viewport height (min 520px) with five starter notes at slight random rotations (-3° to 3°) and soft drop shadows. A trash zone fixed bottom-right appears while dragging.
+
+Interaction: Notes are absolutely positioned and draggable with pointer events (captured), brought to front on pointerdown, rotation straightens to 0° while dragging. Text is contenteditable with placeholder; notes auto-grow in height. Each note has a small hover/focus toolbar for colour change (cycle) and delete. Drag a note onto the trash zone to delete it (zone highlights). Deleting stores the note for Undo (button and Ctrl/Cmd+Z). Keyboard: a focused note moves with arrow keys (10px, Shift for 40px), Delete removes, Enter edits, Escape leaves edit mode. New notes appear at a staggered position with a drop-in animation. Positions are clamped to the board. Announce adds, deletes and undos in a live region.
+
+Responsive: On narrow screens the board is scrollable-free and notes are limited to 200px width; touch drag uses touch-action:none on the drag handle (note header) so text editing and scrolling still work; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented names only.

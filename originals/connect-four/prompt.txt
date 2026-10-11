@@ -1,0 +1,11 @@
+Canvas & base: A bold arcade look on #12203d with a glossy blue board (#1f4bd8 with an inner highlight), holes cut by radial gradients, discs red #ff4d5e and yellow #ffd23f with inset ring details. Ink #f4f7ff, secondary #9db0d8, accent #5ee0ff. Invented game "Drop Four".
+
+Typography: "Fredoka" (500,600,700) for everything; headline 40px; turn banner 22px.
+
+Layout: A centred 560px column: title, a mode/difficulty row (segmented control: vs Computer / 2 Players; select: Easy, Medium, Hard), a scoreboard (You, Draws, Computer) and a turn banner with a disc swatch. The 7×6 board uses a CSS grid of cells with aspect-ratio 1; a transparent overlay row of seven column buttons above it shows a ghost disc on hover/focus and handles clicks. Buttons under the board: New game, Undo.
+
+Interaction: Discs animate down with a gravity-style CSS transition and a small bounce at landing. The computer uses minimax with alpha-beta pruning (depth 2/4/6) and a centre-weighted heuristic, replying after 450ms with "Thinking…" shown. Win detection highlights the four discs with a pulsing ring and shows a banner; a full board is a draw. Keyboard: arrow keys move a column cursor, Enter/Space/1–7 drops. Undo removes the last move (two in vs Computer mode). Scores persist in memory only. A visually hidden live region announces moves, wins and draws ("Computer dropped in column 4").
+
+Responsive: Board scales to min(92vw, 560px); no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented names only.

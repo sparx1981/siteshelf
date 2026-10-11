@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Weekly Time-Block Planner — App UI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#111827;--mut:#6b7280;--ac:#4f46e5;--bd:#e6e9ef;--hh:48px}
+*{box-sizing:border-box}
+body{margin:0;background:#f7f8fa;color:var(--ink);font:400 13px/1.4 Inter,system-ui,sans-serif;padding:20px clamp(12px,2.5vw,32px) 40px}
+:focus-visible{outline:3px solid #a5b4fc;outline-offset:1px;border-radius:6px}
+.hd{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.hd h1{font:700 20px Inter;margin:0 8px 0 0}.hd .rg{font:600 15px Inter;color:var(--mut)}
+.bt{min-height:38px;border:1px solid var(--bd);background:#fff;border-radius:9px;padding:0 14px;font:600 13px Inter;cursor:pointer;color:var(--ink)}
+.bt:hover{background:#f1f2f6}
+.lg{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.lg button{min-height:34px;border:1.5px solid var(--bd);background:#fff;border-radius:99px;padding:0 12px;font:600 12.5px Inter;cursor:pointer;display:inline-flex;gap:7px;align-items:center}
+.lg button[aria-pressed=false]{opacity:.45}
+.lg i{width:10px;height:10px;border-radius:50%}
+.lay{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:16px;align-items:start}
+.cal{background:#fff;border:1px solid var(--bd);border-radius:16px;overflow:hidden}
+.dh{display:grid;grid-template-columns:52px repeat(var(--n,7),minmax(0,1fr));border-bottom:1px solid var(--bd);position:sticky;top:0;background:#fff;z-index:5}
+.dh div{padding:10px 6px;text-align:center;font-weight:600;color:var(--mut)}
+.dh div b{display:block;font:700 18px Inter;color:var(--ink)}
+.dh .td b{background:var(--ac);color:#fff;border-radius:99px;width:32px;height:32px;display:grid;place-items:center;margin:2px auto 0}
+.gr{display:grid;grid-template-columns:52px repeat(var(--n,7),minmax(0,1fr));position:relative;max-height:620px;overflow-y:auto;overscroll-behavior:contain}
+.gt{position:relative}
+.gt div{height:var(--hh);font-size:11px;color:var(--mut);text-align:right;padding-right:8px;transform:translateY(-7px)}
+.col{position:relative;border-left:1px solid var(--bd);touch-action:pan-y;cursor:crosshair}
+.col .ln{height:var(--hh);border-bottom:1px solid #eff1f5}
+.ev{position:absolute;border-radius:8px;padding:4px 8px;font-weight:600;font-size:12px;overflow:hidden;cursor:grab;border-left:4px solid;user-select:none;touch-action:none;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.ev small{display:block;font-weight:500;opacity:.8}
+.ev.drag{cursor:grabbing;box-shadow:0 10px 24px rgba(0,0,0,.2);z-index:9;opacity:.92}
+.ev .rs{position:absolute;left:0;right:0;bottom:0;height:8px;cursor:ns-resize}
+.ev .rs::after{content:"";position:absolute;left:50%;bottom:2px;width:22px;height:3px;margin-left:-11px;border-radius:3px;background:currentColor;opacity:.35}
+.ev input{width:100%;border:0;background:rgba(255,255,255,.7);border-radius:4px;font:600 12px Inter;padding:2px 4px}
+.now{position:absolute;left:0;right:0;height:2px;background:#ef4444;z-index:4;pointer-events:none}
+.now::before{content:"";position:absolute;left:-5px;top:-4px;width:10px;height:10px;border-radius:50%;background:#ef4444}
+.side{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:16px}
+.side h2{font:700 14px Inter;margin:0 0 10px}
+.ag{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:8px}
+.ag li{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:10px;background:#f7f8fa}
+.ag i{width:8px;height:30px;border-radius:4px;flex:none}
+.ag b{display:block;font-size:13px}.ag small{color:var(--mut)}
+.sm{display:grid;gap:8px}
+.sm div{display:grid;grid-template-columns:70px minmax(0,1fr) 36px;gap:8px;align-items:center;font-size:12.5px}
+.sm .tk{height:8px;border-radius:9px;background:#eef0f4;overflow:hidden}.sm .tk span{display:block;height:100%;border-radius:9px}
+.pop{position:fixed;z-index:50;background:#fff;border:1px solid var(--bd);border-radius:14px;box-shadow:0 18px 44px rgba(17,24,39,.2);padding:14px;width:250px}
+.pop input[type=text]{width:100%;min-height:38px;border:1.5px solid var(--bd);border-radius:9px;padding:0 10px;font:500 14px Inter;margin-bottom:10px}
+.pop .cs{display:flex;gap:8px;margin-bottom:12px}.pop .cs button{width:30px;height:30px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--bd);cursor:pointer}.pop .cs button[aria-pressed=true]{box-shadow:0 0 0 2px var(--ac)}
+.pop .rw{display:flex;gap:8px;justify-content:space-between}
+.pop .dl{color:#dc2626;border-color:#fecaca}
+.dsel{display:none;gap:6px;margin-bottom:10px}
+.sr{position:absolute;left:-9999px}
+@media(max-width:900px){.lay{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:640px){.dsel{display:flex}.lg{margin-left:0}.hd h1{width:100%}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="hd"><h1>Timebox</h1><button class="bt" id="pv" aria-label="Previous week">‹</button><button class="bt" id="td">Today</button><button class="bt" id="nx" aria-label="Next week">›</button><span class="rg" id="rg"></span><div class="lg" role="group" aria-label="Show categories" id="lg"></div></div>
+<div class="dsel" id="ds" role="group" aria-label="Days shown"><button class="bt" id="d0">‹ Earlier days</button><button class="bt" id="d1">Later days ›</button></div>
+<div class="lay"><div class="cal"><div class="dh" id="dh"></div><div class="gr" id="gr"><div class="gt" id="gt"></div></div></div>
+<aside class="side" aria-label="Today"><h2>Today</h2><ul class="ag" id="ag"></ul><h2>Hours this week</h2><div class="sm" id="sm"></div></aside></div>
+<div class="sr" id="lv" aria-live="polite"></div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],mk=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+const H0=7,H1=21,HH=48,SNAP=15;
+const CATS=[['Focus','#c7d2fe','#4f46e5','#312e81'],['Meetings','#99f6e4','#0d9488','#134e4a'],['Personal','#fde68a','#d97706','#78350f'],['Wellbeing','#fecdd3','#e11d48','#881337']];
+const show=new Set([0,1,2,3]);let wk=0,off=0,evs=[],uid=0,popEl=null;
+const say=t=>{$('#lv').textContent='';setTimeout(()=>$('#lv').textContent=t,40)};
+const mon=()=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7)+wk*7);return d};
+const dayNames=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const T=(m)=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+function seed(){evs=[];const S=[[0,9*60,60,'Deep work: roadmap',0],[0,13*60,45,'Standup + planning',1],[1,10*60,90,'Design review',1],[1,15*60,60,'Write launch post',0],[2,8*60+30,60,'Run',3],[2,11*60,120,'Focus block',0],[2,14*60,60,'1:1 with Priya',1],[3,9*60,60,'Team retro',1],[3,12*60+30,60,'Lunch with Joss',2],[3,16*60,60,'Inbox zero',0],[4,10*60,60,'Demo prep',0],[4,10*60+30,60,'Customer call',1],[4,17*60,60,'Yoga',3],[5,11*60,120,'Farmers market',2]];S.forEach(([d,s,l,t,c])=>evs.push({id:++uid,d,s,l,t,c}))}
+function build(){const n=matchMedia('(max-width:640px)').matches?3:7;document.documentElement.style.setProperty('--n',n);const m=mon();const dh=$('#dh');dh.textContent='';dh.append(mk('div'));const gr=$('#gr');[...gr.querySelectorAll('.col')].forEach(c=>c.remove());
+ const todayD=new Date();todayD.setHours(0,0,0,0);const days=[];for(let i=0;i<n;i++){const di=n===7?i:Math.min(4,off)+i;days.push(di)}
+ days.forEach(di=>{const d=new Date(m);d.setDate(d.getDate()+di);const h=mk('div',d.getTime()===todayD.getTime()?'td':'',dayNames[di]);h.append(mk('b',null,d.getDate()));dh.append(h);
+  const c=mk('div','col');c.dataset.d=di;c.setAttribute('role','group');c.setAttribute('aria-label',dayNames[di]+' '+d.getDate());for(let k=H0;k<H1;k++)c.append(mk('div','ln'));gr.append(c);bindCol(c)});
+ const gt=$('#gt');if(!gt.children.length)for(let k=H0;k<H1;k++)gt.append(mk('div',null,String(k).padStart(2,'0')+':00'));
+ const e=new Date(m);e.setDate(e.getDate()+6);$('#rg').textContent=m.toLocaleDateString('en-GB',{day:'numeric',month:'short'})+' – '+e.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+ renderEv();now()}
+function layout(list){const out=[];list.sort((a,b)=>a.s-b.s).forEach(e=>{let col=0;while(out.some(o=>o.col===col&&o.e.s<e.s+e.l&&e.s<o.e.s+o.e.l))col++;out.push({e,col})});out.forEach(o=>{o.n=Math.max(...out.filter(p=>p.e.s<o.e.s+o.e.l&&o.e.s<p.e.s+p.e.l).map(p=>p.col))+1});return out}
+function renderEv(){$$('.ev,.now').forEach(e=>e.remove());$$('.col').forEach(c=>{const d=+c.dataset.d;layout(evs.filter(e=>e.d===d&&show.has(e.c))).forEach(({e,col,n})=>{const el=mk('div','ev');el.tabIndex=0;el.dataset.id=e.id;const k=CATS[e.c];el.style.cssText=`background:${k[1]};border-color:${k[2]};color:${k[3]};top:${(e.s-H0*60)/60*HH}px;height:${Math.max(18,e.l/60*HH-2)}px;left:calc(${col/n*100}% + 2px);width:calc(${100/n}% - 4px)`;
+  el.setAttribute('aria-label',e.t+', '+dayNames[d]+' '+T(e.s)+' to '+T(e.s+e.l)+', '+k[0]);const t=mk('span',null,e.t);el.append(t);if(e.l>=45)el.append(mk('small',null,T(e.s)+'–'+T(e.s+e.l)));el.append(mk('div','rs'));c.append(el);bindEv(el,e)})});now();side()}
+function now(){$$('.now').forEach(e=>e.remove());const n=new Date(),m=mon(),td=Math.round((new Date(n.getFullYear(),n.getMonth(),n.getDate())-m)/864e5);const c=$(`.col[data-d="${td}"]`);const min=n.getHours()*60+n.getMinutes();if(c&&min>=H0*60&&min<H1*60){const l=mk('div','now');l.style.top=(min-H0*60)/60*HH+'px';c.append(l)}}
+function side(){const n=new Date(),td=((n.getDay()+6)%7);const ag=$('#ag');ag.textContent='';const L=evs.filter(e=>e.d===td&&wk===0&&show.has(e.c)).sort((a,b)=>a.s-b.s);
+ if(!L.length)ag.append(mk('li',null,wk===0?'Nothing today — enjoy.':'Switch to this week to see today.'));L.forEach(e=>{const li=mk('li'),i=mk('i'),d=mk('div');i.style.background=CATS[e.c][2];d.append(mk('b',null,e.t),mk('small',null,T(e.s)+'–'+T(e.s+e.l)+' · '+CATS[e.c][0]));li.append(i,d);ag.append(li)});
+ const sm=$('#sm');sm.textContent='';const tot=CATS.map((_,c)=>evs.filter(e=>e.c===c).reduce((a,e)=>a+e.l,0)/60),mx=Math.max(1,...tot);CATS.forEach((k,c)=>{const r=mk('div');r.append(mk('span',null,k[0]));const tk=mk('div','tk'),sp=mk('span');sp.style.width=tot[c]/mx*100+'%';sp.style.background=k[2];tk.append(sp);r.append(tk,mk('b',null,(Math.round(tot[c]*10)/10)+'h'));sm.append(r)})}
+function snap(m){return Math.round(m/SNAP)*SNAP}
+function yToMin(c,y){const r=c.getBoundingClientRect();return H0*60+(y-r.top)/HH*60}
+function colAt(x){return $$('.col').find(c=>{const r=c.getBoundingClientRect();return x>=r.left&&x<r.right})}
+function bindCol(c){let st=null;c.addEventListener('pointerdown',e=>{if(e.target!==c&&!e.target.classList.contains('ln'))return;if(e.pointerType==='touch')return;const s=Math.min(H1*60-30,Math.max(H0*60,Math.floor(yToMin(c,e.clientY)/30)*30));st={s,y:e.clientY};c.setPointerCapture(e.pointerId);const g=mk('div','ev drag');g.id='ghost';g.style.cssText=`background:#e0e7ff;border-color:#4f46e5;color:#312e81;top:${(s-H0*60)/60*HH}px;height:${HH/2-2}px;left:2px;right:2px;pointer-events:none`;c.append(g)});
+ c.addEventListener('pointermove',e=>{if(!st)return;const m=Math.max(st.s+30,Math.ceil(yToMin(c,e.clientY)/30)*30);const g=$('#ghost');g.style.height=(Math.min(H1*60,m)-st.s)/60*HH-2+'px';st.m=Math.min(H1*60,m)});
+ const end=()=>{if(!st)return;const g=$('#ghost');if(g)g.remove();const l=(st.m||st.s+30)-st.s;const ev={id:++uid,d:+c.dataset.d,s:st.s,l,t:'New event',c:0};evs.push(ev);st=null;renderEv();const el=$(`.ev[data-id="${ev.id}"]`);edit(el,ev);say('Event created')};
+ c.addEventListener('pointerup',end);c.addEventListener('pointercancel',()=>{st=null;const g=$('#ghost');g&&g.remove()});
+ c.addEventListener('dblclick',e=>{if(e.target!==c&&!e.target.classList.contains('ln'))return;const s=Math.floor(yToMin(c,e.clientY)/30)*30;const ev={id:++uid,d:+c.dataset.d,s,l:60,t:'New event',c:0};evs.push(ev);renderEv();edit($(`.ev[data-id="${ev.id}"]`),ev)})}
+function bindEv(el,e){let d=null;
+ el.addEventListener('pointerdown',ev=>{if(ev.target.tagName==='INPUT')return;ev.stopPropagation();const rs=ev.target.classList.contains('rs');d={rs,y:ev.clientY,x:ev.clientX,s:e.s,l:e.l,dd:e.d,moved:false};el.setPointerCapture(ev.pointerId);el.classList.add('drag')});
+ el.addEventListener('pointermove',ev=>{if(!d)return;const dy=ev.clientY-d.y;if(Math.abs(dy)>3||Math.abs(ev.clientX-d.x)>3)d.moved=true;if(d.rs){e.l=Math.max(15,Math.min(H1*60-e.s,snap(d.l+dy/HH*60)));el.style.height=Math.max(18,e.l/60*HH-2)+'px'}else{e.s=Math.max(H0*60,Math.min(H1*60-e.l,snap(d.s+dy/HH*60)));el.style.top=(e.s-H0*60)/60*HH+'px';const c=colAt(ev.clientX);if(c&&+c.dataset.d!==e.d){e.d=+c.dataset.d;c.append(el)}}});
+ const up=()=>{if(!d)return;const m=d.moved;d=null;el.classList.remove('drag');if(m){renderEv();const n=$(`.ev[data-id="${e.id}"]`);n&&n.focus();say(e.t+' now '+dayNames[e.d]+' '+T(e.s)+' to '+T(e.s+e.l))}else edit(el,e)};
+ el.addEventListener('pointerup',up);el.addEventListener('pointercancel',()=>{d=null;renderEv()});
+ el.addEventListener('keydown',k=>{if(k.target!==el)return;let ch=false;
+  if(k.shiftKey&&k.key==='ArrowDown'){e.l=Math.min(H1*60-e.s,e.l+SNAP);ch=true}else if(k.shiftKey&&k.key==='ArrowUp'){e.l=Math.max(15,e.l-SNAP);ch=true}
+  else if(k.key==='ArrowDown'){e.s=Math.min(H1*60-e.l,e.s+SNAP);ch=true}else if(k.key==='ArrowUp'){e.s=Math.max(H0*60,e.s-SNAP);ch=true}else if(k.key==='ArrowRight'){e.d=Math.min(6,e.d+1);ch=true}else if(k.key==='ArrowLeft'){e.d=Math.max(0,e.d-1);ch=true}
+  else if(k.key==='Delete'||k.key==='Backspace'){evs=evs.filter(x=>x!==e);renderEv();say('Event deleted');k.preventDefault();return}else if(k.key==='Enter'){edit(el,e);return}
+  if(ch){k.preventDefault();renderEv();const n=$(`.ev[data-id="${e.id}"]`);n&&n.focus();say(e.t+', '+dayNames[e.d]+' '+T(e.s)+' to '+T(e.s+e.l))}})}
+function closePop(){if(popEl){popEl.remove();popEl=null}}
+function edit(el,e){closePop();const r=el.getBoundingClientRect();const p=mk('div','pop');p.setAttribute('role','dialog');p.setAttribute('aria-label','Edit event');
+ p.style.left=Math.max(8,Math.min(innerWidth-262,r.right+8>innerWidth-262?r.left-258:r.right+8))+'px';p.style.top=Math.max(8,Math.min(innerHeight-250,r.top))+'px';
+ const i=mk('input');i.type='text';i.value=e.t;i.setAttribute('aria-label','Event title');p.append(i);const cs=mk('div','cs');CATS.forEach((k,c)=>{const b=mk('button');b.style.background=k[1];b.setAttribute('aria-label',k[0]);b.setAttribute('aria-pressed',c===e.c);b.onclick=()=>{e.c=c;[...cs.children].forEach((x,j)=>x.setAttribute('aria-pressed',j===c))};cs.append(b)});p.append(cs);
+ p.append(mk('p','',dayNames[e.d]+' · '+T(e.s)+'–'+T(e.s+e.l)));p.lastChild.style.cssText='margin:0 0 10px;color:var(--mut)';
+ const rw=mk('div','rw'),dl=mk('button','bt dl','Delete'),sv=mk('button','bt','Save');sv.style.cssText='background:var(--ac);color:#fff;border-color:var(--ac)';rw.append(dl,sv);p.append(rw);document.body.append(p);popEl=p;i.focus();i.select();
+ const done=()=>{e.t=i.value.trim()||'Untitled';closePop();renderEv();const n=$(`.ev[data-id="${e.id}"]`);n&&n.focus();say('Saved '+e.t)};sv.onclick=done;dl.onclick=()=>{evs=evs.filter(x=>x!==e);closePop();renderEv();say('Event deleted')};
+ p.addEventListener('keydown',k=>{if(k.key==='Enter'){k.preventDefault();done()}else if(k.key==='Escape'){closePop();const n=$(`.ev[data-id="${e.id}"]`);n&&n.focus()}})}
+document.addEventListener('pointerdown',e=>{if(popEl&&!popEl.contains(e.target)&&!e.target.closest('.ev'))closePop()});
+const lg=$('#lg');CATS.forEach((k,i)=>{const b=mk('button');b.setAttribute('aria-pressed','true');b.innerHTML='<i style="background:'+k[2]+'"></i>'+k[0];b.onclick=()=>{show.has(i)?show.delete(i):show.add(i);b.setAttribute('aria-pressed',show.has(i));renderEv()};lg.append(b)});
+$('#pv').onclick=()=>{wk--;seed();build()};$('#nx').onclick=()=>{wk++;seed();build()};$('#td').onclick=()=>{wk=0;seed();build()};
+$('#d0').onclick=()=>{off=Math.max(0,off-1);build()};$('#d1').onclick=()=>{off=Math.min(4,off+1);build()};
+let mq=matchMedia('(max-width:640px)').matches;addEventListener('resize',()=>{const m=matchMedia('(max-width:640px)').matches;if(m!==mq){mq=m;build()}});
+seed();build();setInterval(now,60000);
+const sc=$('#gr');sc.scrollTop=Math.max(0,(new Date().getHours()-H0-1)*HH);
+</script></body></html>

@@ -1,0 +1,11 @@
+Canvas & base: A magazine-like page on #faf8f4 with white cards (1px #ece7dd border, 20px radius), ink #1a1714, secondary #756d62, accent crimson #c4243b, tint #fbe9ec. Cover art is generated from CSS gradients and SVG shapes (no images). Invented publication "The Lamplight Review".
+
+Typography: "Playfair Display" (600,800) for titles; "Public Sans" (400,500,600,700) for meta and body at 15px.
+
+Layout: Masthead with logo, nav and a "Saved (n)" button. Category chips (All, Culture, Science, Food, Travel, Design). A featured story spanning two columns with large cover art, kicker, title, dek, author and reading time. Below, a 3-column grid of article cards (cover, category pill, title, excerpt, author avatar and name, date, reading time, bookmark button). A "Load more stories" button reveals six more.
+
+Interaction: Chips filter the featured story and cards with a fade, and update a live-region count. Bookmark toggles aria-pressed, animates, and updates the Saved count in the masthead; the Saved button opens a small popover listing saved titles with remove buttons. Cards are fully clickable via a stretched link on the title while keeping the bookmark independently focusable. Load more appends cards with a staggered reveal and disables when exhausted. Hover lifts the card and tilts the cover art slightly.
+
+Responsive: Grid 3 → 2 → 1 columns; featured stacks below 760px; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented names only.

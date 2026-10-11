@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sticky Notes Board — Widgets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Nunito:wght@600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+body{margin:0;background:#2a2118;color:#fff8ea;font:600 14px/1.4 Nunito,system-ui,sans-serif;min-height:100svh;display:flex;flex-direction:column}
+:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.tb{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:12px 16px}
+.lg{font:700 18px Nunito;margin-right:8px}
+.b{min-height:44px;border:0;border-radius:12px;background:#fff8ea;color:#2b2418;padding:0 16px;font:700 14px Nunito;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.b:hover:not(:disabled){background:#fff}.b:disabled{opacity:.45;cursor:not-allowed}
+.sw{display:flex;gap:6px}.sw button{width:32px;height:32px;border-radius:50%;border:3px solid #fff8ea;cursor:pointer;padding:0}
+.sw button[aria-pressed=true]{box-shadow:0 0 0 3px #fff;transform:scale(1.1)}
+.cnt{margin-left:auto;color:#d9c9a8}
+.board{position:relative;flex:1;min-height:520px;margin:0 16px 16px;border:14px solid #5a3d1e;border-radius:18px;background:radial-gradient(circle at 20% 30%,#d3b080 0,transparent 50%),radial-gradient(circle at 80% 70%,#bf9863 0,transparent 55%),#c8a574;background-image:radial-gradient(rgba(90,61,30,.18) 1px,transparent 1.2px),radial-gradient(circle at 20% 30%,#d3b080 0,transparent 50%),radial-gradient(circle at 80% 70%,#bf9863 0,transparent 55%);background-size:6px 6px,auto,auto;overflow:hidden;box-shadow:inset 0 0 40px rgba(60,35,10,.4)}
+.note{position:absolute;width:210px;min-height:170px;padding:0;color:#2b2418;box-shadow:0 10px 18px rgba(40,25,5,.3),0 2px 3px rgba(40,25,5,.25);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;border-radius:2px 2px 14px 2px}
+.note.drag{box-shadow:0 22px 36px rgba(40,25,5,.4);transition:box-shadow .2s;cursor:grabbing}
+.note.drop{animation:dr .5s cubic-bezier(.3,1.4,.5,1)}
+@keyframes dr{from{transform:translateY(-40px) rotate(8deg) scale(1.1);opacity:0}}
+.note.gone{animation:gone .25s forwards}
+@keyframes gone{to{transform:scale(.3) rotate(20deg);opacity:0}}
+.hd{height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 6px 0 10px;background:rgba(0,0,0,.06);cursor:grab;touch-action:none;user-select:none}
+.hd::before{content:"";width:34px;height:8px;background:radial-gradient(circle,rgba(0,0,0,.28) 2px,transparent 2.5px) 0 0/8px 8px}
+.act{display:flex;gap:2px;opacity:0;transition:opacity .15s}
+.note:hover .act,.note:focus-within .act{opacity:1}
+@media(hover:none){.act{opacity:1}}
+.act button{width:30px;height:30px;border:0;background:none;border-radius:8px;cursor:pointer;color:#2b2418;font-size:15px;display:grid;place-items:center}
+.act button:hover{background:rgba(0,0,0,.12)}
+.tx{flex:1;padding:10px 14px 16px;font:600 24px/1.15 Caveat,cursive;outline:0;white-space:pre-wrap;word-break:break-word;min-height:120px}
+.tx:empty::before{content:attr(data-ph);color:rgba(43,36,24,.4)}
+.pin{position:absolute;left:50%;top:-8px;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff8a8a,#c1272d);box-shadow:0 3px 4px rgba(0,0,0,.4);pointer-events:none}
+.trash{position:absolute;right:16px;bottom:16px;width:96px;height:96px;border-radius:50%;background:rgba(40,25,5,.55);color:#fff8ea;display:grid;place-items:center;font-size:34px;opacity:0;transform:scale(.7);transition:.2s;pointer-events:none;border:3px dashed #fff8ea88}
+.trash.show{opacity:1;transform:none}.trash.hot{background:#c1272d;transform:scale(1.15);border-color:#fff}
+.empty{position:absolute;inset:0;display:grid;place-items:center;color:#5a3d1e;font:600 26px Caveat;pointer-events:none}
+.sr{position:absolute;left:-9999px}
+@media(max-width:560px){.board{margin:0 8px 8px;border-width:8px}.note{width:176px}.tx{font-size:22px}.cnt{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body>
+<div class="tb"><span class="lg">📌 Pinboard Lane</span><button class="b" id="ad">＋ Add note</button><div class="sw" role="group" aria-label="New note colour" id="sw"></div><button class="b" id="un" disabled>↶ Undo</button><button class="b" id="cl">Clear board</button><span class="cnt" id="cn" role="status"></span></div>
+<div class="board" id="bd" aria-label="Corkboard"><div class="empty" id="em" hidden>The board is empty — add a note!</div><div class="trash" id="tr" aria-hidden="true">🗑</div></div>
+<div class="sr" id="lv" aria-live="polite"></div>
+<script>
+const $=s=>document.querySelector(s),bd=$('#bd');
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const COL=['#fff176','#ff9ec7','#9df2c0','#9bd5ff','#d2b6ff'],NAME=['yellow','pink','mint','sky','lilac'];let nc=0,z=10,trash=[],uid=0;
+const say=t=>{$('#lv').textContent='';setTimeout(()=>$('#lv').textContent=t,40)};
+const sw=$('#sw');COL.forEach((c,i)=>{const b=document.createElement('button');b.style.background=c;b.setAttribute('aria-label',NAME[i]);b.setAttribute('aria-pressed',i===0);b.onclick=()=>{nc=i;[...sw.children].forEach((x,k)=>x.setAttribute('aria-pressed',k===i))};sw.append(b)});
+function count(){const n=bd.querySelectorAll('.note').length;$('#cn').textContent=n+(n===1?' note':' notes');$('#em').hidden=n>0;$('#un').disabled=!trash.length}
+function mkNote(o){const n=document.createElement('div');n.className='note'+(o.anim?' drop':'');n.id='n'+(++uid);n.tabIndex=0;n.setAttribute('role','group');n.setAttribute('aria-label','Sticky note, '+NAME[o.c]);
+ n.dataset.c=o.c;n.dataset.rot=o.rot;n.style.background=COL[o.c];n.style.left=o.x+'px';n.style.top=o.y+'px';n.style.transform=`rotate(${o.rot}deg)`;n.style.zIndex=++z;
+ n.innerHTML='<span class="pin"></span><div class="hd"><span class="sr">Drag handle</span><div class="act"><button class="cc" aria-label="Change colour">🎨</button><button class="dl" aria-label="Delete note">✕</button></div></div><div class="tx" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Note text" data-ph="Write something…"></div>';
+ n.querySelector('.tx').textContent=o.t||'';
+ n.addEventListener('pointerdown',()=>{n.style.zIndex=++z});
+ n.querySelector('.cc').onclick=()=>{const c=(+n.dataset.c+1)%5;n.dataset.c=c;n.style.background=COL[c];n.setAttribute('aria-label','Sticky note, '+NAME[c]);say('Colour '+NAME[c])};
+ n.querySelector('.dl').onclick=()=>del(n);
+ const hd=n.querySelector('.hd');let d=null;
+ hd.addEventListener('pointerdown',e=>{if(e.target.closest('.act'))return;d={x:e.clientX,y:e.clientY,l:n.offsetLeft,t:n.offsetTop};hd.setPointerCapture(e.pointerId);n.classList.add('drag');n.style.transform='rotate(0deg) scale(1.03)';$('#tr').classList.add('show')});
+ hd.addEventListener('pointermove',e=>{if(!d)return;lp={x:e.clientX,y:e.clientY};const b=bd.getBoundingClientRect();let x=d.l+e.clientX-d.x,y=d.t+e.clientY-d.y;x=Math.max(0,Math.min(bd.clientWidth-n.offsetWidth,x));y=Math.max(0,Math.min(bd.clientHeight-40,y));n.style.left=x+'px';n.style.top=y+'px';$('#tr').classList.toggle('hot',overTrash(n))});
+ const end=e=>{if(!d)return;d=null;n.classList.remove('drag');n.style.transform=`rotate(${n.dataset.rot}deg)`;const hot=overTrash(n);$('#tr').classList.remove('show','hot');if(hot)del(n)};
+ hd.addEventListener('pointerup',end);hd.addEventListener('pointercancel',end);
+ n.addEventListener('keydown',e=>{if(e.target!==n){if(e.key==='Escape'){e.target.blur();n.focus()}return}
+  const s=e.shiftKey?40:10;let dx=0,dy=0;if(e.key==='ArrowLeft')dx=-s;else if(e.key==='ArrowRight')dx=s;else if(e.key==='ArrowUp')dy=-s;else if(e.key==='ArrowDown')dy=s;
+  if(dx||dy){e.preventDefault();n.style.left=Math.max(0,Math.min(bd.clientWidth-n.offsetWidth,n.offsetLeft+dx))+'px';n.style.top=Math.max(0,Math.min(bd.clientHeight-40,n.offsetTop+dy))+'px'}
+  else if(e.key==='Delete'||e.key==='Backspace'){e.preventDefault();del(n)}else if(e.key==='Enter'){e.preventDefault();n.querySelector('.tx').focus()}});
+ bd.append(n);count();return n}
+let lp={x:0,y:0};
+function overTrash(n){const t=$('#tr').getBoundingClientRect();return lp.x>t.left-24&&lp.x<t.right+24&&lp.y>t.top-24&&lp.y<t.bottom+24}
+function del(n){const o={c:+n.dataset.c,rot:+n.dataset.rot,x:n.offsetLeft,y:n.offsetTop,t:n.querySelector('.tx').textContent};trash.push(o);const f=()=>{n.remove();count();say('Note deleted. Press undo to restore.')};
+ if(rm){f()}else{n.classList.add('gone');setTimeout(f,240)}count()}
+function add(o){const w=bd.clientWidth,k=bd.querySelectorAll('.note').length;const x=o&&o.x!=null?o.x:Math.min(Math.max(10,w-230),30+(k*46)%Math.max(60,w-250)),y=o&&o.y!=null?o.y:30+(k*38)%Math.max(60,bd.clientHeight-220);
+ const n=mkNote({c:o?o.c:nc,rot:o?o.rot:+(Math.random()*6-3).toFixed(1),x,y,t:o?o.t:'',anim:!rm});return n}
+$('#ad').onclick=()=>{const n=add();n.querySelector('.tx').focus();say('Note added')};
+$('#un').onclick=undo;function undo(){const o=trash.pop();if(!o)return;add({...o});count();say('Note restored')}
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='z'&&!e.target.isContentEditable){e.preventDefault();undo()}});
+$('#cl').onclick=()=>{[...bd.querySelectorAll('.note')].forEach(n=>del(n))};
+[['Buy flour\n& oat milk',0,-2],['Call Maya\nabout Saturday',1,2],['Ship the\nnewsletter!',2,-1.5],['Water the\nfern ☺',3,3],['Idea: a tiny\nzine about bread',4,-3]].forEach(([t,c,r],i)=>{const w=Math.max(bd.clientWidth,400);mkNote({c,rot:r,t,x:Math.round(20+(i%3)*(Math.min(260,(w-260)/2.2))),y:24+Math.floor(i/3)*210+(i%2)*14})});
+count();trash.length=0;count();
+</script></body></html>

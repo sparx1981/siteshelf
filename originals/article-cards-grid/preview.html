@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Article Cards Grid — Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#1a1714;--mut:#756d62;--ac:#c4243b;--tint:#fbe9ec;--bd:#ece7dd}
+*{box-sizing:border-box}
+body{margin:0;background:#faf8f4;color:var(--ink);font:400 15px/1.55 'Public Sans',system-ui,sans-serif;padding:0 clamp(14px,3vw,40px) 70px}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px;border-radius:8px}
+.w{max-width:1160px;margin:0 auto}
+.mh{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:20px 0;border-bottom:2px solid var(--ink);flex-wrap:wrap;position:relative}
+.lg{font:800 clamp(24px,3.4vw,34px) 'Playfair Display';letter-spacing:-.01em}
+.mh nav{display:flex;gap:22px;font-weight:600;font-size:14px;color:var(--mut)}
+.sv{display:inline-flex;gap:8px;align-items:center;min-height:44px;border:1.5px solid var(--ink);background:#fff;border-radius:99px;padding:0 18px;font:700 14px 'Public Sans';cursor:pointer}
+.sv b{background:var(--ac);color:#fff;min-width:22px;height:22px;display:grid;place-items:center;border-radius:99px;font-size:12px}
+.pop{position:absolute;right:0;top:calc(100% + 8px);width:min(340px,92vw);background:#fff;border:1px solid var(--bd);border-radius:16px;box-shadow:0 20px 50px rgba(26,23,20,.18);padding:14px;z-index:20}
+.pop h2{font:800 17px 'Playfair Display';margin:0 0 8px}
+.pop ul{list-style:none;margin:0;padding:0}
+.pop li{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--bd)}
+.pop li span{flex:1;font-weight:600;font-size:14px}
+.pop li button{border:0;background:none;color:var(--ac);font-weight:700;cursor:pointer;min-height:36px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;padding:22px 0 18px}
+.chip{border:1.5px solid var(--bd);background:#fff;border-radius:99px;padding:8px 18px;font:600 14px 'Public Sans';cursor:pointer;min-height:40px;color:var(--mut)}
+.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.cnt{color:var(--mut);font-size:13.5px;margin:0 0 14px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{position:relative;background:#fff;border:1px solid var(--bd);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(26,23,20,.1)}
+.card.in{animation:in .5s both}
+@keyframes in{from{opacity:0;transform:translateY(14px)}}
+.cv{aspect-ratio:16/10;position:relative;overflow:hidden}
+.cv svg{width:100%;height:100%;display:block;transition:transform .5s}
+.card:hover .cv svg{transform:scale(1.06) rotate(.6deg)}
+.cat{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.92);border-radius:99px;font:700 11.5px 'Public Sans';letter-spacing:.08em;text-transform:uppercase;padding:4px 12px}
+.bd{padding:18px 18px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.bd h3{font:600 21px/1.2 'Playfair Display';margin:0}
+.bd h3 a{color:inherit;text-decoration:none}.bd h3 a::after{content:"";position:absolute;inset:0;z-index:1}
+.bd p{margin:0;color:#5c554b;font-size:14.5px}
+.mt{margin-top:auto;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mut);padding-top:6px}
+.av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:11px;flex:none}
+.bm{position:relative;z-index:2;margin-left:auto;width:44px;height:44px;border-radius:50%;border:0;background:none;cursor:pointer;color:var(--mut);display:grid;place-items:center}
+.bm:hover{background:var(--tint);color:var(--ac)}
+.bm[aria-pressed=true]{color:var(--ac)}.bm.p svg{animation:bp .35s}
+@keyframes bp{40%{transform:scale(1.35) rotate(-8deg)}}
+.ft{grid-column:span 2;flex-direction:row}
+.ft .cv{flex:1.25;aspect-ratio:auto;min-height:320px}
+.ft .bd{flex:1;justify-content:center;padding:28px}
+.ft h3{font:800 clamp(26px,3vw,38px)/1.1 'Playfair Display'}
+.ft .kk{color:var(--ac);font:700 12px 'Public Sans';letter-spacing:.14em;text-transform:uppercase}
+.ft .bd p{font-size:16.5px}
+.more{display:block;margin:30px auto 0;min-height:50px;border-radius:99px;border:1.5px solid var(--ink);background:#fff;padding:0 32px;font:700 15px 'Public Sans';cursor:pointer}
+.more:hover:not(:disabled){background:var(--ink);color:#fff}.more:disabled{opacity:.45;cursor:default}
+.empty{text-align:center;color:var(--mut);padding:50px 0}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.ft{grid-column:span 2;flex-direction:column}.ft .cv{min-height:200px;flex:none;aspect-ratio:16/9}.mh nav{display:none}}
+@media(max-width:560px){.grid{grid-template-columns:minmax(0,1fr)}.ft{grid-column:auto}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body><div class="w">
+<header class="mh"><div class="lg">The Lamplight Review</div><nav aria-label="Sections"><span>Essays</span><span>Reviews</span><span>Dispatches</span></nav><button class="sv" id="sv" aria-expanded="false" aria-controls="pp">Saved <b id="sn">0</b></button><div class="pop" id="pp" hidden role="dialog" aria-label="Saved stories"><h2>Saved stories</h2><ul id="pl"></ul><p id="pe" style="color:var(--mut);margin:6px 0 0">Nothing saved yet. Tap a bookmark.</p></div></header>
+<div class="chips" role="group" aria-label="Category" id="ch"></div>
+<p class="cnt" id="cn" role="status" aria-live="polite"></p>
+<div class="grid" id="gd"></div>
+<button class="more" id="mr">Load more stories</button>
+</div>
+<script>
+const $=s=>document.querySelector(s),mk=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const PAL={Culture:['#f6c1b2','#c4243b','#3a0d19'],Science:['#bfe3f2','#2a7fb8','#0e2a46'],Food:['#fbe0a2','#e08a2c','#6b2d0e'],Travel:['#c9e8cf','#3b9a6b','#0f3b2a'],Design:['#e3d5f5','#7a4fd1','#26134f']};
+const A=[['Ines Marlowe','#c4243b'],['Tobias Wren','#2a7fb8'],['Aoife Brandt','#3b9a6b'],['Kaveh Sorrell','#7a4fd1'],['Mina Okafor','#e08a2c']];
+const T=[['Culture','The last cinema on the coast','A seaside projectionist on keeping celluloid alive in the age of streaming.',9,0],['Science','What a tide pool knows about climate','Small, stubborn ecosystems are quietly rewriting how we model warming oceans.',7,1],['Food','In defence of the long lunch','Why two hours at the table might be the most productive thing you do all week.',5,2],['Travel','Slow trains through the high Tatras','A week of timetables, thermoses and border towns that time forgot.',11,3],['Design','The typeface hiding in every street sign','A forgotten 1930s alphabet turns out to be written on half the world.',8,4],['Culture','Why we keep rereading comfort books','Neuroscientists and librarians agree: familiarity is its own kind of adventure.',6,0],['Science','Counting stars from a city rooftop','Citizen astronomers are mapping light pollution one phone photo at a time.',6,1],['Food','The quiet revival of the village bakery','Flour, patience and a surprising new generation of bakers.',7,2],['Travel','Night ferry to the outer islands','Eleven hours, four languages and the best soup of the year.',10,3],['Design','Building a library nobody wants to leave','Inside the architect’s notes for a civic reading room.',9,4],['Culture','The brass band that refused to retire','Seventy-two members, one rehearsal hall and a waiting list.',5,0],['Science','Beekeeping on a motorway verge','Pollinators thrive in the most unexpected places.',6,1],['Food','A field guide to autumn preserves','Quince, sloe and the jars that carry us through to spring.',8,2],['Travel','Cycling the old canal paths','Towpaths, tea stops and the quiet side of the map.',9,3],['Design','Chairs that outlive their makers','A craft workshop and its fifty-year warranty.',7,4],['Culture','Radio plays are having a moment','A medium for the imagination finds a new audience.',6,0],['Science','The slow work of restoring peat','Why bogs matter more than forests for storing carbon.',10,1],['Food','Soup, properly understood','A short manifesto for the humble pot.',4,2]].map((a,i)=>({id:i,cat:a[0],t:a[1],d:a[2],rt:a[3],au:A[a[4]],date:new Date(2026,8,30-i*2).toLocaleDateString('en-GB',{day:'numeric',month:'short'})}));
+function cover(a,i){const[c1,c2,c3]=PAL[a.cat],s=i*37%90;return `<svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="g${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs><rect width="320" height="200" fill="url(#g${i})"/><circle cx="${60+s*2}" cy="${60+s%40}" r="${46+s%30}" fill="${c3}" opacity=".18"/><circle cx="${240-s}" cy="${120+s%30}" r="${70}" fill="#fff" opacity=".22"/><path d="M0 ${150+s%25}q60-${30+s%20} 120 0t120 0t80 -10V200H0z" fill="${c3}" opacity=".55"/></svg>`}
+const cats=['All','Culture','Science','Food','Travel','Design'];let cat='All',shown=7;const saved=new Set();
+const ch=$('#ch');cats.forEach(c=>{const b=mk('button','chip',c);b.setAttribute('aria-pressed',c==='All');b.onclick=()=>{cat=c;shown=7;[...ch.children].forEach(x=>x.setAttribute('aria-pressed',x===b));draw()};ch.append(b)});
+function card(a,first,idx,anim){const c=mk('article','card'+(first?' ft':'')+(anim?' in':''));if(anim)c.style.animationDelay=idx*60+'ms';
+ const cv=mk('div','cv');cv.innerHTML=cover(a,a.id);cv.append(mk('span','cat',a.cat));
+ const b=mk('div','bd');if(first)b.append(mk('span','kk','Featured story'));const h=mk('h3');const l=mk('a',null,a.t);l.href='#a'+a.id;l.onclick=e=>e.preventDefault();h.append(l);
+ const m=mk('div','mt');const av=mk('span','av',a.au[0].split(' ').map(w=>w[0]).join(''));av.style.background=a.au[1];av.setAttribute('aria-hidden','true');m.append(av,mk('span',null,a.au[0]+' · '+a.date+' · '+a.rt+' min read'));
+ const bm=mk('button','bm');bm.setAttribute('aria-pressed',saved.has(a.id));bm.setAttribute('aria-label','Save “'+a.t+'”');bm.innerHTML='<svg width="22" height="22" viewBox="0 0 24 24" fill="'+(saved.has(a.id)?'currentColor':'none')+'" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg>';
+ bm.onclick=()=>{saved.has(a.id)?saved.delete(a.id):saved.add(a.id);bm.setAttribute('aria-pressed',saved.has(a.id));bm.firstChild.setAttribute('fill',saved.has(a.id)?'currentColor':'none');bm.classList.remove('p');void bm.offsetWidth;bm.classList.add('p');upd()};m.append(bm);
+ b.append(h,mk('p',null,a.d),m);c.append(cv,b);return c}
+function draw(more){const list=T.filter(a=>cat==='All'||a.cat===cat),g=$('#gd');const start=more?g.children.length:0;if(!more)g.textContent='';
+ const vis=list.slice(0,shown);vis.slice(start).forEach((a,k)=>g.append(card(a,vis.indexOf(a)===0,k,more||!rm&&true)));
+ $('#cn').textContent=vis.length+' of '+list.length+' stories'+(cat==='All'?'':' in '+cat);$('#mr').disabled=shown>=list.length;$('#mr').textContent=shown>=list.length?'You’re all caught up':'Load more stories';if(!list.length)g.append(mk('p','empty','No stories yet.'))}
+$('#mr').onclick=()=>{const before=$('#gd').children.length;shown+=6;draw(true);const n=$('#gd').children[before];n&&n.querySelector('a').focus({preventScroll:false})};
+function upd(){$('#sn').textContent=saved.size;const ul=$('#pl');ul.textContent='';[...saved].forEach(id=>{const li=mk('li');li.append(mk('span',null,T[id].t));const r=mk('button',null,'Remove');r.setAttribute('aria-label','Remove '+T[id].t+' from saved');r.onclick=()=>{saved.delete(id);draw();upd()};li.append(r);ul.append(li)});$('#pe').hidden=saved.size>0}
+$('#sv').onclick=()=>{const o=$('#pp').hidden;$('#pp').hidden=!o;$('#sv').setAttribute('aria-expanded',o)};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#pp').hidden){$('#pp').hidden=true;$('#sv').setAttribute('aria-expanded','false');$('#sv').focus()}});
+document.addEventListener('click',e=>{if(!$('#pp').hidden&&!$('#pp').contains(e.target)&&!$('#sv').contains(e.target)){$('#pp').hidden=true;$('#sv').setAttribute('aria-expanded','false')}});
+draw();upd();
+</script></body></html>

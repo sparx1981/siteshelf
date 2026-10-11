@@ -1,0 +1,11 @@
+Canvas & base: A friendly widget on #e8f3ee with a white card (max 880px, 28px radius, soft green shadow), a dark green result panel #0f3d2e with mint accent #5ee6a8, ink #14231c, secondary #5b7367, accent green #1f9d6b. Invented app "Splitly".
+
+Typography: "DM Sans" (500,700) for UI; "DM Mono" (500) for amounts, with tabular-nums.
+
+Layout: Two-column card. Left: Bill amount input with a currency prefix; "Select tip %" grid of five preset buttons (10, 12.5, 15, 18, 20) plus a custom percent input; a "Number of people" stepper with minus/plus and numeric display; a "Round" segmented control (Exact, Up per person, Nearest 0.50). Right (dark panel): large "Tip per person" and "Total per person" amounts, a thin divider, then rows for Bill, Tip, Total, and a Reset button; below, a receipt-style card with perforated edges listing each line and a Copy summary button.
+
+Interaction: All values recalculate live with debounced input and animated number roll (tween over 250ms; instant under reduced motion). Invalid or zero people shows an inline "Can't be zero" error. Rounding rules apply to the per-person total and show the rounding difference as "Rounded +£0.12 each" info. Keyboard: arrow keys change the preset selection (radiogroup); the stepper supports typing. Copy produces plain text lines with try/catch. Amounts format with Intl.NumberFormat en-GB GBP. Announce results updates with a polite live region at most once per second.
+
+Responsive: Columns stack below 760px; preset grid becomes 3 columns; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented names only.

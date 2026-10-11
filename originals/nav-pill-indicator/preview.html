@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sliding Pill Navigation — Navigation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#1d1730;--mut:#6f6890;--ac:#6d4aff;--tint:#ece7ff;--bd:#ddd6f3}
+*{box-sizing:border-box}
+body{margin:0;background:#f4f1fb;color:var(--ink);font:500 15px/1.6 Sora,system-ui,sans-serif;padding:34px 16px 70px}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px;border-radius:12px}
+.w{max-width:900px;margin:0 auto}
+h1{font:700 32px/1.15 Sora;margin:0 0 6px}.lead{color:var(--mut);margin:0 0 26px}
+.demo{background:#fff;border:1px solid var(--bd);border-radius:20px;padding:22px;margin-bottom:20px}
+.demo>h2{font:600 12px Sora;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin:0 0 16px}
+.pn{position:relative;display:inline-flex;max-width:100%;overflow-x:auto;background:#f4f1fb;border-radius:99px;padding:6px;scrollbar-width:none}
+.pn::-webkit-scrollbar{display:none}
+.pn .pill{position:absolute;left:0;top:6px;bottom:6px;border-radius:99px;background:#fff;box-shadow:0 2px 8px rgba(109,74,255,.2);transition:transform .35s cubic-bezier(.3,1.3,.5,1),width .35s cubic-bezier(.3,1.3,.5,1);pointer-events:none}
+.pn a{position:relative;z-index:1;padding:10px 20px;border-radius:99px;text-decoration:none;color:var(--mut);white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;transition:color .2s}
+.pn a:hover,.pn a:focus-visible,.pn a[aria-current=page]{color:var(--ink)}
+.pn a[aria-current=page]{font-weight:700}
+.note{margin:12px 0 0;color:var(--mut);font-size:14px}
+.tb{position:sticky;top:0;z-index:3;background:#fff;border-bottom:1px solid var(--bd);display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;position:relative}
+.tb .ul{position:absolute;bottom:0;left:0;height:3px;background:var(--ac);border-radius:3px 3px 0 0;transition:transform .35s cubic-bezier(.4,0,.2,1),width .35s cubic-bezier(.4,0,.2,1)}
+.tb a{padding:14px 18px;text-decoration:none;color:var(--mut);white-space:nowrap;min-height:48px}
+.tb a[aria-current=true]{color:var(--ac);font-weight:700}
+.sc{height:300px;overflow-y:auto;border:1px solid var(--bd);border-radius:14px;position:relative;margin-top:-1px;scroll-behavior:smooth}
+.sc section{min-height:260px;padding:22px}
+.sc section:nth-child(even){background:#faf8ff}
+.sc h3{margin:0 0 6px;font:700 20px Sora}.sc p{margin:0;color:var(--mut);max-width:60ch}
+.dock{display:flex;align-items:flex-end;justify-content:center;gap:6px;height:100px;padding:10px 14px;background:linear-gradient(180deg,#ece7ff,#e0d8ff);border-radius:24px;width:fit-content;max-width:100%;margin:0 auto;overflow:visible}
+.dk{position:relative;width:48px;height:48px;border:0;border-radius:14px;cursor:pointer;display:grid;place-items:center;color:#fff;flex:none;transform-origin:50% 100%;will-change:transform;transition:box-shadow .2s}
+.dk svg{width:55%;height:55%}
+.dk[aria-pressed=true]::after{content:"";position:absolute;bottom:-9px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--ac)}
+.tip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(4px);background:var(--ink);color:#fff;font:600 12.5px Sora;padding:5px 11px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:.15s}
+.dk:hover .tip,.dk:focus-visible .tip{opacity:1;transform:translateX(-50%)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,30px);background:var(--ink);color:#fff;padding:10px 20px;border-radius:99px;font-size:14px;opacity:0;transition:.25s;z-index:9}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:560px){.dk{width:38px;height:38px}.dock{gap:4px;padding:10px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style></head><body><div class="w">
+<h1>Navigation that follows you</h1><p class="lead">One moving indicator, three ways to use it.</p>
+<section class="demo"><h2>1 · Sliding pill</h2><nav class="pn" id="pn" aria-label="Main"><span class="pill" id="pl" aria-hidden="true"></span><a href="#" aria-current="page">Home</a><a href="#">Journal</a><a href="#">Gardens</a><a href="#">Shop</a><a href="#">About</a></nav><p class="note">Hover, or Tab and use ← → keys.</p></section>
+<section class="demo"><h2>2 · Scroll-spy tabs</h2><div class="tb" id="tb" role="navigation" aria-label="Sections"><span class="ul" id="ul"></span><a href="#s1" aria-current="true">Overview</a><a href="#s2">Care</a><a href="#s3">Light</a><a href="#s4">Soil</a></div>
+<div class="sc" id="sc"><section id="s1"><h3>Overview</h3><p>Orchids reward patience. They like bright, indirect light, steady humidity and a pot that drains quickly. Most problems are watering problems.</p></section><section id="s2"><h3>Care</h3><p>Water when the roots turn silver-grey, usually once a week. Soak for ten minutes, drain fully and never leave the pot standing in water.</p></section><section id="s3"><h3>Light</h3><p>An east-facing window is ideal. Leaves should be light green; dark green means more light would help, yellow means less.</p></section><section id="s4"><h3>Soil</h3><p>Use bark, not soil. Repot every two years in fresh bark so air can reach the roots.</p></section></div></section>
+<section class="demo"><h2>3 · Magnifying dock</h2><div class="dock" id="dk" role="toolbar" aria-label="Quick actions"></div></section>
+</div><div class="toast" id="ts" role="status"></div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches,fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+const toast=t=>{const e=$('#ts');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),1600)};
+/* 1 pill */
+const pn=$('#pn'),pl=$('#pl'),ls=$$('#pn a');let cur=ls[0];
+function mv(a,instant){const x=a.offsetLeft,w=a.offsetWidth;if(instant){pl.style.transition='none'}pl.style.transform=`translateX(${x}px)`;pl.style.width=w+'px';if(instant){void pl.offsetWidth;pl.style.transition=''}}
+ls.forEach((a,i)=>{a.addEventListener('mouseenter',()=>mv(a));a.addEventListener('focus',()=>mv(a));a.addEventListener('click',e=>{e.preventDefault();ls.forEach(x=>x.removeAttribute('aria-current'));a.setAttribute('aria-current','page');cur=a;mv(a)});
+ a.addEventListener('keydown',e=>{let n=-1;if(e.key==='ArrowRight')n=(i+1)%ls.length;else if(e.key==='ArrowLeft')n=(i+ls.length-1)%ls.length;else if(e.key==='Home')n=0;else if(e.key==='End')n=ls.length-1;if(n>=0){e.preventDefault();ls[n].focus()}})});
+pn.addEventListener('mouseleave',()=>mv(cur));pn.addEventListener('focusout',e=>{if(!pn.contains(e.relatedTarget))mv(cur)});
+new ResizeObserver(()=>mv(cur,true)).observe(pn);mv(cur,true);
+/* 2 spy */
+const tb=$('#tb'),ul=$('#ul'),ts=$$('#tb a'),sc=$('#sc'),secs=$$('#sc section');
+function mu(a){ul.style.transform=`translateX(${a.offsetLeft}px)`;ul.style.width=a.offsetWidth+'px'}
+function act(i){ts.forEach((t,k)=>t.setAttribute('aria-current',k===i));mu(ts[i])}
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)act(secs.indexOf(e.target))})},{root:sc,rootMargin:'-10% 0px -70% 0px'});secs.forEach(s=>io.observe(s));
+ts.forEach((t,i)=>t.addEventListener('click',e=>{e.preventDefault();sc.scrollTo({top:secs[i].offsetTop-sc.offsetTop,behavior:rm?'auto':'smooth'});act(i)}));
+new ResizeObserver(()=>mu(tb.querySelector('[aria-current=true]'))).observe(tb);act(0);
+/* 3 dock */
+const IC=[['Home','M3 11l9-8 9 8v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z','#6d4aff'],['Search','M10 3a7 7 0 105 12l5 5 1.5-1.5-5-5A7 7 0 0010 3z','#0ea5e9'],['Mail','M3 6h18v12H3zM3 7l9 7 9-7','#f43f5e'],['Calendar','M5 5h14v15H5zM5 10h14M9 3v4M15 3v4','#f59e0b'],['Photos','M4 5h16v14H4zM4 16l5-5 4 4 3-3 4 4','#10b981'],['Music','M9 18V6l10-2v12M9 18a3 3 0 11-3-3M19 16a3 3 0 11-3-3','#8b5cf6'],['Settings','M12 8a4 4 0 100 8 4 4 0 000-8zM12 2v3M12 19v3M2 12h3M19 12h3','#64748b']];
+const dk=$('#dk'),db=[];IC.forEach(([n,d,c])=>{const b=document.createElement('button');b.className='dk';b.style.background=c;b.setAttribute('aria-pressed','false');b.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg><span class="tip" id="tp${n}">${n}</span>`;b.setAttribute('aria-labelledby','tp'+n);
+ b.onclick=()=>{const v=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',v);toast(n+(v?' opened':' closed'))};dk.append(b);db.push(b)});
+if(!rm&&fine){dk.addEventListener('pointermove',e=>{db.forEach(b=>{const r=b.getBoundingClientRect(),d=Math.abs(e.clientX-(r.left+r.width/2)),s=1+Math.max(0,1-d/110)*.6;b.style.transform=`scale(${s.toFixed(3)})`})});dk.addEventListener('pointerleave',()=>db.forEach(b=>b.style.transform=''))}
+dk.addEventListener('keydown',e=>{const i=db.indexOf(document.activeElement);if(i<0)return;let n=-1;if(e.key==='ArrowRight')n=(i+1)%db.length;else if(e.key==='ArrowLeft')n=(i+db.length-1)%db.length;if(n>=0){e.preventDefault();db[n].focus()}});
+db.forEach((b,i)=>b.tabIndex=i?-1:0);dk.addEventListener('focusin',e=>{db.forEach(b=>b.tabIndex=b===e.target?0:-1)});
+</script></body></html>

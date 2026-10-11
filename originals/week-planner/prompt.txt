@@ -1,0 +1,11 @@
+Canvas & base: A clean scheduling app on #f7f8fa with a white grid (hairlines #e6e9ef), ink #111827, secondary #6b7280, accent indigo #4f46e5, event palette: indigo #c7d2fe, teal #99f6e4, amber #fde68a, rose #fecdd3, with darker text variants. Invented app "Timebox".
+
+Typography: "Inter" (400,500,600,700) at 13px for grid, 15px for headers; hour labels 11px secondary.
+
+Layout: Header with title (week range), previous/next/today buttons, and a category legend filter. A 7-column grid (Mon–Sun) with a sticky day header and a left hour gutter (07:00–21:00), 48px per hour. A right sidebar "Today" agenda lists today's events in order with time and category dot, and a total-hours summary per category as horizontal bars. A "now" red line spans today's column with a dot, positioned by current time.
+
+Interaction: Pointer-drag on empty slots creates a 30-minute-snapped event with a title prompt (inline input in the event); dragging an event moves it between days and times (snap 15 min); a handle on the bottom edge resizes. Clicking an event opens an edit popover (title, category, delete). Keyboard: events are focusable; arrows move by 15 min / 1 day, Shift+arrows resize, Delete removes, Enter edits. Overlapping events render side by side. Category legend chips toggle visibility. Week navigation shifts dates and generates deterministic sample events. Everything announced via live region.
+
+Responsive: Below 900px the sidebar moves under the grid; below 640px show 3 days at a time with a day-window selector so the grid never overflows horizontally; no page overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented names only.

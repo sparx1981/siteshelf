@@ -1,0 +1,11 @@
+Canvas & base: A reading-first page on #fdfcf9 (light) or #16151a (dark), ink #1c1b1f / #ecebf0, secondary #6a6872 / #9a98a6, accent teal #0f766e / #5eead4, hairlines #e8e5de / #2a2931. Invented publication "Field Notes Quarterly" and article "The Quiet Return of the Village Orchard".
+
+Typography: "Literata" (400,600, italic) for body at a user-adjustable 18–24px with 1.7 line-height and a 66ch measure; "Inter" (500,600) for UI; headings in "Literata" 600.
+
+Layout: A top bar (logo, theme toggle, text-size A−/A+ buttons, share button) with a 3px reading-progress line. Hero with kicker, headline clamp(34px,5vw,60px), dek, author byline with avatar, date and live "x min left". A two-column body on desktop: a sticky left TOC (h2 list with the active section highlighted and a progress fill) and the article column. Content includes five h2 sections, paragraphs, a pull quote, a figure (CSS-generated orchard illustration with caption), a blockquote, an inline footnote marker that opens a popover, and an end-note list. A footer with author bio, share buttons (copy link) and three related post cards.
+
+Interaction: Progress line and minutes-left update on scroll (rAF throttled). IntersectionObserver marks the active TOC item; TOC links smooth-scroll with offset. Text-size buttons update a CSS variable and persist in memory (localStorage in try/catch). Theme toggle switches data-theme, defaulting to prefers-color-scheme. Footnote popover is a button with aria-expanded, closes on Escape/outside click. Copy link uses clipboard with fallback and a toast. TOC collapses into a details/summary at the top of the article below 1000px.
+
+Responsive: Single column below 1000px; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, respect prefers-reduced-motion, invented names only.

@@ -1,0 +1,11 @@
+Canvas & base: A warm tabletop on #faf3e7 with a rounded board (#b9a58b, 14px radius, 12px gap grid), empty cells #cdbca3. Tile colours climb from cream through orange to gold: 2 #f4ebdc, 4 #f0dfc0, 8 #f5a65b, 16 #ee8247, 32 #e8603e, 64 #d93f2f, 128 #f0c94a, 256 #e8bd2d, 512 #d9ac14, 1024 #b98f0f, 2048 #7a5c05. Ink #3d3224; tiles ≥8 use white text. Invented game name "Merge Lane".
+
+Typography: "Clear Sans" is not available, so use "Rubik" (500,700) for numbers (scale down for 3–5 digits) and "Nunito" (600,800) for UI.
+
+Layout: A centred 440px column: title and tagline, score and best score cards, buttons (New game, Undo), the 4×4 board with absolutely positioned tiles inside a CSS grid of empty cells, and instructions below ("Arrow keys, WASD or swipe"). Win and game-over overlays cover the board with a message and buttons (Keep going, Try again).
+
+Interaction: Tiles slide by transform transitions (120ms), spawn with a scale-in and merge with a pop. Controls: arrow keys, WASD, swipe on touch (threshold 24px, touch-action none on board). Only moves that change the board spawn a tile (90% a 2, 10% a 4). Undo restores the previous board and score (single level). Score animates +N floaters. Best score saved in a try/catch localStorage with in-memory fallback. Reaching 2048 shows the win overlay once; game over when no moves remain. Respect reduced motion by shortening transitions to 0. Announce score changes and game state in a live region politely and not on every move (merges only).
+
+Responsive: Board scales to 92vw max 440px using CSS variables for cell size; no overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Visible focus, invented names only.

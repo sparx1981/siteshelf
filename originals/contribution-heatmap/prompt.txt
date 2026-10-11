@@ -1,0 +1,11 @@
+Canvas & base: Page #0d1117 with a centred card #161b22 (1px #30363d border, 14px radius, max-width 1080px). Heat scale on dark: level 0 #21262d, 1 #0e4429, 2 #006d32, 3 #26a641, 4 #39d353. Ink #e6edf3, muted #8b949e, accent #58a6ff.
+
+Typography: "IBM Plex Sans" (400, 500, 600) for UI and stats, "IBM Plex Mono" (400, 500) for numbers in the tooltip and legend. Stats numbers 32px 600.
+
+Layout: A card header "Activity" with the year selector (2024, 2025, 2026 as tab buttons) and a total count line ("1,284 contributions in 2025"). Below, the heatmap: 53 columns by 7 rows of 12px rounded squares with 3px gaps, Monday-first rows labelled Mon, Wed, Fri on the left, month labels across the top aligned to the first column of each month, horizontally scrollable inside its own container on narrow screens. A legend "Less [5 squares] More". Then a stats row of four cards: Total, Longest streak, Current streak, Best day (with date), and a mini bar chart of average activity per weekday (7 horizontal bars) beside a "Busiest month" callout.
+
+Interaction: Data is generated from a seeded random function per year with realistic patterns (weekday heavier than weekend, a quiet August, bursts before releases). Hovering or focusing a square shows a tooltip with the count and full date ("3 contributions on Tuesday, 14 January 2025"). The grid is a role=grid with a roving tabindex; arrow keys move across days and weeks, Home and End jump to the row ends. Switching year re-renders with a column-by-column fade-in wave. Clicking a month label highlights that month and dims the rest, clicking again clears it.
+
+Responsive: The heatmap container scrolls horizontally, starting scrolled to the most recent weeks; stats become a 2 by 2 grid and then a single column. The page itself must not scroll horizontally.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries, respects prefers-reduced-motion (no wave animation), tooltip is also exposed in an aria-live region, each square has an aria-label with count and date.

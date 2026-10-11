@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Five-Letter Word Game — Games</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;800&family=Rubik:wght@500;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#fff;--fg:#1a1a1b;--bd:#d3d6da;--bd2:#878a8c;--ok:#538d4e;--pr:#b59f3b;--ab:#787c7e;--key:#d3d6da;--keyfg:#1a1a1b;--mut:#6b6e70}
+:root.dark{--bg:#121213;--fg:#fff;--bd:#3a3a3c;--bd2:#565758;--ab:#3a3a3c;--key:#818384;--keyfg:#fff;--mut:#a0a3a5}
+:root.hc{--ok:#f5793a;--pr:#85c0f9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.4 'Libre Franklin',sans-serif;min-height:100svh}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:2px}
+.app{max-width:500px;margin:0 auto;display:flex;flex-direction:column;min-height:100svh;padding:0 8px 12px}
+header{display:flex;align-items:center;justify-content:space-between;height:56px;border-bottom:1px solid var(--bd);padding:0 4px}
+h1{font:800 28px 'Libre Franklin',sans-serif;letter-spacing:.02em;margin:0;position:absolute;left:50%;transform:translateX(-50%)}
+header .g{display:flex;gap:2px}
+.ib{background:transparent;border:0;color:var(--fg);width:44px;height:44px;border-radius:8px;cursor:pointer;font-size:20px;display:grid;place-items:center}
+.ib:hover{background:rgba(128,128,128,.15)}
+.board{flex:1;display:grid;place-items:center;padding:14px 0}
+.grid{display:grid;grid-template-rows:repeat(6,auto);gap:5px}
+.row{display:grid;grid-template-columns:repeat(5,clamp(48px,13vw,62px));gap:5px}
+.row.shake{animation:sh .5s}
+@keyframes sh{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}30%,50%,70%{transform:translateX(-6px)}40%,60%{transform:translateX(6px)}}
+.t{aspect-ratio:1;border:2px solid var(--bd);display:grid;place-items:center;font:700 clamp(24px,7vw,32px) 'Rubik',sans-serif;text-transform:uppercase;transition:transform .12s;user-select:none}
+.t.f{border-color:var(--bd2);animation:pop .1s}
+@keyframes pop{50%{transform:scale(1.1)}}
+.t.flip{animation:fl .5s ease forwards;animation-delay:calc(var(--i)*250ms)}
+@keyframes fl{0%{transform:rotateX(0)}50%{transform:rotateX(90deg)}100%{transform:rotateX(0)}}
+.t.ok,.t.pr,.t.ab{color:#fff;border-color:transparent}
+.t.ok{background:var(--ok)}.t.pr{background:var(--pr)}.t.ab{background:var(--ab)}
+.t.pending{background:transparent;color:var(--fg);border-color:var(--bd2)}
+.row.win .t{animation:bn .6s calc(var(--i)*100ms)}
+@keyframes bn{30%{transform:translateY(-14px)}60%{transform:translateY(3px)}}
+.kb{display:grid;gap:6px;padding-top:4px}
+.kr{display:flex;gap:6px;justify-content:center}
+.k{flex:1 1 0;min-width:0;height:54px;border:0;border-radius:5px;background:var(--key);color:var(--keyfg);font:700 14px 'Rubik',sans-serif;text-transform:uppercase;cursor:pointer;padding:0;-webkit-tap-highlight-color:transparent}
+.k.w{flex:1.6 1 0;font-size:12px}
+.k.sp{flex:.5 1 0}
+.k.ok,.k.pr,.k.ab{color:#fff}.k.ok{background:var(--ok)}.k.pr{background:var(--pr)}.k.ab{background:var(--ab)}
+#toasts{position:fixed;top:68px;left:50%;transform:translateX(-50%);display:grid;gap:8px;z-index:30;pointer-events:none}
+.toast{background:var(--fg);color:var(--bg);padding:12px 16px;border-radius:6px;font-weight:600;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+dialog{background:var(--bg);color:var(--fg);border:1px solid var(--bd);border-radius:12px;padding:24px;width:min(420px,calc(100vw - 24px));box-shadow:0 20px 60px rgba(0,0,0,.4)}
+dialog::backdrop{background:rgba(0,0,0,.5)}
+dialog h2{font:800 14px 'Libre Franklin',sans-serif;text-transform:uppercase;letter-spacing:.1em;text-align:center;margin:0 0 16px}
+.x{position:absolute;top:8px;right:8px}
+.sts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));text-align:center;margin-bottom:18px}
+.sts b{display:block;font:700 30px 'Rubik',sans-serif}
+.sts span{font-size:11px;color:var(--mut)}
+.bars{display:grid;gap:4px;margin-bottom:16px}
+.br{display:grid;grid-template-columns:14px 1fr;gap:8px;align-items:center;font-size:14px}
+.br div{background:var(--ab);color:#fff;font-size:13px;font-weight:700;text-align:right;padding:1px 6px;min-width:22px;border-radius:2px}
+.br div.cur{background:var(--ok)}
+.share{display:block;margin:0 auto;background:var(--ok);color:#fff;border:0;border-radius:6px;padding:14px 28px;font:700 16px 'Libre Franklin',sans-serif;cursor:pointer;min-height:48px}
+.set{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--bd)}
+.set small{display:block;color:var(--mut);font-size:12px}
+.sw{width:42px;height:24px;border-radius:12px;border:0;background:var(--bd2);position:relative;cursor:pointer;flex:none}
+.sw:after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left .15s}
+.sw[aria-checked=true]{background:var(--ok)}.sw[aria-checked=true]:after{left:21px}
+.how p{margin:0 0 10px;font-size:15px}
+.ex{display:flex;gap:4px;margin:6px 0}.ex .t{width:36px;font-size:20px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(prefers-reduced-motion:reduce){.t.flip,.row.shake,.row.win .t,.t.f{animation:none!important}.t{transition:none}}
+@media(max-width:420px){h1{font-size:24px}.k{height:50px;font-size:13px}.kr{gap:4px}.kb{gap:5px}}
+</style></head><body>
+<div class="app">
+<header><div class="g"><button class="ib" id="bH" aria-label="How to play">?</button></div><h1>LETTERLANE</h1><div class="g"><button class="ib" id="bS" aria-label="Statistics">▥</button><button class="ib" id="bG" aria-label="Settings">⚙</button></div></header>
+<main class="board"><div class="grid" id="grid" role="grid" aria-label="Guess grid"></div></main>
+<div class="kb" id="kb" aria-label="On-screen keyboard"></div>
+</div>
+<div id="toasts" aria-hidden="true"></div><div class="sr" id="live" role="status" aria-live="polite"></div>
+<dialog id="dH"><button class="ib x" data-close aria-label="Close">✕</button><h2>How to play</h2><div class="how"><p>Guess the five-letter word in six tries. After each guess the tiles show how close you were.</p><div class="ex"><div class="t ok">W</div><div class="t pending">O</div><div class="t pending">R</div><div class="t pending">L</div><div class="t pending">D</div></div><p><b>W</b> is in the word and in the right place.</p><div class="ex"><div class="t pending">P</div><div class="t pr">I</div><div class="t pending">L</div><div class="t pending">O</div><div class="t pending">T</div></div><p><b>I</b> is in the word but in the wrong place.</p><div class="ex"><div class="t pending">V</div><div class="t pending">A</div><div class="t pending">G</div><div class="t ab">U</div><div class="t pending">E</div></div><p><b>U</b> is not in the word at all. A new word arrives every day.</p></div></dialog>
+<dialog id="dS"><button class="ib x" data-close aria-label="Close">✕</button><h2>Statistics</h2><div class="sts" id="sts"></div><h2>Guess distribution</h2><div class="bars" id="bars"></div><button class="share" id="shr" hidden>Share</button></dialog>
+<dialog id="dG"><button class="ib x" data-close aria-label="Close">✕</button><h2>Settings</h2>
+<div class="set"><div><b>Hard mode</b><small>Revealed hints must be used in later guesses</small></div><button class="sw" role="switch" aria-checked="false" id="swH" aria-label="Hard mode"></button></div>
+<div class="set"><div><b>Dark theme</b></div><button class="sw" role="switch" aria-checked="false" id="swD" aria-label="Dark theme"></button></div>
+<div class="set"><div><b>High contrast colours</b><small>Orange and blue instead of green and yellow</small></div><button class="sw" role="switch" aria-checked="false" id="swC" aria-label="High contrast colours"></button></div></dialog>
+<script>
+(function(){
+var WORDS="about,above,actor,adapt,admit,adopt,after,again,agent,agree,ahead,alarm,album,alert,alike,alive,allow,alone,along,amber,angle,angry,apple,apply,arena,argue,arise,armor,arrow,aside,atlas,audio,avoid,award,aware,bacon,badge,baker,basic,beach,beard,begin,being,below,bench,berry,black,blade,blame,blank,blaze,blend,block,bloom,board,boost,brain,brave,bread,break,brick,bride,brief,bring,broad,brown,brush,build,cabin,cable,candy,carry,catch,cause,chain,chair,chalk,charm,chart,chase,cheap,check,chest,chief,child,chill,civil,claim,clean,clear,climb,clock,close,cloud,coach,coast,color,comic,coral,couch,count,court,cover,craft,crane,crash,cream,crisp,cross,crowd,crown,curve,daily,dance,delta,depth,diary,dirty,dozen,draft,drain,drama,dream,dress,drift,drink,drive,eager,early,earth,eight,elbow,elite,empty,enjoy,enter,equal,error,event,every,exact,extra,fable,faith,fancy,favor,feast,fence,fever,fiber,field,fifth,fight,final,first,flame,flash,fleet,float,flood,floor,flour,focus,force,forge,forth,frame,fresh,front,frost,fruit,giant,glass,gleam,globe,glory,grace,grade,grain,grand,grape,grass,great,green,greet,group,guard,guess,guest,guide,habit,happy,heart,heavy,hedge,hello,honey,horse,hotel,house,human,humor,ideal,image,imply,index,inner,input,ivory,jelly,joint,judge,juice,knife,knock,known,label,large,laser,later,laugh,layer,learn,lemon,level,light,limit,linen,lodge,logic,loose,lucky,lunar,magic,major,maple,march,match,mayor,medal,melon,merit,metal,meter,might,minor,mixed,model,money,month,moral,motor,mount,mouse,mouth,movie,music,naval,nerve,never,night,noble,noise,north,novel,nurse,ocean,offer,olive,onion,opera,orbit,order,other,otter,outer,paint,panel,paper,party,pasta,patch,pause,peace,pearl,phase,phone,photo,piano,pilot,pitch,pixel,place,plain,plane,plant,plate,point,polar,power,press,price,pride,prime,print,prize,proof,proud,pulse,quest,quick,quiet,quote,radio,raise,range,rapid,ratio,reach,ready,realm,relax,reply,rider,right,river,roast,robot,rough,round,route,royal,rural,salad,scale,scene,scope,score,sense,serve,seven,shade,shape,share,sharp,sheep,shelf,shell,shift,shine,shirt,shore,short,sight,silly,since,skill,sleep,slice,slide,small,smart,smile,smoke,solid,solve,sound,south,space,spare,speak,speed,spice,spoon,sport,squad,stack,staff,stage,stair,stamp,stand,start,state,steam,steel,stick,still,stone,store,storm,story,strip,study,style,sugar,sunny,super,sweet,swift,table,taste,teach,thank,theme,thick,thing,think,third,three,throw,tiger,tight,timer,title,toast,today,token,tooth,topic,total,touch,tough,tower,trace,track,trade,trail,train,treat,trend,trial,tribe,trick,truck,trust,truth,twice,ultra,uncle,under,union,unity,until,upper,upset,urban,usual,valid,value,vapor,video,vigor,vinyl,vital,vivid,vocal,voice,waste,watch,water,wheat,wheel,where,which,while,white,whole,whose,woman,world,worry,worth,wrist,write,wrong,yacht,young,youth,zebra".split(',');
+var $=function(i){return document.getElementById(i)};
+function store(k,v){try{if(v===undefined){var r=localStorage.getItem(k);return r?JSON.parse(r):null}localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var today=new Date(),key=today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var dayN=Math.floor(Date.UTC(today.getFullYear(),today.getMonth(),today.getDate())/864e5);
+var ANS=WORDS[(dayN*7919)%WORDS.length].toUpperCase();
+var st={rows:[],cur:'',over:false,won:false};
+var saved=store('ll-game');if(saved&&saved.key===key)st=saved.st;
+var stats=store('ll-stats')||{p:0,w:0,s:0,m:0,d:[0,0,0,0,0,0]};
+var set=store('ll-set')||{hard:false,dark:matchMedia('(prefers-color-scheme: dark)').matches,hc:false};
+function applySet(){document.documentElement.classList.toggle('dark',set.dark);document.documentElement.classList.toggle('hc',set.hc);
+ $('swH').setAttribute('aria-checked',set.hard);$('swD').setAttribute('aria-checked',set.dark);$('swC').setAttribute('aria-checked',set.hc)}
+applySet();
+var grid=$('grid');
+for(var r=0;r<6;r++){var row=document.createElement('div');row.className='row';row.setAttribute('role','row');for(var c=0;c<5;c++){var t=document.createElement('div');t.className='t';t.setAttribute('role','gridcell');t.style.setProperty('--i',c);row.appendChild(t)}grid.appendChild(row)}
+var kb=$('kb');
+['qwertyuiop','asdfghjkl','+zxcvbnm-'].forEach(function(l){var d=document.createElement('div');d.className='kr';
+ if(l[0]==='a'){var s=document.createElement('div');s.className='k sp';s.style.visibility='hidden';s.style.cursor='default';d.appendChild(s)}
+ l.split('').forEach(function(ch){var b=document.createElement('button');b.type='button';b.className='k';
+  if(ch==='+'){b.textContent='Enter';b.className+=' w';b.dataset.k='Enter'}else if(ch==='-'){b.textContent='⌫';b.className+=' w';b.dataset.k='Backspace';b.setAttribute('aria-label','Delete')}else{b.textContent=ch;b.dataset.k=ch;b.id='k-'+ch}
+  d.appendChild(b)});
+ if(l[0]==='a'){var s2=document.createElement('div');s2.className='k sp';s2.style.visibility='hidden';d.appendChild(s2)}
+ kb.appendChild(d)});
+function score(g){
+ var res=['ab','ab','ab','ab','ab'],cnt={};
+ for(var i=0;i<5;i++){if(g[i]===ANS[i])res[i]='ok';else cnt[ANS[i]]=(cnt[ANS[i]]||0)+1}
+ for(i=0;i<5;i++){if(res[i]!=='ok'&&cnt[g[i]]>0){res[i]='pr';cnt[g[i]]--}}
+ return res;
+}
+function toast(m,ms){var t=document.createElement('div');t.className='toast';t.textContent=m;$('toasts').appendChild(t);$('live').textContent=m;setTimeout(function(){t.remove()},ms||1400)}
+function paintRow(i,instant){
+ var row=grid.children[i],g=st.rows[i],res=score(g);
+ for(var c=0;c<5;c++){var t=row.children[c];t.textContent=g[c];t.className='t f '+(instant||RM?res[c]:'flip pending');t.setAttribute('aria-label',g[c]+', '+({ok:'correct',pr:'in word, wrong place',ab:'not in word'})[res[c]]);
+  if(!instant&&!RM){(function(t,cl){setTimeout(function(){t.className='t f flip '+cl},c*250+250)})(t,res[c])}}
+}
+function keys(){
+ var best={};st.rows.forEach(function(g){var r=score(g);for(var i=0;i<5;i++){var o={ok:3,pr:2,ab:1};if(!best[g[i]]||o[r[i]]>o[best[g[i]]])best[g[i]]=r[i]}});
+ for(var ch in best){var k=$('k-'+ch.toLowerCase());if(k)k.className='k '+best[ch]}
+}
+function drawCur(){
+ var i=st.rows.length;if(i>5)return;var row=grid.children[i];
+ for(var c=0;c<5;c++){var t=row.children[c],ch=st.cur[c]||'';t.textContent=ch;t.className='t'+(ch?' f':'');t.removeAttribute('aria-label')}
+}
+function legal(g){
+ if(!set.hard||!st.rows.length)return null;
+ var prev=st.rows[st.rows.length-1],r=score(prev);
+ for(var i=0;i<5;i++){if(r[i]==='ok'&&g[i]!==prev[i])return 'Letter '+(i+1)+' must be '+prev[i];}
+ for(i=0;i<5;i++){if(r[i]==='pr'&&g.indexOf(prev[i])<0)return 'Guess must contain '+prev[i]}
+ return null;
+}
+function persist(){store('ll-game',{key:key,st:st})}
+function submit(){
+ if(st.over)return;var i=st.rows.length,row=grid.children[i];
+ if(st.cur.length<5){shake(row);toast('Not enough letters');return}
+ var h=legal(st.cur);if(h){shake(row);toast(h,1800);return}
+ st.rows.push(st.cur);st.cur='';paintRow(i,false);
+ var g=st.rows[i],delay=RM?0:1500;
+ if(g===ANS){st.over=st.won=true;stats.p++;stats.w++;stats.s++;stats.m=Math.max(stats.m,stats.s);stats.d[i]++;store('ll-stats',stats);
+  setTimeout(function(){var m=['Genius','Magnificent','Impressive','Splendid','Great','Phew'][i];toast(m,2200);if(!RM)row.classList.add('win');keys();setTimeout(openStats,1400)},delay)}
+ else if(i===5){st.over=true;stats.p++;stats.s=0;store('ll-stats',stats);setTimeout(function(){toast(ANS,3500);keys();setTimeout(openStats,1600)},delay)}
+ else setTimeout(keys,delay);
+ persist();
+}
+function shake(row){row.classList.remove('shake');void row.offsetWidth;row.classList.add('shake')}
+function press(k){
+ if(st.over)return;
+ if(k==='Enter')submit();
+ else if(k==='Backspace'){st.cur=st.cur.slice(0,-1);drawCur()}
+ else if(/^[a-zA-Z]$/.test(k)&&st.cur.length<5){st.cur+=k.toUpperCase();drawCur()}
+}
+kb.addEventListener('click',function(e){var b=e.target.closest('[data-k]');if(b)press(b.dataset.k)});
+document.addEventListener('keydown',function(e){if(e.ctrlKey||e.metaKey||e.altKey)return;if(document.querySelector('dialog[open]'))return;if(e.target.closest&&e.target.closest('button')&&e.key==='Enter')return;press(e.key)});
+function openStats(){
+ var p=stats.p;
+ $('sts').innerHTML=[[p,'Played'],[p?Math.round(stats.w/p*100):0,'Win %'],[stats.s,'Streak'],[stats.m,'Best']].map(function(x){return'<div><b>'+x[0]+'</b><span>'+x[1]+'</span></div>'}).join('');
+ var mx=Math.max.apply(null,stats.d.concat([1])),cur=st.won?st.rows.length-1:-1;
+ $('bars').innerHTML=stats.d.map(function(n,i){return'<div class="br"><span>'+(i+1)+'</span><div class="'+(i===cur?'cur':'')+'" style="width:'+Math.max(8,n/mx*100)+'%">'+n+'</div></div>'}).join('');
+ $('shr').hidden=!st.over;
+ $('dS').showModal();
+}
+$('shr').onclick=function(){
+ var em={ok:'🟩',pr:'🟨',ab:'⬛'};if(set.hc){em={ok:'🟧',pr:'🟦',ab:'⬛'}}
+ var t='Letterlane '+dayN%1000+' '+(st.won?st.rows.length:'X')+'/6'+(set.hard?'*':'')+'\n\n'+st.rows.map(function(g){return score(g).map(function(r){return em[r]}).join('')}).join('\n');
+ try{navigator.clipboard.writeText(t).then(function(){toast('Copied to clipboard')},function(){toast('Copy failed')})}catch(e){toast('Copy not available')}
+};
+$('bH').onclick=function(){$('dH').showModal()};$('bS').onclick=openStats;$('bG').onclick=function(){$('dG').showModal()};
+document.querySelectorAll('dialog').forEach(function(d){d.addEventListener('click',function(e){if(e.target===d||e.target.hasAttribute('data-close'))d.close()})});
+function sw(id,k){$(id).onclick=function(){
+ if(k==='hard'&&st.rows.length&&!st.over&&!set.hard){toast('Hard mode can only start on a fresh game');return}
+ set[k]=!set[k];store('ll-set',set);applySet()}}
+sw('swH','hard');sw('swD','dark');sw('swC','hc');
+st.rows.forEach(function(g,i){paintRow(i,true)});keys();drawCur();
+if(st.over)setTimeout(openStats,300);
+})();
+</script></body></html>

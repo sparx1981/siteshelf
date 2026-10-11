@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Settings — Account</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#f5f6f8;--card:#fff;--line:#e4e7ec;--ink:#101828;--mut:#667085;--acc:#3b6cff;--in:#fff;--ok:#12a150;--bad:#d92d20;--sf:#f9fafb}
+[data-theme=dark]{--bg:#0e1116;--card:#161b22;--line:#262d38;--ink:#e6edf3;--mut:#8b96a5;--in:#0f141a;--sf:#1b222c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 'Public Sans',sans-serif;transition:background-color .25s,color .25s}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;background:var(--card);border-bottom:1px solid var(--line)}
+.app{font-weight:700;font-size:18px;display:flex;align-items:center;gap:8px}.app i{width:20px;height:20px;border-radius:6px;background:var(--acc)}
+.av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#7c5cff,#3b6cff);color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
+.wrap{max-width:1040px;margin:0 auto;padding:32px 24px 120px}
+h1{font:700 28px/1.2 'Public Sans',sans-serif;margin:0 0 4px}.sub{color:var(--mut);margin:0 0 24px}
+.cols{display:grid;grid-template-columns:210px minmax(0,1fr);gap:28px;align-items:start}
+.tabs{display:grid;gap:2px;position:sticky;top:16px}
+.tab{text-align:left;border:0;background:none;color:var(--mut);padding:10px 14px;border-radius:10px;font:600 15px 'Public Sans',sans-serif;cursor:pointer}
+.tab:hover{background:var(--sf);color:var(--ink)}.tab[aria-selected=true]{background:var(--card);color:var(--ink);box-shadow:inset 3px 0 var(--acc),0 0 0 1px var(--line)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px}
+h2{font:600 18px 'Public Sans',sans-serif;margin:0 0 4px}.card>.sub{margin-bottom:22px}
+.f{display:grid;gap:6px;margin-bottom:18px}
+.f label,.lg{font-weight:600;font-size:14px}
+.f input[type=text],.f input[type=email],.f input[type=password],.f textarea,.f select{background:var(--in);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;width:100%}
+.f textarea{resize:vertical;min-height:90px}
+.f input:focus,.f textarea:focus,.f select:focus{border-color:var(--acc)}
+.f [aria-invalid=true]{border-color:var(--bad)}
+.h{font-size:13px;color:var(--mut);display:flex;justify-content:space-between;gap:10px}
+.er{font-size:13px;color:var(--bad);min-height:0}
+.ok{color:var(--ok)}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}
+.avr{display:flex;align-items:center;gap:16px;margin-bottom:22px}.avr .av{width:64px;height:64px;font-size:22px}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:9px 16px;font:600 14px 'Public Sans',sans-serif;cursor:pointer}
+.btn:hover{background:var(--sf)}.btn.p{background:var(--acc);border-color:var(--acc);color:#fff}.btn.p:hover{filter:brightness(1.08)}.btn.d{background:var(--bad);border-color:var(--bad);color:#fff}.btn:disabled{opacity:.45;cursor:not-allowed}
+.nr{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.nr b{display:block;font-weight:600}.nr span.d{color:var(--mut);font-size:13px}
+.sw{width:46px;height:26px;border-radius:13px;border:0;background:#c5cad3;position:relative;cursor:pointer;flex:none;transition:background .2s}
+.sw:after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s}
+.sw[aria-checked=true]{background:var(--acc)}.sw[aria-checked=true]:after{transform:translateX(20px)}
+fieldset{border:0;padding:0;margin:20px 0 0}legend{font-weight:600;margin-bottom:8px;padding:0}
+.rd{display:flex;gap:18px;flex-wrap:wrap}.rd label{display:flex;gap:8px;align-items:center;cursor:pointer}.rd input{accent-color:var(--acc);width:18px;height:18px}
+.tc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tc label{border:2px solid var(--line);border-radius:14px;padding:10px;cursor:pointer;display:grid;gap:8px;font-weight:600;font-size:14px}
+.tc input{position:absolute;opacity:0}
+.tc label:has(input:checked){border-color:var(--acc);box-shadow:0 0 0 3px color-mix(in srgb,var(--acc) 22%,transparent)}
+.tc label:has(input:focus-visible){outline:3px solid var(--acc);outline-offset:2px}
+.mp{height:64px;border-radius:8px;display:grid;grid-template-columns:30% 1fr;overflow:hidden;border:1px solid #d0d5dd}
+.mp i{display:block}.mp.l i:first-child{background:#e9edf3}.mp.l i:last-child{background:#fff}.mp.dk i:first-child{background:#1b222c}.mp.dk i:last-child{background:#0e1116}.mp.s i:first-child{background:linear-gradient(135deg,#e9edf3 50%,#1b222c 50%)}.mp.s i:last-child{background:linear-gradient(135deg,#fff 50%,#0e1116 50%)}
+.str{height:6px;border-radius:3px;background:var(--line);overflow:hidden}.str i{display:block;height:100%;width:0;transition:width .25s,background .25s}
+table{width:100%;border-collapse:collapse;font-size:14px}th{text-align:left;color:var(--mut);font-weight:600;padding:8px 0;border-bottom:1px solid var(--line)}td{padding:10px 0;border-bottom:1px solid var(--line)}td:last-child,th:last-child{text-align:right}
+.pl{background:var(--sf);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.pl b{font-size:20px}.badge{background:color-mix(in srgb,var(--ok) 16%,transparent);color:var(--ok);font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px}
+.dz{margin-top:30px;border:1px solid color-mix(in srgb,var(--bad) 45%,var(--line));border-radius:14px;padding:18px;display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}
+.dz h3{margin:0;font-size:16px;color:var(--bad)}.dz p{margin:2px 0 0;color:var(--mut);font-size:13px}
+.bar{position:fixed;left:50%;bottom:20px;transform:translate(-50%,120px);width:min(640px,calc(100% - 32px));background:#101828;color:#fff;border-radius:14px;padding:12px 14px 12px 20px;display:flex;gap:12px;align-items:center;justify-content:space-between;box-shadow:0 20px 50px rgba(0,0,0,.4);transition:transform .3s;z-index:20}
+.bar.on{transform:translate(-50%,0)}.bar .btn{background:transparent;border-color:#475467;color:#fff}.bar .btn.p{background:var(--acc);border-color:var(--acc)}
+#toast{position:fixed;left:50%;top:20px;transform:translate(-50%,-80px);background:var(--ok);color:#fff;padding:10px 18px;border-radius:12px;font-weight:600;transition:.3s;z-index:30}
+#toast.on{transform:translate(-50%,0)}
+dialog{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:24px;width:min(420px,calc(100vw - 32px))}
+dialog::backdrop{background:rgba(0,0,0,.55)}dialog h2{color:var(--bad)}dialog input{background:var(--in);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;width:100%;margin:12px 0}
+.dr{display:flex;justify-content:flex-end;gap:8px}
+@media(max-width:800px){.cols{grid-template-columns:minmax(0,1fr)}.tabs{display:flex;overflow-x:auto;position:static;gap:6px;padding-bottom:6px;scrollbar-width:none}.tab{white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:8px 14px}.tab[aria-selected=true]{box-shadow:none;background:var(--acc);border-color:var(--acc);color:#fff}.g2{grid-template-columns:minmax(0,1fr)}.card{padding:20px}.tc{grid-template-columns:minmax(0,1fr)}header{padding:12px 16px}.wrap{padding:22px 16px 120px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header><span class="app"><i></i>Meridian</span><span class="av">RK</span></header>
+<main class="wrap"><h1>Settings</h1><p class="sub">Manage your account, notifications and appearance.</p>
+<div class="cols"><div class="tabs" role="tablist" aria-orientation="vertical" id="tabs"></div><div id="panel" role="tabpanel"></div></div></main>
+<div class="bar" id="bar" role="region" aria-label="Unsaved changes"><span>You have unsaved changes</span><span style="display:flex;gap:8px"><button class="btn" id="dis">Discard</button><button class="btn p" id="sav">Save changes</button></span></div>
+<div id="toast" role="status"></div>
+<dialog id="dlg" aria-labelledby="dh"><h2 id="dh">Delete account</h2><p style="margin:0;color:var(--mut)">This permanently removes your workspace and data. Type <b>DELETE</b> to confirm.</p><input id="dc" aria-label="Type DELETE to confirm" autocomplete="off"><div class="dr"><button class="btn" id="dn">Cancel</button><button class="btn d" id="dy" disabled>Delete account</button></div></dialog>
+<script>
+const $=i=>document.getElementById(i);
+const SECS=[['profile','Profile'],['notif','Notifications'],['look','Appearance'],['sec','Security'],['bill','Billing']];
+const DEF={name:'Rae Kim',email:'rae@meridian.example',user:'raekim',bio:'Product lead who likes quiet interfaces.',tz:'Europe/London',n:{mention:true,comment:true,deploy:false,billing:true,news:false},digest:'daily',theme:'light',density:'comfortable',tfa:false};
+let S=JSON.parse(JSON.stringify(DEF)),V=JSON.parse(JSON.stringify(DEF)),tab='profile',pw={cur:'',n1:'',n2:''};
+$('tabs').innerHTML=SECS.map(([k,l])=>`<button class="tab" role="tab" data-t="${k}" id="t-${k}" aria-selected="${k==='profile'}" tabindex="${k==='profile'?0:-1}">${l}</button>`).join('');
+const dirty=()=>JSON.stringify(S)!==JSON.stringify(V)||pw.n1||pw.cur||pw.n2;
+function chk(){$('bar').classList.toggle('on',!!dirty())}
+function theme(t){document.documentElement.dataset.theme=t==='system'?(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):t}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const sw=(k,t,d)=>`<div class="nr"><div><b id="l-${k}">${t}</b><span class="d">${d}</span></div><button class="sw" role="switch" aria-checked="${S.n[k]}" aria-labelledby="l-${k}" data-n="${k}"></button></div>`;
+function strength(p){let s=0;if(p.length>=8)s++;if(/[A-Z]/.test(p)&&/[a-z]/.test(p))s++;if(/\d/.test(p))s++;if(/[^A-Za-z0-9]/.test(p))s++;return p?Math.max(1,s):0}
+const VIEWS={
+profile:()=>`<section class="card"><h2>Profile</h2><p class="sub">This information appears on your public profile.</p><div class="avr"><span class="av">${esc(S.name.split(' ').map(w=>w[0]||'').join('').slice(0,2).toUpperCase()||'?')}</span><button class="btn" type="button" id="chg">Change photo</button></div>
+<div class="g2"><div class="f"><label for="name">Full name</label><input type="text" id="name" data-k="name" value="${esc(S.name)}" aria-describedby="e-name"><span class="er" id="e-name"></span></div><div class="f"><label for="email">Email</label><input type="email" id="email" data-k="email" value="${esc(S.email)}" aria-describedby="e-email"><span class="er" id="e-email"></span></div></div>
+<div class="f"><label for="user">Username</label><input type="text" id="user" data-k="user" value="${esc(S.user)}" aria-describedby="e-user h-user"><span class="h" id="h-user"></span><span class="er" id="e-user"></span></div>
+<div class="f"><label for="bio">Bio</label><textarea id="bio" data-k="bio" maxlength="160" aria-describedby="h-bio">${esc(S.bio)}</textarea><span class="h" id="h-bio"><span>Short and friendly.</span><span id="bc">${S.bio.length}/160</span></span></div>
+<div class="f" style="max-width:320px"><label for="tz">Timezone</label><select id="tz" data-k="tz">${['Europe/London','Europe/Paris','America/New_York','America/Los_Angeles','Asia/Tokyo','Australia/Sydney'].map(z=>`<option ${S.tz===z?'selected':''}>${z}</option>`).join('')}</select></div>
+<div class="dz"><div><h3>Danger zone</h3><p>Deleting your account is permanent and cannot be undone.</p></div><button class="btn d" type="button" id="del">Delete account</button></div></section>`,
+notif:()=>`<section class="card"><h2>Notifications</h2><p class="sub">Choose what we email you about.</p>${sw('mention','Mentions','When someone @mentions you.')}${sw('comment','Comments','Replies to threads you follow.')}${sw('deploy','Deploys','Build and release results.')}${sw('billing','Billing','Receipts and failed payments.')}${sw('news','Product news','Occasional updates, never weekly spam.')}
+<fieldset><legend>Email digest</legend><div class="rd">${['realtime','daily','weekly'].map(d=>`<label><input type="radio" name="dg" value="${d}" ${S.digest===d?'checked':''}>${d[0].toUpperCase()+d.slice(1)}</label>`).join('')}</div></fieldset></section>`,
+look:()=>`<section class="card"><h2>Appearance</h2><p class="sub">Pick how Meridian looks to you.</p><fieldset style="margin:0"><legend class="sr" style="position:absolute;opacity:0">Theme</legend><div class="tc">${[['light','Light','l'],['dark','Dark','dk'],['system','System','s']].map(([v,l,c])=>`<label><input type="radio" name="th" value="${v}" ${S.theme===v?'checked':''}><span class="mp ${c}"><i></i><i></i></span>${l}</label>`).join('')}</div></fieldset>
+<div class="f" style="max-width:320px;margin-top:22px"><label for="dn2">Density</label><select id="dn2" data-k="density"><option value="comfortable" ${S.density==='comfortable'?'selected':''}>Comfortable</option><option value="compact" ${S.density==='compact'?'selected':''}>Compact</option></select></div></section>`,
+sec:()=>`<section class="card"><h2>Security</h2><p class="sub">Keep your account safe.</p><div class="f"><label for="pc">Current password</label><input type="password" id="pc" data-p="cur" value="${esc(pw.cur)}" autocomplete="current-password" aria-describedby="e-pc"><span class="er" id="e-pc"></span></div><div class="g2"><div class="f"><label for="p1">New password</label><input type="password" id="p1" data-p="n1" value="${esc(pw.n1)}" autocomplete="new-password" aria-describedby="h-p1"><div class="str"><i id="sb"></i></div><span class="h" id="h-p1">Use 8+ characters with a mix of cases, numbers and symbols.</span></div><div class="f"><label for="p2">Confirm password</label><input type="password" id="p2" data-p="n2" value="${esc(pw.n2)}" autocomplete="new-password" aria-describedby="e-p2"><span class="er" id="e-p2"></span></div></div>
+<div class="nr" style="border-top:1px solid var(--line)"><div><b id="l-tfa">Two-factor authentication</b><span class="d">Require a code from your authenticator app.</span></div><button class="sw" role="switch" aria-checked="${S.tfa}" aria-labelledby="l-tfa" id="tfa"></button></div></section>`,
+bill:()=>`<section class="card"><h2>Billing</h2><p class="sub">Your plan and recent invoices.</p><div class="pl"><div><span class="badge">Active</span><br><b>Team plan</b> <span style="color:var(--mut)">£99 per month</span></div><button class="btn" type="button">Manage plan</button></div><table><thead><tr><th>Invoice</th><th>Date</th><th>Amount</th></tr></thead><tbody><tr><td>INV-1042</td><td>1 Oct 2026</td><td>£99.00</td></tr><tr><td>INV-1031</td><td>1 Sep 2026</td><td>£99.00</td></tr><tr><td>INV-1019</td><td>1 Aug 2026</td><td>£99.00</td></tr></tbody></table></section>`};
+function show(t,focus){tab=t;document.querySelectorAll('.tab').forEach(b=>{const on=b.dataset.t===t;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1});$('panel').setAttribute('aria-labelledby','t-'+t);$('panel').innerHTML=VIEWS[t]();after();if(focus)document.getElementById('t-'+t).focus()}
+function after(){const u=$('user');if(u)hint();const sb=$('sb');if(sb)bar()}
+function hint(){const v=$('user').value,h=$('h-user');if(!h)return;const taken=['admin','root','rae'].includes(v.toLowerCase());h.innerHTML=v.length<3?'<span>At least 3 characters.</span>':taken?'<span class="er">That username is taken.</span>':'<span class="ok">✓ Available</span>'}
+function bar(){const s=strength(pw.n1),sb=$('sb');sb.style.width=s*25+'%';sb.style.background=['','#d92d20','#f79009','#84cc16','#12a150'][s]||''}
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('.tab');if(b)show(b.dataset.t)});
+$('tabs').addEventListener('keydown',e=>{const ts=[...document.querySelectorAll('.tab')],i=ts.indexOf(document.activeElement);if(i<0)return;let j=i;if(e.key==='ArrowDown'||e.key==='ArrowRight')j=(i+1)%ts.length;else if(e.key==='ArrowUp'||e.key==='ArrowLeft')j=(i-1+ts.length)%ts.length;else return;e.preventDefault();show(ts[j].dataset.t,true)});
+$('panel').addEventListener('input',e=>{const t=e.target;if(t.dataset.k){S[t.dataset.k]=t.value;if(t.id==='bio')$('bc').textContent=t.value.length+'/160';if(t.id==='user')hint();if(t.id==='name'){const a=document.querySelector('.avr .av');a.textContent=t.value.split(' ').map(w=>w[0]||'').join('').slice(0,2).toUpperCase()||'?'}t.removeAttribute('aria-invalid')}
+ if(t.dataset.p){pw[t.dataset.p]=t.value;if(t.dataset.p==='n1')bar()}chk()});
+$('panel').addEventListener('change',e=>{const t=e.target;if(t.name==='dg')S.digest=t.value;if(t.name==='th'){S.theme=t.value;theme(S.theme)}if(t.dataset.k)S[t.dataset.k]=t.value;chk()});
+$('panel').addEventListener('click',e=>{const b=e.target.closest('.sw');if(b){if(b.id==='tfa'){S.tfa=!S.tfa;b.setAttribute('aria-checked',S.tfa)}else{S.n[b.dataset.n]=!S.n[b.dataset.n];b.setAttribute('aria-checked',S.n[b.dataset.n])}chk();return}
+ if(e.target.id==='del'){$('dc').value='';$('dy').disabled=true;$('dlg').showModal();$('dc').focus()}if(e.target.id==='chg')toast('Photo upload is not available in this demo')});
+function setErr(id,m){const e=$('e-'+id);if(e)e.textContent=m;const i=$(id);if(i){if(m)i.setAttribute('aria-invalid','true');else i.removeAttribute('aria-invalid')}return m}
+function validate(){let first=null;const bad=(t,id,m)=>{if(!first)first={t,id};if(document.getElementById('e-'+id)||true){}};const errs=[];
+ if(!S.name.trim())errs.push(['profile','name','Please enter your name.']);
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(S.email))errs.push(['profile','email','Enter a valid email address.']);
+ if(S.user.length<3||S.user.length>20)errs.push(['profile','user','Username must be 3 to 20 characters.']);
+ if(pw.n1||pw.n2||pw.cur){if(!pw.cur)errs.push(['sec','pc','Enter your current password.']);if(pw.n1.length<8)errs.push(['sec','p1','Use at least 8 characters.']);if(pw.n1!==pw.n2)errs.push(['sec','p2','Passwords do not match.'])}
+ return errs}
+$('sav').onclick=()=>{const errs=validate();if(errs.length){const f=errs[0];if(tab!==f[0])show(f[0]);errs.filter(x=>x[0]===tab).forEach(x=>setErr(x[1],x[2]));const el=$(f[1]);if(el)el.focus();toast('Please fix the highlighted fields',true);return}
+ V=JSON.parse(JSON.stringify(S));pw={cur:'',n1:'',n2:''};show(tab);chk();toast('Settings saved')};
+$('dis').onclick=()=>{S=JSON.parse(JSON.stringify(V));pw={cur:'',n1:'',n2:''};theme(S.theme);show(tab);chk()};
+function toast(t,bad){const e=$('toast');e.textContent=t;e.style.background=bad?'var(--bad)':'var(--ok)';e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),2200)}
+$('dc').oninput=()=>$('dy').disabled=$('dc').value!=='DELETE';$('dn').onclick=()=>$('dlg').close();$('dy').onclick=()=>{$('dlg').close();toast('Account deletion is disabled in this demo')};
+show('profile');
+</script></body></html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" data-theme="paper"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why we stopped measuring — Article Reader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@500;600;700&family=Literata:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#fbfaf6;--ink:#1f1d19;--link:#1d5c9e;--acc:#d9482b;--ln:rgba(31,29,25,.14);--mut:rgba(31,29,25,.62);--sf:rgba(31,29,25,.05);--fs:20px;--w:680px}
+[data-theme=sepia]{--bg:#f3e9d2;--ink:#3b2f20;--link:#8a4b0f;--ln:rgba(59,47,32,.18);--mut:rgba(59,47,32,.66);--sf:rgba(59,47,32,.07)}
+[data-theme=night]{--bg:#14161b;--ink:#d9dce3;--link:#7fb2ff;--acc:#ff7a5c;--ln:rgba(217,220,227,.16);--mut:rgba(217,220,227,.62);--sf:rgba(217,220,227,.07)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 var(--fs)/1.75 Literata,serif;transition:background-color .3s,color .3s}
+.ui,.ui *,.toc,.toc *{font-family:'Albert Sans',sans-serif}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+#pb{position:fixed;top:0;left:0;height:3px;width:0;background:var(--acc);z-index:60}
+header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+.tb{max-width:1180px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;position:relative}
+.pub{font:700 18px 'Albert Sans',sans-serif;letter-spacing:-.01em;margin-right:auto}
+.left{font:500 13px 'Albert Sans',sans-serif;color:var(--mut)}
+.aa{border:1px solid var(--ln);background:var(--sf);color:var(--ink);border-radius:10px;padding:6px 14px;font:700 15px 'Albert Sans',sans-serif;cursor:pointer}
+.aa:hover{background:var(--ln)}
+.pop{position:absolute;right:24px;top:56px;width:290px;background:var(--bg);border:1px solid var(--ln);border-radius:14px;padding:16px;box-shadow:0 20px 50px -16px rgba(0,0,0,.45);display:grid;gap:14px;font:500 14px 'Albert Sans',sans-serif}
+.pop h2{margin:0 0 6px;font:700 12px 'Albert Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.row{display:flex;gap:8px;align-items:center}
+.row button,.seg label{border:1px solid var(--ln);background:var(--sf);color:var(--ink);border-radius:10px;padding:8px 12px;font:700 14px 'Albert Sans',sans-serif;cursor:pointer;flex:1;text-align:center}
+.row button:hover{background:var(--ln)}
+.seg{display:flex;gap:6px}.seg input{position:absolute;opacity:0}.seg label{display:block;font-weight:600}
+.seg input:checked+label{background:var(--ink);color:var(--bg);border-color:var(--ink)}.seg input:focus-visible+label{outline:3px solid var(--acc);outline-offset:2px}
+.seg label.sw1{background:#fbfaf6;color:#1f1d19}.seg label.sw2{background:#f3e9d2;color:#3b2f20}.seg label.sw3{background:#14161b;color:#d9dce3}
+.seg input:checked+label.sw1,.seg input:checked+label.sw2,.seg input:checked+label.sw3{box-shadow:0 0 0 3px var(--acc);border-color:var(--acc)}
+.fs{font:600 13px 'Albert Sans',sans-serif;color:var(--mut);min-width:44px;text-align:center}
+.head{max-width:var(--w);margin:0 auto;padding:64px 24px 24px;transition:max-width .25s}
+.kick{font:700 12px 'Albert Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+h1{font:700 clamp(34px,5.4vw,52px)/1.1 'Albert Sans',sans-serif;letter-spacing:-.02em;margin:10px 0 14px}
+.stand{font-size:1.1em;color:var(--mut);margin:0 0 22px;line-height:1.55}
+.by{display:flex;align-items:center;gap:12px;font:500 14px 'Albert Sans',sans-serif;color:var(--mut)}
+.by .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--acc),#e8a33c);color:#fff;display:grid;place-items:center;font-weight:700}
+.by b{display:block;color:var(--ink)}
+.grid{max-width:1180px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:200px minmax(0,var(--w)) 1fr;gap:48px;justify-content:center;transition:grid-template-columns .25s}
+.toc{position:sticky;top:90px;align-self:start;font:500 14px 'Albert Sans',sans-serif}
+.toc h2{font:700 12px 'Albert Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:0 0 10px}
+.toc ol{list-style:none;margin:0;padding:0;border-left:2px solid var(--ln)}
+.toc a{display:block;padding:6px 0 6px 14px;margin-left:-2px;border-left:2px solid transparent;color:var(--mut);text-decoration:none;line-height:1.35}
+.toc a:hover{color:var(--ink)}.toc a[aria-current=true]{color:var(--ink);border-color:var(--acc);font-weight:700}
+.toc details>summary{display:none}
+article{min-width:0;transition:max-width .25s}
+article h2{font:700 28px/1.2 'Albert Sans',sans-serif;letter-spacing:-.01em;margin:2.2em 0 .6em}
+article p{margin:0 0 1.3em}
+article>section:first-of-type>p:first-of-type:first-letter{float:left;font:700 4.2em/.8 'Albert Sans',sans-serif;padding:.08em .1em 0 0;color:var(--acc)}
+a{color:var(--link);text-underline-offset:3px}
+.fn{font:700 .6em 'Albert Sans',sans-serif;vertical-align:super;line-height:0;border:0;background:var(--sf);color:var(--link);border-radius:6px;padding:2px 6px;cursor:pointer;margin-left:2px}
+.fn:hover{background:var(--ln)}
+blockquote{margin:1.8em -4% 1.8em;padding:0 0 0 24px;border-left:4px solid var(--acc);font:italic 400 1.5em/1.4 Literata,serif}
+ul.l{padding-left:1.2em;margin:0 0 1.3em}ul.l li{margin:.35em 0}
+figure{margin:2em 0;padding:20px;background:var(--sf);border-radius:14px}
+figure svg{width:100%;height:auto;display:block}
+figcaption{font:500 .78em/1.5 'Albert Sans',sans-serif;color:var(--mut);margin-top:10px}
+.fnp{position:absolute;z-index:50;width:min(320px,calc(100vw - 32px));background:var(--bg);color:var(--ink);border:1px solid var(--ln);border-radius:12px;padding:14px 16px;box-shadow:0 18px 40px -14px rgba(0,0,0,.5);font:400 15px/1.55 'Albert Sans',sans-serif}
+.fnp a{display:inline-block;margin-top:6px;font-weight:700;font-size:13px}
+.bio{margin:3em 0 0;border:1px solid var(--ln);border-radius:16px;padding:20px;display:flex;gap:16px;align-items:center;font:400 15px/1.55 'Albert Sans',sans-serif}
+.bio .av{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--acc),#e8a33c);color:#fff;display:grid;place-items:center;font:700 20px 'Albert Sans',sans-serif;flex:none}
+.bio b{display:block;font-size:17px}
+.nx{max-width:1180px;margin:70px auto 90px;padding:0 24px}
+.nx h2{font:700 24px 'Albert Sans',sans-serif;margin:0 0 18px}
+.nc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.nc a{text-decoration:none;color:var(--ink);border:1px solid var(--ln);border-radius:16px;overflow:hidden;display:block;transition:transform .2s}
+.nc a:hover{transform:translateY(-3px)}
+.nc .c{aspect-ratio:16/9;background:var(--g)}
+.nc div.t{padding:14px 16px 16px;font:700 17px/1.3 'Albert Sans',sans-serif}
+.nc small{display:block;font:500 13px 'Albert Sans',sans-serif;color:var(--mut);margin-top:4px}
+.fnl{font:400 15px/1.6 'Albert Sans',sans-serif;color:var(--mut);border-top:1px solid var(--ln);margin-top:2.6em;padding-top:1em}
+.fnl ol{padding-left:1.2em;margin:0}.fnl li{margin-bottom:.5em}
+@media(max-width:1100px){.grid{grid-template-columns:minmax(0,var(--w))}.toc{position:static;margin:0 0 28px;border:1px solid var(--ln);border-radius:12px;padding:0}.toc h2{display:none}.toc details>summary{display:block;padding:12px 16px;cursor:pointer;font-weight:700;list-style:none}.toc details>summary::-webkit-details-marker{display:none}.toc ol{padding:0 16px 12px;border:0}.toc a{border-left:0;padding-left:0;margin:0}.toc a[aria-current=true]{color:var(--acc)}}
+@media(max-width:700px){:root{--fs:18px}.head{padding-top:40px}.nc{grid-template-columns:minmax(0,1fr)}.tb{padding:10px 16px}.left{display:none}.pop{right:12px;left:12px;width:auto}.grid,.nx{padding:0 16px}.head{padding-left:16px;padding-right:16px}blockquote{margin-left:0;margin-right:0;font-size:1.3em}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style></head><body>
+<div id="pb" aria-hidden="true"></div>
+<header class="ui"><div class="tb"><span class="pub">Longform</span><span class="left" id="left"></span><button class="aa" id="aa" aria-expanded="false" aria-controls="pop" aria-label="Reading settings">Aa</button>
+<div class="pop" id="pop" hidden role="group" aria-label="Reading settings"><div><h2>Text size</h2><div class="row"><button id="fm" aria-label="Smaller text">A−</button><span class="fs" id="fv"></span><button id="fp" aria-label="Larger text">A+</button></div></div><div><h2>Theme</h2><div class="seg" role="radiogroup" aria-label="Theme"><span><input type="radio" name="th" id="th1" value="paper"><label class="sw1" for="th1">Paper</label></span><span><input type="radio" name="th" id="th2" value="sepia"><label class="sw2" for="th2">Sepia</label></span><span><input type="radio" name="th" id="th3" value="night"><label class="sw3" for="th3">Night</label></span></div></div><div><h2>Line width</h2><div class="seg" role="radiogroup" aria-label="Line width"><span><input type="radio" name="wd" id="w1" value="600px"><label for="w1">Narrow</label></span><span><input type="radio" name="wd" id="w2" value="680px"><label for="w2">Normal</label></span><span><input type="radio" name="wd" id="w3" value="780px"><label for="w3">Wide</label></span></div></div></div></div></header>
+<div class="head"><span class="kick">Culture of work</span><h1>Why we stopped measuring everything</h1><p class="stand">A small design team deleted its dashboards for a quarter. Here is what they noticed, what they missed, and what they kept.</p><div class="by ui"><span class="av">HE</span><span><b>Hannah Ellis</b>12 October 2026 · 11 min read</span></div></div>
+<div class="grid"><aside class="toc" aria-label="On this page"><details open id="td"><summary>On this page</summary><h2>On this page</h2><ol id="tl"></ol></details></aside>
+<main><article id="art">
+<section id="s1"><h2>The dashboard on the wall</h2><p>For three years our team kept a dashboard on the wall. It showed sign-ups, task completion, page speed and a dozen other numbers that changed colour when they drifted. Nobody remembered who asked for it first, and nobody had ever turned it off.<button class="fn" data-n="1" aria-label="Footnote 1">1</button></p><p>The trouble was not that the numbers were wrong. They were almost always right. The trouble was that we had begun to treat movement in a number as if it were a decision, and decisions as if they were something that happened to us.</p></section>
+<section id="s2"><h2>What we did instead</h2><p>In January we switched the screen off. We kept a single weekly conversation instead, forty minutes, with one rule: nobody could cite a metric unless they could also say what they would do differently because of it.</p><blockquote>A number you cannot act on is a mood, not a measurement.</blockquote><p>The first two weeks were uncomfortable. People reached for facts and found they were holding only impressions. By the third week the meetings had changed shape: shorter, more specific, and oddly warmer.<button class="fn" data-n="2" aria-label="Footnote 2">2</button></p></section>
+<section id="s3"><h2>What we lost</h2><p>We lost early warning on two things. A slow rise in checkout errors went unnoticed for nine days, and a pricing page change quietly cost us conversions we could have recovered. Both mattered. Neither was fatal.</p><figure><svg viewBox="0 0 520 220" role="img" aria-label="Bar chart: time to notice problems rose from 1 day with dashboards to 6 days without, while time to decide fell from 12 days to 4 days."><g font-family="Albert Sans" font-size="12" fill="currentColor"><line x1="40" y1="180" x2="500" y2="180" stroke="currentColor" opacity=".3"/><rect x="80" y="165" width="56" height="15" rx="3" fill="#7a8aa6"/><rect x="146" y="100" width="56" height="80" rx="3" fill="#d9482b"/><text x="84" y="198">Notice</text><text x="150" y="198">Notice</text><text x="80" y="158">1d</text><text x="148" y="94">6d</text><rect x="290" y="30" width="56" height="150" rx="3" fill="#7a8aa6"/><rect x="356" y="125" width="56" height="55" rx="3" fill="#2e8f6b"/><text x="294" y="198">Decide</text><text x="360" y="198">Decide</text><text x="292" y="24">12d</text><text x="362" y="119">4d</text><text x="40" y="214" opacity=".7">grey = with dashboards · colour = without</text></g></svg><figcaption>Illustrative figures from the team's own notes. Noticing problems got slower; deciding about them got faster.</figcaption></figure></section>
+<section id="s4"><h2>What we gained</h2><p>Decisions sped up because they no longer waited for a chart to agree with us. We also found that people were far more willing to say "I do not know" when there was no screen implying they should.<button class="fn" data-n="3" aria-label="Footnote 3">3</button></p><ul class="l"><li>Weekly meetings dropped from sixty minutes to forty.</li><li>Experiments were proposed with a stated next step.</li><li>Fewer metrics were argued about, more were chosen.</li></ul></section>
+<section id="s5"><h2>What we kept</h2><p>By April we had brought back exactly three numbers, each with an owner and a written action attached. The wall screen stayed off. If you are tempted to try this yourself, start smaller: turn off one dashboard for one month and write down what you reach for instead.</p></article>
+<div class="fnl ui" id="fnl"><ol><li id="fn1">The dashboard cost roughly one engineer-week per quarter to keep running.</li><li id="fn2">We borrowed the "what would you do differently" rule from a retired hospital operations manager.</li><li id="fn3">This was an informal observation, not a controlled study. Treat it as a story, not evidence.</li></ol></div>
+<div class="bio ui"><span class="av">HE</span><div><b>Hannah Ellis</b>Writes about how small teams make decisions. Previously a product designer, now a studio manager who still sketches in the margins.</div></div></main><div></div></div>
+<div class="nx ui"><h2>Read next</h2><div class="nc"><a href="#"><div class="c" style="--g:linear-gradient(135deg,#f4a259,#bc4b51)"></div><div class="t">The four-day week, six months in<small>8 min read</small></div></a><a href="#"><div class="c" style="--g:linear-gradient(135deg,#5b8e7d,#2f4858)"></div><div class="t">Write the press release last<small>6 min read</small></div></a><a href="#"><div class="c" style="--g:linear-gradient(135deg,#8d6bff,#3b6cff)"></div><div class="t">Roadmaps are promises in disguise<small>5 min read</small></div></a></div></div>
+<script>
+const $=i=>document.getElementById(i),de=document.documentElement,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let st={fs:20,th:'paper',w:'680px'};try{const s=JSON.parse(localStorage.getItem('reader-prefs'));if(s)st={...st,...s}}catch(e){}
+function apply(){de.dataset.theme=st.th;de.style.setProperty('--fs',st.fs+'px');de.style.setProperty('--w',st.w);$('fv').textContent=st.fs+'px';$('th'+({paper:1,sepia:2,night:3}[st.th])).checked=true;({'600px':$('w1'),'680px':$('w2'),'780px':$('w3')}[st.w]||$('w2')).checked=true;try{localStorage.setItem('reader-prefs',JSON.stringify(st))}catch(e){}}
+$('fm').onclick=()=>{st.fs=Math.max(17,st.fs-1);apply()};$('fp').onclick=()=>{st.fs=Math.min(26,st.fs+1);apply()};
+document.querySelectorAll('input[name=th]').forEach(r=>r.onchange=()=>{st.th=r.value;apply()});document.querySelectorAll('input[name=wd]').forEach(r=>r.onchange=()=>{st.w=r.value;apply()});
+$('aa').onclick=()=>{const o=$('pop').hidden;$('pop').hidden=!o;$('aa').setAttribute('aria-expanded',o)};
+addEventListener('keydown',e=>{if(e.key==='Escape'){if(!$('pop').hidden){$('pop').hidden=true;$('aa').setAttribute('aria-expanded','false');$('aa').focus()}closeFn()}});
+document.addEventListener('click',e=>{if(!$('pop').hidden&&!e.target.closest('#pop,#aa')){$('pop').hidden=true;$('aa').setAttribute('aria-expanded','false')}if(fp&&!e.target.closest('.fnp,.fn'))closeFn()});
+const secs=[...document.querySelectorAll('article section')];
+$('tl').innerHTML=secs.map(s=>`<li><a href="#${s.id}" data-s="${s.id}">${s.querySelector('h2').textContent}</a></li>`).join('');
+$('tl').addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;e.preventDefault();const h=document.querySelector(a.getAttribute('href')+' h2');h.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});h.tabIndex=-1;setTimeout(()=>h.focus({preventScroll:true}),reduce?0:500)});
+let fp=null,fb=null;
+function closeFn(){if(fp){fp.remove();fp=null;if(fb)fb.focus()}}
+document.getElementById('art').addEventListener('click',e=>{const b=e.target.closest('.fn');if(!b)return;e.stopPropagation();if(fp&&fb===b){closeFn();return}closeFn();fb=b;const n=b.dataset.n,txt=$('fn'+n).textContent;const p=document.createElement('div');p.className='fnp';p.setAttribute('role','dialog');p.setAttribute('aria-label','Footnote '+n);p.innerHTML=`<b>Note ${n}</b><br>${txt}<br><a href="#fn${n}">Jump to notes</a>`;document.body.appendChild(p);fp=p;const r=b.getBoundingClientRect();p.style.top=(scrollY+r.bottom+8)+'px';p.style.left=Math.max(16,Math.min(innerWidth-p.offsetWidth-16,r.left+scrollX-20))+'px'});
+function upd(){const h=de.scrollHeight-innerHeight,y=scrollY;$('pb').style.width=(h>0?Math.min(100,y/h*100):0)+'%';
+ const art=$('art'),r=art.getBoundingClientRect(),total=art.offsetHeight,read=Math.max(0,Math.min(total,-r.top+innerHeight*.3)),words=art.textContent.split(/\s+/).length,mins=Math.max(1,Math.round(words/230*(1-read/total)*(11/ (words/230))));
+ $('left').textContent=read>=total-40?'Finished':Math.max(1,Math.round(11*(1-read/total)))+' min left';
+ let cur=secs[0].id;secs.forEach(s=>{if(s.getBoundingClientRect().top<innerHeight*.35)cur=s.id});document.querySelectorAll('#tl a').forEach(a=>{if(a.dataset.s===cur)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});if(fp)closeFn()}
+let tk=false;addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(()=>{tk=false;upd()})}},{passive:true});addEventListener('resize',upd);
+if(matchMedia('(max-width:1100px)').matches)$('td').open=false;
+apply();upd();
+</script></body></html>

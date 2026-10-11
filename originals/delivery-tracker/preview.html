@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Track your order — Delivery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;800&family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#14213d;--mut:#6b7896;--acc:#ff5a3c;--ok:#1f9d6b;--line:#e3e8f2}
+*{box-sizing:border-box}
+body{margin:0;background:#f4f6fb;color:var(--ink);font:400 15px/1.5 'Red Hat Text',sans-serif;padding:28px 20px 56px;font-variant-numeric:tabular-nums}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.wrap{max-width:1140px;margin:0 auto}
+.hd{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}
+.hd h1{font:800 22px 'Red Hat Display',sans-serif;margin:0}.hd span{color:var(--mut)}
+.cols{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:20px;align-items:start}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}
+.eta small{display:block;color:var(--mut);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.eta h2{font:800 clamp(34px,5vw,52px)/1.05 'Red Hat Display',sans-serif;margin:4px 0 6px;letter-spacing:-.02em}
+.eta p{margin:0 0 20px;color:var(--mut)}
+.bar{height:8px;border-radius:4px;background:#e9edf6;overflow:hidden;margin-bottom:22px}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),#ff9a3c);border-radius:4px;transition:width .6s}
+.done .bar i{background:var(--ok)}
+ol{list-style:none;margin:0;padding:0;position:relative}
+li.s{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:14px;padding-bottom:22px;position:relative}
+li.s:last-child{padding-bottom:0}
+li.s:not(:last-child):before{content:'';position:absolute;left:16px;top:34px;bottom:2px;width:2px;background:#e3e8f2}
+li.s:not(:last-child):after{content:'';position:absolute;left:16px;top:34px;width:2px;height:calc(100% - 36px);background:var(--ok);transform:scaleY(0);transform-origin:top;transition:transform .6s}
+li.s.d:not(:last-child):after{transform:scaleY(1)}
+.dot{width:34px;height:34px;border-radius:50%;border:2px solid #d4dcec;background:#fff;display:grid;place-items:center;color:#9aa6c0;position:relative;z-index:1;transition:.4s}
+.dot svg{width:16px;height:16px}
+li.s.d .dot{background:var(--ok);border-color:var(--ok);color:#fff}
+li.s.a .dot{background:var(--acc);border-color:var(--acc);color:#fff;box-shadow:0 0 0 6px rgba(255,90,60,.18)}
+li.s b{display:block;font-weight:700}li.s span.d2{color:var(--mut);font-size:14px}
+li.s time{color:var(--mut);font-size:13px;padding-top:2px}
+li.s:not(.d):not(.a) b{color:#8a96b4}
+.map{padding:0;overflow:hidden}
+.map svg{display:block;width:100%;height:auto}
+.halo{animation:pulse 1.6s infinite;transform-origin:center;transform-box:fill-box}
+@keyframes pulse{0%{opacity:.5;transform:scale(.6)}100%{opacity:0;transform:scale(2.2)}}
+.dr{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:14px;align-items:center;margin-top:20px}
+.av{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#ff5a3c,#ff9a3c);color:#fff;display:grid;place-items:center;font:800 18px 'Red Hat Display',sans-serif}
+.dr b{display:block}.dr small{color:var(--mut)}
+.bt{display:flex;gap:8px}.bt button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 14px;font:700 13px 'Red Hat Text',sans-serif;cursor:pointer;color:var(--ink)}.bt button:hover{background:#f4f6fb}
+.items{margin:20px 0 0;padding:16px 0 0;border-top:1px solid var(--line);display:grid;gap:8px}
+.items div{display:flex;justify-content:space-between;gap:10px}
+.ctl{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:20px}
+.btn{border:0;background:var(--ink);color:#fff;border-radius:12px;padding:12px 20px;font:700 14px 'Red Hat Text',sans-serif;cursor:pointer}.btn:hover{background:#243a66}.btn:disabled{opacity:.4;cursor:default}
+.lnk{background:none;border:0;color:var(--mut);text-decoration:underline;font:500 14px 'Red Hat Text',sans-serif;cursor:pointer}
+.sw{display:flex;align-items:center;gap:10px;margin-left:auto;font-weight:500;font-size:14px;background:none;border:0;cursor:pointer;color:var(--ink)}
+.sw i{width:40px;height:22px;border-radius:11px;background:#cbd3e4;position:relative;transition:.2s}.sw i:after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:.2s}
+.sw[aria-checked=true] i{background:var(--ok)}.sw[aria-checked=true] i:after{transform:translateX(18px)}
+.ok-b{display:none;align-items:center;gap:12px;background:#e6f6ee;border:1px solid #bfe6d1;border-radius:14px;padding:12px 16px;margin-bottom:18px;color:#0f6b46;font-weight:700}
+.done .ok-b{display:flex}.done .eta{display:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:900px){.cols{grid-template-columns:minmax(0,1fr)}.mapcol{order:-1}}
+@media(max-width:520px){.card{padding:18px}li.s{grid-template-columns:34px minmax(0,1fr)}li.s time{grid-column:2;margin-top:-4px}.dr{grid-template-columns:44px minmax(0,1fr)}.bt{grid-column:1/3}.av{width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body><div class="wrap" id="wrap">
+<div class="hd"><h1>Order #FW-48213</h1><span>3 items · Placed today at 11:48</span></div>
+<div class="cols"><div><section class="card" id="status"><div class="ok-b"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span id="okt">Delivered</span></div>
+<div class="eta"><small>Estimated arrival</small><h2 id="eh">Arriving soon</h2><p id="ep"></p></div><div class="bar" aria-hidden="true"><i id="pb"></i></div>
+<ol id="tl" aria-label="Order progress"></ol>
+<div class="ctl"><button class="btn" id="adv">Demo: advance order</button><button class="lnk" id="rs">Reset</button><button class="sw" id="nt" role="switch" aria-checked="false"><i></i>Notify me</button></div></section></div>
+<div class="mapcol"><section class="card map" aria-label="Delivery map"><svg id="map" viewBox="0 0 640 440" role="img" aria-label="Map showing the route from the warehouse to your home"><rect width="640" height="440" fill="#e9f0fb"/><path d="M0 330C120 300 200 360 320 340S520 380 640 350V440H0z" fill="#bcd9f5"/><path d="M360 40h210v120H360z" fill="#cfe9d6" rx="18"/><g stroke="#d4dcec" stroke-width="18" fill="none" stroke-linecap="round"><path d="M0 120h640M0 230h640M110 0v330M260 0v330M420 0v300M560 0v300"/></g><g stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round"><path d="M0 120h640M0 230h640M110 0v330M260 0v330M420 0v300M560 0v300"/></g>
+<path id="route" d="M70 270V230H260V120H420V230H560" fill="none" stroke="#c8d2ea" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 12"/><path id="done" d="M70 270V230H260V120H420V230H560" fill="none" stroke="#ff5a3c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(70 270)"><circle r="16" fill="#14213d"/><path d="M-7-3h14v8h-14zM-5-3l5-5 5 5" fill="#fff"/></g><text x="70" y="304" text-anchor="middle" font-size="12" font-weight="700" fill="#14213d" font-family="Red Hat Text">Warehouse</text>
+<g transform="translate(560 230)"><circle r="16" fill="#1f9d6b"/><path d="M-7 2l7-7 7 7v7h-14z" fill="#fff"/></g><text x="560" y="264" text-anchor="middle" font-size="12" font-weight="700" fill="#14213d" font-family="Red Hat Text">Your home</text>
+<g id="cr"><circle class="halo" r="18" fill="#ff5a3c"/><circle r="11" fill="#ff5a3c" stroke="#fff" stroke-width="3"/><circle r="4" fill="#fff"/></g></svg></section>
+<section class="card" style="margin-top:20px"><div class="dr"><span class="av">DM</span><div><b>Daniel Moreau</b><small>★ 4.9 · Grey cargo bike · 1,204 deliveries</small></div><div class="bt"><button>Call</button><button>Message</button></div></div>
+<div class="items"><div><span>1 × Ceramic pour-over set</span><b>£48.00</b></div><div><span>2 × Hand-ground coffee, 250 g</span><b>£26.00</b></div><div><span>Delivery</span><b>£0.00</b></div></div></section></div></div>
+<div class="sr" id="live" aria-live="polite"></div></div>
+<script>
+const $=i=>document.getElementById(i),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const ST=[['Order placed','We have your order.','11:48'],['Packed','Packed and labelled.','12:20'],['Shipped','Collected by the courier.','13:05'],['Out for delivery','Daniel is on the way.','13:50'],['Delivered','Left with you.','']];
+const IC=['M5 12l5 5 9-10','M4 8l8-4 8 4v8l-8 4-8-4zM4 8l8 4 8-4M12 12v8','M3 7h11v9H3zM14 10h4l3 3v3h-7zM7 19a2 2 0 1 0 0-.01M17 19a2 2 0 1 0 0-.01','M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11zM12 12a2 2 0 1 0 0-.01','M5 12l5 5 9-10'];
+let step=0,eta=18,prog=0,target=0,raf=null,tick=null,notify=false;
+const route=$('route'),len=route.getTotalLength();$('done').style.strokeDasharray=len;
+const P=[0,.04,.1,.38,1];
+function pt(f){return route.getPointAtLength(len*f)}
+function place(f){const p=pt(f);$('cr').setAttribute('transform',`translate(${p.x} ${p.y})`);$('done').style.strokeDashoffset=len*(1-f);prog=f}
+function animate(to){cancelAnimationFrame(raf);if(reduce){place(to);return}const from=prog,t0=performance.now(),dur=1400;(function f(t){const k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);place(from+(to-from)*e);if(k<1)raf=requestAnimationFrame(f)})(t0)}
+function render(){$('tl').innerHTML=ST.map((s,i)=>`<li class="s ${i<step?'d':i===step&&step<4?'a':i===4&&step===4?'d':''}" ${i===step?'aria-current="step"':''}><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${IC[i]}"/></svg></span><div><b>${s[0]}</b><span class="d2">${i<=step?s[1]:'Pending'}</span></div><time>${i<=step?(i===4?'14:32':s[2]):''}</time></li>`).join('');
+ $('wrap').classList.toggle('done',step===4);$('pb').style.width=[8,28,52,76,100][step]+'%';text();$('adv').disabled=step===4}
+function text(){const h=$('eh'),p=$('ep');if(step===4){$('okt').textContent='Delivered at 14:32';return}
+ if(step<3){h.textContent=['Preparing your order','Getting ready to ship','On its way to your area'][step];p.textContent=['Expected today by 15:00.','Expected today by 15:00.','Expected today by 15:00.'][step]}else{h.textContent=eta<=1?'Arriving now':`Arriving in ${eta} min`;p.textContent='Daniel is ~'+(Math.max(0.1,eta*.25)).toFixed(1)+' km away.'}}
+function go(n){step=n;clearInterval(tick);render();animate(P[step]);$('live').textContent=ST[step][0]+(step===3?', arriving in '+eta+' minutes':'');
+ if(step===3){eta=12;text();tick=setInterval(()=>{eta=Math.max(0,eta-1);const f=P[3]+(1-P[3])*.0;target=P[3]+(.97-P[3])*(1-eta/12);animate(target);text();if(eta===0){clearInterval(tick);setTimeout(()=>{if(step===3)go(4)},1800)}},2000)}}
+$('adv').onclick=()=>{if(step<4)go(step+1)};$('rs').onclick=()=>{eta=18;go(0);place(0)};
+$('nt').onclick=function(){notify=!notify;this.setAttribute('aria-checked',notify);$('live').textContent=notify?'Notifications on. We will message you when it arrives.':'Notifications off.'};
+place(P[3]);go(3);
+</script></body></html>

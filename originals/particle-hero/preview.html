@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Particle Constellation Hero — Hero Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@300;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#070b1a;color:#fff;font:400 16px/1.6 'Inter',sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #6ee7f9;outline-offset:3px}
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;background:linear-gradient(160deg,#070b1a,#0e1533);overflow:hidden;isolation:isolate}
+.hero:before{content:'';position:absolute;left:-10%;top:15%;width:70%;height:70%;background:radial-gradient(closest-side,rgba(59,91,255,.3),transparent);z-index:-1}
+canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1;display:block}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:22px max(20px,5vw);gap:16px;position:relative}
+.wm{font:700 20px 'Sora',sans-serif;display:flex;align-items:center;gap:10px;letter-spacing:-.01em}
+.wm i{width:22px;height:22px;border-radius:50%;border:2px solid #6ee7f9;position:relative;display:block}
+.wm i:after{content:'';position:absolute;width:6px;height:6px;border-radius:50%;background:#6ee7f9;top:-4px;left:10px}
+.links{display:flex;gap:30px;font-size:15px;color:#b8c2e6}
+.links a{color:inherit;text-decoration:none;padding:6px 0}
+.links a:hover{color:#fff}
+.ghost{border:1px solid rgba(157,180,255,.4);background:transparent;color:#fff;padding:9px 18px;border-radius:999px;font:500 14px 'Inter',sans-serif;cursor:pointer;transition:background .2s}
+.ghost:hover{background:rgba(157,180,255,.14)}
+.menu{display:none;background:transparent;border:1px solid rgba(157,180,255,.4);color:#fff;width:44px;height:44px;border-radius:10px;cursor:pointer;font-size:20px}
+.content{flex:1;display:flex;flex-direction:column;justify-content:center;padding:40px max(20px,5vw) 64px;max-width:1100px;width:100%;margin:0 auto}
+.pill{align-self:flex-start;border:1px solid rgba(110,231,249,.35);background:rgba(110,231,249,.08);color:#a9f1fb;border-radius:999px;padding:5px 14px;font-size:13px;font-weight:500;margin-bottom:26px}
+h1{font:700 clamp(40px,7vw,88px)/1.02 'Sora',sans-serif;letter-spacing:-.03em;margin:0 0 22px;max-width:12ch}
+h1 em{font-style:normal;background:linear-gradient(90deg,#6ee7f9,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:18px;color:#b8c2e6;max-width:46ch;margin:0 0 32px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{background:#6ee7f9;color:#04101a;border:0;border-radius:999px;padding:15px 28px;font:600 16px 'Inter',sans-serif;cursor:pointer;transition:transform .2s,box-shadow .2s;min-height:48px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px rgba(110,231,249,.6)}
+.txt{background:transparent;border:0;color:#fff;font:500 16px 'Inter',sans-serif;padding:14px 18px;cursor:pointer;border-radius:999px;min-height:48px}
+.txt:hover{background:rgba(255,255,255,.08)}
+.stats{display:flex;gap:12px 40px;flex-wrap:wrap;margin-top:56px;color:#b8c2e6;font-size:14px}
+.stats b{display:block;color:#fff;font:600 22px 'Sora',sans-serif}
+@media(max-width:720px){
+ .links{display:none;position:absolute;top:70px;left:16px;right:16px;flex-direction:column;gap:4px;background:#0e1533;border:1px solid rgba(157,180,255,.25);border-radius:14px;padding:12px 18px;z-index:5}
+ .links.open{display:flex}
+ .links a{padding:12px 0}
+ .menu{display:block}.bar .ghost{display:none}
+ .content{align-items:center;text-align:center}
+ .pill{align-self:center}
+ h1{max-width:none}
+ .cta{justify-content:center}.stats{justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<section class="hero">
+<canvas id="cv" aria-hidden="true"></canvas>
+<header class="bar">
+<div class="wm"><i aria-hidden="true"></i>Orbit Analytics</div>
+<nav class="links" id="nav" aria-label="Main"><a href="#">Product</a><a href="#">Customers</a><a href="#">Pricing</a><a href="#">Docs</a></nav>
+<div style="display:flex;gap:10px;align-items:center"><button class="ghost" type="button">Sign in</button><button class="menu" id="mb" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu">☰</button></div>
+</header>
+<div class="content">
+<span class="pill">New · Realtime cohorts</span>
+<h1>See the shape of your <em>users</em></h1>
+<p class="lead">Orbit turns raw events into living maps of behaviour, so your team can spot patterns before they become problems.</p>
+<div class="cta"><button class="btn" type="button">Start free</button><button class="txt" type="button">Watch the tour →</button></div>
+<div class="stats"><div><b>12k</b>teams</div><div><b>4.9</b>average rating</div><div><b>99.99%</b>uptime</div></div>
+</div>
+</section>
+<script>
+(function(){
+var cv=document.getElementById('cv'),ctx=cv.getContext('2d'),hero=cv.parentNode;
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var W=0,H=0,dpr=1,P=[],mx=-9999,my=-9999,run=true,vis=true,raf=0;
+function rnd(){var s=42;return function(){s=(s*1664525+1013904223)%4294967296;return s/4294967296}}
+var R=rnd();
+function size(){
+ var r=hero.getBoundingClientRect();dpr=Math.min(2,window.devicePixelRatio||1);
+ W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+ var n=W<720?45:90;
+ while(P.length<n)P.push({x:R()*W,y:R()*H,vx:(R()-.5)*.4,vy:(R()-.5)*.4,r:R()*1.4+.6,c:R()>.5?'#9db4ff':'#ffffff'});
+ P.length=n;
+ P.forEach(function(p){p.x=Math.min(p.x,W);p.y=Math.min(p.y,H)});
+}
+function draw(){
+ ctx.clearRect(0,0,W,H);
+ for(var i=0;i<P.length;i++){
+  var a=P[i];
+  for(var j=i+1;j<P.length;j++){
+   var b=P[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+   if(d<130){
+    var m=Math.min(Math.hypot(a.x-mx,a.y-my),Math.hypot(b.x-mx,b.y-my));
+    var al=(1-d/130)*(m<160?.55:.3);
+    ctx.strokeStyle='rgba(157,180,255,'+al.toFixed(3)+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+   }
+  }
+ }
+ for(var k=0;k<P.length;k++){var p=P[k];ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.2832);ctx.fill()}
+}
+function step(){
+ for(var i=0;i<P.length;i++){
+  var p=P[i];
+  var dx=mx-p.x,dy=my-p.y,d=Math.sqrt(dx*dx+dy*dy);
+  if(d<180&&d>1){p.vx+=dx/d*.012;p.vy+=dy/d*.012}
+  p.vx*=.995;p.vy*=.995;
+  var sp=Math.hypot(p.vx,p.vy);if(sp>.9){p.vx*=.9/sp;p.vy*=.9/sp}
+  if(sp<.08){p.vx+=(R()-.5)*.02;p.vy+=(R()-.5)*.02}
+  p.x+=p.vx;p.y+=p.vy;
+  if(p.x<0||p.x>W){p.vx*=-1;p.x=Math.max(0,Math.min(W,p.x))}
+  if(p.y<0||p.y>H){p.vy*=-1;p.y=Math.max(0,Math.min(H,p.y))}
+ }
+}
+function loop(){
+ raf=0;
+ if(!run||!vis||document.hidden)return;
+ step();draw();raf=requestAnimationFrame(loop);
+}
+function kick(){if(!RM&&!raf&&run&&vis&&!document.hidden)raf=requestAnimationFrame(loop)}
+size();draw();
+if(!RM){
+ hero.addEventListener('pointermove',function(e){if(e.pointerType==='touch')return;var r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
+ hero.addEventListener('pointerleave',function(){mx=my=-9999});
+ document.addEventListener('visibilitychange',kick);
+ if('IntersectionObserver' in window)new IntersectionObserver(function(es){vis=es[0].isIntersecting;kick()}).observe(hero);
+ kick();
+}
+var t;
+function onR(){size();draw();kick()}
+if('ResizeObserver' in window)new ResizeObserver(function(){clearTimeout(t);t=setTimeout(onR,80)}).observe(hero);else addEventListener('resize',onR);
+var mb=document.getElementById('mb'),nav=document.getElementById('nav');
+mb.addEventListener('click',function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){nav.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.focus()}});
+})();
+</script></body></html>

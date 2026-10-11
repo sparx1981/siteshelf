@@ -1,0 +1,11 @@
+Canvas & base: Light theme page #f5f6f8, content card white with 1px #e4e7ec border and 16px radius; dark theme page #0e1116, card #161b22, border #262d38, text #e6edf3. Accent #3b6cff (focus ring and primary), success #12a150, danger #d92d20. Theme tokens are CSS variables swapped by a data-theme attribute so the Appearance choice changes this page live.
+
+Typography: "Public Sans" (400, 500, 600, 700). Page title 28px 700, section headings 18px 600, labels 14px 500, helper text 13px muted.
+
+Layout: A top header with the app name and an avatar. Below, a two-column layout: a left vertical tab list (Profile, Notifications, Appearance, Security, Billing) and the right panel of the active section inside a card. Profile has an avatar block with initials and a Change button, fields for full name, email, username (with an availability hint), a bio textarea with a live 160-character counter and a timezone select. Notifications has 5 rows with a title, description and a toggle switch plus a digest frequency radio group. Appearance has three radio cards (Light, Dark, System) with mini previews and a density select. Security shows a password change form with a strength meter and a toggle for two-factor. Billing shows a plan summary card and invoice table. A "Danger zone" at the bottom of Profile with a Delete account button.
+
+Interaction: Editing anything marks the form dirty and slides up a sticky bar "You have unsaved changes" with Discard and Save changes; Save validates (email format, name required, username 3 to 20 characters, passwords matching) with inline errors and focus on the first invalid field, then shows a success toast. Discard restores the saved values. Changing the theme applies instantly (and counts as unsaved until saved, reverting on discard). The Delete account button opens a dialog requiring the user to type DELETE to enable the confirm button. Tabs use arrow-key navigation with aria-selected.
+
+Responsive: Under 800px the tab list becomes a horizontally scrolling pill row above the panel. No horizontal page scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries, respects prefers-reduced-motion, all inputs labelled with associated helper and error text via aria-describedby, switches are role=switch buttons.

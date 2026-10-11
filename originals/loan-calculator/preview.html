@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Loan Calculator — Tool</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:wght@600&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#17261f;--mut:#5b6b62;--acc:#0f6b4a;--amb:#d98a1c;--line:#dfe4dc;--grid:#e6ebe4}
+*{box-sizing:border-box}
+body{margin:0;background:#f4f6f3;color:var(--ink);font:400 16px/1.5 'Figtree',sans-serif;font-variant-numeric:tabular-nums}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:3px}
+header{max-width:1100px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
+.lg{width:28px;height:28px;border-radius:8px;background:var(--acc);display:grid;place-items:center;color:#fff;font-size:15px}
+main{max-width:1100px;margin:0 auto;padding:0 24px 56px}
+h1{font:700 clamp(28px,4vw,38px)/1.15 'Figtree',sans-serif;margin:6px 0 6px;letter-spacing:-.02em}
+.sub{color:var(--mut);margin:0 0 26px}
+.wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:22px;align-items:start}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 1px 2px rgba(20,40,30,.05);min-width:0}
+.lab{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--mut)}
+.field{margin-bottom:24px}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.num{display:flex;align-items:center;border:1.5px solid #cdd5cb;border-radius:10px;padding:0 10px;background:#fff;width:150px;max-width:50%}
+.num span{color:var(--mut);font-weight:600}
+.num input{border:0;outline:0;background:transparent;width:100%;min-width:0;padding:9px 4px;font:600 17px 'Figtree',sans-serif;text-align:right;font-variant-numeric:tabular-nums}
+.num:focus-within{border-color:var(--acc);box-shadow:0 0 0 3px #0f6b4a22}
+.num.bad{border-color:#c0392b}
+.err{color:#b3261e;font-size:12px;min-height:16px;margin-top:4px}
+input[type=range]{width:100%;height:44px;background:transparent;-webkit-appearance:none;appearance:none;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:linear-gradient(90deg,var(--acc) var(--p,50%),#dde3da var(--p,50%))}
+input[type=range]::-moz-range-track{height:6px;border-radius:3px;background:#dde3da}
+input[type=range]::-moz-range-progress{height:6px;border-radius:3px;background:var(--acc)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid var(--acc);margin-top:-9px;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--acc)}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:#eef1ec;border-radius:12px;padding:4px;gap:4px}
+.seg button{border:0;background:transparent;padding:11px;border-radius:9px;font:600 14px 'Figtree',sans-serif;color:var(--mut);cursor:pointer;min-height:44px}
+.seg button[aria-pressed=true]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.pay{font:600 clamp(44px,7vw,68px)/1 'Fraunces',serif;margin:6px 0 4px;letter-spacing:-.02em}
+.pay small{font:500 18px 'Figtree',sans-serif;color:var(--mut);letter-spacing:0}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+.st{background:#f4f6f3;border-radius:12px;padding:12px 14px}
+.st b{display:block;font-size:18px;margin-top:2px}
+.mid{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:20px;align-items:center;margin:8px 0 20px}
+.legend{display:grid;gap:10px;font-size:14px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:8px;vertical-align:-1px}
+svg{display:block;max-width:100%}
+.donut text{font-family:'Figtree',sans-serif}
+.chart{position:relative;margin-top:6px}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:#fff;font-size:12.5px;padding:8px 10px;border-radius:8px;transform:translate(-50%,-110%);white-space:nowrap;z-index:2}
+details{margin-top:18px;border-top:1px solid var(--line);padding-top:12px}
+summary{cursor:pointer;font-weight:600;padding:6px 0}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--grid);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut)}
+.note{color:var(--mut);font-size:12.5px;margin-top:18px}
+@media(max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}.res{order:-1}}
+@media(max-width:520px){.stats{grid-template-columns:minmax(0,1fr)}.mid{grid-template-columns:minmax(0,1fr);justify-items:center}.card{padding:16px}main,header{padding-left:16px;padding-right:16px}}
+</style></head><body>
+<header><span class="lg" aria-hidden="true">F</span>Fernlane Finance</header>
+<main>
+<h1>Loan calculator</h1>
+<p class="sub">Move a slider or type a number. Everything updates as you go.</p>
+<div class="wrap">
+<section class="card" aria-labelledby="yl">
+<h2 id="yl" class="lab" style="margin:0 0 20px">Your loan</h2>
+<div class="field"><div class="frow"><label class="lab" for="amt">Loan amount</label><div class="num" id="nAmt"><span>£</span><input id="amt" inputmode="decimal" autocomplete="off"></div></div><input type="range" id="rAmt" min="5000" max="1000000" step="1000" aria-label="Loan amount slider"><div class="err" id="eAmt" role="alert"></div></div>
+<div class="field"><div class="frow"><label class="lab" for="rate">Interest rate</label><div class="num" id="nRate"><input id="rate" inputmode="decimal" autocomplete="off"><span>%</span></div></div><input type="range" id="rRate" min="0.1" max="15" step="0.05" aria-label="Interest rate slider"><div class="err" id="eRate" role="alert"></div></div>
+<div class="field"><div class="frow"><label class="lab" for="term">Term (years)</label><div class="num" id="nTerm"><input id="term" inputmode="numeric" autocomplete="off"><span>yrs</span></div></div><input type="range" id="rTerm" min="1" max="40" step="1" aria-label="Term slider"><div class="err" id="eTerm" role="alert"></div></div>
+<div class="lab" id="rl" style="margin-bottom:8px">Repayment type</div>
+<div class="seg" role="group" aria-labelledby="rl"><button type="button" id="bRep" aria-pressed="true">Repayment</button><button type="button" id="bInt" aria-pressed="false">Interest only</button></div>
+</section>
+<section class="card res" aria-labelledby="rl2">
+<h2 id="rl2" class="lab" style="margin:0">Monthly payment</h2>
+<div class="pay" id="pay" aria-live="polite">£0<small> / month</small></div>
+<div class="stats">
+<div class="st"><span class="lab">Total repaid</span><b id="sTot"></b></div>
+<div class="st"><span class="lab">Total interest</span><b id="sInt"></b></div>
+<div class="st"><span class="lab">Payoff date</span><b id="sDate"></b></div>
+</div>
+<div class="mid">
+<svg class="donut" id="donut" viewBox="0 0 120 120" width="170" height="170" role="img" aria-label="Principal versus interest"></svg>
+<div class="legend"><div><i style="background:var(--acc)"></i>Principal <b id="lP"></b></div><div><i style="background:var(--amb)"></i>Interest <b id="lI"></b></div></div>
+</div>
+<div class="lab">Balance over time</div>
+<div class="chart" id="chart" tabindex="0" role="img" aria-label="Balance over time. Use left and right arrow keys to read values."><svg id="bal" viewBox="0 0 640 240" width="100%" preserveAspectRatio="none" style="height:auto"></svg><div class="tip" id="tip" hidden></div></div>
+<details><summary>Year by year</summary><div class="tw"><table id="tbl"><thead><tr><th>Year</th><th>Opening</th><th>Interest</th><th>Principal</th><th>Closing</th></tr></thead><tbody></tbody></table></div></details>
+<p class="note">Illustrative only, not financial advice. Fernlane Finance is an invented brand.</p>
+</section>
+</div></main>
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var nf;try{nf=new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0})}catch(e){nf=null}
+function gbp(n){n=Math.round(n);return nf?nf.format(n):'£'+String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
+function gbp2(n){try{return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'}).format(n)}catch(e){return '£'+n.toFixed(2)}}
+var $=function(i){return document.getElementById(i)};
+var S={amt:250000,rate:4.9,term:25,io:false};
+var lim={amt:[5000,1000000],rate:[0.1,15],term:[1,40]};
+function clamp(v,a,b){return Math.min(b,Math.max(a,v))}
+function pct(el){var mn=+el.min,mx=+el.max;el.style.setProperty('--p',((+el.value-mn)/(mx-mn)*100)+'%')}
+function parse(s){return parseFloat(String(s).replace(/[^0-9.]/g,''))}
+function calc(){
+ var n=S.term*12,r=S.rate/1200,P=S.amt,pm;
+ if(S.io)pm=P*r;else pm=r===0?P/n:P*r/(1-Math.pow(1+r,-n));
+ var rows=[],bal=P,tI=0,pts=[{m:0,b:P,i:0}];
+ var yr=null;
+ for(var m=1;m<=n;m++){
+  var it=bal*r,pr=S.io?0:pm-it;if(m===n&&!S.io)pr=bal;bal=Math.max(0,bal-pr);tI+=it;
+  if(!yr||m%12===1){yr={y:Math.ceil(m/12),open:bal+pr,int:0,pri:0,close:0};rows.push(yr)}
+  yr.int+=it;yr.pri+=pr;yr.close=bal;
+  if(m%6===0||m===n)pts.push({m:m,b:S.io?P:bal,i:tI});
+ }
+ if(S.io){rows.forEach(function(x){x.close=P})}
+ var total=S.io?P+tI:pm*n;
+ return{pm:pm,tI:tI,total:total,rows:rows,pts:pts,n:n};
+}
+function arc(cx,cy,r,a0,a1){var x0=cx+r*Math.cos(a0),y0=cy+r*Math.sin(a0),x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1);return 'M'+x0+' '+y0+' A'+r+' '+r+' 0 '+(a1-a0>Math.PI?1:0)+' 1 '+x1+' '+y1}
+var lastShare=0,anim=0;
+function donut(share){
+ var d=$('donut'),a=-Math.PI/2;
+ var ia=Math.min(share,.9999)*Math.PI*2;
+ d.innerHTML='<circle cx="60" cy="60" r="44" fill="none" stroke="#0f6b4a" stroke-width="16"/>'+
+ '<path d="'+arc(60,60,44,a,a+ia)+'" fill="none" stroke="#d98a1c" stroke-width="16"/>'+
+ '<text x="60" y="58" text-anchor="middle" font-size="19" font-weight="700" fill="#17261f">'+Math.round(share*100)+'%</text>'+
+ '<text x="60" y="74" text-anchor="middle" font-size="9" fill="#5b6b62">interest</text>';
+}
+function setDonut(t){
+ cancelAnimationFrame(anim);
+ if(RM){lastShare=t;donut(t);return}
+ var f=lastShare,t0=performance.now();
+ (function st(now){var k=Math.min(1,(now-t0)/450),e=1-Math.pow(1-k,3);lastShare=f+(t-f)*e;donut(lastShare);if(k<1)anim=requestAnimationFrame(st)})(t0);
+}
+var W=640,H=240,PL=56,PR=14,PT=14,PB=30,cur=null,model=null;
+function X(m){return PL+(m/model.n)*(W-PL-PR)}
+function Y(b){return PT+(1-b/S.amt)*(H-PT-PB)}
+function chart(){
+ var s=$('bal'),h='';
+ for(var i=0;i<=4;i++){var v=S.amt*i/4,y=Y(v);h+='<line x1="'+PL+'" x2="'+(W-PR)+'" y1="'+y+'" y2="'+y+'" stroke="#e6ebe4"/><text x="'+(PL-8)+'" y="'+(y+4)+'" text-anchor="end" font-size="11" fill="#5b6b62" font-family="Figtree,sans-serif">'+(v>=1e6?'£1m':'£'+Math.round(v/1000)+'k')+'</text>'}
+ var yrs=model.n/12,step=yrs>25?10:yrs>12?5:yrs>6?2:1;
+ for(var y2=0;y2<=yrs;y2+=step){var x=X(y2*12);h+='<text x="'+x+'" y="'+(H-8)+'" text-anchor="middle" font-size="11" fill="#5b6b62" font-family="Figtree,sans-serif">'+y2+'</text>'}
+ var line=model.pts.map(function(p,i){return(i?'L':'M')+X(p.m).toFixed(1)+' '+Y(p.b).toFixed(1)}).join('');
+ h+='<path d="'+line+'L'+X(model.n)+' '+Y(0)+'L'+X(0)+' '+Y(0)+'Z" fill="#0f6b4a" fill-opacity=".14"/><path d="'+line+'" fill="none" stroke="#0f6b4a" stroke-width="2.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>';
+ h+='<g id="gd" hidden><line id="gl" y1="'+PT+'" y2="'+(H-PB)+'" stroke="#17261f" stroke-dasharray="3 3"/><circle id="gc" r="5" fill="#fff" stroke="#0f6b4a" stroke-width="3"/></g>';
+ s.innerHTML=h;
+}
+function show(m){
+ m=clamp(m,0,model.n);
+ var p=model.pts[0];for(var i=0;i<model.pts.length;i++){if(model.pts[i].m<=m)p=model.pts[i]}
+ var g=$('gd'),x=X(p.m),y=Y(p.b);g.removeAttribute('hidden');
+ $('gl').setAttribute('x1',x);$('gl').setAttribute('x2',x);$('gc').setAttribute('cx',x);$('gc').setAttribute('cy',y);
+ var box=$('chart').getBoundingClientRect(),sb=$('bal').getBoundingClientRect();
+ var t=$('tip');t.hidden=false;t.style.left=(x/W*sb.width)+'px';t.style.top=((y/H*sb.height)+(sb.top-box.top))+'px';
+ t.innerHTML='Year '+(p.m/12).toFixed(1).replace('.0','')+' · balance '+gbp(p.b)+' · interest so far '+gbp(p.i);
+ cur=p.m;
+}
+function hide(){var g=$('gd');if(g)g.setAttribute('hidden','');$('tip').hidden=true;cur=null}
+function render(){
+ model=calc();
+ $('pay').innerHTML=gbp2(model.pm).replace(/\.00$/,'')+'<small> / month</small>';
+ $('sTot').textContent=gbp(model.total);$('sInt').textContent=gbp(model.tI);
+ var d=new Date();d.setMonth(d.getMonth()+model.n);
+ $('sDate').textContent=d.toLocaleDateString('en-GB',{month:'short',year:'numeric'});
+ $('lP').textContent=gbp(S.amt);$('lI').textContent=gbp(model.tI);
+ setDonut(model.tI/(model.tI+S.amt));
+ chart();hide();
+ var tb=$('tbl').tBodies[0];
+ tb.innerHTML=model.rows.map(function(r){return'<tr><td>'+r.y+'</td><td>'+gbp(r.open)+'</td><td>'+gbp(r.int)+'</td><td>'+gbp(r.pri)+'</td><td>'+gbp(r.close)+'</td></tr>'}).join('');
+}
+function sync(from){
+ if(from!=='amt'){$('amt').value=S.amt.toLocaleString('en-GB')}
+ if(from!=='rate'){$('rate').value=S.rate}
+ if(from!=='term'){$('term').value=S.term}
+ $('rAmt').value=S.amt;$('rRate').value=S.rate;$('rTerm').value=S.term;
+ ['rAmt','rRate','rTerm'].forEach(function(i){pct($(i))});
+}
+function wire(k,inp,rng,wrap,err,fmt){
+ $(rng).addEventListener('input',function(){S[k]=+this.value;$(wrap).classList.remove('bad');$(err).textContent='';sync();render()});
+ $(inp).addEventListener('input',function(){
+  var v=parse(this.value),L=lim[k];
+  if(isNaN(v)){$(wrap).classList.add('bad');$(err).textContent='Enter a number.';return}
+  if(v<L[0]||v>L[1]){$(wrap).classList.add('bad');$(err).textContent='Between '+L[0].toLocaleString('en-GB')+' and '+L[1].toLocaleString('en-GB')+'.';return}
+  $(wrap).classList.remove('bad');$(err).textContent='';S[k]=v;sync(k);render();
+ });
+ $(inp).addEventListener('blur',function(){S[k]=clamp(isNaN(parse(this.value))?S[k]:parse(this.value),lim[k][0],lim[k][1]);$(wrap).classList.remove('bad');$(err).textContent='';sync();render()});
+}
+wire('amt','amt','rAmt','nAmt','eAmt');wire('rate','rate','rRate','nRate','eRate');wire('term','term','rTerm','nTerm','eTerm');
+function mode(io){S.io=io;$('bRep').setAttribute('aria-pressed',!io);$('bInt').setAttribute('aria-pressed',io);render()}
+$('bRep').onclick=function(){mode(false)};$('bInt').onclick=function(){mode(true)};
+var ch=$('chart');
+ch.addEventListener('pointermove',function(e){var r=$('bal').getBoundingClientRect();var x=(e.clientX-r.left)/r.width*W;show(clamp((x-PL)/(W-PL-PR),0,1)*model.n)});
+ch.addEventListener('pointerleave',hide);
+ch.addEventListener('keydown',function(e){
+ if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();var m=cur==null?0:cur;show(m+(e.key==='ArrowRight'?12:-12))}
+ else if(e.key==='Escape')hide();
+});
+ch.addEventListener('blur',hide);
+sync();render();
+})();
+</script></body></html>

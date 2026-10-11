@@ -1,0 +1,11 @@
+Canvas & base: A full-viewport hero (min-height 100svh) on a deep navy gradient from #070b1a to #0e1533 with a faint radial glow of #3b5bff at 30% opacity behind the headline. A full-bleed canvas sits behind the content. Particles are tiny dots in #9db4ff and #ffffff; connecting lines are rgba(157,180,255,.0–.35) depending on distance. Accent for the button is a soft cyan #6ee7f9 on dark ink #04101a. Invented product "Orbit Analytics".
+
+Typography: "Sora" (300, 600, 700) for the headline, clamp(40px,7vw,88px), weight 700, line-height 1.02, letter-spacing -.03em, with one word in a cyan-to-violet gradient text. "Inter" (400, 500) for the sub-copy at 18px in #b8c2e6 and for buttons and nav.
+
+Layout: A minimal top bar with the wordmark left, four links centre and a ghost "Sign in" button right (links collapse to a menu button below 720px). The hero content is left-aligned on desktop and centred on mobile: small pill "New · Realtime cohorts", the headline "See the shape of your users", one sentence of sub-copy, a primary "Start free" button, a secondary "Watch the tour" text button, and a quiet line of three stats below ("12k teams", "4.9 rating", "99.99% uptime").
+
+Interaction: The canvas draws about 90 particles on desktop (45 on narrow screens) drifting slowly with soft wall bounce, joined by lines when closer than 130px. The pointer attracts nearby particles gently and brightens nearby lines; on touch devices a slow ambient drift only. Use requestAnimationFrame, devicePixelRatio scaling capped at 2, a resize observer, and pause the loop when the tab is hidden or the hero is off-screen (IntersectionObserver). Reduced motion: draw one static frame and never animate. Buttons have a subtle lift and glow on hover.
+
+Responsive: Content stacks and centres below 720px, canvas keeps covering the hero, stats wrap to two lines. Check there is no horizontal overflow at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. The canvas is aria-hidden; all text must have at least 4.5:1 contrast against the dark background. Visible focus rings, a working mobile menu with aria-expanded, and invented names only.

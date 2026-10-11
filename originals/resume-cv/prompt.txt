@@ -1,0 +1,13 @@
+Canvas & base: A neutral desk background #e9e7e2 holding a white A4-proportion sheet (max-width 860px, min-height 1100px at desktop) with shadow 0 20px 50px -20px rgba(0,0,0,.3). Ink #1c1c1f, secondary #62626b, hairlines #e4e2dc. Accent is switchable between four swatches (teal #0e7c7b, indigo #4338ca, terracotta #c2410c, graphite #27272a) via a CSS variable. Invented person "Maren Okafor-Lind", Product Designer.
+
+Typography: "Newsreader" (400, 500, 600 and italic 400) for the name (clamp(34px,5vw,48px)) and section headings; "Hanken Grotesk" (400, 500, 600) for body 14px/1.6, dates and labels. Section headings are small caps with accent underline 2px × 28px.
+
+Layout: Sheet header with name, title, and a contact line (email, city, site, all invented) plus a round monogram. Two columns inside the sheet: a narrow left sidebar (about 32%) with Profile, Skills (labelled meters or dot rating), Tools, Languages and Education; a wide right column with Experience as a vertical timeline (role, company, dates, three bullet points each, one with a small metric badge) and a Selected projects list with short descriptions.
+
+Interaction: A floating toolbar above the sheet offers four accent swatches (radio buttons), a Compact/Comfortable density toggle that adjusts spacing and font size, and a "Download PDF" button that calls window.print(). Section headings in the right column are collapsible on small screens only. Skill meters animate their fill on first view unless reduced motion is set. Settings persist in localStorage inside try/catch.
+
+Responsive: Below 760px the sheet becomes a single column with the sidebar content after the header and timeline spacing reduced; no horizontal overflow at 390px.
+
+Print: A @media print block hides the toolbar and desk background, sets @page size A4 margin 12mm, removes the shadow, forces colours with print-color-adjust:exact, avoids page breaks inside experience entries and keeps the two-column layout.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images (monogram is CSS/SVG). Add [hidden]{display:none!important}. Use semantic markup (header, main, section, ul, time), aria-pressed or radio roles on controls, 4.5:1 contrast. Invented names only.

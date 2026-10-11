@@ -1,0 +1,11 @@
+Canvas & base: A dark editing studio on #111214 with panels #1b1c1f (1px #2a2c31 borders, 14px radius). Accent amber #ffb454, text #ececef, secondary #9a9ca5. The photo is generated in code (no external images): an inline SVG landscape with a gradient dusk sky, a low sun, three overlapping hill layers, a lake with reflected bands, and simple pine trees, sized 3:2. Invented app "Lumen Room".
+
+Typography: "Outfit" (300, 400, 500, 600) for the whole interface; panel titles 12px 600 uppercase tracking .12em; slider values tabular-nums.
+
+Layout: App shell with a top bar (wordmark, Undo, Reset, Export buttons). Centre stage shows the photo at its aspect ratio with a subtle checkerboard-free dark surround. Below it a horizontal scrolling strip of 8 preset thumbnails (Original, Vivid, Mono, Noir, Warm, Cool, Fade, Dream), each a small copy of the same SVG with that preset's filter applied and a name label. A right-hand adjustments panel (below the image on mobile) lists five sliders: Brightness, Contrast, Saturation, Warmth, Blur, each with label, value, and a double-click or Reset-dot to restore its default.
+
+Interaction: Choosing a preset sets all slider values and animates them. Sliders update a CSS filter string on the photo live (brightness, contrast, saturate, sepia/hue-rotate to approximate warmth, blur). A "Hold to compare" button (pointer and Space/Enter held) temporarily shows the original. Undo steps back through the last 20 changes. Export shows a dialog with the generated CSS filter declaration and a Copy button. Keyboard: arrow keys on sliders, [ and ] cycle presets. Presets use roving tabindex in the strip with arrow-key movement. Reduced motion removes the value animation.
+
+Responsive: Below 900px the adjustments panel sits under the stage and the preset strip scrolls horizontally with scroll-snap; use minmax(0,1fr) and min-width:0 so nothing overflows at 390px.
+
+Rules: Single HTML file with a Google Fonts link, inline CSS and JS, no libraries or external images. Add [hidden]{display:none!important}. Slider labels are real labels, the live filter output is in an aria-live-off code block, wrap clipboard in try/catch, native dialog for export. Invented names only.

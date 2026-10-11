@@ -1,0 +1,11 @@
+Canvas & base: Three reading themes switchable live: Paper (#fbfaf6 background, ink #1f1d19, link #1d5c9e), Sepia (#f3e9d2, ink #3b2f20, link #8a4b0f) and Night (#14161b, ink #d9dce3, link #7fb2ff). Hairlines at 14% ink. A 3px reading progress bar fixed at the top in the accent colour. Content column 680px; with a sticky table of contents in a left gutter on wide screens.
+
+Typography: "Literata" (400, 500, 700, italic 400) for the article body at 20px/1.75 by default (adjustable 17 to 26px), "Albert Sans" (500, 600, 700) for headings, UI and the table of contents. Headline 52px 700 with -0.02em tracking, h2 28px, pull quote in Literata italic at 30px.
+
+Layout: A slim top bar with the publication name and a "Aa" controls popover button. A headline block with kicker, title, standfirst, author line with an initial avatar, date and "11 min read". A three-column grid: sticky TOC (200px) with scroll-spy highlight, the article column and an empty right gutter used for sidenote numbers on very wide screens. Article content: five sections with h2 headings, paragraphs with drop-cap on the first, a pull quote, a bulleted list, an inline figure drawn with CSS (a simple annotated bar chart) with caption, and three footnotes. Ends with an author bio card and three "Read next" cards with generated gradient covers.
+
+Interaction: Progress bar width follows scroll position. The TOC highlights the section in view and smooth-scrolls on click with focus moved to the heading. The Aa popover has A- and A+ buttons (step 1px, saved), a theme radio group and a line-width toggle (Narrow / Comfortable / Wide); changes apply instantly and persist in localStorage when available (try/catch). Footnote references open a small popover card anchored near the reference showing the note text with a back link, Escape closes. Estimated remaining time updates in the top bar ("7 min left").
+
+Responsive: The TOC becomes a collapsible "On this page" disclosure at the top of the article below 1100px; body size is 18px at 390px. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries or images, respects prefers-reduced-motion (instant scrolling), landmarks (header, nav aria-label, main, article, aside), the popover is a proper disclosure with aria-expanded and focus return.

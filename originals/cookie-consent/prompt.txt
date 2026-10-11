@@ -1,0 +1,11 @@
+Canvas & base: A realistic host page behind the component: a calm article page on #fbfaf7 with ink #1e1d1a. The banner is a white card (1px #e6e2d8 border, 16px radius, shadow 0 20px 60px -20px rgba(30,29,26,.35)) fixed bottom-centre max-width 760px with 16px offset. The dialog is a centred 560px card on a #1e1d1acc backdrop. Accent forest #1f6f5c, secondary text #6a665c, toggle off #cfcabd.
+
+Typography: "Libre Franklin" (400, 500, 600, 700) for the whole component; banner title 17px 700, body 14px, buttons 14px 600. The host article uses "Libre Baskerville" (400, 700) for its headline and body.
+
+Layout: The banner contains a small cookie icon (inline SVG), title "We use a few cookies", two sentences of plain explanation with a link to the policy, and three buttons in a row: "Reject non-essential" (secondary), "Customise" (text button) and "Accept all" (primary). Equal visual weight for Reject and Accept all (same size and prominence rules). The Customise dialog lists four categories as rows (Strictly necessary, locked on; Preferences; Analytics; Marketing), each with a title, a one-line description, a "Show cookies" disclosure listing example cookie names, and a switch. Dialog footer: "Save my choices" and "Accept all". A footer link "Cookie settings" on the host page reopens the dialog.
+
+Interaction: The banner slides up after 600ms on first load. Accept all, Reject non-essential and Save close everything and show a small confirmation toast ("Preferences saved"), store the choice in memory and localStorage when available (try/catch), and move focus back to the page. The dialog is a native dialog opened with showModal so focus is trapped; Escape closes without saving; switches are role=switch buttons with aria-checked; disclosure rows animate height. Reopening the dialog reflects the saved choice. A tiny "Analytics enabled" status chip on the host page demonstrates that the choice has an effect.
+
+Responsive: The banner becomes full width with 12px margins on phones and the buttons stack, Accept all first in visual order. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, no libraries or images, respects prefers-reduced-motion, no dark patterns (equal prominence, no pre-ticked optional categories).

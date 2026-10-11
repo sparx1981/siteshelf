@@ -1,0 +1,11 @@
+Canvas & base: Light #f4f6fb page, white cards with 1px #e3e8f2 borders and 18px radius, map card with a soft #e9f0fb ground, roads in #ffffff with #d4dcec casing, a park polygon #cfe9d6, water #bcd9f5. Accent #ff5a3c (courier and active step), progress #1f9d6b, ink #14213d, muted #6b7896.
+
+Typography: "Red Hat Display" (500, 700, 800) for headings and the ETA (56px), "Red Hat Text" (400, 500, 700) for body, addresses and timestamps; tabular numbers on all times.
+
+Layout: Two columns: left a status card with the order number, the ETA headline ("Arriving in 12 min"), a five-step vertical timeline (Order placed, Packed, Shipped, Out for delivery, Delivered) with times, icons drawn in CSS or inline SVG and a connector line that fills as steps complete; right a large map card drawn in SVG (a stylised street grid, park and river) with a dashed route from the warehouse pin to the home pin, and a courier marker with a pulsing halo that moves along the path. Under the map a driver card (initials avatar, name, rating, vehicle, Call and Message buttons) and an order summary list with 3 items.
+
+Interaction: The courier position derives from progress along the SVG path using getPointAtLength, animating smoothly when the status advances; during Out for delivery it keeps drifting slowly and the ETA counts down by the minute (accelerated: one minute per two seconds) until arrival. A "Demo: advance order" button moves to the next step, updating the timeline, ETA text, headline and map; a Reset link restarts. Reaching Delivered shows a confetti-free success state with a green tick and "Delivered at 14:32". A "Notify me" toggle changes label and announces via aria-live. Timeline steps are an ordered list with aria-current on the active step.
+
+Responsive: Columns stack with the map first at 900px; the timeline compresses at 390px. No horizontal scroll.
+
+Rules: One self-contained HTML file, Google Fonts link, inline CSS and JS, SVG map drawn by hand, no libraries or images, respects prefers-reduced-motion (courier jumps, no pulse), all invented names.

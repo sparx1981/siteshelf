@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cookie Consent — Component</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--ink:#1e1d1a;--mut:#6a665c;--acc:#1f6f5c;--line:#e6e2d8}
+*{box-sizing:border-box}
+body{margin:0;background:#fbfaf7;color:var(--ink);font:400 16px/1.7 'Libre Baskerville',serif}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:3px}
+.ui,.ui *{font-family:'Libre Franklin',sans-serif}
+header{border-bottom:1px solid var(--line);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;max-width:960px;margin:0 auto}
+.logo{font:700 20px 'Libre Baskerville',serif}
+nav{display:flex;gap:20px;font-family:'Libre Franklin',sans-serif;font-size:14px;color:var(--mut)}
+article{max-width:680px;margin:0 auto;padding:56px 24px 120px}
+.kick{font:600 12px 'Libre Franklin',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+h1{font:700 clamp(32px,5vw,46px)/1.15 'Libre Baskerville',serif;margin:10px 0 14px}
+.by{font:400 14px 'Libre Franklin',sans-serif;color:var(--mut);margin-bottom:28px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.chip{font:500 12px 'Libre Franklin',sans-serif;border:1px solid var(--line);border-radius:999px;padding:2px 12px;display:inline-flex;gap:6px;align-items:center}
+.chip i{width:8px;height:8px;border-radius:50%;background:#c4bfb2}.chip.on i{background:#22a06b}
+article p{margin:0 0 1.2em;color:#34322d}
+footer{border-top:1px solid var(--line);padding:22px 24px;max-width:960px;margin:0 auto;display:flex;gap:18px;flex-wrap:wrap;font:400 14px 'Libre Franklin',sans-serif;color:var(--mut)}
+footer button{all:unset;cursor:pointer;color:var(--acc);text-decoration:underline;text-underline-offset:3px;font:500 14px 'Libre Franklin',sans-serif}
+footer button:focus-visible{outline:3px solid #2f7de1;outline-offset:3px}
+.bn{position:fixed;left:50%;bottom:16px;width:min(760px,calc(100% - 32px));background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 60px -20px rgba(30,29,26,.35);padding:20px 22px;z-index:50;transform:translate(-50%,160%);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.bn.on{transform:translate(-50%,0)}
+.bn .top{display:flex;gap:14px;align-items:flex-start}
+.bn svg{width:34px;height:34px;flex:none;color:#b8791f}
+.bn h2{font:700 17px/1.3 'Libre Franklin',sans-serif;margin:0 0 4px}
+.bn p{margin:0;font-size:14px;color:var(--mut);line-height:1.55}
+.bn a{color:var(--acc);text-underline-offset:3px}
+.bt{display:flex;gap:10px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap;align-items:center}
+.b{font:600 14px 'Libre Franklin',sans-serif;border-radius:10px;padding:11px 18px;cursor:pointer;border:1.5px solid var(--acc);background:#fff;color:var(--acc);min-height:44px}
+.b:hover{background:#eef6f3}.b.p{background:var(--acc);color:#fff}.b.p:hover{background:#185a4a}
+.b.t{border-color:transparent;color:var(--ink);text-decoration:underline;text-underline-offset:3px}.b.t:hover{background:#f4f2ec}
+dialog{border:0;border-radius:18px;padding:0;width:min(560px,calc(100vw - 24px));max-height:calc(100dvh - 32px);color:var(--ink);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+dialog[open]{display:flex;flex-direction:column}
+dialog::backdrop{background:rgba(30,29,26,.8)}
+.dh{padding:22px 24px 8px}.dh h2{font:700 20px 'Libre Franklin',sans-serif;margin:0 0 4px}.dh p{margin:0;font:400 14px/1.5 'Libre Franklin',sans-serif;color:var(--mut)}
+.dl{padding:6px 24px;overflow:auto;flex:1}
+.cat{border-bottom:1px solid var(--line);padding:14px 0}
+.cat:last-child{border:0}
+.cr{display:flex;justify-content:space-between;gap:16px;align-items:center}
+.cr b{font:600 15px 'Libre Franklin',sans-serif;display:block}.cr span.d{font:400 13px/1.4 'Libre Franklin',sans-serif;color:var(--mut)}
+.sw{width:48px;height:28px;border-radius:14px;border:0;background:#cfcabd;position:relative;cursor:pointer;flex:none;transition:background .2s}
+.sw:after{content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s}
+.sw[aria-checked=true]{background:var(--acc)}.sw[aria-checked=true]:after{transform:translateX(20px)}
+.sw:disabled{opacity:.55;cursor:not-allowed}
+.dis{all:unset;font:500 13px 'Libre Franklin',sans-serif;color:var(--acc);cursor:pointer;margin-top:6px;display:inline-flex;gap:6px;text-decoration:underline;text-underline-offset:3px}
+.dis:focus-visible{outline:3px solid #2f7de1;outline-offset:3px}
+.cl{overflow:hidden;max-height:0;transition:max-height .3s}
+.cl ul{margin:8px 0 0;padding:10px 14px;list-style:none;background:#f6f4ee;border-radius:10px;font:400 12.5px/1.6 'Libre Franklin',sans-serif;color:var(--mut)}
+.cl code{font:500 12px ui-monospace,Menlo,monospace;color:var(--ink)}
+.df{display:flex;gap:10px;justify-content:flex-end;padding:16px 24px 22px;border-top:1px solid var(--line);flex-wrap:wrap}
+#toast{position:fixed;left:50%;top:18px;transform:translate(-50%,-80px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:12px;font:600 14px 'Libre Franklin',sans-serif;transition:.3s;z-index:60}
+#toast.on{transform:translate(-50%,0)}
+@media(max-width:600px){.bn{width:calc(100% - 24px);padding:16px}.bt{flex-direction:column-reverse;align-items:stretch}.bt .b{width:100%}.df{flex-direction:column-reverse}.df .b{width:100%}article{padding-top:36px}nav{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header><span class="logo">The Slow Journal</span><nav class="ui"><span>Essays</span><span>Archive</span><span>About</span></nav></header>
+<article><span class="kick ui">Essay</span><h1>The case for reading one thing slowly</h1><div class="by ui"><span>By Hannah Ellis</span><span>· 6 min read</span><span class="chip" id="chip"><i></i><span id="chipt">Analytics off</span></span></div>
+<p>There is a particular pleasure in finishing a single long article without once reaching for your phone. It rarely happens by accident. It takes a chair, a cup of something warm and a decision to let the rest of the internet wait.</p>
+<p>When we read quickly we collect facts; when we read slowly we collect understanding. The difference shows up days later, when the facts have faded and only the shape of the argument remains. That shape is the thing worth keeping.</p>
+<p>Try it this week. Choose one piece, close every other tab, and read it as if you will be asked to explain it to a friend over dinner. You may find you need far fewer articles than you thought.</p></article>
+<footer class="ui"><span>© The Slow Journal</span><span>Privacy</span><button id="re">Cookie settings</button></footer>
+<section class="bn ui" id="bn" role="region" aria-labelledby="bh" aria-describedby="bd"><div class="top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.5A9 9 0 1 1 11.5 3a4 4 0 0 0 5 5 3.5 3.5 0 0 0 4.5 4.5z"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="14" cy="15" r="1" fill="currentColor"/><circle cx="8.5" cy="15" r="1" fill="currentColor"/></svg><div><h2 id="bh">We use a few cookies</h2><p id="bd">We use essential cookies to make this site work, and optional ones to remember your preferences and understand how it is used. You choose. Read our <a href="#" onclick="return false">cookie policy</a>.</p></div></div>
+<div class="bt"><button class="b" id="rj">Reject non-essential</button><button class="b t" id="cu">Customise</button><button class="b p" id="ac">Accept all</button></div></section>
+<dialog id="dlg" class="ui" aria-labelledby="dh1"><div class="dh"><h2 id="dh1">Cookie preferences</h2><p>Choose which cookies you are happy for us to use. You can change this at any time.</p></div><div class="dl" id="dl"></div><div class="df"><button class="b" id="sv">Save my choices</button><button class="b p" id="da">Accept all</button></div></dialog>
+<div id="toast" role="status"></div>
+<script>
+const $=i=>document.getElementById(i);
+const CATS=[['nec','Strictly necessary','Keeps the site secure and remembers your cookie choice. Always on.',['session_id','csrf_token','consent_choice'],true],['pref','Preferences','Remembers settings such as text size and reading theme.',['reader_theme','font_size'],false],['ana','Analytics','Helps us understand which essays are read, with no personal profile.',['_ga_slow','_gid_slow'],false],['mkt','Marketing','Lets us measure newsletter campaigns on other sites.',['_mk_cid','_mk_ref'],false]];
+let saved=null,draft={nec:true,pref:false,ana:false,mkt:false};
+try{const s=JSON.parse(localStorage.getItem('slow-consent'));if(s&&typeof s==='object')saved=s}catch(e){}
+function chip(){const on=saved&&saved.ana;$('chip').classList.toggle('on',!!on);$('chipt').textContent=on?'Analytics enabled':'Analytics off'}
+function store(c){saved={...c,nec:true};try{localStorage.setItem('slow-consent',JSON.stringify(saved))}catch(e){}chip();$('bn').classList.remove('on');setTimeout(()=>$('bn').hidden=true,500);toast('Preferences saved')}
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),2200)}
+function build(){$('dl').innerHTML=CATS.map(([k,t,d,ex,lock])=>`<div class="cat"><div class="cr"><div><b id="n-${k}">${t}</b><span class="d">${d}</span></div><button class="sw" role="switch" aria-checked="${draft[k]}" aria-labelledby="n-${k}" data-k="${k}" ${lock?'disabled aria-describedby="lk"':''}></button></div><button class="dis" aria-expanded="false" aria-controls="cl-${k}" data-d="${k}">Show cookies</button><div class="cl" id="cl-${k}"><ul>${ex.map(x=>`<li><code>${x}</code></li>`).join('')}</ul></div></div>`).join('')+'<span id="lk" hidden>Required, cannot be switched off</span>'}
+function openD(){draft={nec:true,pref:false,ana:false,mkt:false,...(saved||{})};build();$('dlg').showModal()}
+$('dl').addEventListener('click',e=>{const s=e.target.closest('.sw');if(s&&!s.disabled){draft[s.dataset.k]=!draft[s.dataset.k];s.setAttribute('aria-checked',draft[s.dataset.k]);return}
+ const d=e.target.closest('.dis');if(d){const k=d.dataset.d,c=$('cl-'+k),o=d.getAttribute('aria-expanded')==='true';d.setAttribute('aria-expanded',!o);d.textContent=o?'Show cookies':'Hide cookies';c.style.maxHeight=o?0:c.scrollHeight+'px'}});
+const all={nec:true,pref:true,ana:true,mkt:true},none={nec:true,pref:false,ana:false,mkt:false};
+$('ac').onclick=()=>store(all);$('rj').onclick=()=>store(none);$('cu').onclick=openD;
+$('da').onclick=()=>{$('dlg').close();store(all);$('re').focus()};$('sv').onclick=()=>{const c={...draft};$('dlg').close();store(c);$('re').focus()};
+$('re').onclick=openD;
+if(saved){$('bn').hidden=true;chip()}else setTimeout(()=>$('bn').classList.add('on'),600);
+</script></body></html>

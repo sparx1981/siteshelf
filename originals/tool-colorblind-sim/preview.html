@@ -1,0 +1,146 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Colour Blindness Simulator — Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&family=Outfit:wght@600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+:root{--ink:#1b1b1f;--mut:#55525a;--ac:#4a35d6;--bd:#e0dbcf}
+body{margin:0;background:#f6f4ef;color:var(--ink);font:400 14.5px/1.5 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px;box-shadow:0 0 0 5px #fff}
+.w{max-width:1240px;margin:0 auto;padding:18px 16px 44px}
+.hd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:20px;align-items:center}
+.eb{font:600 12px Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--ac);margin:0 0 6px;display:flex;align-items:center;gap:8px}
+h1{font:600 clamp(30px,5vw,52px)/1.03 Outfit,sans-serif;margin:0 0 10px}
+.lede{margin:0 0 6px;color:var(--mut);max-width:48ch}
+.hero{border-radius:20px;overflow:hidden;border:1px solid var(--bd);box-shadow:0 24px 40px -28px rgba(30,30,40,.5)}
+.hero svg,.card svg.sc{display:block;width:100%;height:auto;aspect-ratio:480/300}
+.pn{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:16px;margin-top:16px}
+.pn h2{font:600 13px Inter;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:0 0 12px}
+.two{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px}.two>*{min-width:0}
+.sw{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sr1{display:flex;align-items:center;gap:8px;border:1px solid var(--bd);border-radius:12px;padding:6px 8px;min-width:0}
+.sr1 b{width:22px;height:22px;border-radius:50%;background:#1b1b1f;color:#fff;display:grid;place-items:center;font:600 12px Inter;flex:none}
+.sr1 input[type=color]{width:44px;height:44px;border:0;padding:0;background:none;cursor:pointer;flex:none;border-radius:8px}
+.sr1 input[type=text]{width:100%;min-width:0;min-height:44px;border:1.5px solid #c8c2b3;border-radius:8px;padding:0 8px;font:500 14px "IBM Plex Mono",monospace;color:var(--ink);text-transform:uppercase}
+.sr1 input[aria-invalid=true]{border-color:#b3261e;background:#fdf1ef}
+.sr1 small{display:block;color:var(--mut);font-size:12px;line-height:1.2;white-space:nowrap}
+.sr1 .t{min-width:0;flex:1}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.row select,.b{min-height:44px;border-radius:10px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);font:600 14px Inter;padding:0 14px;cursor:pointer}
+.b.pri{background:var(--ac);border-color:var(--ac);color:#fff}
+.err{color:#b3261e;font-weight:600;min-height:20px;margin:6px 0 0}
+.sev input{width:100%;height:44px;accent-color:var(--ac)}
+.sev .v{font:500 22px "IBM Plex Mono",monospace}
+.note{color:var(--mut);margin:8px 0 0;font-size:13.5px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{border:1px solid var(--bd);border-radius:14px;overflow:hidden;background:#fff;min-width:0}
+.card .sv{background:#fff}
+.card .in{padding:10px 12px 12px}
+.card h3{font:600 17px Outfit;margin:0 0 6px;display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap}
+.card h3 span{font:500 12px Inter;color:var(--mut)}
+.chips{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;margin:0 0 8px}
+.chips div{border-radius:8px;overflow:hidden;border:1px solid #d6d0c2;min-width:0}.chips i{display:block;height:26px}.chips code{display:block;font:500 9.5px "IBM Plex Mono",monospace;text-align:center;padding:2px 0;background:#fff;overflow:hidden}
+.stt{display:inline-block;border-radius:8px;padding:2px 10px;font-weight:600;font-size:13px}
+.stt.ok{background:#dff3e5;color:#1d6a3a}.stt.bad{background:#fdecc8;color:#7a4a00}
+.find{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.find li{border-left:5px solid #c47a12;background:#fdf3dc;border-radius:0 10px 10px 0;padding:8px 12px}
+.find li.ok{border-color:#1d6a3a;background:#e8f6ec}
+.find b{font-weight:600}
+.tip{margin:12px 0 0;padding:10px 12px;background:#efecff;border-radius:10px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:1000px){.hd{grid-template-columns:minmax(0,1fr)}.two{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.grid{grid-template-columns:minmax(0,1fr)}.sw{grid-template-columns:minmax(0,1fr)}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<filter id="f-prot" color-interpolation-filters="linearRGB"><feColorMatrix id="m-prot" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/></filter>
+<filter id="f-deut" color-interpolation-filters="linearRGB"><feColorMatrix id="m-deut" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/></filter>
+<filter id="f-trit" color-interpolation-filters="linearRGB"><feColorMatrix id="m-trit" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/></filter>
+<filter id="f-mono" color-interpolation-filters="linearRGB"><feColorMatrix id="m-mono" type="matrix" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0"/></filter></defs></svg>
+<div class="w">
+<header class="hd">
+ <div><p class="eb"><svg width="26" height="18" viewBox="0 0 26 18" aria-hidden="true"><circle cx="9" cy="9" r="7" id="lg1" fill="#d7263d" fill-opacity=".85"/><circle cx="15" cy="9" r="7" id="lg2" fill="#2e933c" fill-opacity=".85"/><circle cx="12" cy="13" r="5" id="lg3" fill="#2f6fdb" fill-opacity=".85"/></svg>Huewise</p>
+  <h1>Colour Blindness Simulator</h1>
+  <p class="lede">Edit six colours and see what changes for people with protan, deutan, tritan or no colour vision. An approximation to guide design, not a medical test.</p></div>
+ <div class="hero" id="hero" role="img" aria-label="Painted garden with six coloured flowers, a traffic light, status badges and a donut chart, drawn with your palette"></div>
+</header>
+<div class="two">
+ <section class="pn" aria-labelledby="hp"><h2 id="hp">Palette</h2>
+  <div class="sw" id="sw"></div>
+  <p class="err" id="err" role="alert"></p>
+  <div class="row"><label for="pre" class="sr">Preset</label><select id="pre"><option value="">Presets…</option><option value="traffic">Traffic lights</option><option value="chart">Chart default</option><option value="brand">Brand set</option><option value="safe">Colour-blind safe</option></select><button class="b" id="rnd">Randomise</button><button class="b" id="rst">Reset</button></div>
+ </section>
+ <section class="pn sev" aria-labelledby="hv"><h2 id="hv">Severity</h2>
+  <label for="sev" class="sr">Severity percent</label>
+  <p class="v" id="svt" style="margin:0 0 4px">Severity 100%</p>
+  <input type="range" id="sev" min="20" max="100" step="5" value="100" aria-describedby="svd">
+  <p class="note" id="svd">At 100% the three colour types are the full “-opia” forms (protanopia, deuteranopia, tritanopia). Lower values give the milder “-anomaly” forms. Monochrome is always complete.</p>
+  <p class="tip"><b>Tip:</b> Add labels or patterns so colour is never the only signal.</p>
+ </section>
+</div>
+<section class="pn" aria-labelledby="hg"><h2 id="hg">Simulations</h2><div class="grid" id="grid"></div></section>
+<section class="pn" aria-labelledby="hf"><h2 id="hf">Findings</h2><ul class="find" id="find"></ul><p class="tip">Change lightness, not just hue: pairs that differ in brightness stay distinct.</p><p class="sr" id="live" role="status" aria-live="polite"></p></section>
+</div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var DEF=['#d7263d','#2e933c','#2f6fdb','#f29e1c','#7b4bb7','#1aa6a6'],L='ABCDEF';
+var PRE={traffic:['#d7263d','#2e933c','#2f6fdb','#f2c01c','#7b4bb7','#1aa6a6'],chart:['#4e79a7','#f28e2b','#e15759','#76b7b2','#59a14f','#edc948'],brand:['#4a35d6','#1fb59a','#ff6b57','#f5b82e','#334155','#9bd13b'],safe:['#e69f00','#56b4e9','#009e73','#f0e442','#0072b2','#d55e00']};
+var P=DEF.slice(),sev=1;
+try{var sv=JSON.parse(localStorage.getItem('huewise')||'null');if(sv&&sv.length===6&&sv.every(function(h){return /^#[0-9a-f]{6}$/i.test(h)}))P=sv}catch(e){}
+var M={prot:[[.152286,1.052583,-.204868],[.114503,.786281,.099216],[-.003882,-.048116,1.051998]],deut:[[.367322,.860646,-.227968],[.280085,.672501,.047413],[-.01182,.04294,.968881]],trit:[[1.255528,-.076749,-.178779],[-.078411,.930809,.147602],[.004733,.691367,.3039]],mono:[[.2126,.7152,.0722],[.2126,.7152,.0722],[.2126,.7152,.0722]]};
+var MODES=[['norm','Normal',null],['prot','Protanopia','protanomaly'],['deut','Deuteranopia','deuteranomaly'],['trit','Tritanopia','tritanomaly'],['mono','Monochrome',null]];
+function hex2rgb(h){return [1,3,5].map(function(i){return parseInt(h.substr(i,2),16)})}
+function lin(c){c/=255;return c<=.04045?c/12.92:Math.pow((c+.055)/1.055,2.4)}
+function gam(c){c=Math.max(0,Math.min(1,c));return Math.round(255*(c<=.0031308?12.92*c:1.055*Math.pow(c,1/2.4)-.055))}
+function mat(k){var m=M[k],s=k==='mono'?1:sev;return m.map(function(r,i){return r.map(function(v,j){return (1-s)*(i===j?1:0)+s*v})})}
+function sim(h,k){if(k==='norm')return h;var m=mat(k),l=hex2rgb(h).map(lin);var o=m.map(function(r){return gam(r[0]*l[0]+r[1]*l[1]+r[2]*l[2])});return '#'+o.map(function(v){return (v<16?'0':'')+v.toString(16)}).join('')}
+function lab(h){var l=hex2rgb(h).map(lin),X=(.4124*l[0]+.3576*l[1]+.1805*l[2])/.95047,Y=.2126*l[0]+.7152*l[1]+.0722*l[2],Z=(.0193*l[0]+.1192*l[1]+.9505*l[2])/1.08883,f=function(t){return t>.008856?Math.cbrt(t):7.787*t+16/116};return [116*f(Y)-16,500*(f(X)-f(Y)),200*(f(Y)-f(Z))]}
+function dE(a,b){var x=lab(a),y=lab(b);return Math.sqrt(Math.pow(x[0]-y[0],2)+Math.pow(x[1]-y[1],2)+Math.pow(x[2]-y[2],2))}
+function cname(h){var c=hex2rgb(h),r=c[0]/255,g=c[1]/255,b=c[2]/255,mx=Math.max(r,g,b),mn=Math.min(r,g,b),d=mx-mn,l=(mx+mn)/2;if(d<.08)return l<.2?'black':l>.85?'white':'grey';var hu=mx===r?((g-b)/d+6)%6:mx===g?(b-r)/d+2:(r-g)/d+4;hu*=60;var n=hu<15||hu>=345?'red':hu<40?'orange':hu<65?'yellow':hu<95?'lime':hu<160?'green':hu<195?'teal':hu<255?'blue':hu<290?'purple':'pink';return (l<.3?'dark ':l>.7?'light ':'')+n}
+function dk(h,f){return '#'+hex2rgb(h).map(function(v){v=Math.round(v*f);return (v<16?'0':'')+v.toString(16)}).join('')}
+function scene(p,u){
+ var o='<svg class="sc" viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="'+u+'sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bddcf3"/><stop offset="1" stop-color="#eaf4f9"/></linearGradient><linearGradient id="'+u+'ln" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b3cf9f"/><stop offset="1" stop-color="#86ab76"/></linearGradient></defs><rect width="480" height="300" fill="url(#'+u+'sk)"/>'
+ +'<path d="M0 150Q80 110 160 140T330 130T480 150V190H0Z" fill="#b9cfae"/><path d="M0 170Q100 140 200 165T400 160T480 172V200H0Z" fill="#a3bf97"/><rect y="180" width="480" height="120" fill="url(#'+u+'ln)"/>';
+ for(var i=0;i<9;i++)o+='<rect x="'+(20+i*54)+'" y="128" width="9" height="62" fill="#8b6a45"/>';o+='<rect x="0" y="140" width="480" height="6" fill="#a07c52"/><rect x="0" y="166" width="480" height="6" fill="#a07c52"/>';
+ var xs=[50,120,190,260,330,400],hs=[96,114,84,110,100,118];
+ for(var k=0;k<6;k++){var x=xs[k],hh=hs[k],y=262-hh;
+  o+='<ellipse cx="'+x+'" cy="266" rx="26" ry="5" fill="#2d4a24" opacity=".25"/><path d="M'+x+' 264C'+(x+3)+' '+(264-hh*.4)+' '+(x-3)+' '+(264-hh*.7)+' '+x+' '+y+'" stroke="'+dk(p[1],.7)+'" stroke-width="4" fill="none" stroke-linecap="round"/>'
+  +'<path d="M'+x+' '+(264-hh*.3)+'C'+(x+22)+' '+(264-hh*.45)+' '+(x+30)+' '+(264-hh*.3)+' '+(x+26)+' '+(264-hh*.2)+'C'+(x+14)+' '+(264-hh*.22)+' '+x+' '+(264-hh*.3)+' '+x+' '+(264-hh*.3)+'Z" fill="'+p[1]+'"/>'
+  +'<path d="M'+x+' '+(264-hh*.5)+'C'+(x-22)+' '+(264-hh*.65)+' '+(x-30)+' '+(264-hh*.5)+' '+(x-26)+' '+(264-hh*.4)+'C'+(x-14)+' '+(264-hh*.42)+' '+x+' '+(264-hh*.5)+' '+x+' '+(264-hh*.5)+'Z" fill="'+p[1]+'"/>';
+  for(var a=0;a<8;a++){var t=a*Math.PI/4,px=x+Math.cos(t)*16,py=y+Math.sin(t)*16;o+='<ellipse cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" rx="12" ry="8" transform="rotate('+(a*45)+' '+px.toFixed(1)+' '+py.toFixed(1)+')" fill="'+p[k]+'" stroke="'+dk(p[k],.72)+'" stroke-width="1.2"/>'}
+  o+='<circle cx="'+x+'" cy="'+y+'" r="9" fill="#5b3f1a"/><circle cx="'+(x-2.5)+'" cy="'+(y-2.5)+'" r="3" fill="#8a6430"/>'}
+ o+='<rect x="428" y="14" width="40" height="108" rx="8" fill="#2b2b33"/><circle cx="448" cy="36" r="12" fill="'+p[0]+'"/><circle cx="448" cy="68" r="12" fill="'+p[3]+'"/><circle cx="448" cy="100" r="12" fill="'+p[1]+'"/><rect x="445" y="122" width="6" height="20" fill="#2b2b33"/>';
+ o+='<rect x="12" y="12" width="168" height="104" rx="12" fill="#fff" opacity=".95"/>';
+ var vals=[30,22,18,12,10,8],tot=100,ang=-Math.PI/2,cx=62,cy=64,R=40,r=22;
+ for(var s=0;s<6;s++){var a2=ang+vals[s]/tot*Math.PI*2,x1=cx+R*Math.cos(ang),y1=cy+R*Math.sin(ang),x2=cx+R*Math.cos(a2),y2=cy+R*Math.sin(a2),x3=cx+r*Math.cos(a2),y3=cy+r*Math.sin(a2),x4=cx+r*Math.cos(ang),y4=cy+r*Math.sin(ang),lg=vals[s]/tot>.5?1:0;
+  o+='<path d="M'+x1.toFixed(1)+' '+y1.toFixed(1)+'A'+R+' '+R+' 0 '+lg+' 1 '+x2.toFixed(1)+' '+y2.toFixed(1)+'L'+x3.toFixed(1)+' '+y3.toFixed(1)+'A'+r+' '+r+' 0 '+lg+' 0 '+x4.toFixed(1)+' '+y4.toFixed(1)+'Z" fill="'+p[s]+'" stroke="#fff" stroke-width="1.5"/>';ang=a2}
+ for(var q=0;q<6;q++){var lx=112+(q%2)*34,ly=34+Math.floor(q/2)*26;o+='<rect x="'+lx+'" y="'+ly+'" width="14" height="14" rx="3" fill="'+p[q]+'"/><text x="'+(lx+19)+'" y="'+(ly+11.5)+'" font-family="Inter,sans-serif" font-weight="700" font-size="12" fill="#1b1b1f">'+L[q]+'</text>'}
+ [['OK',p[1],'#fff',14,50],['Warning',p[3],'#1b1b1f',72,72],['Error',p[0],'#fff',152,56]].forEach(function(b){o+='<rect x="'+b[3]+'" y="274" width="'+b[4]+'" height="20" rx="10" fill="'+b[1]+'"/><text x="'+(b[3]+b[4]/2)+'" y="288" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700" font-size="11" fill="'+b[2]+'">'+b[0]+'</text>'});
+ return o+'</svg>'}
+var lt;function render(){
+ $('#hero').innerHTML=scene(P,'h');
+ [1,2,3].forEach(function(i){$('#lg'+i).setAttribute('fill',P[i-1])});
+ ['prot','deut','trit'].forEach(function(k){var m=mat(k);$('#m-'+k).setAttribute('values',m[0].concat([0,0],m[1],[0,0],m[2],[0,0],[0,0,0,1,0]).join(' '))});
+ var g=$('#grid');g.innerHTML='';var finds=[],tot=0;
+ MODES.forEach(function(md,mi){var k=md[0],sp=P.map(function(h){return sim(h,k)}),pairs=[];
+  if(k!=='norm')for(var i=0;i<6;i++)for(var j=i+1;j<6;j++){var n=dE(P[i],P[j]),s=dE(sp[i],sp[j]);if(n>=30&&s<15)pairs.push([i,j,s])}
+  var nm=md[1]===undefined?'':md[1];var label=(k==='prot'||k==='deut'||k==='trit')&&sev<1?md[2][0].toUpperCase()+md[2].slice(1):md[1];
+  var c=document.createElement('article');c.className='card';c.setAttribute('aria-label',label+': '+(k==='norm'?'your palette as designed':pairs.length?pairs.length+(pairs.length===1?' pair':' pairs')+' hard to tell apart':'looks fine'));
+  c.innerHTML='<div class="sv"'+(k==='norm'?'':' style="filter:url(#f-'+k+')"')+'>'+scene(P,'c'+mi)+'</div><div class="in"><h3>'+label+(k==='norm'?'':'<span>'+(k==='mono'?'complete':Math.round(sev*100)+'% severity')+'</span>')+'</h3><div class="chips">'+sp.map(function(h,q){return '<div title="'+L[q]+' '+h.toUpperCase()+'"><i style="background:'+h+'"></i><code>'+h.slice(1).toUpperCase()+'</code></div>'}).join('')+'</div>'+(k==='norm'?'<span class="stt ok">Your palette</span>':'<span class="stt '+(pairs.length?'bad':'ok')+'">'+(pairs.length?pairs.length+(pairs.length===1?' pair':' pairs')+' hard to tell apart':'Looks fine')+'</span>')+'</div>';
+  g.appendChild(c);
+  pairs.forEach(function(p){finds.push('<li><b>'+L[p[0]]+' ('+cname(P[p[0]])+') and '+L[p[1]]+' ('+cname(P[p[1]])+')</b> look alike under '+label+' (difference '+Math.round(p[2])+', needs 15).</li>')});tot+=pairs.length});
+ var f=$('#find');f.innerHTML=finds.length?finds.join(''):'<li class="ok"><b>No confusable pairs found.</b> Every pair that is distinct normally stays distinct in all four simulations.</li>';
+ clearTimeout(lt);lt=setTimeout(function(){var l=$('#live');l.textContent='';setTimeout(function(){l.textContent=finds.length?finds.length+' confusable '+(finds.length===1?'pair':'pairs')+' found.':'No confusable pairs found.'},30)},600);
+ try{localStorage.setItem('huewise',JSON.stringify(P))}catch(e){}
+}
+function build(){var s=$('#sw');s.innerHTML='';P.forEach(function(h,i){var d=document.createElement('div');d.className='sr1';d.innerHTML='<b>'+L[i]+'</b><input type="color" value="'+h+'" aria-label="Colour '+L[i]+' picker"><span class="t"><input type="text" value="'+h.toUpperCase()+'" maxlength="7" aria-label="Colour '+L[i]+' hex" spellcheck="false" autocomplete="off"><small id="n'+i+'">'+cname(h)+'</small></span>';s.appendChild(d);
+  var cp=d.querySelector('input[type=color]'),tx=d.querySelector('input[type=text]');
+  cp.addEventListener('input',function(){P[i]=cp.value;tx.value=cp.value.toUpperCase();tx.removeAttribute('aria-invalid');$('#err').textContent='';$('#n'+i).textContent=cname(P[i]);dd()});
+  tx.addEventListener('input',function(){var v=tx.value.trim();if(v[0]!=='#')v='#'+v;if(/^#[0-9a-f]{3}$/i.test(v))v='#'+v[1]+v[1]+v[2]+v[2]+v[3]+v[3];if(/^#[0-9a-f]{6}$/i.test(v)){P[i]=v.toLowerCase();cp.value=P[i];tx.removeAttribute('aria-invalid');$('#err').textContent='';$('#n'+i).textContent=cname(P[i]);dd()}else{tx.setAttribute('aria-invalid','true');$('#err').textContent='Colour '+L[i]+': enter a hex value like #2F6FDB (3 or 6 digits).'}})})}
+var dt;function dd(){clearTimeout(dt);dt=setTimeout(render,60)}
+function say(m){var l=$('#live');l.textContent='';setTimeout(function(){l.textContent=m},30)}
+$('#sev').addEventListener('input',function(){sev=this.value/100;$('#svt').textContent='Severity '+this.value+'%';render()});
+$('#pre').addEventListener('change',function(){var v=this.value;if(!v)return;P=PRE[v].slice();build();render();say('Loaded '+this.options[this.selectedIndex].text+'.');this.value=''});
+$('#rst').addEventListener('click',function(){P=DEF.slice();build();render();say('Palette reset.')});
+$('#rnd').addEventListener('click',function(){P=P.map(function(){var h=Math.random()*360,s=.5+Math.random()*.4,l=.35+Math.random()*.3,a=s*Math.min(l,1-l),f=function(n){var k=(n+h/30)%12,c=l-a*Math.max(-1,Math.min(k-3,9-k,1));return Math.round(255*c)};return '#'+[f(0),f(8),f(4)].map(function(v){return (v<16?'0':'')+v.toString(16)}).join('')});build();render();say('Random palette loaded.')});
+build();render();
+})();
+</script></body></html>

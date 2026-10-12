@@ -1,0 +1,115 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Recipe Cook Mode — App UI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+:root{--fs:30px}
+body{margin:0;min-height:100vh;background:#fbf3e4;color:#2a1f14;font:600 17px/1.5 Nunito,system-ui,sans-serif;overflow-x:hidden;display:grid;place-items:center;padding:20px}
+:focus-visible{outline:3px solid #2a1f14;outline-offset:3px;box-shadow:0 0 0 6px #fff}
+.ap{width:min(900px,100%);background:#fffaf0;border:1px solid #eadbbd;border-radius:28px;box-shadow:0 40px 90px -40px rgba(80,50,10,.55);padding:22px 26px 24px;position:relative;overflow:hidden}
+.hd{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:flex-start;margin-bottom:12px}
+.hd h1{font:700 clamp(24px,3.4vw,32px)/1.1 Fraunces,serif;margin:0 0 4px}.hd p{margin:0;color:#6b5a45;font-size:15px}
+.sv{display:flex;align-items:center;gap:8px;font-size:15px;color:#6b5a45}.sv button{all:unset;box-sizing:border-box;width:36px;height:36px;border-radius:50%;border:1.5px solid #d8c59d;display:grid;place-items:center;cursor:pointer;font-weight:800;font-size:18px;color:#2a1f14}.sv button:hover{background:#f6ead0}.sv button:focus-visible{outline:3px solid #2a1f14;outline-offset:2px}.sv b{min-width:2ch;text-align:center;color:#2a1f14;font-size:18px}
+.pg{margin:10px 0 6px;font-weight:800;font-size:14px;color:#6b5a45;display:flex;justify-content:space-between}.br{height:8px;background:#f0e2c3;border-radius:4px;overflow:hidden}.br i{display:block;height:100%;background:#d6432b;border-radius:4px;transition:width .3s}
+.tb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:14px 0}
+.bt{all:unset;box-sizing:border-box;cursor:pointer;padding:9px 16px;border-radius:999px;border:1.5px solid #d8c59d;font:800 14px Nunito;min-height:42px;display:inline-flex;align-items:center;gap:6px;background:#fffaf0}.bt:hover{background:#f6ead0}.bt:focus-visible{outline:3px solid #2a1f14;outline-offset:2px}.bt[aria-pressed=true]{background:#2a1f14;color:#fff;border-color:#2a1f14}
+.sw{display:flex;gap:8px;align-items:center;font-weight:800;font-size:14px;cursor:pointer;margin-left:auto}.sw input{position:absolute;opacity:0;width:1px;height:1px}.sw i{width:44px;height:26px;border-radius:13px;background:#cdbb92;position:relative;transition:background .2s;flex:none}.sw i:after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}.sw input:checked+i{background:#2f7d4f}.sw input:checked+i:after{transform:translateX(18px)}.sw input:focus-visible+i{outline:3px solid #2a1f14;outline-offset:3px}
+.vw{position:relative;overflow:hidden;touch-action:pan-y;border-radius:22px}
+.st{background:#fff;border:1px solid #eadbbd;border-left:8px solid #d6432b;border-radius:22px;padding:24px 28px 26px;display:grid;grid-template-columns:minmax(0,1fr) 140px;gap:20px;align-items:center;min-height:300px;transition:transform .25s ease,opacity .25s}
+.st.out-l{transform:translateX(-40px);opacity:0}.st.out-r{transform:translateX(40px);opacity:0}
+.nb{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#d6432b;color:#fff;font:700 24px Fraunces,serif;margin-bottom:8px}
+.st h2{font:700 clamp(22px,3vw,30px)/1.15 Fraunces,serif;margin:0 0 8px;outline:0}
+.st p{font:600 var(--fs)/1.35 Fraunces,serif;margin:0}
+.tc{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:6px;background:#f0a020;color:#2a1500;border-radius:12px;padding:0 12px;min-height:calc(var(--fs)*1.3);font:800 .8em Nunito;vertical-align:middle;margin:0 2px;box-shadow:0 3px 0 #b87812}
+.tc:hover{filter:brightness(1.07)}.tc:active{transform:translateY(2px);box-shadow:0 1px 0 #b87812}.tc:focus-visible{outline:3px solid #2a1f14;outline-offset:3px}.tc svg{width:.9em;height:.9em;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round}
+.il{width:140px;height:140px}.il svg{width:100%;height:100%}
+.nv{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.nx{all:unset;box-sizing:border-box;cursor:pointer;min-height:60px;border-radius:18px;text-align:center;font:800 19px Nunito;display:grid;place-items:center;border:2px solid #2a1f14;transition:transform .1s}.nx:active{transform:scale(.98)}
+.nx.p{background:#2a1f14;color:#fff}.nx[aria-disabled=true]{opacity:.35;cursor:default}.nx:focus-visible{outline:3px solid #d6432b;outline-offset:3px}
+.dt{display:flex;gap:8px;justify-content:center;margin:14px 0 0}.dt i{width:10px;height:10px;border-radius:50%;background:#e5d4ad;transition:background .2s,transform .2s}.dt i.on{background:#d6432b;transform:scale(1.35)}.dt i.dn{background:#2f7d4f}
+.dk{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
+.tm{background:#fff;border:2px solid #f0a020;border-radius:18px;padding:12px 14px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:center;min-width:240px;flex:1 1 240px;position:relative}
+.tm.fin{background:#f0a020;animation:pl 1s infinite}@keyframes pl{50%{box-shadow:0 0 0 8px rgba(240,160,32,.35)}}
+.tm .rg{grid-row:span 2;width:62px;height:62px;position:relative}.tm .rg svg{width:100%;height:100%;transform:rotate(-90deg)}.tm .rg circle{fill:none;stroke-width:6}.tm .rg .a{stroke:#f0e2c3}.tm .rg .b{stroke:#d6432b;stroke-linecap:round;transition:stroke-dashoffset .3s linear}
+.tm.fin .rg .a{stroke:rgba(255,255,255,.4)}.tm.fin .rg .b{stroke:#2a1500}
+.tm b{font:700 28px Fraunces,serif;font-variant-numeric:tabular-nums;line-height:1}.tm small{font-weight:800;color:#6b5a45;font-size:13px}.tm.fin small{color:#2a1500}
+.tm .ac{grid-column:2;display:flex;gap:6px}.tm .ac button{all:unset;box-sizing:border-box;cursor:pointer;padding:4px 10px;border-radius:999px;border:1.5px solid #2a1f14;font:800 12px Nunito;min-height:34px;display:grid;place-items:center}.tm .ac button:hover{background:rgba(0,0,0,.08)}.tm .ac button:focus-visible{outline:3px solid #2a1f14;outline-offset:2px}
+.bn{visibility:hidden;position:fixed;left:50%;top:16px;transform:translate(-50%,-80px);background:#2a1f14;color:#fff;border-radius:16px;padding:12px 18px;font-weight:800;z-index:50;display:flex;gap:14px;align-items:center;transition:transform .3s;max-width:92vw}.bn.on{visibility:visible;transform:translate(-50%,0)}.bn button{all:unset;cursor:pointer;color:#ffd666;padding:6px 10px;border-radius:999px;min-height:32px}.bn button:focus-visible{outline:3px solid #fff}
+.sc{position:absolute;inset:0;background:rgba(42,31,20,.45);opacity:0;pointer-events:none;transition:opacity .25s;z-index:10}.sc.on{opacity:1;pointer-events:auto}
+.dr{position:absolute;top:0;right:0;bottom:0;width:min(380px,92%);background:#fffaf0;border-left:1px solid #eadbbd;z-index:11;transform:translateX(102%);transition:transform .28s;padding:22px;overflow:auto;visibility:hidden}.dr.on{transform:none;visibility:visible}
+.dr h2{font:700 24px Fraunces,serif;margin:0 0 12px;display:flex;justify-content:space-between;align-items:center}.dr h3{font:800 13px Nunito;letter-spacing:.1em;text-transform:uppercase;color:#6b5a45;margin:16px 0 6px}
+.dr ul{list-style:none;margin:0;padding:0}.dr li label{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #f0e2c3;cursor:pointer;min-height:48px}.dr li input{width:24px;height:24px;accent-color:#2f7d4f;flex:none}.dr li input:checked+span{text-decoration:line-through;color:#8a7a62}.dr li b{font-weight:800}
+.cx{all:unset;cursor:pointer;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:24px}.cx:hover{background:#f0e2c3}.cx:focus-visible{outline:3px solid #2a1f14}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:700px){body{padding:0;place-items:stretch}.ap{border-radius:0;min-height:100vh;padding:16px 14px 20px}.st{grid-template-columns:minmax(0,1fr);padding:18px 18px 20px;min-height:260px}.il{display:none}:root{--fs:26px}.nv{grid-template-columns:1fr}.nv .p{order:-1}.dk{flex-wrap:nowrap;overflow-x:auto}.dr{top:auto;left:0;width:100%;max-height:80%;border-radius:22px 22px 0 0;transform:translateY(102%);border-left:0;border-top:1px solid #eadbbd}.dr.on{transform:none}.sw{margin-left:0}}
+@media (prefers-reduced-motion:reduce){.st,.dr,.sc,.bn,.br i{transition:none}.tm.fin{animation:none;outline:4px solid #2a1f14}}
+</style></head><body>
+<main class="ap" id="ap"><header class="hd"><div><h1>Lantern Cove Lentil Soup</h1><p>45 minutes · serves <span id="sv0">4</span></p></div><div class="sv" role="group" aria-label="Servings"><button type="button" id="sm" aria-label="Fewer servings">−</button><b id="sn" aria-live="polite">4</b><button type="button" id="sp" aria-label="More servings">+</button><span>servings</span></div></header>
+<div class="pg"><span id="pt">Step 3 of 8</span><span id="pc"></span></div><div class="br" aria-hidden="true"><i id="pb"></i></div>
+<div class="tb"><button class="bt" id="ig" type="button" aria-haspopup="dialog" aria-expanded="false">🧅 Ingredients</button><button class="bt" id="fm" type="button" aria-label="Smaller text">A−</button><button class="bt" id="fp" type="button" aria-label="Larger text">A+</button><label class="sw"><input type="checkbox" id="wk"><i></i>Keep screen awake</label></div><p class="sr" id="wn" role="status"></p>
+<div class="vw" id="vw"><article class="st" id="st" aria-live="off"></article></div>
+<div class="nv"><button class="nx" id="bk" type="button">← Back</button><button class="nx p" id="nx" type="button">Next step →</button></div><div class="dt" id="dt" aria-hidden="true"></div>
+<section class="dk" id="dk" aria-label="Running timers"></section>
+<div class="sc" id="sc"></div>
+<aside class="dr" id="dr" role="dialog" aria-label="Ingredients" aria-modal="true"><h2>Ingredients <button class="cx" id="cx" type="button" aria-label="Close ingredients">×</button></h2><ul id="il"></ul><h3>Equipment</h3><ul><li><label><span>Large heavy pot with lid</span></label></li><li><label><span>Wooden spoon</span></label></li><li><label><span>Stick blender (optional)</span></label></li></ul></aside></main>
+<div class="bn" id="bn" role="alert" aria-live="assertive"><span id="bt"></span><button type="button" id="bd">Dismiss</button></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,live=$('#live'),root=document.documentElement;
+var STEPS=[
+['Chop and gather','Dice 1 onion, 2 carrots and 2 sticks of celery into small, even pieces. Crush 3 garlic cloves.','M20 100h100M30 100l10-30h60l10 30M50 60l20-20'],
+['Warm the pot','Heat 2 tbsp olive oil in the large pot over a medium heat until it shimmers, about 1 minute.','M20 90h100v20H20zM30 90q10-30 40-30t40 30'],
+['Soften the onions','Add the onion, carrots and celery with a pinch of salt and cook for 8 minutes, stirring now and then, until soft and sweet.','M25 100q45-60 90 0M40 100q30-30 60 0'],
+['Add the spices','Stir in the garlic, 1 tsp cumin and 1 tsp smoked paprika and cook for 1 minute until fragrant.','M70 40a30 30 0 1 0 .1 0M70 70v40'],
+['Add the lentils','Tip in 250 g rinsed red lentils, 1 tin of chopped tomatoes and 1.2 litres of stock. Bring to the boil.','M30 100h80M40 100V70h60v30M50 70q20-30 40 0'],
+['Simmer gently','Reduce the heat, cover and simmer for 25 minutes, stirring occasionally, until the lentils are completely tender.','M30 100h80v-35H30zM40 55q5-15 0-25M60 55q5-15 0-25M80 55q5-15 0-25'],
+['Blend and season','Blend half the soup with a stick blender, then season with lemon juice, salt and plenty of black pepper. Rest for 5 minutes.','M50 30h40l-6 70H56zM60 110h20'],
+['Serve','Ladle into warm bowls, drizzle with olive oil and scatter over chopped parsley. Serve with crusty bread.','M20 70h100q0 40-50 40T20 70zM50 50q20-20 40 0']];
+var ING=[['red lentils',250,'g'],['onion',1,''],['carrots',2,''],['celery sticks',2,''],['garlic cloves',3,''],['chopped tomatoes',1,'tin'],['vegetable stock',1.2,'litres'],['olive oil',3,'tbsp'],['lemon',.5,'']];
+var serv=4,cur=2,done=[],timers=[],tid=0,fs=30,checked={},clock=null,wl=null;
+try{var f=parseInt(localStorage.getItem('cl-fs'),10);if(f>=24&&f<=44)fs=f}catch(e){}
+root.style.setProperty('--fs',fs+'px');
+function frac(n){var w=Math.floor(n+1e-9),r=n-w,t='';if(Math.abs(r-.25)<.04)t='¼';else if(Math.abs(r-.5)<.04)t='½';else if(Math.abs(r-.75)<.04)t='¾';else if(Math.abs(r-1/3)<.04)t='⅓';else if(Math.abs(r-2/3)<.04)t='⅔';else if(r>.04&&r<.96){return (Math.round(n*10)/10).toString()}if(r>.96)w++;return (w?w:'')+t||'0'}
+function ing(){$('#il').innerHTML=ING.map(function(x,i){var q=x[1]*serv/4,u=x[2],qt=frac(q)+(u?' '+u+(u==='tin'&&q>1.05?'s':''):'');return '<li><label><input type="checkbox" data-i="'+i+'"'+(checked[i]?' checked':'')+'><span><b>'+qt+'</b> '+x[0]+'</span></label></li>'}).join('')}
+var CL='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 3h6"/></svg>';
+function parse(txt){return txt.replace(/(\d+(?:\.\d+)?)\s*(minutes?|mins?|seconds?)/gi,function(m,n,u){var secs=/^s/i.test(u)?+n:+n*60;return '\u0001'+secs+'|'+m+'\u0002'})}
+function render(dir){var s=STEPS[cur],card=$('#st');
+ var body=parse(s[1]).replace(/\u0001(\d+)\|([^\u0002]+)\u0002/g,function(m,secs,t){return '<button type="button" class="tc" data-s="'+secs+'" data-l="'+s[0]+'" aria-label="Start a '+t+' timer for '+s[0]+'">'+CL+t+'</button>'});
+ var build=function(){card.innerHTML='<div><span class="nb" aria-hidden="true">'+(cur+1)+'</span><h2 id="sh" tabindex="-1">'+s[0]+'</h2><p>'+body+'</p></div><div class="il" aria-hidden="true"><svg viewBox="0 0 140 140"><circle cx="70" cy="70" r="64" fill="#fbe9c8"/><g fill="none" stroke="#d6432b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="'+s[2]+'"/></g></svg></div>';card.className='st'};
+ if(dir&&!reduce){card.className='st out-'+(dir>0?'l':'r');setTimeout(function(){build();var h=$('#sh');if(h)h.focus({preventScroll:true})},200)}else{build()}
+ $('#pt').textContent='Step '+(cur+1)+' of '+STEPS.length;$('#pc').textContent=Math.round((cur+1)/STEPS.length*100)+'%';$('#pb').style.width=((cur+1)/STEPS.length*100)+'%';
+ $('#dt').innerHTML=STEPS.map(function(_,i){return '<i class="'+(i===cur?'on':i<cur?'dn':'')+'"></i>'}).join('');
+ $('#bk').setAttribute('aria-disabled',cur===0);var n=$('#nx');n.setAttribute('aria-disabled',cur===STEPS.length-1);n.textContent=cur===STEPS.length-1?'All done':'Next step →';
+ if(dir)live.textContent='Step '+(cur+1)+' of '+STEPS.length+': '+s[0]}
+function go(d){var n=cur+d;if(n<0||n>=STEPS.length)return;cur=n;render(d)}
+$('#nx').addEventListener('click',function(){go(1)});$('#bk').addEventListener('click',function(){go(-1)});
+document.addEventListener('keydown',function(e){if($('#dr').classList.contains('on')||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;if(e.key==='ArrowRight'){go(1)}else if(e.key==='ArrowLeft'){go(-1)}});
+var sx=null;$('#vw').addEventListener('pointerdown',function(e){if(e.target.closest('.tc'))return;sx=e.clientX});$('#vw').addEventListener('pointerup',function(e){if(sx===null)return;var d=e.clientX-sx;sx=null;if(Math.abs(d)>60)go(d<0?1:-1)});$('#vw').addEventListener('pointercancel',function(){sx=null});
+/* timers */
+function fmt(s){s=Math.max(0,Math.round(s));return ('0'+Math.floor(s/60)).slice(-2)+':'+('0'+(s%60)).slice(-2)}
+function tick(){var now=Date.now(),any=false;timers.forEach(function(t){if(t.done)return;if(!t.paused){t.left=Math.max(0,(t.end-now)/1000)}if(t.left<=0&&!t.done){t.done=true;finish(t)}else any=true});drawTimers();if(!any&&clock){}}
+function ensureClock(){if(!clock)clock=setInterval(tick,250)}
+function drawTimers(){var dk=$('#dk');var ids=timers.map(function(t){return t.id}).join(',');if(dk._ids!==ids){dk._ids=ids;dk.innerHTML=timers.map(function(t){return '<div class="tm" data-id="'+t.id+'" role="timer" aria-label="'+t.label+'"><div class="rg"><svg viewBox="0 0 62 62" aria-hidden="true"><circle class="a" cx="31" cy="31" r="26"/><circle class="b" cx="31" cy="31" r="26" stroke-dasharray="163.4"/></svg></div><div><b></b><small></small></div><div class="ac"><button type="button" data-a="p"></button><button type="button" data-a="a">+1 min</button><button type="button" data-a="x">'+'Cancel</button></div></div>'}).join('')}
+ timers.forEach(function(t){var el=dk.querySelector('[data-id="'+t.id+'"]');if(!el)return;el.classList.toggle('fin',!!t.done);el.querySelector('b').textContent=t.done?'Done':fmt(t.left);el.querySelector('small').textContent=t.label+(t.paused&&!t.done?' · paused':'');el.querySelector('.b').style.strokeDashoffset=163.4*(1-(t.done?1:Math.max(0,1-t.left/t.total)));var pb=el.querySelector('[data-a=p]');pb.textContent=t.done?'Dismiss':(t.paused?'Resume':'Pause');el.querySelector('[data-a=a]').hidden=!!t.done})}
+function finish(t){var bn=$('#bn');$('#bt').textContent=t.label+' timer finished';bn.classList.add('on');document.title='Timer done · '+t.label;live.textContent=t.label+' timer finished'}
+$('#bd').addEventListener('click',function(){$('#bn').classList.remove('on');document.title='Recipe Cook Mode — App UI'});
+$('#st').addEventListener('click',function(e){var b=e.target.closest('.tc');if(!b)return;var s=+b.dataset.s;var t={id:++tid,label:b.dataset.l,total:s,left:s,end:Date.now()+s*1000,paused:false,done:false};timers.push(t);ensureClock();drawTimers();live.textContent=t.label+' timer started for '+fmt(s)});
+$('#dk').addEventListener('click',function(e){var bt=e.target.closest('button'),el=e.target.closest('.tm');if(!bt||!el)return;var t=timers.filter(function(x){return x.id===+el.dataset.id})[0],a=bt.dataset.a;if(!t)return;
+ if(a==='p'){if(t.done){timers=timers.filter(function(x){return x!==t});$('#bn').classList.remove('on')}else if(t.paused){t.paused=false;t.end=Date.now()+t.left*1000}else{t.paused=true}}
+ else if(a==='a'){t.total+=60;t.left+=60;t.end+=60000}else if(a==='x'){timers=timers.filter(function(x){return x!==t});live.textContent='Timer cancelled'}
+ $('#dk')._ids=null;drawTimers()});
+/* servings, ingredients */
+function sv(d){serv=Math.max(1,Math.min(12,serv+d));$('#sn').textContent=serv;$('#sv0').textContent=serv;ing()}
+$('#sm').addEventListener('click',function(){sv(-1)});$('#sp').addEventListener('click',function(){sv(1)});
+$('#il').addEventListener('change',function(e){checked[e.target.dataset.i]=e.target.checked});
+function drawer(v){$('#dr').classList.toggle('on',v);$('#sc').classList.toggle('on',v);$('#ig').setAttribute('aria-expanded',v);$('#ap').inert=false;if(v){setTimeout(function(){$('#cx').focus()},60)}else $('#ig').focus()}
+$('#ig').addEventListener('click',function(){drawer(true)});$('#cx').addEventListener('click',function(){drawer(false)});$('#sc').addEventListener('click',function(){drawer(false)});
+$('#dr').addEventListener('keydown',function(e){if(e.key==='Escape'){e.preventDefault();drawer(false)}else if(e.key==='Tab'){var f=[].slice.call($('#dr').querySelectorAll('button,input')),i=f.indexOf(document.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();f[f.length-1].focus()}else if(!e.shiftKey&&i===f.length-1){e.preventDefault();f[0].focus()}}});
+function size(d){fs=Math.max(24,Math.min(44,fs+d));root.style.setProperty('--fs',fs+'px');try{localStorage.setItem('cl-fs',fs)}catch(e){}live.textContent='Text size '+fs}
+$('#fm').addEventListener('click',function(){size(-4)});$('#fp').addEventListener('click',function(){size(4)});
+$('#wk').addEventListener('change',function(){var cb=this;if(cb.checked){try{if(!navigator.wakeLock){throw 0}navigator.wakeLock.request('screen').then(function(l){wl=l;$('#wn').textContent='Screen will stay awake'},function(){cb.checked=false;$('#wn').textContent='Your browser blocked keeping the screen awake'})}catch(e){cb.checked=false;$('#wn').textContent='Keeping the screen awake is not supported here'}}else{try{wl&&wl.release()}catch(e){}wl=null;$('#wn').textContent='Screen may sleep again'}});
+ing();render(0);
+if(!reduce)setTimeout(function(){var b=document.querySelector('.tc');if(b&&!timers.length){b.click()}},500);
+})();
+</script></body></html>

@@ -1,0 +1,115 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Split The Bill — App UI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Fraunces:wght@600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#f3efe6;color:#26231c;font:700 16px/1.5 Nunito,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #26231c;outline-offset:2px;box-shadow:0 0 0 5px #fff}
+.w{max-width:1100px;margin:0 auto;padding:40px 22px 56px}
+.eb{font:800 13px Nunito;letter-spacing:.16em;text-transform:uppercase;color:#e0553a;margin:0 0 8px}
+h1{font:700 clamp(32px,5vw,54px)/1.04 Fraunces,serif;margin:0 0 8px;letter-spacing:-.015em}.lead{font-weight:400;color:#6a6454;margin:0 0 22px;font-size:18px}
+.g{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:22px;align-items:start}
+.rc{background:#fff;border:1px solid #e4dcc8;border-radius:18px 18px 0 0;padding:22px 22px 30px;box-shadow:0 24px 50px -34px rgba(60,40,10,.5);position:relative;min-width:0;margin-bottom:12px}
+.rc:after{content:"";position:absolute;left:-1px;right:-1px;bottom:-12px;height:12px;background:linear-gradient(135deg,#fff 50%,transparent 50%) 0 0/16px 12px,linear-gradient(225deg,#fff 50%,transparent 50%) 0 0/16px 12px;filter:drop-shadow(0 2px 1px rgba(0,0,0,.08))}
+.rc h2{font:700 20px Fraunces,serif;margin:0 0 4px}.rc .sb{color:#6a6454;font-weight:600;font-size:14px;margin:0 0 14px}
+.pp{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
+.pc{display:inline-flex;align-items:center;gap:8px;background:color-mix(in srgb,var(--c) 14%,#fff);border:1.5px solid var(--c);border-radius:999px;padding:3px 6px 3px 4px;font-weight:800;font-size:14px}
+.av{width:26px;height:26px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;font:800 12px Nunito;flex:none}
+.pc button{all:unset;cursor:pointer;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:15px;color:#6a6454}.pc button:hover{background:rgba(0,0,0,.08)}.pc button:focus-visible{outline:3px solid #26231c}
+.ap{display:flex;gap:6px}.ap input{font:700 14px Nunito;border:1.5px dashed #bdb398;border-radius:999px;padding:0 14px;min-height:36px;width:130px;background:#fff;color:#26231c}.ap button{all:unset;cursor:pointer;padding:0 14px;min-height:36px;border-radius:999px;background:#26231c;color:#fff;font:800 14px Nunito;display:grid;place-items:center}.ap button:focus-visible{outline:3px solid #e0553a;outline-offset:2px}
+.it{display:grid;grid-template-columns:minmax(0,1fr) 92px 56px;gap:6px 10px;align-items:center;padding:10px 0;border-top:1px dashed #e4dcc8}
+.it:first-of-type{border-top:0}.it .nm{font-weight:800}
+.it input{font:400 15px "DM Mono",monospace;border:1.5px solid #e4dcc8;border-radius:10px;padding:7px 8px;text-align:right;background:#fffdf8;color:#26231c;min-height:38px;width:100%}.it input.q{text-align:center}
+.tg{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.tg button{all:unset;box-sizing:border-box;cursor:pointer;width:34px;height:34px;border-radius:50%;border:2px solid var(--c);color:var(--c);display:grid;place-items:center;font:800 12px Nunito;background:#fff;transition:background .15s,color .15s,transform .1s}
+.tg button[aria-pressed=true]{background:var(--c);color:#fff}.tg button:active{transform:scale(.9)}.tg button:focus-visible{outline:3px solid #26231c;outline-offset:2px}
+.tg .ac{width:auto;border-radius:999px;border:1.5px solid #cfc6ac;color:#6a6454;padding:0 10px;font-size:12.5px;height:30px}
+.tg .wn{color:#b4372c;font-size:13px;font-weight:800;margin-left:6px}
+.ai{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.ai input{font:700 15px Nunito;border:1.5px dashed #bdb398;border-radius:10px;padding:8px 12px;min-height:42px;flex:1;min-width:120px;background:#fff;color:#26231c}.ai input.pr{flex:0 0 100px;font-family:"DM Mono";text-align:right}
+.bt{all:unset;box-sizing:border-box;cursor:pointer;padding:9px 16px;border-radius:999px;border:1.5px solid #26231c;font:800 14px Nunito;min-height:40px;display:inline-grid;place-items:center}.bt:hover{background:#f3efe6}.bt.p{background:#26231c;color:#fff}.bt.p:hover{background:#3d382d}.bt:focus-visible{outline:3px solid #e0553a;outline-offset:3px}
+.tt{margin-top:18px;border-top:2px solid #26231c;padding-top:12px;display:grid;gap:6px}
+.tt div{display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:700}.tt .m{font-family:"DM Mono",monospace;font-weight:400}.tt input{font:400 15px "DM Mono";width:64px;border:1.5px solid #e4dcc8;border-radius:8px;padding:5px 6px;text-align:right;min-height:34px}
+.tp{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.tp label{position:relative}.tp input[type=radio]{position:absolute;opacity:0;width:1px;height:1px}.tp span{display:block;padding:6px 12px;border-radius:999px;border:1.5px solid #cfc6ac;font-weight:800;font-size:13.5px;cursor:pointer;min-height:34px}.tp input:checked+span{background:#26231c;color:#fff;border-color:#26231c}.tp input:focus-visible+span{outline:3px solid #e0553a;outline-offset:2px}
+.gt{font:700 26px Fraunces,serif!important;border-top:1px dashed #cfc6ac;padding-top:8px;margin-top:2px}
+.sm{background:#fff;border:1px solid #e4dcc8;border-radius:20px;padding:22px;box-shadow:0 24px 50px -34px rgba(60,40,10,.5);position:sticky;top:16px;min-width:0}
+.sm h2{font:700 20px Fraunces,serif;margin:0 0 10px}.sm h3{font:800 12px Nunito;letter-spacing:.12em;text-transform:uppercase;color:#6a6454;margin:18px 0 6px}
+.pr2{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:10px 0;border-top:1px solid #f0eadc}.pr2:first-of-type{border-top:0}
+.pr2 .av{width:34px;height:34px;font-size:13px}.pr2 b{font-weight:800}.pr2 small{display:block;color:#6a6454;font-weight:600;font-size:12.5px}.pr2 .am{font:700 22px Fraunces,serif;font-variant-numeric:tabular-nums}
+.bar{grid-column:2/-1;height:6px;border-radius:3px;background:#f0eadc;overflow:hidden}.bar i{display:block;height:100%;background:var(--c);transition:width .3s}
+.ps{display:flex;gap:10px;align-items:center;font-weight:800}.ps select{font:800 15px Nunito;border:1.5px solid #cfc6ac;border-radius:10px;padding:7px 10px;background:#fff;min-height:40px}
+.st{list-style:none;margin:0;padding:0;display:grid;gap:6px}.st li{background:#f7f3ea;border-radius:12px;padding:10px 12px;font-weight:700}.st b{font-family:"DM Mono",monospace;font-weight:400}
+.wr{background:#fdeaea;color:#8c241a;border-radius:12px;padding:8px 12px;font-weight:700;font-size:14px;margin:8px 0}
+.ac2{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:900px){.g{grid-template-columns:minmax(0,1fr)}.sm{position:static}}
+@media (max-width:520px){.w{padding:28px 14px 44px}.it{grid-template-columns:minmax(0,1fr) 88px}.it .q{display:none}.rc{padding:18px 14px 26px}}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}.tg button{transition:none}}
+</style></head><body>
+<div class="w"><p class="eb">Tabsplit</p><h1>Dinner for five, settled.</h1><p class="lead">Tap who shared each dish. Tax and tip are shared fairly, and every penny is accounted for.</p>
+<div class="g"><section class="rc" aria-labelledby="rh"><h2 id="rh">Marlow's Kitchen</h2><p class="sb">Table 6 · Friday 9 October</p>
+<div class="pp" id="pp" aria-label="People"></div><div id="its"></div>
+<div class="ai"><input id="an" type="text" placeholder="Add an item" aria-label="New item name"><input id="ap" class="pr" type="text" inputmode="decimal" placeholder="0.00" aria-label="New item price"><button class="bt p" id="ab" type="button">Add</button></div>
+<div class="tt"><div><span>Subtotal</span><span class="m" id="t0"></span></div><div><label for="tx">VAT included? Tax rate %</label><input id="tx" type="text" inputmode="decimal" value="20" aria-label="Tax rate percent"></div><div><span>Tax</span><span class="m" id="t1"></span></div>
+<div><span id="tl">Tip</span><span class="tp" role="radiogroup" aria-labelledby="tl"><label><input type="radio" name="tp" value="0"><span>None</span></label><label><input type="radio" name="tp" value="10"><span>10%</span></label><label><input type="radio" name="tp" value="12.5" checked><span>12.5%</span></label><label><input type="radio" name="tp" value="15"><span>15%</span></label><label><input type="radio" name="tp" value="c"><span>Custom</span></label><input id="tc" type="text" inputmode="decimal" value="18" aria-label="Custom tip percent" hidden></span></div><div><span>Tip amount</span><span class="m" id="t2"></span></div><div class="gt"><span>Total</span><span id="t3"></span></div></div></section>
+<aside class="sm" aria-labelledby="sh"><h2 id="sh">Each person owes</h2><div id="sp"></div><div id="wr"></div><h3>Paid by</h3><div class="ps"><label class="sr" for="pb">Paid by</label><select id="pb"></select></div><h3>Settle up</h3><ul class="st" id="st"></ul><div class="ac2"><button class="bt p" id="cp" type="button">Copy summary</button><button class="bt" id="rs" type="button">Reset</button></div><p class="sr" id="mg" role="status"></p></aside></div></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,live=$('#live');
+var COL=['#e0553a','#2f7d4f','#7a4fe0','#c48612','#2a8fb8','#b8365e','#4a6a8a'];
+var DEF={people:[{id:'p1',n:'Odette'},{id:'p2',n:'Kwame'},{id:'p3',n:'Priya'},{id:'p4',n:'Ines'},{id:'p5',n:'Fenn'}],
+items:[{n:'Burrata and figs',p:1100,q:1,s:['p1','p2','p3','p4','p5']},{n:'Sourdough and butter',p:600,q:1,s:['p1','p2','p3','p4','p5']},{n:'Mushroom risotto',p:1650,q:1,s:['p1']},{n:'Margherita pizza',p:1400,q:1,s:['p2']},{n:'Lamb shoulder',p:2200,q:1,s:['p3']},{n:'Sea bass',p:2100,q:1,s:['p4']},{n:'Lemon tart to share',p:950,q:2,s:['p1','p3','p5']},{n:'House red (bottle)',p:3400,q:1,s:['p1','p2','p4']}],tax:20,tip:'12.5',tc:18,paid:'p2'};
+var S=JSON.parse(JSON.stringify(DEF));
+try{var sv=JSON.parse(localStorage.getItem('ts-state')||'null');if(sv&&sv.people&&sv.items)S=sv}catch(e){}
+function save(){try{localStorage.setItem('ts-state',JSON.stringify(S))}catch(e){}}
+function money(p){var s=p<0?'-':'';p=Math.abs(p);return s+'£'+(Math.floor(p/100))+'.'+('0'+(p%100)).slice(-2)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function ini(n){return n.trim().slice(0,2).replace(/^./,function(c){return c.toUpperCase()})}
+function colOf(id){var i=S.people.findIndex(function(p){return p.id===id});return COL[i%COL.length]}
+function split(amount,ids){var n=ids.length,r={};if(!n)return r;var base=Math.floor(amount/n),rem=amount-base*n;ids.forEach(function(id,i){r[id]=base+(i<rem?1:0)});return r}
+function calc(){var own={},unalloc=0,sub=0;S.people.forEach(function(p){own[p.id]=0});
+ var sh={};S.items.forEach(function(it){var t=it.p*it.q;sub+=t;var ids=it.s.filter(function(id){return own.hasOwnProperty(id)});if(!ids.length){unalloc+=t;return}var r=split(t,ids);ids.forEach(function(id){own[id]+=r[id]})});
+ var alloc=sub-unalloc,taxP=Math.round(alloc*(+S.tax||0)/(100+(+S.tax||0))),
+ tipPct=S.tip==='c'?(+S.tc||0):+S.tip,tipP=Math.round(alloc*tipPct/100);
+ var ids=S.people.map(function(p){return p.id}),w=ids.map(function(id){return own[id]}),taxS={},tipS={};
+ // proportional with remainder: largest-remainder
+ function prop(total){var res={},sum=w.reduce(function(a,b){return a+b},0),rems=[],used=0;ids.forEach(function(id,i){var x=sum?total*w[i]/sum:0,f=Math.floor(x);res[id]=f;used+=f;rems.push([id,x-f])});rems.sort(function(a,b){return b[1]-a[1]});for(var k=0;k<total-used&&sum;k++)res[rems[k%rems.length][0]]++;return res}
+ taxS=prop(taxP);tipS=prop(tipP);
+ var tot={};ids.forEach(function(id){tot[id]=own[id]+(S.taxIncl===false?taxS[id]:0)+tipS[id]});
+ return {own:own,tax:taxS,tip:tipS,tot:tot,sub:sub,taxP:taxP,tipP:tipP,unalloc:unalloc,grand:alloc+tipP+unalloc}}
+var shown=0,raf=0;
+function roll(el,to,from){if(reduce){el.textContent=money(to);return}var t0=performance.now();(function f(t){var k=Math.min(1,(t-t0)/260);el.textContent=money(Math.round(from+(to-from)*k));if(k<1)requestAnimationFrame(f)})(t0)}
+var prevGrand=0,say;
+function render(){var c=calc();
+ $('#pp').innerHTML=S.people.map(function(p,i){return '<span class="pc" style="--c:'+COL[i%COL.length]+'"><span class="av" aria-hidden="true">'+esc(ini(p.n))+'</span>'+esc(p.n)+'<button type="button" data-rm="'+p.id+'" aria-label="Remove '+esc(p.n)+'">×</button></span>'}).join('')+'<span class="ap"><input id="np" type="text" maxlength="14" placeholder="Add person" aria-label="Add a person"><button type="button" id="npb">+</button></span>';
+ $('#its').innerHTML=S.items.map(function(it,i){var warn=!it.s.filter(function(id){return S.people.some(function(p){return p.id===id})}).length;return '<div class="it" data-i="'+i+'"><span class="nm">'+esc(it.n)+'</span><input type="text" inputmode="decimal" value="'+(it.p/100).toFixed(2)+'" data-f="p" aria-label="Price of '+esc(it.n)+' in pounds"><input class="q" type="text" inputmode="numeric" value="×'+it.q+'" data-f="q" aria-label="Quantity of '+esc(it.n)+'"><div class="tg">'+S.people.map(function(p,k){var on=it.s.indexOf(p.id)>-1;return '<button type="button" style="--c:'+COL[k%COL.length]+'" data-p="'+p.id+'" aria-pressed="'+on+'" aria-label="'+esc(p.n)+' shares '+esc(it.n)+'">'+esc(ini(p.n))+'</button>'}).join('')+'<button type="button" class="ac" data-all="1">Everyone</button><button type="button" class="ac" data-none="1">Clear</button><button type="button" class="ac" data-del="1" aria-label="Delete '+esc(it.n)+'">Delete</button>'+(warn?'<span class="wn">Nobody is paying for this</span>':'')+'</div></div>'}).join('');
+ $('#t0').textContent=money(c.sub);$('#t1').textContent=money(c.taxP)+' (incl.)';$('#t2').textContent=money(c.tipP);roll($('#t3'),c.grand,prevGrand);
+ $('#tc').hidden=S.tip!=='c';[].forEach.call(document.querySelectorAll('[name=tp]'),function(r){r.checked=r.value===S.tip});$('#tx').value=S.tax;
+ $('#sp').innerHTML=S.people.map(function(p,i){var due=c.tot[p.id],pct=c.grand?Math.round(due/c.grand*100):0;return '<div class="pr2" style="--c:'+COL[i%COL.length]+'"><span class="av" aria-hidden="true">'+esc(ini(p.n))+'</span><span><b>'+esc(p.n)+'</b><small>'+money(c.own[p.id])+' items · '+money(c.tax[p.id])+' VAT · '+money(c.tip[p.id])+' tip</small></span><span class="am">'+money(due)+'</span><span class="bar" aria-hidden="true"><i style="width:'+pct+'%"></i></span></div>'}).join('');
+ $('#wr').innerHTML=c.unalloc?'<div class="wr" role="alert">'+money(c.unalloc)+' is not assigned to anyone yet.</div>':'';
+ $('#pb').innerHTML=S.people.map(function(p){return '<option value="'+p.id+'"'+(p.id===S.paid?' selected':'')+'>'+esc(p.n)+'</option>'}).join('');
+ // settle
+ var net=S.people.map(function(p){return {id:p.id,n:p.n,v:(p.id===S.paid?c.grand-c.unalloc:0)-c.tot[p.id]}}),cr=net.filter(function(x){return x.v>0}).sort(function(a,b){return b.v-a.v}),db=net.filter(function(x){return x.v<0}).sort(function(a,b){return a.v-b.v}),tr=[];
+ var ci=0,di=0;while(ci<cr.length&&di<db.length){var a=Math.min(cr[ci].v,-db[di].v);if(a>0)tr.push(db[di].n+' pays '+cr[ci].n+' '+money(a));cr[ci].v-=a;db[di].v+=a;if(cr[ci].v<=0)ci++;if(db[di].v>=0)di++}
+ $('#st').innerHTML=tr.length?tr.map(function(t){return '<li>'+esc(t).replace(/(£[\d.]+)/,'<b>$1</b>')+'</li>'}).join(''):'<li>Everyone is square.</li>';
+ S._tr=tr;prevGrand=c.grand;clearTimeout(say);say=setTimeout(function(){live.textContent='Total '+money(c.grand)+'. '+(tr.length?tr.length+' payments to settle.':'Everyone is square.')},600);save()}
+$('#pp').addEventListener('click',function(e){var r=e.target.closest('[data-rm]');if(r){var id=r.dataset.rm,sh=S.items.some(function(i){return i.s.indexOf(id)>-1});var nm=S.people.filter(function(p){return p.id===id})[0].n;if(sh&&!confirm(nm+' shares some items. Remove them anyway?'))return;S.people=S.people.filter(function(p){return p.id!==id});S.items.forEach(function(i){i.s=i.s.filter(function(x){return x!==id})});if(S.paid===id&&S.people.length)S.paid=S.people[0].id;render();live.textContent=nm+' removed';return}if(e.target.id==='npb')addP()});
+function addP(){var v=$('#np').value.trim();if(!v||S.people.length>=7)return;S.people.push({id:'p'+Date.now(),n:v});render();var el=$('#np');el&&el.focus()}
+$('#pp').addEventListener('keydown',function(e){if(e.target.id==='np'&&e.key==='Enter'){e.preventDefault();addP()}});
+$('#its').addEventListener('click',function(e){var row=e.target.closest('.it');if(!row)return;var it=S.items[+row.dataset.i],b=e.target.closest('button');if(!b)return;
+ if(b.dataset.p){var k=it.s.indexOf(b.dataset.p);if(k>-1)it.s.splice(k,1);else it.s.push(b.dataset.p);var idx=+row.dataset.i,pid=b.dataset.p;render();var nb=document.querySelector('.it[data-i="'+idx+'"] [data-p="'+pid+'"]');if(nb)nb.focus()}
+ else if(b.dataset.all){it.s=S.people.map(function(p){return p.id});render()}else if(b.dataset.none){it.s=[];render()}else if(b.dataset.del){S.items.splice(+row.dataset.i,1);render();live.textContent='Item deleted'}});
+$('#its').addEventListener('change',function(e){var row=e.target.closest('.it');if(!row)return;var it=S.items[+row.dataset.i],f=e.target.dataset.f;var v=e.target.value.replace(/[^0-9.]/g,'');if(f==='p'){it.p=Math.max(0,Math.round(parseFloat(v||'0')*100))}else{it.q=Math.max(1,Math.min(99,parseInt(v,10)||1))}render()});
+$('#ab').addEventListener('click',addI);$('#ap').addEventListener('keydown',function(e){if(e.key==='Enter')addI()});$('#an').addEventListener('keydown',function(e){if(e.key==='Enter')$('#ap').focus()});
+function addI(){var n=$('#an').value.trim(),p=Math.round(parseFloat($('#ap').value.replace(/[^0-9.]/g,'')||'0')*100);if(!n)return;S.items.push({n:n,p:p,q:1,s:S.people.map(function(x){return x.id})});$('#an').value='';$('#ap').value='';render();$('#an').focus()}
+$('#tx').addEventListener('change',function(){var v=parseFloat(this.value.replace(/[^0-9.]/g,''));S.tax=isNaN(v)?0:Math.min(50,v);render()});
+document.querySelectorAll('[name=tp]').forEach(function(r){r.addEventListener('change',function(){S.tip=r.value;render();if(r.value==='c')$('#tc').focus()})});
+$('#tc').addEventListener('change',function(){var v=parseFloat(this.value.replace(/[^0-9.]/g,''));S.tc=isNaN(v)?0:Math.min(100,v);render()});
+$('#pb').addEventListener('change',function(){S.paid=this.value;render()});
+$('#rs').addEventListener('click',function(){S=JSON.parse(JSON.stringify(DEF));prevGrand=0;render();live.textContent='Reset to the sample bill'});
+$('#cp').addEventListener('click',function(){var c=calc(),t='Marlow\'s Kitchen, total '+money(c.grand)+'\n'+S.people.map(function(p){return p.n+': '+money(c.tot[p.id])}).join('\n')+'\n\nSettle up:\n'+(S._tr&&S._tr.length?S._tr.join('\n'):'Everyone is square.'),b=this;var ok=function(){b.textContent='Copied';$('#mg').textContent='Summary copied';setTimeout(function(){b.textContent='Copy summary'},1500)};
+ try{navigator.clipboard.writeText(t).then(ok,function(){fb(t,ok)})}catch(x){fb(t,ok)}});
+function fb(t,ok){try{var a=document.createElement('textarea');a.value=t;a.style.cssText='position:fixed;opacity:0';document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();ok()}catch(e){$('#mg').textContent='Copy is blocked here'}}
+render();
+})();
+</script></body></html>

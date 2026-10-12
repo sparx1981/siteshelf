@@ -1,0 +1,95 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Signature Pad — Form Controls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@400;500;600&family=Kalam:wght@400&family=Newsreader:wght@500;600&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#eef0f4;color:#14213d;font:400 15px/1.55 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #1f4fd1;outline-offset:3px;box-shadow:0 0 0 6px #fff}
+.w{max-width:1080px;margin:0 auto;padding:40px 24px 56px;display:grid;grid-template-columns:minmax(0,1fr) 480px;gap:26px;align-items:start}
+.dc{background:#fff;border:1px solid #d9dde6;border-radius:20px;padding:34px 38px;box-shadow:0 24px 50px -34px rgba(20,33,61,.5);font:500 17px/1.6 Newsreader,Georgia,serif;min-width:0}
+.dc small{display:block;font:600 12px Inter;letter-spacing:.14em;text-transform:uppercase;color:#1f4fd1;margin-bottom:6px}
+.dc h1{font:600 clamp(28px,3.4vw,38px)/1.1 Newsreader,serif;margin:0 0 16px;letter-spacing:-.01em}
+.dc ol{padding-left:22px;margin:0 0 18px}.dc li{margin-bottom:10px}.dc .py{background:#f4f6fb;border-radius:12px;padding:12px 16px;font:400 14px/1.5 Inter;color:#56627a}.dc .py b{color:#14213d}
+.pn{background:#fff;border:1px solid #d9dde6;border-radius:20px;padding:20px;box-shadow:0 24px 50px -34px rgba(20,33,61,.5);min-width:0}
+.tb{display:flex;gap:4px;background:#eef0f4;border-radius:12px;padding:4px;margin-bottom:14px}
+.tb button{all:unset;box-sizing:border-box;flex:1;text-align:center;padding:9px;border-radius:9px;font:600 14px Inter;cursor:pointer;color:#56627a;min-height:40px}.tb button[aria-selected=true]{background:#fff;color:#14213d;box-shadow:0 1px 4px rgba(0,0,0,.12)}.tb button:focus-visible{outline:3px solid #1f4fd1;outline-offset:2px}
+.fd{position:relative;height:200px;border:1.5px dashed #aab4c8;border-radius:14px;background:#fbfcfe;overflow:hidden}
+.fd canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}
+.fd:before{content:"X";position:absolute;left:16px;top:52%;font:600 18px Inter;color:#9aa5bb;pointer-events:none}
+.fd:after{content:"";position:absolute;left:16px;right:16px;top:70%;height:1px;background:#c3cbdb;pointer-events:none}
+.fd .hn{position:absolute;left:0;right:0;top:calc(70% + 6px);text-align:center;font-size:12px;color:#8793ab;pointer-events:none}
+.fd.has .hn{display:none}.fd:focus-visible{outline:3px solid #1f4fd1;outline-offset:3px}
+.cn{display:flex;gap:12px 16px;align-items:center;flex-wrap:wrap;margin:12px 0}
+.cn fieldset{border:0;margin:0;padding:0;display:flex;gap:8px;align-items:center}.cn legend{float:left;margin-right:8px;font-size:13px;color:#56627a;padding:0}
+.pc label{position:relative}.pc input{position:absolute;opacity:0;width:1px;height:1px}.pc span{display:block;width:28px;height:28px;border-radius:50%;background:var(--c);box-shadow:0 0 0 2px #fff,0 0 0 3.5px #aab4c8;cursor:pointer}.pc input:checked+span{box-shadow:0 0 0 2px #fff,0 0 0 5px #14213d}.pc input:focus-visible+span{outline:3px solid #1f4fd1;outline-offset:5px}
+.rg{display:flex;align-items:center;gap:8px;font-size:13px;color:#56627a}input[type=range]{accent-color:#1f4fd1;width:100px;height:28px}
+.bt{all:unset;box-sizing:border-box;cursor:pointer;padding:8px 14px;border-radius:10px;border:1.5px solid #c3cbdb;font:600 13px Inter;min-height:38px;transition:background .2s}.bt:hover{background:#f1f4fa}.bt:focus-visible{outline:3px solid #1f4fd1;outline-offset:2px}.bt[aria-disabled=true]{opacity:.45;cursor:default}
+.nm{display:grid;gap:6px;margin-bottom:12px;font:600 13px Inter;color:#56627a}.nm input{font:500 17px Inter;padding:11px 14px;border:1.5px solid #c3cbdb;border-radius:12px;color:#14213d;min-height:46px;width:100%}
+.sy{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:12px}.sy label{position:relative}.sy input{position:absolute;opacity:0;width:1px;height:1px}.sy span{display:grid;place-items:center;height:72px;border:1.5px solid #c3cbdb;border-radius:12px;font-size:26px;cursor:pointer;overflow:hidden;padding:0 6px;text-align:center;white-space:nowrap}
+.sy input:checked+span{border-color:#1f4fd1;background:#eef3ff}.sy input:focus-visible+span{outline:3px solid #1f4fd1;outline-offset:2px}
+.pv{display:flex;gap:12px;align-items:center;margin:4px 0 14px;font-size:13px;color:#56627a}.pv img{width:120px;height:50px;object-fit:contain;border:1px solid #d9dde6;border-radius:8px;background:#fff}.pv a{color:#1f4fd1;font-weight:600}
+.ag{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;cursor:pointer}.ag input{width:20px;height:20px;margin-top:2px;accent-color:#1f4fd1}
+.sg{all:unset;box-sizing:border-box;width:100%;text-align:center;background:#1f4fd1;color:#fff;font:600 16px Inter;padding:13px;border-radius:12px;cursor:pointer;min-height:48px}.sg:hover{background:#173fa8}.sg[aria-disabled=true]{background:#8da4e6;cursor:not-allowed}.sg:focus-visible{outline:3px solid #14213d;outline-offset:3px}
+.er{color:#b3261e;font-weight:600;font-size:14px;margin:8px 0 0;min-height:20px}
+.dn{text-align:center;padding:16px 4px}.dn .ck{width:56px;height:56px;border-radius:50%;background:#e1f5ec;display:grid;place-items:center;margin:0 auto 10px}.dn .ck svg{width:30px;height:30px;stroke:#0e7a5a;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.dn h2{font:600 22px Newsreader;margin:0 0 4px}.dn p{margin:0 0 12px;color:#56627a}.dn img{max-width:100%;height:90px;object-fit:contain;border-bottom:1px solid #c3cbdb;margin-bottom:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:900px){.w{grid-template-columns:minmax(0,1fr);padding:28px 16px 44px}.dc{padding:24px 22px}.fd{height:170px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="w"><article class="dc" aria-labelledby="dh"><small>Inkwell Sign</small><h1 id="dh">Studio Hire Agreement</h1>
+<ol><li>The Hirer may use the first-floor studio at 12 Orchard Row on the dates agreed, from 9am to 6pm.</li><li>The Hirer will leave the space as found and report any damage within one working day.</li><li>The hire fee of £340 is due seven days before the first booked date.</li></ol>
+<div class="py"><b>Hirer:</b> Marlow &amp; Pine Ltd · hello@marlowandpine.example.com<br><b>Studio:</b> Pennick Bay Print Rooms · 14 October 2026</div></article>
+<section class="pn" aria-labelledby="ph"><h2 id="ph" class="sr">Sign this agreement</h2>
+<div id="pf"><div class="tb" role="tablist" aria-label="Signature method"><button role="tab" id="t0" aria-selected="true" aria-controls="p0">Draw</button><button role="tab" id="t1" aria-selected="false" tabindex="-1" aria-controls="p1">Type</button></div>
+<div class="fd" id="fd"><canvas id="cv" role="img" aria-label="Signature drawing area. Use the Type tab if you cannot draw." tabindex="0"></canvas><span class="hn">Sign above the line</span></div>
+<div id="p0" role="tabpanel" aria-labelledby="t0">
+<div class="cn"><fieldset class="pc"><legend>Pen</legend><label><input type="radio" name="pn" value="#14213d" checked><span style="--c:#14213d"></span><span class="sr">Black ink</span></label><label><input type="radio" name="pn" value="#1f4fd1"><span style="--c:#1f4fd1"></span><span class="sr">Blue ink</span></label><label><input type="radio" name="pn" value="#0e7a5a"><span style="--c:#0e7a5a"></span><span class="sr">Green ink</span></label></fieldset>
+<div class="rg"><label for="th">Thickness</label><input id="th" type="range" min="1.5" max="6" step=".5" value="3"></div><button class="bt" id="un" type="button">Undo</button><button class="bt" id="cl" type="button">Clear</button></div></div>
+<div id="p1" role="tabpanel" aria-labelledby="t1" hidden><label class="nm">Your full name<input id="nm" type="text" value="Wren Marlow" autocomplete="name"></label><div class="sy" role="radiogroup" aria-label="Signature style"><label><input type="radio" name="sy" value="0" checked><span class="s0" style="font-family:Caveat,cursive;font-weight:700">Wren Marlow</span></label><label><input type="radio" name="sy" value="1"><span class="s1" style="font-family:'Shadows Into Light',cursive">Wren Marlow</span></label><label><input type="radio" name="sy" value="2"><span class="s2" style="font-family:Kalam,cursive">Wren Marlow</span></label></div></div>
+<div class="pv" id="pv"><img id="pi" alt="Signature preview" hidden><span id="pt">No signature yet.</span> <a id="dl" href="#" download="signature.png" hidden>Download PNG</a></div>
+<label class="ag"><input type="checkbox" id="ag"><span>I agree this is my legal signature.</span></label>
+<button class="sg" id="sg" type="button" aria-disabled="true" aria-describedby="er">Accept and sign</button><p class="er" id="er" role="alert"></p></div>
+<div id="dn" class="dn" hidden><div class="ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h2>Signed. Thank you.</h2><p id="ds"></p><img id="di" alt="Your signature"><br><button class="bt" id="rs" type="button">Sign again</button></div></section></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var cv=$('#cv'),ctx=cv.getContext('2d'),dpr=Math.min(2,devicePixelRatio||1),strokes=[],cur=null,pen='#14213d',thick=3,mode=0,live=$('#live'),lastPt=null,typed=null;
+function size(){var b=cv.getBoundingClientRect();cv.width=Math.round(b.width*dpr);cv.height=Math.round(b.height*dpr);redraw()}
+function say(t){live.textContent=t}
+function drawStroke(s){var p=s.pts;if(!p.length)return;ctx.strokeStyle=s.c;ctx.fillStyle=s.c;ctx.lineCap='round';ctx.lineJoin='round';
+ if(p.length===1){ctx.beginPath();ctx.arc(p[0].x*dpr,p[0].y*dpr,s.w*.6*dpr,0,7);ctx.fill();return}
+ for(var i=1;i<p.length;i++){var a=p[i-1],b=p[i],m=i<p.length-1?{x:(b.x+p[i+1].x)/2,y:(b.y+p[i+1].y)/2}:b,st=i>1?{x:(a.x+b.x)/2,y:(a.y+b.y)/2}:a;ctx.lineWidth=b.w*dpr;ctx.beginPath();ctx.moveTo(st.x*dpr,st.y*dpr);ctx.quadraticCurveTo(b.x*dpr,b.y*dpr,m.x*dpr,m.y*dpr);ctx.stroke()}}
+function redraw(){ctx.clearRect(0,0,cv.width,cv.height);if(mode===1&&typed){drawTyped()}else strokes.forEach(drawStroke);status()}
+function drawTyped(){var name=$('#nm').value.trim()||'',st=+document.querySelector('[name=sy]:checked').value,fam=['Caveat','Shadows Into Light','Kalam'][st],wt=st===0?700:400;if(!name)return;var b=cv.getBoundingClientRect(),W=cv.width,H=cv.height;var fs=Math.min(H*.34,W/ (name.length*.5+1));ctx.fillStyle=pen;ctx.font=wt+' '+fs+'px "'+fam+'",cursive';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(name,W/2,H*.68)}
+function has(){return mode===0?strokes.length>0:!!$('#nm').value.trim()}
+function status(){var h=has();$('#fd').classList.toggle('has',mode===0?strokes.length>0:h);if(h){var url=mode===0?exportPNG():exportPNG();$('#pi').src=url;$('#pi').hidden=false;$('#pt').textContent=mode===0?'Preview of your signature':'Typed signature preview';$('#dl').href=url;$('#dl').hidden=false}else{$('#pi').hidden=true;$('#dl').hidden=true;$('#pt').textContent='No signature yet.'}
+ $('#sg').setAttribute('aria-disabled',(h&&$('#ag').checked)?'false':'true');$('#un').setAttribute('aria-disabled',strokes.length?'false':'true');$('#cl').setAttribute('aria-disabled',strokes.length?'false':'true')}
+function exportPNG(){var t=document.createElement('canvas');t.width=cv.width;t.height=cv.height;var x=t.getContext('2d');x.drawImage(cv,0,0);return t.toDataURL('image/png')}
+function pt(e){var b=cv.getBoundingClientRect();return {x:e.clientX-b.left,y:e.clientY-b.top}}
+cv.addEventListener('pointerdown',function(e){if(mode!==0||e.button>0)return;cv.setPointerCapture(e.pointerId);var p=pt(e);p.w=thick;p.t=performance.now();cur={c:pen,w:thick,pts:[p]};strokes.push(cur);lastPt=p;redraw();e.preventDefault()});
+cv.addEventListener('pointermove',function(e){if(!cur)return;var p=pt(e),t=performance.now(),dt=Math.max(1,t-lastPt.t),d=Math.hypot(p.x-lastPt.x,p.y-lastPt.y),v=d/dt;var k=Math.max(.6,Math.min(1.1,1.1-v*.25));var w=thick*k;p.w=lastPt.w*.6+w*.4;p.t=t;if(d<1.2)return;cur.pts.push(p);lastPt=p;redraw()});
+function end(){if(cur){cur=null;status()}}
+['pointerup','pointercancel'].forEach(function(n){cv.addEventListener(n,end)});
+cv.addEventListener('keydown',function(e){if(e.key==='Escape'&&cur){strokes.pop();cur=null;redraw()}});
+$('#un').addEventListener('click',function(){if(strokes.length){strokes.pop();redraw();say('Last stroke removed')}});
+$('#cl').addEventListener('click',function(){if(strokes.length){strokes=[];redraw();say('Signature cleared')}});
+document.querySelectorAll('[name=pn]').forEach(function(r){r.addEventListener('change',function(){pen=r.value;if(mode===1)redraw()})});
+$('#th').addEventListener('input',function(){thick=+this.value});
+$('#nm').addEventListener('input',function(){typed=1;redraw()});document.querySelectorAll('[name=sy]').forEach(function(r){r.addEventListener('change',function(){typed=1;redraw()})});
+function tab(i,focus){mode=i;typed=1;[0,1].forEach(function(k){$('#t'+k).setAttribute('aria-selected',k===i);$('#t'+k).tabIndex=k===i?0:-1;$('#p'+k).hidden=k!==i});if(focus)$('#t'+i).focus();cv.style.cursor=i===0?'crosshair':'default';cv.setAttribute('aria-label',i===0?'Signature drawing area. Use the Type tab if you cannot draw.':'Preview of your typed signature');$('#fd').querySelector('.hn').textContent=i===0?'Sign above the line':'Your typed name appears here';size()}
+[0,1].forEach(function(i){var b=$('#t'+i);b.addEventListener('click',function(){tab(i)});b.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'||e.key==='Home'||e.key==='End'){e.preventDefault();var n=e.key==='Home'?0:e.key==='End'?1:1-i;tab(n,true)}})});
+$('#ag').addEventListener('change',status);
+$('#sg').addEventListener('click',function(){var h=has(),a=$('#ag').checked,er=$('#er');if(!h||!a){er.textContent=!h&&!a?'Please add your signature and tick the agreement box.':(!h?'Please add your signature first.':'Please tick the box to confirm you agree.');(!h?(mode===0?cv:$('#nm')):$('#ag')).focus();return}er.textContent='';var url=exportPNG();$('#di').src=url;$('#ds').textContent='Signed on '+new Date().toLocaleString('en-GB',{dateStyle:'long',timeStyle:'short'})+' by '+(mode===1?($('#nm').value.trim()||'the signer'):'the signer')+'.';$('#pf').hidden=true;$('#dn').hidden=false;say('Agreement signed')});
+$('#rs').addEventListener('click',function(){strokes=[];$('#ag').checked=false;$('#dn').hidden=true;$('#pf').hidden=false;tab(0);size();say('Ready to sign again')});
+addEventListener('resize',function(){clearTimeout(size.t);size.t=setTimeout(size,120)});
+// typed mode draws to an offscreen render of the same canvas size; keep canvas hidden-safe
+(function(){var orig=redraw;})();
+function renderTypedPreview(){}
+size();
+if(document.fonts&&document.fonts.load){['700 40px Caveat','400 40px "Shadows Into Light"','400 40px Kalam'].forEach(function(f){document.fonts.load(f).then(function(){redraw()},function(){})})}
+/* demo stroke */
+(function(){var W=cv.getBoundingClientRect().width,H=cv.getBoundingClientRect().height,pts=[],n=90;for(var i=0;i<n;i++){var t=i/(n-1),x=W*.12+t*W*.7,y=H*.56+Math.sin(t*11)*H*.16*(1-t*.5)-Math.sin(t*3.2)*H*.08;pts.push({x:x,y:y,w:thick*(.7+.5*Math.sin(t*9)*Math.sin(t*9))})}strokes.push({c:pen,w:thick,pts:pts});
+ var p2=[];for(i=0;i<20;i++){var u=i/19;p2.push({x:W*.2+u*W*.55,y:H*.7+u*-6,w:thick*.8})}strokes.push({c:pen,w:thick,pts:p2});redraw()})();
+})();
+</script></body></html>

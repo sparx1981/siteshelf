@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dual Range Slider — Form Controls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#faf6ef;color:#2a2218;font:400 16px/1.55 Karla,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #2a2218;outline-offset:3px;box-shadow:0 0 0 6px #fff}
+.w{max-width:1000px;margin:0 auto;padding:44px 24px 60px;display:grid;grid-template-columns:minmax(0,1fr) 560px;gap:44px;align-items:start}
+.eb{font:700 13px Karla;letter-spacing:.16em;text-transform:uppercase;color:#c2522d;margin:0 0 10px}
+h1{font:400 clamp(34px,5vw,58px)/1.04 "Young Serif",serif;margin:0 0 12px}.lead{color:#6d6250;max-width:34ch;font-size:18px;margin:0 0 24px}
+.cd{background:#fff;border:1px solid #eadfca;border-radius:24px;padding:26px 28px 24px;box-shadow:0 30px 60px -36px rgba(80,50,10,.5);min-width:0}
+.cd h2{font:400 24px "Young Serif",serif;margin:0 0 4px}.rd{font:400 32px "Young Serif",serif;color:#c2522d;margin:0 0 14px;font-variant-numeric:tabular-nums}
+.hg{display:flex;align-items:flex-end;gap:3px;height:84px;padding:0 14px}
+.hg i{flex:1;background:#e5d9c3;border-radius:3px 3px 0 0;transition:background .15s;min-width:0}.hg i.on{background:#c2522d}
+.tk{position:relative;height:44px;margin:0 14px;touch-action:none;cursor:pointer}
+.tk:before{content:"";position:absolute;left:0;right:0;top:20px;height:6px;border-radius:3px;background:#e5d9c3}
+.sg{position:absolute;top:20px;height:6px;background:#c2522d;border-radius:3px}
+.hd{all:unset;box-sizing:border-box;position:absolute;top:8px;width:28px;height:28px;margin-left:-14px;border-radius:50%;background:#fff;border:3px solid #c2522d;box-shadow:0 3px 8px rgba(80,40,10,.3);cursor:grab;z-index:2;transition:box-shadow .15s}
+.hd:before{content:"";position:absolute;inset:-9px}
+.hd:focus-visible{outline:3px solid #2a2218;outline-offset:3px;box-shadow:0 0 0 7px #fff,0 3px 8px rgba(80,40,10,.3)}
+.hd.on{z-index:3;cursor:grabbing;box-shadow:0 0 0 8px rgba(194,82,45,.2),0 3px 8px rgba(80,40,10,.3)}
+.hd b{position:absolute;left:50%;top:-34px;transform:translateX(-50%) translateY(4px);background:#2a2218;color:#fff;font:700 13px Karla;border-radius:8px;padding:3px 9px;white-space:nowrap;opacity:0;transition:opacity .15s,transform .15s;pointer-events:none}
+.hd b:after{content:"";position:absolute;left:50%;bottom:-4px;margin-left:-4px;border:4px solid transparent;border-top-color:#2a2218;border-bottom:0}
+.hd:focus-visible b,.hd.on b{opacity:1;transform:translateX(-50%)}
+.fl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:14px 0 18px}
+.fl label{display:grid;gap:4px;font:700 12px Karla;letter-spacing:.08em;text-transform:uppercase;color:#6d6250}
+.fl span{display:flex;align-items:center;border:1.5px solid #d9ccb2;border-radius:12px;background:#fff;padding:0 12px;min-height:46px}.fl span:focus-within{border-color:#c2522d;box-shadow:0 0 0 3px rgba(194,82,45,.2)}
+.fl span i{font-style:normal;color:#6d6250;margin-right:6px;font-weight:700}.fl input{border:0;outline:0;font:700 18px Karla;width:100%;background:none;color:#2a2218;min-width:0}
+.rs{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-top:1px solid #f0e6d2;padding-top:14px}.rs b{font:400 24px "Young Serif",serif}.rs span{color:#6d6250;font-size:14px}
+.ac{display:flex;gap:10px;margin-top:14px}.bt{all:unset;box-sizing:border-box;cursor:pointer;padding:12px 20px;border-radius:999px;font:700 15px Karla;min-height:46px;border:1.5px solid #2a2218;transition:background .2s}.bt:hover{background:#f4ecdc}.bt.p{background:#c2522d;border-color:#c2522d;color:#fff;flex:1;text-align:center}.bt.p:hover{background:#a8441f}.bt:focus-visible{outline:3px solid #2a2218;outline-offset:3px}
+.st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;grid-column:1/-1;margin-top:8px}
+.sc{background:#fff;border:1px solid #eadfca;border-radius:18px;padding:14px;transition:opacity .2s,filter .2s}.sc.out{opacity:.45;filter:grayscale(.8)}
+.sc svg{display:block;width:100%;height:72px;border-radius:10px;margin-bottom:8px}.sc b{font:400 17px "Young Serif";display:block}.sc span{color:#6d6250;font-size:14px}.sc em{display:block;font:700 11px Karla;font-style:normal;text-transform:uppercase;letter-spacing:.08em;color:#a8441f;min-height:15px;margin-top:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:980px){.w{grid-template-columns:minmax(0,1fr);gap:20px}.cd{max-width:560px}.st{max-width:560px}}
+@media (max-width:560px){.w{padding:30px 16px 44px}.cd{padding:20px 16px}.fl{grid-template-columns:minmax(0,1fr)}.st{grid-template-columns:minmax(0,1fr)}.hg{height:70px}}
+@media (prefers-reduced-motion:reduce){.hd b,.hd,.hg i,.sc{transition:none}}
+</style></head><body>
+<div class="w"><div><p class="eb">Hearthstone Stays</p><h1>What does a good night cost?</h1><p class="lead">Slide the handles or use the arrow keys. The bars show how many stays sit at each price.</p></div>
+<section class="cd" aria-labelledby="ph"><h2 id="ph">Price per night</h2><div class="rd" id="rd" aria-hidden="true">£80 – £420</div>
+<div class="hg" id="hg" aria-hidden="true"></div>
+<div class="tk" id="tk"><div class="sg" id="sg"></div><button class="hd" id="h0" role="slider" aria-label="Minimum price" aria-orientation="horizontal"><b></b></button><button class="hd" id="h1" role="slider" aria-label="Maximum price" aria-orientation="horizontal"><b></b></button></div>
+<div class="fl"><label>Minimum<span><i>£</i><input id="n0" type="text" inputmode="numeric" aria-label="Minimum price in pounds"></span></label><label>Maximum<span><i>£</i><input id="n1" type="text" inputmode="numeric" aria-label="Maximum price in pounds"></span></label></div>
+<div class="rs"><b id="ct">0 stays</b><span id="av">Average £0</span></div>
+<div class="ac"><button class="bt" id="rs2" type="button">Reset</button><button class="bt p" type="button">Show stays</button></div></section>
+<div class="st" id="st"></div></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var MIN=20,MAX=600,STEP=10,GAP=20,lo=80,hi=420,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,live=$('#live');
+var s=11;function r(){s=(s*9301+49297)%233280;return s/233280}
+var BN=28,bins=[],price=[];for(var i=0;i<600;i++){var u=(r()+r()+r()+r())/4;price.push(Math.round((MIN+u*(MAX-MIN)*1.05)/STEP)*STEP)}
+var bw=(MAX-MIN)/BN;for(i=0;i<BN;i++)bins.push(0);price.forEach(function(p){var b=Math.min(BN-1,Math.floor((p-MIN)/bw));bins[b]++});var bmax=Math.max.apply(null,bins);
+$('#hg').innerHTML=bins.map(function(c){return '<i style="height:'+Math.max(4,Math.round(c/bmax*100))+'%"></i>'}).join('');
+var bars=[].slice.call($('#hg').children),tk=$('#tk'),h=[$('#h0'),$('#h1')];
+var ST=[['The Mill Cottage',95,'#e9c07a','M10 60L40 30L70 60V90H10Z'],['Treehouse at Wren Wood',240,'#9bc7a2','M40 20a22 22 0 1 1 .1 0M38 52V90'],['Keeper’s Rooms, Kestrel Point',410,'#a7c6e6','M34 90L40 20L46 90M30 34h20M28 56h24']];
+$('#st').innerHTML=ST.map(function(x,i){return '<div class="sc" data-p="'+x[1]+'"><svg viewBox="0 0 80 90" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="80" height="90" fill="'+x[2]+'"/><path d="'+x[3]+'" fill="#fff" fill-opacity=".85" stroke="#2a2218" stroke-width="2" stroke-linejoin="round"/></svg><b>'+x[0]+'</b><span>£'+x[1]+' per night</span><em></em></div>'}).join('');
+function pos(v){return (v-MIN)/(MAX-MIN)*tk.clientWidth}
+function fmt(v){return '£'+v+(v>=MAX?'+':'')}
+function render(){lo=Math.max(MIN,Math.min(lo,hi-GAP));hi=Math.min(MAX,Math.max(hi,lo+GAP));
+ h[0].style.left=pos(lo)+'px';h[1].style.left=pos(hi)+'px';$('#sg').style.left=pos(lo)+'px';$('#sg').style.width=(pos(hi)-pos(lo))+'px';
+ h[0].setAttribute('aria-valuemin',MIN);h[0].setAttribute('aria-valuemax',hi-GAP);h[0].setAttribute('aria-valuenow',lo);h[0].setAttribute('aria-valuetext','£'+lo+' per night');
+ h[1].setAttribute('aria-valuemin',lo+GAP);h[1].setAttribute('aria-valuemax',MAX);h[1].setAttribute('aria-valuenow',hi);h[1].setAttribute('aria-valuetext',fmt(hi)+' per night');
+ h[0].querySelector('b').textContent='£'+lo;h[1].querySelector('b').textContent=fmt(hi);
+ h[0].style.zIndex=lo>=MAX-GAP*2?3:2;h[1].style.zIndex=hi<=MIN+GAP*2?3:2;
+ $('#rd').textContent='£'+lo+' – '+fmt(hi);if(document.activeElement!==$('#n0'))$('#n0').value=lo;if(document.activeElement!==$('#n1'))$('#n1').value=hi;
+ bars.forEach(function(b,i){var a=MIN+i*bw,z=a+bw;b.classList.toggle('on',z>lo&&a<hi)});
+ var sel=price.filter(function(p){return p>=lo&&p<=hi}),avg=sel.length?Math.round(sel.reduce(function(a,b){return a+b},0)/sel.length):0;
+ roll(sel.length);$('#av').textContent='Average £'+avg+' a night';
+ [].forEach.call(document.querySelectorAll('.sc'),function(c){var p=+c.dataset.p,o=p<lo||p>hi;c.classList.toggle('out',o);c.querySelector('em').textContent=o?'Out of range':''})}
+var shown=0,rf=0;function roll(n){cancelAnimationFrame(rf);if(reduce){shown=n;$('#ct').textContent=n+' stays in this range';return}var f=shown,t0=performance.now();(function g(t){var k=Math.min(1,(t-t0)/150);shown=Math.round(f+(n-f)*k);$('#ct').textContent=shown+' stays in this range';if(k<1)rf=requestAnimationFrame(g)})(t0)}
+var say;function announce(){clearTimeout(say);say=setTimeout(function(){live.textContent='Price range '+fmt(lo)+' to '+fmt(hi)+', '+shown+' stays'},400)}
+function val(x){var b=tk.getBoundingClientRect();var v=MIN+(x-b.left)/b.width*(MAX-MIN);return Math.max(MIN,Math.min(MAX,Math.round(v/STEP)*STEP))}
+function setH(i,v){if(i===0)lo=Math.min(v,hi-GAP);else hi=Math.max(v,lo+GAP);render();announce()}
+h.forEach(function(el,i){var drag=false;
+ el.addEventListener('pointerdown',function(e){e.stopPropagation();drag=true;el.classList.add('on');el.setPointerCapture(e.pointerId);el.focus({preventScroll:true});e.preventDefault()});
+ el.addEventListener('pointermove',function(e){if(drag)setH(i,val(e.clientX))});
+ ['pointerup','pointercancel'].forEach(function(n){el.addEventListener(n,function(){drag=false;el.classList.remove('on')})});
+ el.addEventListener('keydown',function(e){var k=e.key,v=i?hi:lo,n=null;if(k==='ArrowRight'||k==='ArrowUp')n=v+(e.shiftKey?50:STEP);else if(k==='ArrowLeft'||k==='ArrowDown')n=v-(e.shiftKey?50:STEP);else if(k==='PageUp')n=v+50;else if(k==='PageDown')n=v-50;else if(k==='Home')n=i?lo+GAP:MIN;else if(k==='End')n=i?MAX:hi-GAP;if(n!==null){e.preventDefault();setH(i,Math.max(MIN,Math.min(MAX,n)))}})});
+tk.addEventListener('pointerdown',function(e){if(e.target.closest('.hd'))return;var v=val(e.clientX),i=Math.abs(v-lo)<=Math.abs(v-hi)?0:1;if(v===lo)i=v>=MAX-GAP?0:i;setH(i,v);h[i].focus({preventScroll:true})});
+['n0','n1'].forEach(function(id,i){var el=$('#'+id);function commit(){var v=parseInt(el.value.replace(/\D/g,''),10);if(isNaN(v)){el.value=i?hi:lo;return}var c=Math.max(MIN,Math.min(MAX,Math.round(v/STEP)*STEP));if(c!==v)live.textContent='Adjusted to £'+c;setH(i,c);el.value=i?hi:lo}el.addEventListener('blur',commit);el.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();commit()}})});
+$('#rs2').addEventListener('click',function(){lo=80;hi=420;render();live.textContent='Range reset to £80 to £420'});
+addEventListener('resize',render);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(render);
+render();
+})();
+</script></body></html>

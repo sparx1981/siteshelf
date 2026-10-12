@@ -1,0 +1,108 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Scientific Calculator — App UI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:radial-gradient(700px 500px at 30% 20%,#3a3a44,#16181c 70%);color:#f1f3f7;font:400 15px/1.5 "Space Grotesk",system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #ffd37a;outline-offset:3px;box-shadow:0 0 0 6px #16181c}
+.w{max-width:960px;margin:0 auto;padding:36px 20px 48px}
+.eb{font:700 13px "Space Grotesk";letter-spacing:.18em;text-transform:uppercase;color:#e8b04a;margin:0 0 8px}
+h1{font:700 clamp(28px,4.4vw,44px)/1.05 "Space Grotesk";margin:0 0 8px;letter-spacing:-.02em}.lead{color:#8c93a3;margin:0 0 20px;font-size:16px}
+.g{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:22px;align-items:start}
+.cl{background:linear-gradient(#262b33,#20242b);border:1px solid #343a46;border-radius:26px;padding:16px;box-shadow:0 40px 80px -30px #000,inset 0 1px 0 rgba(255,255,255,.08)}
+.ds{background:#0e1013;border-radius:16px;padding:12px 16px 10px;margin-bottom:12px;border:1px solid #23262d;min-height:112px;position:relative;box-shadow:inset 0 2px 8px rgba(0,0,0,.6)}
+.md{display:flex;gap:8px;font:500 12px "DM Mono",monospace;color:#8c93a3;height:18px;letter-spacing:.06em}.md span{border:1px solid #343a46;border-radius:5px;padding:0 6px}.md .on{color:#0e1013;background:#ffd37a;border-color:#ffd37a}
+.ex{font:400 18px "DM Mono",monospace;color:#c8cdd9;overflow-x:auto;white-space:nowrap;text-align:right;min-height:28px;margin-top:4px;scrollbar-width:none}.ex::-webkit-scrollbar{display:none}
+.rs{font:500 40px/1.15 "DM Mono",monospace;color:#ffd37a;text-align:right;overflow-x:auto;white-space:nowrap;scrollbar-width:none;min-height:46px}.rs.pv{color:#8c93a3}.rs.er{font-size:22px;color:#ff9a8f;line-height:2}
+.kg{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.k{all:unset;box-sizing:border-box;height:52px;border-radius:12px;display:grid;place-items:center;font:500 18px "DM Mono",monospace;cursor:pointer;background:#2c313b;color:#f1f3f7;box-shadow:0 3px 0 #14161a;transition:transform .06s,box-shadow .06s,filter .15s;user-select:none;-webkit-user-select:none;touch-action:manipulation;min-width:0}
+.k:hover{filter:brightness(1.15)}.k:active,.k.fl{transform:translateY(2px);box-shadow:0 1px 0 #14161a}
+.k:focus-visible{outline:3px solid #ffd37a;outline-offset:2px;box-shadow:0 0 0 5px #16181c}
+.k.fn{background:#263341;color:#9cc8ff;font-size:15px}.k.op{background:#3a2f1c;color:#e8b04a;font-size:22px}.k.cl2{background:#4a2326;color:#ffb3ad;font-size:15px}.k.mm{background:#232a33;color:#a9b3c4;font-size:14px}
+.k.eq{background:linear-gradient(#f0c262,#d9982f);color:#2b1a00;font-weight:500;font-size:24px}.k.w2{grid-column:span 2}
+.tp{background:#1b1e24;border:1px solid #2c313b;border-radius:20px;padding:16px;display:flex;flex-direction:column;min-height:360px;max-height:640px;min-width:0}
+.th{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.th h2{font:700 16px "Space Grotesk";margin:0}.th div{display:flex;gap:6px}
+.bt{all:unset;box-sizing:border-box;cursor:pointer;padding:6px 12px;border-radius:9px;border:1px solid #3a4150;color:#c8cdd9;font:600 13px "Space Grotesk";min-height:34px}.bt:hover{border-color:#ffd37a;color:#ffd37a}.bt:focus-visible{outline:3px solid #ffd37a;outline-offset:2px}
+.tl{list-style:none;margin:0;padding:0;overflow:auto;flex:1;display:flex;flex-direction:column;gap:6px}.tl li{background:#20242b;border-radius:12px;padding:9px 12px;cursor:pointer;border:1px solid transparent}.tl li:hover{border-color:#3a4150}
+.tl .e{font:400 14px "DM Mono",monospace;color:#9aa2b3;word-break:break-all}.tl .r{font:500 20px "DM Mono",monospace;color:#ffd37a;text-align:right;word-break:break-all}.tl small{display:block;color:#6d7586;font-size:11.5px}
+.tl .r button{all:unset;cursor:pointer;border-radius:6px;padding:0 4px}.tl .r button:hover{background:rgba(255,211,122,.15)}.tl .r button:focus-visible{outline:3px solid #ffd37a}
+.em{color:#6d7586;text-align:center;padding:36px 8px;font-size:14px}
+.ht{display:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:860px){.g{grid-template-columns:minmax(0,1fr);justify-items:center}.cl{width:100%;max-width:420px}.tp{width:100%;max-width:420px;min-height:200px}}
+@media (max-width:400px){.k{height:48px;font-size:16px}.k.fn,.k.cl2,.k.mm{font-size:13px}.rs{font-size:32px}.cl{padding:12px}.kg{gap:6px}}
+@media (prefers-reduced-motion:reduce){.k{transition:none}}
+</style></head><body>
+<div class="w"><p class="eb">Slideway</p><h1>A calculator that shows its working.</h1><p class="lead">Type on your keyboard or tap the keys. Every calculation lands on the tape so you can pick it up again.</p>
+<div class="g"><div class="cl" id="cl" role="application" aria-label="Scientific calculator. Type numbers and operators, press Enter for the result." tabindex="0"><div class="ds"><div class="md" aria-hidden="true"><span id="mdg" class="on">DEG</span><span id="mm">M</span></div><div class="ex" id="ex" aria-live="off"></div><div class="rs" id="rs" role="status" aria-live="polite">0</div></div><div class="kg" id="kg"></div></div>
+<aside class="tp" aria-labelledby="th"><div class="th"><h2 id="th">History tape</h2><div><button class="bt" id="cp" type="button">Copy</button><button class="bt" id="cl3" type="button">Clear</button></div></div><ol class="tl" id="tl"></ol></aside></div></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var live=$('#live'),expr='',ans=0,deg=true,mem=0,hist=[],committed=false,keysMap={};
+try{hist=JSON.parse(localStorage.getItem('sw-hist')||'[]')||[]}catch(e){}
+var K=[['deg','DEG','fn',deg],['mc','MC','mm'],['mr','MR','mm'],['m+','M+','mm'],['m-','M−','mm'],['ac','AC','cl2'],
+['sin','sin','fn'],['cos','cos','fn'],['tan','tan','fn'],['ln','ln','fn'],['log','log','fn'],['bs','⌫','cl2'],
+['sq','x²','fn'],['sqrt','√','fn'],['pow','xʸ','fn'],['(','(','fn'],[')',')','fn'],['%','%','fn'],
+['7','7'],['8','8'],['9','9'],['/','÷','op'],['!','n!','fn'],['pi','π','fn'],
+['4','4'],['5','5'],['6','6'],['*','×','op'],['inv','1/x','fn'],['e','e','fn'],
+['1','1'],['2','2'],['3','3'],['-','−','op'],['neg','+/−','fn'],['ans','Ans','fn'],
+['0','0','','','w2'],['.','.'],['+','+','op'],['=','=','eq','','w2']];
+var AL={deg:'Toggle degrees and radians',mc:'Memory clear',mr:'Memory recall','m+':'Memory add','m-':'Memory subtract',ac:'All clear',bs:'Backspace',sq:'Square',sqrt:'Square root',pow:'Power','/':'Divide','*':'Multiply','-':'Subtract','+':'Add','=':'Equals',pi:'Pi',e:'Euler number',inv:'Reciprocal',neg:'Negate',ans:'Previous answer','(':'Open bracket',')':'Close bracket','%':'Percent','!':'Factorial',sin:'Sine',cos:'Cosine',tan:'Tangent',ln:'Natural log',log:'Log base ten'};
+$('#kg').innerHTML=K.map(function(k){return '<button type="button" class="k '+(k[2]||'')+' '+(k[4]||'')+'" data-k="'+k[0]+'" aria-label="'+(AL[k[0]]||k[1])+'">'+k[1]+'</button>'}).join('');
+[].forEach.call(document.querySelectorAll('.k'),function(b){keysMap[b.dataset.k]=b});
+/* tokenizer + shunting-yard */
+function tokenize(s){var t=[],i=0,m;while(i<s.length){var c=s[i];if(/\s/.test(c)){i++;continue}
+ if(/[0-9.]/.test(c)){m=s.slice(i).match(/^(\d+\.?\d*|\.\d+)(e[+-]?\d+)?/i);if(!m)throw new Error('Bad number');var num=m[0];if(/e/i.test(num)&&!/^\d/.test(s.slice(i+num.length-0,i+num.length+1))&&false){}t.push({t:'n',v:parseFloat(num)});i+=num.length;continue}
+ m=s.slice(i).match(/^(sin|cos|tan|ln|log|sqrt|pi|ans|e)/);if(m){var w=m[0];if(w==='pi')t.push({t:'n',v:Math.PI});else if(w==='e')t.push({t:'n',v:Math.E});else if(w==='ans')t.push({t:'n',v:ans});else t.push({t:'f',v:w});i+=w.length;continue}
+ if('+-*/^()%!'.indexOf(c)>-1){t.push({t:'o',v:c});i++;continue}throw new Error('Unexpected '+c)}return t}
+var PR={'+':1,'-':1,'*':2,'/':2,'u':4,'^':5};
+function evalExpr(s){var tk=tokenize(s);if(!tk.length)return null;var out=[],ops=[],prev=null;
+ function pop(){var o=ops.pop();out.push(o)}
+ tk.forEach(function(x){if(x.t==='n'){if(prev&&(prev.t==='n'||(prev.t==='o'&&(prev.v===')'||prev.v==='!'||prev.v==='%'))))pushOp({t:'o',v:'*'});out.push(x)}
+  else if(x.t==='f'){if(prev&&(prev.t==='n'||(prev.t==='o'&&(prev.v===')'||prev.v==='!'||prev.v==='%'))))pushOp({t:'o',v:'*'});ops.push(x)}
+  else{var v=x.v;if(v==='('){if(prev&&(prev.t==='n'||(prev.t==='o'&&(prev.v===')'||prev.v==='!'||prev.v==='%'))))pushOp({t:'o',v:'*'});ops.push(x)}
+   else if(v===')'){while(ops.length&&ops[ops.length-1].v!=='(')pop();if(!ops.length)throw new Error('Unbalanced brackets');ops.pop();if(ops.length&&ops[ops.length-1].t==='f')pop()}
+   else if(v==='!'||v==='%'){out.push({t:'p',v:v})}
+   else{var un=(v==='-'||v==='+')&&(!prev||(prev.t==='o'&&prev.v!==')'&&prev.v!=='!'&&prev.v!=='%'));if(un){if(v==='-')ops.push({t:'o',v:'u'})}else pushOp(x)}}
+  prev=x});
+ function pushOp(x){var p=PR[x.v];while(ops.length){var top=ops[ops.length-1];if(top.t==='f'||top.v==='(')break;var tp=PR[top.v];if(tp>p||(tp===p&&x.v!=='^'))pop();else break}ops.push(x)}
+ while(ops.length){if(ops[ops.length-1].v==='(')throw new Error('Unbalanced brackets');pop()}
+ var st=[];out.forEach(function(x){if(x.t==='n'){st.push(x.v)}else if(x.t==='p'){var a=st.pop();if(a===undefined)throw new Error('Incomplete');if(x.v==='%')st.push(a/100);else{if(a<0||a!==Math.floor(a)||a>170)throw new Error('Factorial needs a whole number from 0 to 170');var f=1;for(var i=2;i<=a;i++)f*=i;st.push(f)}}
+  else if(x.t==='f'){var a2=st.pop();if(a2===undefined)throw new Error('Incomplete');var r;var ang=deg?a2*Math.PI/180:a2;switch(x.v){case 'sin':r=Math.sin(ang);if(deg&&Math.abs(a2%180)<1e-12)r=0;break;case 'cos':r=Math.cos(ang);if(deg&&Math.abs((a2-90)%180)<1e-12)r=0;break;case 'tan':if(deg&&Math.abs((a2-90)%180)<1e-12)throw new Error('Tangent is undefined here');r=Math.tan(ang);break;case 'ln':if(a2<=0)throw new Error('ln needs a positive number');r=Math.log(a2);break;case 'log':if(a2<=0)throw new Error('log needs a positive number');r=Math.log10(a2);break;case 'sqrt':if(a2<0)throw new Error('Cannot take the root of a negative');r=Math.sqrt(a2);break}st.push(r)}
+  else if(x.v==='u'){var u=st.pop();if(u===undefined)throw new Error('Incomplete');st.push(-u)}
+  else{var b=st.pop(),a3=st.pop();if(a3===undefined||b===undefined)throw new Error('Incomplete');var z;if(x.v==='+')z=a3+b;else if(x.v==='-')z=a3-b;else if(x.v==='*')z=a3*b;else if(x.v==='/'){if(b===0)throw new Error('Cannot divide by zero');z=a3/b}else z=Math.pow(a3,b);if(!isFinite(z)||isNaN(z))throw new Error('Result is not a number');st.push(z)}});
+ if(st.length!==1)throw new Error('Incomplete');return st[0]}
+function fmt(v){if(v===null)return '0';if(Math.abs(v)<1e-12)return '0';var a=Math.abs(v);if(a>=1e10||a<1e-6){return v.toExponential(6).replace(/\.?0+e/,'e').replace('e+','e')}return String(parseFloat(v.toPrecision(10)))}
+function disp(v){return expr.replace(/\*/g,'×').replace(/\//g,'÷').replace(/pi/g,'π').replace(/sqrt/g,'√')}
+function update(){var ex=$('#ex'),rs=$('#rs');ex.textContent=disp();ex.scrollLeft=ex.scrollWidth;$('#mdg').textContent=deg?'DEG':'RAD';$('#mm').classList.toggle('on',mem!==0);
+ if(!expr){rs.textContent=committed?fmt(ans):'0';rs.className='rs';return}
+ try{var v=evalExpr(expr);if(v===null){rs.textContent='0';rs.className='rs pv'}else{rs.textContent=fmt(v);rs.className='rs pv'}}catch(e){rs.textContent=/Incomplete|Unexpected|Bad/.test(e.message)?'…':'';rs.className='rs pv';if(!/Incomplete|Unexpected|Bad|Unbalanced/.test(e.message)){rs.textContent=e.message;rs.className='rs er'}else if(/Unbalanced/.test(e.message)){rs.textContent='…';}}}
+function add(s){if(committed){if(/^[0-9.]|^(pi|e|ans|sin|cos|tan|ln|log|sqrt|\()/.test(s)){expr=''}committed=false}expr+=s;update()}
+function equals(){if(!expr)return;try{var v=evalExpr(expr);if(v===null)return;var e=disp(),r=fmt(v);ans=v;hist.unshift({e:e,r:r,v:v,t:Date.now()});hist=hist.slice(0,30);try{localStorage.setItem('sw-hist',JSON.stringify(hist))}catch(x){}tape();expr='';committed=true;var rs=$('#rs');rs.textContent=r;rs.className='rs';$('#ex').textContent=e+' =';live.textContent=e+' equals '+r}catch(err){$('#rs').textContent=err.message;$('#rs').className='rs er';live.textContent=err.message}}
+function cur(){try{var v=evalExpr(expr||'0');return v===null?ans:v}catch(e){return null}}
+function key(k){switch(k){case 'ac':expr='';committed=false;update();break;case 'bs':if(committed){expr='';committed=false}else{expr=expr.replace(/(sin|cos|tan|ln|log|sqrt|pi|ans)$|.$/,'')}update();break;case '=':equals();break;
+ case 'deg':deg=!deg;update();live.textContent=deg?'Degrees':'Radians';break;
+ case 'mc':mem=0;update();live.textContent='Memory cleared';break;case 'mr':add(String(mem).indexOf('e')>-1?String(mem):String(mem));live.textContent='Memory recalled';break;
+ case 'm+':var a=committed?ans:cur();if(a!==null){mem+=a;update();live.textContent='Added to memory'}break;case 'm-':var b=committed?ans:cur();if(b!==null){mem-=b;update();live.textContent='Subtracted from memory'}break;
+ case 'sq':if(committed){expr='('+fmt(ans)+')';committed=false}add('^2');break;case 'pow':add('^');break;case 'inv':if(expr){expr='1/('+expr+')'}else expr='1/(ans)';update();break;
+ case 'neg':if(expr){if(expr[0]==='-'&&expr[1]==='('){expr=expr.slice(2,-1)}else expr='-('+expr+')'}else expr='-';update();break;
+ case 'sin':case 'cos':case 'tan':case 'ln':case 'log':case 'sqrt':add(k+'(');break;case 'pi':add('pi');break;case 'e':add('e');break;case 'ans':add('ans');break;
+ case '%':add('%');break;case '!':add('!');break;
+ default:add(k)}}
+$('#kg').addEventListener('click',function(e){var b=e.target.closest('.k');if(b)key(b.dataset.k)});
+function flash(k){var b=keysMap[k];if(!b)return;b.classList.add('fl');setTimeout(function(){b.classList.remove('fl')},110)}
+$('#cl').addEventListener('keydown',function(e){if(e.ctrlKey||e.metaKey||e.altKey)return;var k=e.key,m=null;
+ if(/^[0-9]$/.test(k))m=k;else if(k==='.'||k===',')m='.';else if(k==='+')m='+';else if(k==='-')m='-';else if(k==='*'||k==='x')m='*';else if(k==='/')m='/';else if(k==='^')m='pow';else if(k==='('||k===')')m=k;else if(k==='%')m='%';else if(k==='!')m='!';else if(k==='Enter'||k==='='){m='=';e.preventDefault()}else if(k==='Backspace'){m='bs';e.preventDefault()}else if(k==='Escape')m='ac';else if(k==='p')m='pi';else if(k==='r')m='sqrt';else if(k==='s')m='sin';else if(k==='c')m='cos';else if(k==='t')m='tan';else if(k==='n')m='ln';else if(k==='l')m='log';else if(k==='a')m='ans';
+ if(m){if(k==='/')e.preventDefault();key(m);flash(m==='*'?'*':m)}});
+document.addEventListener('keydown',function(e){if(e.target.closest&&e.target.closest('#cl'))return;if(/INPUT|TEXTAREA|SELECT|BUTTON/.test(e.target.tagName))return;if(e.key.length===1||e.key==='Enter'||e.key==='Backspace'){$('#cl').focus();$('#cl').dispatchEvent(new KeyboardEvent('keydown',{key:e.key,bubbles:true}))}});
+function tape(){var l=$('#tl');if(!hist.length){l.innerHTML='<li class="em" style="cursor:default">No calculations yet. Try 12 × (3 + 4) then Enter.</li>';return}l.innerHTML=hist.map(function(h,i){var d=new Date(h.t);return '<li data-i="'+i+'" tabindex="0" aria-label="'+h.e+' equals '+h.r+'. Press Enter to reuse the expression."><div class="e">'+h.e+'</div><div class="r"><button type="button" data-v="'+i+'" aria-label="Insert result '+h.r+'">= '+h.r+'</button></div><small>'+('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)+'</small></li>'}).join('')}
+$('#tl').addEventListener('click',function(e){var v=e.target.closest('[data-v]'),li=e.target.closest('li[data-i]');if(v){var h=hist[+v.dataset.v];add(String(h.v));return}if(li){var h2=hist[+li.dataset.i];expr=h2.e.replace(/×/g,'*').replace(/÷/g,'/').replace(/π/g,'pi').replace(/√/g,'sqrt');committed=false;update();$('#cl').focus()}});
+$('#tl').addEventListener('keydown',function(e){var li=e.target.closest('li[data-i]');if(li&&e.key==='Enter'&&e.target===li){li.click()}});
+$('#cl3').addEventListener('click',function(){hist=[];try{localStorage.removeItem('sw-hist')}catch(e){}tape();live.textContent='History cleared'});
+$('#cp').addEventListener('click',function(){var t=hist.map(function(h){return h.e+' = '+h.r}).join('\n'),b=this;var ok=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1400)};try{navigator.clipboard.writeText(t).then(ok,function(){b.textContent='Blocked'})}catch(x){b.textContent='Blocked'}});
+if(!hist.length){hist=[{e:'12 × (3 + 4)',r:'84',v:84,t:Date.now()-3600000},{e:'√(144) + 2^5',r:'44',v:44,t:Date.now()-1800000}]}
+tape();expr='sin(30)+2^3*(5-1)!/6';update();
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)setTimeout(function(){},0);
+})();
+</script></body></html>

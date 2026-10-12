@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cart Quantity Stepper — Form Controls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#f9f5ec;color:#25201a;font:400 16px/1.5 "DM Sans",system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #2f7d4f;outline-offset:3px;box-shadow:0 0 0 6px #fff}
+.w{max-width:1040px;margin:0 auto;padding:44px 24px 56px}
+.eb{font:700 13px "DM Sans";letter-spacing:.16em;text-transform:uppercase;color:#2f7d4f;margin:0 0 10px}
+h1{font:700 clamp(34px,5vw,56px)/1.04 Fraunces,serif;margin:0 0 10px;letter-spacing:-.015em}.lead{color:#6b6253;margin:0 0 26px;max-width:46ch;font-size:18px}
+.g{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:22px;align-items:start}
+.pn{background:#fff;border:1px solid #e8e0cd;border-radius:24px;padding:8px 22px;box-shadow:0 24px 50px -34px rgba(60,40,10,.5)}
+.rw{display:grid;grid-template-columns:72px minmax(0,1fr) auto auto;gap:6px 18px;align-items:center;padding:16px 0;border-top:1px solid #f0e9d8;overflow:hidden;transition:max-height .3s,opacity .3s,padding .3s;max-height:160px}
+.rw:first-child{border-top:0}.rw.rm{max-height:0;opacity:0;padding-top:0;padding-bottom:0}
+.th{width:72px;height:72px;border-radius:16px;overflow:hidden}.th svg{display:block;width:100%;height:100%}
+.nm b{font:600 19px Fraunces,serif;display:block}.nm span{color:#6b6253;font-size:14px}
+.sh{font-size:13px;color:#6b6253;margin-top:4px;display:block;font-weight:500}.sh.mx{color:#b45f06;background:#fff4e0;border-radius:6px;padding:0 8px;display:inline-block;font-weight:700}
+.sh.pl{animation:pl .5s}@keyframes pl{50%{transform:scale(1.08)}}
+.st{display:inline-flex;align-items:center;background:#f3ecda;border:1px solid #d9cfb3;border-radius:999px;padding:3px}
+.st.sk{animation:sk .3s}@keyframes sk{20%{transform:translateX(-4px)}40%{transform:translateX(4px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.sb{all:unset;box-sizing:border-box;width:44px;height:44px;border-radius:50%;background:#25201a;color:#fff;display:grid;place-items:center;cursor:pointer;transition:background .15s,transform .1s;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.sb:hover{background:#3d352b}.sb:active{transform:scale(.92)}.sb:focus-visible{outline:3px solid #2f7d4f;outline-offset:3px;box-shadow:0 0 0 6px #fff}
+.sb[aria-disabled=true]{opacity:.4;cursor:not-allowed}.sb[aria-disabled=true]:active{transform:none}.sb.del{background:#c0352b}.sb.del:hover{background:#a12b22}
+.sb svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.qt{width:52px;text-align:center;font:700 18px "DM Sans";border:0;background:none;color:#25201a;height:44px;-moz-appearance:textfield;appearance:textfield;border-radius:8px}.qt::-webkit-inner-spin-button{display:none}
+.qt:focus-visible{outline:3px solid #2f7d4f;outline-offset:0}
+.lt{font:700 20px Fraunces,serif;min-width:72px;text-align:right;font-variant-numeric:tabular-nums}
+.sm{background:#fff;border:1px solid #e8e0cd;border-radius:24px;padding:22px;box-shadow:0 24px 50px -34px rgba(60,40,10,.5);position:sticky;top:20px}
+.sm h2{font:700 22px Fraunces,serif;margin:0 0 14px}.sr2{display:flex;justify-content:space-between;padding:6px 0;color:#6b6253}.sr2 b{color:#25201a;font-variant-numeric:tabular-nums}
+.sr2.t{border-top:1px solid #f0e9d8;margin-top:8px;padding-top:12px;font:700 20px Fraunces,serif;color:#25201a}
+.dl{margin:12px 0 4px;font-size:14px;color:#25201a;font-weight:500}.dl b{color:#2f7d4f}.pr{height:8px;border-radius:4px;background:#efe6d0;overflow:hidden}.pr i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8cc99b,#2f7d4f);transition:width .4s}
+.ck{all:unset;box-sizing:border-box;width:100%;text-align:center;margin-top:16px;background:#2f7d4f;color:#fff;font:700 17px "DM Sans";padding:14px;border-radius:14px;cursor:pointer;min-height:50px}.ck:hover{background:#266a42}.ck:focus-visible{outline:3px solid #25201a;outline-offset:3px}
+.em{text-align:center;padding:40px 10px;color:#6b6253}.em b{display:block;font:700 22px Fraunces,serif;color:#25201a;margin-bottom:6px}.em button{all:unset;cursor:pointer;color:#2f7d4f;text-decoration:underline;font-weight:700;padding:6px}.em button:focus-visible{outline:3px solid #2f7d4f}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,16px);background:#25201a;color:#fff;padding:10px 12px 10px 18px;border-radius:999px;font-weight:500;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:30;display:flex;gap:12px;align-items:center}.toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}.toast button{all:unset;cursor:pointer;color:#a9e6bb;font-weight:700;padding:8px 12px;border-radius:999px;min-height:36px;box-sizing:border-box}.toast button:hover{background:rgba(255,255,255,.12)}.toast button:focus-visible{outline:3px solid #fff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:860px){.g{grid-template-columns:minmax(0,1fr)}.sm{position:static}}
+@media (max-width:520px){.rw{grid-template-columns:64px minmax(0,1fr);max-height:240px}.th{width:64px;height:64px;grid-row:span 2}.st{grid-column:1/-1;justify-self:start}.lt{grid-column:2;text-align:left;grid-row:2}.pn{padding:4px 14px}.w{padding:30px 16px 44px}}
+@media (prefers-reduced-motion:reduce){.st.sk,.sh.pl{animation:none}.rw{transition:none}.pr i{transition:none}}
+</style></head><body>
+<div class="w"><p class="eb">Fernhill Market</p><h1>Your basket, your pace.</h1><p class="lead">Tap to nudge a quantity, hold to speed it up, or type the number you want.</p>
+<div class="g"><section class="pn" id="pn" aria-label="Basket items"></section><aside class="sm" aria-labelledby="sh"><h2 id="sh">Order summary</h2><div class="sr2"><span>Subtotal</span><b id="sb">£0.00</b></div><div class="sr2"><span>Delivery</span><b id="dv">£3.95</b></div><p class="dl" id="dl"></p><div class="pr" aria-hidden="true"><i id="pb"></i></div><div class="sr2 t"><span>Total</span><span id="tt">£0.00</span></div><button class="ck" type="button">Checkout</button></aside></div></div>
+<div class="toast" id="toast" role="status"><span id="tx"></span><button type="button" id="un">Undo</button></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,live=$('#live');
+var gbp=new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'});
+var I=[{n:'Sourdough loaf',w:'800 g · baked today',p:4.2,s:8,q:2,c:['#e9c07a','#b9772f'],svg:'<ellipse cx="36" cy="40" rx="26" ry="16" fill="#b9772f"/><path d="M20 36q16-12 32 0M24 44q12-8 24 0" stroke="#e9c07a" stroke-width="3" fill="none" stroke-linecap="round"/>'},
+{n:'Heirloom tomatoes',w:'500 g · mixed',p:3.9,s:5,q:1,c:['#ffd6cf','#c4382c'],svg:'<circle cx="26" cy="44" r="13" fill="#c4382c"/><circle cx="46" cy="40" r="11" fill="#e0703c"/><circle cx="38" cy="26" r="9" fill="#d9a23c"/>'},
+{n:'Free-range eggs',w:'Box of 12',p:3.6,s:12,q:3,c:['#e4efe0','#8aa56b'],svg:'<ellipse cx="24" cy="38" rx="9" ry="12" fill="#f7efe0"/><ellipse cx="42" cy="38" rx="9" ry="12" fill="#f0dfc0"/><ellipse cx="33" cy="46" rx="9" ry="12" fill="#fff8ea"/>'},
+{n:'Oat milk',w:'1 litre · barista',p:1.95,s:3,q:2,c:['#e4ecf7','#6a8bc4'],svg:'<path d="M26 14h20l4 10v34H22V24z" fill="#fff"/><rect x="22" y="30" width="28" height="16" fill="#6a8bc4"/><path d="M26 14h20" stroke="#6a8bc4" stroke-width="3"/>'}];
+var rm=[],last=null,tmr;
+function esc(s){return String(s)}
+function row(i){var it=I[i];return '<div class="rw" data-i="'+i+'"><div class="th"><svg viewBox="0 0 72 72" aria-hidden="true"><rect width="72" height="72" fill="'+it.c[0]+'"/>'+it.svg+'</svg></div><div class="nm"><b>'+it.n+'</b><span>'+gbp.format(it.p)+' each · '+it.w+'</span><span class="sh" id="h'+i+'"></span></div><div class="st" role="group" aria-label="Quantity of '+it.n+'"><button type="button" class="sb mi" aria-label="Decrease quantity of '+it.n+'"></button><input class="qt" type="text" inputmode="numeric" pattern="[0-9]*" value="'+it.q+'" aria-label="Quantity of '+it.n+'"><button type="button" class="sb pl" aria-label="Increase quantity of '+it.n+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div><div class="lt" id="l'+i+'"></div></div>'}
+var ICM='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>',ICD='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/></svg>';
+function build(){$('#pn').innerHTML=I.map(function(it,i){return rm.indexOf(i)<0?row(i):''}).join('')||'';if(rm.length===I.length)$('#pn').innerHTML='<div class="em"><b>Your basket is empty</b>Nothing here yet. <button type="button" id="ud">Undo last removal</button></div>';
+ document.querySelectorAll('.rw').forEach(wire);I.forEach(function(_,i){if(rm.indexOf(i)<0)upd(i)});tot()}
+function upd(i){var it=I[i],r=document.querySelector('.rw[data-i="'+i+'"]');if(!r)return;var mi=r.querySelector('.mi'),pl=r.querySelector('.pl'),q=r.querySelector('.qt'),h=r.querySelector('.sh');q.value=it.q;
+ mi.innerHTML=it.q<=1?ICD:ICM;mi.classList.toggle('del',it.q<=1);mi.setAttribute('aria-label',(it.q<=1?'Remove ':'Decrease quantity of ')+it.n);
+ var mx=it.q>=it.s;pl.setAttribute('aria-disabled',mx?'true':'false');h.textContent=mx?'Only '+it.s+' in stock':it.s+' in stock';h.classList.toggle('mx',mx);$('#l'+i).textContent=gbp.format(it.q*it.p)}
+function tot(){var sub=0;I.forEach(function(it,i){if(rm.indexOf(i)<0)sub+=it.q*it.p});var fr=sub>=40||sub===0,dv=sub===0?0:(fr?0:3.95);$('#sb').textContent=gbp.format(sub);$('#dv').textContent=sub===0?'—':(fr?'Free':gbp.format(3.95));$('#tt').textContent=gbp.format(sub+dv);
+ $('#pb').style.width=Math.min(100,sub/40*100)+'%';$('#dl').innerHTML=sub===0?'':(sub>=40?'<b>You’ve got free delivery.</b>':'Add <b>'+gbp.format(40-sub)+'</b> for free delivery')}
+function say(t){live.textContent='';setTimeout(function(){live.textContent=t},30)}
+function limit(i,r){var st=r.querySelector('.st'),h=r.querySelector('.sh');st.classList.remove('sk');h.classList.remove('pl');void st.offsetWidth;if(!reduce){st.classList.add('sk');h.classList.add('pl')}say('Only '+I[i].s+' in stock')}
+function remove(i,r){last=i;var fin=function(){rm.push(i);build();toast(I[i].n+' removed');$('#live').textContent=I[i].n+' removed from basket'};if(reduce){fin()}else{r.classList.add('rm');setTimeout(fin,300)}}
+function toast(m){$('#tx').textContent=m;$('#toast').classList.add('on');clearTimeout(tmr);tmr=setTimeout(function(){$('#toast').classList.remove('on')},5000)}
+function undo(){if(last===null)return;rm=rm.filter(function(x){return x!==last});I[last].q=1;var l=last;last=null;build();$('#toast').classList.remove('on');say(I[l].n+' restored');var f=document.querySelector('.rw[data-i="'+l+'"] .qt');if(f)f.focus()}
+$('#un').addEventListener('click',undo);$('#pn').addEventListener('click',function(e){if(e.target.closest('#ud'))undo()});
+function wire(r){var i=+r.dataset.i,it=I[i],mi=r.querySelector('.mi'),pl=r.querySelector('.pl'),q=r.querySelector('.qt');
+ function step(d,fromHold){if(d>0){if(it.q>=it.s){limit(i,r);return false}it.q++}else{if(it.q<=1){if(!fromHold)remove(i,r);return false}it.q--}upd(i);tot();say(it.n+' quantity '+it.q);return true}
+ function hold(btn,d){var t1=null,t2=null,n=0,active=false;function stop(){active=false;clearTimeout(t1);clearTimeout(t2)}
+  function loop(){if(!active)return;if(!step(d,true)){stop();return}n++;t2=setTimeout(loop,n>12?60:160)}
+  function start(e){if(e.type==='pointerdown'&&e.button>0)return;active=true;if(step(d,false)===false){active=false;return}t1=setTimeout(function(){if(active){n=0;loop()}},400)}
+  btn.addEventListener('pointerdown',function(e){e.preventDefault();btn.focus();start(e)});['pointerup','pointerleave','pointercancel','blur'].forEach(function(n2){btn.addEventListener(n2,stop)});
+  btn.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&!e.repeat){e.preventDefault();start(e)}});btn.addEventListener('keyup',function(e){if(e.key==='Enter'||e.key===' ')stop()});btn.addEventListener('click',function(e){e.preventDefault()})}
+ hold(mi,-1);hold(pl,1);
+ q.addEventListener('input',function(){q.value=q.value.replace(/\D/g,'').slice(0,3)});
+ function commit(){var v=parseInt(q.value,10);if(isNaN(v)||v<1){if(q.value===''||v===0){q.value=it.q;return}}if(v>it.s){it.q=it.s;limit(i,r);say('Only '+it.s+' in stock, quantity set to '+it.s)}else it.q=v;upd(i);tot()}
+ q.addEventListener('change',commit);q.addEventListener('blur',commit);
+ q.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();commit()}else if(e.key==='ArrowUp'||e.key==='ArrowDown'){e.preventDefault();var d=(e.key==='ArrowUp'?1:-1)*(e.shiftKey?5:1),v=Math.max(1,Math.min(it.s,it.q+d));if(v===it.q&&d>0)limit(i,r);it.q=v;upd(i);tot()}})}
+build();
+})();
+</script></body></html>

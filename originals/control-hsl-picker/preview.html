@@ -1,0 +1,112 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HSL Colour Picker — Form Controls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+:root{--c:#e8603c}
+body{margin:0;min-height:100vh;background:#f4f2ee;color:#1c1a17;font:400 15px/1.5 Inter,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #1c1a17;outline-offset:3px;box-shadow:0 0 0 6px #fff}
+.w{max-width:1040px;margin:0 auto;padding:44px 24px 60px}
+.eb{font:800 13px "Bricolage Grotesque";letter-spacing:.16em;text-transform:uppercase;color:var(--c);margin:0 0 10px;filter:brightness(.8)}
+h1{font:800 clamp(32px,5vw,56px)/1.04 "Bricolage Grotesque";margin:0 0 10px;letter-spacing:-.03em;max-width:18ch}.lead{color:#5f5a50;margin:0 0 24px;max-width:50ch;font-size:17px}
+.cd{background:#fff;border:1px solid #e3dfd6;border-radius:28px;box-shadow:0 30px 70px -40px rgba(40,30,10,.45);padding:28px;display:grid;grid-template-columns:320px minmax(0,1fr);gap:36px}
+.pk{position:relative;width:300px;height:300px;margin:0 auto;touch-action:none}
+.rg{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,hsl(0 100% 50%),hsl(60 100% 50%),hsl(120 100% 50%),hsl(180 100% 50%),hsl(240 100% 50%),hsl(300 100% 50%),hsl(0 100% 50%));-webkit-mask:radial-gradient(circle,transparent 114px,#000 115px);mask:radial-gradient(circle,transparent 114px,#000 115px);cursor:pointer}
+.sq{position:absolute;left:75px;top:75px;width:150px;height:150px;border-radius:10px;background:linear-gradient(to top,#000,transparent),linear-gradient(to right,#fff,hsl(var(--h) 100% 50%));cursor:crosshair;touch-action:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
+.hd{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;border:4px solid #fff;box-shadow:0 0 0 1.5px rgba(0,0,0,.4),0 3px 8px rgba(0,0,0,.3);background:var(--hc);pointer-events:none}
+.sq .hd{width:22px;height:22px;margin:-11px 0 0 -11px;border-width:3px}
+.rgf,.sqf{position:absolute;outline:0}
+.rgf{inset:0;border-radius:50%}.sqf{left:75px;top:75px;width:150px;height:150px;border-radius:10px}
+.rgf:focus-visible,.sqf:focus-visible{outline:3px solid #1c1a17;outline-offset:2px;box-shadow:0 0 0 6px #fff}
+.rgf{-webkit-mask:radial-gradient(circle,transparent 114px,#000 115px);mask:radial-gradient(circle,transparent 114px,#000 115px)}
+.rgf:focus-visible{box-shadow:none;outline:0}.rgf:focus-visible+.rgo{opacity:1}
+.rgo{position:absolute;inset:-4px;border-radius:50%;border:3px solid #1c1a17;box-shadow:0 0 0 3px #fff,inset 0 0 0 3px #fff;pointer-events:none;opacity:0;-webkit-mask:radial-gradient(circle,transparent 110px,#000 111px);mask:radial-gradient(circle,transparent 110px,#000 111px)}
+.sw{height:120px;border-radius:20px;background:var(--c);position:relative;display:flex;align-items:flex-end;padding:14px 18px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);transition:background .1s}
+.sw b{font:800 26px "Bricolage Grotesque";color:var(--on);letter-spacing:-.01em}.sw span{position:absolute;right:16px;top:12px;font:500 13px "JetBrains Mono";color:var(--on);opacity:.85}
+.vl{display:grid;gap:8px;margin:16px 0}
+.row{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:10px;align-items:center;background:#f7f5f1;border:1px solid #e8e4da;border-radius:12px;padding:6px 6px 6px 14px}
+.row b{font:600 12px Inter;letter-spacing:.1em;color:#5f5a50}.row code{font:500 15px "JetBrains Mono";white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cp{all:unset;box-sizing:border-box;cursor:pointer;padding:8px 14px;border-radius:9px;background:#fff;border:1px solid #d6d1c4;font:600 13px Inter;min-height:36px}.cp:hover{background:#efece4}.cp:focus-visible{outline:3px solid #1c1a17;outline-offset:2px}
+.nm{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.nm label{display:grid;gap:4px;font:600 12px Inter;color:#5f5a50;letter-spacing:.06em}
+.nm input{font:500 16px "JetBrains Mono";padding:9px 12px;border:1.5px solid #d6d1c4;border-radius:10px;background:#fff;color:#1c1a17;width:100%;min-height:42px}
+.ct{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.cb{border:1px solid #e3dfd6;border-radius:14px;padding:10px 12px;display:flex;gap:12px;align-items:center}
+.cb .sm{width:52px;height:52px;border-radius:10px;display:grid;place-items:center;font:800 22px "Bricolage Grotesque";flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
+.cb div b{font:600 15px "JetBrains Mono";display:block}.cb div span{font-size:12.5px;color:#5f5a50}
+.bg{display:inline-flex;gap:4px;margin-top:2px}.bg i{font:600 11px Inter;font-style:normal;padding:1px 7px;border-radius:999px;letter-spacing:.04em}.bg .p{background:#dff5ea;color:#0f6b49}.bg .f{background:#fde8e6;color:#a8241c}
+.hm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px}.hm label{position:relative}.hm input{position:absolute;opacity:0;width:1px;height:1px}.hm span{display:block;padding:7px 12px;border-radius:999px;font:600 13px Inter;border:1.5px solid #d6d1c4;cursor:pointer;min-height:34px}.hm input:checked+span{background:#1c1a17;color:#fff;border-color:#1c1a17}.hm input:focus-visible+span{outline:3px solid #1c1a17;outline-offset:2px}
+.hr{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}.hr button{all:unset;box-sizing:border-box;width:52px;height:52px;border-radius:12px;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1);transition:transform .15s}.hr button:hover{transform:translateY(-3px)}.hr button:focus-visible{outline:3px solid #1c1a17;outline-offset:3px}
+.ac{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.rn{all:unset;box-sizing:border-box;cursor:pointer;padding:9px 16px;border-radius:999px;background:#1c1a17;color:#fff;font:600 14px Inter;min-height:40px}.rn:hover{background:#3a362f}.rn:focus-visible{outline:3px solid #1c1a17;outline-offset:3px;box-shadow:0 0 0 6px #fff}
+.rc{display:flex;gap:6px;flex-wrap:wrap}.rc button{all:unset;box-sizing:border-box;width:28px;height:28px;border-radius:50%;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}.rc button:focus-visible{outline:3px solid #1c1a17;outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:860px){.cd{grid-template-columns:minmax(0,1fr);padding:20px 16px}.pk{transform-origin:top center}}
+@media (max-width:360px){.pk{zoom:.9}}
+@media (prefers-reduced-motion:reduce){.sw,.hr button{transition:none}}
+</style></head><body>
+<div class="w"><p class="eb">Huebox</p><h1>Find a colour you can stand behind.</h1><p class="lead">Drag the ring for hue, the square for richness and brightness. The contrast checks update as you go.</p>
+<section class="cd" aria-label="Colour picker"><div><div class="pk" id="pk"><div class="rg" id="rg"></div><div class="sq" id="sq"><i class="hd" id="sh"></i></div><i class="hd" id="rh"></i>
+<div class="rgf" id="rf" role="slider" tabindex="0" aria-label="Hue" aria-valuemin="0" aria-valuemax="359" aria-valuenow="12"></div><i class="rgo" aria-hidden="true"></i>
+<div class="sqf" id="sf" role="group" tabindex="0" aria-roledescription="2D colour area" aria-label="Saturation and brightness. Use arrow keys; hold Shift for bigger steps."></div></div>
+<div class="ac" style="margin-top:14px;justify-content:center"><button class="rn" id="rn" type="button">Random colour</button></div></div>
+<div><div class="sw" id="sw"><b id="nm">Warm coral</b><span id="hx2">#E8603C</span></div>
+<div class="vl"><div class="row"><b>HEX</b><code id="vh"></code><button class="cp" type="button" data-c="vh">Copy</button></div><div class="row"><b>RGB</b><code id="vr"></code><button class="cp" type="button" data-c="vr">Copy</button></div><div class="row"><b>HSL</b><code id="vs"></code><button class="cp" type="button" data-c="vs">Copy</button></div></div>
+<div class="nm"><label>H<input id="nh" type="number" min="0" max="360"></label><label>S %<input id="ns" type="number" min="0" max="100"></label><label>L %<input id="nl" type="number" min="0" max="100"></label></div>
+<div class="ct"><div class="cb"><span class="sm" id="cw">Aa</span><div><b id="rw"></b><span>on white</span><div class="bg" id="bw"></div></div></div><div class="cb"><span class="sm" id="cb2">Aa</span><div><b id="rb"></b><span>on black</span><div class="bg" id="bb"></div></div></div></div>
+<div class="hm" role="radiogroup" aria-label="Harmony"><label><input type="radio" name="hm" value="comp" checked><span>Complement</span></label><label><input type="radio" name="hm" value="ana"><span>Analogous</span></label><label><input type="radio" name="hm" value="tri"><span>Triad</span></label><label><input type="radio" name="hm" value="ramp"><span>Tint ramp</span></label></div>
+<div class="hr" id="hr"></div><div class="rc" id="rc" aria-label="Recent colours"></div></div></section></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var H=12,S=.74,V=.91,live=$('#live'),hm='comp',recent=[];
+try{recent=JSON.parse(localStorage.getItem('hb-recent')||'[]')||[]}catch(e){}
+function hsv2rgb(h,s,v){var c=v*s,x=c*(1-Math.abs((h/60)%2-1)),m=v-c,r,g,b;if(h<60){r=c;g=x;b=0}else if(h<120){r=x;g=c;b=0}else if(h<180){r=0;g=c;b=x}else if(h<240){r=0;g=x;b=c}else if(h<300){r=x;g=0;b=c}else{r=c;g=0;b=x}return [Math.round((r+m)*255),Math.round((g+m)*255),Math.round((b+m)*255)]}
+function rgb2hsl(r,g,b){r/=255;g/=255;b/=255;var mx=Math.max(r,g,b),mn=Math.min(r,g,b),l=(mx+mn)/2,h=0,s=0,d=mx-mn;if(d){s=l>.5?d/(2-mx-mn):d/(mx+mn);if(mx===r)h=((g-b)/d+(g<b?6:0))*60;else if(mx===g)h=((b-r)/d+2)*60;else h=((r-g)/d+4)*60}return [Math.round(h)%360,Math.round(s*100),Math.round(l*100)]}
+function hsl2hsv(h,s,l){s/=100;l/=100;var v=l+s*Math.min(l,1-l),sv=v?2*(1-l/v):0;return [h,sv,v]}
+function hex(rgb){return '#'+rgb.map(function(x){return('0'+x.toString(16)).slice(-2)}).join('').toUpperCase()}
+function lum(rgb){var a=rgb.map(function(v){v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*a[0]+.7152*a[1]+.0722*a[2]}
+function ratio(a,b){var l1=lum(a),l2=lum(b),hi=Math.max(l1,l2),lo=Math.min(l1,l2);return (hi+.05)/(lo+.05)}
+function nameOf(h,s,l){if(l<10)return 'Near black';if(l>92&&s<30)return 'Near white';if(s<12)return l<35?'Charcoal':l<70?'Grey':'Soft grey';var tone=l<30?'Deep ':l<45?'Rich ':l>78?'Pale ':l>62?'Soft ':'';var n=h<15||h>=345?'red':h<40?'coral':h<65?'amber':h<90?'lime':h<150?'green':h<190?'teal':h<215?'cyan':h<250?'blue':h<280?'indigo':h<320?'violet':'rose';if(!tone&&s>70&&l>45&&l<65&&(n==='coral'||n==='red'))tone='Warm ';return tone+n}
+var HN=['red','red-orange','orange','yellow','lime','green','teal','cyan','blue','indigo','violet','magenta'];
+function render(from){var rgb=hsv2rgb(H,S,V),hsl=rgb2hsl(rgb[0],rgb[1],rgb[2]),hx=hex(rgb),css='rgb('+rgb.join(', ')+')',hs='hsl('+hsl[0]+', '+hsl[1]+'%, '+hsl[2]+'%)';
+ var root=document.documentElement;root.style.setProperty('--c',hx);root.style.setProperty('--h',H);root.style.setProperty('--hc',hx);var onC=ratio(rgb,[255,255,255])>=ratio(rgb,[0,0,0])?'#fff':'#111';root.style.setProperty('--on',onC);
+ $('#nm').textContent=nameOf(hsl[0],hsl[1],hsl[2]);$('#hx2').textContent=hx;$('#vh').textContent=hx;$('#vr').textContent=css;$('#vs').textContent=hs;
+ if(from!=='n'){$('#nh').value=hsl[0];$('#ns').value=hsl[1];$('#nl').value=hsl[2]}
+ var ang=(H-90)*Math.PI/180,R=132.5;$('#rh').style.left=(150+R*Math.cos(ang))+'px';$('#rh').style.top=(150+R*Math.sin(ang))+'px';$('#rh').style.background='hsl('+H+' 100% 50%)';
+ $('#sh').style.left=(S*100)+'%';$('#sh').style.top=((1-V)*100)+'%';$('#sh').style.background=hx;
+ $('#rf').setAttribute('aria-valuenow',Math.round(H));$('#rf').setAttribute('aria-valuetext','Hue '+Math.round(H)+' degrees, '+HN[Math.round(H/30)%12]);
+ $('#sf').setAttribute('aria-valuetext','Saturation '+Math.round(S*100)+' percent, brightness '+Math.round(V*100)+' percent');
+ var rw=ratio(rgb,[255,255,255]),rb=ratio(rgb,[0,0,0]);$('#rw').textContent=rw.toFixed(2)+':1';$('#rb').textContent=rb.toFixed(2)+':1';
+ function bd(r){return '<i class="'+(r>=4.5?'p':'f')+'">AA '+(r>=4.5?'Pass':'Fail')+'</i><i class="'+(r>=7?'p':'f')+'">AAA '+(r>=7?'Pass':'Fail')+'</i>'}$('#bw').innerHTML=bd(rw);$('#bb').innerHTML=bd(rb);
+ $('#cw').style.cssText='background:#fff;color:'+hx;$('#cb2').style.cssText='background:#000;color:'+hx;
+ harmony(hsl)}
+function hh(h){return ((h%360)+360)%360}
+function harmony(hsl){var cols=[];if(hm==='comp'){cols=[[hsl[0],hsl[1],hsl[2]],[hh(hsl[0]+180),hsl[1],hsl[2]],[hh(hsl[0]+180),hsl[1],Math.min(90,hsl[2]+18)],[hsl[0],hsl[1],Math.min(92,hsl[2]+25)],[hsl[0],hsl[1],Math.max(10,hsl[2]-22)]]}else if(hm==='ana'){cols=[-40,-20,0,20,40].map(function(d){return [hh(hsl[0]+d),hsl[1],hsl[2]]})}else if(hm==='tri'){cols=[0,120,240,60,180].map(function(d){return [hh(hsl[0]+d),hsl[1],hsl[2]]})}else{cols=[92,80,hsl[2],30,16].map(function(l){return [hsl[0],hsl[1],l]})}
+ $('#hr').innerHTML=cols.map(function(c,i){var rg=hsv2rgb.apply(null,hsl2hsv(c[0],c[1],c[2])),hx=hex(rg);return '<button type="button" style="background:'+hx+'" data-h="'+c[0]+'" data-s="'+c[1]+'" data-l="'+c[2]+'" aria-label="Use colour '+hx+'"></button>'}).join('')}
+$('#hr').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;setHSL(+b.dataset.h,+b.dataset.s,+b.dataset.l,true)});
+function setHSL(h,s,l,save){var v=hsl2hsv(h,s,l);H=h;S=v[1];V=v[2];render();if(save)remember()}
+function remember(){var hx=hex(hsv2rgb(H,S,V));recent=[hx].concat(recent.filter(function(x){return x!==hx})).slice(0,8);try{localStorage.setItem('hb-recent',JSON.stringify(recent))}catch(e){}drawRecent()}
+function drawRecent(){$('#rc').innerHTML=recent.map(function(c){return '<button type="button" style="background:'+c+'" data-x="'+c+'" aria-label="Recent colour '+c+'"></button>'}).join('')}
+$('#rc').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var r=b.dataset.x,rgb=[parseInt(r.slice(1,3),16),parseInt(r.slice(3,5),16),parseInt(r.slice(5,7),16)],hl=rgb2hsl(rgb[0],rgb[1],rgb[2]);setHSL(hl[0],hl[1],hl[2])});
+/* pointer: ring */
+function ringAt(e){var r=$('#pk').getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,a=Math.atan2(e.clientY-cy,e.clientX-cx)*180/Math.PI+90;H=hh(a);render()}
+var dragR=false,dragS=false;
+$('#rg').addEventListener('pointerdown',function(e){dragR=true;$('#rg').setPointerCapture(e.pointerId);ringAt(e);$('#rf').focus({preventScroll:true})});
+$('#rg').addEventListener('pointermove',function(e){if(dragR)ringAt(e)});$('#rg').addEventListener('pointerup',function(){dragR=false;remember()});$('#rg').addEventListener('pointercancel',function(){dragR=false});
+function sqAt(e){var r=$('#sq').getBoundingClientRect();S=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));V=1-Math.max(0,Math.min(1,(e.clientY-r.top)/r.height));render()}
+$('#sq').addEventListener('pointerdown',function(e){dragS=true;$('#sq').setPointerCapture(e.pointerId);sqAt(e);$('#sf').focus({preventScroll:true})});
+$('#sq').addEventListener('pointermove',function(e){if(dragS)sqAt(e)});$('#sq').addEventListener('pointerup',function(){dragS=false;remember()});$('#sq').addEventListener('pointercancel',function(){dragS=false});
+/* keyboard */
+$('#rf').addEventListener('keydown',function(e){var k=e.key,st=e.shiftKey?10:1,d=null;if(k==='ArrowRight'||k==='ArrowUp')d=st;else if(k==='ArrowLeft'||k==='ArrowDown')d=-st;else if(k==='Home'){H=0;e.preventDefault();render();return}else if(k==='End'){H=359;e.preventDefault();render();return}if(d!==null){e.preventDefault();H=hh(H+d);render()}});
+$('#sf').addEventListener('keydown',function(e){var st=(e.shiftKey?10:1)/100,k=e.key,ch=true;if(k==='ArrowRight')S=Math.min(1,S+st);else if(k==='ArrowLeft')S=Math.max(0,S-st);else if(k==='ArrowUp')V=Math.min(1,V+st);else if(k==='ArrowDown')V=Math.max(0,V-st);else ch=false;if(ch){e.preventDefault();render()}});
+['rf','sf'].forEach(function(id){$('#'+id).addEventListener('keyup',function(){remember()})});
+function num(id,max){return Math.max(0,Math.min(max,parseInt($('#'+id).value||0,10)||0))}
+['nh','ns','nl'].forEach(function(id){$('#'+id).addEventListener('input',function(){setHSL(num('nh',360)%360,num('ns',100),num('nl',100));render('n')});$('#'+id).addEventListener('change',function(){render();remember()})});
+document.querySelectorAll('[name=hm]').forEach(function(r){r.addEventListener('change',function(){hm=r.value;render('n')})});
+document.querySelectorAll('.cp').forEach(function(b){b.addEventListener('click',function(){var t=$('#'+b.dataset.c).textContent,done=function(){b.textContent='Copied';live.textContent=t+' copied';setTimeout(function(){b.textContent='Copy'},1400)};
+ try{navigator.clipboard.writeText(t).then(done,function(){fb(t,done)})}catch(x){fb(t,done)}})});
+function fb(t,done){try{var a=document.createElement('textarea');a.value=t;a.style.cssText='position:fixed;opacity:0';document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();done()}catch(e){live.textContent='Select the value to copy it'}}
+$('#rn').addEventListener('click',function(){H=Math.floor(Math.random()*360);S=.45+Math.random()*.45;V=.55+Math.random()*.4;render();remember();live.textContent='New colour '+$('#vh').textContent})
+drawRecent();render();
+})();
+</script></body></html>

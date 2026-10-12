@@ -1,0 +1,206 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Order History Stepper — Timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Figtree:wght@400;500;700&family=Fraunces:wght@600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f6f0e6;color:#211c16;font:400 15px/1.5 Figtree,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #211c16;outline-offset:3px;box-shadow:0 0 0 6px #fff}
+.hd{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center}
+.wm{font:600 22px Fraunces,serif}.hd a{margin-left:auto;color:#211c16;font-weight:700}
+.w{max-width:1180px;margin:0 auto;padding:0 20px 44px}
+.eb{font:700 12px Figtree;letter-spacing:.16em;text-transform:uppercase;color:#1f6b4a;margin:6px 0 4px}
+h1{font:600 clamp(30px,5vw,52px)/1.02 Fraunces,serif;margin:0 0 12px}
+.rt{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/5;width:100%;box-shadow:0 20px 44px rgba(70,45,10,.22)}
+.rt svg{width:100%;height:100%;display:block;position:absolute;inset:0}
+.pl{margin:10px 2px 18px;font-weight:700}
+.main{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:start}
+.main>*{min-width:0}
+.card{background:#fffdf8;border:1px solid #e6dac5;border-radius:18px;padding:16px 18px;margin-bottom:14px}
+.st{list-style:none;margin:0;padding:0;position:relative}
+.st:before{content:"";position:absolute;left:19px;top:22px;bottom:22px;width:4px;background:#e6dac5;border-radius:2px}
+.st .fill{position:absolute;left:19px;top:22px;width:4px;background:#1f6b4a;border-radius:2px;transition:height .5s;height:0}
+.st li{position:relative;margin-bottom:8px}
+.sb{width:100%;display:flex;align-items:center;gap:14px;text-align:left;background:#fffdf8;border:1.5px solid #e6dac5;border-radius:14px;padding:8px 12px 8px 8px;min-height:48px;cursor:pointer;font:inherit;color:#211c16}
+.sb:hover{border-color:#cdbfa6}
+.dot{width:36px;height:36px;border-radius:50%;flex:none;display:grid;place-items:center;font:700 15px Figtree;border:2.5px solid #cdbfa6;background:#fffdf8;color:#675d4e;position:relative;z-index:1}
+.done .dot{background:#1f6b4a;border-color:#1f6b4a;color:#fff}
+.cur .dot{background:#e29a2b;border-color:#e29a2b;color:#211c16}
+.cur .dot:after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid #e29a2b;animation:pu 1.8s ease-out infinite}
+@keyframes pu{from{transform:scale(.8);opacity:.9}to{transform:scale(1.35);opacity:0}}
+.sb b{display:block;font-weight:700}.sb small{color:#675d4e}
+.sb .tg{margin-left:auto;font:700 12px Figtree;letter-spacing:.06em;text-transform:uppercase;color:#675d4e}
+.cur .tg{color:#8a5a0a}.done .tg{color:#1f6b4a}
+.ch{width:16px;height:16px;transition:transform .2s;flex:none}.sb[aria-expanded=true] .ch{transform:rotate(180deg)}
+.ev{margin:6px 0 4px 50px;padding:2px 0 6px;border-left:2px solid #e6dac5;padding-left:14px}
+.ev div{margin:0 0 8px}.ev time{display:block;font:500 12px "DM Mono",monospace;color:#675d4e}
+.demo{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.demo button{font:700 14px Figtree;border-radius:12px;min-height:46px;padding:0 16px;cursor:pointer}
+.p{color:#fff;background:#1f6b4a;border:0}.p:hover{background:#17533a}.p[disabled]{background:#8aa396;cursor:not-allowed}
+.s{color:#211c16;background:#fff;border:1.5px solid #211c16}
+.eta h2{font:600 28px/1.15 Fraunces,serif;margin:0 0 8px}
+.win{position:relative;height:48px;margin:12px 0 6px}
+.win .ax{position:absolute;left:0;right:0;top:20px;height:8px;background:#efe6d4;border-radius:4px}
+.win .slot{position:absolute;top:14px;height:20px;background:#1f6b4a;border-radius:6px;opacity:.9}
+.win .nw{position:absolute;top:8px;width:3px;height:32px;background:#c4452f;border-radius:2px;transition:left .6s}.win .nw span{position:absolute;top:-4px;left:6px;font:700 11px Figtree;color:#c4452f;white-space:nowrap}
+.win .tk{position:absolute;top:36px;font:500 11px "DM Mono";color:#675d4e;transform:translateX(-50%)}
+.cd{font:500 18px "DM Mono",monospace;color:#1f6b4a}
+.cr{display:flex;gap:12px;align-items:center}.cr .av{width:56px;height:56px;border-radius:50%;overflow:hidden;flex:none}.cr .av svg{width:100%;height:100%;display:block}
+.cr b{display:block}.cr small{color:#675d4e}
+.cr button{margin-left:auto;font:700 13px Figtree;border:1.5px solid #211c16;border-radius:10px;background:#fff;min-height:44px;padding:0 12px;cursor:pointer}
+.ad{margin:0;color:#4a4136;font-style:normal;line-height:1.5}
+.card h3{font:700 12px Figtree;letter-spacing:.12em;text-transform:uppercase;color:#675d4e;margin:0 0 8px}
+.li{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:center;padding:6px 0}
+.li .t{width:52px;height:52px;border-radius:10px;overflow:hidden}.li .t svg{width:100%;height:100%;display:block}
+.li span.pr{font-variant-numeric:tabular-nums;font-weight:700}
+.tot{display:flex;justify-content:space-between;border-top:1px solid #e6dac5;margin-top:6px;padding-top:8px;font-weight:700;font-variant-numeric:tabular-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:900px){.main{grid-template-columns:1fr}}@media(max-width:700px){.rt{aspect-ratio:2/1}}
+@media(prefers-reduced-motion:reduce){.cur .dot:after{animation:none}.st .fill,.ch,.win .nw{transition:none}}
+</style></head><body>
+<header class="hd"><span class="wm">Kiln &amp; Co.</span><a href="#">Help</a></header>
+<main class="w">
+<p class="eb">Order KC-20418</p><h1>Your parcel is on its way</h1>
+<div class="rt" id="rt" role="img" aria-label="Route from the Kiln warehouse to your home with a delivery van"></div>
+<p class="pl" id="pl" aria-live="polite"></p>
+<div class="main">
+<section aria-label="Order progress"><div class="card"><ol class="st" id="st"><div class="fill" id="fill"></div></ol>
+<div class="demo"><button class="p" id="nx">Simulate next step</button><button class="s" id="rs">Reset</button></div></div></section>
+<section aria-label="Details">
+<div class="card eta" id="eta"></div>
+<div class="card"><h3>Courier</h3><div class="cr"><span class="av" id="cav"></span><div><b>Mira S.</b><small>4.9 rating · Van 12</small></div><button type="button" id="msg">Message courier</button></div></div>
+<div class="card"><h3>Delivery address</h3><address class="ad">Ines Varga<br>14 Anchor Row, Pennick Bay PB1 4AX<br>ines.varga@example.com</address></div>
+<div class="card"><h3>Order summary</h3><div id="items"></div><div class="tot"><span>Subtotal</span><span>GBP 110</span></div><div class="tot" style="border:0;margin:0;padding-top:2px;font-weight:500"><span>Delivery</span><span>GBP 0</span></div><div class="tot"><span>Total</span><span>GBP 110</span></div></div>
+</section></div>
+<div class="sr" id="live" aria-live="polite"></div>
+</main>
+<script>/*SCENES-START*/
+var SC=(function(){
+ var uid=0,s=1;function id(p){return p+(++uid)}
+ function R(seed){var x=seed||1;return function(){x=(x*9301+49297)%233280;return x/233280}}
+ var PAL={
+  dusk:{sky:['#1b1740','#4b2a78','#c2477a','#ff9a62','#ffd9a0'],sun:'#fff0c4',ridge:['#7a3a7e','#522c68','#2f1c4d','#1a1033'],mist:'#ffb48a',star:1},
+  dawn:{sky:['#2a3a78','#7a7fc4','#f2a6a0','#ffd9a8','#fff3d6'],sun:'#fffbe8',ridge:['#8a8fc0','#6a6aa8','#4a4a88','#2a2a5a'],mist:'#ffe1c4'},
+  alpine:{sky:['#4a86c8','#8bbbe6','#cfe6f6','#f4f9ff'],sun:'#fff',ridge:['#b7c8d8','#8aa1b8','#5d7690','#35495f'],mist:'#fff',snow:1},
+  desert:{sky:['#e08a4c','#f2b26a','#f8d79a','#fff0cc'],sun:'#fffbe4',ridge:['#d9824a','#b8603a','#8a4230','#5a2a22'],mist:'#ffd9a0'},
+  coast:{sky:['#5aa3d8','#9ccdee','#d6ecf8','#fff6e6'],sun:'#fff',ridge:['#7fa3a8','#4f7f86','#2d5a62','#173a42'],mist:'#fff'},
+  night:{sky:['#05081a','#0d1840','#1d3170','#3a4f9a'],sun:'#e8eeff',ridge:['#1b2a5a','#111c42','#0a122e','#050818'],mist:'#5a6fc0',star:2},
+  forest:{sky:['#9bc7b0','#cfe3c8','#f2f0d0','#fff8dc'],sun:'#fff8d8',ridge:['#7fa889','#4f7d63','#2f5a46','#183a2c'],mist:'#e8f2d8'},
+  gold:{sky:['#3a2410','#a85a1c','#f0a03a','#ffe0a0'],sun:'#fff4c8',ridge:['#8a4a1a','#5e3010','#3a1c08','#1e0e04'],mist:'#ffc060',star:0}};
+ function grad(i,stops,vert){var n=stops.length;return '<linearGradient id="'+i+'" x1="0" y1="0" x2="'+(vert===false?1:0)+'" y2="'+(vert===false?0:1)+'">'+stops.map(function(c,k){return '<stop offset="'+(k/(n-1)).toFixed(2)+'" stop-color="'+c+'"/>'}).join('')+'</linearGradient>'}
+ function grain(op){var i=id('gn');return '<filter id="'+i+'" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .6 0"/></filter><rect width="100%" height="100%" filter="url(#'+i+')" opacity="'+(op==null?.22:op)+'" style="mix-blend-mode:overlay"/>'}
+ function vig(w,h,str){var i=id('vg');return '<radialGradient id="'+i+'" cx=".5" cy=".5" r=".75"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="'+(str==null?.45:str)+'"/></radialGradient><rect width="'+w+'" height="'+h+'" fill="url(#'+i+')"/>'}
+ function wrap(w,h,inner,cls){return '<svg viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"'+(cls?' class="'+cls+'"':'')+'>'+inner+'</svg>'}
+ function ridge(r,w,base,amp,col,rough,id2){var d='M0 '+(base+amp)+' ',x=0,y;var pts=[];var n=Math.round(w/16);var ph=r()*6;for(var i=0;i<=n;i++){var xx=i/n*w,v=Math.sin(i*.35+ph)*.5+Math.sin(i*.9+ph*2)*.25+(r()-.5)*rough;pts.push([xx,base-v*amp])}d='M0 '+(base+amp*3)+' L'+pts.map(function(p){return p[0].toFixed(0)+' '+p[1].toFixed(1)}).join(' L')+' L'+w+' '+(base+amp*3)+'Z';return '<path d="'+d+'" fill="'+col+'"/>'}
+ function landscape(seed,o){o=o||{};var w=o.w||1200,h=o.h||700,P=PAL[o.pal||'dusk'],r=R(seed),g=id('sk'),g2=id('sn');var sunY=o.sunY!=null?o.sunY:h*.52,sunX=o.sunX!=null?o.sunX:w*(.3+r()*.4);
+  var out='<defs>'+grad(g,P.sky)+'<radialGradient id="'+g2+'"><stop offset="0" stop-color="'+P.sun+'"/><stop offset=".25" stop-color="'+P.sun+'" stop-opacity=".9"/><stop offset="1" stop-color="'+P.sun+'" stop-opacity="0"/></radialGradient></defs><rect width="'+w+'" height="'+h+'" fill="url(#'+g+')"/>';
+  if(P.star){for(var i=0;i<(P.star===2?160:70);i++)out+='<circle cx="'+(r()*w).toFixed(0)+'" cy="'+(r()*h*.5).toFixed(0)+'" r="'+(.5+r()*1.4).toFixed(1)+'" fill="#fff" opacity="'+(.3+r()*.7).toFixed(2)+'"/>'}
+  if(P.snow||o.clouds){for(var c=0;c<(o.clouds||5);c++){var cx=r()*w,cy=h*(.12+r()*.28);out+='<g opacity=".75" fill="#fff"><ellipse cx="'+cx.toFixed(0)+'" cy="'+cy.toFixed(0)+'" rx="'+(90+r()*120).toFixed(0)+'" ry="'+(14+r()*14).toFixed(0)+'" opacity=".6"/><ellipse cx="'+(cx+40).toFixed(0)+'" cy="'+(cy-10).toFixed(0)+'" rx="'+(60+r()*70).toFixed(0)+'" ry="'+(12+r()*10).toFixed(0)+'" opacity=".5"/></g>'}}
+  out+='<circle cx="'+sunX.toFixed(0)+'" cy="'+sunY.toFixed(0)+'" r="'+(h*.5)+'" fill="url(#'+g2+')" opacity=".55"/><circle cx="'+sunX.toFixed(0)+'" cy="'+sunY.toFixed(0)+'" r="'+(o.sunR||h*.06)+'" fill="'+P.sun+'"/>';
+  var bases=[h*.56,h*.64,h*.74,h*.86];P.ridge.forEach(function(col,i){out+=ridge(r,w,bases[i],h*(.07+i*.01),col,.5-i*.08);if(i<P.ridge.length-1){var mi=id('ms');out+='<defs><linearGradient id="'+mi+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+P.mist+'" stop-opacity="0"/><stop offset="1" stop-color="'+P.mist+'" stop-opacity=".45"/></linearGradient></defs><rect y="'+(bases[i]-10)+'" width="'+w+'" height="'+(h*.2)+'" fill="url(#'+mi+')"/>'}});
+  if(o.trees!==false){var tc=P.ridge[3];for(var t=0;t<(o.trees||26);t++){var tx=r()*w,ty=h*(.86+r()*.1),th=h*(.06+r()*.1);out+='<path d="M'+tx.toFixed(0)+' '+(ty-th).toFixed(0)+' L'+(tx-th*.28).toFixed(0)+' '+ty.toFixed(0)+' L'+(tx+th*.28).toFixed(0)+' '+ty.toFixed(0)+'Z" fill="'+tc+'"/>'}}
+  out+='<rect y="'+(h*.92)+'" width="'+w+'" height="'+(h*.08)+'" fill="'+P.ridge[3]+'"/>'+grain(o.grain)+vig(w,h,o.vig);return wrap(w,h,out,o.cls)}
+ function sea(seed,o){o=o||{};var w=o.w||1200,h=o.h||700,P=PAL[o.pal||'dusk'],r=R(seed),g=id('sk'),gs=id('sa'),hz=h*.5;var sx=w*(.35+r()*.3);
+  var out='<defs>'+grad(g,P.sky)+grad(gs,[P.sky[2],P.ridge[1],P.ridge[3]])+'</defs><rect width="'+w+'" height="'+hz+'" fill="url(#'+g+')"/><rect y="'+hz+'" width="'+w+'" height="'+(h-hz)+'" fill="url(#'+gs+')"/>';
+  out+='<circle cx="'+sx+'" cy="'+(hz-h*.04)+'" r="'+(h*.05)+'" fill="'+P.sun+'"/><circle cx="'+sx+'" cy="'+(hz-h*.04)+'" r="'+(h*.2)+'" fill="'+P.sun+'" opacity=".25"/>';
+  for(var i=0;i<46;i++){var y=hz+4+Math.pow(r(),1.6)*(h-hz-6),ww=20+(y-hz)*(1.2+r()*3),x=sx+(r()-.5)*(60+(y-hz)*1.4);out+='<rect x="'+(x-ww/2).toFixed(0)+'" y="'+y.toFixed(0)+'" width="'+ww.toFixed(0)+'" height="'+(1+(y-hz)/90).toFixed(1)+'" rx="2" fill="'+P.sun+'" opacity="'+(.15+r()*.5).toFixed(2)+'"/>'}
+  for(i=0;i<40;i++){var y2=hz+10+r()*(h-hz-10);out+='<path d="M'+(r()*w).toFixed(0)+' '+y2.toFixed(0)+' q'+(20+r()*40).toFixed(0)+' -6 '+(60+r()*80).toFixed(0)+' 0" stroke="#fff" stroke-opacity=".12" fill="none"/>'}
+  out+=ridge(r,w,hz+4,h*.015,P.ridge[2],.2)+grain(o.grain)+vig(w,h);return wrap(w,h,out,o.cls)}
+ function city(seed,o){o=o||{};var w=o.w||1200,h=o.h||700,P=PAL[o.pal||'night'],r=R(seed),g=id('sk');var out='<defs>'+grad(g,P.sky)+'</defs><rect width="'+w+'" height="'+h+'" fill="url(#'+g+')"/>';
+  if(P.star)for(var i=0;i<60;i++)out+='<circle cx="'+(r()*w).toFixed(0)+'" cy="'+(r()*h*.4).toFixed(0)+'" r="'+(.5+r()*1.2).toFixed(1)+'" fill="#fff" opacity="'+(.3+r()*.6).toFixed(2)+'"/>';
+  for(var L=0;L<3;L++){var x=-20,col=P.ridge[L],base=h*(.7+L*.1),wl=L===2;while(x<w){var bw=30+r()*70,bh=h*(.12+r()*(.3-L*.07));out+='<rect x="'+x.toFixed(0)+'" y="'+(base-bh).toFixed(0)+'" width="'+bw.toFixed(0)+'" height="'+(bh+h*.3).toFixed(0)+'" fill="'+col+'"/>';
+   var step=wl?11:16;for(var yy=base-bh+10;yy<base-4;yy+=step){for(var xx=x+6;xx<x+bw-8;xx+=step){if(r()>(wl?.55:.7))out+='<rect x="'+xx.toFixed(0)+'" y="'+yy.toFixed(0)+'" width="4" height="6" fill="'+(r()>.6?'#ffe2a0':'#ffc66e')+'" opacity="'+(.5+r()*.5).toFixed(2)+'"/>'}}x+=bw+2+r()*6}
+   var mi=id('ms');out+='<defs><linearGradient id="'+mi+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+P.mist+'" stop-opacity="0"/><stop offset="1" stop-color="'+P.mist+'" stop-opacity=".35"/></linearGradient></defs><rect y="'+(base-h*.1)+'" width="'+w+'" height="'+(h*.2)+'" fill="url(#'+mi+')"/>'}
+  out+=grain(o.grain)+vig(w,h);return wrap(w,h,out,o.cls)}
+ function interior(seed,o){o=o||{};var w=o.w||1200,h=o.h||700,r=R(seed),wall=o.wall||'#e9dfd0',floor=o.floor||'#b58a5e',acc=o.acc||'#2f6b4f',g=id('lt'),gf=id('fl');
+  var out='<defs><linearGradient id="'+gf+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+floor+'"/><stop offset="1" stop-color="#6a4a2c"/></linearGradient><linearGradient id="'+g+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6d8" stop-opacity=".75"/><stop offset="1" stop-color="#fff6d8" stop-opacity="0"/></linearGradient></defs><rect width="'+w+'" height="'+h+'" fill="'+wall+'"/><rect y="'+(h*.74)+'" width="'+w+'" height="'+(h*.26)+'" fill="url(#'+gf+')"/><rect y="'+(h*.74-6)+'" width="'+w+'" height="8" fill="rgba(0,0,0,.12)"/>';
+  var wx=w*.58,wy=h*.12,ww=w*.3,wh=h*.5;out+='<rect x="'+wx+'" y="'+wy+'" width="'+ww+'" height="'+wh+'" fill="#cfe6f4"/><rect x="'+wx+'" y="'+wy+'" width="'+ww+'" height="'+wh+'" fill="none" stroke="#fff" stroke-width="10"/><path d="M'+(wx+ww/2)+' '+wy+'v'+wh+'M'+wx+' '+(wy+wh/2)+'h'+ww+'" stroke="#fff" stroke-width="8"/><path d="M'+wx+' '+(wy+wh*.7)+' q'+(ww*.3)+' -'+(wh*.25)+' '+(ww*.5)+' -'+(wh*.12)+' t'+(ww*.5)+' -'+(wh*.1)+'V'+(wy+wh)+'H'+wx+'Z" fill="#8fbf9a" opacity=".7"/>';
+  out+='<polygon points="'+wx+','+(wy+wh)+' '+(wx+ww)+','+(wy+wh)+' '+(wx-w*.25)+','+h+' '+(wx-w*.55)+','+h+'" fill="url(#'+g+')" style="mix-blend-mode:screen"/>';
+  out+='<rect x="'+(w*.08)+'" y="'+(h*.56)+'" width="'+(w*.32)+'" height="'+(h*.2)+'" rx="14" fill="'+acc+'"/><rect x="'+(w*.06)+'" y="'+(h*.5)+'" width="'+(w*.36)+'" height="'+(h*.14)+'" rx="18" fill="'+acc+'" opacity=".88"/><ellipse cx="'+(w*.24)+'" cy="'+(h*.78)+'" rx="'+(w*.2)+'" ry="'+(h*.025)+'" fill="rgba(0,0,0,.18)"/>';
+  out+='<rect x="'+(w*.46)+'" y="'+(h*.6)+'" width="'+(w*.07)+'" height="'+(h*.15)+'" rx="6" fill="#4a3320"/><path d="M'+(w*.495)+' '+(h*.6)+' q-30 -60 -10 -110 M'+(w*.495)+' '+(h*.6)+' q30 -70 24 -120 M'+(w*.495)+' '+(h*.6)+' q-6 -80 4 -140" stroke="#2f7a4a" stroke-width="10" fill="none" stroke-linecap="round"/>';
+  out+='<rect x="'+(w*.08)+'" y="'+(h*.1)+'" width="'+(w*.2)+'" height="'+(h*.26)+'" fill="#fff" opacity=".9"/><rect x="'+(w*.09)+'" y="'+(h*.11)+'" width="'+(w*.18)+'" height="'+(h*.24)+'" fill="'+['#e9b8a0','#a9c8d8','#d8c8a0'][Math.floor(r()*3)]+'"/>';
+  out+=grain(o.grain)+vig(w,h,.3);return wrap(w,h,out,o.cls)}
+ function portrait(seed,o){o=o||{};var w=o.w||400,h=o.h||500,r=R(seed),skin=o.skin||['#f1c9a5','#d9a37a','#b57a52','#8a5a3a','#e8b896'][Math.floor(r()*5)],hair=o.hair||['#2a1c14','#5a3a22','#c9a24a','#1a1a1a','#8a4a2a','#d8d4cc'][Math.floor(r()*6)],cl=o.cloth||['#2f6b4f','#c2523a','#3a4f9a','#7a4a9a','#222','#d9a23a'][Math.floor(r()*6)],bg=o.bg||['#e8d8c4','#cfdde8','#e4d0d8','#d4e4d0'][Math.floor(r()*4)],g=id('pb'),gs=id('ps'),long=o.long!=null?o.long:r()>.5;
+  var out='<defs><radialGradient id="'+g+'" cx=".5" cy=".3" r=".9"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="'+bg+'"/></radialGradient><linearGradient id="'+gs+'" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></linearGradient></defs><rect width="'+w+'" height="'+h+'" fill="'+bg+'"/><rect width="'+w+'" height="'+h+'" fill="url(#'+g+')"/>';
+  var cx=w/2,cy=h*.42,fr=w*.19;if(long)out+='<path d="M'+(cx-fr*1.35)+' '+(cy+fr*2.2)+' Q'+(cx-fr*1.6)+' '+(cy-fr*.6)+' '+cx+' '+(cy-fr*1.5)+' Q'+(cx+fr*1.6)+' '+(cy-fr*.6)+' '+(cx+fr*1.35)+' '+(cy+fr*2.2)+'Z" fill="'+hair+'"/>';
+  out+='<path d="M'+(w*.08)+' '+h+' Q'+(w*.1)+' '+(h*.72)+' '+(cx-fr*.7)+' '+(h*.68)+' L'+(cx+fr*.7)+' '+(h*.68)+' Q'+(w*.9)+' '+(h*.72)+' '+(w*.92)+' '+h+'Z" fill="'+cl+'"/><rect x="'+(cx-fr*.32)+'" y="'+(cy+fr*.8)+'" width="'+(fr*.64)+'" height="'+(fr*1.1)+'" rx="'+(fr*.2)+'" fill="'+skin+'"/><path d="M'+(cx-fr*.7)+' '+(h*.68)+' Q'+cx+' '+(h*.78)+' '+(cx+fr*.7)+' '+(h*.68)+' L'+(cx+fr*.32)+' '+(cy+fr*1.7)+' L'+(cx-fr*.32)+' '+(cy+fr*1.7)+'Z" fill="'+skin+'"/>';
+  out+='<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+fr+'" ry="'+(fr*1.22)+'" fill="'+skin+'"/><ellipse cx="'+(cx-fr)+'" cy="'+(cy+fr*.1)+'" rx="'+(fr*.14)+'" ry="'+(fr*.24)+'" fill="'+skin+'"/><ellipse cx="'+(cx+fr)+'" cy="'+(cy+fr*.1)+'" rx="'+(fr*.14)+'" ry="'+(fr*.24)+'" fill="'+skin+'"/>';
+  out+='<path d="M'+(cx-fr*1.05)+' '+(cy-fr*.1)+' Q'+(cx-fr*1.1)+' '+(cy-fr*1.5)+' '+cx+' '+(cy-fr*1.4)+' Q'+(cx+fr*1.1)+' '+(cy-fr*1.5)+' '+(cx+fr*1.05)+' '+(cy-fr*.1)+' Q'+(cx+fr*.6)+' '+(cy-fr*.75)+' '+cx+' '+(cy-fr*.7)+' Q'+(cx-fr*.6)+' '+(cy-fr*.75)+' '+(cx-fr*1.05)+' '+(cy-fr*.1)+'Z" fill="'+hair+'"/>';
+  out+='<ellipse cx="'+(cx-fr*.4)+'" cy="'+(cy+fr*.05)+'" rx="'+(fr*.1)+'" ry="'+(fr*.06)+'" fill="#2a1c14"/><ellipse cx="'+(cx+fr*.4)+'" cy="'+(cy+fr*.05)+'" rx="'+(fr*.1)+'" ry="'+(fr*.06)+'" fill="#2a1c14"/><path d="M'+(cx-fr*.52)+' '+(cy-fr*.2)+' q'+(fr*.12)+' -'+(fr*.1)+' '+(fr*.24)+' 0M'+(cx+fr*.28)+' '+(cy-fr*.2)+' q'+(fr*.12)+' -'+(fr*.1)+' '+(fr*.24)+' 0" stroke="'+hair+'" stroke-width="'+(fr*.07)+'" fill="none" stroke-linecap="round"/><path d="M'+(cx-fr*.28)+' '+(cy+fr*.62)+' q'+(fr*.28)+' '+(fr*.2)+' '+(fr*.56)+' 0" stroke="#a04a3a" stroke-width="'+(fr*.1)+'" fill="none" stroke-linecap="round"/><path d="M'+cx+' '+(cy+fr*.12)+' v'+(fr*.3)+'" stroke="rgba(0,0,0,.12)" stroke-width="'+(fr*.07)+'" stroke-linecap="round"/>';
+  out+='<rect width="'+w+'" height="'+h+'" fill="url(#'+gs+')"/>'+grain(o.grain==null?.18:o.grain)+vig(w,h,.25);return wrap(w,h,out,o.cls)}
+ function product(kind,o){o=o||{};var w=o.w||600,h=o.h||600,c=o.color||'#2f6b4f',bg=o.bg||'#efe8dc',g=id('pg'),gb=id('pb'),r=R(o.seed||5);
+  var out='<defs><radialGradient id="'+g+'" cx=".5" cy=".38" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="'+bg+'"/></radialGradient><linearGradient id="'+gb+'" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".25"/><stop offset=".3" stop-color="#fff" stop-opacity=".35"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><rect width="'+w+'" height="'+h+'" fill="'+bg+'"/><rect width="'+w+'" height="'+h+'" fill="url(#'+g+')"/><ellipse cx="'+(w/2)+'" cy="'+(h*.83)+'" rx="'+(w*.26)+'" ry="'+(h*.035)+'" fill="rgba(0,0,0,.22)" filter="blur(6px)"/>';
+  var cx=w/2;if(kind==='bottle'){out+='<rect x="'+(cx-w*.07)+'" y="'+(h*.14)+'" width="'+(w*.14)+'" height="'+(h*.1)+'" rx="8" fill="#2a2a2a"/><path d="M'+(cx-w*.06)+' '+(h*.23)+' h'+(w*.12)+' q'+(w*.1)+' '+(h*.04)+' '+(w*.1)+' '+(h*.14)+' v'+(h*.42)+' q0 '+(h*.04)+' -'+(w*.04)+' '+(h*.04)+' h-'+(w*.32)+' q-'+(w*.04)+' 0 -'+(w*.04)+' -'+(h*.04)+' v-'+(h*.42)+' q0 -'+(h*.1)+' '+(w*.1)+' -'+(h*.14)+'Z" fill="'+c+'"/><rect x="'+(cx-w*.16)+'" y="'+(h*.46)+'" width="'+(w*.32)+'" height="'+(h*.18)+'" fill="#fbf6ea" opacity=".95"/><path d="M'+(cx-w*.12)+' '+(h*.52)+'h'+(w*.24)+'M'+(cx-w*.12)+' '+(h*.57)+'h'+(w*.16)+'" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/><path d="M'+(cx-w*.16)+' '+(h*.28)+' v'+(h*.5)+' h'+(w*.32)+' v-'+(h*.5)+'Z" fill="url(#'+gb+')"/>'}
+  else if(kind==='mug'){out+='<path d="M'+(cx-w*.2)+' '+(h*.34)+' h'+(w*.4)+' v'+(h*.32)+' q0 '+(h*.12)+' -'+(w*.12)+' '+(h*.12)+' h-'+(w*.16)+' q-'+(w*.12)+' 0 -'+(w*.12)+' -'+(h*.12)+'Z" fill="'+c+'"/><path d="M'+(cx+w*.2)+' '+(h*.42)+' q'+(w*.14)+' 0 '+(w*.14)+' '+(h*.1)+' t-'+(w*.14)+' '+(h*.1)+'" stroke="'+c+'" stroke-width="'+(w*.045)+'" fill="none"/><ellipse cx="'+cx+'" cy="'+(h*.34)+'" rx="'+(w*.2)+'" ry="'+(h*.03)+'" fill="#3a2418"/><rect x="'+(cx-w*.2)+'" y="'+(h*.34)+'" width="'+(w*.4)+'" height="'+(h*.44)+'" fill="url(#'+gb+')"/>'}
+  else if(kind==='sneaker'){out+='<path d="M'+(w*.15)+' '+(h*.66)+' q0 -'+(h*.18)+' '+(w*.1)+' -'+(h*.24)+' l'+(w*.12)+' -'+(h*.04)+' q'+(w*.06)+' '+(h*.1)+' '+(w*.2)+' '+(h*.08)+' q'+(w*.22)+' '+(h*.02)+' '+(w*.3)+' '+(h*.18)+' v'+(h*.06)+' h-'+(w*.72)+'Z" fill="'+c+'"/><rect x="'+(w*.14)+'" y="'+(h*.66)+'" width="'+(w*.72)+'" height="'+(h*.07)+'" rx="'+(h*.035)+'" fill="#f4efe6"/><path d="M'+(w*.32)+' '+(h*.46)+' l'+(w*.1)+' '+(h*.05)+' M'+(w*.36)+' '+(h*.42)+' l'+(w*.1)+' '+(h*.05)+' M'+(w*.4)+' '+(h*.39)+' l'+(w*.1)+' '+(h*.05)+'" stroke="#fff" stroke-width="6" stroke-linecap="round"/>'}
+  else if(kind==='watch'){out+='<rect x="'+(cx-w*.07)+'" y="'+(h*.08)+'" width="'+(w*.14)+'" height="'+(h*.84)+'" rx="12" fill="#2a2a2a"/><circle cx="'+cx+'" cy="'+(h*.5)+'" r="'+(w*.2)+'" fill="#c8c8cc"/><circle cx="'+cx+'" cy="'+(h*.5)+'" r="'+(w*.18)+'" fill="'+c+'"/><path d="M'+cx+' '+(h*.5)+' v-'+(w*.12)+' M'+cx+' '+(h*.5)+' l'+(w*.08)+' '+(w*.04)+'" stroke="#fff" stroke-width="5" stroke-linecap="round"/>'+[0,1,2,3,4,5,6,7,8,9,10,11].map(function(k){var a=k*Math.PI/6;return '<circle cx="'+(cx+Math.sin(a)*w*.15)+'" cy="'+(h*.5-Math.cos(a)*w*.15)+'" r="3" fill="#fff"/>'}).join('')}
+  else if(kind==='bag'){out+='<path d="M'+(cx-w*.1)+' '+(h*.32)+' q0 -'+(h*.2)+' '+(w*.1)+' -'+(h*.2)+' t'+(w*.1)+' '+(h*.2)+'" stroke="#3a2a1a" stroke-width="'+(w*.03)+'" fill="none"/><path d="M'+(cx-w*.26)+' '+(h*.32)+' h'+(w*.52)+' l'+(w*.04)+' '+(h*.46)+' h-'+(w*.6)+'Z" fill="'+c+'"/><rect x="'+(cx-w*.26)+'" y="'+(h*.32)+'" width="'+(w*.52)+'" height="'+(h*.1)+'" fill="rgba(0,0,0,.14)"/>'}
+  else if(kind==='headphones'){out+='<path d="M'+(cx-w*.22)+' '+(h*.56)+' v-'+(h*.1)+' q0 -'+(h*.3)+' '+(w*.22)+' -'+(h*.3)+' t'+(w*.22)+' '+(h*.3)+' v'+(h*.1)+'" stroke="#2a2a2a" stroke-width="'+(w*.04)+'" fill="none"/><rect x="'+(cx-w*.29)+'" y="'+(h*.5)+'" width="'+(w*.14)+'" height="'+(h*.24)+'" rx="'+(w*.06)+'" fill="'+c+'"/><rect x="'+(cx+w*.15)+'" y="'+(h*.5)+'" width="'+(w*.14)+'" height="'+(h*.24)+'" rx="'+(w*.06)+'" fill="'+c+'"/>'}
+  else{out+='<rect x="'+(cx-w*.2)+'" y="'+(h*.3)+'" width="'+(w*.4)+'" height="'+(h*.46)+'" rx="22" fill="'+c+'"/><rect x="'+(cx-w*.2)+'" y="'+(h*.3)+'" width="'+(w*.4)+'" height="'+(h*.46)+'" rx="22" fill="url(#'+gb+')"/>'}
+  out+=grain(.12);return wrap(w,h,out,o.cls)}
+ function food(seed,o){o=o||{};var w=o.w||600,h=o.h||600,r=R(seed),bg=o.bg||'#d8c8b0',g=id('fb');var out='<defs><radialGradient id="'+g+'" cx=".5" cy=".5" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".4"/><stop offset="1" stop-color="#000" stop-opacity=".25"/></radialGradient></defs><rect width="'+w+'" height="'+h+'" fill="'+bg+'"/><g opacity=".25">'+Array.apply(null,Array(14)).map(function(_,i){return '<rect x="0" y="'+(i*h/14)+'" width="'+w+'" height="2" fill="#000"/>'}).join('')+'</g>';
+  var cx=w/2,cy=h/2;out+='<circle cx="'+cx+'" cy="'+(cy+8)+'" r="'+(w*.36)+'" fill="rgba(0,0,0,.25)" filter="blur(8px)"/><circle cx="'+cx+'" cy="'+cy+'" r="'+(w*.36)+'" fill="#f6f1e6"/><circle cx="'+cx+'" cy="'+cy+'" r="'+(w*.3)+'" fill="'+(o.base||'#e8d6b0')+'"/>';
+  var cols=o.cols||['#c4492f','#6fa04a','#f2b230','#8a3a2a','#f4efe0'];for(var i=0;i<46;i++){var a=r()*6.283,d=Math.sqrt(r())*w*.27;out+='<circle cx="'+(cx+Math.cos(a)*d).toFixed(0)+'" cy="'+(cy+Math.sin(a)*d).toFixed(0)+'" r="'+(8+r()*20).toFixed(0)+'" fill="'+cols[Math.floor(r()*cols.length)]+'"/>'}
+  out+='<circle cx="'+cx+'" cy="'+cy+'" r="'+(w*.36)+'" fill="url(#'+g+')"/>'+grain(.15);return wrap(w,h,out,o.cls)}
+ function abstract(seed,o){o=o||{};var w=o.w||800,h=o.h||600,r=R(seed),cols=o.cols||['#ff7a59','#ffb86b','#7a5cff','#19e6c9','#0f1a3a'],out='<rect width="'+w+'" height="'+h+'" fill="'+cols[cols.length-1]+'"/>';
+  for(var i=0;i<(o.n||7);i++){var gi=id('ab'),c1=cols[Math.floor(r()*(cols.length-1))],c2=cols[Math.floor(r()*(cols.length-1))];out+='<defs><radialGradient id="'+gi+'"><stop offset="0" stop-color="'+c1+'"/><stop offset="1" stop-color="'+c2+'" stop-opacity="0"/></radialGradient></defs><circle cx="'+(r()*w).toFixed(0)+'" cy="'+(r()*h).toFixed(0)+'" r="'+(h*(.25+r()*.4)).toFixed(0)+'" fill="url(#'+gi+')" opacity="'+(.6+r()*.4).toFixed(2)+'"/>'}
+  return wrap(w,h,out+grain(o.grain==null?.2:o.grain),o.cls)}
+ return {landscape:landscape,sea:sea,city:city,interior:interior,portrait:portrait,product:product,food:food,abstract:abstract,grain:grain,vig:vig,R:R,PAL:PAL};
+})();
+
+/*SCENES-END*/</script>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+// route strip
+var W=1600,H=500,road='M260 380 C420 330 520 420 700 390 S980 300 1160 360 S1360 400 1380 380';
+(function(){var r=SC.R(17),o='<defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ccbe8"/><stop offset=".7" stop-color="#fde3b5"/><stop offset="1" stop-color="#fbd9a0"/></linearGradient><linearGradient id="gr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fc98a"/><stop offset="1" stop-color="#6aa05a"/></linearGradient><filter id="bl"><feGaussianBlur stdDeviation="5"/></filter></defs><rect width="'+W+'" height="'+H+'" fill="url(#sk)"/><circle cx="1180" cy="120" r="46" fill="#fff6d0" opacity=".9"/><circle cx="1180" cy="120" r="90" fill="#fff6d0" opacity=".25"/>';
+for(var i=0;i<5;i++)o+='<ellipse cx="'+(r()*W).toFixed(0)+'" cy="'+(50+r()*100).toFixed(0)+'" rx="'+(80+r()*80).toFixed(0)+'" ry="16" fill="#fff" opacity=".7"/>';
+o+='<path d="M0 300 Q260 230 560 290 T1100 270 T1600 300 V500 H0Z" fill="#b6d6a4"/><path d="M0 340 Q400 290 800 340 T1600 330 V500 H0Z" fill="url(#gr)"/>';
+o+='<path d="'+road+'" fill="none" stroke="#7d746a" stroke-width="46" stroke-linecap="round"/><path d="'+road+'" fill="none" stroke="#4a443d" stroke-width="40" stroke-linecap="round"/><path d="'+road+'" fill="none" stroke="#f4ead5" stroke-width="3" stroke-dasharray="18 16" stroke-linecap="round"/>';
+// stream & bridge
+o+='<path d="M640 500 Q690 440 700 330" stroke="#8cc6e0" stroke-width="40" fill="none" opacity=".9"/><rect x="654" y="352" width="92" height="50" rx="8" fill="#a8998a" opacity=".001"/>';
+// warehouse
+o+='<g transform="translate(60 250)"><ellipse cx="110" cy="150" rx="140" ry="12" fill="#000" opacity=".25" filter="url(#bl)"/><rect y="40" width="220" height="110" fill="#b8532d"/><path d="M-10 44 L110 0 L230 44Z" fill="#8a3a1a"/>';
+for(i=0;i<8;i++)o+='<line x1="0" y1="'+(54+i*12)+'" x2="220" y2="'+(54+i*12)+'" stroke="#8a3a1a" stroke-width="1" opacity=".5"/>';
+o+='<rect x="70" y="80" width="80" height="70" fill="#3a2a22"/><rect x="74" y="84" width="72" height="30" fill="#5a4a40"/><rect x="170" y="110" width="40" height="40" fill="#c9a06a"/><rect x="176" y="118" width="26" height="26" fill="#a8803e"/><text x="110" y="70" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="16" fill="#f4ead5">KILN &amp; CO.</text></g>';
+// depot
+o+='<g transform="translate(470 330)"><ellipse cx="50" cy="90" rx="70" ry="8" fill="#000" opacity=".25" filter="url(#bl)"/><rect y="20" width="100" height="70" fill="#d8c8a8"/><rect x="-6" y="14" width="112" height="10" fill="#6a5a4a"/><rect x="20" y="40" width="22" height="22" fill="#9ccbe8"/><rect x="58" y="40" width="22" height="22" fill="#9ccbe8"/><rect x="38" y="64" width="24" height="26" fill="#5a4a40"/></g>';
+// bridge
+o+='<g transform="translate(650 340)"><path d="M0 40 Q50 -10 100 40" fill="none" stroke="#a8998a" stroke-width="10"/><rect x="0" y="36" width="100" height="10" fill="#a8998a" opacity=".001"/></g>';
+// green with tree
+o+='<g transform="translate(980 290)"><ellipse cx="40" cy="96" rx="60" ry="8" fill="#000" opacity=".2" filter="url(#bl)"/><rect x="34" y="44" width="12" height="52" fill="#6b4528"/><circle cx="40" cy="34" r="36" fill="#4a8a4a"/><circle cx="22" cy="46" r="24" fill="#5a9a52"/><circle cx="58" cy="44" r="24" fill="#3a7a40"/></g>';
+// house
+o+='<g transform="translate(1340 260)"><ellipse cx="90" cy="130" rx="120" ry="12" fill="#000" opacity=".25" filter="url(#bl)"/><rect y="50" width="180" height="90" fill="#e8d2b0"/><path d="M-12 54 L90 0 L192 54Z" fill="#a8453a"/><rect x="20" y="70" width="34" height="34" fill="#ffe9a8"/><path d="M37 70 V104 M20 87 H54" stroke="#6b4528" stroke-width="3"/><rect x="120" y="70" width="34" height="34" fill="#9ccbe8"/><rect x="78" y="92" width="30" height="48" fill="#6b4528"/><circle cx="102" cy="116" r="2.5" fill="#e9a93c"/><rect x="72" y="140" width="42" height="6" fill="#c9783a"/><circle cx="38" cy="98" r="40" fill="#ffe9a8" opacity=".2"/></g><rect x="1300" y="380" width="200" height="22" rx="11" fill="#3a7a40" opacity=".95"/>';
+for(i=0;i<8;i++){var tx=120+i*180+r()*40;if(tx>400&&tx<520||tx>900&&tx<1060)continue;o+='<g transform="translate('+tx.toFixed(0)+' '+(400+r()*60).toFixed(0)+')"><rect x="-3" y="0" width="6" height="22" fill="#6b4528"/><circle cy="-6" r="'+(14+r()*8).toFixed(0)+'" fill="'+['#4a8a4a','#5a9a52','#3a7a40'][i%3]+'"/></g>'}
+for(i=0;i<5;i++){var lx=360+i*210;o+='<g transform="translate('+lx+' 330)"><rect x="-2" y="0" width="4" height="52" fill="#3a3a40"/><rect x="-8" y="-8" width="16" height="10" rx="3" fill="#ffe9a8"/></g>'}
+$('#rt').innerHTML='<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid slice" aria-hidden="true">'+o+'<path id="rp" d="'+road+'" fill="none" stroke="none"/><g id="van"><ellipse cx="0" cy="26" rx="46" ry="7" fill="#000" opacity=".3"/><g id="dust"></g><g transform="translate(-44 -26)"><rect x="0" y="6" width="74" height="38" rx="9" fill="#f4ead5"/><path d="M52 6 h22 q10 0 14 12 v26 h-36z" fill="#f4ead5"/><rect x="60" y="14" width="22" height="16" rx="3" fill="#8fc2dc"/><rect x="0" y="30" width="88" height="6" fill="#1f6b4a"/><text x="30" y="26" text-anchor="middle" font-family="Figtree,sans-serif" font-weight="700" font-size="11" fill="#1f6b4a">K&amp;Co</text><circle cx="20" cy="46" r="10" fill="#2a2a2a"/><circle cx="20" cy="46" r="4" fill="#9a9a9a"/><circle cx="66" cy="46" r="10" fill="#2a2a2a"/><circle cx="66" cy="46" r="4" fill="#9a9a9a"/></g></g>'+SC.grain(.12)+SC.vig(W,H,.3)+'</svg>';
+$('#cav').innerHTML=SC.portrait(31,{w:120,h:150});
+$('#items').innerHTML=[['Stoneware Mug x2','mug','#8aa386',32],['Clay Planter','bottle','#c9683a',36],['Linen Cushion','default','#e8e2d4',42]].map(function(i,k){return'<div class="li"><span class="t">'+SC.product(i[1],{w:120,h:120,color:i[2],bg:['#efe3cd','#d8e3d3','#e8d6bd'][k],seed:k+5})+'</span><span>'+i[0]+'</span><span class="pr">GBP '+i[3]+'</span></div>'}).join('')})();
+var STEPS=[['Ordered','12 Oct',[['12 Oct, 09:14','Order placed','We have your order and are getting it ready.'],['12 Oct, 09:15','Payment confirmed','Paid by card ending 4242.']]],['Packed','12 Oct',[['12 Oct, 14:02','Items picked at Pennick warehouse','Two mugs and a planter, one cushion.'],['12 Oct, 15:40','Packed in a recycled box','Label printed and parcel sealed.']]],['Shipped','13 Oct',[['13 Oct, 06:30','Collected by Parcel Line','Tracking code KC-PL-88214.'],['13 Oct, 11:20','Arrived at Saltgate depot','Sorted and queued for the morning van.']]],['Out for delivery','14 Oct',[['14 Oct, 07:45','Loaded on van 12','Your parcel is on the road today.'],['14 Oct, 09:10','Courier Mira S. is 14 stops away','Delivery window 12:00 to 15:00.']]],['Delivered','14 Oct',[['14 Oct, 13:42','Delivered','Left in a safe place at the front door.']]]];
+var P=2;try{var sv0=localStorage.getItem('ko-p');if(sv0!==null&&+sv0>=0&&+sv0<=4)P=+sv0}catch(e){}
+var open=-1;
+var CHEV='<svg class="ch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l5 5 5-5"/></svg>';
+function stepper(){var h='';STEPS.forEach(function(s,i){var st=i<P?'done':i===P?'cur':'up',op=open===i;h+='<li class="'+st+'"><button class="sb" id="sb'+i+'" aria-expanded="'+op+'" aria-controls="ev'+i+'"'+(i===P?' aria-current="step"':'')+'><span class="dot" aria-hidden="true">'+(i<P?'✓':i+1)+'</span><span><b>'+s[0]+'</b><small>'+(i<=P?s[1]:'Expected '+(i===4?'Thursday':s[1]))+'</small></span><span class="tg">'+(i<P?'Done':i===P?'Current':'Upcoming')+'</span>'+CHEV+'</button><div class="ev" id="ev'+i+'" role="region" aria-labelledby="sb'+i+'"'+(op?'':' hidden')+'>'+(i<=P?s[2].map(function(e){return'<div><time>'+e[0]+'</time><b>'+e[1]+'</b><br><span>'+e[2]+'</span></div>'}).join(''):'<div><span>Not started yet. We will update this step when it begins.</span></div>')+'</div></li>'});
+var old=$('#fill');$('#st').innerHTML='<div class="fill" id="fill" style="height:'+(old?old.style.height:'0')+'"></div>'+h;
+requestAnimationFrame(function(){var li=$('#st').children,f=$('#fill'),b=$('#sb'+P);var y=b.offsetTop+b.offsetHeight/2;var top=22;f.style.height=Math.max(0,P<=0?0:(document.getElementById('sb'+P).parentNode.offsetTop+22-top))+'px'});
+document.querySelectorAll('.sb').forEach(function(b,i){b.onclick=function(e){open=open===i?-1:i;if(!e.shiftKey&&open===i){}stepper();$('#sb'+i).focus()};b.onkeydown=function(e){if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();var n=i+(e.key==='ArrowDown'?1:-1);if(n>=0&&n<5)$('#sb'+n).focus()}}})}
+var road=$('#rp'),van=$('#van'),pos=0,anim=0;
+var POS=[0,.22,.5,.8,1];
+function setVan(t){var L=road.getTotalLength(),p=road.getPointAtLength(t*L),q=road.getPointAtLength(Math.min(L,t*L+3)),a=Math.atan2(q.y-p.y,q.x-p.x)*180/Math.PI*.4;van.setAttribute('transform','translate('+p.x+' '+(p.y-14)+') rotate('+a+')')}
+function moveVan(to,quick){cancelAnimationFrame(anim);if(reduce||quick){pos=to;setVan(to);return}var from=pos,t0=performance.now(),dur=1400;(function f(t){var k=Math.min(1,(t-t0)/dur),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;pos=from+(to-from)*e;setVan(pos);if(k<1)anim=requestAnimationFrame(f)})(t0)}
+function eta(){var e=$('#eta'),slotA=12,slotB=15,ax=function(h){return(h-8)/12*100},now=P>=3?(P===3?10.1:13.7):8;
+var h='<h3>Estimated arrival</h3>';
+if(P<3){h+='<h2>Arrives Thursday</h2><p style="margin:0;color:#675d4e">Your delivery window will be confirmed on the morning of delivery.</p>'}
+else if(P===3){h+='<h2>Arrives Thursday, 12:00 to 15:00</h2><div class="win"><div class="ax"></div><div class="slot" style="left:'+ax(slotA)+'%;width:'+(ax(slotB)-ax(slotA))+'%"></div><div class="nw" style="left:'+ax(now)+'%"><span>Now 10:06</span></div>'+[8,12,16,20].map(function(t){return'<span class="tk" style="left:'+ax(t)+'%">'+('0'+t).slice(-2)+':00</span>'}).join('')+'</div><p style="margin:14px 0 0">Arriving in about <span class="cd" id="cd" role="timer">1:54:00</span></p>'}
+else{h+='<h2>Delivered at 13:42</h2><p style="margin:0;color:#675d4e">Left in a safe place at the front door. A photo is in your email.</p>'}
+e.innerHTML=h}
+var cd=null,secs=1*3600+54*60;
+function tickCd(){clearInterval(cd);if(P!==3)return;secs=1*3600+54*60;cd=setInterval(function(){secs=Math.max(0,secs-1);var el=$('#cd');if(!el)return;el.textContent=Math.floor(secs/3600)+':'+('0'+Math.floor(secs/60)%60).slice(-2)+':'+('0'+secs%60).slice(-2);if(secs%300===0)$('#live').textContent='About '+Math.round(secs/60)+' minutes until delivery.'},1000)}
+function labels(){$('#pl').textContent='Step '+(P+1)+' of 5: '+STEPS[P][0]+(P===4?'. Your parcel has arrived.':'');$('#nx').disabled=P>=4}
+function all(quick){stepper();eta();labels();moveVan(POS[P],quick);tickCd();try{localStorage.setItem('ko-p',P)}catch(e){}}
+$('#nx').onclick=function(){if(P<4){P++;open=P;all(false);$('#live').textContent='Step '+(P+1)+': '+STEPS[P][0]+'. '+STEPS[P][2][0][1]+'.'}};
+$('#rs').onclick=function(){P=2;open=2;all(false);$('#live').textContent='Reset to Shipped.'};
+$('#msg').onclick=function(){$('#live').textContent='Message window opened (demo).'};
+open=P;all(true);
+})();
+</script></body></html>

@@ -1,0 +1,218 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Size Finder Assistant — E-commerce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Figtree:wght@400;500;700&family=Fraunces:wght@600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f4efe6;color:#1e1b17;font:400 16px/1.5 Figtree,system-ui,sans-serif;overflow-x:hidden}
+:focus-visible{outline:3px solid #1e1b17;outline-offset:3px;box-shadow:0 0 0 6px #fff}
+.hd{max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;align-items:center}.wm{font:600 22px Fraunces,serif}
+.w{max-width:1200px;margin:0 auto;padding:0 20px 44px}
+.eb{font:700 12px Figtree;letter-spacing:.16em;text-transform:uppercase;color:#2f6b4a;margin:4px 0}
+h1{font:600 clamp(32px,5vw,56px)/1.02 Fraunces,serif;margin:0 0 6px}.lead{color:#675d4f;margin:0 0 16px;max-width:52ch}
+.main{display:grid;grid-template-columns:1fr 440px;gap:22px;align-items:start}.main>*{min-width:0}
+.q{background:#fffdf8;border:1px solid #e5dccb;border-radius:18px;padding:16px 18px;margin-bottom:12px}
+.q h2{display:flex;align-items:center;gap:10px;font:600 20px Fraunces,serif;margin:0 0 2px}
+.q h2 i{width:28px;height:28px;border-radius:50%;background:#2f6b4a;color:#fff;font:700 14px Figtree;display:grid;place-items:center;font-style:normal}
+.q p.h{margin:0 0 10px 38px;color:#675d4f;font-size:14px}
+.hr{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.hr input[type=range]{flex:1;min-width:180px;accent-color:#2f6b4a;height:32px}
+.hr .num{font:500 20px "DM Mono",monospace;min-width:7ch;text-align:right}
+.un{display:inline-flex;border:1.5px solid #1e1b17;border-radius:10px;overflow:hidden}.un button{font:700 13px Figtree;border:0;background:#fff;min-height:44px;padding:0 14px;cursor:pointer;color:#1e1b17}.un button[aria-pressed=true]{background:#1e1b17;color:#fff}
+.hn{width:100px;font:500 16px "DM Mono";border:1.5px solid #1e1b17;border-radius:10px;min-height:44px;padding:0 10px;background:#fff}
+.err{color:#a8421f;font-size:14px;min-height:20px;margin:4px 0 0}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.cards label{position:relative;display:block}.cards input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.cards .c{display:flex;flex-direction:column;align-items:center;gap:4px;border:1.5px solid #cdbfa6;border-radius:14px;padding:8px 4px;background:#fff;font-weight:600;font-size:14px}
+.cards .c svg{width:44px;height:52px}
+.cards input:checked+.c{border-color:#2f6b4a;background:#e6f1e8;box-shadow:inset 0 0 0 1.5px #2f6b4a}
+.cards input:focus-visible+.c{outline:3px solid #1e1b17;outline-offset:3px}
+.seg{display:inline-flex;border:1.5px solid #1e1b17;border-radius:12px;overflow:hidden;flex-wrap:wrap}.seg label{position:relative}.seg input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.seg span{display:block;min-height:46px;padding:0 16px;line-height:46px;font-weight:700;background:#fff;font-size:15px}
+.seg input:checked+span{background:#1e1b17;color:#fff}.seg input:focus-visible+span{outline:3px solid #2f6b4a;outline-offset:-3px}
+select,.cm{font:500 16px Figtree;border:1.5px solid #1e1b17;border-radius:10px;min-height:46px;padding:0 12px;background:#fff;color:#1e1b17}
+.cm{width:120px;font-family:"DM Mono",monospace}
+.how{margin:8px 0 0;font-size:14px;background:#f4efe6;border-radius:10px;padding:8px 12px;color:#4a4136}
+.lk{background:none;border:0;color:#2f6b4a;font:700 14px Figtree;text-decoration:underline;cursor:pointer;min-height:44px}
+.res{position:sticky;top:12px;background:#fffdf8;border:1px solid #e5dccb;border-radius:22px;overflow:hidden;box-shadow:0 22px 50px rgba(70,45,10,.18)}
+.fig{position:relative;aspect-ratio:4/5;overflow:hidden}.fig svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.rb{padding:14px 18px 18px}
+.sg{display:flex;align-items:baseline;gap:12px}.sg small{font-weight:700;color:#675d4f;text-transform:uppercase;letter-spacing:.1em;font-size:12px}
+.big{font:600 clamp(64px,9vw,104px)/.9 Fraunces,serif;transition:opacity .2s}
+.alt{font-weight:700;color:#8a5a0a;margin-left:auto;font-size:14px}
+.mt{display:flex;gap:4px;margin:10px 0 4px}.mt i{flex:1;height:10px;border-radius:5px;background:#e5dccb}.mt i.on{background:#2f6b4a}.mt.lo i.on{background:#d89a1e}.mt.vl i.on{background:#b8532d}
+.cf{display:flex;justify-content:space-between;font-weight:700;font-size:14px}
+.ex{margin:8px 0;color:#3a342c}
+.rs{margin:0 0 10px;padding-left:18px;color:#4a4136;font-size:14.5px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}th{text-align:left;color:#675d4f;font-weight:600;padding:4px 6px;border-bottom:1px solid #e5dccb}td{padding:5px 6px;font-family:"DM Mono",monospace;border-bottom:1px solid #f0e8d8}
+td:first-child{font-family:Figtree;font-weight:700}tr.top td{background:#e6f1e8;font-weight:700}tr.alt2 td{background:#fbf3de}
+.add{width:100%;margin-top:12px;font:700 16px Figtree;color:#fff;background:#2f6b4a;border:0;border-radius:12px;min-height:50px;cursor:pointer}.add:hover{background:#245439}
+.msg{min-height:22px;margin-top:6px;font-weight:600;color:#2f6b4a}
+.ft{color:#675d4f;font-size:13.5px;margin-top:10px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.det{display:none}
+@media(max-width:900px){.main{grid-template-columns:1fr}.res{position:sticky;top:0;z-index:20;order:-1;border-radius:0 0 18px 18px;margin:0 -20px 12px}.fig{aspect-ratio:auto;height:150px}.fig svg{height:150px}.det{display:flex}.big{font-size:60px}.dt{display:none}.dt.open{display:block}.cards{grid-template-columns:1fr 1fr}.sg{align-items:center}}
+.sm{display:none}
+@media(prefers-reduced-motion:reduce){.big{transition:none}}
+</style></head><body>
+<header class="hd"><span class="wm">Fieldnote Knitwear</span></header>
+<main class="w">
+<p class="eb">Merino Crew</p><h1>Find your size in a minute</h1><p class="lead">Five quick questions. We will suggest a size, tell you why, and show it on a figure close to your height.</p>
+<div class="main">
+<form id="f" onsubmit="return false" aria-label="Size questions">
+<div class="q"><h2><i>1</i>Height</h2><p class="h">Drag the slider or type your height.</p><div class="hr"><div class="un" role="group" aria-label="Units"><button type="button" id="ucm" aria-pressed="true">cm</button><button type="button" id="uft" aria-pressed="false">ft in</button></div><label class="sr" for="hr">Height</label><input type="range" id="hr" min="150" max="205" step="1" value="178"><label class="sr" for="hn">Height value</label><input class="hn" id="hn" value="178" inputmode="decimal" aria-describedby="he"></div><p class="err" id="he" role="alert"></p></div>
+<div class="q"><h2><i>2</i>Build</h2><p class="h">Pick the picture closest to you.</p><div class="cards" role="radiogroup" aria-label="Build" id="bd"></div></div>
+<div class="q"><h2><i>3</i>Fit</h2><p class="h">How do you like knitwear to sit?</p><div class="seg" role="radiogroup" aria-label="Fit" id="ft"></div></div>
+<div class="q"><h2><i>4</i>Your usual size elsewhere</h2><p class="h">If you are not sure, that is fine.</p><label class="sr" for="us">Usual size</label><select id="us"><option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option value="">I am not sure</option></select></div>
+<div class="q"><h2><i>5</i>Chest measurement <span style="font:500 13px Figtree;color:#675d4f">(optional)</span></h2><p class="h">Measured around the fullest part, in cm.</p><div class="hr"><label class="sr" for="ch">Chest in cm</label><input class="cm" id="ch" inputmode="numeric" placeholder="e.g. 100"><button type="button" class="lk" id="hw" aria-expanded="false" aria-controls="hwt">How to measure</button></div><p class="how" id="hwt" hidden>Stand relaxed with arms down. Wrap a soft tape under your armpits and across your shoulder blades, keeping it level and snug but not tight.</p><p class="err" id="ce" role="alert"></p></div>
+</form>
+<aside class="res" aria-label="Your size suggestion"><div class="fig" id="fig" role="img" aria-label="Figure wearing the Merino Crew"></div>
+<div class="rb"><div class="sg"><small>We suggest</small><span class="big" id="big">M</span><span class="alt" id="alt"></span></div>
+<div class="mt" id="mt" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="cf"><span id="cw">Confidence: High</span><span id="cp">86%</span></div>
+<button type="button" class="lk det" id="dd" aria-expanded="false">See details</button>
+<div class="dt" id="dt"><p class="ex" id="ex"></p><ul class="rs" id="rs"></ul><table><caption class="sr">Size chart in centimetres</caption><thead><tr><th>Size</th><th>Chest</th><th>Length</th><th></th></tr></thead><tbody id="tb"></tbody></table></div>
+<button class="add" id="add">Add size M to bag</button><div class="msg" id="msg" role="status"></div><p class="ft">Sizes run true to our size chart. Free exchanges within 30 days.</p></div></aside>
+</div><div class="sr" id="live" aria-live="polite"></div></main>
+<script>/*SCENES-START*/
+var SC=(function(){
+ var uid=0,s=1;function id(p){return p+(++uid)}
+ function R(seed){var x=seed||1;return function(){x=(x*9301+49297)%233280;return x/233280}}
+ var PAL={
+  dusk:{sky:['#1b1740','#4b2a78','#c2477a','#ff9a62','#ffd9a0'],sun:'#fff0c4',ridge:['#7a3a7e','#522c68','#2f1c4d','#1a1033'],mist:'#ffb48a',star:1},
+  dawn:{sky:['#2a3a78','#7a7fc4','#f2a6a0','#ffd9a8','#fff3d6'],sun:'#fffbe8',ridge:['#8a8fc0','#6a6aa8','#4a4a88','#2a2a5a'],mist:'#ffe1c4'},
+  alpine:{sky:['#4a86c8','#8bbbe6','#cfe6f6','#f4f9ff'],sun:'#fff',ridge:['#b7c8d8','#8aa1b8','#5d7690','#35495f'],mist:'#fff',snow:1},
+  desert:{sky:['#e08a4c','#f2b26a','#f8d79a','#fff0cc'],sun:'#fffbe4',ridge:['#d9824a','#b8603a','#8a4230','#5a2a22'],mist:'#ffd9a0'},
+  coast:{sky:['#5aa3d8','#9ccdee','#d6ecf8','#fff6e6'],sun:'#fff',ridge:['#7fa3a8','#4f7f86','#2d5a62','#173a42'],mist:'#fff'},
+  night:{sky:['#05081a','#0d1840','#1d3170','#3a4f9a'],sun:'#e8eeff',ridge:['#1b2a5a','#111c42','#0a122e','#050818'],mist:'#5a6fc0',star:2},
+  forest:{sky:['#9bc7b0','#cfe3c8','#f2f0d0','#fff8dc'],sun:'#fff8d8',ridge:['#7fa889','#4f7d63','#2f5a46','#183a2c'],mist:'#e8f2d8'},
+  gold:{sky:['#3a2410','#a85a1c','#f0a03a','#ffe0a0'],sun:'#fff4c8',ridge:['#8a4a1a','#5e3010','#3a1c08','#1e0e04'],mist:'#ffc060',star:0}};
+ function grad(i,stops,vert){var n=stops.length;return '<linearGradient id="'+i+'" x1="0" y1="0" x2="'+(vert===false?1:0)+'" y2="'+(vert===false?0:1)+'">'+stops.map(function(c,k){return '<stop offset="'+(k/(n-1)).toFixed(2)+'" stop-color="'+c+'"/>'}).join('')+'</linearGradient>'}
+ function grain(op){var i=id('gn');return '<filter id="'+i+'" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .6 0"/></filter><rect width="100%" height="100%" filter="url(#'+i+')" opacity="'+(op==null?.22:op)+'" style="mix-blend-mode:overlay"/>'}
+ function vig(w,h,str){var i=id('vg');return '<radialGradient id="'+i+'" cx=".5" cy=".5" r=".75"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="'+(str==null?.45:str)+'"/></radialGradient><rect width="'+w+'" height="'+h+'" fill="url(#'+i+')"/>'}
+ function wrap(w,h,inner,cls){return '<svg viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"'+(cls?' class="'+cls+'"':'')+'>'+inner+'</svg>'}
+ function ridge(r,w,base,amp,col,rough,id2){var d='M0 '+(base+amp)+' ',x=0,y;var pts=[];var n=Math.round(w/16);var ph=r()*6;for(var i=0;i<=n;i++){var xx=i/n*w,v=Math.sin(i*.35+ph)*.5+Math.sin(i*.9+ph*2)*.25+(r()-.5)*rough;pts.push([xx,base-v*amp])}d='M0 '+(base+amp*3)+' L'+pts.map(function(p){return p[0].toFixed(0)+' '+p[1].toFixed(1)}).join(' L')+' L'+w+' '+(base+amp*3)+'Z';return '<path d="'+d+'" fill="'+col+'"/>'}
+ function landscape(seed,o){o=o||{};var w=o.w||1200,h=o.h||700,P=PAL[o.pal||'dusk'],r=R(seed),g=id('sk'),g2=id('sn');var sunY=o.sunY!=null?o.sunY:h*.52,sunX=o.sunX!=null?o.sunX:w*(.3+r()*.4);
+  var out='<defs>'+grad(g,P.sky)+'<radialGradient id="'+g2+'"><stop offset="0" stop-color="'+P.sun+'"/><stop offset=".25" stop-color="'+P.sun+'" stop-opacity=".9"/><stop offset="1" stop-color="'+P.sun+'" stop-opacity="0"/></radialGradient></defs><rect width="'+w+'" height="'+h+'" fill="url(#'+g+')"/>';
+  if(P.star){for(var i=0;i<(P.star===2?160:70);i++)out+='<circle cx="'+(r()*w).toFixed(0)+'" cy="'+(r()*h*.5).toFixed(0)+'" r="'+(.5+r()*1.4).toFixed(1)+'" fill="#fff" opacity="'+(.3+r()*.7).toFixed(2)+'"/>'}
+  if(P.snow||o.clouds){for(var c=0;c<(o.clouds||5);c++){var cx=r()*w,cy=h*(.12+r()*.28);out+='<g opacity=".75" fill="#fff"><ellipse cx="'+cx.toFixed(0)+'" cy="'+cy.toFixed(0)+'" rx="'+(90+r()*120).toFixed(0)+'" ry="'+(14+r()*14).toFixed(0)+'" opacity=".6"/><ellipse cx="'+(cx+40).toFixed(0)+'" cy="'+(cy-10).toFixed(0)+'" rx="'+(60+r()*70).toFixed(0)+'" ry="'+(12+r()*10).toFixed(0)+'" opacity=".5"/></g>'}}
+  out+='<circle cx="'+sunX.toFixed(0)+'" cy="'+sunY.toFixed(0)+'" r="'+(h*.5)+'" fill="url(#'+g2+')" opacity=".55"/><circle cx="'+sunX.toFixed(0)+'" cy="'+sunY.toFixed(0)+'" r="'+(o.sunR||h*.06)+'" fill="'+P.sun+'"/>';
+  var bases=[h*.56,h*.64,h*.74,h*.86];P.ridge.forEach(function(col,i){out+=ridge(r,w,bases[i],h*(.07+i*.01),col,.5-i*.08);if(i<P.ridge.length-1){var mi=id('ms');out+='<defs><linearGradient id="'+mi+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+P.mist+'" stop-opacity="0"/><stop offset="1" stop-color="'+P.mist+'" stop-opacity=".45"/></linearGradient></defs><rect y="'+(bases[i]-10)+'" width="'+w+'" height="'+(h*.2)+'" fill="url(#'+mi+')"/>'}});
+  if(o.trees!==false){var tc=P.ridge[3];for(var t=0;t<(o.trees||26);t++){var tx=r()*w,ty=h*(.86+r()*.1),th=h*(.06+r()*.1);out+='<path d="M'+tx.toFixed(0)+' '+(ty-th).toFixed(0)+' L'+(tx-th*.28).toFixed(0)+' '+ty.toFixed(0)+' L'+(tx+th*.28).toFixed(0)+' '+ty.toFixed(0)+'Z" fill="'+tc+'"/>'}}
+  out+='<rect y="'+(h*.92)+'" width="'+w+'" height="'+(h*.08)+'" fill="'+P.ridge[3]+'"/>'+grain(o.grain)+vig(w,h,o.vig);return wrap(w,h,out,o.cls)}
+ function sea(seed,o){o=o||{};var w=o.w||1200,h=o.h||700,P=PAL[o.pal||'dusk'],r=R(seed),g=id('sk'),gs=id('sa'),hz=h*.5;var sx=w*(.35+r()*.3);
+  var out='<defs>'+grad(g,P.sky)+grad(gs,[P.sky[2],P.ridge[1],P.ridge[3]])+'</defs><rect width="'+w+'" height="'+hz+'" fill="url(#'+g+')"/><rect y="'+hz+'" width="'+w+'" height="'+(h-hz)+'" fill="url(#'+gs+')"/>';
+  out+='<circle cx="'+sx+'" cy="'+(hz-h*.04)+'" r="'+(h*.05)+'" fill="'+P.sun+'"/><circle cx="'+sx+'" cy="'+(hz-h*.04)+'" r="'+(h*.2)+'" fill="'+P.sun+'" opacity=".25"/>';
+  for(var i=0;i<46;i++){var y=hz+4+Math.pow(r(),1.6)*(h-hz-6),ww=20+(y-hz)*(1.2+r()*3),x=sx+(r()-.5)*(60+(y-hz)*1.4);out+='<rect x="'+(x-ww/2).toFixed(0)+'" y="'+y.toFixed(0)+'" width="'+ww.toFixed(0)+'" height="'+(1+(y-hz)/90).toFixed(1)+'" rx="2" fill="'+P.sun+'" opacity="'+(.15+r()*.5).toFixed(2)+'"/>'}
+  for(i=0;i<40;i++){var y2=hz+10+r()*(h-hz-10);out+='<path d="M'+(r()*w).toFixed(0)+' '+y2.toFixed(0)+' q'+(20+r()*40).toFixed(0)+' -6 '+(60+r()*80).toFixed(0)+' 0" stroke="#fff" stroke-opacity=".12" fill="none"/>'}
+  out+=ridge(r,w,hz+4,h*.015,P.ridge[2],.2)+grain(o.grain)+vig(w,h);return wrap(w,h,out,o.cls)}
+ function city(seed,o){o=o||{};var w=o.w||1200,h=o.h||700,P=PAL[o.pal||'night'],r=R(seed),g=id('sk');var out='<defs>'+grad(g,P.sky)+'</defs><rect width="'+w+'" height="'+h+'" fill="url(#'+g+')"/>';
+  if(P.star)for(var i=0;i<60;i++)out+='<circle cx="'+(r()*w).toFixed(0)+'" cy="'+(r()*h*.4).toFixed(0)+'" r="'+(.5+r()*1.2).toFixed(1)+'" fill="#fff" opacity="'+(.3+r()*.6).toFixed(2)+'"/>';
+  for(var L=0;L<3;L++){var x=-20,col=P.ridge[L],base=h*(.7+L*.1),wl=L===2;while(x<w){var bw=30+r()*70,bh=h*(.12+r()*(.3-L*.07));out+='<rect x="'+x.toFixed(0)+'" y="'+(base-bh).toFixed(0)+'" width="'+bw.toFixed(0)+'" height="'+(bh+h*.3).toFixed(0)+'" fill="'+col+'"/>';
+   var step=wl?11:16;for(var yy=base-bh+10;yy<base-4;yy+=step){for(var xx=x+6;xx<x+bw-8;xx+=step){if(r()>(wl?.55:.7))out+='<rect x="'+xx.toFixed(0)+'" y="'+yy.toFixed(0)+'" width="4" height="6" fill="'+(r()>.6?'#ffe2a0':'#ffc66e')+'" opacity="'+(.5+r()*.5).toFixed(2)+'"/>'}}x+=bw+2+r()*6}
+   var mi=id('ms');out+='<defs><linearGradient id="'+mi+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+P.mist+'" stop-opacity="0"/><stop offset="1" stop-color="'+P.mist+'" stop-opacity=".35"/></linearGradient></defs><rect y="'+(base-h*.1)+'" width="'+w+'" height="'+(h*.2)+'" fill="url(#'+mi+')"/>'}
+  out+=grain(o.grain)+vig(w,h);return wrap(w,h,out,o.cls)}
+ function interior(seed,o){o=o||{};var w=o.w||1200,h=o.h||700,r=R(seed),wall=o.wall||'#e9dfd0',floor=o.floor||'#b58a5e',acc=o.acc||'#2f6b4f',g=id('lt'),gf=id('fl');
+  var out='<defs><linearGradient id="'+gf+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+floor+'"/><stop offset="1" stop-color="#6a4a2c"/></linearGradient><linearGradient id="'+g+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6d8" stop-opacity=".75"/><stop offset="1" stop-color="#fff6d8" stop-opacity="0"/></linearGradient></defs><rect width="'+w+'" height="'+h+'" fill="'+wall+'"/><rect y="'+(h*.74)+'" width="'+w+'" height="'+(h*.26)+'" fill="url(#'+gf+')"/><rect y="'+(h*.74-6)+'" width="'+w+'" height="8" fill="rgba(0,0,0,.12)"/>';
+  var wx=w*.58,wy=h*.12,ww=w*.3,wh=h*.5;out+='<rect x="'+wx+'" y="'+wy+'" width="'+ww+'" height="'+wh+'" fill="#cfe6f4"/><rect x="'+wx+'" y="'+wy+'" width="'+ww+'" height="'+wh+'" fill="none" stroke="#fff" stroke-width="10"/><path d="M'+(wx+ww/2)+' '+wy+'v'+wh+'M'+wx+' '+(wy+wh/2)+'h'+ww+'" stroke="#fff" stroke-width="8"/><path d="M'+wx+' '+(wy+wh*.7)+' q'+(ww*.3)+' -'+(wh*.25)+' '+(ww*.5)+' -'+(wh*.12)+' t'+(ww*.5)+' -'+(wh*.1)+'V'+(wy+wh)+'H'+wx+'Z" fill="#8fbf9a" opacity=".7"/>';
+  out+='<polygon points="'+wx+','+(wy+wh)+' '+(wx+ww)+','+(wy+wh)+' '+(wx-w*.25)+','+h+' '+(wx-w*.55)+','+h+'" fill="url(#'+g+')" style="mix-blend-mode:screen"/>';
+  out+='<rect x="'+(w*.08)+'" y="'+(h*.56)+'" width="'+(w*.32)+'" height="'+(h*.2)+'" rx="14" fill="'+acc+'"/><rect x="'+(w*.06)+'" y="'+(h*.5)+'" width="'+(w*.36)+'" height="'+(h*.14)+'" rx="18" fill="'+acc+'" opacity=".88"/><ellipse cx="'+(w*.24)+'" cy="'+(h*.78)+'" rx="'+(w*.2)+'" ry="'+(h*.025)+'" fill="rgba(0,0,0,.18)"/>';
+  out+='<rect x="'+(w*.46)+'" y="'+(h*.6)+'" width="'+(w*.07)+'" height="'+(h*.15)+'" rx="6" fill="#4a3320"/><path d="M'+(w*.495)+' '+(h*.6)+' q-30 -60 -10 -110 M'+(w*.495)+' '+(h*.6)+' q30 -70 24 -120 M'+(w*.495)+' '+(h*.6)+' q-6 -80 4 -140" stroke="#2f7a4a" stroke-width="10" fill="none" stroke-linecap="round"/>';
+  out+='<rect x="'+(w*.08)+'" y="'+(h*.1)+'" width="'+(w*.2)+'" height="'+(h*.26)+'" fill="#fff" opacity=".9"/><rect x="'+(w*.09)+'" y="'+(h*.11)+'" width="'+(w*.18)+'" height="'+(h*.24)+'" fill="'+['#e9b8a0','#a9c8d8','#d8c8a0'][Math.floor(r()*3)]+'"/>';
+  out+=grain(o.grain)+vig(w,h,.3);return wrap(w,h,out,o.cls)}
+ function portrait(seed,o){o=o||{};var w=o.w||400,h=o.h||500,r=R(seed),skin=o.skin||['#f1c9a5','#d9a37a','#b57a52','#8a5a3a','#e8b896'][Math.floor(r()*5)],hair=o.hair||['#2a1c14','#5a3a22','#c9a24a','#1a1a1a','#8a4a2a','#d8d4cc'][Math.floor(r()*6)],cl=o.cloth||['#2f6b4f','#c2523a','#3a4f9a','#7a4a9a','#222','#d9a23a'][Math.floor(r()*6)],bg=o.bg||['#e8d8c4','#cfdde8','#e4d0d8','#d4e4d0'][Math.floor(r()*4)],g=id('pb'),gs=id('ps'),long=o.long!=null?o.long:r()>.5;
+  var out='<defs><radialGradient id="'+g+'" cx=".5" cy=".3" r=".9"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="'+bg+'"/></radialGradient><linearGradient id="'+gs+'" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></linearGradient></defs><rect width="'+w+'" height="'+h+'" fill="'+bg+'"/><rect width="'+w+'" height="'+h+'" fill="url(#'+g+')"/>';
+  var cx=w/2,cy=h*.42,fr=w*.19;if(long)out+='<path d="M'+(cx-fr*1.35)+' '+(cy+fr*2.2)+' Q'+(cx-fr*1.6)+' '+(cy-fr*.6)+' '+cx+' '+(cy-fr*1.5)+' Q'+(cx+fr*1.6)+' '+(cy-fr*.6)+' '+(cx+fr*1.35)+' '+(cy+fr*2.2)+'Z" fill="'+hair+'"/>';
+  out+='<path d="M'+(w*.08)+' '+h+' Q'+(w*.1)+' '+(h*.72)+' '+(cx-fr*.7)+' '+(h*.68)+' L'+(cx+fr*.7)+' '+(h*.68)+' Q'+(w*.9)+' '+(h*.72)+' '+(w*.92)+' '+h+'Z" fill="'+cl+'"/><rect x="'+(cx-fr*.32)+'" y="'+(cy+fr*.8)+'" width="'+(fr*.64)+'" height="'+(fr*1.1)+'" rx="'+(fr*.2)+'" fill="'+skin+'"/><path d="M'+(cx-fr*.7)+' '+(h*.68)+' Q'+cx+' '+(h*.78)+' '+(cx+fr*.7)+' '+(h*.68)+' L'+(cx+fr*.32)+' '+(cy+fr*1.7)+' L'+(cx-fr*.32)+' '+(cy+fr*1.7)+'Z" fill="'+skin+'"/>';
+  out+='<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+fr+'" ry="'+(fr*1.22)+'" fill="'+skin+'"/><ellipse cx="'+(cx-fr)+'" cy="'+(cy+fr*.1)+'" rx="'+(fr*.14)+'" ry="'+(fr*.24)+'" fill="'+skin+'"/><ellipse cx="'+(cx+fr)+'" cy="'+(cy+fr*.1)+'" rx="'+(fr*.14)+'" ry="'+(fr*.24)+'" fill="'+skin+'"/>';
+  out+='<path d="M'+(cx-fr*1.05)+' '+(cy-fr*.1)+' Q'+(cx-fr*1.1)+' '+(cy-fr*1.5)+' '+cx+' '+(cy-fr*1.4)+' Q'+(cx+fr*1.1)+' '+(cy-fr*1.5)+' '+(cx+fr*1.05)+' '+(cy-fr*.1)+' Q'+(cx+fr*.6)+' '+(cy-fr*.75)+' '+cx+' '+(cy-fr*.7)+' Q'+(cx-fr*.6)+' '+(cy-fr*.75)+' '+(cx-fr*1.05)+' '+(cy-fr*.1)+'Z" fill="'+hair+'"/>';
+  out+='<ellipse cx="'+(cx-fr*.4)+'" cy="'+(cy+fr*.05)+'" rx="'+(fr*.1)+'" ry="'+(fr*.06)+'" fill="#2a1c14"/><ellipse cx="'+(cx+fr*.4)+'" cy="'+(cy+fr*.05)+'" rx="'+(fr*.1)+'" ry="'+(fr*.06)+'" fill="#2a1c14"/><path d="M'+(cx-fr*.52)+' '+(cy-fr*.2)+' q'+(fr*.12)+' -'+(fr*.1)+' '+(fr*.24)+' 0M'+(cx+fr*.28)+' '+(cy-fr*.2)+' q'+(fr*.12)+' -'+(fr*.1)+' '+(fr*.24)+' 0" stroke="'+hair+'" stroke-width="'+(fr*.07)+'" fill="none" stroke-linecap="round"/><path d="M'+(cx-fr*.28)+' '+(cy+fr*.62)+' q'+(fr*.28)+' '+(fr*.2)+' '+(fr*.56)+' 0" stroke="#a04a3a" stroke-width="'+(fr*.1)+'" fill="none" stroke-linecap="round"/><path d="M'+cx+' '+(cy+fr*.12)+' v'+(fr*.3)+'" stroke="rgba(0,0,0,.12)" stroke-width="'+(fr*.07)+'" stroke-linecap="round"/>';
+  out+='<rect width="'+w+'" height="'+h+'" fill="url(#'+gs+')"/>'+grain(o.grain==null?.18:o.grain)+vig(w,h,.25);return wrap(w,h,out,o.cls)}
+ function product(kind,o){o=o||{};var w=o.w||600,h=o.h||600,c=o.color||'#2f6b4f',bg=o.bg||'#efe8dc',g=id('pg'),gb=id('pb'),r=R(o.seed||5);
+  var out='<defs><radialGradient id="'+g+'" cx=".5" cy=".38" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="'+bg+'"/></radialGradient><linearGradient id="'+gb+'" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".25"/><stop offset=".3" stop-color="#fff" stop-opacity=".35"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><rect width="'+w+'" height="'+h+'" fill="'+bg+'"/><rect width="'+w+'" height="'+h+'" fill="url(#'+g+')"/><ellipse cx="'+(w/2)+'" cy="'+(h*.83)+'" rx="'+(w*.26)+'" ry="'+(h*.035)+'" fill="rgba(0,0,0,.22)" filter="blur(6px)"/>';
+  var cx=w/2;if(kind==='bottle'){out+='<rect x="'+(cx-w*.07)+'" y="'+(h*.14)+'" width="'+(w*.14)+'" height="'+(h*.1)+'" rx="8" fill="#2a2a2a"/><path d="M'+(cx-w*.06)+' '+(h*.23)+' h'+(w*.12)+' q'+(w*.1)+' '+(h*.04)+' '+(w*.1)+' '+(h*.14)+' v'+(h*.42)+' q0 '+(h*.04)+' -'+(w*.04)+' '+(h*.04)+' h-'+(w*.32)+' q-'+(w*.04)+' 0 -'+(w*.04)+' -'+(h*.04)+' v-'+(h*.42)+' q0 -'+(h*.1)+' '+(w*.1)+' -'+(h*.14)+'Z" fill="'+c+'"/><rect x="'+(cx-w*.16)+'" y="'+(h*.46)+'" width="'+(w*.32)+'" height="'+(h*.18)+'" fill="#fbf6ea" opacity=".95"/><path d="M'+(cx-w*.12)+' '+(h*.52)+'h'+(w*.24)+'M'+(cx-w*.12)+' '+(h*.57)+'h'+(w*.16)+'" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/><path d="M'+(cx-w*.16)+' '+(h*.28)+' v'+(h*.5)+' h'+(w*.32)+' v-'+(h*.5)+'Z" fill="url(#'+gb+')"/>'}
+  else if(kind==='mug'){out+='<path d="M'+(cx-w*.2)+' '+(h*.34)+' h'+(w*.4)+' v'+(h*.32)+' q0 '+(h*.12)+' -'+(w*.12)+' '+(h*.12)+' h-'+(w*.16)+' q-'+(w*.12)+' 0 -'+(w*.12)+' -'+(h*.12)+'Z" fill="'+c+'"/><path d="M'+(cx+w*.2)+' '+(h*.42)+' q'+(w*.14)+' 0 '+(w*.14)+' '+(h*.1)+' t-'+(w*.14)+' '+(h*.1)+'" stroke="'+c+'" stroke-width="'+(w*.045)+'" fill="none"/><ellipse cx="'+cx+'" cy="'+(h*.34)+'" rx="'+(w*.2)+'" ry="'+(h*.03)+'" fill="#3a2418"/><rect x="'+(cx-w*.2)+'" y="'+(h*.34)+'" width="'+(w*.4)+'" height="'+(h*.44)+'" fill="url(#'+gb+')"/>'}
+  else if(kind==='sneaker'){out+='<path d="M'+(w*.15)+' '+(h*.66)+' q0 -'+(h*.18)+' '+(w*.1)+' -'+(h*.24)+' l'+(w*.12)+' -'+(h*.04)+' q'+(w*.06)+' '+(h*.1)+' '+(w*.2)+' '+(h*.08)+' q'+(w*.22)+' '+(h*.02)+' '+(w*.3)+' '+(h*.18)+' v'+(h*.06)+' h-'+(w*.72)+'Z" fill="'+c+'"/><rect x="'+(w*.14)+'" y="'+(h*.66)+'" width="'+(w*.72)+'" height="'+(h*.07)+'" rx="'+(h*.035)+'" fill="#f4efe6"/><path d="M'+(w*.32)+' '+(h*.46)+' l'+(w*.1)+' '+(h*.05)+' M'+(w*.36)+' '+(h*.42)+' l'+(w*.1)+' '+(h*.05)+' M'+(w*.4)+' '+(h*.39)+' l'+(w*.1)+' '+(h*.05)+'" stroke="#fff" stroke-width="6" stroke-linecap="round"/>'}
+  else if(kind==='watch'){out+='<rect x="'+(cx-w*.07)+'" y="'+(h*.08)+'" width="'+(w*.14)+'" height="'+(h*.84)+'" rx="12" fill="#2a2a2a"/><circle cx="'+cx+'" cy="'+(h*.5)+'" r="'+(w*.2)+'" fill="#c8c8cc"/><circle cx="'+cx+'" cy="'+(h*.5)+'" r="'+(w*.18)+'" fill="'+c+'"/><path d="M'+cx+' '+(h*.5)+' v-'+(w*.12)+' M'+cx+' '+(h*.5)+' l'+(w*.08)+' '+(w*.04)+'" stroke="#fff" stroke-width="5" stroke-linecap="round"/>'+[0,1,2,3,4,5,6,7,8,9,10,11].map(function(k){var a=k*Math.PI/6;return '<circle cx="'+(cx+Math.sin(a)*w*.15)+'" cy="'+(h*.5-Math.cos(a)*w*.15)+'" r="3" fill="#fff"/>'}).join('')}
+  else if(kind==='bag'){out+='<path d="M'+(cx-w*.1)+' '+(h*.32)+' q0 -'+(h*.2)+' '+(w*.1)+' -'+(h*.2)+' t'+(w*.1)+' '+(h*.2)+'" stroke="#3a2a1a" stroke-width="'+(w*.03)+'" fill="none"/><path d="M'+(cx-w*.26)+' '+(h*.32)+' h'+(w*.52)+' l'+(w*.04)+' '+(h*.46)+' h-'+(w*.6)+'Z" fill="'+c+'"/><rect x="'+(cx-w*.26)+'" y="'+(h*.32)+'" width="'+(w*.52)+'" height="'+(h*.1)+'" fill="rgba(0,0,0,.14)"/>'}
+  else if(kind==='headphones'){out+='<path d="M'+(cx-w*.22)+' '+(h*.56)+' v-'+(h*.1)+' q0 -'+(h*.3)+' '+(w*.22)+' -'+(h*.3)+' t'+(w*.22)+' '+(h*.3)+' v'+(h*.1)+'" stroke="#2a2a2a" stroke-width="'+(w*.04)+'" fill="none"/><rect x="'+(cx-w*.29)+'" y="'+(h*.5)+'" width="'+(w*.14)+'" height="'+(h*.24)+'" rx="'+(w*.06)+'" fill="'+c+'"/><rect x="'+(cx+w*.15)+'" y="'+(h*.5)+'" width="'+(w*.14)+'" height="'+(h*.24)+'" rx="'+(w*.06)+'" fill="'+c+'"/>'}
+  else{out+='<rect x="'+(cx-w*.2)+'" y="'+(h*.3)+'" width="'+(w*.4)+'" height="'+(h*.46)+'" rx="22" fill="'+c+'"/><rect x="'+(cx-w*.2)+'" y="'+(h*.3)+'" width="'+(w*.4)+'" height="'+(h*.46)+'" rx="22" fill="url(#'+gb+')"/>'}
+  out+=grain(.12);return wrap(w,h,out,o.cls)}
+ function food(seed,o){o=o||{};var w=o.w||600,h=o.h||600,r=R(seed),bg=o.bg||'#d8c8b0',g=id('fb');var out='<defs><radialGradient id="'+g+'" cx=".5" cy=".5" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".4"/><stop offset="1" stop-color="#000" stop-opacity=".25"/></radialGradient></defs><rect width="'+w+'" height="'+h+'" fill="'+bg+'"/><g opacity=".25">'+Array.apply(null,Array(14)).map(function(_,i){return '<rect x="0" y="'+(i*h/14)+'" width="'+w+'" height="2" fill="#000"/>'}).join('')+'</g>';
+  var cx=w/2,cy=h/2;out+='<circle cx="'+cx+'" cy="'+(cy+8)+'" r="'+(w*.36)+'" fill="rgba(0,0,0,.25)" filter="blur(8px)"/><circle cx="'+cx+'" cy="'+cy+'" r="'+(w*.36)+'" fill="#f6f1e6"/><circle cx="'+cx+'" cy="'+cy+'" r="'+(w*.3)+'" fill="'+(o.base||'#e8d6b0')+'"/>';
+  var cols=o.cols||['#c4492f','#6fa04a','#f2b230','#8a3a2a','#f4efe0'];for(var i=0;i<46;i++){var a=r()*6.283,d=Math.sqrt(r())*w*.27;out+='<circle cx="'+(cx+Math.cos(a)*d).toFixed(0)+'" cy="'+(cy+Math.sin(a)*d).toFixed(0)+'" r="'+(8+r()*20).toFixed(0)+'" fill="'+cols[Math.floor(r()*cols.length)]+'"/>'}
+  out+='<circle cx="'+cx+'" cy="'+cy+'" r="'+(w*.36)+'" fill="url(#'+g+')"/>'+grain(.15);return wrap(w,h,out,o.cls)}
+ function abstract(seed,o){o=o||{};var w=o.w||800,h=o.h||600,r=R(seed),cols=o.cols||['#ff7a59','#ffb86b','#7a5cff','#19e6c9','#0f1a3a'],out='<rect width="'+w+'" height="'+h+'" fill="'+cols[cols.length-1]+'"/>';
+  for(var i=0;i<(o.n||7);i++){var gi=id('ab'),c1=cols[Math.floor(r()*(cols.length-1))],c2=cols[Math.floor(r()*(cols.length-1))];out+='<defs><radialGradient id="'+gi+'"><stop offset="0" stop-color="'+c1+'"/><stop offset="1" stop-color="'+c2+'" stop-opacity="0"/></radialGradient></defs><circle cx="'+(r()*w).toFixed(0)+'" cy="'+(r()*h).toFixed(0)+'" r="'+(h*(.25+r()*.4)).toFixed(0)+'" fill="url(#'+gi+')" opacity="'+(.6+r()*.4).toFixed(2)+'"/>'}
+  return wrap(w,h,out+grain(o.grain==null?.2:o.grain),o.cls)}
+ return {landscape:landscape,sea:sea,city:city,interior:interior,portrait:portrait,product:product,food:food,abstract:abstract,grain:grain,vig:vig,R:R,PAL:PAL};
+})();
+
+/*SCENES-END*/</script>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var SZ=[['XS',85,64],['S',91,66],['M',99,69],['L',107,72],['XL',115,75],['XXL',123,78]];
+var BU=[['Slim',-6,.82],['Regular',0,1],['Athletic',6,1.1],['Broad',10,1.2]],FIT=[['Fitted',-3],['True to size',0],['Relaxed',4]];
+var S={h:178,b:1,f:1,u:'M',c:''};try{var sv=JSON.parse(localStorage.getItem('fk-size')||'null');if(sv)for(var k in sv)if(k in S)S[k]=sv[k]}catch(e){}
+var unit='cm';
+$('#bd').innerHTML=BU.map(function(b,i){var w=b[2]*14;return'<label><input type="radio" name="bd" value="'+i+'"'+(i===S.b?' checked':'')+' aria-label="'+b[0]+'"><span class="c"><svg viewBox="0 0 44 52" aria-hidden="true"><circle cx="22" cy="8" r="6" fill="#cdbfa6"/><path d="M'+(22-w)+' 50 Q'+(22-w-2)+' 22 '+(22-w+4)+' 17 H'+(22+w-4)+' Q'+(22+w+2)+' 22 '+(22+w)+' 50Z" fill="#cdbfa6"/></svg>'+b[0]+'</span></label>'}).join('');
+$('#ft').innerHTML=FIT.map(function(f,i){return'<label><input type="radio" name="ft" value="'+i+'"'+(i===S.f?' checked':'')+'><span>'+f[0]+'</span></label>'}).join('');
+$('#us').value=S.u;$('#ch').value=S.c;
+function fmt(){if(unit==='cm'){$('#hn').value=S.h}else{var inch=S.h/2.54,ft=Math.floor(inch/12),i=Math.round(inch-ft*12);if(i===12){ft++;i=0}$('#hn').value=ft+"'"+i}$('#hr').value=S.h}
+function parseH(v){v=v.trim();var m;if(unit==='cm'){var n=parseFloat(v);return isNaN(n)?null:n}m=v.match(/^(\d)\s*(?:'|ft|\s)\s*(\d{1,2})?\s*(?:"|in)?$/);if(m)return Math.round(((+m[1])*12+(+(m[2]||0)))*2.54);var n2=parseFloat(v);return isNaN(n2)?null:Math.round(n2*30.48)}
+// figure
+var prevH=175;
+function figure(size,gi){var h=S.h,sc=h/175,bm=BU[S.b][2],fit=S.f;var W=400,H=500,floor=462,pxcm=(floor-40)/190*1.0;var ht=h*pxcm*.97,top=floor-ht;
+var cx=200,sh=40*bm,wa=30*bm,hip=34*bm;var skin='#e2b08a',hair='#4a3326',pants='#5a6a7a',shoe='#2a2a2e';
+var knit='#7f9f7a',knitD='#5f8060';var ease=fit===0?0:fit===1?6:14,len=fit===2?.5:.44;
+var neckY=top+ht*.15,shY=top+ht*.19,waY=top+ht*.45,hipY=top+ht*.5,hemY=hipY+(fit===2?ht*.06:ht*.02);
+var o='<defs><linearGradient id="wl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3ead9"/><stop offset="1" stop-color="#e3d4b8"/></linearGradient><linearGradient id="lt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3d0" stop-opacity=".6"/><stop offset="1" stop-color="#fff3d0" stop-opacity="0"/></linearGradient><linearGradient id="kn" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="'+knitD+'"/><stop offset=".45" stop-color="'+knit+'"/><stop offset="1" stop-color="'+knitD+'"/></linearGradient><pattern id="rib" width="4" height="8" patternUnits="userSpaceOnUse"><rect width="2" height="8" fill="#000" opacity=".1"/></pattern><filter id="bl"><feGaussianBlur stdDeviation="6"/></filter></defs><rect width="'+W+'" height="'+H+'" fill="url(#wl)"/><polygon points="250,0 400,0 400,260 120,500 0,500" fill="url(#lt)" opacity=".5" style="mix-blend-mode:screen"/><rect y="'+floor+'" width="'+W+'" height="'+(H-floor)+'" fill="#b58a5a"/><rect y="'+floor+'" width="'+W+'" height="4" fill="#7a5a36"/><ellipse cx="'+(cx+10)+'" cy="'+(floor+8)+'" rx="'+(70*bm)+'" ry="10" fill="#000" opacity=".3" filter="url(#bl)"/>';
+// ruler
+o+='<g transform="translate(46 0)"><line x1="0" y1="'+floor+'" x2="0" y2="'+(floor-190*pxcm)+'" stroke="#675d4f" stroke-width="2"/>';for(var m=0;m<=190;m+=10){var yy=floor-m*pxcm;o+='<line x1="0" x2="'+(m%50===0?16:9)+'" y1="'+yy+'" y2="'+yy+'" stroke="#675d4f" stroke-width="1.5"/>';if(m%50===0)o+='<text x="20" y="'+(yy+4)+'" font-size="11" fill="#675d4f" font-family="DM Mono,monospace">'+m+'</text>'}o+='<line x1="0" x2="26" y1="'+top+'" y2="'+top+'" stroke="#b8532d" stroke-width="2"/><text x="30" y="'+(top-4)+'" font-size="12" font-weight="700" fill="#b8532d" font-family="DM Mono,monospace">'+h+' cm</text></g>';
+// legs
+o+='<path d="M'+(cx-hip)+' '+hipY+' L'+(cx-hip+4)+' '+(floor-14)+' H'+(cx-6)+' L'+(cx-3)+' '+hipY+'Z" fill="'+pants+'"/><path d="M'+(cx+hip)+' '+hipY+' L'+(cx+hip-4)+' '+(floor-14)+' H'+(cx+6)+' L'+(cx+3)+' '+hipY+'Z" fill="'+pants+'"/><rect x="'+(cx-hip+2)+'" y="'+(floor-16)+'" width="'+(hip-6)+'" height="16" rx="6" fill="'+shoe+'"/><rect x="'+(cx+6)+'" y="'+(floor-16)+'" width="'+(hip-6)+'" height="16" rx="6" fill="'+shoe+'"/>';
+// arms
+var armW=11*bm;o+='<path d="M'+(cx-sh)+' '+shY+' q-'+(14+ease/2)+' '+(ht*.2)+' -'+(6+ease/3)+' '+(ht*.34)+'" stroke="'+skin+'" stroke-width="'+armW+'" fill="none" stroke-linecap="round"/><path d="M'+(cx+sh)+' '+shY+' q'+(14+ease/2)+' '+(ht*.2)+' '+(6+ease/3)+' '+(ht*.34)+'" stroke="'+skin+'" stroke-width="'+armW+'" fill="none" stroke-linecap="round"/>';
+// head & neck
+o+='<rect x="'+(cx-7)+'" y="'+(top+ht*.11)+'" width="14" height="'+(ht*.06)+'" fill="'+skin+'"/><ellipse cx="'+cx+'" cy="'+(top+ht*.065)+'" rx="'+(ht*.035)+'" ry="'+(ht*.05)+'" fill="'+skin+'"/><path d="M'+(cx-ht*.036)+' '+(top+ht*.05)+' q'+(ht*.036)+' -'+(ht*.07)+' '+(ht*.072)+' 0 q-'+(ht*.01)+' -'+(ht*.01)+' -'+(ht*.072)+' 0z" fill="'+hair+'"/>';
+// sweater
+var sw=sh+ease/2,bw=wa+ease/2+4;var d='M'+(cx-sw)+' '+shY+' Q'+cx+' '+(neckY-6)+' '+(cx+sw)+' '+shY+' L'+(cx+bw+8)+' '+hemY+' H'+(cx-bw-8)+'Z';
+o+='<g><path d="'+d+'" fill="url(#kn)"/><path d="'+d+'" fill="url(#rib)"/>';
+// sleeves
+o+='<path d="M'+(cx-sw)+' '+shY+' q-'+(18+ease/2)+' '+(ht*.2)+' -'+(8+ease/3)+' '+(ht*.3)+'" stroke="'+knit+'" stroke-width="'+(armW+4+ease/3)+'" fill="none" stroke-linecap="round"/><path d="M'+(cx+sw)+' '+shY+' q'+(18+ease/2)+' '+(ht*.2)+' '+(8+ease/3)+' '+(ht*.3)+'" stroke="'+knit+'" stroke-width="'+(armW+4+ease/3)+'" fill="none" stroke-linecap="round"/>';
+o+='<ellipse cx="'+(cx-sw-12-ease/3)+'" cy="'+(shY+ht*.31)+'" rx="'+((armW+6)/2)+'" ry="5" fill="'+knitD+'"/><ellipse cx="'+(cx+sw+12+ease/3)+'" cy="'+(shY+ht*.31)+'" rx="'+((armW+6)/2)+'" ry="5" fill="'+knitD+'"/>';
+o+='<rect x="'+(cx-bw-8)+'" y="'+(hemY-9)+'" width="'+(2*bw+16)+'" height="9" fill="'+knitD+'"/><path d="M'+(cx-14)+' '+(neckY-3)+' Q'+cx+' '+(neckY+12)+' '+(cx+14)+' '+(neckY-3)+'" stroke="'+knitD+'" stroke-width="7" fill="none"/><path d="M'+(cx-sw+10)+' '+(shY+10)+' Q'+(cx-8)+' '+(waY)+' '+(cx-bw)+' '+(hemY-14)+'" stroke="#fff" stroke-opacity=".18" stroke-width="10" fill="none"/></g>';
+o+='<text x="'+(cx)+'" y="'+(waY+6)+'" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="22" fill="#fff" opacity=".85">'+size+'</text>';
+return'<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMax slice">'+o+SC.grain(.12)+SC.vig(W,H,.3)+'</svg>'}
+// model
+var last='';
+function model(){var h=S.h,off=BU[S.b][1],fa=FIT[S.f][1],chest=S.c&&+S.c>=70&&+S.c<=140?+S.c:.52*h+off+34;if(!(S.c&&+S.c>=70))chest=.52*h+off+5;var tgt=chest+fa;if(S.u){var m=SZ.filter(function(z){return z[0]===S.u})[0][1];tgt=tgt*.75+(m+ (fa))*.25}
+var sc=SZ.map(function(z){var d=(z[1]-tgt)/5;return Math.exp(-d*d)}),sum=sc.reduce(function(a,b){return a+b},0),sh=sc.map(function(v){return v/sum}),idx=sh.map(function(v,i){return i}).sort(function(a,b){return sh[b]-sh[a]}),a=idx[0],b=idx[1];
+var top=sh[a],gap=top-sh[b];var conf=Math.round(Math.min(95,40+top*70+Math.min(gap,.5)*10));if(S.c&&+S.c>=70)conf=Math.min(95,conf+6);if(S.u===SZ[a][0])conf=Math.min(95,conf+4);
+var wd=conf>=80?'High':conf>=62?'Medium':'Low',alt=sh[b]>.3?b:-1;return{a:a,b:alt,conf:conf,wd:wd,tgt:tgt,chest:chest,sh:sh,gap:gap}}
+function render(ann){var r=model(),z=SZ[r.a][0];var segs=Math.max(1,Math.round(r.conf/20));
+$('#big').style.opacity=0;setTimeout(function(){$('#big').textContent=z;$('#big').style.opacity=1},reduce?0:120);if(reduce){$('#big').textContent=z;$('#big').style.opacity=1}
+$('#alt').textContent=r.b>=0?'Also possible: '+SZ[r.b][0]:'';
+var mt=$('#mt');mt.className='mt'+(r.wd==='Medium'?' lo':r.wd==='Low'?' vl':'');[].forEach.call(mt.children,function(i,k){i.className=k<segs?'on':''});
+$('#cw').textContent=(r.b>=0&&r.gap<.1?'Between '+SZ[Math.min(r.a,r.b)][0]+' and '+SZ[Math.max(r.a,r.b)][0]+' · ':'')+'Confidence: '+r.wd;$('#cp').textContent=r.conf+'%';
+var bn=BU[S.b][0].toLowerCase(),fn=FIT[S.f][0].toLowerCase();
+$('#ex').textContent='At '+S.h+' cm with a '+bn+' build, '+z+' fits best'+(r.b>=0?'. Choose '+SZ[r.b][0]+' if you '+(r.b>r.a?'like layers underneath.':'prefer a closer fit.'):'.');
+var rs=['Your height points to '+SZ[Math.max(0,Math.min(5,Math.round((S.h-160)/9)))][0]+(Math.abs(Math.round((S.h-160)/9)-r.a)>0?' or '+z:''),(S.c&&+S.c>=70?'Your chest of '+S.c+' cm sits close to size '+z:'A '+bn+' build keeps your chest near '+Math.round(r.chest)+' cm'),'A '+fn+' fit '+(S.f===1?'adds no extra ease':S.f===0?'takes a little ease out':'adds a little extra ease')];if(S.u)rs.push('Your usual size is '+S.u+' elsewhere');$('#rs').innerHTML=rs.map(function(x){return'<li>'+x+'</li>'}).join('');
+$('#tb').innerHTML=SZ.map(function(s,i){return'<tr'+(i===r.a?' class="top"':i===r.b?' class="alt2"':'')+'><td>'+s[0]+'</td><td>'+s[1]+'</td><td>'+s[2]+'</td><td>'+(i===r.a?'Suggested':i===r.b?'Also possible':'')+'</td></tr>'}).join('');
+$('#add').textContent='Add size '+z+' to bag';$('#fig').innerHTML=figure(z);$('#fig').setAttribute('aria-label','Figure about '+S.h+' centimetres tall wearing size '+z+' Merino Crew');
+var key=z+r.wd;if(ann&&key!==last)$('#live').textContent='We suggest '+z+', confidence '+r.wd.toLowerCase()+'.';last=key;try{localStorage.setItem('fk-size',JSON.stringify(S))}catch(e){}}
+function setH(v,fromTxt){S.h=Math.max(150,Math.min(205,Math.round(v)));if(!fromTxt)fmt();else $('#hr').value=S.h;$('#he').textContent='';render(true)}
+$('#hr').addEventListener('input',function(){setH(+this.value)});
+$('#hn').addEventListener('input',function(){var v=parseH(this.value);if(v==null||v<140||v>215){$('#he').textContent=unit==='cm'?'Enter a height between 150 and 205 cm.':'Enter a height like 5\'10.';return}setH(v,true)});
+$('#hn').addEventListener('blur',fmt);
+$('#ucm').onclick=function(){unit='cm';$('#ucm').setAttribute('aria-pressed',true);$('#uft').setAttribute('aria-pressed',false);fmt()};
+$('#uft').onclick=function(){unit='ft';$('#uft').setAttribute('aria-pressed',true);$('#ucm').setAttribute('aria-pressed',false);fmt()};
+document.querySelectorAll('input[name=bd]').forEach(function(i){i.onchange=function(){S.b=+i.value;render(true)}});
+document.querySelectorAll('input[name=ft]').forEach(function(i){i.onchange=function(){S.f=+i.value;render(true)}});
+$('#us').onchange=function(){S.u=this.value;render(true)};
+$('#ch').addEventListener('input',function(){var v=this.value.replace(/\D/g,'');this.value=v;if(v===''){S.c='';$('#ce').textContent='';render(true);return}if(+v<70||+v>140){$('#ce').textContent='Please enter a chest size between 70 and 140 cm.';return}$('#ce').textContent='';S.c=v;render(true)});
+$('#hw').onclick=function(){var o=$('#hwt').hidden;$('#hwt').hidden=!o;this.setAttribute('aria-expanded',o)};
+$('#dd').onclick=function(){var o=!$('#dt').classList.contains('open');$('#dt').classList.toggle('open',o);this.setAttribute('aria-expanded',o);this.textContent=o?'Hide details':'See details'};
+$('#add').onclick=function(){$('#msg').textContent=$('#big').textContent+' Merino Crew added to bag.';$('#live').textContent=$('#msg').textContent};
+fmt();render(false);
+})();
+</script></body></html>

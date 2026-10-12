@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Railroad.ai — Hero Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Prompt specifies the system font stack for heading and body; Instrument Serif / Barlow are loaded but unused, as in the prompt. */
+:root{--background:213 45% 67%;--foreground:0 0% 100%;--heading:205 52% 5%;--description:180 12% 20%;--primary:0 0% 100%;--primary-foreground:0 0% 0%;--radius:9999px}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;height:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','SF Pro Display',system-ui,sans-serif;background:hsl(var(--background));color:hsl(var(--foreground));-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;isolation:isolate}
+.vid{position:absolute;inset:0;z-index:-2;width:100%;height:100%;display:block}
+.tint{position:absolute;inset:0;z-index:-1;background:rgba(0,0,0,.05)}
+.liquid-glass{background:rgba(255,255,255,.01);background-blend-mode:luminosity;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border:none;box-shadow:inset 0 1px 1px rgba(255,255,255,.1);position:relative;overflow:hidden}
+.liquid-glass::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;background:linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.15) 20%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,.15) 80%,rgba(255,255,255,.45) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+header{position:fixed;top:30px;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 32px;gap:12px}
+@media(min-width:1024px){header{padding:0 64px}}
+.logo{font-size:1.5rem;letter-spacing:-.025em;color:#fff;font-weight:500;text-shadow:0 1px 10px rgba(20,40,80,.25)}
+.navpill{display:none;border-radius:9999px;padding:4px;background:rgba(15,35,70,.42);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.navpill ul{display:flex;list-style:none;margin:0;padding:0;position:relative;z-index:1}
+.navpill a{display:block;padding:8px 16px;font-size:.875rem;font-weight:500;color:rgba(255,255,255,.92);border-radius:9999px;transition:background-color .2s,color .2s}
+.navpill a:hover{background:rgba(255,255,255,.16);color:#fff}
+@media(min-width:768px){.navpill{display:block}}
+.gs{display:inline-flex;align-items:center;gap:6px;background:hsl(var(--primary));color:hsl(var(--primary-foreground));border:0;border-radius:9999px;padding:8px 16px;font-size:.875rem;font-weight:500;cursor:pointer;transition:transform .2s,box-shadow .2s;white-space:nowrap}
+.gs:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(10,30,60,.25)}
+.gs svg{width:16px;height:16px}
+main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:96px 16px 200px}
+.badge{border-radius:9999px;background:rgba(10,30,60,.42);padding:6px 12px;font-size:.875rem;color:rgba(255,255,255,.95);display:inline-block}
+h1{margin:24px 0 0;font-weight:400;color:hsl(var(--heading));font-size:3.75rem;line-height:.85;letter-spacing:-4px;max-width:48rem}
+@media(min-width:768px){h1{font-size:4.5rem}}
+@media(min-width:1024px){h1{font-size:5.5rem}}
+.w{display:inline-block;opacity:0;filter:blur(10px);transform:translateY(50px);animation:blurin .35s ease-out forwards;white-space:pre}
+@keyframes blurin{to{opacity:1;filter:blur(0);transform:none}}
+.fx{opacity:0;filter:blur(10px);transform:translateY(20px);animation:blurin .6s ease-out forwards}
+.sub{margin:24px 0 0;font-size:calc(1rem + 3px);color:hsl(var(--description));max-width:42rem;line-height:1.15;letter-spacing:-.05em;animation-delay:.8s}
+@media(min-width:768px){.sub{font-size:calc(1.125rem + 3px)}}
+.form{margin-top:32px;display:flex;align-items:center;gap:8px;border-radius:9999px;padding:6px 6px 6px 24px;width:100%;max-width:30rem;-webkit-backdrop-filter:blur(100px)!important;backdrop-filter:blur(100px)!important;background:rgba(8,20,40,.42)!important;animation-delay:1.1s}
+.form input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;font-size:.95rem;padding:8px 0}
+.form input::placeholder{color:rgba(255,255,255,.95);text-shadow:0 1px 3px rgba(0,0,0,.4)}
+.form:focus-within{box-shadow:0 0 0 3px #fff}
+.form .gs{padding:10px 20px}
+.msg{margin:12px 0 0;font-size:.875rem;min-height:1.3em;color:hsl(var(--heading));font-weight:500}
+.msg.err{color:#7a1020}
+@media(max-width:520px){header{padding:0 16px;top:20px}h1{letter-spacing:-3px;font-size:3.4rem}.form{padding-left:18px}.form .gs{padding:10px 14px}.sub{letter-spacing:-.04em}}
+@media (prefers-reduced-motion: reduce){.w,.fx{animation:none;opacity:1;filter:none;transform:none}}
+</style>
+</head>
+<body>
+<section class="hero">
+  <canvas class="vid" id="sky" aria-hidden="true"></canvas>
+  <div class="tint" aria-hidden="true"></div>
+  <header>
+    <a href="#" class="logo" aria-label="Railroad.ai home">Railroad.ai</a>
+    <nav class="navpill liquid-glass" aria-label="Primary">
+      <ul><li><a href="#">Home</a></li><li><a href="#">Voyages</a></li><li><a href="#">Worlds</a></li><li><a href="#">Innovation</a></li></ul>
+    </nav>
+    <button class="gs" type="button" id="gs">Get Started <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10M7 17 17 7"/></svg></button>
+  </header>
+  <main>
+    <span class="badge liquid-glass">10K+ already subscribed</span>
+    <h1 id="h1" aria-label="Focus in a Constantly Distracted World"></h1>
+    <p class="sub fx">Cut through the noise of notifications, endless feeds, and constant interruptions. Learn how to reclaim your attention and do meaningful work that truly matters.</p>
+    <form class="form liquid-glass fx" id="form" novalidate>
+      <label for="em" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
+      <input id="em" type="email" name="email" placeholder="Enter your email" autocomplete="email" required>
+      <button class="gs" type="submit">Join Waitlist <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10M7 17 17 7"/></svg></button>
+    </form>
+    <p class="msg" id="msg" role="status" aria-live="polite"></p>
+  </main>
+</section>
+<script>
+(function(){
+  // BlurText: split heading into words, each blurs/rises in with 100ms stagger
+  var h=document.getElementById('h1'),words='Focus in a Constantly Distracted World'.split(' ');
+  words.forEach(function(wd,i){var s=document.createElement('span');s.className='w';s.setAttribute('aria-hidden','true');s.style.animationDelay=(i*0.1)+'s';s.textContent=wd+(i<words.length-1?' ':'');h.appendChild(s)});
+
+  var form=document.getElementById('form'),em=document.getElementById('em'),msg=document.getElementById('msg');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=em.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){msg.className='msg err';msg.textContent='Please enter a valid email address.';em.setAttribute('aria-invalid','true');em.focus();return}
+    em.removeAttribute('aria-invalid');msg.className='msg';msg.textContent="You're on the list. We'll be in touch soon.";em.value='';
+  });
+  document.getElementById('gs').addEventListener('click',function(){em.focus()});
+  document.querySelectorAll('.navpill a,.logo').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault()})});
+
+  // Stand-in for the background video: drifting clouds over a blue sky with a distant rail line
+  var cv=document.getElementById('sky'),ctx=cv.getContext('2d'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var w,h2,cl=[],t=5,last=0;
+  function rnd(s){var x=s;return function(){x=(x*9301+49297)%233280;return x/233280}}
+  function size(){w=cv.width=Math.max(2,Math.round(cv.clientWidth/2));h2=cv.height=Math.max(2,Math.round(cv.clientHeight/2));
+    var r=rnd(11);cl=[];for(var i=0;i<26;i++){var puffs=[],n=5+Math.floor(r()*5);for(var k=0;k<n;k++)puffs.push([ (k/n-.5)*(.9+r()*.5),(r()-.5)*.35,.5+r()*.6]);cl.push({x:r(),y:(i%4===3?.78+r()*.08:.24+r()*.32),s:.08+r()*.14,d:r(),p:puffs})}}
+  size();addEventListener('resize',function(){size();draw()});
+  function draw(){
+    var g=ctx.createLinearGradient(0,0,0,h2);
+    g.addColorStop(0,'#4a79b2');g.addColorStop(.28,'#6a97cb');g.addColorStop(.58,'#8fb3dc');g.addColorStop(.8,'#b9d2ec');g.addColorStop(1,'#aac5e2');
+    ctx.fillStyle=g;ctx.fillRect(0,0,w,h2);
+    cl.slice().sort(function(a,b){return a.d-b.d}).forEach(function(c){
+      var sp=.003+c.d*.01,cx=((c.x+t*sp)%1.5-.25)*w,cy=c.y*h2,R=c.s*w*(.6+c.d*.8);
+      c.p.forEach(function(p){
+        var x=cx+p[0]*R*2,y=cy+p[1]*R,r=R*p[2];
+        var rg=ctx.createRadialGradient(x,y-r*.2,0,x,y,r);
+        rg.addColorStop(0,'rgba(255,255,255,'+(.32+c.d*.22)+')');rg.addColorStop(.6,'rgba(250,252,255,'+(.14+c.d*.1)+')');rg.addColorStop(1,'rgba(255,255,255,0)');
+        ctx.fillStyle=rg;ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();
+      });
+    });
+    // distant hills + converging rails at the bottom
+    var hy=h2*.86;
+    ctx.fillStyle='#a8bfd6';ctx.beginPath();ctx.moveTo(0,hy);for(var x=0;x<=w;x+=w/16)ctx.lineTo(x,hy-Math.sin(x/w*6+1)*h2*.018-h2*.015);ctx.lineTo(w,h2);ctx.lineTo(0,h2);ctx.fill();
+    ctx.fillStyle='#86a1bf';ctx.beginPath();ctx.moveTo(0,hy+h2*.03);for(x=0;x<=w;x+=w/20)ctx.lineTo(x,hy+h2*.02-Math.sin(x/w*9+3)*h2*.015);ctx.lineTo(w,h2);ctx.lineTo(0,h2);ctx.fill();
+    ctx.strokeStyle='rgba(60,85,120,.55)';ctx.lineWidth=Math.max(1,w/500);
+    [-1,1].forEach(function(s){ctx.beginPath();ctx.moveTo(w/2+s*w*.012,hy+h2*.03);ctx.lineTo(w/2+s*w*.2,h2);ctx.stroke()});
+    for(var i=0;i<9;i++){var f=Math.pow(i/9,1.8),yy=hy+h2*.03+f*(h2-hy-h2*.03),hw=w*.012+f*w*.2;ctx.beginPath();ctx.moveTo(w/2-hw*1.35,yy);ctx.lineTo(w/2+hw*1.35,yy);ctx.stroke()}
+  }
+  draw();
+  function loop(ts){if(document.hidden){last=0;requestAnimationFrame(loop);return}var dt=last?Math.min((ts-last)/1000,.1):0;last=ts;t+=dt;draw();requestAnimationFrame(loop)}
+  if(!reduce)requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

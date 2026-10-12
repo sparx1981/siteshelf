@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sync AI — Hero Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;height:100%;font-family:'Inter',sans-serif;background:#fff;color:#000;-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit;padding:0}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid #2563eb;outline-offset:3px;border-radius:6px}
+.page{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;background:#fff}
+.vid{position:absolute;inset:0;width:100%;height:100%;padding-top:120px;z-index:0}
+@media(min-width:768px){.vid{padding-top:200px}}
+.vid canvas{display:block;width:100%;height:100%}
+.ov{position:absolute;left:0;right:0;z-index:10;pointer-events:none;background:linear-gradient(to bottom,#fff,rgba(255,255,255,0))}
+.ov.g{top:120px;height:200px}
+.ov.d{display:none;top:200px;height:300px}
+.ov.m{top:120px;height:200px}
+@media(min-width:768px){.ov.d{display:block}.ov.m{display:none}}
+header{position:relative;z-index:20}
+.nav{max-width:80rem;margin:0 auto;padding:16px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+@media(min-width:640px){.nav{padding:16px 24px}}
+.logo{display:flex;align-items:center;gap:8px;font-size:1.125rem;font-weight:600}
+.logo svg{width:20px;height:20px;fill:#000;stroke:#000}
+.menu{display:none;gap:32px;align-items:center}
+@media(min-width:768px){.menu{display:flex}}
+.menu button,.menu a,.right button{font-size:.875rem;color:#374151;display:flex;align-items:center;gap:4px;transition:color .2s;padding:6px 0}
+.menu button:hover,.right .login:hover{color:#000}
+.menu svg{width:16px;height:16px}
+.right{display:none;gap:16px;align-items:center}
+@media(min-width:640px){.right{display:flex}}
+.cta-s{background:#000;color:#fff!important;padding:10px 20px!important;border-radius:9999px;font-weight:500;transition:background-color .2s}
+.cta-s:hover{background:#1f2937}
+.burger{display:block}
+@media(min-width:640px){.burger{display:none}}
+.burger svg{width:24px;height:24px}
+.mm{position:absolute;top:60px;left:0;right:0;z-index:30;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid #e5e7eb;padding:16px 24px;display:flex;flex-direction:column;gap:16px;animation:fio .4s ease-out forwards}
+.mm button,.mm a{text-align:left;font-size:.875rem;color:#374151;padding:6px 0;display:flex;gap:4px;align-items:center}
+.mm .sep{border-top:1px solid #e5e7eb;padding-top:16px;display:flex;flex-direction:column;gap:16px}
+.mm .cta-s{width:100%;justify-content:center;text-align:center}
+@media(min-width:768px){.mm .hid-d{display:none}}
+.fu{animation:fiu .6s ease-out forwards;opacity:0}
+@keyframes fiu{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fio{from{opacity:0}to{opacity:1}}
+.hero{position:relative;z-index:20;text-align:center;padding:24px 16px 64px;max-width:80rem;margin:0 auto}
+@media(min-width:640px){.hero{padding:48px 24px 128px}}
+.rate{display:inline-flex;align-items:center;gap:8px;margin-bottom:20px}
+@media(min-width:640px){.rate{margin-bottom:32px}}
+.rate .bx{width:24px;height:24px;border:1px solid #d1d5db;border-radius:4px;display:flex;align-items:center;justify-content:center;background:#fff}
+.rate svg{width:16px;height:16px;fill:#000}
+.rate span{font-size:.75rem;font-weight:500}
+@media(min-width:640px){.rate span{font-size:.875rem}}
+h1{margin:0 0 16px;font-size:38px;font-weight:400;line-height:1.1;letter-spacing:-.025em}
+@media(min-width:640px){h1{font-size:3.75rem;margin-bottom:20px}}
+@media(min-width:768px){h1{font-size:4.5rem}}
+@media(min-width:1024px){h1{font-size:80px}}
+.grad{background:linear-gradient(to right,#000,#6b7280,#9ca3af);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.m-only{display:inline}.d-only{display:none}
+@media(min-width:640px){.m-only{display:none}.d-only{display:inline}}
+.lead{margin:0 auto 24px;max-width:42rem;padding:0 8px;font-size:1rem;color:#4b5563}
+@media(min-width:640px){.lead{font-size:1.125rem;margin-bottom:32px}}
+@media(min-width:768px){.lead{font-size:1.25rem}}
+.cta{background:#000;color:#fff;padding:12px 24px;border-radius:9999px;font-size:.875rem;font-weight:500;transition:background-color .2s}
+@media(min-width:640px){.cta{padding:12px 32px;font-size:1rem}}
+.cta:hover{background:#1f2937}
+.bottom{position:absolute;left:0;right:0;bottom:0;z-index:20;display:flex;flex-direction:column;align-items:center;gap:12px;padding:0 16px 16px}
+@media(min-width:640px){.bottom{gap:16px;padding-bottom:32px}}
+.pill{border-radius:9999px;padding:4px 12px;font-size:10px;font-weight:500;color:#fff;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);text-align:center}
+@media(min-width:640px){.pill{font-size:.75rem;padding:4px 14px}}
+.logos{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;list-style:none;margin:0;padding:0}
+@media(min-width:640px){.logos{gap:48px}}
+@media(min-width:768px){.logos{gap:64px}}
+.logos li{font-family:Georgia,serif;font-style:italic;color:#fff;letter-spacing:-.025em;font-size:1.125rem;text-shadow:0 1px 8px rgba(10,30,70,.35)}
+@media(min-width:640px){.logos li{font-size:1.5rem}}
+@media(min-width:768px){.logos li{font-size:1.875rem}}
+.toast{position:fixed;left:50%;top:76px;transform:translateX(-50%);z-index:60;background:#000;color:#fff;padding:10px 20px;border-radius:9999px;font-size:.875rem}
+@media (prefers-reduced-motion: reduce){.fu{animation:none;opacity:1}.mm{animation:none}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="vid" aria-hidden="true"><canvas id="sky"></canvas></div>
+  <div class="ov g" aria-hidden="true"></div>
+  <div class="ov d" aria-hidden="true"></div>
+  <div class="ov m" aria-hidden="true"></div>
+
+  <header>
+    <nav class="nav fu" style="animation-delay:.1s" aria-label="Primary">
+      <a class="logo" href="#" aria-label="Stellar.ai home">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Stellar.ai
+      </a>
+      <div class="menu">
+        <button type="button">Solutions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <button type="button">For Teams <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <button type="button">About Us</button>
+        <button type="button">Learn Hub</button>
+      </div>
+      <div class="right">
+        <button type="button" class="login">Login</button>
+        <button type="button" class="cta-s" data-cta>Get started free</button>
+      </div>
+      <button type="button" class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mm">
+        <svg id="ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="ic-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" hidden><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </nav>
+    <div class="mm" id="mm" hidden>
+      <button type="button">Solutions <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+      <button type="button">For Teams <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+      <button type="button">About Us</button>
+      <button type="button">Learn Hub</button>
+      <div class="sep">
+        <button type="button">Login</button>
+        <button type="button" class="cta-s" data-cta>Get started free</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="rate fu" style="animation-delay:.2s">
+      <span class="bx"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+      <span>4.9 rating from 18.3K+ users</span>
+    </div>
+    <h1 class="fu" style="animation-delay:.3s">
+      <span class="m-only">Work Smarter.<br>Move Faster.<br></span><span class="d-only">Work Smarter. Move Faster.<br></span>
+      <span class="grad">AI Powers You Up.</span>
+    </h1>
+    <p class="lead fu" style="animation-delay:.4s">Intelligent automation syncs with the tools you love to streamline tasks, boost output, and save time.</p>
+    <button type="button" class="cta fu" style="animation-delay:.5s" data-cta>Begin Free Trial</button>
+  </main>
+
+  <div class="bottom fu" style="animation-delay:.6s">
+    <div class="pill">Collaborating with top aerospace pioneers globally</div>
+    <ul class="logos" aria-label="Partners">
+      <li>Aeon</li><li>Vela</li><li>Apex</li><li>Orbit</li><li>Zeno</li>
+    </ul>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" hidden>Thanks! Your free trial link is on its way.</div>
+<script>
+(function(){
+  var burger=document.getElementById('burger'),mm=document.getElementById('mm'),icm=document.getElementById('ic-menu'),icx=document.getElementById('ic-x');
+  function setMenu(o){mm.hidden=!o;icm.hidden=o;icx.hidden=!o;burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Close menu':'Open menu')}
+  burger.addEventListener('click',function(){setMenu(mm.hidden)});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&!mm.hidden){setMenu(false);burger.focus()}});
+  addEventListener('resize',function(){if(innerWidth>=640)setMenu(false)});
+  var toast=document.getElementById('toast'),tm;
+  document.querySelectorAll('[data-cta]').forEach(function(b){b.addEventListener('click',function(){toast.hidden=false;clearTimeout(tm);tm=setTimeout(function(){toast.hidden=true},2600)})});
+
+  // Stand-in for the background video: slow aerial flight above a bright cloud deck, deepening to blue below
+  var cv=document.getElementById('sky'),ctx=cv.getContext('2d'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var w,h,puffs=[],t=3,last=0;
+  function rnd(s){var x=s;return function(){x=(x*9301+49297)%233280;return x/233280}}
+  function size(){w=cv.width=Math.max(2,Math.round(cv.clientWidth/2));h=cv.height=Math.max(2,Math.round(cv.clientHeight/2));
+    var r=rnd(7);puffs=[];var n=90;
+    for(var i=0;i<n;i++){var d=r();puffs.push({x:r(),y:.05+Math.pow(r(),.8)*.95,s:.05+r()*.14,d:d,o:.35+r()*.5})}
+  }
+  size();addEventListener('resize',function(){size();draw()});
+  function draw(){
+    var g=ctx.createLinearGradient(0,0,0,h);
+    g.addColorStop(0,'#f2f7fd');g.addColorStop(.3,'#a9c8ea');g.addColorStop(.62,'#4f86c6');g.addColorStop(1,'#1f4f92');
+    ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+    // sun glow
+    var sg=ctx.createRadialGradient(w*.72,h*.18,0,w*.72,h*.18,w*.5);sg.addColorStop(0,'rgba(255,255,255,.75)');sg.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=sg;ctx.fillRect(0,0,w,h);
+    // clouds, depth sorted: far (small d) first
+    puffs.slice().sort(function(a,b){return a.d-b.d}).forEach(function(p){
+      var sp=.004+p.d*.016;
+      var x=((p.x+t*sp)%1.3-.15)*w,y=p.y*h*(.55+p.d*.5)+h*.1*(1-p.d)*0+h*.12*p.d,r=p.s*w*(.5+p.d*.9);
+      var shade=Math.round(255-(1-p.d)*60);
+      var rg=ctx.createRadialGradient(x,y,0,x,y,r);
+      rg.addColorStop(0,'rgba('+shade+','+shade+',255,'+(p.o*.9)+')');
+      rg.addColorStop(.55,'rgba('+shade+','+shade+',255,'+(p.o*.35)+')');
+      rg.addColorStop(1,'rgba(255,255,255,0)');
+      ctx.fillStyle=rg;ctx.beginPath();ctx.ellipse(x,y,r*1.6,r*.62,0,0,7);ctx.fill();
+    });
+    // deep haze at the bottom for the white partner text
+    var bg=ctx.createLinearGradient(0,h*.55,0,h);bg.addColorStop(0,'rgba(20,60,120,0)');bg.addColorStop(1,'rgba(14,44,98,.55)');ctx.fillStyle=bg;ctx.fillRect(0,h*.55,w,h*.45);
+  }
+  draw();
+  function loop(ts){
+    if(document.hidden){last=0;requestAnimationFrame(loop);return}
+    var dt=last?Math.min((ts-last)/1000,.1):0;last=ts;t+=dt;draw();requestAnimationFrame(loop)
+  }
+  if(!reduce)requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

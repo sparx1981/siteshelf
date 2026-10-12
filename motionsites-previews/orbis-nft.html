@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orbis NFT — Landing Page</title>
+<!-- Anton and Condiment are linked as specified; Oswald and Caveat are linked only as close fallbacks for the screenshot checker. All five CloudFront videos are stood in for by canvas space scenes (stars, nebula, planets) and the three NFT card videos by animated canvas objects. The /texture.png overlay is an inline SVG noise tile. lucide icons are redrawn inline. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500&family=Condiment&family=Oswald:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#010828;--cream:#EFF4FF;--neon:#6FFF00}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:'Anton','Oswald',Impact,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a,button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--neon);outline-offset:3px}
+.font-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
+.cur{font-family:'Condiment','Caveat',cursive;font-weight:400;text-transform:none;color:var(--neon);mix-blend-mode:exclusion}
+.liquid-glass{background:rgba(255,255,255,.01);background-blend-mode:luminosity;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border:none;box-shadow:inset 0 1px 1px rgba(255,255,255,.1);position:relative;overflow:hidden}
+.liquid-glass::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;background:linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.15) 20%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,.15) 80%,rgba(255,255,255,.45) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.tex{position:fixed;inset:0;z-index:50;pointer-events:none;mix-blend-mode:lighten;opacity:.6;background-size:cover;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n' x='0' y='0' width='100%' height='100%'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' seed='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .55  0 0 0 0 .62  0 0 0 0 .9  0 0 0 1.1 -.62'/></filter><rect width='400' height='400' filter='url(%23n)' opacity='.5'/></svg>");background-size:400px 400px}
+.wrap{max-width:1831px;margin:0 auto;padding-left:clamp(16px,4vw,64px);padding-right:clamp(16px,4vw,64px);position:relative;min-width:0}
+canvas.bgc{position:absolute;inset:0;width:100%;height:100%;display:block}
+.up{text-transform:uppercase}
+/* ---- hero ---- */
+.hero{position:relative;min-height:100vh;min-height:100svh;border-radius:0 0 32px 32px;overflow:clip;isolation:isolate;display:flex;flex-direction:column;background:#010828}
+.hero>.wrap{flex:1;display:flex;flex-direction:column;width:100%;z-index:2}
+.hdr{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;padding-top:28px;gap:12px}
+.logo{font-size:16px;text-transform:uppercase;text-decoration:none;letter-spacing:.02em;justify-self:start}
+.nav{display:none;border-radius:28px;padding:24px 52px}
+.nav ul{list-style:none;padding:0;display:flex;gap:40px}
+.nav a{font-size:13px;text-transform:uppercase;text-decoration:none;transition:color .2s;letter-spacing:.02em;white-space:nowrap}
+.nav a:hover{color:var(--neon)}
+.mbtn{justify-self:end;grid-column:3;width:44px;height:44px;border-radius:14px;cursor:pointer;display:grid;place-items:center}
+.mbtn svg{width:20px;height:20px}
+.mmenu{position:absolute;z-index:6;left:clamp(16px,4vw,64px);right:clamp(16px,4vw,64px);top:84px;border-radius:24px;padding:16px 8px;display:flex;flex-direction:column;background:rgba(1,8,40,.8)}
+.mmenu a{padding:14px 18px;text-decoration:none;text-transform:uppercase;font-size:15px;border-radius:12px;position:relative;z-index:1}
+.mmenu a:hover{color:var(--neon)}
+.hbody{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:96px;position:relative;padding-top:48px}
+.soc{display:flex;gap:12px}
+.sbtn{width:56px;height:56px;border-radius:1rem;display:grid;place-items:center;transition:background-color .2s;cursor:pointer;text-decoration:none}
+.sbtn:hover{background:rgba(255,255,255,.1)}
+.sbtn svg,.ico svg{width:20px;height:20px;display:block;position:relative;z-index:1}
+.soc.d{display:none}
+.soc.m{justify-content:center;margin-top:36px}
+.h1w{position:relative;max-width:780px}
+h1.big{font-weight:400;font-size:40px;line-height:1.05;text-transform:uppercase;letter-spacing:.005em}
+.h1w .cur{position:absolute;right:0;bottom:-.4em;font-size:clamp(24px,5.6vw,48px);transform:rotate(-1deg);opacity:.9;white-space:nowrap;line-height:1}
+/* ---- about ---- */
+.about{position:relative;min-height:100vh;min-height:100svh;overflow:clip;isolation:isolate;background:#010828}
+.about>.wrap{padding-top:64px;padding-bottom:64px;z-index:2;display:flex;flex-direction:column;min-height:100vh;min-height:100svh}
+.toprow{display:flex;flex-direction:column;gap:32px;justify-content:space-between}
+.h2w{position:relative;display:inline-block;align-self:flex-start}
+h2.hello{font-weight:400;font-size:clamp(32px,7vw,60px);line-height:1.02;text-transform:uppercase}
+.h2w .cur{position:absolute;right:-.45em;bottom:-.72em;font-size:clamp(36px,7.8vw,68px);line-height:1;transform:rotate(-4deg);white-space:nowrap}
+.desc{font-size:14px;line-height:1.5;text-transform:uppercase;color:var(--cream);max-width:266px;letter-spacing:.01em}
+.botrow{margin-top:auto;display:flex;justify-content:space-between;gap:32px;padding-top:80px}
+.botrow .col{display:flex;flex-direction:column;gap:24px;max-width:266px}
+.botrow p{font-size:14px;line-height:1.5;text-transform:uppercase;opacity:.1;color:#010828}
+.botrow .col.r{display:none}
+/* ---- collection ---- */
+.coll{padding:96px 0 112px;background:var(--bg);position:relative}
+.chead{display:flex;flex-direction:column;gap:32px;align-items:flex-start;justify-content:space-between;margin-bottom:48px}
+h2.col-h{font-weight:400;font-size:clamp(32px,7vw,60px);line-height:1.05;text-transform:uppercase}
+h2.col-h span{display:block}
+h2.col-h .l2{margin-left:48px}
+.all{background:none;border:0;cursor:pointer;text-align:left;display:block;text-transform:uppercase;padding:0;transition:opacity .2s;text-decoration:none}
+.all:hover{opacity:.85}
+.all:hover .bar{transform:scaleX(1.04)}
+.all .row{display:flex;align-items:center;gap:12px}
+.all .see{font-size:clamp(32px,7vw,60px);line-height:1}
+.all .st{display:flex;flex-direction:column;font-size:clamp(20px,3.6vw,36px);line-height:.95}
+.bar{display:block;margin-top:8px;height:clamp(6px,1vw,10px);background:var(--neon);transform-origin:left;transition:transform .25s}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+.nft{border-radius:32px;padding:18px;transition:background-color .25s}
+.nft:hover{background:rgba(255,255,255,.1)}
+.sq{position:relative;border-radius:24px;overflow:hidden;padding-bottom:100%;background:#050f33;isolation:isolate}
+.sq canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ov{position:absolute;left:14px;right:14px;bottom:14px;border-radius:20px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:2}
+.ov small{display:block;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;color:rgba(239,244,255,.7);text-transform:uppercase;letter-spacing:.04em;position:relative;z-index:1}
+.ov b{display:block;font-weight:400;font-size:16px;margin-top:2px;position:relative;z-index:1;letter-spacing:.03em}
+.go{flex:none;width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;background:linear-gradient(135deg,#b724ff,#7c3aed);box-shadow:0 10px 15px -3px rgba(168,85,247,.5),0 4px 6px -4px rgba(168,85,247,.5);display:grid;place-items:center;transition:transform .2s;position:relative;z-index:1;color:#fff}
+.go:hover{transform:scale(1.1)}
+.go svg{width:20px;height:20px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);z-index:60;border-radius:999px;padding:14px 24px;background:rgba(1,8,40,.85);font-family:ui-monospace,Menlo,monospace;font-size:13px;text-transform:uppercase;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;white-space:nowrap;max-width:calc(100vw - 24px);overflow:hidden;text-overflow:ellipsis}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+/* ---- cta ---- */
+.cta{position:relative;overflow:clip;isolation:isolate;height:440px;background:#010828}
+.cta .txt{position:absolute;inset:0;z-index:2;display:flex;justify-content:flex-end;align-items:flex-start;padding:17% 6% 0 24%;text-align:right}
+.hw{position:relative}
+.hw .cur{position:absolute;left:-.1em;top:-1.5em;font-size:clamp(17px,4.7vw,68px);line-height:1;transform:rotate(-3deg);white-space:nowrap}
+h2.join{font-weight:400;font-size:clamp(16px,4.2vw,60px);line-height:1.08;text-transform:uppercase}
+h2.join .first{display:block;margin-bottom:clamp(16px,2.2vw,48px)}
+.soc3{position:absolute;z-index:3;left:8%;bottom:12%;border-radius:.5rem;display:flex;flex-direction:column}
+.soc3 a{display:grid;place-items:center;width:clamp(44px,9vw,10.5rem);height:clamp(44px,5.2vw,6rem);border-bottom:1px solid rgba(255,255,255,.1);transition:background-color .2s;position:relative;z-index:1;text-decoration:none}
+.soc3 a:last-child{border-bottom:0}
+.soc3 a:hover{background:rgba(255,255,255,.1)}
+.soc3 svg{width:clamp(16px,1.8vw,26px);height:clamp(16px,1.8vw,26px)}
+footer{padding:28px 0 36px;text-align:center;font-family:ui-monospace,Menlo,monospace;font-size:12px;color:rgba(239,244,255,.7);text-transform:uppercase;letter-spacing:.06em;background:var(--bg)}
+@media(min-width:640px){h1.big{font-size:60px}.desc{font-size:15px}.h2w .cur{right:-.1em}.coll{padding:112px 0 120px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}h2.col-h .l2{margin-left:96px}.soc3{bottom:16%;border-radius:.9rem}.cta{height:auto;aspect-ratio:16/10}.about>.wrap{padding-top:80px;padding-bottom:80px}.chead{flex-direction:row;align-items:flex-end}}
+@media(min-width:768px){h1.big{font-size:75px}.soc3{border-radius:1rem}}
+@media(min-width:1024px){h1.big{font-size:90px;line-height:1;margin-left:128px}.h1w{max-width:780px;margin-left:128px}.h1w h1.big{margin-left:0}.nav{display:block}.mbtn,.mmenu{display:none!important}.soc.d{display:flex;flex-direction:column;position:absolute;right:0;top:48px;gap:12px}.soc.m{display:none}.hdr{padding-top:36px}.toprow{flex-direction:row;align-items:flex-start}.desc{font-size:16px;margin-top:8px}.botrow .col.r{display:flex}.botrow p{color:var(--cream)}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}h2.col-h .l2{margin-left:128px}.about>.wrap{padding-top:96px;padding-bottom:96px}.soc3{bottom:20%;border-radius:1.25rem}.cta{aspect-ratio:16/9}.cta .txt{padding-right:20%;padding-left:15%;padding-top:13%}}
+@media(max-width:420px){.nft{padding:14px;border-radius:28px}.ov{left:10px;right:10px;bottom:10px;padding:12px 14px}.nav{padding:20px 28px}.h1w .cur{bottom:-.7em}.cta .txt{padding:15% 5% 0 14%}.soc3{left:5%}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="tex" aria-hidden="true"></div>
+
+<main>
+<section class="hero" id="home">
+  <canvas class="bgc" id="c-hero" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <header class="hdr">
+      <a class="logo" href="#home">Orbis.Nft</a>
+      <nav class="nav liquid-glass" aria-label="Primary"><ul>
+        <li><a href="#home">Homepage</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#buy">Buy NFT</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li>
+      </ul></nav>
+      <button class="mbtn liquid-glass" id="mb" aria-label="Open menu" aria-expanded="false" aria-controls="mm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="position:relative;z-index:1"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </header>
+    <nav class="mmenu liquid-glass" id="mm" hidden aria-label="Mobile">
+      <a href="#home">Homepage</a><a href="#gallery">Gallery</a><a href="#buy">Buy NFT</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="hbody">
+      <div class="soc d" aria-label="Social links">
+        <a class="sbtn liquid-glass" href="#mail" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.970 5.700a1.940 1.940 0 0 1-2.060 0L2 7"/></svg></a>
+        <a class="sbtn liquid-glass" href="#twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.400c1.600 10-9.400 17.300-18 11.600 2.200.1 4.400-.6 6-2C3 15.500.5 9.600 3 5c2.200 2.600 5.600 4.100 9 4-.9-4.200 4-6.600 7-3.800 1.100 0 3-1.200 3-1.200z"/></svg></a>
+        <a class="sbtn liquid-glass" href="#github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.800 4.800 0 0 0-1-3.500c3 0 6-2 6-5.500.08-1.250-.27-2.480-1-3.500.28-1.150.28-2.350 0-3.500 0 0-1 0-3 1.500-2.640-.5-5.360-.5-8 0C6 2 5 2 5 2c-.3 1.150-.3 2.350 0 3.500A5.403 5.403 0 0 0 4 9c0 3.500 3 5.500 6 5.500-.39.490-.68 1.050-.85 1.650-.17.600-.22 1.230-.15 1.850v4"/><path d="M9 18c-4.510 2-5-2-7-2"/></svg></a>
+      </div>
+      <div class="h1w">
+        <h1 class="big">Beyond earth<br>and ( its ) familiar boundaries</h1>
+        <span class="cur" aria-hidden="true">Nft collection</span>
+      </div>
+      <div class="soc m" aria-label="Social links">
+        <a class="sbtn liquid-glass" href="#mail" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.970 5.700a1.940 1.940 0 0 1-2.060 0L2 7"/></svg></a>
+        <a class="sbtn liquid-glass" href="#twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.400c1.600 10-9.400 17.300-18 11.600 2.200.1 4.400-.6 6-2C3 15.500.5 9.600 3 5c2.200 2.600 5.600 4.100 9 4-.9-4.200 4-6.600 7-3.800 1.100 0 3-1.200 3-1.200z"/></svg></a>
+        <a class="sbtn liquid-glass" href="#github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.800 4.800 0 0 0-1-3.500c3 0 6-2 6-5.500.08-1.250-.27-2.480-1-3.500.28-1.150.28-2.350 0-3.500 0 0-1 0-3 1.500-2.640-.5-5.360-.5-8 0C6 2 5 2 5 2c-.3 1.150-.3 2.350 0 3.500A5.403 5.403 0 0 0 4 9c0 3.500 3 5.500 6 5.500-.39.490-.68 1.050-.85 1.650-.17.600-.22 1.230-.15 1.850v4"/><path d="M9 18c-4.510 2-5-2-7-2"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="gallery" aria-labelledby="hello">
+  <canvas class="bgc" id="c-about" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="toprow">
+      <div class="h2w"><h2 class="hello" id="hello">Hello!<br>I'm orbis</h2><span class="cur" aria-hidden="true">Orbis</span></div>
+      <p class="desc font-mono">A digital object fixed beyond time and place. An exploration of distance, form, and silence in space</p>
+    </div>
+    <div class="botrow" aria-hidden="true">
+      <div class="col font-mono"><p>A digital object fixed beyond time and place. An exploration of distance, form, and silence in space</p><p>A digital object fixed beyond time and place. An exploration of distance, form, and silence in space</p></div>
+      <div class="col r font-mono"><p>A digital object fixed beyond time and place. An exploration of distance, form, and silence in space</p><p>A digital object fixed beyond time and place. An exploration of distance, form, and silence in space</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="coll" id="buy" aria-labelledby="coll-h">
+  <div class="wrap">
+    <div class="chead">
+      <h2 class="col-h" id="coll-h"><span>Collection of</span><span class="l2"><span class="cur" style="display:inline">Space</span> objects</span></h2>
+      <a class="all" href="#creators" aria-label="See all creators"><span class="row"><span class="see">See</span><span class="st"><span>All</span><span>Creators</span></span></span><span class="bar"></span></a>
+    </div>
+    <div class="grid">
+      <article class="nft liquid-glass"><div class="sq"><canvas data-obj="0" aria-hidden="true"></canvas>
+        <div class="ov liquid-glass"><div><small>Rarity score:</small><b>8.7/10</b></div><button class="go" type="button" data-n="Orbis Object 001" aria-label="View Orbis Object 001, rarity 8.7 out of 10"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div></div></article>
+      <article class="nft liquid-glass"><div class="sq"><canvas data-obj="1" aria-hidden="true"></canvas>
+        <div class="ov liquid-glass"><div><small>Rarity score:</small><b>9/10</b></div><button class="go" type="button" data-n="Orbis Object 002" aria-label="View Orbis Object 002, rarity 9 out of 10"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div></div></article>
+      <article class="nft liquid-glass"><div class="sq"><canvas data-obj="2" aria-hidden="true"></canvas>
+        <div class="ov liquid-glass"><div><small>Rarity score:</small><b>8.2/10</b></div><button class="go" type="button" data-n="Orbis Object 003" aria-label="View Orbis Object 003, rarity 8.2 out of 10"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="faq" aria-labelledby="join-h">
+  <canvas class="bgc" id="c-cta" aria-hidden="true"></canvas>
+  <div class="txt"><div class="hw"><span class="cur" aria-hidden="true">Go beyond</span>
+    <h2 class="join" id="join-h"><span class="first">Join us.</span>Reveal what's hidden.<br>Define what's next.<br>Follow the signal.</h2></div></div>
+  <div class="soc3 liquid-glass" id="contact" aria-label="Social links">
+    <a href="#mail" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.970 5.700a1.940 1.940 0 0 1-2.060 0L2 7"/></svg></a>
+    <a href="#twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.400c1.600 10-9.400 17.300-18 11.600 2.200.1 4.400-.6 6-2C3 15.500.5 9.600 3 5c2.200 2.600 5.600 4.100 9 4-.9-4.200 4-6.600 7-3.800 1.100 0 3-1.200 3-1.200z"/></svg></a>
+    <a href="#github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.800 4.800 0 0 0-1-3.500c3 0 6-2 6-5.500.08-1.250-.27-2.480-1-3.500.28-1.150.28-2.350 0-3.500 0 0-1 0-3 1.500-2.640-.5-5.360-.5-8 0C6 2 5 2 5 2c-.3 1.150-.3 2.350 0 3.500A5.403 5.403 0 0 0 4 9c0 3.500 3 5.500 6 5.500-.39.490-.68 1.050-.85 1.650-.17.600-.22 1.230-.15 1.850v4"/><path d="M9 18c-4.510 2-5-2-7-2"/></svg></a>
+  </div>
+</section>
+</main>
+<footer>&copy; 2026 Orbis.Nft &middot; All rights reserved</footer>
+<div class="toast liquid-glass" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function R(s){var x=s;return function(){x=(x*9301+49297)%233280;return x/233280}}
+  var items=[];
+  function setup(cv,draw,dprMax){
+    var o={cv:cv,c:cv.getContext('2d'),draw:draw,vis:true,t:2,W:0,H:0,d:dprMax||1.25,st:{}};
+    function size(){var d=Math.min(devicePixelRatio||1,o.d);o.W=cv.clientWidth;o.H=cv.clientHeight;if(!o.W||!o.H)return;cv.width=Math.round(o.W*d);cv.height=Math.round(o.H*d);o.c.setTransform(d,0,0,d,0,0);o.init&&o.init(o)}
+    size();addEventListener('resize',function(){size();if(!still)return;o.draw(o)});
+    if('IntersectionObserver' in window)new IntersectionObserver(function(e){o.vis=e[0].isIntersecting;if(o.vis&&still)o.draw(o)}).observe(cv);
+    o.draw(o);items.push(o);return o}
+  /* ---------- space scenes ---------- */
+  function spaceScene(cfg){
+    var r=R(cfg.seed),stars=[];for(var i=0;i<cfg.stars;i++)stars.push([r(),r(),.4+r()*1.3,r()*6,.2+r()*.8]);
+    return function(o){
+      var c=o.c,W=o.W,H=o.H,t=o.t,s=Math.max(W,H);if(!W)return;
+      var g=c.createLinearGradient(0,0,0,H);g.addColorStop(0,cfg.bg[0]);g.addColorStop(1,cfg.bg[1]);c.globalCompositeOperation='source-over';c.fillStyle=g;c.fillRect(0,0,W,H);
+      c.globalCompositeOperation='lighter';
+      cfg.neb.forEach(function(n,k){var x=(n[0]+Math.sin(t*.07+k*2)*.03)*W,y=(n[1]+Math.cos(t*.06+k)*.03)*H,rr=n[2]*s;
+        var rg=c.createRadialGradient(x,y,0,x,y,rr);rg.addColorStop(0,'rgba('+n[3]+','+n[4]+')');rg.addColorStop(1,'rgba('+n[3]+',0)');c.fillStyle=rg;c.fillRect(0,0,W,H)});
+      c.globalCompositeOperation='source-over';
+      stars.forEach(function(p){var x=((p[0]+t*.004*p[4])%1)*W,a=.25+.6*Math.abs(Math.sin(t*.7*p[4]+p[3]));c.fillStyle='rgba(225,236,255,'+a.toFixed(3)+')';c.beginPath();c.arc(x,p[1]*H,p[2],0,6.3);c.fill()});
+      if(cfg.planet)planet(c,W,H,t,cfg.planet);
+      if(cfg.dust){c.globalCompositeOperation='lighter';for(var k=0;k<cfg.dust;k++){var q=R(k*7+3),x2=((q()+t*.01*(.5+q()))%1)*W,y2=(q()*.8+.1+Math.sin(t*.3+k)*.02)*H;c.fillStyle='rgba(180,210,255,'+(.1+q()*.25).toFixed(3)+')';c.beginPath();c.arc(x2,y2,1+q()*2,0,6.3);c.fill()}c.globalCompositeOperation='source-over'}
+      if(cfg.vig){var v=c.createRadialGradient(W*.5,H*.5,s*.25,W*.5,H*.5,s*.8);v.addColorStop(0,'rgba(1,8,40,0)');v.addColorStop(1,'rgba(1,8,40,'+cfg.vig+')');c.fillStyle=v;c.fillRect(0,0,W,H)}
+    }}
+  function planet(c,W,H,t,p){
+    var s=Math.min(W,H),x=p.x*W,y=p.y*H+Math.sin(t*.15)*s*.004,r=p.r*s;
+    // atmosphere
+    c.globalCompositeOperation='lighter';
+    var ag=c.createRadialGradient(x,y,r*.92,x,y,r*1.28);ag.addColorStop(0,'rgba('+p.glow+',.5)');ag.addColorStop(1,'rgba('+p.glow+',0)');c.fillStyle=ag;c.beginPath();c.arc(x,y,r*1.28,0,6.3);c.fill();
+    c.globalCompositeOperation='source-over';
+    if(p.ring){ring(c,x,y,r,p,t,true)}
+    c.save();c.beginPath();c.arc(x,y,r,0,6.3);c.clip();
+    var lx=x+r*p.lx,ly=y+r*p.ly;
+    var sg=c.createRadialGradient(lx,ly,r*.05,x,y,r*1.25);sg.addColorStop(0,p.c[0]);sg.addColorStop(.45,p.c[1]);sg.addColorStop(1,p.c[2]);c.fillStyle=sg;c.fillRect(x-r,y-r,r*2,r*2);
+    // banding / surface texture
+    var q=R(p.seed||5);for(var i=0;i<(p.bands||9);i++){var by=y-r+q()*r*2,bh=r*(.04+q()*.1);var bgr=c.createLinearGradient(0,by,0,by+bh);bgr.addColorStop(0,'rgba('+p.band+',0)');bgr.addColorStop(.5,'rgba('+p.band+','+(.05+q()*.07).toFixed(3)+')');bgr.addColorStop(1,'rgba('+p.band+',0)');c.fillStyle=bgr;c.fillRect(x-r,by+Math.sin(t*.2+i)*r*.01,r*2,bh)}
+    if(p.craters){for(i=0;i<p.craters;i++){var cx=x+(q()-.5)*r*1.5,cy=y+(q()-.5)*r*1.5,cr=r*(.03+q()*.09);var cg=c.createRadialGradient(cx-cr*.3,cy-cr*.3,cr*.1,cx,cy,cr);cg.addColorStop(0,'rgba(0,0,0,.28)');cg.addColorStop(.8,'rgba(0,0,0,.12)');cg.addColorStop(1,'rgba(255,255,255,.08)');c.fillStyle=cg;c.beginPath();c.arc(cx,cy,cr,0,6.3);c.fill()}}
+    // terminator shadow
+    var sh=c.createRadialGradient(lx,ly,r*.6,lx,ly,r*2.1);sh.addColorStop(0,'rgba(1,8,40,0)');sh.addColorStop(1,'rgba(1,8,40,.9)');c.fillStyle=sh;c.fillRect(x-r,y-r,r*2,r*2);
+    c.restore();
+    // rim light
+    c.beginPath();c.arc(x,y,r,0,6.3);c.strokeStyle='rgba('+p.glow+',.35)';c.lineWidth=1.5;c.stroke();
+    if(p.ring){ring(c,x,y,r,p,t,false)}
+  }
+  function ring(c,x,y,r,p,t,back){
+    c.save();c.translate(x,y);c.rotate(p.tilt);
+    for(var k=0;k<3;k++){var rr=r*(1.45+k*.14);c.beginPath();c.ellipse(0,0,rr,rr*.22,0,back?Math.PI:0,back?Math.PI*2:Math.PI);c.strokeStyle='rgba('+p.glow+','+(.5-k*.14)+')';c.lineWidth=(3-k)*r*.012+1;c.stroke()}
+    c.restore()}
+  var heroScene=spaceScene({seed:3,stars:190,bg:['#010828','#04134a'],neb:[[.82,.7,.55,'30,90,255',.35],[.2,.2,.45,'90,40,200',.22],[.65,.2,.35,'20,160,255',.12]],planet:{x:.8,y:.98,r:.62,c:['#7fb4ff','#2a58c8','#06143e'],glow:'110,170,255',lx:-.45,ly:-.55,band:'200,225,255',bands:12,seed:4,ring:0,tilt:0},vig:.55,dust:26});
+  var aboutScene=spaceScene({seed:11,stars:200,bg:['#010828','#080a3a'],neb:[[.2,.75,.6,'200,50,200',.22],[.8,.25,.5,'40,110,255',.3],[.5,.5,.6,'20,30,120',.4]],planet:{x:.24,y:.9,r:.5,c:['#e8eaf6','#8a90c8','#222862'],glow:'180,190,255',lx:.2,ly:-.6,band:'255,255,255',bands:5,seed:9,craters:16},vig:.5,dust:30});
+  var ctaScene=spaceScene({seed:23,stars:240,bg:['#010828','#020b34'],neb:[[.7,.4,.6,'60,60,255',.28],[.25,.55,.5,'20,200,170',.16],[.5,.9,.5,'140,60,255',.2]],planet:{x:.27,y:.5,r:.24,c:['#d6f7ff','#3ea0d8','#06214a'],glow:'100,220,255',lx:-.5,ly:-.4,band:'255,255,255',bands:8,seed:2,ring:1,tilt:-.3},vig:.45,dust:20});
+  [['c-hero',heroScene],['c-about',aboutScene],['c-cta',ctaScene]].forEach(function(a){setup(document.getElementById(a[0]),a[1],1)});
+  /* ---------- NFT card objects ---------- */
+  var pals=[['183,36,255','60,200,255','#2a0f63'],['255,120,60','255,60,150','#2a0a33'],['70,255,170','60,120,255','#052a3a']];
+  function objDraw(v){return function(o){
+    var c=o.c,W=o.W,H=o.H,t=o.t,P=pals[v],s=Math.min(W,H);if(!W)return;
+    var bg=c.createRadialGradient(W*.5,H*.45,0,W*.5,H*.5,s*.8);bg.addColorStop(0,P[2]);bg.addColorStop(1,'#010828');c.globalCompositeOperation='source-over';c.fillStyle=bg;c.fillRect(0,0,W,H);
+    var cx=W*.5,cy=H*.46,r=s*.24;
+    c.globalCompositeOperation='lighter';
+    var gl=c.createRadialGradient(cx,cy,r*.5,cx,cy,r*2.4);gl.addColorStop(0,'rgba('+P[0]+',.45)');gl.addColorStop(1,'rgba('+P[0]+',0)');c.fillStyle=gl;c.fillRect(0,0,W,H);
+    c.globalCompositeOperation='source-over';
+    var rot=t*.5*(v===1?-1:1);
+    function band(front){c.save();c.translate(cx,cy);c.rotate(-.35+Math.sin(t*.3)*.08);
+      for(var k=0;k<(v===1?4:2);k++){var rr=r*(1.55+k*.22);c.beginPath();c.ellipse(0,0,rr,rr*(.2+.05*Math.sin(t*.4+k)),0,front?0:Math.PI,front?Math.PI:Math.PI*2);c.strokeStyle='rgba('+(k%2?P[1]:P[0])+','+(.75-k*.12)+')';c.lineWidth=v===2?4-k:2.5;c.stroke()}
+      c.restore()}
+    band(false);
+    // body
+    var lx=cx-r*.35+Math.sin(rot)*r*.1,ly=cy-r*.4;
+    if(v===1){ // faceted gem
+      c.save();c.translate(cx,cy);c.rotate(Math.sin(t*.4)*.12);var n=8;
+      for(var i=0;i<n;i++){var a1=i/n*6.283+rot*.3,a2=(i+1)/n*6.283+rot*.3;c.beginPath();c.moveTo(0,-r*1.15);c.lineTo(Math.cos(a1)*r,Math.sin(a1)*r*.35);c.lineTo(Math.cos(a2)*r,Math.sin(a2)*r*.35);c.closePath();var sh=.5+.5*Math.cos(a1+t*.6);c.fillStyle='rgba('+(i%2?P[0]:P[1])+','+(.35+sh*.5).toFixed(2)+')';c.fill();
+        c.beginPath();c.moveTo(0,r*1.15);c.lineTo(Math.cos(a1)*r,Math.sin(a1)*r*.35);c.lineTo(Math.cos(a2)*r,Math.sin(a2)*r*.35);c.closePath();c.fillStyle='rgba('+(i%2?P[1]:P[0])+','+(.2+sh*.45).toFixed(2)+')';c.fill();c.strokeStyle='rgba(255,255,255,.35)';c.lineWidth=1;c.stroke()}
+      c.restore()}
+    else{
+      var sg=c.createRadialGradient(lx,ly,r*.08,cx,cy,r*1.1);sg.addColorStop(0,'#ffffff');sg.addColorStop(.25,'rgb('+P[1]+')');sg.addColorStop(.7,'rgb('+P[0]+')');sg.addColorStop(1,'#060a30');c.fillStyle=sg;c.beginPath();c.arc(cx,cy,r,0,6.3);c.fill();
+      c.save();c.beginPath();c.arc(cx,cy,r,0,6.3);c.clip();
+      for(var k=0;k<7;k++){var yy=cy-r+((k*.31+t*.03*(v?1:-1))%1)*r*2;c.fillStyle='rgba(255,255,255,'+(.05+.05*(k%2))+')';c.fillRect(cx-r,yy,r*2,r*.09)}
+      var sd=c.createRadialGradient(lx,ly,r*.5,lx,ly,r*2);sd.addColorStop(0,'rgba(1,8,40,0)');sd.addColorStop(1,'rgba(1,8,40,.75)');c.fillStyle=sd;c.fillRect(cx-r,cy-r,r*2,r*2);c.restore();
+      if(v===2){var mx=cx+Math.cos(t*.9)*r*2.1,my=cy+Math.sin(t*.9)*r*.5,mz=Math.sin(t*.9);if(mz<0){}c.fillStyle='#e6f6ff';c.beginPath();c.arc(mx,my,r*.17*(1+.15*mz),0,6.3);c.fill()}}
+    band(true);
+    // sparkles
+    var q=R(v*13+1);c.globalCompositeOperation='lighter';
+    for(var i=0;i<26;i++){var px=q()*W,py=q()*H*.8,a=.2+.6*Math.abs(Math.sin(t*.9+i));c.fillStyle='rgba(235,245,255,'+a.toFixed(2)+')';c.beginPath();c.arc(px,py,.6+q()*1.4,0,6.3);c.fill()}
+    c.globalCompositeOperation='source-over';
+  }}
+  document.querySelectorAll('canvas[data-obj]').forEach(function(cv){setup(cv,objDraw(+cv.dataset.obj),1.25)});
+  /* ---------- loop ---------- */
+  var last=0;
+  function loop(ts){var dt=Math.min((ts-last)/1000,.1);last=ts;
+    if(!document.hidden){items.forEach(function(o){if(o.vis){o.t+=dt;o.draw(o)}})}
+    requestAnimationFrame(loop)}
+  if(!still)requestAnimationFrame(function(ts){last=ts;requestAnimationFrame(loop)});
+  /* ---------- ui ---------- */
+  var mb=document.getElementById('mb'),mm=document.getElementById('mm');
+  function menu(v){mm.hidden=!v;mb.setAttribute('aria-expanded',String(v))}
+  mb.addEventListener('click',function(){menu(mm.hidden)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mm.hidden){menu(false);mb.focus()}});
+  addEventListener('resize',function(){if(innerWidth>=1024&&!mm.hidden)menu(false)});
+  var toast=document.getElementById('toast'),tt;
+  function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},2200)}
+  document.querySelectorAll('.go').forEach(function(b){b.addEventListener('click',function(){say(b.dataset.n+' - preview opened')})});
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href'),el=h.length>1&&document.querySelector(h);e.preventDefault();if(!mm.hidden)menu(false);
+    if(el&&['#home','#gallery','#buy','#faq','#contact'].indexOf(h)>-1)el.scrollIntoView({behavior:still?'auto':'smooth'});
+    else if(h==='#creators')say('Creators directory coming soon');else if(h==='#mail'||h==='#twitter'||h==='#github')say('Link is a placeholder in this preview')})});
+})();
+</script>
+</body>
+</html>

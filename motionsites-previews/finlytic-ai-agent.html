@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finlytic AI Agent — SaaS</title>
+<!-- Cabin is a Google font but not in the checker's local list, so DM Sans is linked as its fallback. Background video is stood in for by a canvas of violet light arcs rising from the bottom; the dashboard screenshot is built as live HTML/SVG. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+body{background:#000;color:#fff;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a,button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #b99bff;outline-offset:3px}
+.sec{position:relative;background:#000;overflow:hidden;isolation:isolate;min-height:100vh}
+.vid{position:absolute;width:120%;height:120%;left:50%;bottom:0;transform:translateX(-50%);z-index:0}
+.vid canvas{width:100%;height:100%;display:block}
+.pill-blur{position:absolute;left:50%;top:215px;width:801px;height:384px;max-width:100vw;transform:translateX(-50%);border-radius:9999px;background:#000;filter:blur(77.5px);z-index:1;pointer-events:none}
+.ui{position:relative;z-index:2}
+.nav{max-width:1440px;margin:0 auto;height:102px;padding:16px 120px;display:flex;align-items:center;justify-content:space-between}
+.nl{display:flex;align-items:center;gap:80px}
+.logo{display:block;width:134px;height:25px;flex:none}
+.links{display:flex;list-style:none;padding:0;gap:10px}
+.links a{display:flex;align-items:center;gap:3px;padding:4px 10px;font-weight:500;font-size:14px;line-height:22px;text-decoration:none;white-space:nowrap;border-radius:6px;transition:opacity .2s}
+.links a:hover{opacity:.7}
+.links svg{width:24px;height:24px}
+.nr{display:flex;gap:12px}
+.b{display:inline-block;padding:8px 16px;border-radius:8px;font-weight:600;font-size:14px;line-height:22px;text-decoration:none;cursor:pointer;border:0;white-space:nowrap;transition:transform .2s,filter .2s}
+.b:hover{filter:brightness(1.08)}
+.si{background:#fff;color:#171717;position:relative}
+.si::after{content:'';position:absolute;inset:0;border:1px solid #d4d4d4;border-radius:8px;pointer-events:none}
+.gs{background:#7b39fc;color:#fafafa;box-shadow:0 4px 16px rgba(23,23,23,.04)}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer;border-radius:8px}
+.burger svg{width:28px;height:28px;display:block}
+.drawer{position:absolute;z-index:20;left:16px;right:16px;top:84px;background:rgba(15,10,28,.96);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:12px;display:flex;flex-direction:column}
+.drawer a{padding:13px 14px;border-radius:10px;text-decoration:none;font-weight:500}
+.drawer a:hover{background:rgba(255,255,255,.08)}
+.drawer .row{display:flex;gap:10px;padding:8px 4px 2px}
+.drawer .row .b{flex:1;text-align:center}
+.hero{max-width:871px;margin:162px auto 0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px;padding:0 16px}
+.hd{display:flex;flex-direction:column;gap:10px;align-items:center}
+.l1,.l2{font-size:76px;line-height:1.15;letter-spacing:-2px;font-weight:500;color:#fff}
+.l1{font-family:'Inter',sans-serif}
+.l2{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+.sub{font-size:18px;line-height:26px;color:#f6f7f9;opacity:.9;max-width:613px;font-weight:400}
+.ctas{display:flex;gap:22px;align-items:center;justify-content:center;flex-wrap:wrap}
+.cta{padding:14px 24px;border-radius:10px;font-family:'Cabin','DM Sans',sans-serif;font-weight:500;font-size:16px;line-height:1.7;text-decoration:none;color:#fff;transition:transform .2s,filter .2s;display:inline-flex;align-items:center;gap:8px}
+.cta:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.cta.p{background:#7b39fc}.cta.s{background:#2b2344;color:#f6f7f9}
+.cta svg{width:18px;height:18px}
+.dash{width:1163px;max-width:90%;margin:80px auto 0;padding-bottom:40px}
+.glass{border-radius:24px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);background:rgba(255,255,255,.05);border:1.5px solid transparent;padding:22.5px;position:relative}
+.app{border-radius:8px;overflow:hidden;background:#0e0b1a;display:grid;grid-template-columns:64px minmax(0,1fr);min-height:0;font-family:'Inter',sans-serif;color:#e9e6f5}
+.side{background:#0a0813;border-right:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 0}
+.side i{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:#8c86a6}
+.side i.on{background:#2b2344;color:#c8b2ff}
+.side i svg{width:18px;height:18px}
+.side .lg{width:30px;height:30px;border-radius:9px;background:#7b39fc;margin-bottom:10px;display:grid;place-items:center}
+.main{padding:22px 24px;min-width:0}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.top h3{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.top small{display:block;font-size:12px;color:#9a94b5;margin-top:3px;font-weight:400}
+.chip{font-size:12px;padding:6px 12px;border-radius:999px;background:#1c1630;color:#c8b2ff;white-space:nowrap}
+.kp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.k{background:#15112a;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px}
+.k span{font-size:11.5px;color:#9a94b5;display:block}
+.k b{display:block;font-size:24px;font-weight:600;margin:6px 0 3px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.k em{font-style:normal;font-size:11.5px;color:#58d6a0}
+.cols{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:12px;margin-top:12px}
+.pn{background:#15112a;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px;min-width:0}
+.pn h4{font-size:13px;font-weight:600;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.pn h4 span{font-weight:400;font-size:11.5px;color:#9a94b5}
+.chart{width:100%;height:auto;display:block}
+.ag{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid rgba(255,255,255,.06);font-size:12.5px}
+.ag:first-of-type{border-top:0}
+.ag i{width:28px;height:28px;border-radius:8px;background:#2b2344;display:grid;place-items:center;font-style:normal;font-size:12px;color:#c8b2ff;flex:none}
+.ag div{flex:1;min-width:0}
+.ag div b{display:block;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ag div small{color:#9a94b5;font-size:11px}
+.st{font-size:11px;padding:3px 8px;border-radius:999px;background:rgba(88,214,160,.13);color:#58d6a0;white-space:nowrap}
+.st.w{background:rgba(255,196,90,.13);color:#ffc45a}
+@media(max-width:1100px){.nav{padding:16px 40px}.nl{gap:32px}}
+@media(max-width:900px){.links,.nr{display:none}.burger{display:block}.nav{padding:16px 20px}.l1,.l2{font-size:clamp(34px,10.6vw,60px)}.hero{margin-top:96px}.kp{grid-template-columns:repeat(2,minmax(0,1fr))}.cols{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:560px){.app{grid-template-columns:minmax(0,1fr)}.side{display:none}.glass{padding:10px;border-radius:18px}.main{padding:16px}.sub{font-size:16px}.pill-blur{top:130px;width:130vw}.ctas{gap:12px}.cta{padding:13px 20px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<section class="sec">
+  <div class="vid" aria-hidden="true"><canvas id="cv"></canvas></div>
+  <div class="pill-blur" aria-hidden="true"></div>
+  <header class="ui">
+    <div class="nav">
+      <div class="nl">
+        <a href="#top" aria-label="Logoipsum home"><svg class="logo" viewBox="0 0 134 25" fill="#fff" role="img" aria-label="LOGOIPSUM"><path d="M12.500 0 25 12.500 12.500 25 0 12.500z" opacity=".95"/><path d="M12.500 7l5.500 5.500-5.500 5.500L7 12.500z" fill="#000"/><text x="34" y="18.500" font-family="Manrope,sans-serif" font-weight="800" font-size="15" textLength="98" lengthAdjust="spacingAndGlyphs">LOGOIPSUM</text></svg></a>
+        <nav aria-label="Primary"><ul class="links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact us</a></li>
+        </ul></nav>
+      </div>
+      <div class="nr"><a class="b si" href="#signin">Sign In</a><a class="b gs" href="#start">Get Started</a></div>
+      <button class="burger" id="bg" aria-label="Open menu" aria-expanded="false" aria-controls="dr"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+    <div class="drawer" id="dr" hidden>
+      <a href="#home">Home</a><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact us</a>
+      <div class="row"><a class="b si" href="#signin">Sign In</a><a class="b gs" href="#start">Get Started</a></div>
+    </div>
+  </header>
+  <main class="ui" id="top">
+    <div class="hero">
+      <div class="hd"><h1 style="display:contents"><span class="l1">Automate repetitive.</span><span class="l2">Focus on growth.</span></h1></div>
+      <p class="sub">The next-generation AI agent platform that handles lead generation, customer support, and data entry while you build.</p>
+      <div class="ctas"><a class="cta p" href="#start">Get Started Free</a><a class="cta s" href="#demo"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch 2min Demo</a></div>
+    </div>
+    <div class="dash"><div class="glass">
+      <div class="app" role="img" aria-label="Finlytic dashboard preview showing leads handled, tickets resolved, hours saved and agent activity">
+        <div class="side" aria-hidden="true">
+          <div class="lg"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 2 22 12 12 22 2 12z"/></svg></div>
+          <i class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.500"/><rect x="14" y="3" width="7" height="5" rx="1.500"/><rect x="14" y="12" width="7" height="9" rx="1.500"/><rect x="3" y="16" width="7" height="5" rx="1.500"/></svg></i>
+          <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.500"/><path d="M2.500 20c.8-4 3.500-6 6.500-6s5.700 2 6.500 6M17 4.500a3.500 3.500 0 0 1 0 7M20 20c-.3-2.500-1.400-4.200-3-5"/></svg></i>
+          <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.600 7.100L3 21l1.900-6.300A8 8 0 1 1 21 12z"/></svg></i>
+          <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></i>
+          <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.900 4.900l2.100 2.100M17 17l2.100 2.100M19.100 4.900 17 7M7 17l-2.100 2.100"/></svg></i>
+        </div>
+        <div class="main">
+          <div class="top"><h3>Overview<small>Last 30 days across all agents</small></h3><span class="chip">Live &middot; 6 agents running</span></div>
+          <div class="kp">
+            <div class="k"><span>Leads handled</span><b>12,480</b><em>+18.2% vs last month</em></div>
+            <div class="k"><span>Tickets resolved</span><b>3,912</b><em>+9.4% vs last month</em></div>
+            <div class="k"><span>Hours saved</span><b>1,284</b><em>+22.0% vs last month</em></div>
+            <div class="k"><span>Accuracy</span><b>98.6%</b><em>+0.7 pts</em></div>
+          </div>
+          <div class="cols">
+            <div class="pn"><h4>Automations run <span>Daily</span></h4>
+              <svg class="chart" viewBox="0 0 560 190" aria-hidden="true"><defs><linearGradient id="ar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7b39fc" stop-opacity=".45"/><stop offset="1" stop-color="#7b39fc" stop-opacity="0"/></linearGradient></defs>
+                <g stroke="rgba(255,255,255,.07)"><path d="M0 30H560M0 80H560M0 130H560M0 180H560"/></g>
+                <path d="M0 150C40 140 60 120 100 126S160 150 200 110 270 60 310 78 380 120 420 70 500 30 560 22V190H0z" fill="url(#ar)"/>
+                <path d="M0 150C40 140 60 120 100 126S160 150 200 110 270 60 310 78 380 120 420 70 500 30 560 22" fill="none" stroke="#9b6bff" stroke-width="2.500"/>
+                <path d="M0 168C50 160 90 158 130 150S210 140 260 130 350 128 400 112 500 96 560 84" fill="none" stroke="#58d6a0" stroke-width="1.800" stroke-dasharray="4 4"/>
+                <circle cx="420" cy="70" r="4.500" fill="#fff" stroke="#7b39fc" stroke-width="2.500"/></svg>
+            </div>
+            <div class="pn"><h4>Active agents <span>Today</span></h4>
+              <div class="ag"><i>L</i><div><b>Lead Qualifier</b><small>312 leads scored</small></div><span class="st">Running</span></div>
+              <div class="ag"><i>S</i><div><b>Support Responder</b><small>187 tickets closed</small></div><span class="st">Running</span></div>
+              <div class="ag"><i>D</i><div><b>Data Entry Bot</b><small>2,041 rows synced</small></div><span class="st w">Queued</span></div>
+              <div class="ag"><i>R</i><div><b>Report Builder</b><small>Weekly digest ready</small></div><span class="st">Running</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </main>
+</section>
+<script>
+(function(){
+  var cv=document.getElementById('cv'),c=cv.getContext('2d'),W,H,t=0,last=0,still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var seed=3;function rnd(){seed=(seed*9301+49297)%233280;return seed/233280}
+  var pts=[];for(var i=0;i<90;i++)pts.push([rnd(),.3+rnd()*.7,.5+rnd()*1.5,rnd()*6,.01+rnd()*.03]);
+  function size(){var d=Math.min(devicePixelRatio||1,1.25);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;c.setTransform(d,0,0,d,0,0)}
+  function draw(){
+    c.globalCompositeOperation='source-over';c.fillStyle='#02000a';c.fillRect(0,0,W,H);
+    c.globalCompositeOperation='lighter';
+    var cx=W*.5,by=H*1.02;
+    var g=c.createRadialGradient(cx,by,0,cx,by,H*.9);g.addColorStop(0,'rgba(140,90,255,.75)');g.addColorStop(.35,'rgba(90,50,220,.35)');g.addColorStop(1,'rgba(40,20,120,0)');c.fillStyle=g;c.fillRect(0,0,W,H);
+    var g2=c.createRadialGradient(W*.25+Math.sin(t*.2)*W*.04,H*.85,0,W*.25,H*.85,H*.55);g2.addColorStop(0,'rgba(60,110,255,.4)');g2.addColorStop(1,'rgba(60,110,255,0)');c.fillStyle=g2;c.fillRect(0,0,W,H);
+    var g3=c.createRadialGradient(W*.78+Math.cos(t*.25)*W*.04,H*.8,0,W*.78,H*.8,H*.5);g3.addColorStop(0,'rgba(200,80,255,.32)');g3.addColorStop(1,'rgba(200,80,255,0)');c.fillStyle=g3;c.fillRect(0,0,W,H);
+    // arcs
+    for(var k=0;k<7;k++){var r=H*(.38+k*.085)+Math.sin(t*.4+k)*H*.012;c.beginPath();c.ellipse(cx,by+H*.35,r*1.9,r,0,Math.PI*1.08,Math.PI*1.92);c.strokeStyle='rgba(170,130,255,'+(.22-k*.022).toFixed(3)+')';c.lineWidth=1.5;c.stroke()}
+    c.globalCompositeOperation='source-over';
+    pts.forEach(function(p){var y=((p[1]-t*p[4])%1+1)%1*H*.9+H*.1;var a=.25+.35*Math.sin(t*1.2+p[3]);c.fillStyle='rgba(200,180,255,'+a.toFixed(3)+')';c.beginPath();c.arc(p[0]*W,y,p[2],0,6.3);c.fill()});
+  }
+  function loop(ts){var dt=Math.min((ts-last)/1000,.1);last=ts;if(!document.hidden){t+=dt;draw()}requestAnimationFrame(loop)}
+  size();addEventListener('resize',function(){size();draw()});t=2;draw();
+  if(!still)requestAnimationFrame(function(ts){last=ts;requestAnimationFrame(loop)});
+  var b=document.getElementById('bg'),d=document.getElementById('dr');
+  b.addEventListener('click',function(){d.hidden=!d.hidden;b.setAttribute('aria-expanded',String(!d.hidden))});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!d.hidden){d.hidden=true;b.setAttribute('aria-expanded','false');b.focus()}});
+  addEventListener('resize',function(){if(innerWidth>900&&!d.hidden){d.hidden=true;b.setAttribute('aria-expanded','false')}});
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();if(!d.hidden){d.hidden=true;b.setAttribute('aria-expanded','false')}})});
+})();
+</script>
+</body>
+</html>

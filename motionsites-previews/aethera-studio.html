@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aethera Studio — Hero Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--background:#fff;--ink:#000;--gray:#6F6F6F;--display:'Instrument Serif',serif;--sans:'Inter',system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{background:#fff}
+body{margin:0;background:#fff;color:#000;font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a,button{font:inherit;color:inherit;text-decoration:none;cursor:pointer}
+button{background:none;border:0;padding:0}
+:focus-visible{outline:3px solid #000;outline-offset:3px;border-radius:8px}
+.root{position:relative;min-height:100vh;min-height:100svh;width:100%;overflow:hidden}
+.vid{position:absolute;top:300px;left:0;right:0;bottom:0;z-index:0;overflow:hidden}
+.vid canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0}
+.vid .ov{position:absolute;inset:0;background:linear-gradient(to bottom,#fff 0%,rgba(255,255,255,0) 50%,#fff 100%)}
+nav{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:80rem;margin:0 auto;padding:24px 32px}
+.logo{font:400 30px/1 var(--display);letter-spacing:-.025em;color:#000}
+.logo sup{font-size:.45em;vertical-align:super;line-height:0;margin-left:1px}
+.menu{display:none;gap:32px;list-style:none;margin:0;padding:0}
+@media(min-width:768px){.menu{display:flex}.burger{display:none!important}}
+.menu a{font-size:14px;color:var(--gray);transition:color .2s;padding:8px 2px}
+.menu a:hover,.menu a.cur{color:#000}
+.cta{display:inline-flex;align-items:center;justify-content:center;background:#000;color:#fff;border-radius:999px;font-size:14px;padding:10px 24px;transition:transform .2s;white-space:nowrap}
+.cta:hover{transform:scale(1.03)}
+.right{display:flex;align-items:center;gap:8px}
+.burger{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
+.mm{position:absolute;z-index:20;left:16px;right:16px;top:76px;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:20px;box-shadow:0 18px 50px rgba(0,0,0,.12);padding:10px}
+.mm a{display:block;padding:14px 14px;border-radius:12px;font-size:17px;color:#333}
+.mm a:hover{background:#f4f4f6}
+.hero{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:calc(8rem - 75px) 24px 10rem}
+h1{margin:0;max-width:80rem;font:400 clamp(44px,13vw,48px)/.95 var(--display);letter-spacing:-2.46px;color:#000;text-wrap:balance}
+@media(min-width:640px){h1{font-size:72px}}
+@media(min-width:768px){h1{font-size:96px}}
+@media(max-width:480px){h1{letter-spacing:-1.6px}}
+h1 em{color:var(--gray);font-style:italic}
+.d{margin:32px 0 0;max-width:42rem;font-size:16px;line-height:1.65;color:var(--gray)}
+@media(min-width:640px){.d{font-size:18px}}
+.big{display:inline-flex;margin-top:48px;background:#000;color:#fff;border-radius:999px;padding:20px 56px;font-size:16px;transition:transform .2s}
+.big:hover{transform:scale(1.03)}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.fr{animation:rise .8s ease-out both}
+.fr2{animation:rise .8s ease-out .2s both}
+.fr3{animation:rise .8s ease-out .4s both}
+@media(prefers-reduced-motion:reduce){.fr,.fr2,.fr3{animation:none}*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="root">
+  <div class="vid" aria-hidden="true"><canvas id="cv"></canvas><div class="ov"></div></div>
+  <nav aria-label="Primary">
+    <a class="logo" href="#" aria-label="Aethera home">Aethera<sup>&reg;</sup></a>
+    <ul class="menu"><li><a class="cur" href="#" aria-current="page">Home</a></li><li><a href="#">Studio</a></li><li><a href="#">About</a></li><li><a href="#">Journal</a></li><li><a href="#">Reach Us</a></li></ul>
+    <div class="right">
+      <a class="cta" href="#begin">Begin Journey</a>
+      <button class="burger" id="bg" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+    </div>
+    <div class="mm" id="mm" hidden><a href="#">Home</a><a href="#">Studio</a><a href="#">About</a><a href="#">Journal</a><a href="#">Reach Us</a></div>
+  </nav>
+  <main class="hero">
+    <h1 class="fr">Beyond <em>silence,</em> we build <em>the eternal.</em></h1>
+    <p class="d fr2">Building platforms for brilliant minds, fearless makers, and thoughtful souls. Through the noise, we craft digital havens for deep work and pure flows.</p>
+    <a class="big fr3" id="begin" href="#begin">Begin Journey</a>
+  </main>
+</div>
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var bg=document.getElementById('bg'),mm=document.getElementById('mm');
+bg.addEventListener('click',function(){mm.hidden=!mm.hidden;bg.setAttribute('aria-expanded',String(!mm.hidden))});
+addEventListener('keydown',function(e){if(e.key==='Escape'){mm.hidden=true;bg.setAttribute('aria-expanded','false')}});
+/* video stand-in: pale misty ridges + soft sun, looped with the prompt's fade-in / fade-out logic */
+var cv=document.getElementById('cv'),c=cv.getContext('2d'),W=0,H=0,vt=0,DUR=10,last=0,op=0,fid=0,waiting=false;
+function size(){W=cv.width=Math.round(cv.clientWidth*.6)||600;H=cv.height=Math.round(cv.clientHeight*.6)||400}
+size();addEventListener('resize',size);
+var ph=[0,1.7,3.1,4.6,5.9];
+function ridge(base,amp,col,sp,t,k,o){c.fillStyle=col;c.beginPath();c.moveTo(0,H);for(var x=0;x<=W;x+=8){var y=base+Math.sin(x*.006*k+t*sp+ph[o])*amp+Math.sin(x*.015*k-t*sp*.6+ph[o]*2)*amp*.35+Math.sin(x*.0023*k+ph[o])*amp*.8;c.lineTo(x,y)}c.lineTo(W,H);c.closePath();c.fill()}
+function paint(t){
+  var g=c.createLinearGradient(0,0,0,H);g.addColorStop(0,'#f4f4f8');g.addColorStop(.5,'#e4e4ee');g.addColorStop(1,'#d3d4e4');c.fillStyle=g;c.fillRect(0,0,W,H);
+  var sx=W*.5+Math.sin(t*.12)*W*.03,sy=H*.38;
+  var s=c.createRadialGradient(sx,sy,0,sx,sy,H*.55);s.addColorStop(0,'rgba(255,255,255,1)');s.addColorStop(.25,'rgba(255,250,246,.85)');s.addColorStop(1,'rgba(255,255,255,0)');c.fillStyle=s;c.fillRect(0,0,W,H);
+  c.strokeStyle='rgba(255,255,255,.8)';c.lineWidth=1.2;c.beginPath();c.arc(sx,sy,H*.2,0,7);c.stroke();c.strokeStyle='rgba(180,180,205,.35)';c.beginPath();c.arc(sx,sy,H*.3,0,7);c.stroke();
+  ridge(H*.60,H*.06,'rgba(205,206,226,.9)',.18,t,1,0);
+  ridge(H*.68,H*.07,'rgba(178,180,210,.92)',.14,t,1.3,1);
+  ridge(H*.76,H*.06,'rgba(150,152,190,.95)',.11,t,.9,2);
+  var m=c.createLinearGradient(0,H*.55,0,H*.85);m.addColorStop(0,'rgba(255,255,255,0)');m.addColorStop(.5,'rgba(255,255,255,.55)');m.addColorStop(1,'rgba(255,255,255,0)');c.fillStyle=m;c.fillRect(0,H*.55,W,H*.3);
+  ridge(H*.86,H*.05,'rgba(120,122,168,.95)',.09,t,1.6,3);
+}
+function setOp(v){op=v;cv.style.opacity=v}
+function fade(to,ms){cancelAnimationFrame(fid);var from=op,t0=performance.now();if(RM){setOp(to);return}(function f(n){var p=Math.min(1,(n-t0)/ms);setOp(from+(to-from)*p);if(p<1)fid=requestAnimationFrame(f)})(t0)}
+var fadingOut=false;
+function loop(ts){
+  var dt=Math.min(.05,((ts-last)||16)/1000);last=ts;
+  if(!document.hidden&&!waiting){
+    vt+=RM?0:dt;paint(vt+2);
+    if(!fadingOut&&DUR-vt<=.5){fadingOut=true;fade(0,500)}
+    if(vt>=DUR){waiting=true;setOp(0);setTimeout(function(){vt=0;fadingOut=false;waiting=false;fade(1,500)},100)}
+  }
+  requestAnimationFrame(loop);
+}
+paint(2);fade(1,500);requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

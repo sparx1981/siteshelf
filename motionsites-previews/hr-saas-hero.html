@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HR SaaS Hero — SaaS</title>
+<!-- Geist is requested first; Inter is the local-set fallback (closest neutral grotesque). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--ff:'Geist','Inter',system-ui,sans-serif;--ink:#14161f;--slate:#373a46}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:#fff;color:var(--ink)}
+body{font-family:var(--ff);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid #2563eb;outline-offset:3px}
+.hero{position:relative;min-height:100vh;display:flex;justify-content:center;background:#fff;overflow:hidden}
+.vid{position:absolute;inset:0;overflow:hidden}
+.vid canvas{width:100%;height:100%;object-fit:cover;display:block;transform:scaleY(-1)}
+.fade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,255,255,0) 26.416%,#fff 66.943%)}
+.in{position:relative;z-index:10;width:100%;max-width:1200px;padding:290px 24px 96px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:32px}
+.rise{opacity:0;transform:translateY(24px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+.r2{animation-delay:.15s}.r3{animation-delay:.3s}.r4{animation-delay:.45s}
+@keyframes rise{to{opacity:1;transform:none}}
+h1{margin:0;font-weight:500;font-size:80px;line-height:1.05;letter-spacing:-.04em;max-width:1000px}
+h1 em{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;font-size:100px;letter-spacing:-.04em;line-height:.9}
+.desc{margin:0;font-size:18px;line-height:1.55;color:var(--slate);opacity:.8;max-width:554px}
+.mail{display:flex;align-items:center;gap:8px;width:100%;max-width:520px;padding:8px 8px 8px 24px;border-radius:40px;background:#fcfcfc;border:1px solid rgba(0,0,0,.08);box-shadow:0 10px 40px 5px rgba(194,194,194,.25)}
+.mail:focus-within{border-color:rgba(37,99,235,.5);box-shadow:0 10px 40px 5px rgba(194,194,194,.25),0 0 0 3px rgba(37,99,235,.18)}
+.mail input{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:16px;color:var(--ink);padding:12px 0;outline:0}
+.mail input::placeholder{color:#6b7080}
+.mail button{flex:none;border:0;cursor:pointer;color:#fff;font:inherit;font-weight:500;font-size:16px;padding:14px 24px;border-radius:32px;background:linear-gradient(180deg,#3a3d47 0%,#16181f 100%);box-shadow:inset -4px -6px 25px 0 rgba(201,201,201,.08),inset 4px 4px 10px 0 rgba(29,29,29,.24),0 6px 16px rgba(20,22,31,.22);transition:transform .2s,filter .2s;white-space:nowrap}
+.mail button:hover{transform:translateY(-1px);filter:brightness(1.15)}
+.msg{min-height:20px;margin:-14px 0 -8px;font-size:14px;font-weight:500}
+.msg.err{color:#b42318}.msg.ok{color:#0b7a43}
+.proof{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--slate);flex-wrap:wrap;justify-content:center}
+.ico{display:flex}
+.ico span{width:28px;height:28px;border-radius:50%;border:2px solid #fff;margin-left:-8px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.ico span:first-child{margin-left:0}
+.ico svg{width:14px;height:14px}
+.stars{display:flex;gap:2px}.stars svg{width:16px;height:16px;fill:#f5a524}
+.proof b{font-weight:600;color:var(--ink)}
+@media(max-width:900px){h1{font-size:56px}h1 em{font-size:70px}.in{padding-top:180px}}
+@media(max-width:560px){h1{font-size:40px}h1 em{font-size:50px}.in{padding:130px 16px 64px;gap:26px}.desc{font-size:16px}.mail{flex-direction:column;border-radius:28px;padding:10px;align-items:stretch}.mail input{padding:12px 14px;text-align:left}.mail button{width:100%}}
+@media(prefers-reduced-motion:reduce){.rise{animation:none;opacity:1;transform:none}.mail button{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<section class="hero" aria-labelledby="h">
+  <div class="vid" aria-hidden="true"><canvas id="cv"></canvas></div>
+  <div class="fade" aria-hidden="true"></div>
+  <div class="in">
+    <h1 id="h" class="rise">Simple <em>management</em> for your remote team</h1>
+    <p class="desc rise r2">Hire, onboard and pay your distributed team in one calm workspace, with time-off, contracts and payroll that just work across borders.</p>
+    <form class="mail rise r3" id="f" novalidate>
+      <label for="em" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Work email</label>
+      <input id="em" type="email" placeholder="Enter your work email" autocomplete="email" aria-describedby="msg">
+      <button type="submit">Create Free Account</button>
+    </form>
+    <p class="msg" id="msg" role="status" aria-live="polite"></p>
+    <div class="proof rise r4">
+      <span class="ico" aria-hidden="true">
+        <span style="background:#e8f0ff"><svg viewBox="0 0 24 24" fill="#3b6cf0"><circle cx="12" cy="12" r="8"/></svg></span>
+        <span style="background:#ffe9e0"><svg viewBox="0 0 24 24" fill="#f0623b"><path d="M12 3 22 20H2z"/></svg></span>
+        <span style="background:#e4f7ec"><svg viewBox="0 0 24 24" fill="#1fa45a"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span>
+        <span style="background:#f1e9ff"><svg viewBox="0 0 24 24" fill="#8a4cf0"><path d="m12 2 3 7 7 .6-5.3 4.7 1.7 7.2L12 17.7 5.6 21.5l1.7-7.2L2 9.6 9 9z"/></svg></span>
+      </span>
+      <span class="stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg></span>
+      <span><b>1,020+</b> Reviews</span>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cv=document.getElementById('cv'),ctx=cv.getContext('2d'),W,H,dpr,t=4,last=performance.now(),raf;
+  function size(){var r=cv.getBoundingClientRect();dpr=Math.min(devicePixelRatio||1,1.25);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;if(reduce)draw()}
+  // painted stand-in for the flipped video: soft pastel silk / sky (drawn upright, flipped by CSS)
+  function draw(){
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#dfeaff');g.addColorStop(.5,'#c6d6fb');g.addColorStop(1,'#eef2ff');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    var m=Math.max(W,H*.8);
+    [[.2,.75,'125,160,255',.85],[.78,.55,'190,160,255',.7],[.5,.95,'110,190,255',.8],[.05,.4,'255,190,225',.55],[.92,.9,'255,210,190',.5]].forEach(function(b,i){
+      var x=W*(b[0]+Math.sin(t*.13+i*2)*.07),y=H*(b[1]+Math.cos(t*.11+i)*.05),r=m*(.42+.04*Math.sin(t*.2+i));
+      var gr=ctx.createRadialGradient(x,y,0,x,y,r);gr.addColorStop(0,'rgba('+b[2]+','+b[3]+')');gr.addColorStop(1,'rgba('+b[2]+',0)');ctx.fillStyle=gr;ctx.fillRect(0,0,W,H)});
+    // translucent silk folds
+    for(var k=0;k<3;k++){
+      ctx.beginPath();ctx.moveTo(-20,H);
+      for(var x=-20;x<=W+20;x+=20){var y=H*(.45+k*.16)+Math.sin(x*.0035+t*.2+k*1.9)*H*.09+Math.sin(x*.009-t*.3+k)*H*.02;ctx.lineTo(x,y)}
+      ctx.lineTo(W+20,H);ctx.closePath();
+      var fg=ctx.createLinearGradient(0,H*.3,0,H);fg.addColorStop(0,'rgba(255,255,255,'+(.3-k*.06)+')');fg.addColorStop(1,'rgba(160,185,255,.05)');ctx.fillStyle=fg;ctx.fill();
+      ctx.strokeStyle='rgba(255,255,255,'+(.55-k*.1)+')';ctx.lineWidth=1.5;ctx.stroke();
+    }
+  }
+  size();addEventListener('resize',size);draw();
+  function loop(n){var dt=Math.min(.05,(n-last)/1000);last=n;t+=dt;draw();if(!document.hidden)raf=requestAnimationFrame(loop)}
+  if(!reduce)raf=requestAnimationFrame(function(n){last=n;loop(n)});
+  document.addEventListener('visibilitychange',function(){if(!document.hidden&&!reduce){last=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(loop)}});
+  var f=document.getElementById('f'),em=document.getElementById('em'),msg=document.getElementById('msg');
+  f.addEventListener('submit',function(e){e.preventDefault();var v=em.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){msg.className='msg err';msg.textContent='Please enter a valid work email address.';em.setAttribute('aria-invalid','true');em.focus();return}
+    em.removeAttribute('aria-invalid');msg.className='msg ok';msg.textContent='Thanks! Demo preview: no account was created for '+v+'.'});
+  em.addEventListener('input',function(){if(msg.className.indexOf('err')>-1){msg.textContent='';msg.className='msg'}});
+})();
+</script>
+</body>
+</html>

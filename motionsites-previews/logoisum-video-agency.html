@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logoisum Video Agency — Agency</title>
+<!-- Barlow is on Google Fonts; Archivo is the local fallback. Background video stood in for by a canvas of drifting dusk clouds and warm light, with no colour overlay on top. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html,body{background:#120c2b}
+body{font-family:'Barlow','Archivo',system-ui,sans-serif;font-weight:500;color:#fff;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;display:flex;flex-direction:column;background:#120c2b}
+.hero>canvas{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;z-index:0}
+header{position:relative;z-index:20;padding:16px 16px 0}
+.nav{max-width:1180px;margin:0 auto;background:#fff;color:#222;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.18);padding:10px 10px 10px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:21px;letter-spacing:-.02em;color:#111}
+.brand i{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#ff7a45,#c2306e 55%,#4b2a9a)}
+.brand svg{width:13px;height:13px;fill:#fff;margin-left:2px}
+.menu{display:none;gap:6px;align-items:center}
+.menu a{font-size:14px;font-weight:500;padding:9px 16px;border-radius:10px;color:#222;transition:background .2s}
+.menu a:hover{background:#f1f1f3}
+.book{display:inline-flex;align-items:center;gap:12px;background:#222;color:#fff;border-radius:12px;padding:6px 6px 6px 18px;font-size:14px;font-weight:500;white-space:nowrap;transition:background .2s,transform .15s}
+.book:hover{background:#000}
+.book:active{transform:scale(.98)}
+.book i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;color:#222;transition:transform .25s}
+.book:hover i{transform:rotate(45deg)}
+.book svg{width:14px;height:14px}
+.burger{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#f1f1f3;color:#222}
+.mpanel{position:absolute;z-index:30;left:16px;right:16px;top:calc(100% + 8px);max-width:1180px;margin:0 auto;background:#fff;color:#222;border-radius:16px;box-shadow:0 14px 40px rgba(0,0,0,.25);padding:8px}
+.mpanel a{display:block;padding:13px 14px;border-radius:10px;font-size:16px}
+.mpanel a:hover{background:#f1f1f3}
+.mpanel .book{display:flex;justify-content:space-between;margin-top:6px;color:#fff;padding:8px 8px 8px 18px}
+@media (min-width:880px){.menu{display:flex}.burger,.mpanel{display:none!important}}
+@media (max-width:879px){.nav>.book{display:none}}
+main{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 20px 72px;min-height:calc(90vh - 80px)}
+h1{display:flex;flex-direction:column;align-items:center;font-weight:600;line-height:1}
+h1 .a{text-wrap:balance;font-size:clamp(38px,6.3vw,84px);letter-spacing:clamp(-4px,-.048em,-1.2px);font-weight:600;text-shadow:0 2px 30px rgba(20,8,50,.35)}
+h1 .b{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:clamp(46px,7.2vw,84px);letter-spacing:-.01em;margin-top:.12em;line-height:1.05;text-shadow:0 2px 30px rgba(20,8,50,.35)}
+.sub{margin-top:26px;font-size:clamp(16px,1.6vw,18px);font-weight:500;max-width:34em;line-height:1.5;text-shadow:0 1px 18px rgba(20,8,50,.4)}
+.reel{margin-top:34px;display:inline-flex;align-items:center;gap:12px;background:#fff;color:#111;border-radius:999px;padding:16px 32px 16px 26px;font-size:17px;font-weight:600;box-shadow:0 10px 36px rgba(0,0,0,.25);transition:transform .2s,box-shadow .2s}
+.reel:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(0,0,0,.32)}
+.reel:active{transform:scale(.98)}
+.reel svg{width:16px;height:16px;fill:#111}
+.rise{opacity:0;animation:rise .8s cubic-bezier(.25,.1,.25,1) var(--d,0s) both}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+dialog{border:0;padding:0;background:transparent;color:#fff;max-width:min(92vw,880px);width:100%}
+dialog::backdrop{background:rgba(8,4,24,.8)}
+.modal{background:#120c2b;border:1px solid rgba(255,255,255,.15);border-radius:20px;overflow:hidden}
+.modal .scr{aspect-ratio:16/9;position:relative;background:linear-gradient(135deg,#2c1a64,#c2306e 60%,#ff8a50);display:grid;place-items:center}
+.modal .scr div{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(26px,5vw,52px);text-align:center;padding:0 20px}
+.modal .row{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;font-size:15px}
+.modal button{background:#fff;color:#111;border-radius:999px;padding:8px 18px;font-weight:600}
+@media (prefers-reduced-motion:reduce){.rise{animation-duration:.01s;animation-delay:0s}}
+</style>
+</head>
+<body>
+<section class="hero">
+  <canvas id="cv" aria-hidden="true"></canvas>
+  <header>
+    <nav class="nav" aria-label="Main">
+      <a class="brand" href="#" aria-label="Logoisum home"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3.5v17L20.5 12z"/></svg></i>Logoisum</a>
+      <div class="menu"><a href="#about">About</a><a href="#works">Works</a><a href="#services">Services</a><a href="#testimonial">Testimonial</a></div>
+      <a class="book" href="#meeting">Book A Free Meeting<i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></i></a>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mpanel"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </nav>
+    <div class="mpanel" id="mpanel" hidden><a href="#about">About</a><a href="#works">Works</a><a href="#services">Services</a><a href="#testimonial">Testimonial</a><a class="book" href="#meeting">Book A Free Meeting<i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></i></a></div>
+  </header>
+  <main>
+    <h1 class="rise" style="--d:.1s"><span class="a">Agency that makes your</span><span class="b">videos &amp; reels viral</span></h1>
+    <p class="sub rise" style="--d:.25s">Short-form video editing for Influencers, Creators and Brands</p>
+    <button class="reel rise" style="--d:.4s" type="button" id="reel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5v17L20.5 12z"/></svg>See Our Workreel</button>
+  </main>
+</section>
+<dialog id="dlg" aria-label="Workreel preview">
+  <div class="modal"><div class="scr"><div>Workreel coming soon</div></div><div class="row"><span>Logoisum workreel</span><button type="button" id="close">Close</button></div></div>
+</dialog>
+<script>
+(function(){
+"use strict";
+var bg=document.getElementById('burger'),mp=document.getElementById('mpanel');
+bg.addEventListener('click',function(){var o=mp.hidden;mp.hidden=!o;bg.setAttribute('aria-expanded',String(o));bg.setAttribute('aria-label',o?'Close menu':'Open menu')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mp.hidden){mp.hidden=true;bg.setAttribute('aria-expanded','false');bg.focus()}});
+[].forEach.call(document.querySelectorAll('a[href^="#"]'),function(a){a.addEventListener('click',function(e){e.preventDefault();if(!mp.hidden){mp.hidden=true;bg.setAttribute('aria-expanded','false')}})});
+var dlg=document.getElementById('dlg');
+document.getElementById('reel').addEventListener('click',function(){try{dlg.showModal()}catch(e){dlg.setAttribute('open','')}});
+document.getElementById('close').addEventListener('click',function(){try{dlg.close()}catch(e){dlg.removeAttribute('open')}});
+dlg.addEventListener('click',function(e){if(e.target===dlg){try{dlg.close()}catch(x){}}});
+
+/* video stand-in: drifting dusk clouds and warm light */
+var cv=document.getElementById('cv'),c=cv.getContext('2d'),w=2,h=2,t=6,last=0,raf=0,rm=matchMedia('(prefers-reduced-motion: reduce)');
+function size(){var r=cv.getBoundingClientRect();w=cv.width=Math.max(2,Math.round(r.width*.45));h=cv.height=Math.max(2,Math.round(r.height*.45));draw()}
+function draw(){
+  c.globalCompositeOperation='source-over';
+  var g=c.createLinearGradient(0,0,0,h);g.addColorStop(0,'#150d38');g.addColorStop(.38,'#3f1f78');g.addColorStop(.68,'#9b3a86');g.addColorStop(.88,'#e0626a');g.addColorStop(1,'#ff9a5e');c.fillStyle=g;c.fillRect(0,0,w,h);
+  c.globalCompositeOperation='lighter';
+  /* warm sun bloom */
+  var sx=w*(.5+.04*Math.sin(t*.1)),sy=h*1.02,sg=c.createRadialGradient(sx,sy,0,sx,sy,w*.5);sg.addColorStop(0,'rgba(255,190,110,.55)');sg.addColorStop(.4,'rgba(255,120,110,.2)');sg.addColorStop(1,'rgba(255,120,110,0)');c.fillStyle=sg;c.fillRect(0,0,w,h);
+  /* drifting cloud banks */
+  for(var i=0;i<16;i++){
+    var sp=.01+(i%5)*.004,u=((i*.137+t*sp)%1.4)-.2,x=w*u,y=h*(.28+.6*((i*.331)%1)),rx=w*(.14+.1*((i*.53)%1)),ry=h*(.035+.03*((i*.29)%1));
+    var low=y/h,col=low>.6?[255,150,130]:[150,100,230];
+    var cg=c.createRadialGradient(x,y,0,x,y,rx);cg.addColorStop(0,'rgba('+col+','+(.16+.1*((i*.7)%1))+')');cg.addColorStop(1,'rgba('+col+',0)');
+    c.save();c.translate(x,y);c.scale(1,ry/rx);c.translate(-x,-y);c.fillStyle=cg;c.beginPath();c.arc(x,y,rx,0,6.3);c.fill();c.restore();
+  }
+  /* soft light streaks */
+  for(var k=0;k<5;k++){var yy=h*(.2+k*.13)+Math.sin(t*.2+k)*h*.01,lg=c.createLinearGradient(0,0,w,0),o=.05+.04*Math.sin(t*.4+k*1.7);lg.addColorStop(0,'rgba(255,255,255,0)');lg.addColorStop(.5,'rgba(255,225,255,'+o+')');lg.addColorStop(1,'rgba(255,255,255,0)');c.fillStyle=lg;c.fillRect(0,yy,w,h*.004)}
+}
+function loop(n){var dt=Math.min(.05,(n-last)/1000||0);last=n;t+=dt;draw();raf=(rm.matches||document.hidden)?0:requestAnimationFrame(loop)}
+function start(){if(!raf&&!rm.matches&&!document.hidden){last=performance.now();raf=requestAnimationFrame(loop)}}
+document.addEventListener('visibilitychange',function(){if(document.hidden){cancelAnimationFrame(raf);raf=0}else start()});
+addEventListener('resize',size);size();start();
+})();
+</script>
+</body>
+</html>

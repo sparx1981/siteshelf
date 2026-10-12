@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EVR Ventures — Hero Section</title>
+<!-- Geist is loaded from Google Fonts (Inter as local fallback); Gilda Display falls back to Cormorant Garamond in the local checker. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;700&family=Inter:wght@300;400;500;700&family=Gilda+Display&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--background:0 0% 0%;--foreground:0 0% 100%;--sans:'Geist','Inter',sans-serif;--display:'Gilda Display','Cormorant Garamond',serif}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:#000;color:#fff;font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+body.lock{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.page{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;isolation:isolate}
+.page>canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block}
+
+/* nav */
+nav.top{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:20px 24px}
+@media(min-width:768px){nav.top{padding:24px 40px}}
+.left,.right{display:flex;align-items:center;gap:12px;min-width:0}
+.pill{display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:10px 20px;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;transition:background .25s,border-color .25s;white-space:nowrap}
+.pill:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.6)}
+.bars{display:flex;flex-direction:column;gap:4px}
+.bars span{display:block;width:28px;height:2px;background:currentColor}
+.logo{position:absolute;left:50%;transform:translateX(-50%);font-size:24px;font-weight:700;letter-spacing:.05em}
+.right{display:none}
+@media(min-width:768px){.right{display:flex}}
+.cta{display:inline-flex;align-items:center;border-radius:999px;padding:10px 20px;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#000;background:linear-gradient(to right,hsl(220,70%,78%),hsl(40,80%,82%));transition:filter .25s,transform .25s}
+.cta:hover{filter:brightness(1.1);transform:translateY(-1px)}
+
+/* menu overlay */
+.ov{position:fixed;inset:0;z-index:50;background:#fff;color:#000;display:flex;flex-direction:column;visibility:hidden;clip-path:circle(0% at 80px 40px);-webkit-clip-path:circle(0% at 80px 40px);transition:clip-path .7s cubic-bezier(.76,0,.24,1),-webkit-clip-path .7s cubic-bezier(.76,0,.24,1),visibility 0s linear .7s}
+.ov.open{visibility:visible;clip-path:circle(150% at 80px 40px);-webkit-clip-path:circle(150% at 80px 40px);transition:clip-path .7s cubic-bezier(.76,0,.24,1),-webkit-clip-path .7s cubic-bezier(.76,0,.24,1),visibility 0s}
+.ov .bar{position:relative;display:flex;align-items:center;padding:20px 24px}
+@media(min-width:768px){.ov .bar{padding:24px 40px}}
+.ov .pill{border-color:rgba(0,0,0,.3);color:#000}
+.ov .pill:hover{background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.6)}
+.ov .pill svg{width:20px;height:20px}
+.ov ul{list-style:none;margin:0;padding:0 24px;flex:1;display:flex;flex-direction:column;justify-content:center;max-width:1100px;width:100%;margin-inline:auto}
+@media(min-width:768px){.ov ul{padding:0 40px}}
+.ov li{border-bottom:1px solid rgba(0,0,0,.1);opacity:0;transform:translateX(-60px);transition:opacity .5s cubic-bezier(.25,1,.5,1),transform .5s cubic-bezier(.25,1,.5,1)}
+.ov.open li{opacity:1;transform:none}
+.ov li a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;font-size:clamp(2rem,5vw,4.5rem);font-weight:300;letter-spacing:-.06em;line-height:1.1}
+.ov li a span{display:inline-block;transition:transform .3s}
+.ov li a svg{width:clamp(22px,3vw,40px);height:auto;flex:none;transition:transform .3s}
+.ov li a:hover span{transform:translateX(4px)}
+.ov li a:hover svg{transform:translateX(2px)}
+.ov .foot{display:flex;justify-content:space-between;gap:16px;padding:20px 24px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(0,0,0,.5)}
+@media(min-width:768px){.ov .foot{padding:24px 40px}}
+
+/* main */
+.main{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;justify-content:flex-start;padding:24px 24px 28px}
+@media(min-width:768px){.main{justify-content:flex-end;padding:0 40px 64px}}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;margin-bottom:16px}
+.eyebrow svg{width:16px;height:16px;flex:none}
+.row{display:flex;flex-direction:column;flex:1;min-height:0}
+@media(min-width:768px){.row{flex:none}}
+@media(min-width:1024px){.row{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:40px}}
+h1{margin:0;font-size:clamp(2rem,6vw,5rem);font-weight:300;line-height:.9;letter-spacing:-.045em;min-width:0}
+h1 span{display:block}
+h1 .d{font-family:var(--display);font-weight:400}
+.stats{margin-top:auto;padding-top:32px;display:flex;flex-direction:column;gap:20px;max-width:100%}
+@media(min-width:768px){.stats{margin-top:0}}
+@media(min-width:1024px){.stats{max-width:320px;padding-bottom:16px;padding-top:0}}
+.ring{position:relative;width:120px;height:120px;flex:none}
+.ring svg{display:block;width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:3}
+.ring .bg{stroke:rgba(255,255,255,.15)}
+.ring .fg{stroke:#fff;stroke-linecap:round;stroke-dasharray:339.292;stroke-dashoffset:339.292;transition:stroke-dashoffset 1s ease-out}
+.ring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:500}
+.stats p{margin:0;font-size:14px;line-height:1.625;color:rgba(255,255,255,.78);text-shadow:0 1px 10px rgba(0,0,0,.6)}
+
+/* partners */
+.partners{position:relative;z-index:10}
+.ph{display:flex;justify-content:space-between;padding:0 24px 12px;font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
+@media(min-width:768px){.ph{padding:0 40px 12px}}
+.ph span:last-child{display:none}
+@media(min-width:768px){.ph span:last-child{display:inline}}
+.mq{border-top:1px solid rgba(255,255,255,.1);overflow:hidden;padding:20px 0;background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,0))}
+.track{display:flex;width:max-content;animation:marquee 20s linear infinite}
+.track ul{list-style:none;margin:0;padding:0;display:flex;gap:64px;padding-right:64px;flex:none}
+.track li{white-space:nowrap;font-size:18px;font-weight:500;letter-spacing:.025em;color:rgba(255,255,255,.55)}
+.mq:hover .track{animation-play-state:paused}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.track{animation:none}.ov,.ov li,.ring .fg{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="page">
+  <canvas id="bg" aria-hidden="true"></canvas>
+
+  <nav class="top" aria-label="Primary">
+    <div class="left"><button type="button" class="pill" id="menuBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="ov"><span class="bars" aria-hidden="true"><span></span><span></span></span>Menu</button></div>
+    <a href="#top" class="logo" aria-label="EVR home">EVR</a>
+    <div class="right"><a href="#about" class="pill">About Us</a><a href="#services" class="pill">Services</a><a href="#contact" class="cta">Get Started</a></div>
+  </nav>
+
+  <main class="main" id="top">
+    <div class="row">
+      <div>
+        <div class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Evolve Responsible Ventures</div>
+        <h1><span>Navigating the</span><span>route to impactful</span><span class="d">regeneration</span></h1>
+      </div>
+      <div class="stats">
+        <div class="ring" role="img" aria-label="75 percent"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="bg" cx="60" cy="60" r="54"/><circle class="fg" id="fg" cx="60" cy="60" r="54"/></svg><b>75%</b></div>
+        <p>Guiding organizations toward lasting environmental performance through actionable strategy and measurable outcomes</p>
+      </div>
+    </div>
+  </main>
+
+  <section class="partners" aria-label="Partners">
+    <div class="ph"><span>Our Partners</span><span>Backed by 30+ global brands</span></div>
+    <div class="mq"><div class="track" id="track"></div></div>
+  </section>
+</div>
+
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true">
+  <div class="bar">
+    <button type="button" class="pill" id="closeBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>Close</button>
+    <a href="#top" class="logo" style="color:#000" aria-label="EVR home">EVR</a>
+  </div>
+  <ul>
+    <li style="transition-delay:.15s"><a href="#top"><span>Home</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li style="transition-delay:.23s"><a href="#about"><span>About Us</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li style="transition-delay:.31s"><a href="#services"><span>Services</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li style="transition-delay:.39s"><a href="#projects"><span>Projects</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li style="transition-delay:.47s"><a href="#contact"><span>Contact</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+  </ul>
+  <div class="foot"><span>Evolve Responsible Ventures</span><span>© 2026</span></div>
+</div>
+
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* stand-in for the hero video: misty conifer ridgelines, teal haze, drifting spores */
+var cv=document.getElementById('bg'),ctx=cv.getContext('2d'),W=1,H=1,t=RM?5:0,last=0,raf=0;
+var rs=function(s){return function(){s=(s*9301+49297)%233280;return s/233280}}(11);
+var layers=[],spores=[];
+[{y:.62,h:.2,n:34,c:'#0d3b36',sp:3,a:.9},{y:.7,h:.26,n:30,c:'#0a2f2d',sp:6,a:1},{y:.8,h:.34,n:24,c:'#061f20',sp:10,a:1},{y:.92,h:.5,n:16,c:'#020d0f',sp:16,a:1}].forEach(function(L){
+  var tr=[];for(var i=0;i<L.n+6;i++)tr.push({x:i/L.n+(rs()-.5)*.02,h:L.h*(.55+rs()*.7),w:(.5+rs()*.7)/L.n});
+  L.tr=tr;layers.push(L)});
+for(var i=0;i<70;i++)spores.push({x:rs(),y:rs(),r:.6+rs()*1.6,v:.01+rs()*.03,p:rs()*6});
+function size(){var r=cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,1.5);W=Math.max(1,r.width);H=Math.max(1,r.height);cv.width=Math.round(W*d);cv.height=Math.round(H*d);ctx.setTransform(d,0,0,d,0,0);if(RM)draw()}
+function mist(y,a,sp,ph){
+  for(var k=0;k<5;k++){var x=((k*.27+t*sp*.01+ph)%1.4-.2)*W,rr=W*.42;
+    var g=ctx.createRadialGradient(x,y,0,x,y,rr);g.addColorStop(0,'rgba(150,215,200,'+a+')');g.addColorStop(1,'rgba(150,215,200,0)');
+    ctx.save();ctx.translate(x,y);ctx.scale(1,.2);ctx.translate(-x,-y);ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,rr,0,6.283);ctx.fill();ctx.restore()}
+}
+function draw(){
+  var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#010605');g.addColorStop(.45,'#082822');g.addColorStop(.7,'#1d5a4c');g.addColorStop(1,'#0b2f29');
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  /* low sun glow behind the ridge, right of centre */
+  var sx=W*(.66+.01*Math.sin(t*.2)),sy=H*.58,sg=ctx.createRadialGradient(sx,sy,0,sx,sy,H*.62);
+  sg.addColorStop(0,'rgba(255,236,190,.9)');sg.addColorStop(.12,'rgba(255,214,150,.45)');sg.addColorStop(.45,'rgba(120,200,170,.16)');sg.addColorStop(1,'rgba(120,200,170,0)');
+  ctx.fillStyle=sg;ctx.fillRect(0,0,W,H);
+  /* god rays */
+  ctx.save();ctx.globalCompositeOperation='lighter';
+  for(var r=0;r<7;r++){var a=-1.9+r*.19+Math.sin(t*.15+r)*.03;ctx.fillStyle='rgba(255,230,170,'+(.035+.02*Math.sin(t*.4+r*2))+')';ctx.beginPath();ctx.moveTo(sx,sy);ctx.lineTo(sx+Math.cos(a-.05)*H*1.6,sy+Math.sin(a-.05)*H*1.6);ctx.lineTo(sx+Math.cos(a+.05)*H*1.6,sy+Math.sin(a+.05)*H*1.6);ctx.fill()}
+  ctx.restore();
+  for(var li=0;li<layers.length;li++){
+    var L=layers[li];ctx.fillStyle=L.c;ctx.beginPath();
+    var base=L.y*H,off=(t*L.sp*.0006)%1,tw=1+6/L.n;
+    ctx.moveTo(0,H);
+    ctx.lineTo(0,base+L.h*H*.4);
+    for(var i=0;i<L.tr.length;i++){
+      var T=L.tr[i],x=(((T.x+off)%tw+tw)%tw-.05)*W,hh=T.h*H,ww=T.w*W*1.2;
+      ctx.lineTo(x-ww,base+L.h*H*.35);
+      ctx.lineTo(x-ww*.35,base+L.h*H*.35-hh*.45);ctx.lineTo(x-ww*.55,base+L.h*H*.35-hh*.45);
+      ctx.lineTo(x,base+L.h*H*.35-hh);
+      ctx.lineTo(x+ww*.55,base+L.h*H*.35-hh*.45);ctx.lineTo(x+ww*.35,base+L.h*H*.35-hh*.45);
+      ctx.lineTo(x+ww,base+L.h*H*.35);
+    }
+    ctx.lineTo(W,H);ctx.closePath();ctx.fill();
+    mist(base+L.h*H*.1,.1+li*.025,L.sp*.5,li*.31);
+  }
+  for(var i=0;i<spores.length;i++){var s=spores[i],y=((s.y-t*s.v)%1+1)%1,x=(s.x+Math.sin(t*.4+s.p)*.012)%1,a=.25+.45*Math.sin(t*1.3+s.p);
+    ctx.fillStyle='rgba(255,236,190,'+Math.max(0,a)*(.3+y*.7)+')';ctx.beginPath();ctx.arc(x*W,(.35+y*.6)*H,s.r,0,6.283);ctx.fill()}
+}
+function frame(n){raf=0;if(!last)last=n;var dt=Math.min(.05,(n-last)/1000);last=n;t+=dt;draw();if(!document.hidden)raf=requestAnimationFrame(frame)}
+size();if(window.ResizeObserver)new ResizeObserver(size).observe(cv);else addEventListener('resize',size);
+if(RM)draw();else{draw();var go=function(){if(!raf){last=0;raf=requestAnimationFrame(frame)}};document.addEventListener('visibilitychange',function(){if(!document.hidden)go()});go()}
+
+/* progress ring */
+var fg=document.getElementById('fg');
+setTimeout(function(){fg.style.strokeDashoffset=String(339.292*.25)},500);
+
+/* marquee (invented names) */
+var names=['Opensense','Dorne & Kay','Underleaf','LIU·VO','ATOM','ECCA','ORUM'],track=document.getElementById('track');
+for(var k=0;k<2;k++){var ul=document.createElement('ul');if(k)ul.setAttribute('aria-hidden','true');names.forEach(function(n){var li=document.createElement('li');li.textContent=n;ul.appendChild(li)});track.appendChild(ul)}
+
+/* menu */
+var ov=document.getElementById('ov'),mb=document.getElementById('menuBtn'),cb=document.getElementById('closeBtn');
+var inited=false;
+function setMenu(o){
+  ov.classList.toggle('open',o);ov.setAttribute('aria-hidden',String(!o));mb.setAttribute('aria-expanded',String(o));
+  document.body.classList.toggle('lock',o);
+  var f=ov.querySelectorAll('button,a');for(var i=0;i<f.length;i++)f[i].tabIndex=o?0:-1;
+  if(o)setTimeout(function(){cb.focus()},120);else if(inited)mb.focus();
+}
+setMenu(false);inited=true;
+mb.addEventListener('click',function(){setMenu(true)});
+cb.addEventListener('click',function(){setMenu(false)});
+ov.addEventListener('click',function(e){var a=e.target.closest('a');if(a){setMenu(false)}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov.classList.contains('open'))setMenu(false)});
+})();
+</script>
+</body>
+</html>

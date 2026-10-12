@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOVA Space Systems — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Space Grotesk tops out at 700, so font-black / font-extralight map to 700 / 300 */
+:root{--background:0 0% 0%;--foreground:0 0% 100%;--muted-foreground:0 0% 65%;--nav-border:0 0% 35%;--border:0 0% 25%;--radius:0rem;
+--bg:#000;--fg:#fff;--mut:hsl(0 0% 65%);--nb:hsl(0 0% 35%)}
+*,*::before,*::after{box-sizing:border-box;border-radius:0}
+[hidden]{display:none!important}
+html{background:#000}
+body{margin:0;background:#000;color:#fff;font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a,button{color:inherit;font:inherit;text-decoration:none;cursor:pointer}
+button{background:none;border:0;padding:0}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+/* NAV */
+header{position:relative;z-index:30;background:#000;height:64px}
+.nav-d{display:none;height:64px;align-items:stretch}
+@media(min-width:768px){.nav-d{display:flex}.nav-m{display:none!important}}
+.col{display:flex;flex-direction:column;flex:1;min-width:0}
+.col .row{display:flex;align-items:stretch;flex:1;min-height:0}
+.col .ln{height:1px;background:var(--nb);margin:4px 16px 0}
+.col .ln2{display:flex;gap:16px;margin:4px 16px 0}
+.col .ln2 i{flex:1;height:1px;background:var(--nb)}
+.links{display:flex;align-items:stretch}
+.links a{display:flex;align-items:center;padding:0 16px;font-size:14px;letter-spacing:.025em;transition:opacity .2s}
+.links a:hover{opacity:.7}
+.vd{width:1px;background:var(--nb);margin:12px 0 12px 12px;flex:none}
+.vd.r{margin:12px 12px 12px 0}
+.logo{font-size:24px;font-weight:700;letter-spacing:.1em;display:flex;align-items:center;justify-content:center;flex:1;padding-left:.1em}
+.rt{display:flex;align-items:center;justify-content:flex-end;gap:16px;padding-right:16px;font-size:14px;letter-spacing:.025em;flex:1}
+.rt button{display:inline-flex;align-items:center;gap:8px;padding:8px 4px}
+.rt button:hover{opacity:.7}
+.ic{width:20px;height:20px;flex:none}
+.nav-m{display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 20px;border-bottom:1px solid var(--nb)}
+.nav-m .logo{flex:none;font-size:22px;padding:0}
+.nav-m button{padding:10px}
+.panel{position:absolute;left:0;right:0;top:64px;background:#000;border-bottom:1px solid var(--nb);z-index:40;padding:24px 32px 28px}
+.panel ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.panel li a{display:block;padding:12px 0;font-size:28px;font-weight:500;letter-spacing:-.01em;border-bottom:1px solid hsl(0 0% 18%)}
+.panel li a:hover{padding-left:8px}
+.panel li a{transition:padding .2s}
+.sbox{display:flex;gap:0;max-width:640px}
+.sbox input{flex:1;min-width:0;background:#000;border:1px solid var(--nb);color:#fff;padding:14px 16px;font:inherit;font-size:16px}
+.sbox input::placeholder{color:#a0a0a0}
+.sbox button{background:#fff;color:#000;padding:0 22px;font-weight:600}
+.sres{margin-top:12px;font-size:14px;color:var(--mut)}
+/* HERO */
+.hero{position:relative;height:calc(100vh - 64px);height:calc(100svh - 64px);min-height:560px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start}
+.hero canvas,.vcv{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .in{position:relative;z-index:10;padding:48px 32px 96px;min-width:0}
+h1.big{margin:0;font-size:clamp(56px,19vw,72px);font-weight:700;line-height:.85;letter-spacing:-.05em}
+@media(min-width:768px){h1.big{font-size:10rem}}
+@media(min-width:1024px){h1.big{font-size:12rem}}
+.hd{display:flex;justify-content:flex-end;margin-top:16px}
+.hd>div{display:flex;flex-direction:column;align-items:flex-end;max-width:48rem;min-width:0}
+.hd p{margin:0 0 28px;font-size:16px;line-height:1.65;text-align:right;color:rgba(255,255,255,.92);text-shadow:0 1px 14px rgba(0,0,0,.8)}
+@media(min-width:768px){.hd p{font-size:18px}}
+.btn{display:inline-flex;align-items:center;gap:20px;background:#fff;color:#000;padding:6px 6px 6px 20px;font-size:14px;letter-spacing:.025em;transition:opacity .2s;font-weight:500}
+.btn:hover{opacity:.9}
+.btn i{width:40px;height:40px;background:#000;color:#fff;display:grid;place-items:center}
+/* ROCKET SCIENCE */
+.rs-t{padding:128px 32px 64px;display:flex;justify-content:center}
+.rs-t h2{margin:0;font-size:clamp(40px,12vw,40px);font-weight:300;line-height:.9;letter-spacing:-.05em;text-transform:uppercase}
+@media(min-width:768px){.rs-t h2{font-size:6rem}}
+@media(min-width:1024px){.rs-t h2{font-size:7rem}}
+.rs-t h2 span{display:block;margin-left:1.5em}
+@media(min-width:768px){.rs-t h2 span{margin-left:3.5em}}
+.gridw{padding:0 32px 96px;position:relative}
+.topline{display:flex;gap:16px}
+.topline i,.seg i{flex:1;height:1px;background:var(--nb);display:block}
+.seg{display:flex;gap:16px}
+.mob{display:flex;flex-direction:column}
+.mob .seg{margin:0}
+.dsk{display:none}
+@media(min-width:1024px){.mob{display:none}.dsk{display:grid;grid-template-columns:auto minmax(0,1fr) auto minmax(0,1fr) auto;grid-template-rows:repeat(3,minmax(0,auto))}}
+.vl{width:13px;padding:12px 0}
+.vl i{display:block;width:1px;height:100%;background:var(--nb);margin-left:12px}
+.vl.r i{margin-left:0}
+.vl.m{width:1px;padding:12px 0}
+.vl.m i{margin:0}
+.tc{padding:48px}
+.tc h3{margin:0 0 20px;font-size:clamp(24px,5vw,30px);font-weight:400;letter-spacing:-.01em;line-height:1.15}
+.tc p{margin:0;color:var(--mut);font-size:18px;line-height:1.65}
+.vc{padding:24px;position:relative;min-height:240px}
+.vc .fr{position:relative;width:100%;height:100%;min-height:240px;overflow:hidden;background:#050505}
+.mob .tc{padding:32px 0}
+.mob .vc{padding:0}
+.mob .vc .fr{aspect-ratio:16/10;height:auto;margin:24px 0}
+@media(min-width:640px){.mob .tc{padding:40px 24px}}
+.dl{display:flex;gap:16px;padding:0 0}
+.dl i{flex:1;height:1px;background:var(--nb);display:block}
+.cell-line{align-self:start;grid-column:2;}
+footer{border-top:1px solid var(--nb);padding:32px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--mut);font-size:14px;letter-spacing:.025em}
+footer b{color:#fff;letter-spacing:.1em}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav-d">
+    <div class="col">
+      <div class="row">
+        <nav class="links" aria-label="Primary"><a href="#systems">Programs</a><span class="vd"></span><a href="#systems">Systems</a><span class="vd"></span><a href="#science">Discover</a></nav>
+      </div>
+      <div class="ln"></div>
+    </div>
+    <div class="col">
+      <a class="logo" href="#top" aria-label="NOVA home">NOVA</a>
+      <div class="ln2"><i></i><i></i></div>
+    </div>
+    <div class="col">
+      <div class="row" style="justify-content:flex-end">
+        <span class="vd"></span>
+        <div class="rt">
+          <button type="button" id="sbtn" aria-expanded="false" aria-controls="spanel">Search <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+          <button type="button" class="mbtn" aria-expanded="false" aria-controls="mpanel" aria-label="Open menu"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+        </div>
+        <span class="vd r"></span>
+      </div>
+      <div class="ln"></div>
+    </div>
+  </div>
+  <div class="nav-m">
+    <a class="logo" href="#top" aria-label="NOVA home">NOVA</a>
+    <button type="button" class="mbtn" aria-expanded="false" aria-controls="mpanel" aria-label="Open menu"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+  <div class="panel" id="mpanel" hidden><ul><li><a href="#systems">Programs</a></li><li><a href="#systems">Systems</a></li><li><a href="#science">Discover</a></li><li><a href="#top">View Our Fleet</a></li></ul></div>
+  <div class="panel" id="spanel" hidden>
+    <form class="sbox" id="sform" role="search"><label class="sr" for="sq">Search NOVA</label><input id="sq" type="search" placeholder="Search programs, vehicles, missions" autocomplete="off"><button type="submit">Search</button></form>
+    <div class="sres" id="sres" aria-live="polite">Try &ldquo;heavy lift&rdquo; or &ldquo;orbital insertion&rdquo;.</div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-label="NOVA launch systems">
+  <canvas id="cvh" aria-hidden="true"></canvas>
+  <div class="in">
+    <h1 class="big">ROCKETS</h1>
+    <div class="hd"><div>
+      <p>From precise orbital insertions to deep space trajectories, NOVA's launch systems deliver unmatched performance and dependability, backed by over five decades of proven spaceflight excellence.</p>
+      <a class="btn" href="#systems">View Our Fleet <i aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></i></a>
+    </div></div>
+  </div>
+</section>
+
+<section id="science" aria-labelledby="rst">
+  <div class="rs-t"><h2 id="rst">Rocket<span>Science</span></h2></div>
+  <div class="gridw" id="systems">
+    <div class="topline" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <!-- desktop staggered grid -->
+    <div class="dsk">
+      <div class="vl" style="grid-row:1"><i></i></div>
+      <div class="tc" style="grid-column:2;grid-row:1"><h3>How do we get to space?</h3><p>It takes speed, not just height. A vehicle must reach roughly 28,000 km/h to stay in orbit, so every kilogram of structure, propellant and payload is a negotiation. Our staged designs shed weight on the way up and deliver payloads exactly where they need to be.</p></div>
+      <div class="vl m" style="grid-column:3;grid-row:1"><i></i></div>
+      <div class="vc" style="grid-column:4;grid-row:1/3"><div class="fr"><canvas class="vcv" data-v="engine" aria-label="Rocket engine firing" role="img"></canvas></div></div>
+      <div class="vl r" style="grid-column:5;grid-row:1"><i></i></div>
+
+      <div class="vl" style="grid-column:1;grid-row:2"><i></i></div>
+      <div class="vc" style="grid-column:2;grid-row:2/4"><div class="fr"><canvas class="vcv" data-v="orbit" aria-label="Satellite in orbit above Earth" role="img"></canvas></div></div>
+      <div class="vl m" style="grid-column:3;grid-row:2"><i></i></div>
+      <div class="vl r" style="grid-column:5;grid-row:2"><i></i></div>
+
+      <div class="vl" style="grid-column:1;grid-row:3"><i></i></div>
+      <div class="vl m" style="grid-column:3;grid-row:3"><i></i></div>
+      <div class="tc" style="grid-column:4;grid-row:3"><h3>Launch vehicles</h3><p>From light-lift small-sat carriers to heavy vehicles that send crews beyond low orbit, the NOVA fleet is built around reusable first stages, proven engines and one standard payload interface.</p></div>
+      <div class="vl r" style="grid-column:5;grid-row:3"><i></i></div>
+    </div>
+    <!-- mobile/tablet stack -->
+    <div class="mob">
+      <div class="tc"><h3>How do we get to space?</h3><p>It takes speed, not just height. A vehicle must reach roughly 28,000 km/h to stay in orbit, so every kilogram of structure, propellant and payload is a negotiation. Our staged designs shed weight on the way up and deliver payloads exactly where they need to be.</p></div>
+      <div class="seg" aria-hidden="true"><i></i><i></i></div>
+      <div class="vc"><div class="fr"><canvas class="vcv" data-v="engine" aria-label="Rocket engine firing" role="img"></canvas></div></div>
+      <div class="seg" aria-hidden="true"><i></i><i></i></div>
+      <div class="vc"><div class="fr"><canvas class="vcv" data-v="orbit" aria-label="Satellite in orbit above Earth" role="img"></canvas></div></div>
+      <div class="seg" aria-hidden="true"><i></i><i></i></div>
+      <div class="tc"><h3>Launch vehicles</h3><p>From light-lift small-sat carriers to heavy vehicles that send crews beyond low orbit, the NOVA fleet is built around reusable first stages, proven engines and one standard payload interface.</p></div>
+    </div>
+    <div class="topline" style="margin-top:0" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  </div>
+</section>
+</main>
+<footer><b>NOVA</b><span>&copy; 2026 NOVA Space Launch Systems. All rights reserved.</span></footer>
+
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(s,c){return (c||document).querySelector(s)},$$=function(s,c){return [].slice.call((c||document).querySelectorAll(s))};
+function rng(s){return function(){s=(s*9301+49297)%233280;return s/233280}}
+
+/* ---- menu / search ---- */
+var mp=$('#mpanel'),sp=$('#spanel'),sb=$('#sbtn');
+function toggle(p,btns,other){var open=p.hidden;if(other)other.hidden=true;p.hidden=!open;btns.forEach(function(b){b.setAttribute('aria-expanded',String(open))});if(open&&p===sp)$('#sq').focus()}
+$$('.mbtn').forEach(function(b){b.addEventListener('click',function(){toggle(mp,$$('.mbtn'),sp)})});
+sb.addEventListener('click',function(){toggle(sp,[sb],mp)});
+$$('#mpanel a').forEach(function(a){a.addEventListener('click',function(){mp.hidden=true;$$('.mbtn').forEach(function(b){b.setAttribute('aria-expanded','false')})})});
+addEventListener('keydown',function(e){if(e.key==='Escape'){mp.hidden=true;sp.hidden=true;$$('.mbtn').forEach(function(b){b.setAttribute('aria-expanded','false')});sb.setAttribute('aria-expanded','false')}});
+var data=['Heavy lift vehicle','Orbital insertion services','Deep space trajectories','Reusable first stage','Crewed flight program','Small satellite carrier'];
+$('#sform').addEventListener('submit',function(e){e.preventDefault();var q=$('#sq').value.trim().toLowerCase(),r=$('#sres');
+  if(!q){r.textContent='Type a search term first.';return}
+  var m=data.filter(function(d){return d.toLowerCase().indexOf(q)>-1||q.split(/\s+/).some(function(w){return w.length>3&&d.toLowerCase().indexOf(w)>-1})});
+  r.textContent=m.length?m.length+' result'+(m.length>1?'s':'')+': '+m.join(' / '):'No results for “'+q+'”.';});
+
+/* ---- canvas stand-ins for the videos ---- */
+var items=[];
+function make(cv,draw,init){
+  var ctx=cv.getContext('2d'),o={cv:cv,vis:true,t:0},st={};
+  function size(){var r=cv.getBoundingClientRect();cv.width=Math.max(200,Math.round(r.width));cv.height=Math.max(150,Math.round(r.height));st=init?init(cv.width,cv.height):{}}
+  o.step=function(dt){o.t+=dt;draw(ctx,cv.width,cv.height,o.t,dt,st)};
+  size();addEventListener('resize',size);o.step(0);
+  if('IntersectionObserver' in window)new IntersectionObserver(function(e){o.vis=e[0].isIntersecting}).observe(cv);
+  items.push(o);return o;
+}
+/* hero: rocket ascending */
+function heroInit(W,H){var r=rng(5),s=[],i;for(i=0;i<190;i++)s.push([r()*W,r()*H,.3+r()*.7]);return{stars:s,sm:[],acc:0,r:rng(9)}}
+function heroDraw(c,W,H,t,dt,S){
+  var g=c.createLinearGradient(0,0,0,H);g.addColorStop(0,'#000');g.addColorStop(.55,'#050912');g.addColorStop(.85,'#14182a');g.addColorStop(1,'#3a2a2c');
+  c.fillStyle=g;c.fillRect(0,0,W,H);
+  /* horizon glow */
+  var hg=c.createRadialGradient(W*.65,H*1.05,0,W*.65,H*1.05,W*.55);hg.addColorStop(0,'rgba(255,150,80,.38)');hg.addColorStop(1,'rgba(255,120,60,0)');c.fillStyle=hg;c.fillRect(0,0,W,H);
+  S.stars.forEach(function(s){s[1]+=dt*26*s[2];if(s[1]>H)s[1]=0;c.fillStyle='rgba(255,255,255,'+(.25+.6*s[2])+')';c.fillRect(s[0],s[1],1.3,s[2]>.8?2.4:1.3)});
+  var u=H/900,mobile=W<700,cx=W*(mobile?.74:W<1100?.72:.66)+Math.sin(t*.9)*2*u,top=H*(mobile?.52:.5),len=H*.35,wd=Math.max(26,54*u*(mobile?.8:1)),tail=top+len;
+  /* smoke spawn */
+  S.acc+=dt*70;while(S.acc>1){S.acc--;S.sm.push({x:cx+(S.r()-.5)*wd*.5,y:tail+4,vx:(S.r()-.5)*40*u,vy:120*u+S.r()*80*u,r:wd*.35,life:0,max:2.2+S.r()*1.4})}
+  for(var i=S.sm.length-1;i>=0;i--){var p=S.sm[i];p.life+=dt;if(p.life>p.max){S.sm.splice(i,1);continue}p.x+=p.vx*dt;p.y+=p.vy*dt;p.r+=dt*wd*.9}
+  S.sm.forEach(function(p){var a=(1-p.life/p.max),col=p.life<.5?'255,190,110':'200,205,220';var rg=c.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);rg.addColorStop(0,'rgba('+col+','+(.26*a)+')');rg.addColorStop(1,'rgba('+col+',0)');c.fillStyle=rg;c.fillRect(p.x-p.r,p.y-p.r,p.r*2,p.r*2)});
+  /* flame */
+  var fl=(.85+.15*Math.sin(t*38)+.1*Math.sin(t*23))*H*.17;
+  var fg=c.createLinearGradient(0,tail,0,tail+fl);fg.addColorStop(0,'rgba(255,255,255,.95)');fg.addColorStop(.25,'rgba(255,214,140,.9)');fg.addColorStop(.7,'rgba(255,110,40,.55)');fg.addColorStop(1,'rgba(255,60,20,0)');
+  c.fillStyle=fg;c.beginPath();c.moveTo(cx-wd*.32,tail);c.quadraticCurveTo(cx-wd*.55,tail+fl*.5,cx,tail+fl);c.quadraticCurveTo(cx+wd*.55,tail+fl*.5,cx+wd*.32,tail);c.fill();
+  var gg=c.createRadialGradient(cx,tail+10,0,cx,tail+10,H*.3);gg.addColorStop(0,'rgba(255,170,90,.35)');gg.addColorStop(1,'rgba(255,120,60,0)');c.fillStyle=gg;c.fillRect(0,0,W,H);
+  /* body */
+  var bg=c.createLinearGradient(cx-wd/2,0,cx+wd/2,0);bg.addColorStop(0,'#8d939e');bg.addColorStop(.35,'#f4f6f9');bg.addColorStop(.7,'#d3d8e0');bg.addColorStop(1,'#6e7480');
+  c.fillStyle='#2b2f37';c.beginPath();c.moveTo(cx-wd*.3,tail-6);c.lineTo(cx-wd*.3,tail+wd*.22);c.lineTo(cx+wd*.3,tail+wd*.22);c.lineTo(cx+wd*.3,tail-6);c.fill();
+  c.fillStyle=bg;c.beginPath();c.moveTo(cx-wd/2,tail);c.lineTo(cx-wd/2,top+len*.22);c.quadraticCurveTo(cx-wd/2,top+len*.05,cx,top);c.quadraticCurveTo(cx+wd/2,top+len*.05,cx+wd/2,top+len*.22);c.lineTo(cx+wd/2,tail);c.closePath();c.fill();
+  c.fillStyle='#0b0d12';c.fillRect(cx-wd/2,top+len*.3,wd,len*.05);c.fillRect(cx-wd/2,top+len*.62,wd,len*.12);
+  c.fillStyle='#0b0d12';c.font='700 '+Math.max(9,wd*.2|0)+'px Space Grotesk,sans-serif';c.textAlign='center';c.fillText('NOVA',cx,top+len*.5);
+  /* fins */
+  c.fillStyle='#2c313a';c.beginPath();c.moveTo(cx-wd/2,tail-len*.2);c.lineTo(cx-wd*.95,tail+wd*.12);c.lineTo(cx-wd/2,tail);c.fill();c.beginPath();c.moveTo(cx+wd/2,tail-len*.2);c.lineTo(cx+wd*.95,tail+wd*.12);c.lineTo(cx+wd/2,tail);c.fill();
+  c.textAlign='start';
+}
+make($('#cvh'),heroDraw,heroInit);
+
+function engineInit(W,H){return{r:rng(4),p:[]}}
+function engineDraw(c,W,H,t,dt,S){
+  c.fillStyle='#050608';c.fillRect(0,0,W,H);
+  var cx=W*.5,u=Math.min(W,H*1.6)/500;
+  var bell=c.createLinearGradient(cx-70*u,0,cx+70*u,0);bell.addColorStop(0,'#2a2d34');bell.addColorStop(.4,'#8a909c');bell.addColorStop(.7,'#4a4f59');bell.addColorStop(1,'#1c1e23');
+  var fl=(.9+.1*Math.sin(t*40)+.08*Math.sin(t*27))*H*.62,y0=H*.3;
+  var gl=c.createRadialGradient(cx,y0+60*u,0,cx,y0+60*u,H*.7);gl.addColorStop(0,'rgba(120,170,255,.4)');gl.addColorStop(1,'rgba(40,80,200,0)');c.fillStyle=gl;c.fillRect(0,0,W,H);
+  var fg=c.createLinearGradient(0,y0,0,y0+fl);fg.addColorStop(0,'rgba(220,235,255,1)');fg.addColorStop(.3,'rgba(130,170,255,.85)');fg.addColorStop(.7,'rgba(70,90,220,.4)');fg.addColorStop(1,'rgba(40,40,160,0)');
+  c.fillStyle=fg;c.beginPath();c.moveTo(cx-62*u,y0);c.quadraticCurveTo(cx-40*u*(1+.05*Math.sin(t*20)),y0+fl*.55,cx,y0+fl);c.quadraticCurveTo(cx+40*u,y0+fl*.55,cx+62*u,y0);c.fill();
+  for(var i=0;i<5;i++){var yy=y0+(60+i*70)*u*.9,a=.8-i*.14;c.fillStyle='rgba(255,255,255,'+Math.max(0,a*(.6+.4*Math.sin(t*30+i)))+')';c.beginPath();c.ellipse(cx,yy,(22-i*3)*u,(13-i*1.6)*u,0,0,7);c.fill()}
+  c.fillStyle=bell;c.beginPath();c.moveTo(cx-34*u,0);c.lineTo(cx+34*u,0);c.lineTo(cx+70*u,y0);c.quadraticCurveTo(cx,y0-30*u,cx-70*u,y0);c.closePath();c.fill();
+  c.fillStyle='#16181d';c.fillRect(cx-44*u,0,88*u,40*u);
+  c.strokeStyle='rgba(255,255,255,.25)';c.lineWidth=1;for(i=1;i<4;i++){var yy2=y0*i/4;c.beginPath();c.moveTo(cx-(34+36*i/4)*u,yy2);c.lineTo(cx+(34+36*i/4)*u,yy2);c.stroke()}
+}
+function orbitInit(W,H){var r=rng(2),s=[];for(var i=0;i<130;i++)s.push([r()*W,r()*H*.8,r()]);return{s:s}}
+function orbitDraw(c,W,H,t,dt,S){
+  c.fillStyle='#02040a';c.fillRect(0,0,W,H);
+  S.s.forEach(function(s){c.fillStyle='rgba(255,255,255,'+(.2+.6*s[2]*(.6+.4*Math.sin(t*2+s[2]*9)))+')';c.fillRect(s[0],s[1],1.3,1.3)});
+  var R=W*.8,cx=W*.42,cy=H*.66+R;
+  var at=c.createRadialGradient(cx,cy,R*.97,cx,cy,R*1.05);at.addColorStop(0,'rgba(120,190,255,.9)');at.addColorStop(1,'rgba(60,120,255,0)');c.fillStyle=at;c.beginPath();c.arc(cx,cy,R*1.05,0,7);c.fill();
+  var eg=c.createRadialGradient(cx+R*.3,cy-R*.4,R*.1,cx,cy,R);eg.addColorStop(0,'#2a6fb0');eg.addColorStop(.6,'#10335e');eg.addColorStop(1,'#050d1c');c.fillStyle=eg;c.beginPath();c.arc(cx,cy,R,0,7);c.fill();
+  c.save();c.beginPath();c.arc(cx,cy,R,0,7);c.clip();c.fillStyle='rgba(255,255,255,.14)';for(var i=0;i<7;i++){var x=((i*.19+t*.01)%1.1)*W*1.1,y=H*(.7+(i%3)*.08);c.beginPath();c.ellipse(x,y,70+i*9,7,0,0,7);c.fill()}c.restore();
+  var a=t*.3,sx=W*.5+Math.cos(a)*W*.36,sy=H*.38-Math.sin(a)*H*.12;
+  c.strokeStyle='rgba(255,255,255,.2)';c.setLineDash([4,6]);c.beginPath();c.ellipse(W*.5,H*.38,W*.36,H*.12,0,Math.PI,0);c.stroke();c.setLineDash([]);
+  c.save();c.translate(sx,sy);c.fillStyle='#d9dde4';c.fillRect(-5,-4,10,8);c.fillStyle='#2a5ea8';c.fillRect(-22,-3,14,6);c.fillRect(8,-3,14,6);c.strokeStyle='#8ea0b8';c.strokeRect(-22,-3,14,6);c.strokeRect(8,-3,14,6);c.restore();
+  var gg=c.createRadialGradient(sx,sy,0,sx,sy,26);gg.addColorStop(0,'rgba(255,255,255,.35)');gg.addColorStop(1,'rgba(255,255,255,0)');c.fillStyle=gg;c.fillRect(sx-26,sy-26,52,52);
+}
+$$('canvas[data-v]').forEach(function(cv){
+  if(cv.offsetParent===null)return;
+  make(cv,cv.dataset.v==='engine'?engineDraw:orbitDraw,cv.dataset.v==='engine'?engineInit:orbitInit);
+});
+var last=0;
+function loop(ts){var dt=Math.min(.05,(ts-last)/1000||.016);last=ts;
+  if(!document.hidden&&!RM)items.forEach(function(o){if(o.vis)o.step(dt)});
+  requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+/* the hidden layout (mobile or desktop) is created lazily on resize */
+var lastD=matchMedia('(min-width:1024px)').matches;
+addEventListener('resize',function(){var d=matchMedia('(min-width:1024px)').matches;if(d!==lastD){lastD=d;items=items.filter(function(o){return o.cv.id==='cvh'||o.cv.offsetParent!==null});$$('canvas[data-v]').forEach(function(cv){if(cv.offsetParent!==null&&!items.some(function(o){return o.cv===cv}))make(cv,cv.dataset.v==='engine'?engineDraw:orbitDraw,cv.dataset.v==='engine'?engineInit:orbitInit)})}});
+})();
+</script>
+</body>
+</html>

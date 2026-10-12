@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Era Automotive Hero — Automotive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#272835;--mist:#EEEFF2;--snow:#FBFBFD;--pad:80px}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html,body{background:#010101}
+body{font-family:'Inter',system-ui,sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid #fff;outline-offset:3px;border-radius:6px}
+.hero{position:relative;height:100vh;height:100svh;min-height:600px;max-height:965px;background:#010101;overflow:hidden;overflow-x:clip;isolation:isolate}
+/* stand-in for the background video: a night road scene with moving light streaks */
+.scene{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,#05070d 0%,#0a1020 38%,#141b2e 58%,#06080e 59%,#010101 100%)}
+.scene canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.car{position:absolute;left:50%;bottom:20%;width:min(78vw,1000px);transform:translateX(-50%);z-index:0}
+.car svg{display:block;width:100%;height:auto;overflow:visible}
+.car{animation:bob 6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateX(-50%) translateY(-3px)}}
+.wheel{transform-box:fill-box;transform-origin:center;animation:spin 1.2s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.g-top,.g-bot{position:absolute;left:0;right:0;height:260px;z-index:1;pointer-events:none}
+.g-top{top:0;background:linear-gradient(to bottom,rgba(0,0,0,.3),transparent)}
+.g-bot{bottom:0;background:linear-gradient(to top,rgba(0,0,0,.3),transparent)}
+.big{position:absolute;z-index:1;left:50%;top:15%;transform:translateX(-50%);width:75%;max-width:1073px;text-align:center;font-family:'Bebas Neue','Inter',sans-serif;line-height:.85;white-space:nowrap;text-transform:uppercase;font-size:min(30vw,360px);letter-spacing:0;
+ background:linear-gradient(to bottom,rgba(255,255,255,.83),rgba(255,255,255,.12));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;user-select:none;pointer-events:none}
+header{position:absolute;z-index:3;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:20px var(--pad)}
+.brand{display:flex;align-items:center;gap:10px;font-size:24px;font-weight:500;letter-spacing:-.4px}
+.brand svg{width:28px;height:28px;flex:none}
+nav ul{list-style:none;display:none;gap:36px}
+nav a{color:var(--mist);letter-spacing:-.32px;font-size:16px;padding:6px 2px;transition:color .2s}
+nav a:hover{color:#fff}
+.right{display:flex;align-items:center;gap:28px}
+.signin{display:none;color:var(--snow);font-size:16px;font-weight:500;padding:6px 2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 20px;border-radius:8px;background:#fff;color:var(--ink);font:500 16px/1 'Inter',sans-serif;border:1px solid var(--mist);box-shadow:0 1px 2px rgba(0,0,0,.18),0 4px 14px rgba(0,0,0,.18);cursor:pointer;transition:transform .15s,background .2s}
+.btn:hover{background:#f3f4f8}
+.btn:active{transform:scale(.97)}
+.btn svg{width:18px;height:18px;flex:none}
+.cta{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:0 var(--pad) 48px;display:flex;flex-direction:column;gap:32px;align-items:flex-start;justify-content:space-between}
+.cta-l{display:flex;flex-direction:column;gap:20px;align-items:flex-start;min-width:0}
+.cta p{font-size:20px;line-height:30px;max-width:414px}
+.tag{font-family:'Bebas Neue','Inter',sans-serif;font-size:48px;line-height:1;max-width:466px;font-weight:400;text-transform:none}
+@media(min-width:640px){.tag{font-size:60px}.signin{display:inline-block}}
+@media(min-width:1024px){nav ul{display:flex}.cta{flex-direction:row;align-items:flex-end}.cta-l{flex-direction:row;align-items:flex-end;gap:24px}.tag{font-size:64px;text-align:left}}
+@media(max-width:1023px){:root{--pad:32px}}
+@media(max-width:639px){:root{--pad:20px}.brand span{display:none}.cta p{font-size:17px;line-height:26px}.tag{font-size:42px}.cta{gap:20px;padding-bottom:32px}.cta-l{gap:16px}.big{top:12%;width:92%;font-size:29vw}.car{bottom:30%;width:130vw}}
+@media(max-height:700px){.tag{font-size:44px}.cta p{font-size:17px;line-height:25px}}
+@media(prefers-reduced-motion:reduce){.car,.wheel{animation:none}}
+</style>
+</head>
+<body>
+<main>
+<section class="hero" aria-label="New Era hero">
+  <div class="scene" aria-hidden="true"><canvas id="cv"></canvas>
+    <div class="car">
+      <svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b4258"/><stop offset=".35" stop-color="#1b2030"/><stop offset="1" stop-color="#07090f"/></linearGradient>
+          <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a3550"/><stop offset="1" stop-color="#0b0f1a"/></linearGradient>
+          <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#cfe0ff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+          <radialGradient id="hl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".25" stop-color="#bcd6ff" stop-opacity=".55"/><stop offset="1" stop-color="#7aa7ff" stop-opacity="0"/></radialGradient>
+          <radialGradient id="tl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff5a4a" stop-opacity=".9"/><stop offset="1" stop-color="#ff2a1a" stop-opacity="0"/></radialGradient>
+          <radialGradient id="shadow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".85"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+          <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b9d3ff" stop-opacity=".35"/><stop offset="1" stop-color="#b9d3ff" stop-opacity="0"/></linearGradient>
+          <radialGradient id="rim" cx=".5" cy=".5" r=".5"><stop offset=".55" stop-color="#2a2f3d"/><stop offset="1" stop-color="#0a0c12"/></radialGradient>
+        </defs>
+        <ellipse cx="500" cy="262" rx="470" ry="22" fill="url(#shadow)"/>
+        <path d="M930 170 L1000 140 L1000 200 L930 205Z" fill="url(#beam)"/>
+        <path d="M52 214 C52 186 80 176 140 168 L292 146 C336 106 396 84 468 82 L610 82 C694 86 752 116 802 146 L890 160 C938 168 958 186 958 214 L958 236 L52 236Z" fill="url(#body)"/>
+        <path d="M322 148 C356 118 408 98 470 96 L604 96 C672 99 724 124 764 148Z" fill="url(#glass)"/>
+        <path d="M530 98 L560 148" stroke="#05070c" stroke-width="5"/>
+        <path d="M140 172 L292 150 C340 112 404 90 470 88 L610 88 C694 92 750 120 800 150 L890 164" fill="none" stroke="url(#shine)" stroke-width="2.5"/>
+        <path d="M100 200 L900 196" stroke="#59627d" stroke-opacity=".5" stroke-width="1.5"/>
+        <path d="M70 224 L930 224" stroke="#000" stroke-opacity=".6" stroke-width="10"/>
+        <ellipse cx="925" cy="192" rx="46" ry="34" fill="url(#hl)"/>
+        <path d="M900 188 L944 184 L950 196 L902 198Z" fill="#fff"/>
+        <ellipse cx="68" cy="190" rx="34" ry="22" fill="url(#tl)"/>
+        <path d="M54 186 L92 184 L90 192 L54 194Z" fill="#ff6a5a"/>
+        <g><circle cx="240" cy="232" r="56" fill="#05060a"/><circle cx="240" cy="232" r="38" fill="url(#rim)" stroke="#555d73" stroke-width="2"/>
+          <g class="wheel"><path d="M240 196V268M204 232H276M214 206L266 258M266 206L214 258" stroke="#7f88a3" stroke-width="5" stroke-linecap="round"/></g><circle cx="240" cy="232" r="7" fill="#9aa3bd"/></g>
+        <g><circle cx="770" cy="232" r="56" fill="#05060a"/><circle cx="770" cy="232" r="38" fill="url(#rim)" stroke="#555d73" stroke-width="2"/>
+          <g class="wheel"><path d="M770 196V268M734 232H806M744 206L796 258M796 206L744 258" stroke="#7f88a3" stroke-width="5" stroke-linecap="round"/></g><circle cx="770" cy="232" r="7" fill="#9aa3bd"/></g>
+      </svg>
+    </div>
+  </div>
+  <div class="g-top" aria-hidden="true"></div>
+  <div class="g-bot" aria-hidden="true"></div>
+  <div class="big" aria-hidden="true" id="big">NEW ERA</div>
+
+  <header>
+    <a class="brand" href="#" aria-label="Logoipsum home">
+      <svg viewBox="0 0 28 28" fill="#fff" aria-hidden="true"><path d="M14 14 14 1.5C19.2 1.5 23.6 4.9 25.3 9.6Z"/><path d="M14 14 26.5 14C26.5 19.2 23.1 23.6 18.4 25.3Z"/><path d="M14 14 14 26.5C8.8 26.5 4.4 23.1 2.7 18.4Z"/><path d="M14 14 1.5 14C1.5 8.8 4.9 4.4 9.6 2.7Z"/></svg>
+      <span>Logoipsum</span>
+    </a>
+    <nav aria-label="Primary"><ul>
+      <li><a href="#">Home</a></li><li><a href="#">Shop</a></li><li><a href="#">Blog</a></li><li><a href="#">About Us</a></li><li><a href="#">Contact Us</a></li>
+    </ul></nav>
+    <div class="right">
+      <a class="signin" href="#">Sign In</a>
+      <button class="btn" type="button" id="cart" aria-label="Cart, 0 items">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#272835" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L21.5 8H6"/></svg>
+        <span>Cart</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="cta">
+    <div class="cta-l">
+      <p>Choose from thousands of certified cars you can trust, transparently priced, because buying a car should feel exciting.</p>
+      <a class="btn" href="#" id="shop"><span>Shop Now</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#272835" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <h1 class="tag">Find the perfect car that fits our journey</h1>
+  </div>
+</section>
+</main>
+<script>
+(function(){
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var cv=document.getElementById('cv'),ctx=cv.getContext('2d'),W=0,H=0,dpr=1,t=0,last=0,raf=0;
+function size(){var r=cv.getBoundingClientRect();dpr=Math.min(window.devicePixelRatio||1,1.5);W=Math.max(1,r.width);H=Math.max(1,r.height);cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+var rnd=function(s){return function(){s=(s*9301+49297)%233280;return s/233280}}(7);
+var lights=[];for(var i=0;i<46;i++){lights.push({x:rnd(),y:.5+rnd()*.12,v:.02+rnd()*.07,len:.05+rnd()*.18,h:rnd()<.5?200:rnd()<.5?18:40,a:.25+rnd()*.5,dir:rnd()<.5?1:-1})}
+var stars=[];for(var i=0;i<70;i++)stars.push({x:rnd(),y:rnd()*.42,r:rnd()*1.1+.2,a:rnd()*.6+.2});
+function draw(){
+ ctx.clearRect(0,0,W,H);
+ var hz=H*.585;
+ for(var i=0;i<stars.length;i++){var s=stars[i];ctx.fillStyle='rgba(255,255,255,'+s.a*(.7+.3*Math.sin(t*1.2+i))+')';ctx.fillRect(s.x*W,s.y*H,s.r,s.r)}
+ // distant city glow
+ var g=ctx.createLinearGradient(0,hz-H*.16,0,hz);g.addColorStop(0,'rgba(60,90,170,0)');g.addColorStop(1,'rgba(90,120,210,.28)');ctx.fillStyle=g;ctx.fillRect(0,hz-H*.16,W,H*.16);
+ ctx.fillStyle='#04060b';
+ var x=0,k=0;while(x<W){var bw=18+((k*37)%46),bh=10+((k*53)%64)*H/900;ctx.fillRect(x,hz-bh,bw,bh);if(k%3==0){ctx.fillStyle='rgba(255,210,140,.5)';ctx.fillRect(x+4,hz-bh+6,2,2);ctx.fillRect(x+bw-7,hz-bh+14,2,2);ctx.fillStyle='#04060b'}x+=bw+2;k++}
+ // road + reflection
+ var rg=ctx.createLinearGradient(0,hz,0,H);rg.addColorStop(0,'#0c111d');rg.addColorStop(.4,'#07090f');rg.addColorStop(1,'#010101');ctx.fillStyle=rg;ctx.fillRect(0,hz,W,H-hz);
+ ctx.globalCompositeOperation='lighter';
+ for(var i=0;i<lights.length;i++){var L=lights[i];
+  var px=((L.x+t*L.v*L.dir)%1+1)%1*(W+W*.4)-W*.2,y=hz+(L.y-.5)*H*.5*0+ (i%5)*H*.012-H*.006;
+  var len=L.len*W;var lg=ctx.createLinearGradient(px-len*L.dir,0,px,0);
+  var col=L.h==200?'170,205,255':L.h==18?'255,90,70':'255,196,120';
+  lg.addColorStop(0,'rgba('+col+',0)');lg.addColorStop(1,'rgba('+col+','+L.a+')');
+  ctx.fillStyle=lg;ctx.fillRect(Math.min(px,px-len*L.dir),y-1.5,len,3);
+  // reflection on wet road
+  var rl=ctx.createLinearGradient(0,hz,0,H);
+  ctx.fillStyle='rgba('+col+','+L.a*.25+')';ctx.fillRect(px-2,hz+H*.02+(i%7)*H*.05,3,H*.04);
+ }
+ ctx.globalCompositeOperation='source-over';
+ // road lane dashes
+ ctx.fillStyle='rgba(255,255,255,.05)';
+ for(var j=0;j<14;j++){var u=((j/14+t*.12)%1);var yy=hz+Math.pow(u,2.2)*(H-hz)*1.0;ctx.fillRect(W*.5-W*.002*(1+u*10)+(-W*.2)*u*0,yy,W*.004*(1+u*8),2+u*10)}
+}
+function loop(ts){raf=requestAnimationFrame(loop);var dt=Math.min(.05,(ts-last)/1000||0);last=ts;t+=dt;draw()}
+function start(){if(!raf&&!reduce&&!document.hidden){last=performance.now();raf=requestAnimationFrame(loop)}}
+function stop(){if(raf){cancelAnimationFrame(raf);raf=0}}
+size();t=3;draw();start();
+addEventListener('resize',function(){size();draw()});
+document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
+// cart count
+var n=0,cart=document.getElementById('cart');
+cart.addEventListener('click',function(){n=(n+1)%10;cart.querySelector('span').textContent=n?'Cart ('+n+')':'Cart';cart.setAttribute('aria-label','Cart, '+n+' items')});
+document.querySelectorAll('a[href="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault()})});
+})();
+</script>
+</body>
+</html>

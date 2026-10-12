@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Era Bold Hero — Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#21346e;--ink:#161a20}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html,body{background:var(--navy)}
+body{font-family:'Rubik',system-ui,sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+.hero{position:relative;min-height:100vh;min-height:100svh;background:var(--navy);overflow:hidden;overflow-x:clip;isolation:isolate}
+/* stand-in for the background video: layered drifting light over deep blue */
+.bg{position:absolute;inset:0;z-index:0;overflow:hidden;background:
+ radial-gradient(120% 90% at 80% 10%,#3f63c4 0%,rgba(63,99,196,0) 55%),
+ radial-gradient(90% 80% at 10% 100%,#18285a 0%,rgba(24,40,90,0) 60%),
+ linear-gradient(160deg,#2a4590 0%,#21346e 45%,#172552 100%)}
+.bg canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(10,18,50,.25) 0%,rgba(10,18,50,0) 35%,rgba(10,18,50,.35) 100%)}
+.wrap{position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:128px 24px 80px}
+@media(min-width:768px){.wrap{padding:192px 48px 96px}}
+@media(min-width:1024px){.wrap{padding-left:64px;padding-right:64px}}
+h1{font-weight:700;text-transform:uppercase;font-size:clamp(3rem,15vw,3.75rem);line-height:.98;letter-spacing:-2px;text-shadow:0 2px 40px rgba(10,20,60,.35)}
+h1 span{display:block}
+@media(min-width:768px){h1{font-size:6rem;letter-spacing:-3px}}
+@media(min-width:1024px){h1{font-size:100px;letter-spacing:-4px}}
+@media(max-width:400px){h1{font-size:3.6rem;letter-spacing:-2.5px}}
+.cta{position:relative;display:inline-flex;align-items:center;justify-content:center;width:184px;height:65px;margin-top:40px;border:0;background:none;cursor:pointer;color:var(--ink);font:700 20px/1 'Rubik',sans-serif;text-transform:uppercase;text-decoration:none;transition:transform .2s ease;-webkit-tap-highlight-color:transparent}
+.cta:hover{transform:scale(1.05)}
+.cta:active{transform:scale(.95)}
+.cta:focus-visible{outline:3px solid #fff;outline-offset:5px;border-radius:12px}
+.cta svg{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 10px 24px rgba(8,16,48,.35))}
+.cta span{position:relative;z-index:1;letter-spacing:.2px}
+.rm .cta{transition:none}
+@media(prefers-reduced-motion:reduce){.cta{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<section class="hero" id="hero">
+  <div class="bg" aria-hidden="true"><canvas id="cv"></canvas></div>
+  <div class="shade" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1><span>New Era</span><span>of Design</span><span>Starts Now</span></h1>
+    <button class="cta" type="button" id="cta" aria-label="Get started">
+      <svg viewBox="0 0 184 65" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M14 0H170C178 0 184 6 184 14V30L176 38V51C176 59 170 65 162 65H14C6 65 0 59 0 51V35L8 27V14C8 6 6 0 14 0Z" fill="#fff"/></svg>
+      <span>Get Started</span>
+    </button>
+  </div>
+</section>
+</main>
+<script>
+(function(){
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var cv=document.getElementById('cv'),ctx=cv.getContext('2d'),W=0,H=0,dpr=1,t=0,last=0,raf=0;
+function size(){var r=cv.getBoundingClientRect();dpr=Math.min(window.devicePixelRatio||1,1.5);W=Math.max(1,r.width);H=Math.max(1,r.height);cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+var bands=[];for(var i=0;i<7;i++)bands.push({y:.15+i*.12,amp:40+i*14,f:.0012+i*.0002,sp:.18+i*.05,ph:i*1.7,w:90+i*30,a:.10+(i%3)*.04});
+function draw(){
+ ctx.clearRect(0,0,W,H);
+ ctx.globalCompositeOperation='lighter';
+ for(var i=0;i<bands.length;i++){
+  var b=bands[i],g=ctx.createLinearGradient(0,0,W,0);
+  g.addColorStop(0,'rgba(80,130,255,0)');g.addColorStop(.35,'rgba(110,160,255,'+b.a+')');g.addColorStop(.7,'rgba(170,200,255,'+b.a*1.2+')');g.addColorStop(1,'rgba(80,130,255,0)');
+  ctx.fillStyle=g;ctx.beginPath();
+  var base=H*b.y,n=36;
+  for(var k=0;k<=n;k++){var x=k/n*W,y=base+Math.sin(x*b.f+t*b.sp+b.ph)*b.amp+Math.sin(x*b.f*2.3-t*b.sp*.6)*b.amp*.4;if(k==0)ctx.moveTo(x,y);else ctx.lineTo(x,y)}
+  for(var k=n;k>=0;k--){var x=k/n*W,y=base+b.w+Math.sin(x*b.f*1.1+t*b.sp+b.ph+.8)*b.amp*1.2;ctx.lineTo(x,y)}
+  ctx.closePath();ctx.fill();
+ }
+ // soft bokeh orbs
+ for(var j=0;j<14;j++){var ox=(Math.sin(j*12.9+t*.05*(1+j%3))*.5+.5)*W,oy=(Math.cos(j*7.3+t*.04*(1+j%2))*.5+.5)*H,r=30+(j*17%70);
+  var rg=ctx.createRadialGradient(ox,oy,0,ox,oy,r);rg.addColorStop(0,'rgba(190,215,255,.16)');rg.addColorStop(1,'rgba(190,215,255,0)');ctx.fillStyle=rg;ctx.beginPath();ctx.arc(ox,oy,r,0,6.2832);ctx.fill()}
+ ctx.globalCompositeOperation='source-over';
+}
+function loop(ts){raf=requestAnimationFrame(loop);var dt=Math.min(.05,(ts-last)/1000||0);last=ts;t+=dt;draw()}
+function start(){if(!raf&&!reduce&&!document.hidden){last=performance.now();raf=requestAnimationFrame(loop)}}
+function stop(){if(raf){cancelAnimationFrame(raf);raf=0}}
+size();t=4;draw();start();
+addEventListener('resize',function(){size();draw()});
+document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
+var b=document.getElementById('cta');
+b.addEventListener('click',function(){var h=document.getElementById('hero');h.animate&&h.animate([{filter:'brightness(1)'},{filter:'brightness(1.25)'},{filter:'brightness(1)'}],{duration:450})});
+})();
+</script>
+</body>
+</html>

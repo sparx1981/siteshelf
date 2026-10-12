@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkyElite Private Jets — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:#f9fafb;font-family:'Inter',sans-serif;color:#111827;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+button{cursor:pointer;border:0;background:none;color:inherit;padding:0}
+:focus-visible{outline:3px solid #202A36;outline-offset:3px;border-radius:6px}
+.hero{position:relative;height:100vh;height:100svh;min-height:620px;overflow:hidden}
+.sky{position:absolute;inset:0;width:100%;height:100%;display:block}
+.jetwrap{position:absolute;left:0;right:0;bottom:6%;height:42%;pointer-events:none;overflow:hidden}
+.jet{position:absolute;left:50%;top:50%;width:min(760px,92vw);transform:translate(-50%,-50%);animation:fly 9s ease-in-out infinite alternate}
+.jet svg{display:block;width:100%;height:auto;filter:drop-shadow(0 22px 24px rgba(32,42,54,.22))}
+@keyframes fly{from{transform:translate(-52%,-48%) rotate(-1.4deg)}to{transform:translate(-48%,-54%) rotate(1deg)}}
+.col{position:relative;height:100%;display:flex;flex-direction:column}
+.nav{max-width:80rem;width:100%;margin:0 auto;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;position:relative}
+.brand{font-size:1.5rem;font-weight:600;color:#111827}
+.links{display:none;gap:36px;list-style:none;margin:0;padding:0}
+.links a{color:#111827;transition:color .2s;padding:6px 0;font-weight:500;font-size:.95rem}
+.links a:hover{color:#374151}
+@media(min-width:768px){.links{display:flex}.burger{display:none!important}}
+.burger{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:9999px;color:#111827}
+.burger svg{width:26px;height:26px}
+.mm{position:absolute;top:calc(100% - 6px);left:20px;right:20px;z-index:30;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:1rem;box-shadow:0 18px 40px rgba(17,24,39,.18);padding:10px}
+.mm a{display:block;padding:12px 14px;border-radius:.7rem;color:#111827;font-weight:500;transition:background-color .2s}
+.mm a:hover{background:#f3f4f6}
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:0 24px}
+.content{text-align:center;margin-top:max(-20rem,-26vh);display:flex;flex-direction:column;align-items:center}
+.eyebrow{font-size:.875rem;font-weight:600;color:#4b5563;letter-spacing:.1em;text-transform:uppercase;margin:0 0 16px}
+h1{margin:0;font-weight:400;line-height:1;letter-spacing:-.05em;font-size:3.75rem}
+@media(min-width:768px){h1{font-size:4.5rem}}
+@media(min-width:1024px){h1{font-size:6rem}}
+h1 span{display:block}
+h1 .l1{color:#6b7280}
+h1 .l2{color:#202A36;margin-top:-12px}
+.sub{font-size:1.125rem;color:#4b5563;margin:24px 0 24px;max-width:42rem}
+@media(min-width:768px){.sub{font-size:1.25rem}}
+.btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.b{padding:8px 16px;border-radius:9999px;font-weight:500;transition:background-color .2s,color .2s}
+.b.d{background:#d1d5db;color:#1f2937}.b.d:hover{background:#9ca3af}
+.b.k{background:#202A36;color:#fff}.b.k:hover{background:#1a2229}
+dialog{border:0;border-radius:1.25rem;padding:0;width:min(440px,calc(100vw - 32px));box-shadow:0 30px 80px rgba(17,24,39,.35)}
+dialog::backdrop{background:rgba(17,24,39,.45)}
+dialog form{padding:24px;display:grid;gap:14px}
+dialog h2{margin:0;font-size:1.25rem;font-weight:600}
+dialog p{margin:0;color:#4b5563;font-size:.9rem}
+dialog label{display:grid;gap:6px;font-size:.8rem;font-weight:500;color:#374151}
+dialog input,dialog select{border:1px solid #d1d5db;border-radius:.6rem;padding:10px 12px;background:#fff;color:#111827;min-width:0;width:100%}
+dialog input[aria-invalid="true"]{border-color:#b91c1c}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.err{color:#b91c1c;font-size:.8rem;min-height:1.1em}
+.ok{background:#ecfdf5;color:#065f46;padding:12px;border-radius:.7rem;font-size:.9rem}
+.acts{display:flex;gap:10px;justify-content:flex-end}
+@media(max-width:640px){.nav{padding:20px}}
+@media (prefers-reduced-motion: reduce){.jet{animation:none}.b{transition:none}}
+</style>
+</head>
+<body>
+<div style="min-height:100vh;background:#f9fafb">
+<section class="hero">
+  <canvas class="sky" id="sky" aria-hidden="true"></canvas>
+  <div class="jetwrap" aria-hidden="true">
+    <div class="jet">
+      <svg viewBox="0 0 640 220" role="img" aria-label="">
+        <defs>
+          <linearGradient id="fus" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#eef2f7"/><stop offset="1" stop-color="#b9c4d2"/></linearGradient>
+          <linearGradient id="wing" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6dde7"/><stop offset="1" stop-color="#8d9bb0"/></linearGradient>
+          <linearGradient id="eng" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8edf3"/><stop offset="1" stop-color="#9aa7ba"/></linearGradient>
+          <linearGradient id="trail" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+        </defs>
+        <rect x="-60" y="106" width="150" height="7" rx="3.5" fill="url(#trail)"/>
+        <rect x="-20" y="120" width="120" height="4" rx="2" fill="url(#trail)" opacity=".7"/>
+        <!-- tail fin -->
+        <path d="M96 100 L58 22 Q56 14 66 14 L112 14 Q120 14 124 22 L168 92 Z" fill="#202A36"/>
+        <path d="M70 26 L108 26 L132 66 L100 66Z" fill="#2c3a4a" opacity=".6"/>
+        <!-- far wing -->
+        <path d="M300 112 L392 70 L410 72 L350 116 Z" fill="#aeb9c9"/>
+        <!-- fuselage -->
+        <path d="M44 108 C44 96 110 82 250 80 L470 84 C546 88 600 102 624 114 C596 126 540 136 470 138 L150 140 C80 140 44 124 44 108 Z" fill="url(#fus)" stroke="#c9d2de" stroke-width="1"/>
+        <!-- engine -->
+        <rect x="110" y="70" width="86" height="26" rx="13" fill="url(#eng)" stroke="#aab5c6"/>
+        <ellipse cx="112" cy="83" rx="5" ry="10" fill="#4b5667"/>
+        <!-- stripe -->
+        <path d="M70 118 C150 114 330 112 560 116" stroke="#202A36" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M70 124 C150 121 330 120 540 123" stroke="#8d9bb0" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- windows -->
+        <g fill="#202A36"><rect x="250" y="97" width="14" height="10" rx="5"/><rect x="278" y="97" width="14" height="10" rx="5"/><rect x="306" y="97" width="14" height="10" rx="5"/><rect x="334" y="97" width="14" height="10" rx="5"/><rect x="362" y="97" width="14" height="10" rx="5"/><rect x="390" y="97" width="14" height="10" rx="5"/></g>
+        <path d="M512 94 C540 96 566 102 584 110 L520 108 Z" fill="#202A36"/>
+        <!-- door -->
+        <rect x="204" y="94" width="30" height="36" rx="5" fill="none" stroke="#b3bdcc"/>
+        <!-- near wing -->
+        <path d="M262 118 L388 170 Q394 174 386 176 L346 178 L226 128 Z" fill="url(#wing)" stroke="#8d9bb0" stroke-width=".8"/>
+        <!-- winglet / tail plane -->
+        <path d="M60 104 L22 120 L30 124 L110 116 Z" fill="#9aa7ba"/>
+      </svg>
+    </div>
+  </div>
+  <div class="col">
+    <header class="nav">
+      <a class="brand" href="#" aria-label="SkyElite home">SkyElite</a>
+      <ul class="links">
+        <li><a href="#" aria-current="page">Start</a></li><li><a href="#">Story</a></li><li><a href="#">Rates</a></li><li><a href="#">Benefits</a></li><li><a href="#">FAQ</a></li>
+      </ul>
+      <button class="burger" type="button" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mm">
+        <svg id="i-m" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" hidden><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <nav class="mm" id="mm" aria-label="Mobile" hidden>
+        <a href="#">Start</a><a href="#">Story</a><a href="#">Rates</a><a href="#">Benefits</a><a href="#">FAQ</a>
+      </nav>
+    </header>
+    <main>
+      <div class="content">
+        <p class="eyebrow">Private Jets</p>
+        <h1><span class="l1">Premium.</span><span class="l2">Accessible.</span></h1>
+        <p class="sub">Your dedication deserves recognition.</p>
+        <div class="btns">
+          <button class="b d" type="button" id="disc">Discover</button>
+          <button class="b k" type="button" id="book">Book Now</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>
+</div>
+
+<dialog id="dlg" aria-labelledby="dh">
+  <form id="f" novalidate method="dialog">
+    <h2 id="dh">Request a flight</h2>
+    <p>Tell us where you would like to go and a concierge will reply within the hour.</p>
+    <div class="row">
+      <label>From<input id="from" name="from" placeholder="e.g. Aspen" autocomplete="off"></label>
+      <label>To<input id="to" name="to" placeholder="e.g. Miami" autocomplete="off"></label>
+    </div>
+    <div class="row">
+      <label>Date<input id="date" name="date" type="date"></label>
+      <label>Passengers<select id="pax"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
+    </div>
+    <div class="err" id="err" role="alert"></div>
+    <div class="ok" id="ok" role="status" hidden></div>
+    <div class="acts"><button type="button" class="b d" id="cancel">Close</button><button type="submit" class="b k">Send request</button></div>
+  </form>
+</dialog>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var burger=document.getElementById('burger'),mm=document.getElementById('mm'),im=document.getElementById('i-m'),ix=document.getElementById('i-x');
+  function setM(o){mm.hidden=!o;im.hidden=o;ix.hidden=!o;burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Close menu':'Open menu')}
+  burger.addEventListener('click',function(){setM(mm.hidden)});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&!mm.hidden){setM(false);burger.focus()}});
+  addEventListener('resize',function(){if(innerWidth>=768)setM(false)});
+  document.querySelectorAll('.links a,.mm a,.brand').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();setM(false)})});
+
+  var dlg=document.getElementById('dlg'),f=document.getElementById('f'),err=document.getElementById('err'),ok=document.getElementById('ok');
+  function open(){ok.hidden=true;err.textContent='';if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','')}
+  document.getElementById('book').addEventListener('click',open);
+  document.getElementById('disc').addEventListener('click',open);
+  document.getElementById('cancel').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+  try{var sv=JSON.parse(localStorage.getItem('skyelite-req')||'null');if(sv){document.getElementById('from').value=sv.from||'';document.getElementById('to').value=sv.to||''}}catch(e){}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var a=document.getElementById('from'),b=document.getElementById('to'),d=document.getElementById('date');
+    [a,b,d].forEach(function(x){x.removeAttribute('aria-invalid')});
+    var bad=null;if(!a.value.trim())bad=a;else if(!b.value.trim())bad=b;else if(!d.value)bad=d;
+    if(bad){bad.setAttribute('aria-invalid','true');err.textContent='Please complete the '+(bad===a?'departure':bad===b?'destination':'date')+' field.';bad.focus();return}
+    err.textContent='';try{localStorage.setItem('skyelite-req',JSON.stringify({from:a.value,to:b.value}))}catch(x){}
+    ok.hidden=false;ok.textContent='Thank you. A concierge will contact you about '+a.value.trim()+' to '+b.value.trim()+' on '+d.value+'.';
+  });
+
+  // Stand-in for background video: bright sky, drifting cloud layers
+  var cv=document.getElementById('sky'),ctx=cv.getContext('2d'),W,H,cl=[],t=6,last=0;
+  function rnd(s){var x=s;return function(){x=(x*9301+49297)%233280;return x/233280}}
+  function size(){W=cv.width=Math.max(2,Math.round(cv.clientWidth/2));H=cv.height=Math.max(2,Math.round(cv.clientHeight/2));
+    var r=rnd(23);cl=[];for(var i=0;i<22;i++){var ps=[],n=5+Math.floor(r()*4);for(var k=0;k<n;k++)ps.push([(k/n-.5)*(1+r()*.6),(r()-.5)*.3,.5+r()*.6]);cl.push({x:r(),y:.55+r()*.45,s:.08+r()*.12,d:r(),p:ps})}}
+  size();addEventListener('resize',function(){size();draw()});
+  function draw(){
+    var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#a9cdee');g.addColorStop(.4,'#d3e6f7');g.addColorStop(.7,'#eef5fc');g.addColorStop(1,'#bcd6ee');
+    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    var sg=ctx.createRadialGradient(W*.8,H*.1,0,W*.8,H*.1,W*.6);sg.addColorStop(0,'rgba(255,255,255,.9)');sg.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=sg;ctx.fillRect(0,0,W,H);
+    cl.slice().sort(function(a,b){return a.d-b.d}).forEach(function(c){
+      var sp=.006+c.d*.02,cx=((c.x-t*sp)%1.5+1.5)%1.5*W-.25*W,cy=c.y*H,R=c.s*W*(.6+c.d*.7);
+      c.ps=c.p;c.p.forEach(function(p){var x=cx+p[0]*R*2,y=cy+p[1]*R,r=R*p[2];
+        var rg=ctx.createRadialGradient(x,y-r*.25,0,x,y,r);rg.addColorStop(0,'rgba(255,255,255,'+(.6+c.d*.3)+')');rg.addColorStop(.6,'rgba(244,248,253,'+(.3+c.d*.2)+')');rg.addColorStop(1,'rgba(255,255,255,0)');
+        ctx.fillStyle=rg;ctx.beginPath();ctx.ellipse(x,y,r*1.5,r*.65,0,0,7);ctx.fill()})
+    });
+  }
+  draw();
+  function loop(ts){if(document.hidden){last=0;requestAnimationFrame(loop);return}var dt=last?Math.min((ts-last)/1000,.1):0;last=ts;t+=dt;draw();requestAnimationFrame(loop)}
+  if(!reduce)requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

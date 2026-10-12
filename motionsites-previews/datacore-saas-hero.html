@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datacore SaaS Hero — SaaS</title>
+<!-- Fonts: Cabin (buttons/badges) -> Figtree (closest locally available). HLS video + poster replaced by a canvas network/flow animation with a poster-style gradient that fades out once the canvas "starts". -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Figtree:wght@500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+body{background:#000;color:#fff;font-family:'Manrope',system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:3px solid #c4a8ff;outline-offset:3px}
+svg{display:block}
+.glass{background:rgba(85,80,110,.4);border:1px solid rgba(164,132,215,.5);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
+.vid{position:absolute;inset:0;z-index:0;background:#0b0618}
+.vid canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.poster{position:absolute;inset:0;background:radial-gradient(60% 55% at 50% 40%,#3b1c80 0%,#1a0d3d 55%,#07040f 100%);transition:opacity 1s ease;z-index:1}
+.poster.gone{opacity:0}
+.shade{position:absolute;inset:0;background:rgba(0,0,0,.6);z-index:2}
+nav.bar{position:relative;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:20px 20px;max-width:1280px;width:100%;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-weight:600;font-size:18px}
+.logo i{width:36px;height:36px;border-radius:9px;background:#fff;color:#000;display:grid;place-items:center}
+.links{display:none;align-items:center;gap:36px;list-style:none;font-size:15px}
+.links a,.links button{display:inline-flex;align-items:center;gap:4px;color:rgba(255,255,255,.88);transition:color .2s}
+.links a:hover,.links button:hover{color:#fff}
+.acts{display:none;align-items:center;gap:10px;font-family:'Figtree',sans-serif}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Figtree',sans-serif;font-weight:600;font-size:15px;border-radius:12px;padding:13px 24px;transition:background .2s,transform .2s;white-space:nowrap}
+.btn.sm{padding:10px 20px;font-size:14px}
+.btn.pu{background:#7b39fc}.btn.pu:hover{background:#6a2ce0}
+.btn.nv{background:#2b2344}.btn.nv:hover{background:#352b54}
+.btn.gl:hover{background:rgba(110,100,140,.55)}
+.burger{width:42px;height:42px;border-radius:12px;display:grid;place-items:center}
+.menu{position:fixed;inset:0;z-index:100;background:#000;display:flex;flex-direction:column;padding:20px;overflow:auto}
+.menu .top{display:flex;justify-content:space-between;align-items:center}
+.menu ul{list-style:none;margin:56px 0 32px;display:flex;flex-direction:column}
+.menu li a{display:block;font-family:'Inter',sans-serif;font-size:32px;font-weight:600;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.menu .btn{width:100%;margin-top:10px}
+@media(min-width:900px){.links{display:flex}.acts{display:flex}.burger{display:none}nav.bar{padding:24px 32px}}
+.content{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px 80px}
+.badge{display:inline-flex;align-items:center;gap:10px;border-radius:9999px;padding:6px 16px 6px 6px;font-family:'Figtree',sans-serif;font-size:14px;font-weight:500}
+.badge b{background:#f87b52;color:#1b0a02;font-weight:700;border-radius:9999px;padding:2px 11px;font-size:13px}
+h1{font-family:'Inter',sans-serif;font-weight:600;font-size:42px;line-height:1.08;letter-spacing:-.035em;margin-top:28px}
+h1 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.01em;font-size:1.12em}
+.sub{margin-top:22px;color:rgba(255,255,255,.82);font-size:17px;max-width:520px}
+.ctas{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;justify-content:center}
+@media(min-width:640px){h1{font-size:60px}.sub{font-size:19px}}
+@media(min-width:1024px){h1{font-size:76px}}
+.a{opacity:0;transform:translateY(20px);animation:up .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:var(--d,0s)}
+@keyframes up{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.a{animation:none;opacity:1;transform:none}.poster{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<section class="hero" aria-labelledby="h1">
+  <div class="vid" aria-hidden="true"><canvas id="cv"></canvas><div class="poster" id="poster"></div></div>
+  <div class="shade" aria-hidden="true"></div>
+  <header>
+  <nav class="bar" aria-label="Primary">
+    <a class="logo" href="#top" aria-label="Datacore home"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/></svg></i>Datacore</a>
+    <ul class="links"><li><a href="#top">Home</a></li><li><button type="button" id="svc" aria-expanded="false">Services <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></li><li><a href="#top">Reviews</a></li><li><a href="#top">Contact us</a></li></ul>
+    <div class="acts"><button class="btn sm gl glass" type="button">Sign In</button><button class="btn sm pu" type="button">Get Started</button></div>
+    <button class="burger glass" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </nav>
+  </header>
+  <div class="content" id="top">
+    <div class="badge glass a" style="--d:.1s"><b>New</b><span>Say Hello to Datacore v3.2</span></div>
+    <h1 id="h1" class="a" style="--d:.2s">Your Networks.<br>One Rapid <em>Interface.</em></h1>
+    <p class="sub a" style="--d:.35s">Platform helps admins control access, logs, and servers with purpose.</p>
+    <div class="ctas a" style="--d:.5s"><a class="btn pu" href="#top">Book a Free Demo</a><a class="btn nv" href="#top">Get Started Now</a></div>
+  </div>
+</section>
+</main>
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="top"><a class="logo" href="#top"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/></svg></i>Datacore</a>
+  <button class="burger glass" id="close" type="button" aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <ul><li><a href="#top">Home</a></li><li><a href="#top">Services</a></li><li><a href="#top">Reviews</a></li><li><a href="#top">Contact us</a></li></ul>
+  <button class="btn gl glass" type="button">Sign In</button><button class="btn pu" type="button">Get Started</button>
+</div>
+<script>
+(function(){
+ var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var $=function(s){return document.querySelector(s)};
+ var m=$('#menu'),bu=$('#burger'),cl=$('#close');
+ function open(o){m.hidden=!o;bu.setAttribute('aria-expanded',String(o));document.body.style.overflow=o?'hidden':'';if(o)cl.focus();else bu.focus()}
+ bu.addEventListener('click',function(){open(true)});cl.addEventListener('click',function(){open(false)});
+ m.addEventListener('click',function(e){if(e.target.tagName==='A')open(false)});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)open(false)});
+ matchMedia('(min-width:900px)').addEventListener('change',function(q){if(q.matches&&!m.hidden)open(false)});
+ // video stand-in: glowing network of nodes and flowing links
+ var c=$('#cv'),x=c.getContext('2d'),W,H,N=[];
+ function fit(){var r=c.getBoundingClientRect(),dp=Math.min(devicePixelRatio||1,1.5);W=c.width=Math.max(2,r.width*dp|0);H=c.height=Math.max(2,r.height*dp|0);var n=Math.round(Math.min(70,W*H/16000));N=[];var s=1;function rnd(){s=(s*9301+49297)%233280;return s/233280}for(var i=0;i<n;i++)N.push({x:rnd()*W,y:rnd()*H,vx:(rnd()-.5)*18,vy:(rnd()-.5)*18,r:1+rnd()*2.2,h:rnd()})}
+ fit();addEventListener('resize',fit);
+ var t=0,last=performance.now(),started=false;
+ function draw(dt){
+  x.fillStyle='#0b0618';x.fillRect(0,0,W,H);
+  x.globalCompositeOperation='lighter';
+  for(var i=0;i<4;i++){var cx=W*(.5+.3*Math.sin(t*.1+i*1.9)),cy=H*(.5+.25*Math.cos(t*.13+i*2.4)),r=Math.max(W,H)*.45;var g=x.createRadialGradient(cx,cy,0,cx,cy,r);g.addColorStop(0,i%2?'rgba(123,57,252,.38)':'rgba(70,90,255,.28)');g.addColorStop(1,'rgba(40,10,120,0)');x.fillStyle=g;x.fillRect(0,0,W,H)}
+  var D=Math.min(W,H)*.2;
+  N.forEach(function(p){p.x+=p.vx*dt*(W/1440);p.y+=p.vy*dt*(W/1440);if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1});
+  for(var i=0;i<N.length;i++)for(var j=i+1;j<N.length;j++){var a=N[i],b=N[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);if(d<D){x.strokeStyle='rgba(170,140,255,'+(.4*(1-d/D))+')';x.lineWidth=1;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
+  N.forEach(function(p){var g=x.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*6);g.addColorStop(0,p.h>.8?'rgba(248,123,82,.9)':'rgba(200,180,255,.9)');g.addColorStop(1,'rgba(123,57,252,0)');x.fillStyle=g;x.beginPath();x.arc(p.x,p.y,p.r*6,0,7);x.fill()});
+  x.globalCompositeOperation='source-over'}
+ function frame(n){var dt=Math.min(.05,(n-last)/1000);last=n;if(!document.hidden){t+=dt;draw(dt)}requestAnimationFrame(frame)}
+ if(reduce){t=2;draw(0);$('#poster').classList.add('gone')}else{draw(0);requestAnimationFrame(frame);setTimeout(function(){$('#poster').classList.add('gone')},350)}
+})();
+</script>
+</body>
+</html>

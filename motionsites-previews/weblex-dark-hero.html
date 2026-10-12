@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weblex Dark Hero — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--background:240 67% 1%;--foreground:0 0% 100%;--primary:73 98% 57%;--primary-fg:240 67% 1%;--muted:240 10% 12%;--mfg:rgba(235,235,235,.8);--border:rgba(255,255,255,.1);
+ --bg:hsl(240 67% 1%);--lime:hsl(73 98% 57%)}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--bg);color:#fff;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+header{position:fixed;top:0;left:0;right:0;z-index:50}
+.bar{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:20px 24px}
+@media(min-width:1024px){.bar{padding:24px 48px}}
+.brand{font-size:20px;font-weight:600;letter-spacing:-.02em}
+.brand i{color:var(--lime);font-style:normal}
+.links{display:none;list-style:none;margin:0;padding:0;gap:4px;align-items:center}
+.links a{display:block;padding:8px 16px;font-size:14px;color:var(--mfg);border-radius:999px;transition:color .2s}
+.links a:hover{color:#fff}
+@media(min-width:768px){.links{display:flex}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;font-weight:500;transition:filter .2s,transform .2s}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.p{background:var(--lime);color:hsl(240 67% 1%)}
+.s{background:#fff;color:hsl(240 67% 1%)}
+.nb{padding:10px 20px;font-size:14px}
+.deskcta{display:none}
+@media(min-width:768px){.deskcta{display:inline-flex}.burger{display:none!important}}
+.burger{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%}
+.burger:hover{background:rgba(255,255,255,.1)}
+.burger svg{width:24px;height:24px}
+.drop{max-width:1280px;margin:0 auto;padding:8px 24px 20px;display:grid;gap:2px;background:hsl(240 67% 1% / .94);border-bottom:1px solid var(--border);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.drop a.l{padding:12px 4px;font-size:16px;color:var(--mfg);border-bottom:1px solid var(--border)}
+.drop .btn{margin-top:14px}
+@media(min-width:768px){.drop{display:none!important}}
+
+.hero{position:relative;height:100vh;height:100svh;min-height:640px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding:0 20px 100px;isolation:isolate}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1;display:block;opacity:0}
+.in{width:100%;max-width:603px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.badge{display:inline-block;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 16px;font-size:13px;color:var(--mfg);background:rgba(0,0,0,.2)}
+h1{margin:24px 0 0;font-size:36px;font-weight:500;line-height:1.1;letter-spacing:-.02em}
+@media(min-width:640px){h1{font-size:48px}}
+@media(min-width:1024px){h1{font-size:62px}}
+.in p{margin:20px 0 0;max-width:520px;font-size:16px;line-height:1.55;color:var(--mfg)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
+.cta .btn{padding:14px 28px;font-size:18px}
+.cta .p svg{width:20px;height:20px}
+@media(max-width:420px){.cta .btn{font-size:16px;padding:12px 22px}.hero{padding-bottom:56px}}
+@media(max-height:760px) and (min-width:768px){.hero{padding-bottom:48px}}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:80;background:#111;border:1px solid var(--border);padding:12px 20px;border-radius:999px;font-size:14px}
+@media(prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a href="#top" class="brand" aria-label="Weblex home">Weblex<i>.</i></a>
+    <nav aria-label="Primary"><ul class="links"><li><a href="#top">Home</a></li><li><a href="#features">Features</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#about">About</a></li></ul></nav>
+    <a href="#start" class="btn p nb deskcta">Get Started</a>
+    <button type="button" class="burger" id="bb" aria-label="Open menu" aria-expanded="false" aria-controls="drop"><svg id="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <div class="drop" id="drop" hidden><a class="l" href="#top">Home</a><a class="l" href="#features">Features</a><a class="l" href="#pricing">Pricing</a><a class="l" href="#about">About</a><a href="#start" class="btn p nb">Get Started</a></div>
+</header>
+
+<main>
+<section class="hero" id="top" aria-label="Weblex">
+  <canvas id="vid" aria-hidden="true"></canvas>
+  <div class="in">
+    <span class="badge">Introducing Smart Website Builder</span>
+    <h1>Turn your big idea into a stunning website</h1>
+    <p>Fintech is its potential to promote financial inclusion. In many parts of the world, millions of people lack access to traditional banking services.</p>
+    <div class="cta">
+      <a href="#start" class="btn p" id="gs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>Get Started Now</a>
+      <a href="#pricing" class="btn s" id="sp">See Pricing</a>
+    </div>
+  </div>
+</section>
+</main>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* stand-in for the video: a rim-lit sphere with orbiting rings and dust; its opacity follows the
+   prompt's seamless-loop rule (fade out from D-1.5s, 0 by D-0.3s, fade in over the first 1s) */
+var cv=document.getElementById('vid'),ctx=cv.getContext('2d'),W=1,H=1,t=RM?5:0,last=0,raf=0,D=12;
+var rs=function(s){return function(){s=(s*9301+49297)%233280;return s/233280}}(3);
+var dust=[];for(var i=0;i<140;i++)dust.push({a:rs()*6.283,r:.7+rs()*.9,z:rs(),s:.03+rs()*.12,y:(rs()-.5)});
+function size(){var r=cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,1.5);W=Math.max(1,r.width);H=Math.max(1,r.height);cv.width=Math.round(W*d);cv.height=Math.round(H*d);ctx.setTransform(d,0,0,d,0,0);if(RM)draw()}
+function ring(cx,cy,R,tilt,ph,a,col,lw){ctx.save();ctx.translate(cx,cy);ctx.rotate(tilt);ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.globalAlpha=a;ctx.beginPath();ctx.ellipse(0,0,R,R*.22,0,0,6.283);ctx.stroke();ctx.restore();ctx.globalAlpha=1}
+function draw(){
+  ctx.globalCompositeOperation='source-over';
+  var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#020207');g.addColorStop(.6,'#04060f');g.addColorStop(1,'#020205');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  var cx=W*.5,cy=H*.245,R=Math.min(H*.125,W*.26,150);
+  ctx.globalCompositeOperation='lighter';
+  var hg=ctx.createRadialGradient(cx,cy,R*.6,cx,cy,R*4.2);hg.addColorStop(0,'rgba(200,250,40,.30)');hg.addColorStop(.35,'rgba(90,200,120,.12)');hg.addColorStop(1,'rgba(40,120,200,0)');ctx.fillStyle=hg;ctx.fillRect(0,0,W,H);
+  /* back half of the rings */
+  for(var k=0;k<3;k++){ring(cx,cy,R*(1.5+k*.45),-.35+k*.18+Math.sin(t*.15+k)*.04,0,.35-k*.08,'rgba(205,253,44,1)',1.2)}
+  ctx.globalCompositeOperation='source-over';
+  /* sphere */
+  var sg=ctx.createRadialGradient(cx-R*.35,cy-R*.4,R*.05,cx,cy,R);sg.addColorStop(0,'#27331a');sg.addColorStop(.5,'#0b1208');sg.addColorStop(1,'#020403');
+  ctx.fillStyle=sg;ctx.beginPath();ctx.arc(cx,cy,R,0,6.283);ctx.fill();
+  ctx.globalCompositeOperation='lighter';
+  var rim=ctx.createRadialGradient(cx,cy,R*.78,cx,cy,R*1.02);rim.addColorStop(0,'rgba(205,253,44,0)');rim.addColorStop(.85,'rgba(205,253,44,.55)');rim.addColorStop(1,'rgba(205,253,44,.05)');ctx.fillStyle=rim;ctx.beginPath();ctx.arc(cx,cy,R*1.02,0,6.283);ctx.fill();
+  var sx=cx+Math.cos(t*.2)*R*.55,sy=cy+R*.45,hl=ctx.createRadialGradient(sx,sy,0,sx,sy,R*.9);hl.addColorStop(0,'rgba(190,255,90,.35)');hl.addColorStop(1,'rgba(190,255,90,0)');ctx.save();ctx.beginPath();ctx.arc(cx,cy,R,0,6.283);ctx.clip();ctx.fillStyle=hl;ctx.fillRect(cx-R,cy-R,R*2,R*2);ctx.restore();
+  /* front half of rings (clip below the centre line) */
+  ctx.save();ctx.beginPath();ctx.rect(0,cy,W,H);ctx.clip();
+  for(var k=0;k<3;k++){ring(cx,cy,R*(1.5+k*.45),-.35+k*.18+Math.sin(t*.15+k)*.04,0,.7-k*.15,'rgba(205,253,44,1)',1.6)}
+  ctx.restore();
+  /* dust */
+  for(var i=0;i<dust.length;i++){var d=dust[i],a=d.a+t*d.s,x=cx+Math.cos(a)*R*(1.4+d.r*1.5),y=cy+Math.sin(a)*R*(.3+d.r*.35)+d.y*R*.6;
+    ctx.fillStyle='rgba(215,255,120,'+(.15+.5*d.z)+')';ctx.fillRect(x,y,1.5+d.z,1.5+d.z)}
+  ctx.globalCompositeOperation='source-over';
+}
+function setOp(){
+  if(RM){cv.style.opacity='1';return}
+  var p=t%D,o=1;
+  if(p<1)o=p;else if(p>D-1.5)o=Math.max(0,(D-.3-p)/1.2);
+  cv.style.opacity=o.toFixed(3);
+}
+function frame(n){raf=0;if(!last)last=n;var dt=Math.min(.05,(n-last)/1000);last=n;t+=dt;draw();setOp();if(!document.hidden)raf=requestAnimationFrame(frame)}
+size();if(window.ResizeObserver)new ResizeObserver(size).observe(cv);else addEventListener('resize',size);
+if(RM){draw();setOp()}else{t=.001;draw();setOp();var go=function(){if(!raf){last=0;raf=requestAnimationFrame(frame)}};document.addEventListener('visibilitychange',function(){if(!document.hidden)go()});go()}
+
+/* mobile menu */
+var bb=document.getElementById('bb'),dr=document.getElementById('drop'),bi=document.getElementById('bi');
+function setM(o){dr.hidden=!o;bb.setAttribute('aria-expanded',String(o));bb.setAttribute('aria-label',o?'Close menu':'Open menu');bi.innerHTML=o?'<path d="M6 6l12 12M18 6 6 18"/>':'<path d="M4 7h16M4 12h16M4 17h16"/>'}
+bb.addEventListener('click',function(){setM(dr.hidden)});
+dr.addEventListener('click',function(e){if(e.target.closest('a'))setM(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!dr.hidden){setM(false);bb.focus()}});
+/* feedback toast for in-page buttons */
+var toast=document.getElementById('toast'),tt=0;
+function say(m){toast.textContent=m;toast.hidden=false;clearTimeout(tt);tt=setTimeout(function(){toast.hidden=true},2200)}
+document.querySelectorAll('a[href="#start"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();say('Great — your site builder is getting ready.')})});
+document.querySelectorAll('a[href="#pricing"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();say('Plans start at $0 — free while you build.')})});
+})();
+</script>
+</body>
+</html>

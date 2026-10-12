@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Price Calculator — SaaS</title>
+<!-- Prompt names no font: Inter for text, DM Mono for the mono label. Shadcn Slider is re-implemented with a styled native range input. -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--fg:#fafafa;--muted:#a3a3a3;--mut-bg:#262626;--red:#FF5656}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:'Inter',system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip;min-height:100vh}
+:focus-visible{outline:3px solid #ffb4b4;outline-offset:3px}
+#calculator-section{max-width:1280px;margin:0 auto;padding:64px 16px;min-width:0}
+.head{text-align:center;margin-bottom:48px}
+.eyebrow{font-family:'DM Mono',ui-monospace,monospace;font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+h1{font-size:30px;line-height:1.15;font-weight:400;margin-top:16px;letter-spacing:-.02em}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);border-radius:16px;overflow:hidden}
+.left{background:#0D0D0D;padding:32px 24px}
+.left>div,.left>section{border:0;padding:28px 0;min-width:0}
+.left>*:first-child{padding-top:0}.left>*:last-child{padding-bottom:0}
+.left>*+*{border-top:1px solid #1E1E1E}
+h3{font-size:18px;font-weight:500;margin-bottom:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+h3 b{color:var(--red);font-weight:600}
+legend{padding:0;width:100%}
+.opt{display:flex;align-items:center;gap:12px;padding:8px 0;cursor:pointer;position:relative;font-size:16px;min-height:36px}
+.opt input{position:absolute;opacity:0;width:20px;height:20px;margin:0;cursor:pointer}
+.opt .rad,.opt .chk{flex:none;width:20px;height:20px;border:2px solid #525252;display:grid;place-items:center;transition:border-color .15s,background .15s}
+.opt .rad{border-radius:50%}
+.opt .rad::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);transform:scale(0);transition:transform .15s}
+.opt input:checked+.rad{border-color:var(--red)}
+.opt input:checked+.rad::after{transform:scale(1)}
+.opt .chk{border-radius:4px}
+.opt .chk svg{opacity:0;transition:opacity .15s}
+.opt input:checked+.chk{border-color:var(--red);background:var(--red)}
+.opt input:checked+.chk svg{opacity:1}
+.opt input:focus-visible+.rad,.opt input:focus-visible+.chk{outline:3px solid #ffb4b4;outline-offset:3px}
+.opt .t{flex:1;min-width:0}
+.opt .pr{color:var(--red);font-size:14px;font-weight:500;white-space:nowrap}
+.opt:hover .rad,.opt:hover .chk{border-color:#8a8a8a}
+.opt:hover input:checked+.rad,.opt:hover input:checked+.chk{border-color:var(--red)}
+/* slider */
+.sl{position:relative;height:24px;display:flex;align-items:center}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:24px;background:transparent;cursor:pointer;margin:0;--p:16%}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:9999px;background:linear-gradient(to right,var(--red) var(--p),#2a2a2a var(--p))}
+input[type=range]::-moz-range-track{height:6px;border-radius:9999px;background:#2a2a2a}
+input[type=range]::-moz-range-progress{height:6px;border-radius:9999px;background:var(--red)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#0D0D0D;border:2px solid var(--red);margin-top:-7px;transition:box-shadow .15s}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#0D0D0D;border:2px solid var(--red)}
+input[type=range]:hover::-webkit-slider-thumb{box-shadow:0 0 0 6px rgba(255,86,86,.18)}
+.ends{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-top:8px}
+/* right */
+.right{padding:32px 24px;border:1px solid rgba(255,255,255,.1);min-height:560px;min-width:0}
+.right h3{font-size:24px;margin-bottom:8px;display:block}
+.right>p{color:var(--muted);font-size:15px;margin-bottom:24px}
+.cards{display:flex;flex-direction:column;gap:16px}
+.c{border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.c.m{background:rgba(38,38,38,.5)}
+.c h4{font-size:15px;font-weight:500;color:#d4d4d4}
+.c .amt{font-size:36px;font-weight:700;line-height:1.1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.c .s{font-size:14px;color:var(--muted)}
+.c.you{background:linear-gradient(to right,#ec4899,#f97316);color:#fff}
+.c.you h4{color:#fff;font-weight:600}
+.c.you .amt{font-size:48px}
+.c.you .s{color:#fff;opacity:.95}
+.save{display:inline-block;align-self:flex-start;background:rgba(0,0,0,.28);border-radius:9999px;padding:3px 12px;font-size:13px;font-weight:600}
+@media(min-width:768px){#calculator-section{padding:112px 64px}h1{font-size:36px}.left,.right{padding:40px}}
+@media(min-width:1024px){h1{font-size:48px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.left,.right{padding:48px}.right{border-radius:0 16px 16px 0;min-height:717.98px}}
+@media(max-width:420px){#calculator-section{padding:48px 16px}.left,.right{padding:24px 20px}.c .amt{font-size:32px}.c.you .amt{font-size:42px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<section id="calculator-section" aria-labelledby="h2">
+  <div class="head"><p class="eyebrow">Try project estimation calculator</p><h1 id="h2">Get premium website within your budget</h1></div>
+  <div class="grid">
+    <form class="left" id="form" onsubmit="return false" aria-label="Project options">
+      <div role="group" aria-label="What kind of service do you need?"><h3>What kind of service do you need?</h3>
+        <label class="opt"><input type="radio" name="svc" value="design"><span class="rad"></span><span class="t">Only Design</span></label>
+        <label class="opt"><input type="radio" name="svc" value="development"><span class="rad"></span><span class="t">Only Development</span></label>
+        <label class="opt"><input type="radio" name="svc" value="both" checked><span class="rad"></span><span class="t">Design + Development</span></label>
+      </div>
+      <section><h3><label for="pages">Number of pages</label><b id="pv">5 pages</b></h3>
+        <div class="sl"><input type="range" id="pages" min="1" max="30" step="1" value="5" aria-valuetext="5 pages"></div>
+        <div class="ends" aria-hidden="true"><span>1</span><span>30</span></div></section>
+      <div role="group" aria-label="Add-ons"><h3>Add-ons</h3>
+        <label class="opt"><input type="checkbox" id="content"><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg></span><span class="t">I will need help with content</span><span class="pr">+$50/pages</span></label>
+        <label class="opt"><input type="checkbox" id="seo"><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg></span><span class="t">I want to optimize my website for SEO</span><span class="pr">+$50/pages</span></label>
+      </div>
+      <div role="group" aria-label="How fast do you need this?"><h3>How fast do you need this?</h3>
+        <label class="opt"><input type="radio" name="tl" value="rush"><span class="rad"></span><span class="t">Within 7 Days</span><span class="pr">+$100/pages</span></label>
+        <label class="opt"><input type="radio" name="tl" value="fast"><span class="rad"></span><span class="t">Within 14 Days</span><span class="pr">+$25/pages</span></label>
+        <label class="opt"><input type="radio" name="tl" value="regular" checked><span class="rad"></span><span class="t">Regular Speed (Based on discussion)</span></label>
+      </div>
+    </form>
+    <div class="right" aria-live="polite">
+      <h3>Estimated Cost</h3>
+      <p>Compare what the same website would typically cost elsewhere with a transparent, instant estimate from our studio.</p>
+      <div class="cards">
+        <div class="c m"><h4>Typical Agency charges minimum</h4><div class="amt" id="ag">$12,000</div><div class="s">+ Too much extra time &amp; additional cost</div></div>
+        <div class="c m"><h4>Regular Freelancer charges minimum</h4><div class="amt" id="fr">$5,000</div><div class="s">+ Too much headache &amp; back-and-forth</div></div>
+        <div class="c you"><h4>With Webfluin Studio</h4><div class="amt" id="you">$1,299</div><span class="save" id="save">You save $10,701</span><div class="s">Save your money, time &amp; headache</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+(function(){
+ var $=function(s){return document.querySelector(s)};
+ var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var B={design:{base:399,per:100},development:{base:199,per:100},both:{base:499,per:200}};
+ var state={svc:'both',pages:5,content:false,seo:false,tl:'regular'};
+ var fmt=function(n){return '$'+Math.round(n).toLocaleString()};
+ function price(){var b=B[state.svc],p=state.pages,t=Math.max(b.base,b.base+(p-1)*b.per);if(state.content)t+=p*50;if(state.seo)t+=p*50;if(state.tl==='rush')t+=p*100;if(state.tl==='fast')t+=p*25;return t}
+ function agency(){var per=state.svc==='both'?1000:400;return 8000+(state.pages-1)*per}
+ function freel(){var per=state.svc==='both'?500:200;return 3000+(state.pages-1)*per}
+ var shown={ag:0,fr:0,you:0},raf={};
+ function setNum(id,key,to){var el=$('#'+id);if(reduce||!shown[key]){shown[key]=to;el.textContent=fmt(to);return}
+  var from=shown[key],t0=performance.now();cancelAnimationFrame(raf[key]);
+  (function step(n){var k=Math.min(1,(n-t0)/350),e=1-Math.pow(1-k,3),v=from+(to-from)*e;shown[key]=v;el.textContent=fmt(v);if(k<1)raf[key]=requestAnimationFrame(step);else{shown[key]=to;el.textContent=fmt(to)}})(t0)}
+ function render(){
+  var y=price(),a=agency(),f=freel();
+  setNum('ag','ag',a);setNum('fr','fr',f);setNum('you','you',y);
+  $('#save').textContent='You save '+fmt(a-y);
+  var pg=$('#pages');pg.style.setProperty('--p',((state.pages-1)/29*100)+'%');
+  $('#pv').textContent=state.pages+(state.pages===1?' page':' pages');pg.setAttribute('aria-valuetext',state.pages+(state.pages===1?' page':' pages'));
+ }
+ try{var sv=JSON.parse(localStorage.getItem('pc-state')||'null');if(sv&&B[sv.svc]&&sv.pages>=1&&sv.pages<=30&&['regular','fast','rush'].indexOf(sv.tl)>-1){state=sv;
+  document.querySelector('input[name=svc][value='+sv.svc+']').checked=true;document.querySelector('input[name=tl][value='+sv.tl+']').checked=true;$('#pages').value=sv.pages;$('#content').checked=!!sv.content;$('#seo').checked=!!sv.seo}}catch(e){}
+ function save(){try{localStorage.setItem('pc-state',JSON.stringify(state))}catch(e){}}
+ $('#form').addEventListener('change',function(e){var t=e.target;
+  if(t.name==='svc')state.svc=t.value;if(t.name==='tl')state.tl=t.value;if(t.id==='content')state.content=t.checked;if(t.id==='seo')state.seo=t.checked;render();save()});
+ $('#pages').addEventListener('input',function(e){state.pages=parseInt(e.target.value,10);render();save()});
+ render();
+})();
+</script>
+</body>
+</html>

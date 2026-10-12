@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datacore Booking — SaaS</title>
+<!-- Cabin is not in the local font list; Figtree is used as the stand-in for buttons/tags -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Inter:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--purple:#7b39fc;--dark:#2b2344;--manrope:'Manrope',system-ui,sans-serif;--cabin:'Figtree',system-ui,sans-serif;--serif:'Instrument Serif',serif;--inter:'Inter',system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{background:#07030f}
+body{margin:0;background:#07030f;color:#fff;font-family:var(--inter);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a,button{font:inherit;color:inherit;text-decoration:none;cursor:pointer}
+button{background:none;border:0;padding:0}
+:focus-visible{outline:3px solid #fff;outline-offset:3px;border-radius:8px}
+.hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;display:flex;flex-direction:column}
+.vid{position:absolute;inset:0;z-index:0}
+.vid canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+nav{position:relative;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;gap:24px}
+@media(min-width:1024px){nav{padding:16px 120px}}
+.logo{display:inline-flex;align-items:center;gap:10px;color:#fff;font:700 20px/1 var(--manrope);letter-spacing:-.02em}
+.logo svg{width:26px;height:26px}
+.links{display:none;align-items:center;gap:32px;list-style:none;margin:0 auto 0 56px;padding:0}
+.acts{display:none;gap:12px}
+@media(min-width:1024px){.links{display:flex}.acts{display:flex}.burger{display:none!important}}
+.links a,.links button{display:inline-flex;align-items:center;gap:4px;font:500 14px/1 var(--manrope);color:#fff;padding:10px 2px;transition:opacity .2s}
+.links a:hover,.links button:hover{opacity:.8}
+.dd{position:relative}
+.dd [aria-expanded=true] svg{transform:rotate(180deg)}
+.dd svg{transition:transform .2s}
+.ddm{position:absolute;top:100%;left:-12px;min-width:200px;background:rgba(30,20,52,.92);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(164,132,215,.35);border-radius:12px;padding:6px;z-index:30;margin-top:4px}
+.ddm a{display:block;padding:10px 12px;border-radius:8px;font:500 14px var(--manrope)}
+.ddm a:hover{background:rgba(123,57,252,.35);opacity:1}
+.btn-si{background:#fff;border:1px solid #d4d4d4;color:#171717;border-radius:8px;font:600 14px/1 var(--manrope);padding:10px 16px;transition:background .2s;display:inline-flex;align-items:center}
+.btn-si:hover{background:#f1f1f1}
+.btn-gs{background:var(--purple);color:#fafafa;border-radius:8px;font:600 14px/1 var(--manrope);padding:11px 16px;box-shadow:0 1px 2px rgba(0,0,0,.25),0 4px 14px rgba(123,57,252,.35);transition:background .2s;display:inline-flex;align-items:center}
+.btn-gs:hover{background:#8c52ff}
+.burger{width:44px;height:44px;display:grid;place-items:center;border-radius:10px}
+.ov{position:fixed;inset:0;z-index:100;background:#000;display:flex;flex-direction:column;padding:16px 24px 32px}
+.ov .top{display:flex;justify-content:space-between;align-items:center}
+.ov ul{list-style:none;margin:40px 0 0;padding:0;display:grid;gap:4px}
+.ov li a{display:block;padding:16px 0;font:500 28px var(--manrope);border-bottom:1px solid rgba(255,255,255,.12)}
+.ov .btns{margin-top:auto;display:grid;gap:12px}
+.ov .btns a{justify-content:center;padding:15px 16px;font-size:16px}
+main{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:96px 24px 80px}
+@media(min-width:768px){main{padding-top:128px}}
+.pill{display:inline-flex;align-items:center;gap:10px;min-height:38px;padding:4px 14px 4px 5px;border-radius:10px;background:rgba(85,80,110,.4);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(164,132,215,.5);font:500 14px/1.2 var(--cabin);max-width:100%}
+.pill b{background:var(--purple);border-radius:6px;padding:6px 9px;font-weight:500;font-size:13px;line-height:1}
+h1{margin:28px 0 0;font:400 clamp(44px,12.5vw,96px)/1.1 var(--serif);color:#fff;max-width:1000px;text-wrap:balance;letter-spacing:-.01em}
+h1 em{font-style:italic;letter-spacing:.02em;padding:0 .06em}
+.sub{margin:24px 0 0;font:400 18px/1.6 var(--inter);color:rgba(255,255,255,.7);max-width:662px}
+@media(max-width:480px){.sub{font-size:16px}}
+.ctas{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap;justify-content:center}
+.c1,.c2{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;font:500 16px/1 var(--cabin);padding:16px 28px;transition:background .2s,transform .2s}
+.c1{background:var(--purple);color:#fff}.c1:hover{background:#8c52ff}
+.c2{background:var(--dark);color:#f6f7f9}.c2:hover{background:#3b3160}
+.c1:hover,.c2:hover{transform:translateY(-1px)}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="vid" aria-hidden="true"><canvas id="cv"></canvas></div>
+  <nav aria-label="Primary">
+    <a class="logo" href="#" aria-label="Datacore home"><svg viewBox="0 0 28 28" fill="#fff" aria-hidden="true"><path d="M2 8.6 14 2l12 6.6v1.9L14 17 2 10.5z"/><path d="M2 14.2 14 20.8l12-6.6v3.3L14 24 2 17.5z" opacity=".72"/></svg>Datacore</a>
+    <ul class="links">
+      <li><a href="#">Home</a></li>
+      <li class="dd"><button type="button" id="ddb" aria-expanded="false" aria-haspopup="true" aria-controls="ddm">Services <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button><div class="ddm" id="ddm" hidden><a href="#">Hotels</a><a href="#">Resorts</a><a href="#">Apartments</a><a href="#">Group bookings</a></div></li>
+      <li><a href="#">Reviews</a></li>
+      <li><a href="#">Contact us</a></li>
+    </ul>
+    <div class="acts"><a class="btn-si" href="#">Sign In</a><a class="btn-gs" href="#">Get Started</a></div>
+    <button class="burger" id="bg" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="ov"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </nav>
+  <div class="ov" id="ov" hidden role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="top"><a class="logo" href="#"><svg viewBox="0 0 28 28" fill="#fff" aria-hidden="true"><path d="M2 8.6 14 2l12 6.6v1.9L14 17 2 10.5z"/><path d="M2 14.2 14 20.8l12-6.6v3.3L14 24 2 17.5z" opacity=".72"/></svg>Datacore</a><button class="burger" id="bx" type="button" aria-label="Close menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg></button></div>
+    <ul><li><a href="#">Home</a></li><li><a href="#">Services</a></li><li><a href="#">Reviews</a></li><li><a href="#">Contact us</a></li></ul>
+    <div class="btns"><a class="btn-si" href="#">Sign In</a><a class="btn-gs" href="#">Get Started</a></div>
+  </div>
+  <main>
+    <div class="pill"><b>New</b><span>Say Hello to Datacore v3.2</span></div>
+    <h1>Book your perfect stay instantly <em>and</em> hassle-free</h1>
+    <p class="sub">Discover handpicked hotels, resorts, and stays across your favorite destinations. Enjoy exclusive deals, fast booking, and 24/7 support.</p>
+    <div class="ctas"><a class="c1" href="#">Book a Free Demo</a><a class="c2" href="#">Get Started Now</a></div>
+  </main>
+</div>
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(s){return document.querySelector(s)};
+var ddb=$('#ddb'),ddm=$('#ddm'),bg=$('#bg'),ov=$('#ov');
+function dd(o){ddm.hidden=!o;ddb.setAttribute('aria-expanded',String(o))}
+ddb.addEventListener('click',function(e){e.stopPropagation();dd(ddm.hidden)});
+document.addEventListener('click',function(e){if(!ddm.hidden&&!e.target.closest('.dd'))dd(false)});
+function menu(o){ov.hidden=!o;bg.setAttribute('aria-expanded',String(o));document.body.style.overflow=o?'hidden':'';if(o)$('#bx').focus();else bg.focus()}
+bg.addEventListener('click',function(){menu(true)});$('#bx').addEventListener('click',function(){menu(false)});
+addEventListener('keydown',function(e){if(e.key==='Escape'){dd(false);if(!ov.hidden)menu(false)}});
+/* video stand-in: slow violet aurora ribbons */
+var cv=$('#cv'),c=cv.getContext('2d'),W=0,H=0,t=0,last=0,vis=true;
+function size(){W=cv.width=Math.round(cv.clientWidth*.5)||500;H=cv.height=Math.round(cv.clientHeight*.5)||320}
+size();addEventListener('resize',size);
+var B=[{x:.5,y:1.05,r:.75,c:'123,57,252',a:.6,s:.05,p:0},{x:.12,y:.85,r:.5,c:'168,60,230',a:.55,s:.07,p:2},{x:.9,y:.8,r:.5,c:'80,70,255',a:.6,s:.06,p:4},{x:.5,y:.55,r:.45,c:'60,30,140',a:.5,s:.04,p:1},{x:.78,y:.15,r:.4,c:'90,40,190',a:.35,s:.05,p:3},{x:.2,y:.2,r:.35,c:'70,30,160',a:.3,s:.06,p:5}];
+function paint(){
+  var g=c.createLinearGradient(0,0,0,H);g.addColorStop(0,'#0a0418');g.addColorStop(.6,'#150a30');g.addColorStop(1,'#241050');c.fillStyle=g;c.fillRect(0,0,W,H);
+  c.globalCompositeOperation='lighter';
+  B.forEach(function(b){var x=(b.x+Math.sin(t*b.s*2+b.p)*.1)*W,y=(b.y+Math.cos(t*b.s*1.6+b.p)*.05)*H,r=b.r*Math.max(W,H*1.3);var rg=c.createRadialGradient(x,y,0,x,y,r);rg.addColorStop(0,'rgba('+b.c+','+b.a+')');rg.addColorStop(1,'rgba('+b.c+',0)');c.fillStyle=rg;c.fillRect(0,0,W,H)});
+  c.lineWidth=1.6;
+  for(var i=0;i<9;i++){var gl=c.createLinearGradient(0,0,W,0);gl.addColorStop(0,'rgba(160,120,255,0)');gl.addColorStop(.5,'rgba(190,150,255,'+(.16+i*.012)+')');gl.addColorStop(1,'rgba(160,120,255,0)');c.strokeStyle=gl;c.beginPath();
+    for(var x=0;x<=W;x+=10){var y=H*(.62+i*.045)+Math.sin(x*.008+t*.4+i*.7)*H*.07+Math.sin(x*.003-t*.25+i)*H*.05;x?c.lineTo(x,y):c.moveTo(x,y)}c.stroke()}
+  c.globalCompositeOperation='source-over';
+  var v=c.createRadialGradient(W/2,H*.38,H*.1,W/2,H*.4,H*.85);v.addColorStop(0,'rgba(7,3,15,.5)');v.addColorStop(1,'rgba(7,3,15,0)');c.fillStyle=v;c.fillRect(0,0,W,H);
+}
+function loop(ts){var dt=Math.min(.05,((ts-last)||16)/1000);last=ts;if(!document.hidden&&vis){t+=RM?0:dt;paint()}requestAnimationFrame(loop)}
+t=4;paint();requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

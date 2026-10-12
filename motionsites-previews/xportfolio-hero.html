@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>xPortfolio Hero — Hero Section</title>
+<!-- Anton is loaded from Google Fonts; Oswald is the local-checker fallback. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Anton&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#080808;--anton:'Anton','Oswald',Impact,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:#F5F3EE;color:var(--ink);font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:3px solid #000;outline-offset:3px}
+#bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:0;display:block}
+.page{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;overflow-x:clip}
+header{position:relative;z-index:10;padding:16px 24px;flex-shrink:0}
+@media(min-width:1024px){header{padding:24px 48px}}
+nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:24px;font-weight:700;color:#000;letter-spacing:-.01em}
+@media(min-width:1024px){.logo{font-size:30px}}
+.links{display:none;align-items:center;gap:32px;font-size:16px;color:var(--ink);list-style:none;margin:0;padding:0}
+@media(min-width:768px){.links{display:flex}}
+@media(min-width:1024px){.links{font-size:18px}}
+.links a{padding:6px 2px;transition:opacity .2s;border-radius:4px}
+.links a:hover{opacity:.6}
+.acts{display:flex;align-items:center;gap:12px}
+.acts a{padding:8px 16px;font-size:16px;transition:background .2s,color .2s}
+@media(min-width:1024px){.acts a{padding:8px 24px;font-size:18px}}
+.su{color:var(--ink)}.su:hover{color:#000;text-decoration:underline;text-underline-offset:4px}
+.li{background:#000;color:#fff}.li:hover{background:#1f2937}
+main{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:32px;padding:24px 24px 24px}
+@media(min-width:1024px){main{padding:32px 48px}}
+.two{display:grid;grid-template-columns:minmax(0,1fr);gap:32px}
+@media(min-width:1024px){.two{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}}
+h1{margin:0 0 16px;font-family:var(--anton);font-weight:700;font-synthesis:none;color:#000;font-size:clamp(48px,14vw,60px);line-height:.84;letter-spacing:-.01em;text-transform:uppercase}
+h1 span{display:block}
+@media(min-width:640px){h1{font-size:60px}}
+@media(min-width:1280px){h1{font-size:72px}}
+@media(min-width:1024px){h1{margin-bottom:20px}}
+.lead{margin:0 0 16px;max-width:28rem;font-size:18px;line-height:1.5;color:var(--ink)}
+@media(min-width:1024px){.lead{font-size:20px;margin-bottom:20px;line-height:1.45}}
+.cta{display:inline-flex;align-items:center;gap:12px;padding:6px 6px 6px 32px;background:#000;color:#fff;border-radius:999px;font-size:16px;font-weight:500;transition:background .2s,transform .2s}
+.cta:hover{background:#1f2937;transform:translateY(-1px)}
+.cta i{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#fff;color:#000}
+.cta svg{width:18px;height:18px}
+.stat{text-align:left}
+@media(min-width:1024px){.stat.r{text-align:right}.stat.r p{margin-left:auto}}
+.stat h2{margin:0 0 10px;font-family:var(--anton);font-weight:700;font-synthesis:none;font-size:clamp(34px,9vw,44px);line-height:.95;letter-spacing:-.01em;text-transform:uppercase;color:#000}
+@media(min-width:1280px){.stat h2{font-size:52px}}
+.stat p{margin:0;max-width:30rem;font-size:15px;line-height:1.55;color:var(--ink)}
+@media(min-width:1024px){.stat p{font-size:16px}}
+.soc{display:flex;gap:12px;margin-top:16px}
+.soc a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(0,0,0,.35);transition:background .2s,color .2s}
+.soc a:hover{background:#000;color:#fff}
+.soc svg{width:18px;height:18px}
+.brands{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media(min-width:768px){.brands{grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}}
+.brands li{display:flex;align-items:center;justify-content:center;gap:10px;background:#fff;border-radius:8px;padding:16px 8px;min-height:68px;font-size:14px;font-weight:600;color:#111;box-shadow:0 1px 0 rgba(0,0,0,.04);transition:transform .2s,box-shadow .2s;min-width:0}
+.brands li:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.brands li svg{width:26px;height:26px;flex:none}
+.brands li span{min-width:0;overflow-wrap:anywhere;line-height:1.1}
+@media(max-width:480px){.brands li{flex-direction:column;gap:6px;font-size:12px;text-align:center}}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="page">
+  <header>
+    <nav aria-label="Primary">
+      <a href="#top" class="logo">Brandly</a>
+      <ul class="links"><li><a href="#about">About</a></li><li><a href="#features">Features</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li><li><a href="#help">Help</a></li></ul>
+      <div class="acts"><a href="#signup" class="su">Sign Up</a><a href="#login" class="li">Log In</a></div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="two">
+      <div>
+        <h1><span>Building</span><span>Brands that</span><span>Resonate</span></h1>
+        <p class="lead">Thoughtful design that captivates, empowers, and creates lasting impact.</p>
+        <a href="#start" class="cta">Start today <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+      </div>
+      <div class="stat r" id="about">
+        <h2>50+ Brands Launched</h2>
+        <p>From scrappy first-time founders to established teams, every identity is built around a clear idea and carried through to the last detail of the launch.</p>
+      </div>
+    </div>
+
+    <div class="two">
+      <div class="stat">
+        <p>I am a brand designer who believes strong identities begin with listening. I partner closely with founders to turn half-formed ideas into distinctive systems of logo, type, colour and voice.</p>
+        <div class="soc">
+          <a href="#fb" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5H16l.5-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.5V21z"/></svg></a>
+          <a href="#ig" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor"/></svg></a>
+          <a href="#yt" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 8.2a2.6 2.6 0 0 0-1.8-1.8C18 6 12 6 12 6s-6 0-7.7.4A2.6 2.6 0 0 0 2.5 8.2C2.1 9.9 2.1 12 2.1 12s0 2.1.4 3.8a2.6 2.6 0 0 0 1.8 1.8C6 18 12 18 12 18s6 0 7.7-.4a2.6 2.6 0 0 0 1.8-1.8c.4-1.7.4-3.8.4-3.8s0-2.1-.4-3.8z"/><path d="m10 15 5-3-5-3z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <div class="stat r">
+        <h2>5+ Years in the Industry</h2>
+        <p>Half a decade of naming, identity and packaging work across fintech, wellness, food and software, always with a small team and a direct line to the designer.</p>
+      </div>
+    </div>
+
+    <ul class="brands" aria-label="Brands we have launched" id="brands"></ul>
+  </main>
+</div>
+
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* stand-in for the background video: warm cream with slowly drifting pastel light and silk ribbons */
+var cv=document.getElementById('bg'),ctx=cv.getContext('2d'),W=1,H=1,t=RM?5:0,last=0,raf=0;
+function size(){var r=cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,1.5);W=Math.max(1,r.width);H=Math.max(1,r.height);cv.width=Math.round(W*d);cv.height=Math.round(H*d);ctx.setTransform(d,0,0,d,0,0);if(RM)draw()}
+var blobs=[['247,201,176',.55,.8,.25,.3],['205,196,240',.5,.45,.7,.4],['190,222,244',.5,.7,.82,.7],['247,224,170',.45,.6,.12,.85],['214,236,222',.45,.55,.52,.15]];
+function draw(){
+  ctx.globalCompositeOperation='source-over';ctx.fillStyle='#F5F3EE';ctx.fillRect(0,0,W,H);
+  var S=Math.max(W,H);
+  for(var i=0;i<blobs.length;i++){var b=blobs[i],x=W*(b[3]+.09*Math.sin(t*.12+i*1.7)),y=H*(b[4]+.08*Math.cos(t*.1+i*2.1)),r=S*b[2]*.7;
+    var g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba('+b[0]+','+b[1]+')');g.addColorStop(1,'rgba('+b[0]+',0)');ctx.fillStyle=g;ctx.fillRect(x-r,y-r,r*2,r*2)}
+  /* silk ribbons */
+  for(var k=0;k<22;k++){
+    var f=k/22,y0=H*(.2+f*.7);ctx.beginPath();
+    for(var x=-10;x<=W+10;x+=14){var u=x/W,y=y0+Math.sin(u*4+f*5+t*.22)*H*.07+Math.sin(u*9-f*3-t*.3)*H*.018;if(x===-10)ctx.moveTo(x,y);else ctx.lineTo(x,y)}
+    ctx.strokeStyle='rgba(255,255,255,'+(.2+.35*Math.sin(f*Math.PI))+')';ctx.lineWidth=1.2;ctx.stroke();
+  }
+  var v=ctx.createLinearGradient(0,0,0,H);v.addColorStop(0,'rgba(245,243,238,.35)');v.addColorStop(1,'rgba(245,243,238,0)');ctx.fillStyle=v;ctx.fillRect(0,0,W,H);
+}
+function frame(n){raf=0;if(!last)last=n;var dt=Math.min(.05,(n-last)/1000);last=n;t+=dt;draw();if(!document.hidden)raf=requestAnimationFrame(frame)}
+size();if(window.ResizeObserver)new ResizeObserver(size).observe(cv);else addEventListener('resize',size);
+if(RM)draw();else{draw();var go=function(){if(!raf){last=0;raf=requestAnimationFrame(frame)}};document.addEventListener('visibilitychange',function(){if(!document.hidden)go()});go()}
+
+/* brand cards: invented marks */
+var icons=[
+ '<svg viewBox="0 0 26 26"><rect x="2" y="2" width="9" height="9" rx="2" fill="#111"/><rect x="15" y="2" width="9" height="9" rx="2" fill="#6d5dfc"/><rect x="2" y="15" width="9" height="9" rx="2" fill="#6d5dfc"/><rect x="15" y="15" width="9" height="9" rx="2" fill="#111"/></svg>',
+ '<svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="11" fill="#111"/><path d="M5 15c4-8 12-8 16 0" stroke="#ffb74d" stroke-width="3" fill="none" stroke-linecap="round"/></svg>',
+ '<svg viewBox="0 0 26 26"><path d="M13 2 24 22H2z" fill="#e8453c"/><path d="M13 9 18.5 19h-11z" fill="#fff"/></svg>',
+ '<svg viewBox="0 0 26 26"><path d="M13 2l9.5 5.5v11L13 24l-9.5-5.5v-11z" fill="#f2a900"/><circle cx="13" cy="13" r="4" fill="#fff"/></svg>',
+ '<svg viewBox="0 0 26 26"><path d="M3 4h7v10a3 3 0 0 0 6 0V4h7v10a10 10 0 0 1-20 0z" fill="#1a8f6a"/></svg>',
+ '<svg viewBox="0 0 26 26"><path d="M2 20 20 4l4 4L8 24z" fill="#111"/><circle cx="20" cy="18" r="4" fill="#2f80ed"/></svg>'];
+var names=['Frame Blox','Supa Blox','Hype Blox','Hype Blox','Ultra Blox','Ship Blox'],ul=document.getElementById('brands');
+names.forEach(function(n,i){var li=document.createElement('li');li.innerHTML=icons[i]+'<span>'+n+'</span>';ul.appendChild(li)});
+})();
+</script>
+</body>
+</html>

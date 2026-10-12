@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bloom AI — Hero Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Source Serif 4 swapped for Newsreader (closest serif in the local list); Poppins as specified -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Newsreader:ital,wght@1,400&display=swap" rel="stylesheet">
+<style>
+:root{--radius:1rem}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:#0a0a0a}
+body{font-family:'Poppins',sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;padding:0}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+h1,h2,h3{font-weight:500;margin:0}
+.serif{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:400}
+.liquid-glass,.liquid-glass-strong{background:rgba(255,255,255,.01);background-blend-mode:luminosity;border:none;position:relative;overflow:hidden}
+.liquid-glass{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);box-shadow:inset 0 1px 1px rgba(255,255,255,.1)}
+.liquid-glass-strong{-webkit-backdrop-filter:blur(50px);backdrop-filter:blur(50px);box-shadow:4px 4px 4px rgba(0,0,0,.05),inset 0 1px 1px rgba(255,255,255,.15)}
+.liquid-glass::before,.liquid-glass-strong::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.liquid-glass::before{background:linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.15) 20%,transparent 40%,transparent 60%,rgba(255,255,255,.15) 80%,rgba(255,255,255,.45) 100%)}
+.liquid-glass-strong::before{background:linear-gradient(180deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,.2) 20%,transparent 40%,transparent 60%,rgba(255,255,255,.2) 80%,rgba(255,255,255,.5) 100%)}
+.hov{transition:transform .25s}
+.hov:hover{transform:scale(1.05)}
+.hov:active{transform:scale(.95)}
+.root{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;background:#0a0a0a}
+.vid{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block}
+.scrim{position:absolute;inset:0;z-index:0;background:rgba(0,0,0,.28);pointer-events:none}
+.wrap{position:relative;z-index:10;display:flex;min-height:100vh;min-height:100svh}
+.left{position:relative;width:100%;display:flex;flex-direction:column;padding:32px 36px;min-width:0}
+@media(min-width:1024px){.left{width:52%;padding:48px 56px}}
+.panel{position:absolute;inset:16px;border-radius:1.5rem;z-index:0}
+@media(min-width:1024px){.panel{inset:24px}}
+.left>*:not(.panel){position:relative;z-index:1}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:8px}
+.brand span{font-size:1.5rem;font-weight:600;letter-spacing:-.05em}
+.brand svg{width:32px;height:32px}
+.menu-btn{display:inline-flex;align-items:center;gap:8px;border-radius:9999px;padding:8px 16px;font-size:.875rem;position:relative;z-index:2}
+.menu-btn svg{width:16px;height:16px}
+.drop{position:absolute;right:0;top:calc(100% + 10px);z-index:20;width:200px;border-radius:1.25rem;padding:8px;background:rgba(20,20,20,.72)!important}
+.drop a{display:block;padding:10px 14px;border-radius:.9rem;font-size:.875rem;color:rgba(255,255,255,.9);transition:background-color .2s}
+.drop a:hover{background:rgba(255,255,255,.12)}
+.navwrap{position:relative}
+.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 0}
+.center .mark{width:80px;height:80px;margin-bottom:24px}
+h1{font-size:3.25rem;line-height:1.02;letter-spacing:-.05em;color:#fff}
+@media(min-width:640px){h1{font-size:3.75rem}}
+@media(min-width:1024px){h1{font-size:4.5rem}}
+h1 .serif{color:rgba(255,255,255,.8)}
+.cta{margin-top:32px;display:inline-flex;align-items:center;gap:12px;border-radius:9999px;padding:8px 8px 8px 28px;font-size:1rem;font-weight:500}
+.cta .ic{width:28px;height:28px;border-radius:9999px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center}
+.cta .ic svg{width:14px;height:14px}
+.pills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px}
+.pills span{border-radius:9999px;padding:6px 14px;font-size:.75rem;color:rgba(255,255,255,.85)}
+.quote{text-align:center;padding-bottom:8px}
+.quote .lab{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.quote p{margin:12px 0 0;font-size:1.25rem;line-height:1.3}
+.quote p .serif{font-size:1.35rem;color:rgba(255,255,255,.9)}
+.auth{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:14px;font-size:.75rem;letter-spacing:.12em;color:rgba(255,255,255,.7)}
+.auth i{display:block;width:32px;height:1px;background:rgba(255,255,255,.3)}
+.right{display:none;width:48%;padding:24px 24px;flex-direction:column;min-width:0}
+@media(min-width:1024px){.right{display:flex}}
+.rtop{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.socials{display:flex;align-items:center;gap:6px;border-radius:9999px;padding:6px 8px 6px 10px}
+.socials a{color:#fff;transition:color .2s,transform .25s;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:9999px}
+.socials a:hover{color:rgba(255,255,255,.8);transform:scale(1.05)}
+.socials svg{width:16px;height:16px}
+.socials .arr{width:32px;height:32px;border-radius:9999px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;margin-left:4px}
+.acct{display:flex;align-items:center;gap:10px}
+.acct .pill{border-radius:9999px;padding:8px 18px;font-size:.875rem}
+.acct .sp{width:40px;height:40px;border-radius:9999px;display:flex;align-items:center;justify-content:center}
+.acct .sp svg{width:16px;height:16px}
+.comm{margin-top:24px;width:14rem;border-radius:1.5rem;padding:16px}
+.comm h3{font-size:.875rem}
+.comm p{margin:6px 0 0;font-size:.75rem;line-height:1.5;color:rgba(255,255,255,.75)}
+.feat{margin-top:auto;border-radius:2.5rem;padding:12px;display:flex;flex-direction:column;gap:12px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.card{border-radius:1.5rem;padding:16px}
+.ico{width:32px;height:32px;border-radius:9999px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.ico svg{width:16px;height:16px}
+.card h3{font-size:.875rem}
+.card p{margin:6px 0 0;font-size:.75rem;line-height:1.5;color:rgba(255,255,255,.7)}
+.bot{display:flex;align-items:center;gap:14px;border-radius:1.5rem;padding:10px 14px 10px 10px}
+.thumb{width:96px;height:64px;border-radius:1rem;overflow:hidden;flex:none;background:#222}
+.thumb svg{display:block;width:100%;height:100%}
+.bot .txt{flex:1;min-width:0}
+.bot h3{font-size:.875rem}
+.bot p{margin:4px 0 0;font-size:.75rem;line-height:1.45;color:rgba(255,255,255,.7)}
+.plus{width:40px;height:40px;border-radius:9999px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex:none;line-height:1}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:60;background:rgba(0,0,0,.75);color:#fff;border-radius:9999px;padding:12px 22px;font-size:.875rem;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+@media(max-width:480px){.left{padding:28px 28px}h1{font-size:2.9rem}.quote p{font-size:1.1rem}.cta{padding-left:22px}}
+@media (prefers-reduced-motion: reduce){.hov{transition:none}}
+</style>
+</head>
+<body>
+<div class="root">
+  <canvas class="vid" id="bg" aria-hidden="true"></canvas>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="wrap">
+    <section class="left" aria-label="Bloom">
+      <div class="panel liquid-glass-strong" aria-hidden="true"></div>
+      <header class="nav">
+        <a class="brand" href="#" aria-label="bloom home">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#bloomMark"/></svg>
+          <span>bloom</span>
+        </a>
+        <div class="navwrap">
+          <button class="menu-btn liquid-glass hov" type="button" id="menuBtn" aria-expanded="false" aria-controls="drop">Menu
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <nav class="drop liquid-glass-strong" id="drop" aria-label="Primary" hidden>
+            <a href="#">Gallery</a><a href="#">Generation</a><a href="#">Structures</a><a href="#">Ecosystem</a>
+          </nav>
+        </div>
+      </header>
+      <main class="center">
+        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#bloomMark"/></svg>
+        <h1>Innovating the<br><span class="serif">spirit of bloom AI</span></h1>
+        <button class="cta liquid-glass-strong hov" type="button" data-toast="Opening the gallery…">Explore Now
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg></span>
+        </button>
+        <div class="pills">
+          <span class="liquid-glass">Artistic Gallery</span><span class="liquid-glass">AI Generation</span><span class="liquid-glass">3D Structures</span>
+        </div>
+      </main>
+      <footer class="quote">
+        <div class="lab">Visionary Design</div>
+        <p>“We imagined a <span class="serif">realm with no ending.</span>”</p>
+        <div class="auth"><i></i><span>MARCUS AURELIO</span><i></i></div>
+      </footer>
+    </section>
+
+    <aside class="right" aria-label="Highlights">
+      <div class="rtop">
+        <div class="socials liquid-glass">
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+          <span class="arr" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
+        </div>
+        <div class="acct">
+          <button class="pill liquid-glass hov" type="button" data-toast="Account panel coming soon">Account</button>
+          <button class="sp liquid-glass hov" type="button" aria-label="AI assistant" data-toast="Bloom assistant is warming up…"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></svg></button>
+        </div>
+      </div>
+      <div class="comm liquid-glass">
+        <h3>Enter our ecosystem</h3>
+        <p>Join a community of botanists, artists and builders shaping the next generation of living design.</p>
+      </div>
+      <div class="feat liquid-glass">
+        <div class="two">
+          <div class="card liquid-glass hov">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 4-1 1m5 2-1 1M9 3l.5 2M21 12l-2-.5M3 21l12-12 3 3L6 24zM14 4l6 6"/></svg></div>
+            <h3>Processing</h3>
+            <p>Turn rough sketches into lush, sculpted botanical forms in seconds.</p>
+          </div>
+          <div class="card liquid-glass hov">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2zM22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg></div>
+            <h3>Growth Archive</h3>
+            <p>Browse every bloom, from first seed to full flower, in one living library.</p>
+          </div>
+        </div>
+        <div class="bot liquid-glass">
+          <div class="thumb"><svg viewBox="0 0 96 64" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#flowerThumb"/></svg></div>
+          <div class="txt"><h3>Advanced Plant Sculpting</h3><p>Shape petals, stems and light with precise generative controls.</p></div>
+          <button class="plus liquid-glass hov" type="button" aria-label="Add to collection" data-toast="Added to your collection">+</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="bloomMark" viewBox="0 0 64 64">
+      <g fill="#fff">
+        <ellipse cx="32" cy="16" rx="8" ry="14" opacity=".95"/>
+        <ellipse cx="32" cy="16" rx="8" ry="14" opacity=".85" transform="rotate(60 32 32)"/>
+        <ellipse cx="32" cy="16" rx="8" ry="14" opacity=".95" transform="rotate(120 32 32)"/>
+        <ellipse cx="32" cy="16" rx="8" ry="14" opacity=".85" transform="rotate(180 32 32)"/>
+        <ellipse cx="32" cy="16" rx="8" ry="14" opacity=".95" transform="rotate(240 32 32)"/>
+        <ellipse cx="32" cy="16" rx="8" ry="14" opacity=".85" transform="rotate(300 32 32)"/>
+      </g>
+      <circle cx="32" cy="32" r="7" fill="#0a0a0a"/><circle cx="32" cy="32" r="3.5" fill="#fff"/>
+    </symbol>
+    <symbol id="flowerThumb" viewBox="0 0 96 64">
+      <defs>
+        <linearGradient id="ftg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a3a3a"/><stop offset="1" stop-color="#0e0e0e"/></linearGradient>
+        <radialGradient id="ftp" cx=".5" cy=".8" r=".9"><stop offset="0" stop-color="#f4f4f4"/><stop offset="1" stop-color="#8c8c8c"/></radialGradient>
+      </defs>
+      <rect width="96" height="64" fill="url(#ftg)"/>
+      <g transform="translate(34 30)" fill="url(#ftp)" opacity=".95">
+        <ellipse cx="0" cy="-13" rx="6.5" ry="12"/><ellipse cx="0" cy="-13" rx="6.5" ry="12" transform="rotate(45)"/><ellipse cx="0" cy="-13" rx="6.5" ry="12" transform="rotate(90)"/><ellipse cx="0" cy="-13" rx="6.5" ry="12" transform="rotate(135)"/><ellipse cx="0" cy="-13" rx="6.5" ry="12" transform="rotate(180)"/><ellipse cx="0" cy="-13" rx="6.5" ry="12" transform="rotate(225)"/><ellipse cx="0" cy="-13" rx="6.5" ry="12" transform="rotate(270)"/><ellipse cx="0" cy="-13" rx="6.5" ry="12" transform="rotate(315)"/>
+        <circle r="5" fill="#3a3a3a"/>
+      </g>
+      <g transform="translate(76 22) scale(.55)" fill="#c8c8c8" opacity=".85"><ellipse cx="0" cy="-13" rx="6.5" ry="12"/><ellipse cx="0" cy="-13" rx="6.5" ry="12" transform="rotate(72)"/><ellipse cx="0" cy="-13" rx="6.5" ry="12" transform="rotate(144)"/><ellipse cx="0" cy="-13" rx="6.5" ry="12" transform="rotate(216)"/><ellipse cx="0" cy="-13" rx="6.5" ry="12" transform="rotate(288)"/></g>
+      <path d="M34 42 C 36 52 30 60 28 64" stroke="#777" stroke-width="2" fill="none"/>
+    </symbol>
+  </defs>
+</svg>
+<script>
+(function(){
+  var drop=document.getElementById('drop'),mb=document.getElementById('menuBtn');
+  function setDrop(o){drop.hidden=!o;mb.setAttribute('aria-expanded',o)}
+  mb.addEventListener('click',function(e){e.stopPropagation();setDrop(drop.hidden)});
+  document.addEventListener('click',function(e){if(!drop.hidden&&!drop.contains(e.target))setDrop(false)});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&!drop.hidden){setDrop(false);mb.focus()}});
+  var toast=document.getElementById('toast'),tm;
+  document.querySelectorAll('[data-toast]').forEach(function(b){b.addEventListener('click',function(){toast.textContent=b.getAttribute('data-toast');toast.hidden=false;clearTimeout(tm);tm=setTimeout(function(){toast.hidden=true},2400)})});
+  document.querySelectorAll('a[href="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();setDrop(false)})});
+
+  // Stand-in for the background video: slow-rotating grayscale flower heads with soft bokeh
+  var cv=document.getElementById('bg'),ctx=cv.getContext('2d'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W,H,t=4,last=0,bokeh=[];
+  function rnd(s){var x=s;return function(){x=(x*9301+49297)%233280;return x/233280}}
+  function size(){W=cv.width=Math.max(2,Math.round(cv.clientWidth/2));H=cv.height=Math.max(2,Math.round(cv.clientHeight/2));
+    var r=rnd(5);bokeh=[];for(var i=0;i<22;i++)bokeh.push({x:r(),y:r(),r:.01+r()*.03,a:.05+r()*.12,s:.02+r()*.04,p:r()*6})}
+  size();addEventListener('resize',function(){size();draw()});
+  function flower(cx,cy,R,n,rot,tone,alpha){
+    for(var layer=0;layer<3;layer++){
+      var m=n-layer*0, rr=R*(1-layer*.22);
+      for(var i=0;i<m;i++){
+        var a=rot*(layer%2?-1:1)+i/m*Math.PI*2+layer*.3;
+        ctx.save();ctx.translate(cx,cy);ctx.rotate(a);
+        var g=ctx.createRadialGradient(0,-rr*.7,0,0,-rr*.6,rr*.75);
+        var c=tone+layer*22;
+        g.addColorStop(0,'rgba('+c+','+c+','+c+','+alpha+')');g.addColorStop(1,'rgba('+c+','+c+','+c+',0)');
+        ctx.fillStyle=g;ctx.beginPath();ctx.ellipse(0,-rr*.62,rr*.26,rr*.62,0,0,7);ctx.fill();ctx.restore();
+      }
+    }
+    var cg=ctx.createRadialGradient(cx,cy,0,cx,cy,R*.22);cg.addColorStop(0,'rgba(210,210,210,.55)');cg.addColorStop(1,'rgba(120,120,120,0)');ctx.fillStyle=cg;ctx.beginPath();ctx.arc(cx,cy,R*.22,0,7);ctx.fill();
+  }
+  function draw(){
+    var g=ctx.createLinearGradient(0,0,W,H);g.addColorStop(0,'#1b1b1b');g.addColorStop(1,'#060606');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    ctx.globalCompositeOperation='lighter';
+    var u=Math.max(W,H);
+    flower(W*.3+Math.sin(t*.11)*W*.03,H*.55,u*.62,9,t*.035,70,.2);
+    flower(W*.86+Math.cos(t*.09)*W*.03,H*.28,u*.4,8,-t*.045,60,.22);
+    flower(W*.62,H*.95+Math.sin(t*.1)*H*.03,u*.45,10,t*.03,50,.18);
+    bokeh.forEach(function(b){var x=(b.x+Math.sin(t*b.s+b.p)*.03)*W,y=((b.y-t*b.s*.05)%1+1)%1*H,r=b.r*u;var rg=ctx.createRadialGradient(x,y,0,x,y,r);rg.addColorStop(0,'rgba(255,255,255,'+b.a+')');rg.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=rg;ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill()});
+    ctx.globalCompositeOperation='source-over';
+  }
+  draw();
+  function loop(ts){if(document.hidden){last=0;requestAnimationFrame(loop);return}var dt=last?Math.min((ts-last)/1000,.1):0;last=ts;t+=dt;draw();requestAnimationFrame(loop)}
+  if(!reduce)requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

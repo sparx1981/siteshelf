@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Automation Hero — AI / SaaS</title>
+<!-- No font specified for the sans: Inter; serif italic: Instrument Serif. HLS video stood in for by a canvas of flowing violet silk ribbons (shifted 200px right, scaled 1.2, as specified). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--background:#070612;--foreground:#f5f5f7}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html,body{background:var(--background)}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--foreground);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;cursor:pointer}
+:focus-visible{outline:3px solid #b8a7ff;outline-offset:3px}
+.hero{position:relative;width:100%;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:var(--background)}
+.vid{position:absolute;top:0;bottom:0;left:0;right:0;margin-left:200px;transform:scale(1.2);transform-origin:left;z-index:0}
+.vid canvas{display:block;width:100%;height:100%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%);mask-image:linear-gradient(90deg,transparent 0,#000 30%)}
+.fadeb{position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(to top,var(--background),transparent);z-index:10;pointer-events:none}
+.fadel{position:absolute;inset:0;z-index:5;pointer-events:none;background:linear-gradient(90deg,rgba(7,6,18,.85) 0,rgba(7,6,18,.35) 40%,rgba(7,6,18,0) 65%)}
+.content{position:relative;z-index:20;height:100%;max-width:80rem;margin:0 auto;padding:0 24px;display:flex;align-items:center}
+@media (min-width:1024px){.content{padding:0 48px}}
+.stack{display:flex;flex-direction:column;gap:48px;align-items:flex-start;min-width:0}
+.top{display:flex;flex-direction:column;gap:24px;align-items:flex-start}
+.badge{display:inline-flex;align-items:center;gap:8px;border-radius:999px;border:1px solid rgba(255,255,255,.2);padding:6px 14px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);background:rgba(255,255,255,.03)}
+.badge svg{width:12px;height:12px;color:rgba(255,255,255,.8)}
+.badge span{font-size:14px;font-weight:500;color:rgba(255,255,255,.8)}
+h1{font-size:36px;font-weight:500;line-height:1.25;color:var(--foreground);letter-spacing:-.01em}
+@media (min-width:768px){h1{font-size:48px}}
+@media (min-width:1024px){h1{font-size:60px;line-height:1.2}}
+h1 .ln{display:block}
+h1 .wd{display:inline-block;white-space:pre}
+h1 .serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+.sub{font-size:18px;font-weight:400;line-height:1.625;color:rgba(255,255,255,.8);max-width:36rem}
+.ctas{display:flex;flex-wrap:wrap;gap:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;font-size:16px;font-weight:500;transition:transform .2s,background .2s,box-shadow .2s}
+.btn:active{transform:scale(.98)}
+.btn.p{background:var(--foreground);color:var(--background);padding:12px 20px}
+.btn.p:hover{background:#fff;box-shadow:0 8px 30px rgba(160,140,255,.35)}
+.btn.p svg{width:16px;height:16px;transition:transform .2s}
+.btn.p:hover svg{transform:translateX(3px)}
+.btn.s{background:rgba(255,255,255,.2);color:#fff;padding:12px 32px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.btn.s:hover{background:rgba(255,255,255,.28)}
+.bi{opacity:0;animation:blurIn .6s cubic-bezier(.25,.1,.25,1) var(--d,0s) both}
+@keyframes blurIn{from{opacity:0;filter:blur(10px);transform:translateY(20px)}to{opacity:1;filter:blur(0);transform:none}}
+.wd{opacity:0;animation:wordIn .6s cubic-bezier(.25,.1,.25,1) var(--d,0s) both}
+@keyframes wordIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@media (max-width:700px){
+  .vid{margin-left:0;transform:scale(1.5);transform-origin:70% 60%;opacity:.7}
+  .fadel{background:linear-gradient(180deg,rgba(7,6,18,.5),rgba(7,6,18,.75))}
+  .stack{gap:32px}
+  .sub{font-size:16px}
+  h1{font-size:31px}
+}
+@media (prefers-reduced-motion:reduce){.bi,.wd{animation-duration:.01s;animation-delay:0s}}
+</style>
+</head>
+<body>
+<main>
+<section class="hero" aria-label="Hero">
+  <div class="vid" aria-hidden="true"><canvas id="cv"></canvas></div>
+  <div class="fadel"></div>
+  <div class="fadeb"></div>
+  <div class="content">
+    <div class="stack">
+      <div class="top">
+        <div class="badge bi" style="--d:0s"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9zM19 15l.9 2.6L22.5 18.5l-2.6.9L19 22l-.9-2.6-2.6-.9 2.6-.9zM5 15l.7 1.8 1.8.7-1.8.7L5 20l-.7-1.8-1.8-.7 1.8-.7z"/></svg><span>New AI Automation Ally</span></div>
+        <h1 id="h1" aria-label="Unlock the Power of AI for Your Business."></h1>
+        <p class="sub bi" style="--d:.4s">Our cutting-edge AI platform automates, analyzes, and accelerates your workflows so you can focus on what really matters.</p>
+      </div>
+      <div class="ctas bi" style="--d:.6s">
+        <a class="btn p" href="/book-call" id="book">Book A Free Call<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <button class="btn s" type="button" id="learn">Learn now</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+(function(){
+"use strict";
+/* split-text heading */
+var h=document.getElementById('h1'),i=0,out='';
+function words(txt,cls){return txt.split(' ').filter(Boolean).map(function(w){var d=(i++*.08).toFixed(2);return '<span class="wd'+(cls?' '+cls:'')+'" aria-hidden="true" style="--d:'+d+'s">'+w+'</span>'}).join('<span aria-hidden="true"> </span>')}
+out+='<span class="ln">'+words('Unlock the Power of AI')+'</span>'+words('for Your')+'<span aria-hidden="true"> </span>'+words('Business.','serif');
+h.innerHTML=out;
+/* in this preview the demo links go nowhere */
+document.getElementById('book').addEventListener('click',function(e){e.preventDefault()});
+document.getElementById('learn').addEventListener('click',function(){var s=document.querySelector('.sub');s.scrollIntoView({behavior:'smooth',block:'center'})});
+/* video stand-in: flowing violet silk */
+var cv=document.getElementById('cv'),c=cv.getContext('2d'),w=2,hh=2,t=8,last=0,raf=0,rm=matchMedia('(prefers-reduced-motion: reduce)');
+function size(){var r=cv.getBoundingClientRect();w=cv.width=Math.max(2,Math.round(cv.clientWidth*.5));hh=cv.height=Math.max(2,Math.round(cv.clientHeight*.5));draw()}
+function draw(){
+  var W=w,H=hh;c.globalCompositeOperation='source-over';c.fillStyle='#070612';c.fillRect(0,0,W,H);
+  c.globalCompositeOperation='lighter';
+  var blobs=[[.62,.5,.5,[110,60,255]],[.8,.3,.35,[220,70,200]],[.55,.75,.3,[60,110,255]]];
+  blobs.forEach(function(b,k){var x=W*(b[0]+.05*Math.sin(t*.2+k*2)),y=H*(b[1]+.06*Math.cos(t*.25+k)),r=Math.max(W,H)*b[2];var g=c.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba('+b[3]+',.28)');g.addColorStop(1,'rgba('+b[3]+',0)');c.fillStyle=g;c.fillRect(0,0,W,H)});
+  var N=64;
+  for(var j=0;j<N;j++){
+    var f=j/N;c.beginPath();
+    for(var u=0;u<=1.001;u+=1/70){
+      var x=W*(-.05+1.1*u),amp=H*(.18+.12*Math.sin(u*3+t*.2));
+      var y=H*.5+Math.sin(u*5.2+t*.45+f*2.4)*amp*(.4+f)+Math.sin(u*9-t*.6+f*5)*H*.04+(f-.5)*H*.35*(.3+u);
+      u===0?c.moveTo(x,y):c.lineTo(x,y);
+    }
+    var r=Math.round(90+120*f),g=Math.round(70+20*Math.sin(f*6)),b=255-Math.round(60*f);
+    c.strokeStyle='rgba('+r+','+g+','+b+','+(.05+.12*Math.sin(f*Math.PI))+')';c.lineWidth=Math.max(1,H/300);c.stroke();
+  }
+}
+function loop(n){var dt=Math.min(.05,(n-last)/1000||0);last=n;t+=dt;draw();raf=(rm.matches||document.hidden)?0:requestAnimationFrame(loop)}
+function start(){if(!raf&&!rm.matches&&!document.hidden){last=performance.now();raf=requestAnimationFrame(loop)}}
+document.addEventListener('visibilitychange',function(){if(document.hidden){cancelAnimationFrame(raf);raf=0}else start()});
+addEventListener('resize',size);size();start();
+})();
+</script>
+</body>
+</html>

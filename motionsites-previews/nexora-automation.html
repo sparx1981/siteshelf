@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nexora Automation — SaaS</title>
+<!-- Background video stood in for by an animated pastel canvas. Muted text token darkened slightly for contrast. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --background:0 0% 100%;--foreground:210 14% 17%;--primary:210 14% 17%;--primary-foreground:0 0% 100%;
+  --secondary:0 0% 96%;--muted-foreground:184 5% 38%;--accent:239 84% 67%;--border:0 0% 90%;--radius:.5rem;
+  --font-display:'Instrument Serif',serif;--font-body:'Inter',sans-serif;
+  --shadow-dashboard:0 25px 80px -12px rgba(0,0,0,.08),0 0 0 1px rgba(0,0,0,.06);
+  --fg:hsl(var(--foreground));--mut:hsl(var(--muted-foreground));--acc:hsl(var(--accent));--bd:hsl(var(--border));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{font-family:var(--font-body);background:#fff;color:var(--fg);-webkit-font-smoothing:antialiased;overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid hsl(var(--accent));outline-offset:3px}
+.page{height:100vh;height:100dvh;display:flex;flex-direction:column;background:#fff;overflow:hidden;position:relative}
+nav.top{position:relative;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:20px 24px;font-family:var(--font-body)}
+.brand{font-size:20px;font-weight:600;letter-spacing:-.025em;color:var(--fg)}
+.links{display:none;align-items:center;gap:32px}
+.links a{font-size:14px;color:var(--mut);transition:color .2s}
+.links a:hover{color:var(--fg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;background:hsl(var(--primary));color:hsl(var(--primary-foreground));font-size:14px;font-weight:500;font-family:var(--font-body);transition:background .2s,opacity .2s,transform .15s}
+.btn:hover{background:hsl(var(--primary)/.9)}
+.btn:active{transform:scale(.98)}
+.btn.sm{padding:10px 20px}
+.btn.lg{padding:14px 24px}
+.navr{display:flex;align-items:center;gap:32px}
+.menu{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:999px;border:1px solid var(--bd);background:#fff;color:var(--fg)}
+.mmenu{position:absolute;z-index:30;top:68px;right:24px;left:24px;background:#fff;border:1px solid var(--bd);border-radius:16px;box-shadow:var(--shadow-dashboard);padding:8px;display:flex;flex-direction:column}
+.mmenu a{padding:12px 14px;font-size:15px;border-radius:10px;color:var(--fg)}
+.mmenu a:hover{background:hsl(var(--secondary))}
+@media (min-width:768px){nav.top{padding:20px 48px}.links{display:flex}.menu{display:none}}
+@media (min-width:1024px){nav.top{padding:20px 80px}}
+.hero{position:relative;flex:1;min-height:0;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block}
+.hero .wash{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 18%)}
+.inner{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;width:100%;padding:0 16px}
+.fade{opacity:0;animation:fadeUp var(--dur,.6s) cubic-bezier(.25,.1,.25,1) var(--del,0s) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(var(--y,16px))}to{opacity:1;transform:none}}
+.badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;border:1px solid var(--bd);background:#fff;padding:6px 16px;font-size:14px;color:var(--mut);margin-bottom:24px;margin-top:8px;--y:10px;--dur:.5s}
+h1{font-family:var(--font-display);font-weight:400;text-align:center;font-size:clamp(44px,8.5vw,80px);line-height:.95;letter-spacing:-.025em;color:var(--fg);max-width:36rem;--del:.1s}
+h1 em{font-style:italic}
+.sub{margin-top:16px;text-align:center;font-size:16px;line-height:1.625;color:var(--mut);max-width:650px;--del:.2s}
+@media (min-width:768px){.sub{font-size:18px}}
+.ctas{margin-top:20px;display:flex;align-items:center;gap:12px;--del:.3s}
+.play{height:44px;width:44px;border-radius:999px;border:0;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.08);display:grid;place-items:center;transition:background .2s,transform .15s}
+.play:hover{background:rgba(255,255,255,.8)}
+.play:active{transform:scale(.96)}
+.play svg{width:16px;height:16px;fill:var(--fg);stroke:var(--fg)}
+.dashwrap{margin-top:32px;width:100%;max-width:64rem;--y:30px;--dur:.8s;--del:.5s}
+.glass{border-radius:16px;overflow:hidden;padding:12px;background:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.5);box-shadow:var(--shadow-dashboard);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+@media (min-width:768px){.glass{padding:16px}}
+/* dashboard */
+.dash{background:#fff;border-radius:10px;overflow:hidden;font-size:11px;user-select:none;pointer-events:none;color:var(--fg);text-align:left}
+.dtop{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--bd)}
+.dlogo{display:flex;align-items:center;gap:6px;font-weight:600;font-size:12px}
+.dlogo i{width:20px;height:20px;border-radius:6px;background:var(--fg);color:#fff;font-style:normal;display:grid;place-items:center;font-size:11px;font-weight:600}
+.dsearch{flex:1;max-width:260px;margin:0 auto 0 12px;display:flex;align-items:center;gap:6px;height:26px;padding:0 10px;border:1px solid var(--bd);border-radius:8px;color:var(--mut)}
+.dsearch kbd{margin-left:auto;font:inherit;font-size:10px;border:1px solid var(--bd);border-radius:4px;padding:0 4px}
+.dright{display:flex;align-items:center;gap:10px;margin-left:auto}
+.mm{border:1px solid var(--bd);border-radius:999px;padding:5px 12px;font-weight:500}
+.av{width:22px;height:22px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-size:9px;font-weight:600}
+.dbody{display:flex}
+.side{width:160px;flex:none;padding:12px 10px;border-right:1px solid var(--bd);display:none}
+@media (min-width:768px){.side{display:block}}
+.side a{display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:6px;color:var(--mut);margin-bottom:2px}
+.side a.act{background:hsl(var(--secondary));color:var(--fg);font-weight:500}
+.side a svg{width:13px;height:13px;flex:none}
+.side .bdg{margin-left:auto;font-size:9px;background:var(--acc);color:#fff;border-radius:999px;padding:0 6px;line-height:15px}
+.side .chev{margin-left:auto;width:10px;height:10px}
+.side h6{font-size:10px;font-weight:500;color:var(--mut);margin:14px 8px 6px;text-transform:none}
+.main{flex:1;min-width:0;background:hsl(var(--secondary)/.3);padding:16px}
+.main h3{font-size:14px;font-weight:600}
+.pills{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.pills span{border-radius:999px;border:1px solid var(--bd);background:#fff;padding:4px 10px;font-size:10px}
+.pills span.p{background:var(--acc);border-color:var(--acc);color:#fff}
+.pills u{text-decoration:none;font-size:10px;color:var(--mut);margin-left:4px}
+.cards{display:flex;gap:12px;margin-top:14px;flex-direction:column}
+@media (min-width:640px){.cards{flex-direction:row}}
+.dc{flex:1 1 0;min-width:0;background:#fff;border:1px solid var(--bd);border-radius:10px;padding:14px}
+.dc h4{font-size:11px;font-weight:500;color:var(--mut);display:flex;align-items:center;gap:5px}
+.dc h4 b{margin-left:auto;display:flex;gap:8px;color:var(--mut);font-weight:400}
+.amt{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-top:6px}
+.amt small{font-size:12px;color:var(--mut);font-weight:400}
+.stats{display:flex;gap:14px;margin-top:6px;color:var(--mut)}
+.pos{color:#16a34a;font-weight:500}.neg{color:#dc2626;font-weight:500}
+.dc svg.chart{display:block;width:100%;height:80px;margin-top:8px}
+.row{display:flex;justify-content:space-between;padding:12px 0;font-size:12px}
+.row span:first-child{color:var(--mut)}
+.row span:last-child{font-weight:500}
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:11px}
+th{text-align:left;font-weight:500;color:var(--mut);padding:6px 4px;border-bottom:1px solid var(--bd)}
+td{padding:8px 4px;border-bottom:1px solid hsl(var(--border)/.6)}
+td:nth-child(3),th:nth-child(3){text-align:right}
+.st{display:inline-block;border-radius:999px;padding:2px 8px;font-size:10px;font-weight:500}
+.st.pe{background:#fef3c7;color:#92400e}.st.co{background:#dcfce7;color:#166534}
+.tbl{margin-top:12px;background:#fff;border:1px solid var(--bd);border-radius:10px;padding:14px}
+.tbl h4{font-size:12px;font-weight:600}
+@media (max-width:600px){.hide-m{display:none}.dsearch{display:none}}
+@media (prefers-reduced-motion:reduce){.fade{animation-duration:.01s;animation-delay:0s}}
+</style>
+</head>
+<body>
+<div class="page">
+  <nav class="top" aria-label="Main">
+    <a class="brand" href="#" aria-label="Nexora home">&#10022; Nexora</a>
+    <div class="navr">
+      <div class="links">
+        <a href="#">Home</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#contact">Contact</a>
+      </div>
+      <a class="btn sm" href="#demo">Get started</a>
+      <button class="menu" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    <div class="mmenu" id="mmenu" hidden>
+      <a href="#">Home</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main class="hero">
+    <canvas id="bg" aria-hidden="true"></canvas>
+    <div class="wash"></div>
+    <div class="inner">
+      <div class="badge fade">Now with GPT-5 support &#10024;</div>
+      <h1 class="fade">The Future of <em>Smarter</em> Automation</h1>
+      <p class="sub fade">Automate your busywork with intelligent agents that learn, adapt, and execute&mdash;so your team can focus on what matters most.</p>
+      <div class="ctas fade">
+        <a class="btn lg" id="demo" href="#demo">Book a demo</a>
+        <button class="play" type="button" aria-label="Play product video"><svg viewBox="0 0 24 24" stroke-linejoin="round"><path d="M7 4.5v15l12-7.5z"/></svg></button>
+      </div>
+
+      <div class="dashwrap fade" role="img" aria-label="Preview of the Nexora dashboard showing balances, accounts and recent transactions">
+        <div class="glass">
+          <div class="dash" aria-hidden="true">
+            <div class="dtop">
+              <div class="dlogo"><i>N</i>Nexora
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></div>
+              <div class="dsearch"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search<kbd>&#8984;K</kbd></div>
+              <div class="dright">
+                <span class="mm">Move Money</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg>
+                <span class="av">JB</span>
+              </div>
+            </div>
+            <div class="dbody">
+              <div class="side">
+                <a class="act"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 11 9-8 9 8v10H3z"/></svg>Home</a>
+                <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 12 5 5L20 6"/></svg>Tasks<span class="bdg">10</span></a>
+                <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 4v16m0 0-4-4m4 4 4-4M17 20V4m0 0-4 4m4-4 4 4"/></svg>Transactions</a>
+                <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>Payments<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></a>
+                <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg>Cards</a>
+                <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18M6 20V10m6 10V4m6 16v-7"/></svg>Capital</a>
+                <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10 12 4l9 6M5 10v8m4-8v8m6-8v8m4-8v8M3 20h18"/></svg>Accounts<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></a>
+                <h6>Workflows</h6>
+                <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h10a4 4 0 0 1 0 8H8a4 4 0 0 0 0 8h12"/></svg>Trake rutes</a>
+                <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>Payments</a>
+                <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/></svg>Notifications</a>
+                <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg>Settings</a>
+              </div>
+              <div class="main">
+                <h3>Welcome, Jane</h3>
+                <div class="pills"><span class="p">Send</span><span>Request</span><span>Transfer</span><span>Deposit</span><span class="hide-m">Pay Bill</span><span class="hide-m">Create Invoice</span><u>Customize</u></div>
+                <div class="cards">
+                  <div class="dc">
+                    <h4>Mercury Balance <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><path d="m4 12 5 5L20 6"/></svg></h4>
+                    <div class="amt">$8,450,190<small>.32</small></div>
+                    <div class="stats"><span>Last 30 Days</span><span class="pos">+$1.8M</span><span class="neg">-$900K</span></div>
+                    <svg class="chart" viewBox="0 0 300 80" preserveAspectRatio="none">
+                      <defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="hsl(239 84% 67%)" stop-opacity=".15"/><stop offset="1" stop-color="hsl(239 84% 67%)" stop-opacity="0"/></linearGradient></defs>
+                      <path d="M0 62 C 25 60, 38 44, 60 46 S 95 66, 120 52 S 160 22, 185 30 S 230 44, 250 20 S 285 8, 300 10 L300 80 L0 80Z" fill="url(#ag)"/>
+                      <path d="M0 62 C 25 60, 38 44, 60 46 S 95 66, 120 52 S 160 22, 185 30 S 230 44, 250 20 S 285 8, 300 10" fill="none" stroke="hsl(239 84% 67%)" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+                    </svg>
+                  </div>
+                  <div class="dc">
+                    <h4>Accounts <b><span>+</span><span>&#8942;</span></b></h4>
+                    <div class="row"><span>Credit</span><span>$98,125.50</span></div>
+                    <div class="row"><span>Treasury</span><span>$6,750,200.00</span></div>
+                    <div class="row"><span>Operations</span><span>$1,592,864.82</span></div>
+                  </div>
+                </div>
+                <div class="tbl">
+                  <h4>Recent Transactions</h4>
+                  <table>
+                    <thead><tr><th>Date</th><th>Description</th><th>Amount</th><th>Status</th></tr></thead>
+                    <tbody>
+                      <tr><td>Mar 18</td><td>AWS</td><td class="neg">-$5,200</td><td><span class="st pe">Pending</span></td></tr>
+                      <tr><td>Mar 17</td><td>Client Payment</td><td class="pos">+$125,000</td><td><span class="st co">Completed</span></td></tr>
+                      <tr><td>Mar 15</td><td>Payroll</td><td>-$85,450</td><td><span class="st co">Completed</span></td></tr>
+                      <tr><td>Mar 14</td><td>Office Supplies</td><td>-$1,200</td><td><span class="st co">Completed</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script>
+(function(){
+"use strict";
+var mb=document.getElementById('menuBtn'),mm=document.getElementById('mmenu');
+mb.addEventListener('click',function(){var o=mm.hidden;mm.hidden=!o;mb.setAttribute('aria-expanded',String(o));mb.setAttribute('aria-label',o?'Close menu':'Open menu')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mm.hidden){mm.hidden=true;mb.setAttribute('aria-expanded','false');mb.focus()}});
+/* pastel "video" stand-in */
+var cv=document.getElementById('bg'),c=cv.getContext('2d'),w=2,h=2,t=3.2,last=0,raf=0;
+var rm=matchMedia('(prefers-reduced-motion: reduce)');
+var cols=[[196,208,255],[186,226,255],[255,214,232],[214,200,255],[200,240,235]];
+function size(){var r=cv.getBoundingClientRect();w=cv.width=Math.max(2,Math.round(r.width*.4));h=cv.height=Math.max(2,Math.round(r.height*.4));draw()}
+function draw(){
+  c.globalCompositeOperation='source-over';c.fillStyle='#fbfcff';c.fillRect(0,0,w,h);
+  for(var i=0;i<6;i++){
+    var x=w*(.5+.45*Math.sin(t*.13+i*1.9)),y=h*(.45+.4*Math.cos(t*.11+i*2.7)),r=Math.max(w,h)*(.3+.07*Math.sin(t*.2+i)),q=cols[i%cols.length];
+    var g=c.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba('+q+',.85)');g.addColorStop(1,'rgba('+q+',0)');c.fillStyle=g;c.fillRect(0,0,w,h);
+  }
+  c.strokeStyle='rgba(255,255,255,.55)';c.lineWidth=Math.max(1,w/700);
+  for(var k=0;k<14;k++){c.beginPath();for(var x=0;x<=w;x+=w/40){var u=x/w,y=h*(.55+.12*Math.sin(u*4+t*.25+k*.2))+k*h*.02;x===0?c.moveTo(x,y):c.lineTo(x,y)}c.stroke()}
+}
+function loop(n){var dt=Math.min(.05,(n-last)/1000||0);last=n;t+=dt;draw();raf=(rm.matches||document.hidden)?0:requestAnimationFrame(loop)}
+function start(){if(!raf&&!rm.matches&&!document.hidden){last=performance.now();raf=requestAnimationFrame(loop)}}
+document.addEventListener('visibilitychange',function(){if(document.hidden){cancelAnimationFrame(raf);raf=0}else start()});
+addEventListener('resize',size);size();start();
+})();
+</script>
+</body>
+</html>

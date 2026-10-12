@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asme — Hero Section</title>
+<!-- Looping video is stood in for by a canvas night scene (stars, moon glow, drifting sea mist) with the prompt's 500ms fade-in / fade-out loop system and 17% downward shift. Body font: Inter-free system stack as in default Tailwind; heading Instrument Serif. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+body{font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#000;color:#fff;-webkit-font-smoothing:antialiased}
+a,button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.screen{position:relative;min-height:100vh;min-height:100svh;background:#000;overflow:hidden;display:flex;flex-direction:column}
+#vid{position:absolute;inset:0;width:100%;height:100%;transform:translateY(17%);opacity:0;display:block;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 22%);mask-image:linear-gradient(180deg,transparent 0,#000 22%)}
+.liquid-glass{background:rgba(255,255,255,.01);background-blend-mode:luminosity;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border:none;box-shadow:inset 0 1px 1px rgba(255,255,255,.1);position:relative;overflow:hidden}
+.liquid-glass::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;background:linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.15) 20%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,.15) 80%,rgba(255,255,255,.45) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+header{position:relative;z-index:20;padding:24px}
+.bar{max-width:64rem;margin:0 auto;border-radius:999px;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.left{display:flex;align-items:center;gap:32px;min-width:0}
+.logo{display:flex;align-items:center;gap:8px;font-weight:600;font-size:18px;text-decoration:none}
+.logo svg{width:24px;height:24px}
+.links{display:none;gap:32px;list-style:none;padding:0}
+.links a{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);text-decoration:none;transition:color .2s}
+.links a:hover{color:#fff}
+.right{display:flex;align-items:center;gap:16px}
+.signup{background:none;border:0;cursor:pointer;padding:6px 4px;font-size:15px}
+.login{border-radius:999px;padding:8px 24px;cursor:pointer;font-size:15px;color:#fff}
+.hero{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 24px;text-align:center;transform:translateY(-20%)}
+h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,10.4vw,48px);margin-bottom:32px;letter-spacing:-.025em;white-space:nowrap;line-height:1.1}
+.stack{max-width:36rem;width:100%;display:flex;flex-direction:column;gap:16px}
+.field{border-radius:999px;padding:8px 8px 8px 24px;display:flex;align-items:center;gap:12px}
+.field input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;font-size:16px;padding:8px 0}
+.field input::placeholder{color:rgba(255,255,255,.4)}
+.field:focus-within{box-shadow:inset 0 1px 1px rgba(255,255,255,.1),0 0 0 3px rgba(255,255,255,.55)}
+.go{flex:none;width:48px;height:48px;border-radius:50%;border:0;background:#fff;color:#000;display:grid;place-items:center;cursor:pointer;transition:transform .2s}
+.go:hover{transform:scale(1.06)}
+.go svg{width:20px;height:20px}
+.msg{min-height:20px;font-size:14px;color:#fff}
+.msg.err{color:#ffb4b4}
+.sub{font-size:14px;line-height:1.625;padding:0 16px}
+.manifesto{align-self:center;border-radius:999px;padding:12px 32px;font-size:14px;font-weight:500;cursor:pointer;color:#fff;transition:background-color .2s}
+.manifesto:hover{background:rgba(255,255,255,.05)}
+footer{position:relative;z-index:10;display:flex;justify-content:center;gap:16px;padding-bottom:48px}
+footer a{border-radius:50%;padding:16px;color:rgba(255,255,255,.8);transition:color .2s,background-color .2s;display:grid;place-items:center}
+footer a:hover{color:#fff;background:rgba(255,255,255,.05)}
+footer svg{width:20px;height:20px;display:block}
+dialog{border:0;background:transparent;color:#fff;max-width:min(520px,calc(100vw - 32px));padding:0;margin:auto}
+dialog::backdrop{background:rgba(0,0,0,.6);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.card{border-radius:28px;padding:32px;background:rgba(12,12,16,.75)}
+.card h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:34px;margin-bottom:12px}
+.card p{line-height:1.6;color:rgba(255,255,255,.85);font-size:15px;margin-bottom:12px}
+.card button{margin-top:8px;border-radius:999px;padding:10px 26px;cursor:pointer;color:#fff}
+@media(min-width:768px){.links{display:flex}h1{font-size:60px}}
+@media(min-width:1024px){h1{font-size:72px}}
+@media(max-width:480px){header{padding:16px}.bar{padding:10px 16px}.hero{padding:32px 20px}.logo{font-size:17px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="screen">
+  <canvas id="vid" aria-hidden="true"></canvas>
+  <header>
+    <nav class="bar liquid-glass" aria-label="Primary">
+      <div class="left">
+        <a class="logo" href="#top"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c3 3 3 16 0 19M12 2.5c-3 3-3 16 0 19"/></svg>Asme</a>
+        <ul class="links"><li><a href="#features">Features</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#about">About</a></li></ul>
+      </div>
+      <div class="right"><button class="signup" type="button">Sign Up</button><button class="login liquid-glass" type="button">Login</button></div>
+    </nav>
+  </header>
+  <main class="hero" id="top">
+    <h1>Built for the curious</h1>
+    <div class="stack">
+      <form id="f" class="field liquid-glass" novalidate>
+        <input id="em" type="email" name="email" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required>
+        <button class="go" type="submit" aria-label="Subscribe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </form>
+      <p class="msg" id="msg" role="status" aria-live="polite"></p>
+      <p class="sub">Stay updated with the latest news and insights. Subscribe to our newsletter today and never miss out on exciting updates.</p>
+      <button class="manifesto liquid-glass" id="mf" type="button">Manifesto</button>
+    </div>
+  </main>
+  <footer aria-label="Social links">
+    <a class="liquid-glass" href="#instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
+    <a class="liquid-glass" href="#twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+    <a class="liquid-glass" href="#web" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c3 3 3 16 0 19M12 2.5c-3 3-3 16 0 19"/></svg></a>
+  </footer>
+</div>
+<dialog id="dlg" aria-labelledby="dt"><div class="card liquid-glass"><h2 id="dt">The Asme manifesto</h2>
+<p>We believe curiosity is a practice, not a personality trait. Good tools should get out of the way and leave room for questions.</p>
+<p>We build slowly, write plainly and ship things that reward attention. If that sounds like you, you are in the right place.</p>
+<button class="liquid-glass" id="dc" type="button">Close</button></div></dialog>
+<script>
+(function(){
+  var cv=document.getElementById('vid'),c=cv.getContext('2d'),W,H,t=0,last=0,still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var DUR=12; // seconds, stand-in clip length
+  var seed=11;function rnd(){seed=(seed*9301+49297)%233280;return seed/233280}
+  var stars=[];for(var i=0;i<160;i++)stars.push([rnd(),rnd()*.62,.4+rnd()*1.2,rnd()*6]);
+  function size(){var d=Math.min(devicePixelRatio||1,1.5);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;c.setTransform(d,0,0,d,0,0)}
+  function draw(){
+    var g=c.createLinearGradient(0,0,0,H);g.addColorStop(0,'#02030a');g.addColorStop(.55,'#080d1f');g.addColorStop(1,'#0f1a33');
+    c.globalCompositeOperation='source-over';c.fillStyle=g;c.fillRect(0,0,W,H);
+    stars.forEach(function(s){var a=.3+.4*Math.sin(t*.9+s[3]);c.fillStyle='rgba(230,238,255,'+a.toFixed(3)+')';c.beginPath();c.arc(s[0]*W,s[1]*H*.8,s[2],0,6.3);c.fill()});
+    // moon-like glow low in frame
+    var mx=W*.5+Math.sin(t*.12)*W*.03,my=H*.56,mr=Math.min(W,H)*.11;
+    c.globalCompositeOperation='lighter';
+    var gl=c.createRadialGradient(mx,my,0,mx,my,mr*6);gl.addColorStop(0,'rgba(150,180,255,.45)');gl.addColorStop(.3,'rgba(90,120,220,.16)');gl.addColorStop(1,'rgba(40,60,140,0)');c.fillStyle=gl;c.fillRect(0,0,W,H);
+    c.globalCompositeOperation='source-over';
+    var mg=c.createRadialGradient(mx-mr*.3,my-mr*.3,mr*.1,mx,my,mr);mg.addColorStop(0,'#fbfcff');mg.addColorStop(1,'#aebfe8');c.fillStyle=mg;c.beginPath();c.arc(mx,my,mr,0,6.3);c.fill();
+    // sea horizon
+    var hy=H*.68;var sg=c.createLinearGradient(0,hy,0,H);sg.addColorStop(0,'#142446');sg.addColorStop(1,'#04060f');c.fillStyle=sg;c.fillRect(0,hy,W,H-hy);
+    // moon reflection glints
+    for(var k=0;k<46;k++){var yy=hy+4+Math.pow(k/46,1.5)*(H-hy-6),ww=(20+k*5)*(.6+.4*Math.sin(t*1.3+k*1.7)),xx=mx+Math.sin(t*.6+k*2.1)*(12+k*2.2);
+      c.fillStyle='rgba(190,210,255,'+(.35*(1-k/60)).toFixed(3)+')';c.fillRect(xx-ww/2,yy,ww,1.6)}
+    // drifting mist
+    for(k=0;k<5;k++){var x=((k*.27+t*.012*(1+k%2))%1.5-.25)*W,y=hy-10+k*18;c.save();c.translate(x,y);c.scale(1,.18);var r=W*.3;var cg=c.createRadialGradient(0,0,0,0,0,r);cg.addColorStop(0,'rgba(130,150,210,.12)');cg.addColorStop(1,'rgba(130,150,210,0)');c.fillStyle=cg;c.beginPath();c.arc(0,0,r,0,6.3);c.fill();c.restore()}
+  }
+  // fade system from the prompt: 500ms rAF fades, fade-out when 0.55s remain, guarded by a flag, reset after 100ms
+  var fa=0,fadingOut=false,op=0,loopT=0,ended=false;
+  function fade(to,ms){cancelAnimationFrame(fa);var from=op,st=performance.now();(function s(n){var p=Math.min((n-st)/ms,1);op=from+(to-from)*p;cv.style.opacity=op;if(p<1)fa=requestAnimationFrame(s)})(st)}
+  function startClip(){loopT=0;fadingOut=false;ended=false;fade(1,500)}
+  function loop(ts){
+    var dt=Math.min((ts-last)/1000,.1);last=ts;
+    if(!document.hidden){t+=dt;draw();
+      if(!ended){loopT+=dt;
+        if(!fadingOut&&DUR-loopT<=.55){fadingOut=true;fade(0,500)}
+        if(loopT>=DUR){ended=true;op=0;cv.style.opacity=0;setTimeout(startClip,100)}}}
+    requestAnimationFrame(loop)}
+  size();addEventListener('resize',function(){size();draw()});t=3;draw();
+  if(still){cv.style.opacity=1}else{startClip();requestAnimationFrame(function(ts){last=ts;requestAnimationFrame(loop)})}
+  // form
+  var f=document.getElementById('f'),em=document.getElementById('em'),msg=document.getElementById('msg');
+  f.addEventListener('submit',function(e){e.preventDefault();var v=em.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){msg.className='msg err';msg.textContent='Please enter a valid email address.';em.setAttribute('aria-invalid','true');em.focus();return}
+    em.removeAttribute('aria-invalid');msg.className='msg';msg.textContent='Thank you. You are subscribed as '+v+'.';em.value='';
+    try{localStorage.setItem('asme-sub',v)}catch(x){}});
+  var dlg=document.getElementById('dlg');
+  document.getElementById('mf').addEventListener('click',function(){if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','')});
+  document.getElementById('dc').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open')});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault()})});
+})();
+</script>
+</body>
+</html>

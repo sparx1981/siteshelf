@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nexus IT Solutions — Hero Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Akshar is a Google font outside the local list; Oswald is the closest listed fallback for the screenshot checker. -->
+<link href="https://fonts.googleapis.com/css2?family=Akshar:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--background:0 0% 100%;--foreground:220 20% 20%;--primary:212 72% 18%;--muted-foreground:220 10% 42%;--muted:220 14% 94%;--heading-gradient-from:212 72% 10%;--heading-gradient-to:205 65% 48%}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:hsl(var(--background));color:hsl(var(--foreground));font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;background:none;color:inherit;border:0;padding:0}
+:focus-visible{outline:3px solid hsl(205 65% 48%);outline-offset:3px}
+.font-akshar{font-family:'Akshar','Oswald',sans-serif}
+.page{min-height:100vh;background:hsl(var(--background))}
+.wrap{height:100vh;height:100svh;min-height:640px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.bg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.content{position:relative;z-index:10;display:flex;flex-direction:column;flex:1;min-height:0}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;max-width:80rem;margin:0 auto;width:100%;gap:48px}
+.logo{font-size:1.25rem;font-weight:500;letter-spacing:.05em;color:hsl(var(--foreground))}
+.links{display:none;gap:32px;list-style:none;margin:0;padding:0}
+.links a{font-size:1.125rem;letter-spacing:.05em;color:hsl(var(--muted-foreground));transition:color .2s;padding:6px 0}
+.links a:hover{color:hsl(var(--foreground))}
+@media(min-width:900px){.links{display:flex}}
+.touch{border:1px solid hsl(var(--foreground)/.1);color:hsl(var(--muted-foreground));text-transform:uppercase;letter-spacing:.05em;font-size:1.25rem;padding:8px 20px;border-radius:0;transition:background-color .2s,color .2s;white-space:nowrap;background:rgba(255,255,255,.5)}
+.touch:hover{background:hsl(var(--muted-foreground));color:hsl(var(--background))}
+main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px}
+h1{margin:0;font-weight:400;line-height:1.25;font-size:2.25rem;max-width:48rem;letter-spacing:-.06em}
+@media(min-width:768px){h1{font-size:3rem}}
+@media(min-width:1024px){h1{font-size:3.75rem}}
+.heading-gradient{background:linear-gradient(180deg,hsl(var(--heading-gradient-from)),hsl(var(--heading-gradient-to)));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;padding-bottom:.08em}
+.sub{margin:24px 0 0;color:hsl(var(--muted-foreground));font-size:1.125rem;max-width:36rem}
+@media(min-width:768px){.sub{font-size:1.25rem}}
+.notch{position:relative;margin-top:36px;display:inline-block;padding:18px 44px;background:hsl(var(--primary));color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:1rem;font-weight:500;clip-path:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px);transition:background-color .25s,transform .25s}
+.notch:hover{background:hsl(212 72% 26%);transform:translateY(-2px)}
+.notch i{position:absolute;display:block;background:rgba(255,255,255,.55)}
+.notch .h{width:10px;height:1px}.notch .v{width:1px;height:10px}
+.tl.h{top:4px;left:4px}.tl.v{top:4px;left:4px}
+.tr.h{top:4px;right:4px}.tr.v{top:4px;right:4px}
+.bl.h{bottom:4px;left:4px}.bl.v{bottom:4px;left:4px}
+.br.h{bottom:4px;right:4px}.br.v{bottom:4px;right:4px}
+.notch:focus-visible{outline-offset:6px}
+.trusted{text-align:center;padding:0 24px 40px}
+.trusted p{margin:0;font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:hsl(var(--muted-foreground));font-weight:500}
+.brands{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 48px;margin-top:18px;list-style:none;padding:0}
+.brands li{font-size:1.125rem;font-weight:700;letter-spacing:.025em;color:hsl(var(--foreground));opacity:.55}
+@media(min-width:768px){.brands li{font-size:1.5rem}}
+dialog{border:0;border-radius:0;padding:0;width:min(440px,calc(100vw - 32px));box-shadow:0 30px 80px rgba(10,30,60,.3);color:hsl(var(--foreground))}
+dialog::backdrop{background:rgba(10,25,50,.45)}
+dialog form{padding:28px;display:grid;gap:14px}
+dialog h2{margin:0;font-size:1.5rem;font-weight:500;letter-spacing:.02em}
+dialog label{display:grid;gap:6px;font-size:.8rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+dialog input,dialog textarea{border:1px solid hsl(220 14% 80%);padding:10px 12px;font:inherit;text-transform:none;letter-spacing:0;border-radius:0;min-width:0;width:100%}
+dialog input[aria-invalid="true"]{border-color:#b91c1c}
+.err{color:#b91c1c;font-size:.85rem;min-height:1.2em}
+.ok{background:#eaf4fb;padding:12px;font-size:.9rem}
+.acts{display:flex;justify-content:flex-end;gap:10px}
+.acts .touch{font-size:1rem;padding:8px 16px}
+.acts .notch{margin:0;padding:10px 24px;font-size:.9rem}
+.mbtn{display:none;width:44px;height:44px;align-items:center;justify-content:center}
+.mm{position:absolute;top:70px;left:0;right:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid hsl(220 14% 88%);padding:12px 24px;display:flex;flex-direction:column}
+.mm a{padding:12px 0;font-size:1.125rem;letter-spacing:.05em;color:hsl(var(--foreground))}
+@media(max-width:899px){.mbtn{display:flex}.nav{gap:12px}}
+@media(max-width:640px){.nav{padding:16px 20px}.touch{font-size:1rem;padding:8px 14px}.notch{padding:16px 30px}.trusted{padding-bottom:28px}}
+@media (prefers-reduced-motion: reduce){.notch,.touch{transition:none}}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="wrap">
+  <canvas class="bg" id="bg" aria-hidden="true"></canvas>
+  <div class="content">
+    <header>
+      <nav class="nav" aria-label="Primary">
+        <a class="logo font-akshar" href="#" aria-label="Nexus home">&lt;NEXUS&gt;</a>
+        <ul class="links font-akshar">
+          <li><a href="#">HOME</a></li><li><a href="#">SOLUTIONS</a></li><li><a href="#">OUR TEAM</a></li><li><a href="#">NEWS</a></li>
+        </ul>
+        <div style="display:flex;align-items:center;gap:8px">
+          <button class="touch font-akshar" type="button" data-open>GET IN TOUCH</button>
+          <button class="mbtn" type="button" id="mb" aria-label="Open menu" aria-expanded="false" aria-controls="mm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        </div>
+      </nav>
+      <div class="mm font-akshar" id="mm" hidden><a href="#">HOME</a><a href="#">SOLUTIONS</a><a href="#">OUR TEAM</a><a href="#">NEWS</a></div>
+    </header>
+    <main>
+      <h1 class="heading-gradient">We drive companies beyond their biggest obstacles</h1>
+      <p class="sub font-akshar">Accelerating Growth through IT Strategy, Digital Innovation, and Custom-Built Technology Platforms</p>
+      <button class="notch font-akshar" type="button" data-open>START YOUR JOURNEY
+        <i class="tl h"></i><i class="tl v"></i><i class="tr h"></i><i class="tr v"></i><i class="bl h"></i><i class="bl v"></i><i class="br h"></i><i class="br v"></i>
+      </button>
+    </main>
+    <section class="trusted" aria-label="Trusted by">
+      <p>Trusted by leading innovators worldwide</p>
+      <!-- invented wordmarks, not real company logos -->
+      <ul class="brands"><li>Parcelo</li><li>stratus</li><li>MERIDIAN</li><li>harbor point</li></ul>
+    </section>
+  </div>
+</div>
+</div>
+
+<dialog id="dlg" aria-labelledby="dh">
+  <form id="f" novalidate method="dialog">
+    <h2 id="dh" class="font-akshar">Let's talk</h2>
+    <label>Work email<input id="em" type="email" placeholder="you@example.com" autocomplete="email"></label>
+    <label>What are you trying to solve?<textarea id="msg" rows="3"></textarea></label>
+    <div class="err" id="err" role="alert"></div>
+    <div class="ok" id="ok" role="status" hidden></div>
+    <div class="acts"><button type="button" class="touch font-akshar" id="cancel">CLOSE</button><button type="submit" class="notch font-akshar">SEND</button></div>
+  </form>
+</dialog>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var mb=document.getElementById('mb'),mm=document.getElementById('mm');
+  function setM(o){mm.hidden=!o;mb.setAttribute('aria-expanded',o)}
+  mb.addEventListener('click',function(){setM(mm.hidden)});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&!mm.hidden){setM(false);mb.focus()}});
+  addEventListener('resize',function(){if(innerWidth>=900)setM(false)});
+  document.querySelectorAll('.links a,.mm a,.logo').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();setM(false)})});
+  var dlg=document.getElementById('dlg'),f=document.getElementById('f'),em=document.getElementById('em'),err=document.getElementById('err'),ok=document.getElementById('ok');
+  document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){ok.hidden=true;err.textContent='';if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');em.focus()})});
+  document.getElementById('cancel').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+  f.addEventListener('submit',function(e){e.preventDefault();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em.value.trim())){em.setAttribute('aria-invalid','true');err.textContent='Please enter a valid email address.';em.focus();return}
+    em.removeAttribute('aria-invalid');err.textContent='';ok.hidden=false;ok.textContent='Thanks. Our team will reply to '+em.value.trim()+' within one business day.';
+  });
+
+  // Stand-in for the background video: slowly rolling blue wireframe terrain on white
+  var cv=document.getElementById('bg'),ctx=cv.getContext('2d'),W,H,t=4,last=0;
+  function size(){W=cv.width=Math.max(2,Math.round(cv.clientWidth*.75));H=cv.height=Math.max(2,Math.round(cv.clientHeight*.75))}
+  size();addEventListener('resize',function(){size();draw()});
+  function draw(){
+    ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);
+    var glow=ctx.createRadialGradient(W*.5,H*.95,0,W*.5,H*.95,W*.7);glow.addColorStop(0,'rgba(120,180,230,.28)');glow.addColorStop(.6,'rgba(190,222,245,.12)');glow.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,W,H);
+    var rows=30,cols=70,hz=H*.56;
+    for(var r=0;r<=rows;r++){
+      var f=r/rows,persp=Math.pow(f,1.7);              // 0 far .. 1 near
+      var yBase=hz+persp*(H*.5),amp=H*(.01+persp*.12),span=W*(.9+persp*1.4);
+      ctx.beginPath();
+      for(var c=0;c<=cols;c++){
+        var u=c/cols,x=W/2+(u-.5)*span;
+        var yy=yBase-amp*(Math.sin(u*7+t*.5+r*.22)*.6+Math.sin(u*13-t*.35+r*.4)*.4+Math.sin(u*3+t*.2)*.6);
+        if(c===0)ctx.moveTo(x,yy);else ctx.lineTo(x,yy);
+      }
+      // occlude lines behind, fade terrain in toward the bottom
+      ctx.lineTo(W+span,H+10);ctx.lineTo(-span,H+10);ctx.closePath();
+      ctx.fillStyle='rgba(255,255,255,.88)';ctx.fill();
+      ctx.strokeStyle='rgba(40,120,200,'+(.12+persp*.3)+')';ctx.lineWidth=Math.max(.8,.6+persp*1.2);
+      ctx.beginPath();
+      for(c=0;c<=cols;c++){u=c/cols;x=W/2+(u-.5)*span;yy=yBase-amp*(Math.sin(u*7+t*.5+r*.22)*.6+Math.sin(u*13-t*.35+r*.4)*.4+Math.sin(u*3+t*.2)*.6);if(c===0)ctx.moveTo(x,yy);else ctx.lineTo(x,yy)}
+      ctx.stroke();
+    }
+    // keep the text zone clean
+    var cl=ctx.createLinearGradient(0,0,0,H);cl.addColorStop(0,'rgba(255,255,255,0)');cl.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=cl;ctx.fillRect(0,0,W,H);
+  }
+  draw();
+  function loop(ts){if(document.hidden){last=0;requestAnimationFrame(loop);return}var dt=last?Math.min((ts-last)/1000,.1):0;last=ts;t+=dt;draw();requestAnimationFrame(loop)}
+  if(!reduce)requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

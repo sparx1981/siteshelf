@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digitwist AI Builder — SaaS</title>
+<!-- Instrument Sans is not in the local font set; DM Sans is the fallback. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ff:"Instrument Sans","DM Sans",system-ui,sans-serif;--fs:"Instrument Serif",Georgia,serif}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:#000;color:#fff}
+body{font-family:var(--ff);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid #8fa4ff;outline-offset:3px}
+header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:transparent}
+.logo{display:flex;color:#fff}
+.logo svg{width:24px;height:24px}
+.nav{display:none;align-items:center;gap:32px;font-size:14px;font-weight:500}
+.nav a,.nav button{color:rgba(255,255,255,.8);transition:color .2s;background:none;border:0;font:inherit;display:flex;align-items:center;gap:4px;cursor:pointer;padding:6px 0}
+.nav a:hover,.nav button:hover{color:#fff}
+.nav svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.right{display:flex;align-items:center;gap:20px;font-size:14px;font-weight:500}
+.right .demo{display:none;color:rgba(255,255,255,.8)}
+.right .demo:hover{color:#fff}
+.gs{background:#fff;color:#000;border-radius:999px;padding:10px 20px;font-weight:600;font-size:14px;transition:background .2s}
+.gs:hover{background:#e8ecff}
+.hero{position:relative;width:100%;min-height:100vh;background:#000;color:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:96px 20px 64px}
+.vid{position:absolute;inset:0;opacity:.6;overflow:hidden}
+.vid canvas{width:100%;height:100%;display:block}
+.ov{position:absolute;inset:0;background:rgba(0,0,0,.6);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.g1,.g2{position:absolute;border-radius:50%;filter:blur(120px);mix-blend-mode:screen;pointer-events:none}
+.g1{top:-20%;left:20%;width:600px;height:600px;background:rgba(23,37,84,.2);background:rgba(30,58,138,.2)}
+.g2{bottom:-10%;right:20%;width:500px;height:500px;background:rgba(49,46,129,.2)}
+.content{position:relative;z-index:10;max-width:64rem;margin:80px auto 0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:48px;min-width:0}
+.pre{font-family:var(--fs);font-weight:400;font-size:30px;line-height:1.1;margin:0;animation:up .6s both}
+h1{margin:0;font-weight:600;font-size:60px;line-height:.9;letter-spacing:-.05em;background:linear-gradient(to bottom,#fff,#fff,#b4c0ff);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:sc .6s .2s both;padding-bottom:.08em}
+.sub{margin:0;font-size:18px;line-height:1.65;max-width:36rem;color:#fff;opacity:.7;animation:fd .6s .4s both}
+.btns{display:flex;flex-direction:column;align-items:center;gap:24px;animation:up .5s .6s both}
+.p{display:inline-flex;align-items:center;gap:16px;background:#fff;color:#0a0400;border-radius:999px;padding:8px 8px 8px 24px;font-weight:500;font-size:18px;transition:transform .25s,box-shadow .25s}
+.p:hover{box-shadow:0 0 20px rgba(255,255,255,.3);transform:scale(1.05)}
+.p i{width:40px;height:40px;border-radius:50%;background:#3054ff;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.p:hover i{background:#2040e0}
+.p svg,.s svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.s{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.7);padding:8px 16px;border-radius:8px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);transition:background .2s,color .2s}
+.s:hover{color:#fff;background:rgba(255,255,255,.05)}
+.s svg{stroke:currentColor;transition:transform .2s}
+.s:hover svg{transform:translateX(4px)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#fff;color:#0a0400;padding:12px 18px;border-radius:12px;font-size:14px;font-weight:500;opacity:0;pointer-events:none;transition:.3s;z-index:60;max-width:calc(100vw - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes sc{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+@keyframes fd{from{opacity:0}to{opacity:.7}}
+@media(min-width:640px){.pre{font-size:48px}h1{font-size:96px}.sub{font-size:20px}.btns{flex-direction:row}.right .demo{display:block}}
+@media(min-width:768px){.nav{display:flex}}
+@media(min-width:1024px){h1{font-size:136px}}
+@media(max-width:380px){h1{font-size:52px}}
+@media(prefers-reduced-motion:reduce){.pre,h1,.sub,.btns{animation:none}.p,.s svg{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#" aria-label="Digitwist home"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><g transform="translate(12 12)"><rect x="-1" y="-11" width="2" height="7" rx="1"/><rect x="-1" y="-11" width="2" height="7" rx="1" transform="rotate(45)"/><rect x="-1" y="-11" width="2" height="7" rx="1" transform="rotate(90)"/><rect x="-1" y="-11" width="2" height="7" rx="1" transform="rotate(135)"/><rect x="-1" y="-11" width="2" height="7" rx="1" transform="rotate(180)"/><rect x="-1" y="-11" width="2" height="7" rx="1" transform="rotate(225)"/><rect x="-1" y="-11" width="2" height="7" rx="1" transform="rotate(270)"/><rect x="-1" y="-11" width="2" height="7" rx="1" transform="rotate(315)"/></g></svg></a>
+  <nav class="nav" aria-label="Primary">
+    <button type="button" aria-haspopup="true">Products <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <a href="#stories">Customer Stories</a>
+    <a href="#resources">Resources</a>
+    <a href="#pricing">Pricing</a>
+  </nav>
+  <div class="right">
+    <a class="demo" href="#demo">Book A Demo</a>
+    <a class="gs" href="#start">Get Started</a>
+  </div>
+</header>
+<main>
+<section class="hero" aria-labelledby="h">
+  <div class="vid" aria-hidden="true"><canvas id="cv"></canvas></div>
+  <div class="ov" aria-hidden="true"></div>
+  <div class="g1" aria-hidden="true"></div>
+  <div class="g2" aria-hidden="true"></div>
+  <div class="content">
+    <p class="pre">Design at the speed of thought</p>
+    <h1 id="h">Build Faster</h1>
+    <p class="sub">Create fully functional, SEO-optimized websites in seconds with our advanced AI engine.</p>
+    <div class="btns">
+      <a class="p" href="#start">Start Building Free <i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+      <a class="s" href="#examples">See Examples <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cv=document.getElementById('cv'),ctx=cv.getContext('2d'),W,H,dpr,nodes=[],t=0,last=performance.now(),raf;
+  function R(s){return function(){s=(s*9301+49297)%233280;return s/233280}}
+  function size(){var r=cv.parentNode.getBoundingClientRect();dpr=Math.min(devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;
+    var rnd=R(7),n=Math.round(Math.min(90,W*H/14000));nodes=[];
+    for(var i=0;i<n;i++)nodes.push({x:rnd()*W,y:rnd()*H,z:.3+rnd()*.9,a:rnd()*6.28,s:.15+rnd()*.35,h:rnd()})}
+  size();addEventListener('resize',size);
+  function draw(){
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    var bg=ctx.createLinearGradient(0,0,W,H);bg.addColorStop(0,'#040818');bg.addColorStop(.5,'#0b1440');bg.addColorStop(1,'#03050f');
+    ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+    // flowing aurora ribbons
+    ctx.globalCompositeOperation='lighter';
+    for(var k=0;k<3;k++){
+      ctx.beginPath();
+      for(var x=-20;x<=W+20;x+=24){var y=H*(.35+.2*k)+Math.sin(x*.004+t*.35+k*2)*H*.12+Math.sin(x*.011-t*.5+k)*H*.04;x==-20?ctx.moveTo(x,y):ctx.lineTo(x,y)}
+      ctx.strokeStyle=['rgba(70,110,255,.35)','rgba(140,90,255,.25)','rgba(60,170,255,.22)'][k];ctx.lineWidth=50+k*30;ctx.lineCap='round';ctx.filter='blur(30px)';ctx.stroke();ctx.filter='none';
+    }
+    // neural network
+    for(var i=0;i<nodes.length;i++){var a=nodes[i];a.a+=a.s*.004;
+      var px=a.x+Math.cos(a.a+t*.2)*30*a.z,py=a.y+Math.sin(a.a*1.3+t*.25)*30*a.z;a.px=px;a.py=py}
+    ctx.lineWidth=1;
+    for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){
+      var dx=nodes[i].px-nodes[j].px,dy=nodes[i].py-nodes[j].py,d=Math.sqrt(dx*dx+dy*dy),m=190;
+      if(d<m){ctx.strokeStyle='rgba(120,160,255,'+(.35*(1-d/m))+')';ctx.beginPath();ctx.moveTo(nodes[i].px,nodes[i].py);ctx.lineTo(nodes[j].px,nodes[j].py);ctx.stroke()}}
+    nodes.forEach(function(a){var r=2+a.z*3,g=ctx.createRadialGradient(a.px,a.py,0,a.px,a.py,r*5);
+      g.addColorStop(0,'rgba(190,210,255,.95)');g.addColorStop(.3,'rgba(100,140,255,.4)');g.addColorStop(1,'rgba(60,90,255,0)');
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(a.px,a.py,r*5,0,7);ctx.fill()});
+    ctx.globalCompositeOperation='source-over';
+  }
+  function loop(now){var dt=Math.min(.05,(now-last)/1000);last=now;t+=dt;draw();if(!document.hidden)raf=requestAnimationFrame(loop)}
+  t=3;draw();
+  if(!reduce)raf=requestAnimationFrame(function(n){last=n;loop(n)});
+  document.addEventListener('visibilitychange',function(){if(!document.hidden&&!reduce){last=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(loop)}});
+  addEventListener('resize',function(){if(reduce)draw()});
+  // placeholder links
+  var toast=document.getElementById('toast'),tt;
+  var msg={'#start':'Demo preview: sign-up is not connected.','#examples':'Demo preview: examples gallery not included.','#demo':'Demo preview: booking is not connected.'};
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var m=msg[a.getAttribute('href')];if(!m)return;toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},2200)})});
+})();
+</script>
+</body>
+</html>

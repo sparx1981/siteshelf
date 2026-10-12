@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web3 EOS Hero — Web3</title>
+<!-- General Sans (Fontshare) is replaced by DM Sans, the closest face in the local set. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--font:'DM Sans','General Sans',sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:#000;color:#fff;font-family:var(--font);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;background:#000;isolation:isolate}
+.hero>canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block}
+.hero>.ov{position:absolute;inset:0;background:rgba(0,0,0,.5);z-index:1}
+.layer{position:relative;z-index:10;flex:1;display:flex;flex-direction:column}
+
+/* nav */
+nav.n{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;gap:16px}
+@media(min-width:768px){nav.n{padding:20px 48px}}
+@media(min-width:1280px){nav.n{padding:20px 120px}}
+.nl{display:flex;align-items:center;gap:30px;min-width:0}
+.logo{display:block;width:187px;height:25px;flex:none}
+.logo svg{display:block;width:100%;height:100%}
+@media(max-width:420px){.logo{width:150px;height:20px}}
+.links{display:none;align-items:center;gap:30px;list-style:none;margin:0;padding:0}
+@media(min-width:768px){.links{display:flex}}
+.links li{position:relative}
+.links button{display:inline-flex;align-items:center;gap:14px;font-size:14px;font-weight:500;padding:6px 0}
+.links button svg{width:14px;height:14px;transition:transform .2s}
+.links button[aria-expanded=true] svg{transform:rotate(180deg)}
+.links button:hover{opacity:.8}
+.dd{position:absolute;top:calc(100% + 10px);left:-14px;min-width:210px;padding:6px;border-radius:14px;background:rgba(14,14,18,.94);border:1px solid rgba(255,255,255,.14);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);display:grid;gap:2px;z-index:30}
+.dd a{padding:9px 12px;font-size:14px;border-radius:9px;color:rgba(255,255,255,.85)}
+.dd a:hover{background:rgba(255,255,255,.09);color:#fff}
+
+/* layered pill button */
+.jw{position:relative;display:inline-flex;border:.6px solid #fff;border-radius:999px;padding:2px;isolation:isolate;transition:transform .25s}
+.jw:hover{transform:translateY(-1px)}
+.jw::before{content:"";position:absolute;left:12%;right:12%;top:-6px;height:9px;border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.95) 50%,rgba(255,255,255,0));filter:blur(5px);-webkit-filter:blur(5px);pointer-events:none;z-index:-1}
+.jw span{display:block;border-radius:999px;padding:11px 29px;font-size:14px;font-weight:500;line-height:1.2;white-space:nowrap;background:#000;color:#fff}
+.jw.w span{background:#fff;color:#000}
+.jw.w::before{filter:blur(6px);-webkit-filter:blur(6px)}
+@media(max-width:420px){.jw span{padding:10px 20px}}
+
+/* hero content */
+.hc{flex:1;display:flex;flex-direction:column;align-items:center;gap:40px;text-align:center;padding:200px 20px 102px}
+@media(min-width:768px){.hc{padding-top:280px}}
+@media(max-width:767px){.hc{padding-top:128px}}
+.badge{display:inline-flex;align-items:center;gap:8px;border-radius:20px;padding:7px 14px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);font-size:13px;font-weight:500;max-width:100%}
+.badge i{display:block;width:4px;height:4px;border-radius:50%;background:#fff;flex:none}
+.badge .dim{color:rgba(255,255,255,.6)}
+.tx{display:flex;flex-direction:column;align-items:center}
+h1{margin:0;max-width:613px;font-size:36px;font-weight:500;line-height:1.28;background-image:linear-gradient(144.5deg,#fff 28%,rgba(0,0,0,0) 115%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+@media(min-width:768px){h1{font-size:56px}}
+.tx p{margin:24px 0 0;max-width:680px;font-size:15px;font-weight:400;line-height:1.6;color:rgba(255,255,255,.7)}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.modal .box{width:100%;max-width:420px;border-radius:24px;padding:28px;background:#0a0a0e;border:1px solid rgba(255,255,255,.18)}
+.modal h2{margin:0 0 6px;font-size:24px;font-weight:500}
+.modal p{margin:0 0 16px;font-size:14px;color:rgba(255,255,255,.7)}
+.modal input{width:100%;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:#fff;font:inherit}
+.modal input::placeholder{color:rgba(255,255,255,.55)}
+.modal .row{display:flex;gap:10px;margin-top:14px}
+.modal .row button{flex:1;padding:12px;border-radius:999px;font-weight:500;font-size:14px}
+.modal .ok{background:#fff;color:#000}.modal .no{border:1px solid rgba(255,255,255,.3)}
+.modal .msg{min-height:20px;margin-top:8px;font-size:13px}
+.mt{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;border-radius:50%;border:.6px solid #fff}
+.mt svg{width:18px;height:18px}
+@media(min-width:768px){.mt{display:none}}
+.mm{padding:0 24px 12px;display:grid;gap:0}
+.mm a{padding:12px 0;font-size:15px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.12)}
+@media(min-width:768px){.mm{display:none}}
+.rt{display:flex;align-items:center;gap:10px}
+@media(max-width:767px){.rt .jw{display:none}}
+@media(prefers-reduced-motion:reduce){.jw,.links button svg{transition:none}}
+</style>
+</head>
+<body>
+<section class="hero" aria-label="EOS">
+  <canvas id="bg" aria-hidden="true"></canvas><div class="ov"></div>
+  <div class="layer">
+    <header>
+      <nav class="n" aria-label="Primary">
+        <div class="nl">
+          <a href="#top" class="logo" aria-label="LOGOIPSUM home">
+            <svg viewBox="0 0 187 25" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><g fill="#fff"><path d="M12.5 0 25 6.25v12.5L12.5 25 0 18.75V6.25zm0 5.2-7.4 3.7v7.2l7.4 3.7 7.4-3.7V8.9z" fill-rule="evenodd"/><circle cx="12.5" cy="12.5" r="3.2"/></g>
+              <text x="36" y="19.5" font-family="DM Sans,Inter,sans-serif" font-size="20" font-weight="600" fill="#fff" letter-spacing="2.2" textLength="148" lengthAdjust="spacingAndGlyphs">LOGOIPSUM</text></svg>
+          </a>
+          <ul class="links">
+            <li><button type="button" data-dd="d1" aria-expanded="false" aria-haspopup="true">Get Started <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd" id="d1" hidden><a href="#">Quickstart</a><a href="#">Create a wallet</a><a href="#">Deploy a contract</a></div></li>
+            <li><button type="button" data-dd="d2" aria-expanded="false" aria-haspopup="true">Developers <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd" id="d2" hidden><a href="#">Documentation</a><a href="#">SDKs</a><a href="#">Testnet faucet</a></div></li>
+            <li><button type="button" data-dd="d3" aria-expanded="false" aria-haspopup="true">Features <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd" id="d3" hidden><a href="#">Real-time settlement</a><a href="#">Account abstraction</a><a href="#">Parallel execution</a></div></li>
+            <li><button type="button" data-dd="d4" aria-expanded="false" aria-haspopup="true">Resources <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="dd" id="d4" hidden><a href="#">Blog</a><a href="#">Community</a><a href="#">Brand kit</a></div></li>
+          </ul>
+        </div>
+        <div class="rt">
+          <button type="button" class="jw join" aria-label="Join Waitlist"><span>Join Waitlist</span></button>
+          <button type="button" class="mt" id="mt" aria-label="Open menu" aria-expanded="false" aria-controls="mm"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        </div>
+      </nav>
+      <div class="mm" id="mm" hidden><a href="#">Get Started</a><a href="#">Developers</a><a href="#">Features</a><a href="#">Resources</a><a href="#" class="join" style="border:0">Join Waitlist</a></div>
+    </header>
+
+    <main class="hc" id="top">
+      <div class="badge"><i></i><span><span class="dim">Early access available from</span> May 1, 2026</span></div>
+      <div class="tx">
+        <h1>Web3 at the Speed of Experience</h1>
+        <p>Powering seamless experiences and real-time connections, EOS is the base for creators who move with purpose, leveraging resilience, speed, and scale to shape the future.</p>
+      </div>
+      <button type="button" class="jw w join" aria-label="Join Waitlist"><span>Join Waitlist</span></button>
+    </main>
+  </div>
+</section>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mh" hidden>
+  <form class="box" id="mf" novalidate>
+    <h2 id="mh">Join the waitlist</h2>
+    <p>Early access opens May 1, 2026. We will email you when your spot is ready.</p>
+    <label for="mem" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email</label>
+    <input id="mem" type="email" placeholder="you@example.com" autocomplete="email">
+    <div class="msg" id="mmsg" role="alert"></div>
+    <div class="row"><button type="button" class="no" id="mno">Cancel</button><button type="submit" class="ok">Join</button></div>
+  </form>
+</div>
+
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* stand-in for the video: neon perspective data-grid flying toward a glowing horizon */
+var cv=document.getElementById('bg'),ctx=cv.getContext('2d'),W=1,H=1,t=RM?3:0,last=0,raf=0;
+function size(){var r=cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,1.5);W=Math.max(1,r.width);H=Math.max(1,r.height);cv.width=Math.round(W*d);cv.height=Math.round(H*d);ctx.setTransform(d,0,0,d,0,0);if(RM)draw()}
+function hgt(x,z,tt){return Math.sin(x*.9+tt*.5)*.55+Math.sin(z*.55-tt*.8+x*.3)*.7+Math.sin(x*.35-z*.3+tt*.3)*.5}
+function draw(){
+  ctx.globalCompositeOperation='source-over';
+  var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#02030c');g.addColorStop(.5,'#0b0f3a');g.addColorStop(.62,'#1b1a6e');g.addColorStop(1,'#050616');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  var hy=H*.5,cx=W*.5;
+  ctx.globalCompositeOperation='lighter';
+  var og=ctx.createRadialGradient(cx,hy,0,cx,hy,W*.5);og.addColorStop(0,'rgba(120,140,255,.75)');og.addColorStop(.25,'rgba(110,70,230,.35)');og.addColorStop(1,'rgba(60,40,200,0)');ctx.fillStyle=og;ctx.fillRect(0,0,W,H);
+  var COLS=34,ROWS=30,sp=1.0,scroll=(t*.9)%1,F=H*.62;
+  var pts=[];
+  for(var r=0;r<=ROWS;r++){
+    var z=(r-scroll)+.4;if(z<.35)z=.35;
+    var row=[];
+    for(var c=0;c<=COLS;c++){
+      var wx=(c-COLS/2)*sp*1.25,h=hgt(wx,z+t*.9,t)*(.35+.05*z);
+      var sc=F/(z*1.15+.2);
+      row.push([cx+wx*sc*.5,hy+(1.45-h*.5)*sc*.5,z]);
+    }
+    pts.push(row);
+  }
+  ctx.lineWidth=1;
+  for(var r=0;r<=ROWS;r++){
+    var z=pts[r][0][2],a=Math.max(0,1-z/ROWS)*.9;
+    ctx.strokeStyle='rgba('+(120+r*3)+','+(150-r*2)+',255,'+a*.95+')';ctx.beginPath();
+    for(var c=0;c<=COLS;c++){var p=pts[r][c];if(c===0)ctx.moveTo(p[0],p[1]);else ctx.lineTo(p[0],p[1])}ctx.stroke();
+  }
+  for(var c=0;c<=COLS;c+=1){ctx.strokeStyle='rgba(150,130,255,.38)';ctx.beginPath();for(var r=0;r<=ROWS;r++){var p=pts[r][c];if(r===0)ctx.moveTo(p[0],p[1]);else ctx.lineTo(p[0],p[1])}ctx.stroke()}
+  for(var r=0;r<=ROWS;r+=1)for(var c=0;c<=COLS;c+=2){var p=pts[r][c],a=Math.max(0,1-p[2]/ROWS);ctx.fillStyle='rgba(190,215,255,'+a*.9+')';ctx.fillRect(p[0]-1,p[1]-1,2.2,2.2)}
+  /* drifting light streaks above horizon */
+  for(var i=0;i<26;i++){var s=(i*0.618+t*.03*(1+i%3))%1,x=((i*.37)%1)*W,y=hy*(1-s*1.05);ctx.fillStyle='rgba(180,200,255,'+(.5*(1-s))+')';ctx.fillRect(x,y,1.4,10+(i%5)*6)}
+  ctx.globalCompositeOperation='source-over';
+}
+function frame(n){raf=0;if(!last)last=n;var dt=Math.min(.05,(n-last)/1000);last=n;t+=dt;draw();if(!document.hidden)raf=requestAnimationFrame(frame)}
+size();if(window.ResizeObserver)new ResizeObserver(size).observe(cv);else addEventListener('resize',size);
+if(RM)draw();else{draw();var go=function(){if(!raf){last=0;raf=requestAnimationFrame(frame)}};document.addEventListener('visibilitychange',function(){if(!document.hidden)go()});go()}
+
+/* dropdowns */
+var btns=document.querySelectorAll('[data-dd]');
+function closeAll(ex){btns.forEach(function(b){if(b!==ex){b.setAttribute('aria-expanded','false');document.getElementById(b.dataset.dd).hidden=true}})}
+btns.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var o=b.getAttribute('aria-expanded')!=='true';closeAll(b);b.setAttribute('aria-expanded',String(o));document.getElementById(b.dataset.dd).hidden=!o})});
+document.addEventListener('click',function(){closeAll()});
+var mt=document.getElementById('mt'),mm=document.getElementById('mm');
+mt.addEventListener('click',function(){var o=mm.hidden;mm.hidden=!o;mt.setAttribute('aria-expanded',String(o));mt.setAttribute('aria-label',o?'Close menu':'Open menu')});
+/* waitlist modal */
+var modal=document.getElementById('modal'),mem=document.getElementById('mem'),mmsg=document.getElementById('mmsg'),from=null;
+function openM(e){e.preventDefault();from=e.currentTarget;modal.hidden=false;mmsg.textContent='';setTimeout(function(){mem.focus()},20)}
+function closeM(){modal.hidden=true;if(from&&from.offsetParent!==null)from.focus()}
+document.querySelectorAll('.join').forEach(function(b){b.addEventListener('click',openM)});
+document.getElementById('mno').addEventListener('click',closeM);
+modal.addEventListener('click',function(e){if(e.target===modal)closeM()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();if(!modal.hidden)closeM()}});
+document.getElementById('mf').addEventListener('submit',function(e){e.preventDefault();var v=mem.value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){mmsg.style.color='#ffb4b4';mmsg.textContent='Please enter a valid email address.';mem.focus();return}
+  try{localStorage.setItem('eos-waitlist',v)}catch(x){}
+  mmsg.style.color='#b6f5c8';mmsg.textContent='You are on the list. See you May 1.';mem.value='';setTimeout(closeM,1300)});
+})();
+</script>
+</body>
+</html>

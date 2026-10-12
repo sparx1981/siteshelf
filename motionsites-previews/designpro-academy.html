@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DesignPro Academy — Hero Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:#000;color:#fff}
+body{font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;color:inherit}
+:focus-visible{outline:3px solid #64CEFB;outline-offset:3px}
+.hero{position:relative;height:100vh;min-height:640px;background:#000;overflow:hidden;display:flex;flex-direction:column}
+.vid{position:absolute;inset:0;overflow:hidden}
+.vid canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.vid::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,rgba(0,0,0,.2),rgba(0,0,0,.55) 75%),linear-gradient(180deg,rgba(0,0,0,.35),transparent 30%)}
+.in{position:relative;z-index:10;width:100%;max-width:80rem;margin:0 auto;padding:0 16px;flex:1;display:flex;flex-direction:column;min-height:0}
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;gap:16px;position:relative}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:18px}
+.logo i{width:28px;height:28px;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center}
+.logo i::after{content:"";width:12px;height:12px;border-radius:50%;background:#fff}
+.links{display:none;align-items:center;gap:4px;border:1px solid #374151;border-radius:999px;padding:6px 8px;font-size:14px;background:rgba(0,0,0,.35);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.links a{color:rgba(255,255,255,.8);padding:8px 14px;border-radius:999px;transition:color .2s,background .2s;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.links a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.links svg,.cta svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.spacer{display:none;width:120px}
+.burger{width:44px;height:44px;border-radius:999px;border:1px solid #374151;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.burger svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
+.mm{position:absolute;left:0;right:0;top:calc(100% - 4px);background:rgba(8,12,18,.96);border:1px solid #374151;border-radius:20px;padding:10px;display:flex;flex-direction:column;z-index:30;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.mm a{padding:12px 14px;border-radius:12px;color:rgba(255,255,255,.85);font-size:15px;display:flex;align-items:center;gap:6px}
+.mm a:hover{background:rgba(255,255,255,.08);color:#fff}
+.mm svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.top{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;padding-top:24px}
+.top p{margin:0;color:rgba(255,255,255,.8);font-size:14px;line-height:1.55;max-width:28rem}
+.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-bottom:48px;gap:0}
+.eyebrow{margin:0 0 20px;text-transform:uppercase;font-size:12px;letter-spacing:-.025em;color:rgba(255,255,255,.8);font-weight:500}
+h1{margin:0;font-size:48px;line-height:.85;letter-spacing:-.05em;font-weight:500}
+h1 .l1{display:block;color:#fff}
+.shiny{display:block;font-weight:600;padding-bottom:.1em;background-image:linear-gradient(100deg,#64CEFB 0%,#64CEFB 35%,#fff 50%,#64CEFB 65%,#64CEFB 100%);background-size:200% 100%;background-position:150% 0;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shine 3s linear infinite}
+@keyframes shine{from{background-position:150% 0}to{background-position:-50% 0}}
+.cta{margin-top:36px;display:inline-flex;align-items:center;gap:8px;background:#000;color:#fff;border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:12px 24px;font-size:15px;font-weight:500;transition:background .2s,border-color .2s;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.cta:hover{background:#111827;border-color:rgba(255,255,255,.5)}
+.cta svg{width:18px;height:18px;transition:transform .2s}
+.cta:hover svg{transform:translateX(4px)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#fff;color:#000;padding:12px 18px;border-radius:12px;font-size:14px;font-weight:500;opacity:0;pointer-events:none;transition:.3s;z-index:60;max-width:calc(100vw - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(min-width:640px){h1{font-size:72px}.eyebrow{font-size:14px}.top p{font-size:16px}}
+@media(min-width:768px){h1{font-size:96px}.cta{padding:16px 32px;font-size:16px}.in{padding:0 24px}}
+@media(min-width:1024px){
+ h1{font-size:112px}
+ .links{display:flex}.burger{display:none}
+ .top{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+ .top p:last-child{text-align:right;justify-self:end}
+}
+@media(min-width:1280px){h1{font-size:128px}}
+@media(max-width:380px){h1{font-size:42px}}
+@media(max-height:700px) and (min-width:1024px){h1{font-size:88px}}
+@media(prefers-reduced-motion:reduce){.shiny{animation:none;background-position:50% 0}.cta svg{transition:none}}
+</style>
+</head>
+<body>
+<section class="hero" aria-labelledby="h">
+  <div class="vid" aria-hidden="true"><canvas id="cv"></canvas></div>
+  <div class="in">
+    <nav aria-label="Primary">
+      <a class="logo" href="#home"><i aria-hidden="true"></i>DesignPro</a>
+      <div class="links">
+        <a href="#home">Home</a><a href="#about">About Us</a><a href="#courses">Courses</a><a href="#instructors">Instructors</a><a href="#testimonials">Testimonials</a><a href="#blog">Blog</a>
+        <a href="#contact">Contact us <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+      <button class="burger" id="bg" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mm"><svg viewBox="0 0 24 24" aria-hidden="true" id="bgi"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <div class="mm" id="mm" hidden>
+        <a href="#home">Home</a><a href="#about">About Us</a><a href="#courses">Courses</a><a href="#instructors">Instructors</a><a href="#testimonials">Testimonials</a><a href="#blog">Blog</a>
+        <a href="#contact">Contact us <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+    </nav>
+    <div class="top">
+      <p>We deliver transformative programs that empower emerging product designers with cutting-edge expertise and vision to thrive globally.</p>
+      <p>8000+ Talented Designers Launched !</p>
+    </div>
+    <div class="center">
+      <p class="eyebrow">Seats for Next Program Opening Soon</p>
+      <h1 id="h"><span class="l1">Become</span><span class="shiny">Product Leader.</span></h1>
+      <a class="cta" href="#apply">Apply for Next Enrollment <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cv=document.getElementById('cv'),ctx=cv.getContext('2d'),W,H,dpr,t=7,last=performance.now(),raf;
+  function size(){var r=cv.getBoundingClientRect();dpr=Math.min(devicePixelRatio||1,1.5);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;if(reduce)draw()}
+  function draw(){
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    var g=ctx.createLinearGradient(0,0,W,H);g.addColorStop(0,'#01050c');g.addColorStop(.5,'#06182c');g.addColorStop(1,'#010309');
+    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    ctx.globalCompositeOperation='lighter';
+    // soft glow blobs
+    [[.25,.7,'30,110,200'],[.78,.35,'60,170,230'],[.5,.95,'20,70,160']].forEach(function(b,i){
+      var x=W*(b[0]+Math.sin(t*.12+i*2)*.08),y=H*(b[1]+Math.cos(t*.1+i)*.06),r=Math.max(W,H)*.45;
+      var gr=ctx.createRadialGradient(x,y,0,x,y,r);gr.addColorStop(0,'rgba('+b[2]+',.28)');gr.addColorStop(1,'rgba('+b[2]+',0)');ctx.fillStyle=gr;ctx.fillRect(0,0,W,H)});
+    // silk ribbons: bundles of fine lines following flowing sine curves
+    for(var k=0;k<4;k++){
+      var base=H*(.3+k*.17),amp=H*(.09+.02*k),ph=k*1.7;
+      for(var l=0;l<26;l++){
+        var off=(l-13)*(5+k*1.4),a=.05+.1*(1-Math.abs(l-13)/13);
+        ctx.beginPath();
+        for(var x=-10;x<=W+10;x+=16){
+          var y=base+off*(1+.6*Math.sin(x*.003+t*.15+ph))+Math.sin(x*.0042+t*.28+ph)*amp+Math.sin(x*.011-t*.4+ph*2)*amp*.25;
+          x==-10?ctx.moveTo(x,y):ctx.lineTo(x,y)}
+        ctx.strokeStyle='rgba('+(k%2?'100,206,251':'60,130,230')+','+a+')';ctx.lineWidth=1;ctx.stroke();
+      }
+    }
+    ctx.globalCompositeOperation='source-over';
+  }
+  size();addEventListener('resize',size);
+  draw();
+  function loop(n){var dt=Math.min(.05,(n-last)/1000);last=n;t+=dt;draw();if(!document.hidden)raf=requestAnimationFrame(loop)}
+  if(!reduce)raf=requestAnimationFrame(function(n){last=n;loop(n)});
+  document.addEventListener('visibilitychange',function(){if(!document.hidden&&!reduce){last=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(loop)}});
+  var bg=document.getElementById('bg'),mm=document.getElementById('mm'),bi=document.getElementById('bgi');
+  function setMenu(o){mm.hidden=!o;bg.setAttribute('aria-expanded',o);bg.setAttribute('aria-label',o?'Close menu':'Open menu');bi.innerHTML=o?'<path d="M6 6l12 12M18 6 6 18"/>':'<path d="M4 7h16M4 12h16M4 17h16"/>'}
+  bg.addEventListener('click',function(){setMenu(mm.hidden)});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&!mm.hidden){setMenu(false);bg.focus()}});
+  addEventListener('resize',function(){if(innerWidth>=1024)setMenu(false)});
+  var toast=document.getElementById('toast'),tt;
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();setMenu(false);
+    var h=a.getAttribute('href');toast.textContent=h==='#apply'?'Demo preview: enrollment is not connected.':'Demo preview: this page is not included.';toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},2200)})});
+})();
+</script>
+</body>
+</html>

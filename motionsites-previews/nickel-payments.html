@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nickel Payments — SaaS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f2f7;--fg:#16161d;--primary:#f2761f;--mfg:#6d6d7b;--border:#e1e1e8;--nav:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html,body{background:var(--bg)}
+body{font-family:Inter,system-ui,sans-serif;color:var(--fg);-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid #1a56db;outline-offset:3px;border-radius:8px}
+header{padding:16px 24px 0;position:relative;z-index:30}
+@media(min-width:1024px){header{padding:16px 32px 0}}
+nav.bar{max-width:80rem;margin:0 auto;background:var(--nav);border-radius:12px;box-shadow:0 1px 2px rgba(20,20,40,.06);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;position:relative}
+@media(max-width:560px){nav.bar{padding:12px 14px}.logo{font-size:22px}nav.bar .right{gap:10px}nav.bar .right .btn{height:40px;padding:0 14px;font-size:16px}}
+.logo{flex:none}
+.logo{display:inline-flex;align-items:center;gap:8px;font-size:24px;font-weight:700;letter-spacing:-.025em}
+.logo i{width:28px;height:28px;border-radius:50%;background:var(--fg);display:grid;place-items:center}
+.logo i b{width:12px;height:12px;border-radius:2px;background:#fff;display:block}
+.links{display:none;gap:24px;align-items:center}
+@media(min-width:768px){.links{display:flex}.burger{display:none!important}}
+.links>*{position:relative}
+.lk{font:500 16px/1.5 Inter,sans-serif;color:rgba(22,22,29,.8);background:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 2px;transition:color .2s}
+.lk:hover,.lk[aria-expanded=true]{color:var(--fg)}
+.lk svg{width:14px;height:14px;transition:transform .2s}
+.lk[aria-expanded=true] svg{transform:rotate(180deg)}
+.menu{position:absolute;top:calc(100% + 14px);left:-16px;min-width:230px;background:#fff;border-radius:12px;box-shadow:0 18px 40px -8px rgba(20,20,50,.18),0 0 0 1px rgba(20,20,50,.06);padding:8px;z-index:20}
+.menu a{display:block;padding:10px 12px;border-radius:8px;font-size:15px;font-weight:500;color:rgba(22,22,29,.85)}
+.menu a small{display:block;font-weight:400;color:var(--mfg);font-size:13px;margin-top:2px}
+.menu a:hover{background:#f4f3f8}
+.right{display:flex;align-items:center;gap:20px}
+.login{display:none}
+@media(min-width:640px){.login{display:inline}}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;font:500 18px/1.2 Inter,sans-serif;cursor:pointer;border:0;transition:opacity .2s,background .2s,transform .15s;height:44px;padding:0 22px;white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.hero-b{text-shadow:0 1px 2px rgba(110,35,0,.5);background:linear-gradient(to bottom,hsl(24,100%,72%),hsl(18,98%,53%));color:#fff;box-shadow:0 8px 20px -8px rgba(240,100,30,.55),inset 0 1px 0 rgba(255,255,255,.35)}
+.hero-b:hover{opacity:.9}
+.hero-o{background:#fff;color:var(--fg);box-shadow:0 0 0 1px var(--border)}
+.hero-o:hover{background:#ececf2}
+.xl{height:56px;padding:0 40px}
+.burger{width:44px;height:44px;border-radius:8px;border:1px solid var(--border);background:#fff;display:grid;place-items:center;cursor:pointer}
+.burger svg{width:20px;height:20px}
+.mob{position:absolute;left:0;right:0;top:calc(100% + 8px);background:#fff;border-radius:12px;padding:10px;box-shadow:0 18px 40px -8px rgba(20,20,50,.2);z-index:25}
+.mob a{display:block;padding:12px 14px;border-radius:8px;font-weight:500}
+.mob a:hover{background:#f4f3f8}
+.hero{position:relative;overflow:hidden;overflow-x:clip;min-height:calc(100vh - 4rem);background:var(--bg)}
+.hero .in{max-width:80rem;margin:0 auto;padding:0 24px;min-height:calc(100vh - 4rem);display:flex;align-items:center;width:100%;position:relative;z-index:10}
+@media(min-width:1024px){.hero .in{padding:0 32px}}
+.txt{max-width:36rem;padding:56px 0}
+h1{font-size:clamp(2.6rem,11vw,3rem);font-weight:500;letter-spacing:-.025em;line-height:1.05}
+@media(min-width:640px){h1{font-size:3.75rem}}
+@media(min-width:1024px){h1{font-size:4.5rem}}
+.txt p{margin-top:24px;font-size:18px;color:var(--mfg);line-height:1.625;max-width:30rem}
+@media(min-width:640px){.txt p{font-size:20px}}
+.row{margin-top:40px;display:flex;flex-wrap:wrap;gap:16px}
+.vid{position:absolute;top:0;right:0;width:55%;height:100%;display:none;border-bottom-left-radius:16px;overflow:hidden;background:linear-gradient(150deg,#ffcda8,#ff8a4a 55%,#f2601b)}
+@media(min-width:1024px){.vid{display:block}}
+.vid canvas{width:100%;height:100%;display:block}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#16161d;color:#fff;padding:12px 18px;border-radius:10px;font-size:15px;z-index:50;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+</style>
+</head>
+<body>
+<header>
+  <nav class="bar" aria-label="Primary">
+    <a class="logo" href="#" aria-label="nickel home"><i><b></b></i>nickel</a>
+    <div class="links">
+      <div><button class="lk" type="button" aria-expanded="false" aria-haspopup="true" data-dd="p">Products <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="menu" id="dd-p" hidden><a href="#">Payments<small>Accept cards, ACH and wires</small></a><a href="#">Net terms<small>Extend credit to your buyers</small></a><a href="#">Collections<small>Automated, compliant follow-up</small></a></div></div>
+      <div><button class="lk" type="button" aria-expanded="false" aria-haspopup="true" data-dd="c">Company <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="menu" id="dd-c" hidden><a href="#">About us</a><a href="#">Careers</a><a href="#">Press</a></div></div>
+      <a class="lk" href="#">Pricing</a>
+      <a class="lk" href="#">For Accountants</a>
+    </div>
+    <div class="right">
+      <a class="lk login" href="#">Log in</a>
+      <button class="btn hero-b" type="button" data-toast="Thanks! Account sign-up is not part of this preview.">Get started</button>
+      <button class="burger" type="button" id="burger" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+    <div class="mob" id="mob" hidden><a href="#">Products</a><a href="#">Company</a><a href="#">Pricing</a><a href="#">For Accountants</a><a href="#">Log in</a></div>
+  </nav>
+</header>
+<main>
+<section class="hero" aria-labelledby="h">
+  <div class="in">
+    <div class="txt">
+      <h1 id="h">Unlock growth with every payment</h1>
+      <p>Run payments, extend net terms and automate collections compliance.</p>
+      <div class="row">
+        <button class="btn hero-b xl" type="button" data-toast="Thanks! Account sign-up is not part of this preview.">Get started</button>
+        <button class="btn hero-o xl" type="button" data-toast="A human will be in touch (not really, this is a preview).">Talk to a human</button>
+      </div>
+    </div>
+  </div>
+  <div class="vid" aria-hidden="true"><canvas id="cv"></canvas></div>
+</section>
+</main>
+<div class="toast" id="toast" role="status" hidden></div>
+<script>
+(function(){
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+// dropdowns
+var btns=document.querySelectorAll('[data-dd]');
+function closeAll(){btns.forEach(function(b){b.setAttribute('aria-expanded','false');document.getElementById('dd-'+b.dataset.dd).hidden=true})}
+btns.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var open=b.getAttribute('aria-expanded')==='true';closeAll();if(!open){b.setAttribute('aria-expanded','true');document.getElementById('dd-'+b.dataset.dd).hidden=false}})});
+document.addEventListener('click',function(e){if(!e.target.closest('.links'))closeAll()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();mobClose()}});
+var bg=document.getElementById('burger'),mob=document.getElementById('mob');
+function mobClose(){mob.hidden=true;bg.setAttribute('aria-expanded','false')}
+bg.addEventListener('click',function(e){e.stopPropagation();var o=mob.hidden;mob.hidden=!o;bg.setAttribute('aria-expanded',String(o))});
+document.addEventListener('click',function(e){if(!e.target.closest('#mob')&&e.target!==bg)mobClose()});
+document.querySelectorAll('a[href="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault()})});
+var tt=document.getElementById('toast'),tm;
+document.querySelectorAll('[data-toast]').forEach(function(b){b.addEventListener('click',function(){tt.textContent=b.dataset.toast;tt.hidden=false;clearTimeout(tm);tm=setTimeout(function(){tt.hidden=true},2600)})});
+// stand-in for hero video: flowing orange ribbons + coins
+var cv=document.getElementById('cv'),ctx=cv.getContext('2d'),W=1,H=1,dpr=1,t=0,last=0,raf=0;
+function size(){var r=cv.parentNode.getBoundingClientRect();if(!r.width)return;dpr=Math.min(window.devicePixelRatio||1,1.5);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+var coins=[];for(var i=0;i<9;i++)coins.push({x:.12+((i*37)%80)/100,y:.1+((i*53)%80)/100,r:22+(i*13%34),p:i*1.3,s:.3+(i%4)*.1});
+function draw(){
+ var g=ctx.createLinearGradient(0,0,W,H);g.addColorStop(0,'#ffd7b8');g.addColorStop(.45,'#ff9a55');g.addColorStop(1,'#f0560f');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+ for(var i=0;i<6;i++){
+  var gg=ctx.createLinearGradient(0,0,W,0);
+  var a=.18+i*.05;
+  gg.addColorStop(0,'rgba(255,240,225,'+a+')');gg.addColorStop(.5,'rgba(255,150,80,'+a*.8+')');gg.addColorStop(1,'rgba(200,60,10,'+a*.9+')');
+  ctx.fillStyle=gg;ctx.beginPath();
+  var base=H*(.12+i*.15),n=40,amp=H*.07+i*8;
+  for(var k=0;k<=n;k++){var x=k/n*W,y=base+Math.sin(x/W*3.1+t*.35+i*.9)*amp+Math.cos(x/W*6.2-t*.25+i)*amp*.35;k?ctx.lineTo(x,y):ctx.moveTo(x,y)}
+  for(var k=n;k>=0;k--){var x=k/n*W,y=base+H*.16+Math.sin(x/W*3.1+t*.35+i*.9+.7)*amp*1.15;ctx.lineTo(x,y)}
+  ctx.closePath();ctx.fill();
+ }
+ for(var j=0;j<coins.length;j++){var c=coins[j];var x=c.x*W+Math.sin(t*c.s+c.p)*18,y=c.y*H+Math.cos(t*c.s*.8+c.p)*22,r=c.r;
+  var cg=ctx.createRadialGradient(x-r*.35,y-r*.4,r*.1,x,y,r);cg.addColorStop(0,'rgba(255,255,255,.95)');cg.addColorStop(.5,'rgba(255,225,200,.55)');cg.addColorStop(1,'rgba(255,120,50,.35)');
+  ctx.fillStyle=cg;ctx.beginPath();ctx.arc(x,y,r,0,6.2832);ctx.fill();ctx.strokeStyle='rgba(255,255,255,.55)';ctx.lineWidth=1.5;ctx.stroke();
+  ctx.strokeStyle='rgba(255,255,255,.35)';ctx.beginPath();ctx.arc(x,y,r*.62,0,6.2832);ctx.stroke()}
+ var v=ctx.createRadialGradient(W*.5,H*.5,H*.3,W*.5,H*.5,H*.85);v.addColorStop(0,'rgba(120,20,0,0)');v.addColorStop(1,'rgba(120,30,0,.28)');ctx.fillStyle=v;ctx.fillRect(0,0,W,H);
+}
+function loop(ts){raf=requestAnimationFrame(loop);var dt=Math.min(.05,(ts-last)/1000||0);last=ts;t+=dt;draw()}
+function start(){if(!raf&&!reduce&&!document.hidden){last=performance.now();raf=requestAnimationFrame(loop)}}
+function stop(){if(raf){cancelAnimationFrame(raf);raf=0}}
+size();t=2;draw();start();
+addEventListener('resize',function(){size();draw()});
+document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
+})();
+</script>
+</body>
+</html>

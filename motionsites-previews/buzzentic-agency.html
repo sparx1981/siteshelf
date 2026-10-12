@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buzzentic Agency — Agency</title>
+<!-- Barlow is a Google font; Archivo is linked as a close fallback for the screenshot checker. Video background is stood in for by a canvas of drifting light over a dusk sky. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Barlow:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#171717;--off:#f8f8f8}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{font-family:'Barlow','Archivo',system-ui,sans-serif;color:#fff;background:#120d24;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a,button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;overflow:clip;isolation:isolate}
+.bg{position:absolute;inset:0;z-index:-1;overflow:hidden}
+.bg canvas{width:100%;height:100%;display:block}
+header{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px clamp(16px,4vw,48px)}
+.brand{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:500;letter-spacing:-.01em;text-decoration:none;padding:6px 10px;border-radius:2px;transition:background-color .2s}
+.brand svg{width:26px;height:26px}
+.brand:hover{background:rgba(255,255,255,.1)}
+nav ul{list-style:none;padding:0;display:flex;gap:4px}
+nav a{display:block;padding:8px 14px;font-size:15px;text-decoration:none;border-radius:2px;transition:background-color .2s}
+nav a:hover{background:rgba(255,255,255,.1)}
+.menu-btn{display:none;background:none;border:0;padding:10px;border-radius:2px;cursor:pointer;transition:background-color .2s}
+.menu-btn:hover{background:rgba(255,255,255,.1)}
+.menu-btn svg{display:block;width:26px;height:26px}
+main{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px clamp(16px,4vw,48px) 250px;min-width:0}
+.badge{display:inline-flex;padding:4px;border-radius:999px;background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);text-decoration:none;margin-bottom:34px;transition:background-color .2s}
+.badge span{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--ink);font-size:14px;font-weight:500;transition:background-color .2s}
+.badge:hover{background:rgba(255,255,255,.18)}
+.badge:hover span{background:#fff}
+.badge i{width:6px;height:6px;border-radius:50%;background:#e3342f;display:block}
+.frame{position:relative;max-width:980px;width:100%;padding:56px clamp(20px,5vw,64px);text-align:center;display:flex;flex-direction:column;align-items:center;min-width:0}
+.frame>.c{position:absolute;width:7px;height:7px;background:#fff}
+.c.tl{top:0;left:0}.c.tr{top:0;right:0}.c.bl{bottom:0;left:0}.c.br{bottom:0;right:0}
+h1{font-weight:300;font-size:64px;line-height:1.05;letter-spacing:-.02em;max-width:100%}
+h1 em{display:block;font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+.sub{margin-top:24px;max-width:560px;font-size:18px;line-height:1.55;color:rgba(255,255,255,.75)}
+.cta{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:2px;background:var(--off);color:var(--ink);font-weight:500;font-size:16px;text-decoration:none;border:0;cursor:pointer;transition:background-color .2s}
+.btn:hover{background:#fff}
+.btn.ghost{background:rgba(255,255,255,.1);color:#fff;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.btn.ghost:hover{background:rgba(255,255,255,.2)}
+.sheet{position:fixed;inset:0;z-index:20;background:rgba(14,10,30,.97);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.sheet a{font-size:30px;font-weight:300;text-decoration:none;padding:8px 18px;border-radius:2px}
+.sheet a:hover{background:rgba(255,255,255,.1)}
+.sheet .x{position:absolute;top:22px;right:16px;background:none;border:0;padding:10px;cursor:pointer}
+.sheet .x svg{width:26px;height:26px;display:block}
+@media(max-width:820px){nav.d{display:none}.menu-btn{display:block}}
+@media(max-width:640px){h1{font-size:clamp(36px,11.5vw,64px)}.sub{font-size:16px}main{padding-bottom:140px}.frame{padding:44px 20px}.btn{padding:13px 22px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="bg" aria-hidden="true"><canvas id="cv"></canvas></div>
+  <header>
+    <a class="brand" href="#top" aria-label="Buzzentic home"><svg viewBox="0 0 26 26" fill="none" aria-hidden="true"><path d="M3 5h12a5 5 0 0 1 0 8H3zM3 13h14a5 5 0 0 1 0 8H3z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>Buzzentic</a>
+    <nav class="d" aria-label="Primary"><ul>
+      <li><a href="#work">Work</a></li><li><a href="#services">Services</a></li><li><a href="#results">Results</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <button class="menu-btn" id="open" aria-label="Open menu" aria-expanded="false" aria-controls="sheet"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </header>
+  <main id="top">
+    <a class="badge" href="#press"><span><i></i>Featured in Fortune</span></a>
+    <div class="frame">
+      <b class="c tl"></b><b class="c tr"></b><b class="c bl"></b><b class="c br"></b>
+      <h1>Agency that makes your <em>videos &amp; reels viral</em></h1>
+      <p class="sub">We script, shoot and edit short-form video that stops the scroll. Strategy-led content for brands that want reach, recall and real revenue from every post.</p>
+      <div class="cta"><a class="btn" href="#contact">Book a free strategy call</a><a class="btn ghost" href="#work">See our reels</a></div>
+    </div>
+  </main>
+</div>
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="x" id="close" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  <a href="#work">Work</a><a href="#services">Services</a><a href="#results">Results</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
+</div>
+<script>
+(function(){
+  var cv=document.getElementById('cv'),c=cv.getContext('2d'),W,H,t=0,last=0,still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var B=[[.2,.75,.55,'255,92,140',.5,.12,0],[.75,.65,.5,'255,150,70',.4,.1,2],[.5,.3,.45,'110,80,230',.35,.1,4],[.1,.2,.4,'60,120,255',.3,.12,1],[.9,.2,.4,'200,70,200',.3,.1,3]];
+  function size(){var d=Math.min(devicePixelRatio||1,1.5);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;c.setTransform(d,0,0,d,0,0)}
+  function draw(){
+    var g=c.createLinearGradient(0,0,0,H);g.addColorStop(0,'#0c0a22');g.addColorStop(.55,'#2a1450');g.addColorStop(1,'#6a2450');
+    c.globalCompositeOperation='source-over';c.fillStyle=g;c.fillRect(0,0,W,H);
+    c.globalCompositeOperation='lighter';
+    var s=Math.max(W,H);
+    B.forEach(function(b){
+      var x=(b[0]+Math.sin(t*.25+b[6])*b[5])*W,y=(b[1]+Math.cos(t*.2+b[6]*1.3)*b[5])*H,r=b[2]*s*.8;
+      var rg=c.createRadialGradient(x,y,0,x,y,r);rg.addColorStop(0,'rgba('+b[3]+','+b[4]+')');rg.addColorStop(1,'rgba('+b[3]+',0)');
+      c.fillStyle=rg;c.fillRect(0,0,W,H);
+    });
+    c.globalCompositeOperation='source-over';
+    // light streaks, like lens flares drifting across footage
+    for(var i=0;i<14;i++){var p=(t*.03*(1+i%3)+i*.137)%1,x2=p*(W+300)-150,y2=H*(.15+((i*53)%70)/100);
+      var lg=c.createLinearGradient(x2-90,y2,x2+90,y2);lg.addColorStop(0,'rgba(255,255,255,0)');lg.addColorStop(.5,'rgba(255,255,255,.10)');lg.addColorStop(1,'rgba(255,255,255,0)');
+      c.fillStyle=lg;c.fillRect(x2-90,y2,180,1.5)}
+    // vertical frame glow, like a phone screen in the dark
+    var v=c.createRadialGradient(W*.5,H*.55,0,W*.5,H*.55,s*.5);v.addColorStop(0,'rgba(20,8,40,.35)');v.addColorStop(1,'rgba(20,8,40,0)');c.fillStyle=v;c.fillRect(0,0,W,H);
+  }
+  function loop(ts){var dt=Math.min((ts-last)/1000,.1);last=ts;if(!document.hidden){t+=dt;draw()}requestAnimationFrame(loop)}
+  size();addEventListener('resize',function(){size();draw()});
+  t=1.5;draw();
+  if(!still)requestAnimationFrame(function(ts){last=ts;requestAnimationFrame(loop)});
+  var sheet=document.getElementById('sheet'),open=document.getElementById('open'),close=document.getElementById('close');
+  function setMenu(v){sheet.hidden=!v;open.setAttribute('aria-expanded',v);if(v)close.focus();else open.focus()}
+  open.addEventListener('click',function(){setMenu(true)});close.addEventListener('click',function(){setMenu(false)});
+  sheet.addEventListener('click',function(e){if(e.target.tagName==='A'){e.preventDefault();setMenu(false)}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!sheet.hidden)setMenu(false)});
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault()})});
+})();
+</script>
+</body>
+</html>

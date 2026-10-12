@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Targo Logistics Hero — SaaS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#EE3F2C;--cut:12px;--pad:64px}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:#000;color:#fff;font-family:Rubik,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;background:#000;isolation:isolate}
+.hero>canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block}
+header{position:relative;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:28px var(--pad) 0;gap:16px}
+.logo{display:inline-flex;align-items:center;gap:10px;color:#fff}
+.logo svg{display:block;height:28px;width:auto}
+.nav{display:none;align-items:center;gap:36px;list-style:none;margin:0;padding:0}
+.nav a{font-size:15px;font-weight:400;padding:6px 2px;position:relative;transition:color .2s}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav a:hover::after,.nav a[aria-current]::after{transform:scaleX(1)}
+@media(min-width:820px){.nav{display:flex}}
+.rt{display:flex;align-items:center;gap:12px}
+.clip{clip-path:polygon(0 0,calc(100% - var(--cut)) 0,100% var(--cut),100% 100%,var(--cut) 100%,0 calc(100% - var(--cut)));-webkit-clip-path:polygon(0 0,calc(100% - var(--cut)) 0,100% var(--cut),100% 100%,var(--cut) 100%,0 calc(100% - var(--cut)))}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:500;text-transform:none;letter-spacing:0;transition:filter .2s,transform .2s}
+.btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.red{background:var(--red);color:#fff}
+.white{background:#fff;color:#000}
+.sm{padding:10px 20px;font-size:14px;--cut:8px}
+.lg{padding:16px 32px;font-size:16px;--cut:12px}
+.burger{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.3)}
+.burger svg{width:22px;height:22px}
+@media(min-width:820px){.burger{display:none}}
+.mnav{position:relative;z-index:20;margin:8px var(--pad) 0;padding:6px 18px;display:grid;background:rgba(10,10,10,.88);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.mnav a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:16px}
+.mnav a:last-child{border-bottom:0}
+@media(min-width:820px){.mnav{display:none!important}}
+
+.mainc{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:56px var(--pad) var(--pad)}
+.copy{max-width:760px}
+h1{margin:0 0 28px;font-size:64px;font-weight:700;line-height:1.02;letter-spacing:-.04em;text-transform:uppercase;text-shadow:0 2px 30px rgba(0,0,0,.45)}
+.copy .btn{--cut:12px}
+
+.card{position:relative;max-width:440px;width:100%;padding:28px;border-radius:20px;border:1px solid rgba(255,255,255,.12);
+ background:linear-gradient(135deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.03) 38%,rgba(255,255,255,0) 60%),rgba(255,255,255,.04);
+ -webkit-backdrop-filter:blur(40px) saturate(180%);backdrop-filter:blur(40px) saturate(180%);
+ box-shadow:inset 0 1px 1px rgba(255,255,255,.25),inset 0 -20px 40px rgba(255,255,255,.03),0 24px 60px rgba(0,0,0,.35);overflow:hidden}
+.card h2{margin:0 0 8px;font-size:22px;font-weight:600;letter-spacing:-.02em}
+.card p{margin:0 0 20px;font-size:14px;line-height:1.55;color:rgba(255,255,255,.78)}
+.card .btn{--cut:10px;padding:14px 26px;font-size:15px}
+.card .btn svg{width:18px;height:18px}
+
+.modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.modal .box{width:100%;max-width:440px;padding:28px;background:#0c0c0c;border:1px solid rgba(255,255,255,.16);border-top:3px solid var(--red)}
+.modal h2{margin:0 0 6px;font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:-.03em}
+.modal p{margin:0 0 16px;font-size:14px;color:rgba(255,255,255,.75)}
+.modal label{display:block;font-size:13px;margin:12px 0 6px;color:rgba(255,255,255,.85)}
+.modal input{width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.06);color:#fff;font:inherit;font-size:15px}
+.modal input::placeholder{color:rgba(255,255,255,.5)}
+.modal .row{display:flex;gap:10px;margin-top:20px}
+.modal .row button{flex:1;padding:13px 16px;font-size:15px;font-weight:500}
+.modal .no{border:1px solid rgba(255,255,255,.3)}
+.modal .msg{min-height:20px;margin-top:10px;font-size:13px}
+
+@media(max-width:819px){:root{--pad:32px}h1{font-size:42px}}
+@media(max-width:420px){h1{font-size:42px}.mainc{padding-top:40px}.card{padding:22px}header{padding-top:20px}}
+@media(prefers-reduced-motion:reduce){.btn,.nav a::after{transition:none}}
+</style>
+</head>
+<body>
+<section class="hero" aria-label="Targo">
+  <canvas id="vid" aria-hidden="true"></canvas>
+  <header>
+    <a href="#top" class="logo" aria-label="targo home">
+      <svg viewBox="0 0 104 28" aria-hidden="true"><g fill="#fff"><path d="M2 2h12l-4 7h7l-9 17 2-11H3z"/><path d="M16 2h10l-2 3.6h-10z" opacity=".55"/></g>
+        <text x="32" y="22" font-family="Rubik,sans-serif" font-size="25" font-weight="700" fill="#fff" letter-spacing="-1.2">targo</text></svg>
+    </a>
+    <nav aria-label="Primary"><ul class="nav"><li><a href="#top" aria-current="page">Home</a></li><li><a href="#about">About</a></li><li><a href="#contact" data-open>Contact Us</a></li></ul></nav>
+    <div class="rt"><button type="button" class="btn red sm clip" data-open>Contact Us</button>
+      <button type="button" class="burger" id="bb" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true" id="bi"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+  </header>
+  <div class="mnav" id="mnav" hidden><a href="#top">Home</a><a href="#about">About</a><a href="#contact" data-open>Contact Us</a></div>
+
+  <main class="mainc" id="top">
+    <div class="copy">
+      <h1>Swift and Simple Transport</h1>
+      <button type="button" class="btn red lg clip" data-open>Get Started</button>
+    </div>
+    <div class="card" id="about">
+      <h2>Book a Free Consultation</h2>
+      <p>Talk to a logistics specialist about your routes, fleet and delivery windows. We reply within one business day.</p>
+      <button type="button" class="btn white clip" data-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Book a Call</button>
+    </div>
+  </main>
+</section>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mh" hidden>
+  <form class="box" id="mf" novalidate>
+    <h2 id="mh">Book a call</h2>
+    <p>Tell us how to reach you and what you move. We will call back within one business day.</p>
+    <label for="mn">Name</label><input id="mn" type="text" autocomplete="name" placeholder="Alex Morgan">
+    <label for="mp">Phone or email</label><input id="mp" type="text" autocomplete="tel" placeholder="+1 555 0100 or alex@example.com">
+    <div class="msg" id="mmsg" role="alert"></div>
+    <div class="row"><button type="button" class="no clip" id="mno">Cancel</button><button type="submit" class="btn red clip">Request call</button></div>
+  </form>
+</div>
+
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* stand-in for the video: night highway in perspective, oncoming headlights, red tail lights, a truck, lit skyline */
+var cv=document.getElementById('vid'),ctx=cv.getContext('2d'),W=1,H=1,t=RM?4:0,last=0,raf=0;
+var rs=function(s){return function(){s=(s*9301+49297)%233280;return s/233280}}(9);
+var cars=[],bld=[],stars=[];
+for(var i=0;i<9;i++)cars.push({x:-1.55+(rs()-.5)*.3,z:1+i*3.4+rs()*1.4,v:-(5+rs()*2.5),c:'255,246,220'});
+for(var i=0;i<9;i++)cars.push({x:1.45+(rs()-.5)*.3,z:2+i*3.2+rs()*1.4,v:2.4+rs()*1.6,c:'255,48,30'});
+for(var i=0;i<60;i++)bld.push({x:rs(),w:.012+rs()*.03,h:.02+rs()*.07,win:rs()});
+for(var i=0;i<70;i++)stars.push({x:rs(),y:rs()*.5,r:rs()*1.1+.2,p:rs()*6});
+var truck={z:5,v:1.1};
+function size(){var r=cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,1.5);W=Math.max(1,r.width);H=Math.max(1,r.height);cv.width=Math.round(W*d);cv.height=Math.round(H*d);ctx.setTransform(d,0,0,d,0,0);if(RM)draw()}
+function glow(x,y,r,c,a){var g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba('+c+','+a+')');g.addColorStop(.35,'rgba('+c+','+a*.35+')');g.addColorStop(1,'rgba('+c+',0)');ctx.fillStyle=g;ctx.fillRect(x-r,y-r,r*2,r*2)}
+function draw(){
+  var hy=H*.56,vx=W*(W<700?.5:.64),F=H*.62,cam=.8;
+  ctx.globalCompositeOperation='source-over';
+  var g=ctx.createLinearGradient(0,0,0,hy);g.addColorStop(0,'#030305');g.addColorStop(.7,'#12090c');g.addColorStop(1,'#35120f');ctx.fillStyle=g;ctx.fillRect(0,0,W,hy);
+  ctx.fillStyle='#050506';ctx.fillRect(0,hy,W,H-hy);
+  for(var i=0;i<stars.length;i++){var s=stars[i];ctx.fillStyle='rgba(255,255,255,'+(.25+.3*Math.sin(t+s.p))+')';ctx.fillRect(s.x*W,s.y*hy,s.r,s.r)}
+  /* horizon glow */
+  ctx.globalCompositeOperation='lighter';
+  glow(vx,hy,W*.55,'238,63,44',.38);ctx.globalCompositeOperation='source-over';
+  /* skyline */
+  for(var i=0;i<bld.length;i++){var b=bld[i],bx=b.x*W,bw=Math.max(5,b.w*W),bh=b.h*H;ctx.fillStyle='#0a0709';ctx.fillRect(bx,hy-bh,bw,bh+2);
+    if(b.win>.35){ctx.fillStyle='rgba(255,196,130,.55)';for(var wy=hy-bh+6;wy<hy-4;wy+=9){if(((wy*7+bx)|0)%3)ctx.fillRect(bx+3,wy,2,2.5)}}
+    if(b.h>.08){ctx.fillStyle='rgba(238,63,44,'+(.5+.5*Math.sin(t*3+bx))+')';ctx.fillRect(bx+bw/2-1,hy-bh-5,2.5,2.5)}}
+  /* road */
+  var zb=cam*F/(H-hy);
+  function sx(X,z){return vx+X*F/z}
+  function sy(Y,z){return hy+(cam-Y)*F/z}
+  ctx.fillStyle='#0b0b0e';ctx.beginPath();ctx.moveTo(vx,hy);ctx.lineTo(sx(-3.2,zb),H);ctx.lineTo(sx(3.2,zb),H);ctx.closePath();ctx.fill();
+  var rg=ctx.createLinearGradient(0,hy,0,H);rg.addColorStop(0,'rgba(238,63,44,.28)');rg.addColorStop(.25,'rgba(238,63,44,.05)');rg.addColorStop(1,'rgba(255,255,255,.03)');ctx.fillStyle=rg;ctx.fillRect(0,hy,W,H-hy);
+  ctx.strokeStyle='rgba(255,255,255,.35)';ctx.lineWidth=2;
+  [-3,3].forEach(function(X){ctx.beginPath();ctx.moveTo(vx,hy);ctx.lineTo(sx(X,zb),H);ctx.stroke()});
+  /* lane dashes */
+  var off=(t*5)%2;ctx.fillStyle='rgba(255,255,255,.7)';
+  for(var z=40;z>zb;z-=2){var z1=z-off+0,z2=z1-.9;if(z2<2.2)continue;
+    var xa=sx(-.06,z1),xb=sx(.06,z1),xc=sx(-.06,z2),xd=sx(.06,z2);ctx.beginPath();ctx.moveTo(xa,sy(0,z1));ctx.lineTo(xb,sy(0,z1));ctx.lineTo(xd,sy(0,z2));ctx.lineTo(xc,sy(0,z2));ctx.fill()}
+  /* street lamps both sides */
+  ctx.globalCompositeOperation='lighter';
+  var loff=(t*5)%8;
+  for(var z=48;z>zb*1.05;z-=8){var zz=z-loff;if(zz<4)continue;
+    [-4.4,4.4].forEach(function(X){var x=sx(X,zz),yb=sy(0,zz),yt=sy(3.4,zz);ctx.strokeStyle='rgba(120,120,130,.35)';ctx.lineWidth=Math.max(1,F/zz*.04);ctx.beginPath();ctx.moveTo(x,yb);ctx.lineTo(x,yt);ctx.stroke();glow(x,yt,F/zz*.7,'255,190,120',.7)})}
+  /* cars */
+  for(var i=0;i<cars.length;i++){var c=cars[i];
+    var z=c.z+c.v*t;var span=34;z=((z-1)%span+span)%span+1;
+    var y=sy(.35,z),a=Math.min(1,(36-z)/10)*Math.min(1,(z-3.2)/3);if(a<=0)continue;
+    var sp=.34*F/z,ls=F/z;
+    [-1,1].forEach(function(d){var x=sx(c.x+d*.55,z);glow(x,y,Math.max(4,ls*.55),c.c,.8*a);ctx.fillStyle='rgba('+c.c+','+a+')';ctx.fillRect(x-ls*.07,y-ls*.04,ls*.14,ls*.08)});
+    if(c.v<0){ctx.fillStyle='rgba(255,246,220,'+.05*a+')';ctx.beginPath();ctx.moveTo(sx(c.x-.55,z),y);ctx.lineTo(sx(c.x-1.6,Math.max(.7,z-3)),sy(0,Math.max(.7,z-3)));ctx.lineTo(sx(c.x+1.6,Math.max(.7,z-3)),sy(0,Math.max(.7,z-3)));ctx.lineTo(sx(c.x+.55,z),y);ctx.fill()}
+  }
+  ctx.globalCompositeOperation='source-over';
+  /* truck, outbound on the right lane */
+  var tz=((truck.z+truck.v*t-5)%26+26)%26+7,tx=1.5,ts=F/tz;
+  var tw=1.5*ts,th=2.1*ts,tx0=sx(tx,tz)-tw/2,ty0=sy(0,tz)-th;
+  ctx.fillStyle='#17171c';ctx.fillRect(tx0,ty0,tw,th*.92);ctx.fillStyle='#202028';ctx.fillRect(tx0,ty0,tw,th*.07);
+  ctx.fillStyle='rgba(238,63,44,.9)';ctx.fillRect(tx0+tw*.04,ty0+th*.82,tw*.12,th*.05);ctx.fillRect(tx0+tw*.84,ty0+th*.82,tw*.12,th*.05);
+  ctx.fillStyle='rgba(255,255,255,.12)';ctx.fillRect(tx0+tw*.2,ty0+th*.25,tw*.6,th*.04);
+  ctx.globalCompositeOperation='lighter';glow(tx0+tw*.1,ty0+th*.84,ts*.7,'255,48,30',.7);glow(tx0+tw*.9,ty0+th*.84,ts*.7,'255,48,30',.7);ctx.globalCompositeOperation='source-over';
+  /* left darkening for headline legibility */
+  var lg=ctx.createLinearGradient(0,0,W*.62,0);lg.addColorStop(0,'rgba(0,0,0,.55)');lg.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=lg;ctx.fillRect(0,0,W,H);
+}
+function frame(n){raf=0;if(!last)last=n;var dt=Math.min(.05,(n-last)/1000);last=n;t+=dt;draw();if(!document.hidden)raf=requestAnimationFrame(frame)}
+size();if(window.ResizeObserver)new ResizeObserver(size).observe(cv);else addEventListener('resize',size);
+if(RM)draw();else{draw();var go=function(){if(!raf){last=0;raf=requestAnimationFrame(frame)}};document.addEventListener('visibilitychange',function(){if(!document.hidden)go()});go()}
+
+/* mobile nav */
+var bb=document.getElementById('bb'),mn=document.getElementById('mnav'),bi=document.getElementById('bi');
+function setM(o){mn.hidden=!o;bb.setAttribute('aria-expanded',String(o));bb.setAttribute('aria-label',o?'Close menu':'Open menu');bi.innerHTML=o?'<path d="M6 6l12 12M18 6 6 18"/>':'<path d="M4 7h16M4 12h16M4 17h16"/>'}
+bb.addEventListener('click',function(){setM(mn.hidden)});
+mn.addEventListener('click',function(e){if(e.target.closest('a'))setM(false)});
+/* contact modal */
+var modal=document.getElementById('modal'),mnm=document.getElementById('mn'),mp=document.getElementById('mp'),msg=document.getElementById('mmsg'),from=null;
+function openM(e){e.preventDefault();from=e.currentTarget;setM(false);modal.hidden=false;msg.textContent='';setTimeout(function(){mnm.focus()},20)}
+function closeM(){modal.hidden=true;if(from&&from.offsetParent!==null)from.focus()}
+document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',openM)});
+document.getElementById('mno').addEventListener('click',closeM);
+modal.addEventListener('click',function(e){if(e.target===modal)closeM()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(!modal.hidden)closeM();else if(!mn.hidden)setM(false)}});
+document.getElementById('mf').addEventListener('submit',function(e){e.preventDefault();
+  var n=mnm.value.trim(),c=mp.value.trim();
+  if(!n){msg.style.color='#ff9c90';msg.textContent='Please enter your name.';mnm.focus();return}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c)&&c.replace(/\D/g,'').length<7){msg.style.color='#ff9c90';msg.textContent='Enter a valid phone number or email.';mp.focus();return}
+  try{localStorage.setItem('targo-lead',JSON.stringify({n:n,c:c}))}catch(x){}
+  msg.style.color='#9de8b0';msg.textContent='Thanks '+n.split(' ')[0]+', we will call you back within one business day.';mnm.value='';mp.value='';setTimeout(closeM,1600)});
+})();
+</script>
+</body>
+</html>

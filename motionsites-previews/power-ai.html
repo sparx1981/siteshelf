@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Power AI — Hero Section</title>
+<!-- General Sans (Fontshare) is replaced by DM Sans for the headline; Geist Sans body falls back to Inter in the local checker. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Geist:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--background:260 87% 3%;--foreground:40 6% 95%;--hero-sub:40 6% 82%;--fg:hsl(40 6% 95%);--bg:hsl(260 87% 3%);--sans:'Geist','Inter',sans-serif;--head:'DM Sans','General Sans',sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:3px solid #a5b4fc;outline-offset:3px}
+.liquid-glass{background:rgba(255,255,255,.01);background-blend-mode:luminosity;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border:none;box-shadow:inset 0 1px 1px rgba(255,255,255,.1);position:relative;overflow:hidden}
+.liquid-glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.4px;pointer-events:none;
+ background:linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.15) 20%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,.15) 80%,rgba(255,255,255,.45) 100%);
+ -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+
+.wrap{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;isolation:isolate}
+.wrap>canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;z-index:0;display:block}
+.hero{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;overflow:visible;min-width:0}
+.blob{position:absolute;top:50%;left:50%;width:984px;height:527px;max-width:120vw;transform:translate(-50%,-50%);opacity:.9;background:#030712;filter:blur(82px);-webkit-filter:blur(82px);pointer-events:none;z-index:-1;border-radius:50%}
+
+/* nav */
+header{position:relative;z-index:30}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;gap:16px}
+@media(max-width:520px){.bar{padding:16px 20px}}
+.brand{display:inline-flex;align-items:center;height:32px}
+.brand svg{height:32px;width:auto;display:block}
+.items{display:none;align-items:center;gap:6px;list-style:none;margin:0;padding:0}
+.items li{position:relative}
+.items button,.items a.t{display:inline-flex;align-items:center;gap:4px;padding:8px 14px;border-radius:999px;font-size:15px;color:rgba(242,241,239,.9);transition:color .2s,background .2s}
+.items button:hover,.items a.t:hover{color:#fff;background:rgba(255,255,255,.07)}
+.items svg{width:16px;height:16px;transition:transform .2s}
+.items button[aria-expanded=true] svg{transform:rotate(180deg)}
+.dd{position:absolute;top:calc(100% + 8px);left:0;min-width:200px;padding:6px;border-radius:16px;background:rgba(14,10,36,.92);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);z-index:40;display:grid;gap:2px}
+.dd a{padding:9px 12px;border-radius:10px;font-size:14px;color:rgba(242,241,239,.88)}
+.dd a:hover{background:rgba(255,255,255,.08);color:#fff}
+.signup{padding:8px 16px;border-radius:999px;font-size:15px;color:var(--fg);transition:transform .2s;display:inline-flex}
+.signup:hover{transform:translateY(-1px)}
+.right{display:flex;align-items:center;gap:8px}
+.burger{width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center}
+.burger svg{width:20px;height:20px}
+@media(min-width:880px){.items{display:flex}.burger{display:none}}
+.mnav{padding:4px 20px 14px;display:grid;gap:2px}
+.mnav a{padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.08);font-size:16px}
+.rule{height:1px;margin-top:3px;background:linear-gradient(to right,transparent,rgba(242,241,239,.2),transparent)}
+
+/* hero */
+.center{flex:1;display:flex;align-items:center;justify-content:center;padding:32px 20px;min-width:0}
+.stack{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:100%}
+h1{margin:0;font-family:var(--head);font-weight:400;font-size:clamp(76px,15.2vw,220px);line-height:1.02;letter-spacing:-.024em;white-space:nowrap}
+h1 .g{background-image:linear-gradient(to left,#6366f1,#a855f7,#fcd34d);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.sub{margin:9px 0 0;max-width:28rem;font-size:18px;line-height:2rem;color:hsl(40 6% 82%);opacity:.8}
+.consult{margin-top:25px;padding:24px 29px;border-radius:999px;font-size:16px;font-weight:500;color:var(--fg);transition:transform .25s,background .25s;line-height:1}
+.consult:hover{transform:translateY(-2px);background:rgba(255,255,255,.07)}
+@media(max-width:520px){.sub{font-size:16px;line-height:1.7}.consult{padding:20px 24px}}
+
+/* marquee */
+.logos{position:relative;z-index:10;padding:0 20px 40px}
+.logos .in{max-width:1024px;margin:0 auto;display:flex;align-items:center;gap:48px}
+.logos .lab{flex:none;font-size:14px;line-height:1.35;color:rgba(242,241,239,.6)}
+.mqw{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent)}
+.mtrack{display:flex;width:max-content;animation:mq 20s linear infinite}
+.mtrack ul{list-style:none;margin:0;padding:0 64px 0 0;display:flex;gap:64px;flex:none}
+.mtrack li{display:flex;align-items:center;gap:12px;white-space:nowrap;font-size:16px;font-weight:600}
+.ic{width:24px;height:24px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex:none}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:640px){.logos .in{flex-direction:column;align-items:flex-start;gap:16px}.mqw{width:100%}}
+@media(prefers-reduced-motion:reduce){.mtrack{animation:none}.signup,.consult{transition:none}}
+.modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(3,0,19,.7);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.modal .box{width:100%;max-width:420px;border-radius:24px;padding:28px;background:#0d0a26;border:1px solid rgba(255,255,255,.14)}
+.modal h2{margin:0 0 6px;font-family:var(--head);font-weight:500;font-size:26px}
+.modal p{margin:0 0 16px;font-size:14px;color:hsl(40 6% 82%)}
+.modal input{width:100%;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:#fff;font:inherit}
+.modal input::placeholder{color:rgba(242,241,239,.6)}
+.modal .row{display:flex;gap:10px;margin-top:14px}
+.modal .row button{flex:1;padding:12px;border-radius:999px;font-weight:500}
+.modal .ok{background:#f2f1ef;color:#0a0618}
+.modal .no{border:1px solid rgba(255,255,255,.25)}
+.modal .msg{min-height:20px;margin-top:8px;font-size:13px;color:#ffb4b4}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <canvas id="vid" aria-hidden="true"></canvas>
+  <div class="hero">
+    <div class="blob" aria-hidden="true"></div>
+    <header>
+      <div class="bar">
+        <a href="#top" class="brand" aria-label="Power AI home">
+          <svg viewBox="0 0 120 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#6366f1"/><stop offset=".55" stop-color="#a855f7"/><stop offset="1" stop-color="#fcd34d"/></linearGradient></defs>
+            <path d="M16 1.5 29 9v14L16 30.5 3 23V9z" fill="none" stroke="url(#lg)" stroke-width="2.4" stroke-linejoin="round"/><path d="M17.6 8 10.5 17.4h4.6L13.8 24l7.7-9.6h-4.7z" fill="url(#lg)"/>
+            <text x="38" y="22" font-family="DM Sans,Inter,sans-serif" font-size="19" font-weight="600" fill="#f2f1ef" letter-spacing="-.4">power</text></svg>
+        </a>
+        <nav aria-label="Primary"><ul class="items">
+          <li><button type="button" data-dd="d1" aria-expanded="false" aria-haspopup="true">Features <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="dd" id="d1" hidden><a href="#features">Candidate matching</a><a href="#features">Interview automation</a><a href="#features">Talent analytics</a></div></li>
+          <li><a class="t" href="#solutions">Solutions</a></li>
+          <li><a class="t" href="#plans">Plans</a></li>
+          <li><button type="button" data-dd="d2" aria-expanded="false" aria-haspopup="true">Learning <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="dd" id="d2" hidden><a href="#learning">Guides</a><a href="#learning">Webinars</a><a href="#learning">Case studies</a></div></li>
+        </ul></nav>
+        <div class="right">
+          <a href="#signup" class="signup liquid-glass" id="signup">Sign Up</a>
+          <button type="button" class="burger liquid-glass" id="bg" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        </div>
+      </div>
+      <div class="mnav" id="mnav" hidden><a href="#features">Features</a><a href="#solutions">Solutions</a><a href="#plans">Plans</a><a href="#learning">Learning</a></div>
+      <div class="rule"></div>
+    </header>
+
+    <main class="center" id="top">
+      <div class="stack">
+        <h1>Power <span class="g">AI</span></h1>
+        <p class="sub">The most powerful AI ever deployed<br>in talent acquisition</p>
+        <button type="button" class="consult liquid-glass" id="consult">Schedule a Consult</button>
+      </div>
+    </main>
+
+    <section class="logos" aria-label="Customers">
+      <div class="in">
+        <p class="lab" style="margin:0">Relied on by brands<br>across the globe</p>
+        <div class="mqw"><div class="mtrack" id="mt"></div></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mh" hidden>
+  <form class="box" id="mf" novalidate>
+    <h2 id="mh">Schedule a Consult</h2>
+    <p>Leave your work email and a talent partner will book 20 minutes with you.</p>
+    <label for="mem" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Work email</label>
+    <input id="mem" type="email" placeholder="name@example.com" autocomplete="email">
+    <div class="msg" id="mmsg" role="alert"></div>
+    <div class="row"><button type="button" class="no" id="mno">Cancel</button><button type="submit" class="ok">Request a slot</button></div>
+  </form>
+</div>
+
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* stand-in for the video: deep indigo portal of light arcs, with the JS-driven 0.5s fade-in / fade-out loop */
+var cv=document.getElementById('vid'),ctx=cv.getContext('2d'),W=1,H=1,t=RM?6:0,last=0,raf=0,DUR=10,wait=0;
+var rs=function(s){return function(){s=(s*9301+49297)%233280;return s/233280}}(5);
+var arcs=[],dust=[];
+var cols=['99,102,241','168,85,247','252,211,77','129,140,248','216,180,254'];
+for(var i=0;i<110;i++)arcs.push({r:.35+rs()*1.1,w:.25+rs()*1.2,a0:rs()*6.283,len:.3+rs()*1.6,sp:(rs()-.35)*.18,c:cols[Math.floor(rs()*rs()*5)],al:.06+rs()*.2});
+for(var i=0;i<90;i++)dust.push({x:rs(),y:rs(),r:.4+rs()*1.3,p:rs()*6,v:.004+rs()*.01});
+function size(){var r=cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,1.5);W=Math.max(1,r.width);H=Math.max(1,r.height);cv.width=Math.round(W*d);cv.height=Math.round(H*d);ctx.setTransform(d,0,0,d,0,0);if(RM)draw()}
+function draw(){
+  ctx.globalCompositeOperation='source-over';
+  var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#04010f');g.addColorStop(.6,'#0a0524');g.addColorStop(1,'#14093a');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  ctx.globalCompositeOperation='lighter';
+  var cx=W*.5,cy=H*1.08,S=Math.max(W*.62,H*.9);
+  function glow(x,y,r,c,a){var q=ctx.createRadialGradient(x,y,0,x,y,r);q.addColorStop(0,'rgba('+c+','+a+')');q.addColorStop(1,'rgba('+c+',0)');ctx.fillStyle=q;ctx.fillRect(x-r,y-r,r*2,r*2)}
+  glow(cx+Math.sin(t*.3)*W*.1,cy-H*.25,S*.9,'99,102,241',.38);
+  glow(cx-W*.22+Math.cos(t*.25)*W*.06,cy-H*.35,S*.6,'168,85,247',.28);
+  glow(cx+W*.18,cy-H*.12,S*.3,'252,211,77',.2+.05*Math.sin(t*.8));
+  ctx.lineCap='round';
+  for(var i=0;i<arcs.length;i++){var A=arcs[i],r=A.r*S,a0=A.a0+t*A.sp;
+    ctx.strokeStyle='rgba('+A.c+','+A.al+')';ctx.lineWidth=A.w;ctx.beginPath();ctx.ellipse(cx,cy,r,r*.72,0,a0-A.len,a0);ctx.stroke()}
+  for(var i=0;i<dust.length;i++){var d=dust[i],y=((d.y-t*d.v)%1+1)%1,a=.15+.5*Math.abs(Math.sin(t*.7+d.p));ctx.fillStyle='rgba(200,200,255,'+a*.8+')';ctx.beginPath();ctx.arc(d.x*W,y*H,d.r,0,6.283);ctx.fill()}
+  ctx.globalCompositeOperation='source-over';
+}
+function setOp(){
+  if(RM){cv.style.opacity='1';return}
+  var p=t%DUR,o=1;
+  if(p<.5)o=p/.5;else if(p>DUR-.5)o=Math.max(0,(DUR-p)/.5);
+  /* after "ended": stay at 0 for 100ms */
+  cv.style.opacity=o.toFixed(3);
+}
+function frame(n){raf=0;if(!last)last=n;var dt=Math.min(.05,(n-last)/1000);last=n;t+=dt;draw();setOp();if(!document.hidden)raf=requestAnimationFrame(frame)}
+size();if(window.ResizeObserver)new ResizeObserver(size).observe(cv);else addEventListener('resize',size);
+if(RM){draw();setOp()}else{draw();setOp();var go=function(){if(!raf){last=0;raf=requestAnimationFrame(frame)}};document.addEventListener('visibilitychange',function(){if(!document.hidden)go()});go()}
+
+/* marquee */
+var logos=[['Vortex','#6366f1'],['Nimbus','#38bdf8'],['Prysma','#a855f7'],['Cirrus','#34d399'],['Kynder','#fb923c'],['Halcyn','#fcd34d']],mt=document.getElementById('mt');
+for(var k=0;k<2;k++){var ul=document.createElement('ul');if(k)ul.setAttribute('aria-hidden','true');
+ logos.forEach(function(l){var li=document.createElement('li');li.innerHTML='<span class="ic liquid-glass" style="color:'+l[1]+'">'+l[0][0]+'</span><span>'+l[0]+'</span>';ul.appendChild(li)});
+ mt.appendChild(ul)}
+
+/* dropdowns */
+var btns=document.querySelectorAll('[data-dd]');
+function closeAll(except){btns.forEach(function(b){if(b!==except){b.setAttribute('aria-expanded','false');document.getElementById(b.dataset.dd).hidden=true}})}
+btns.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var o=b.getAttribute('aria-expanded')!=='true';closeAll(b);b.setAttribute('aria-expanded',String(o));document.getElementById(b.dataset.dd).hidden=!o})});
+document.addEventListener('click',function(){closeAll()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();if(!modal.hidden)closeModal()}});
+/* mobile menu */
+var bg=document.getElementById('bg'),mn=document.getElementById('mnav');
+bg.addEventListener('click',function(){var o=mn.hidden;mn.hidden=!o;bg.setAttribute('aria-expanded',String(o));bg.setAttribute('aria-label',o?'Close menu':'Open menu')});
+
+/* consult modal */
+var modal=document.getElementById('modal'),mem=document.getElementById('mem'),mmsg=document.getElementById('mmsg'),from=null;
+function openModal(e){e.preventDefault();from=e.currentTarget;modal.hidden=false;mmsg.textContent='';setTimeout(function(){mem.focus()},20)}
+function closeModal(){modal.hidden=true;if(from)from.focus()}
+document.getElementById('consult').addEventListener('click',openModal);
+document.getElementById('signup').addEventListener('click',openModal);
+document.getElementById('mno').addEventListener('click',closeModal);
+modal.addEventListener('click',function(e){if(e.target===modal)closeModal()});
+document.getElementById('mf').addEventListener('submit',function(e){e.preventDefault();var v=mem.value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){mmsg.style.color='#ffb4b4';mmsg.textContent='Please enter a valid email address.';mem.focus();return}
+  try{localStorage.setItem('pa-consult',v)}catch(x){}
+  mmsg.style.color='#b6f5c8';mmsg.textContent='Request received. We will be in touch shortly.';mem.value='';setTimeout(closeModal,1300)});
+})();
+</script>
+</body>
+</html>

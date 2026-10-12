@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glassmorphism Agency Hero — Agency</title>
+<!-- Generic modern sans requested: Plus Jakarta Sans. HLS video stood in for by a screen-blended canvas portal animation; customer logos replaced by invented generic wordmarks. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#010101;--grad:linear-gradient(135deg,#FA93FA 0%,#C967E8 50%,#983AD6 100%)}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html,body{background:var(--bg)}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:#fff;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid #FA93FA;outline-offset:3px}
+main{position:relative;background:var(--bg);overflow-x:clip}
+.top{position:relative;z-index:20;display:flex;flex-direction:column;align-items:center;text-align:center;padding:96px 20px 0}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:6px 16px 6px 6px;background:rgba(28,27,36,.15);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-size:14px;color:rgba(255,255,255,.72)}
+.pill i{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--grad);box-shadow:0 0 18px rgba(201,103,232,.65)}
+.pill svg{width:15px;height:15px;fill:#fff}
+h1{margin-top:28px;font-weight:700;letter-spacing:-.035em;line-height:1.05;font-size:clamp(48px,9vw,80px);background:linear-gradient(180deg,#fff 0%,#fff 35%,#E7B6F5 65%,#B25CE0 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;padding-bottom:.08em}
+.sub{margin-top:20px;max-width:560px;font-size:clamp(16px,2vw,18px);line-height:1.6;color:rgba(255,255,255,.8)}
+.cta-wrap{margin-top:36px;padding:5px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.cta{display:inline-flex;align-items:center;gap:14px;border-radius:999px;background:#fff;color:#000;font-weight:600;font-size:16px;padding:8px 8px 8px 26px;transition:transform .2s,box-shadow .2s}
+.cta:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(201,103,232,.45)}
+.cta:active{transform:scale(.98)}
+.cta i{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--grad);transition:transform .25s}
+.cta:hover i{transform:rotate(-45deg)}
+.cta svg{width:18px;height:18px;stroke:#fff}
+.vid{position:relative;z-index:10;width:100%;margin-top:-150px;background:var(--bg)}
+.vid canvas{display:block;width:100%;height:auto;aspect-ratio:16/9;mix-blend-mode:screen}
+.vid .fade{position:absolute;inset:0;background:linear-gradient(to bottom,#010101,transparent,#010101);pointer-events:none}
+.cloud{position:relative;z-index:20;background:rgba(0,0,0,.2);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border-top:1px solid rgba(255,255,255,.05);padding:36px 20px}
+.cloud-in{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:32px}
+.cloud p{flex:none;font-size:14px;color:rgba(255,255,255,.65);text-align:right;line-height:1.4;max-width:150px}
+.vdiv{flex:none;width:1px;align-self:stretch;background:rgba(255,255,255,.12)}
+.slider{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.track{display:flex;width:max-content;gap:64px;padding-right:64px;animation:slide 36s linear infinite}
+.slider:hover .track{animation-play-state:paused}
+.track svg{height:24px;width:auto;flex:none;filter:brightness(0) invert(1);opacity:.82}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (max-width:760px){
+  .top{padding-top:72px}
+  .vid{margin-top:-60px}
+  .vid canvas{aspect-ratio:1/1}
+  .cloud-in{flex-direction:column;gap:20px;align-items:center}
+  .cloud p{text-align:center;max-width:none}
+  .vdiv{display:none}
+  .slider{width:100%;flex:none}
+}
+@media (prefers-reduced-motion:reduce){.track{animation-duration:140s}.cta,.cta i{transition:none}}
+</style>
+</head>
+<body>
+<main>
+  <section class="top" aria-label="Hero">
+    <div class="pill"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></i>Used by founders. Loved by devs.</div>
+    <h1>Your Vision<br>Our Digital Reality.</h1>
+    <p class="sub">We turn bold ideas into modern designs that don't just look amazing, they grow your business fast.</p>
+    <div class="cta-wrap"><a class="cta" href="#call">Book a 15-min call<i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></i></a></div>
+  </section>
+
+  <div class="vid" aria-hidden="true">
+    <canvas id="cv"></canvas>
+    <div class="fade"></div>
+  </div>
+
+  <section class="cloud" aria-label="Customers">
+    <div class="cloud-in">
+      <p>Powering the best teams</p>
+      <span class="vdiv" aria-hidden="true"></span>
+      <div class="slider"><div class="track" id="track" role="list"></div></div>
+    </div>
+  </section>
+</main>
+<script>
+(function(){
+"use strict";
+/* invented generic wordmarks (no real company logos) */
+var marks=[
+ ['Orbitly','<circle cx="12" cy="12" r="6" fill="none" stroke="#000" stroke-width="3"/><circle cx="19" cy="6" r="3" fill="#000"/>'],
+ ['Lumen&amp;Co','<path d="M12 2 22 20H2z" fill="#000"/>'],
+ ['quanta','<rect x="3" y="3" width="8" height="8" rx="2" fill="#000"/><rect x="13" y="13" width="8" height="8" rx="2" fill="#000"/><rect x="13" y="3" width="8" height="8" rx="4" fill="none" stroke="#000" stroke-width="2.4"/>'],
+ ['HELIX','<path d="M5 3c10 4 4 14 14 18M19 3C9 7 15 17 5 21" fill="none" stroke="#000" stroke-width="2.6" stroke-linecap="round"/>'],
+ ['Nodal','<circle cx="5" cy="12" r="3" fill="#000"/><circle cx="19" cy="5" r="3" fill="#000"/><circle cx="19" cy="19" r="3" fill="#000"/><path d="M5 12 19 5M5 12l14 7" stroke="#000" stroke-width="2"/>'],
+ ['Vertexa','<path d="M3 4h18L12 21z" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="round"/>'],
+ ['prismic','<path d="M12 2 21 8v8l-9 6-9-6V8z" fill="#000"/><path d="M12 2v20M3 8l18 8" stroke="#fff" stroke-width="1.4"/>'],
+ ['Atlas.io','<circle cx="12" cy="12" r="10" fill="none" stroke="#000" stroke-width="2.6"/><path d="M2 12h20M12 2c4 3 4 17 0 20" fill="none" stroke="#000" stroke-width="2"/>']
+];
+var h='';
+for(var k=0;k<2;k++)marks.forEach(function(m){
+  var name=m[0],w=Math.round(30+name.replace(/&amp;/g,'&').length*13.5);
+  h+='<svg role="listitem" viewBox="0 0 '+w+' 24" '+(k?'aria-hidden="true" ':'aria-label="'+name.replace(/&amp;/g,'&')+'" ')+'xmlns="http://www.w3.org/2000/svg"><g>'+m[1]+'</g><text x="30" y="18" font-family="Plus Jakarta Sans,sans-serif" font-weight="700" font-size="17" fill="#000" letter-spacing="-.3">'+name+'</text></svg>';
+});
+document.getElementById('track').innerHTML=h;
+[].forEach.call(document.querySelectorAll('.track svg'),function(s){var b=s.viewBox.baseVal;s.style.width=(b.width*24/b.height)+'px'});
+[].forEach.call(document.querySelectorAll('a[href^="#"]'),function(a){a.addEventListener('click',function(e){e.preventDefault()})});
+
+/* video stand-in: glowing portal ring (blended with mix-blend-mode:screen) */
+var cv=document.getElementById('cv'),c=cv.getContext('2d'),w=2,hh=2,t=4,last=0,raf=0,rm=matchMedia('(prefers-reduced-motion: reduce)');
+function size(){var r=cv.getBoundingClientRect();w=cv.width=Math.max(2,Math.round(r.width*.6));hh=cv.height=Math.max(2,Math.round(r.height*.6));draw()}
+function draw(){
+  var H=hh,W=w;c.globalCompositeOperation='source-over';c.fillStyle='#000';c.fillRect(0,0,W,H);
+  var cx=W/2,cy=H*.6,R=Math.min(W*.3,H*.42);
+  c.globalCompositeOperation='lighter';
+  var g=c.createRadialGradient(cx,cy,0,cx,cy,R*2.4);g.addColorStop(0,'rgba(201,103,232,.55)');g.addColorStop(.35,'rgba(152,58,214,.28)');g.addColorStop(1,'rgba(0,0,0,0)');c.fillStyle=g;c.fillRect(0,0,W,H);
+  /* rings */
+  for(var r=0;r<7;r++){
+    var rad=R*(.55+r*.13),tilt=.28+.05*Math.sin(t*.4+r),rot=.15*Math.sin(t*.25+r*.8);
+    for(var pass=0;pass<3;pass++){
+      c.beginPath();c.ellipse(cx,cy,rad,rad*tilt,rot,0,Math.PI*2);
+      c.strokeStyle=pass===0?'rgba(250,147,250,.07)':pass===1?'rgba(201,103,232,.14)':'rgba(255,225,255,'+(r===2?.7:.22)+')';
+      c.lineWidth=Math.max(1,(pass===0?14:pass===1?6:1.4)*W/1400);c.stroke();
+    }
+  }
+  /* core glow */
+  var cg=c.createRadialGradient(cx,cy,0,cx,cy,R*.5);cg.addColorStop(0,'rgba(255,240,255,.95)');cg.addColorStop(.25,'rgba(250,147,250,.6)');cg.addColorStop(1,'rgba(152,58,214,0)');c.fillStyle=cg;c.beginPath();c.arc(cx,cy,R*.5,0,Math.PI*2);c.fill();
+  /* orbiting particles */
+  var sd=7;
+  for(var i=0;i<140;i++){
+    sd=(sd*9301+49297)%233280;var a0=sd/233280*Math.PI*2;sd=(sd*9301+49297)%233280;var rr=R*(.5+sd/233280*1.0);sd=(sd*9301+49297)%233280;var sp=.15+sd/233280*.4;
+    var a=a0+t*sp,x=cx+Math.cos(a)*rr,y=cy+Math.sin(a)*rr*.3,al=.25+.5*Math.abs(Math.sin(t*.8+i));
+    c.fillStyle='rgba(255,'+(180+(i%5)*14)+',255,'+al+')';c.beginPath();c.arc(x,y,Math.max(.8,W/900*(1+(i%3)*.5)),0,Math.PI*2);c.fill();
+  }
+  /* beam of light rising */
+  var bg=c.createLinearGradient(0,cy,0,0);bg.addColorStop(0,'rgba(201,103,232,.22)');bg.addColorStop(1,'rgba(201,103,232,0)');
+  c.fillStyle=bg;c.beginPath();c.moveTo(cx-R*.25,cy);c.lineTo(cx-R*.9,0);c.lineTo(cx+R*.9,0);c.lineTo(cx+R*.25,cy);c.fill();
+}
+function loop(n){var dt=Math.min(.05,(n-last)/1000||0);last=n;t+=dt;draw();raf=(rm.matches||document.hidden)?0:requestAnimationFrame(loop)}
+function start(){if(!raf&&!rm.matches&&!document.hidden){last=performance.now();raf=requestAnimationFrame(loop)}}
+document.addEventListener('visibilitychange',function(){if(document.hidden){cancelAnimationFrame(raf);raf=0}else start()});
+addEventListener('resize',size);size();start();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+{
+  "name": "Glyphwork",
+  "descriptor": "Digital studio working in type",
+  "listing": {
+    "key": "o:type-scramble-hover",
+    "title": "Scramble Text Hover",
+    "category": "Typography"
+  },
+  "colors": {
+    "background": "#07090c",
+    "surface": "#4dffa0",
+    "text": "#8fb3a3",
+    "textMuted": "#d9ffe8",
+    "primary": "#4dffa0",
+    "secondary": "#0f5e54",
+    "border": "#1f3a33",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#0f5e54"
+  },
+  "colorInventory": [
+    {
+      "hex": "#07090c",
+      "share": 96.8
+    },
+    {
+      "hex": "#4dffa0",
+      "share": 1.2
+    },
+    {
+      "hex": "#0f5e54",
+      "share": 0.7
+    },
+    {
+      "hex": "#3b1d6e",
+      "share": 0.7
+    },
+    {
+      "hex": "#8fb3a3",
+      "share": 0.3
+    },
+    {
+      "hex": "#d9ffe8",
+      "share": 0.3
+    },
+    {
+      "hex": "#1f3a33",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Unbounded",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Unbounded",
+        "stack": "'Unbounded', system-ui, sans-serif",
+        "sizePx": 76,
+        "weight": "600",
+        "lineHeight": "76px",
+        "letterSpacing": "normal",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.4px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@500;700&family=Unbounded:wght@600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 50,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        22,
+        26
+      ]
+    },
+    "container": 1160,
+    "breakpoints": [
+      860
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "monogram",
+    "tile": "squircle",
+    "wordmarkFont": "Unbounded"
+  },
+  "voice": {
+    "personality": [
+      "technical",
+      "playful",
+      "dark-room cool"
+    ],
+    "voice": {
+      "summary": "Sounds like a terminal that has learned manners: crisp, lowercase-leaning and slightly mischievous. Words scramble, then resolve, and the copy has the same tempo.",
+      "dos": [
+        "Write labels that read well mid-scramble",
+        "Keep copy to a few words",
+        "Use technical words like glyph and charset"
+      ],
+      "donts": [
+        "No marketing paragraphs",
+        "Avoid long words that scramble badly",
+        "Never explain the effect in the effect"
+      ]
+    },
+    "taglines": [
+      "Say it in glyphs",
+      "Type that finds its words",
+      "Scramble, then resolve",
+      "A terminal with manners",
+      "Letters in motion"
+    ],
+    "boilerplate": "Glyphwork is a digital studio that designs typography-led interfaces, experiments with letterforms and builds web experiences where words resolve before your eyes.",
+    "microcopy": {
+      "primaryCta": "Scramble all",
+      "secondaryCta": "Reset",
+      "success": "Resolved. Everything is in order.",
+      "error": "Glyph not found. Try another charset.",
+      "empty": "No glyphs selected. Pick a charset."
+    }
+  }
+}

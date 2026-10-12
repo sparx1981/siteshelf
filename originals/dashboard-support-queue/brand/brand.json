@@ -1,0 +1,173 @@
+{
+  "name": "helpline",
+  "descriptor": "Help desk with live service-level clocks",
+  "listing": {
+    "key": "o:dashboard-support-queue",
+    "title": "Support Queue Dashboard",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#f2f5fa",
+    "surface": "#ffffff",
+    "text": "#56647f",
+    "textMuted": "#15203a",
+    "primary": "#14935f",
+    "secondary": "#d92d3a",
+    "border": "#14935f",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#0f4431"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f2f5fa",
+      "share": 97.1
+    },
+    {
+      "hex": "#2f5bea",
+      "share": 0.7
+    },
+    {
+      "hex": "#56647f",
+      "share": 0.6
+    },
+    {
+      "hex": "#15203a",
+      "share": 0.5
+    },
+    {
+      "hex": "#dfe6ff",
+      "share": 0.4
+    },
+    {
+      "hex": "#14935f",
+      "share": 0.2
+    },
+    {
+      "hex": "#d92d3a",
+      "share": 0.2
+    },
+    {
+      "hex": "#6a7690",
+      "share": 0.2
+    },
+    {
+      "hex": "#e8710a",
+      "share": 0.1
+    },
+    {
+      "hex": "#2a4bc4",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Figtree",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "20.3px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 11.7,
+        "weight": "600",
+        "lineHeight": "16.9167px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 10,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        3,
+        4,
+        7,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1440,
+    "breakpoints": [
+      700,
+      1100
+    ],
+    "motion": {
+      "duration": 500,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "dial",
+    "tile": "none",
+    "wordmarkFont": "Figtree"
+  },
+  "voice": {
+    "personality": [
+      "calm",
+      "decisive",
+      "kind"
+    ],
+    "voice": {
+      "summary": "Sounds like an experienced support lead mid-shift: short, clear and never rattled by a ticking clock. It names who owns what and keeps urgency factual.",
+      "dos": [
+        "Lead with ticket, owner and time remaining",
+        "Use human words like reply and hand over",
+        "State urgency as a fact, not a shout"
+      ],
+      "donts": [
+        "No all-caps panic",
+        "Avoid blaming agents or customers",
+        "Never hide a breached clock"
+      ]
+    },
+    "taglines": [
+      "Every ticket has an owner",
+      "Answers before the clock runs out",
+      "Support that keeps its promises",
+      "Calm queue, quick replies",
+      "Help, handled on time"
+    ],
+    "boilerplate": "helpline is a help-desk dashboard for small shops, tracking tickets, response clocks and agent workload so every customer gets a timely reply.",
+    "microcopy": {
+      "primaryCta": "Assign ticket",
+      "secondaryCta": "Open drawer",
+      "success": "Ticket assigned. The clock is yours.",
+      "error": "Could not assign that ticket. Try again.",
+      "empty": "Queue clear. Nice work, nothing waiting."
+    }
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "name": "The Margin",
+  "descriptor": "Slow-travel and food magazine, issue 14",
+  "listing": {
+    "key": "o:hero-editorial-grid",
+    "title": "Editorial Grid Hero",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#f3ede2",
+    "surface": "#e5dccb",
+    "text": "#151515",
+    "textMuted": "#4a463e",
+    "primary": "#d93a2b",
+    "secondary": "#e8b64a",
+    "border": "#151515",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#e8b64a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f3ede2",
+      "share": 76.3
+    },
+    {
+      "hex": "#e5dccb",
+      "share": 13.5
+    },
+    {
+      "hex": "#1f4f46",
+      "share": 3.6
+    },
+    {
+      "hex": "#e8b64a",
+      "share": 3.5
+    },
+    {
+      "hex": "#151515",
+      "share": 2.1
+    },
+    {
+      "hex": "#d93a2b",
+      "share": 1.0
+    },
+    {
+      "hex": "#4a463e",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Playfair Display",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Playfair Display",
+        "stack": "'Playfair Display', Georgia, serif",
+        "sizePx": 82,
+        "weight": "900",
+        "lineHeight": "82px",
+        "letterSpacing": "-1.64px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Playfair Display",
+        "stack": "'Playfair Display', Georgia, serif",
+        "sizePx": 26,
+        "weight": "900",
+        "lineHeight": "28.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "0.96px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,900;1,900&display=swap",
+    "headingWeight": 900
+  },
+  "tokens": {
+    "radius": {
+      "sm": 50,
+      "md": 50,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        22,
+        26
+      ]
+    },
+    "container": 1360,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "monogram",
+    "tile": "squircle",
+    "wordmarkFont": "Playfair Display"
+  },
+  "voice": {
+    "personality": [
+      "literary",
+      "wry",
+      "observant"
+    ],
+    "voice": {
+      "summary": "Reads like a good longform feature: patient, specific, a little wry. Cover lines promise a place and a mood, never a listicle.",
+      "dos": [
+        "Open with a place or object, not a theme",
+        "Use numbers as nouns: four ferries, one bicycle",
+        "Write headlines in sentence case with a verb"
+      ],
+      "donts": [
+        "No travel-brochure adjectives",
+        "No exclamation marks",
+        "No clickbait numbers"
+      ]
+    },
+    "taglines": [
+      "The long way round",
+      "Stories from the edge of the map",
+      "A magazine that takes its time",
+      "Slow journeys, sharp prose",
+      "Read on the last ferry"
+    ],
+    "boilerplate": "The Margin is an independent print and digital magazine of slow travel, food and letters, now at its fourteenth issue.",
+    "microcopy": {
+      "primaryCta": "Subscribe",
+      "secondaryCta": "Read the issue",
+      "success": "Welcome to the Margin, issue 14 is on its way",
+      "error": "That address did not go through, please try again",
+      "empty": "No stories saved yet"
+    }
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "name": "Marigold Press",
+  "descriptor": "Independent bookshop and café",
+  "listing": {
+    "key": "o:footer-newsletter-split",
+    "title": "Footer with Newsletter Split",
+    "category": "Footer"
+  },
+  "colors": {
+    "background": "#faf6ea",
+    "surface": "#17140d",
+    "text": "#5d5646",
+    "textMuted": "#17140d",
+    "primary": "#ffd84d",
+    "secondary": "#4ade80",
+    "border": "#3a3628",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#716129"
+  },
+  "colorInventory": [
+    {
+      "hex": "#faf6ea",
+      "share": 61.5
+    },
+    {
+      "hex": "#17140d",
+      "share": 21.2
+    },
+    {
+      "hex": "#ffd84d",
+      "share": 16.3
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.7
+    },
+    {
+      "hex": "#5d5646",
+      "share": 0.2
+    },
+    {
+      "hex": "#a39d8d",
+      "share": 0.1
+    },
+    {
+      "hex": "#4ade80",
+      "share": 0.0
+    },
+    {
+      "hex": "#3a3628",
+      "share": 0.0
+    },
+    {
+      "hex": "#716129",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Bricolage Grotesque",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 56,
+        "weight": "800",
+        "lineHeight": "58.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 56,
+        "weight": "800",
+        "lineHeight": "56px",
+        "letterSpacing": "-1.12px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.82px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "25.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 13.5,
+        "weight": "400",
+        "lineHeight": "21.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        30
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      700,
+      1000
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "book",
+    "tile": "circle",
+    "wordmarkFont": "Bricolage Grotesque"
+  },
+  "voice": {
+    "personality": [
+      "bookish",
+      "cheerful",
+      "cosy"
+    ],
+    "voice": {
+      "summary": "Marigold Press writes like a bookseller leaning on the counter: friendly, a bit self-deprecating about the to-read pile, and generous with recommendations. It sounds like someone who actually read the book.",
+      "dos": [
+        "Recommend with a real reason in one line",
+        "Joke gently about unread books and long lists",
+        "Use shop words: shelf, counter, stack, cup"
+      ],
+      "donts": [
+        "Do not use marketing words like content or engagement",
+        "Avoid hard sells and discount shouting",
+        "Never promise more email than you send"
+      ]
+    },
+    "taglines": [
+      "Letters from the back room",
+      "Books, coffee and a long to-read pile",
+      "Read something slow today",
+      "Independent shelves, strong coffee",
+      "Come in, pull up a chair"
+    ],
+    "boilerplate": "Marigold Press is an independent bookshop and café with a loyal mailing list, sending occasional letters about new arrivals, events and what the staff are reading.",
+    "microcopy": {
+      "primaryCta": "Subscribe",
+      "secondaryCta": "Visit the shop",
+      "success": "You are on the list. Pull up a chair.",
+      "error": "That email does not look right. Please check it.",
+      "empty": "No letters yet. The next one is coming."
+    }
+  }
+}

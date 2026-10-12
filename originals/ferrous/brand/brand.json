@@ -1,0 +1,149 @@
+{
+  "name": "Ferrous",
+  "descriptor": "Sheet, plate and tube metal fabrication",
+  "listing": {
+    "key": "o:ferrous",
+    "title": "Ferrous Hero Section",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#e8e6e1",
+    "surface": "#ff4d00",
+    "text": "#111111",
+    "textMuted": "#5c5c5a",
+    "primary": "#ff4d00",
+    "secondary": "#ff9d73",
+    "border": "#111111",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#712709"
+  },
+  "colorInventory": [
+    {
+      "hex": "#e8e6e1",
+      "share": 92.4
+    },
+    {
+      "hex": "#ff4d00",
+      "share": 6.5
+    },
+    {
+      "hex": "#111111",
+      "share": 1.1
+    },
+    {
+      "hex": "#5c5c5a",
+      "share": 0.0
+    },
+    {
+      "hex": "#ff9d73",
+      "share": 0.0
+    },
+    {
+      "hex": "#712709",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "IBM Plex Mono",
+    "body": "IBM Plex Mono",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Body",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "19.6px",
+        "letterSpacing": "0.14px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "19.6px",
+        "letterSpacing": "0.56px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "16.8px",
+        "letterSpacing": "0.56px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 0,
+      "md": 0,
+      "lg": 0,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        18
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      800
+    ],
+    "motion": {
+      "duration": 120,
+      "easing": "linear"
+    }
+  },
+  "logo": {
+    "motif": "bars",
+    "tile": "squircle",
+    "wordmarkFont": "IBM Plex Mono"
+  },
+  "voice": {
+    "personality": [
+      "blunt",
+      "exact",
+      "industrial"
+    ],
+    "voice": {
+      "summary": "Ferrous speaks in measurements and verbs, like a foreman writing on a job ticket. It is short, direct and proud of tolerance, and it never softens a spec.",
+      "dos": [
+        "Use millimetres and materials, not adjectives",
+        "Write in short, declarative lines",
+        "Name the job type: cut, fold, weld, finish"
+      ],
+      "donts": [
+        "Do not use 'bespoke' or 'solutions'",
+        "Do not round a tolerance to look good",
+        "Do not apologise for lead times"
+      ]
+    },
+    "taglines": [
+      "Cut to a tenth of a millimetre",
+      "Sheet, plate, tube. Done right",
+      "Checked with a square, by hand",
+      "Steel in, parts out",
+      "Fabrication without the fluff"
+    ],
+    "boilerplate": "Ferrous is a metal-fabrication shop that cuts sheet, plate and tube to a tenth of a millimetre and finishes every part by hand.",
+    "microcopy": {
+      "primaryCta": "Start a job",
+      "secondaryCta": "See what we cut",
+      "success": "Job received. We will quote within one working day.",
+      "error": "File rejected. Send a DXF or STEP under 50 MB.",
+      "empty": "No jobs in the queue yet."
+    }
+  }
+}

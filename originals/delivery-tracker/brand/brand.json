@@ -1,0 +1,187 @@
+{
+  "name": "Fleetwing",
+  "descriptor": "Same-day courier with live order tracking",
+  "listing": {
+    "key": "o:delivery-tracker",
+    "title": "Delivery Tracker",
+    "category": "Timeline"
+  },
+  "colors": {
+    "background": "#f4f6fb",
+    "surface": "#ffffff",
+    "text": "#14213d",
+    "textMuted": "#626c80",
+    "primary": "#14213d",
+    "secondary": "#ff5a3c",
+    "border": "#e3e8f2",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#ff5a3c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4f6fb",
+      "share": 94.5
+    },
+    {
+      "hex": "#d4dcec",
+      "share": 1.5
+    },
+    {
+      "hex": "#ff5a3c",
+      "share": 0.9
+    },
+    {
+      "hex": "#14213d",
+      "share": 0.9
+    },
+    {
+      "hex": "#bcd9f5",
+      "share": 0.8
+    },
+    {
+      "hex": "#cfe9d6",
+      "share": 0.6
+    },
+    {
+      "hex": "#1f9d6b",
+      "share": 0.3
+    },
+    {
+      "hex": "#6b7896",
+      "share": 0.2
+    },
+    {
+      "hex": "#000000",
+      "share": 0.2
+    },
+    {
+      "hex": "#ff9a3c",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Red Hat Display",
+    "body": "Red Hat Text",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Red Hat Display",
+        "stack": "'Red Hat Display', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Red Hat Display",
+        "stack": "'Red Hat Display', system-ui, sans-serif",
+        "sizePx": 52,
+        "weight": "800",
+        "lineHeight": "54.6px",
+        "letterSpacing": "-1.04px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Red Hat Text",
+        "stack": "'Red Hat Text', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Red Hat Text",
+        "stack": "'Red Hat Text', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "18px",
+        "letterSpacing": "1.2px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;800&family=Red+Hat+Text:wght@400;500;700&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 12,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 90, 60, 0.18) 0px 0px 0px 6px",
+      "md": "rgba(255, 90, 60, 0.18) 0px 0px 0px 6px",
+      "lg": "rgba(255, 90, 60, 0.18) 0px 0px 0px 6px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20
+      ]
+    },
+    "container": 1140,
+    "breakpoints": [
+      520,
+      900
+    ],
+    "motion": {
+      "duration": 400,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bolt",
+    "tile": "squircle",
+    "wordmarkFont": "Inter Bold (stand-in for Red Hat Display)"
+  },
+  "voice": {
+    "personality": [
+      "quick",
+      "friendly",
+      "reassuring"
+    ],
+    "voice": {
+      "summary": "Talks like a courier who texts ahead: brisk, specific about minutes and distance, a little human. It always says where the parcel is and who has it.",
+      "dos": [
+        "Give the driver's name and the distance",
+        "Round times to the minute and say when",
+        "Keep status lines to one short sentence"
+      ],
+      "donts": [
+        "No vague 'soon' or 'shortly'",
+        "No blame when a delay happens",
+        "No corporate logistics terms like last-mile"
+      ]
+    },
+    "taglines": [
+      "Fast, and you can watch it",
+      "Your order, one road away",
+      "Arriving when we said",
+      "Never wonder where it is",
+      "Same-day, in sight"
+    ],
+    "boilerplate": "Fleetwing is a same-day courier that shows every order on a live route, with a countdown, a named driver and updates at each step from collection to your door.",
+    "microcopy": {
+      "primaryCta": "Notify me",
+      "secondaryCta": "Call driver",
+      "success": "Order delivered, enjoy",
+      "error": "We lost the signal, retrying the route",
+      "empty": "No active orders to track right now"
+    }
+  }
+}

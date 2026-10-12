@@ -1,0 +1,196 @@
+{
+  "name": "Fieldnote Goods",
+  "descriptor": "Shop for notebooks, tools and tidy things",
+  "listing": {
+    "key": "o:shop-wishlist-board",
+    "title": "Wishlist Board",
+    "category": "E-commerce"
+  },
+  "colors": {
+    "background": "#f6f1e8",
+    "surface": "#fffdf8",
+    "text": "#1f1b16",
+    "textMuted": "#a8281c",
+    "primary": "#1f6b52",
+    "secondary": "#f0dca0",
+    "border": "#e5dccb",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#f0dca0"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6f1e8",
+      "share": 74.8
+    },
+    {
+      "hex": "#ffffff",
+      "share": 13.0
+    },
+    {
+      "hex": "#d8ccb4",
+      "share": 4.9
+    },
+    {
+      "hex": "#000000",
+      "share": 3.7
+    },
+    {
+      "hex": "#5a3a1a",
+      "share": 0.7
+    },
+    {
+      "hex": "#e8dcc4",
+      "share": 0.7
+    },
+    {
+      "hex": "#c7ced6",
+      "share": 0.7
+    },
+    {
+      "hex": "#1f6b52",
+      "share": 0.7
+    },
+    {
+      "hex": "#1f1b16",
+      "share": 0.5
+    },
+    {
+      "hex": "#2a2a2a",
+      "share": 0.4
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 52,
+        "weight": "600",
+        "lineHeight": "52px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 26,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Fraunces:wght@600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 14,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.2) 0px 2px 8px 0px",
+      "md": "rgba(0, 0, 0, 0.2) 0px 2px 8px 0px",
+      "lg": "rgba(0, 0, 0, 0.2) 0px 2px 8px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1320,
+    "breakpoints": [
+      760
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bag",
+    "tile": "squircle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "thoughtful",
+      "patient",
+      "considered"
+    ],
+    "voice": {
+      "summary": "Sounds like a shop owner who wants you to buy once and keep it: gentle, specific and in no hurry. It celebrates waiting for the right thing and a price drop.",
+      "dos": [
+        "Talk about keeping and using, not buying",
+        "Mention price drops as plain facts",
+        "Use phrases like saved for later"
+      ],
+      "donts": [
+        "No pressure to buy now",
+        "Avoid sale hype",
+        "Never use stock-ticker language"
+      ]
+    },
+    "taglines": [
+      "Things worth waiting for",
+      "Save it now, decide later",
+      "Good things come to your list",
+      "A wishlist that watches prices",
+      "Collect the things you'll keep"
+    ],
+    "boilerplate": "Fieldnote Goods is a shop for notebooks, desk tools and well-made everyday objects, with shareable wishlists that tell you when a saved price drops.",
+    "microcopy": {
+      "primaryCta": "Add to bag",
+      "secondaryCta": "New list",
+      "success": "Moved to your list.",
+      "error": "Couldn't move that item. Try again.",
+      "empty": "This list is empty. Save something from the shop."
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "name": "Tillmark",
+  "descriptor": "Revenue dashboard for online shops",
+  "listing": {
+    "key": "o:ledger-dashboard",
+    "title": "Ledger Revenue Dashboard",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#f3f4f6",
+    "surface": "#ffffff",
+    "text": "#111827",
+    "textMuted": "#374151",
+    "primary": "#2563eb",
+    "secondary": "#059669",
+    "border": "#e5e7eb",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#a3bdf7"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f3f4f6",
+      "share": 97.0
+    },
+    {
+      "hex": "#2563eb",
+      "share": 1.5
+    },
+    {
+      "hex": "#e5e7eb",
+      "share": 0.5
+    },
+    {
+      "hex": "#d1fae5",
+      "share": 0.3
+    },
+    {
+      "hex": "#111827",
+      "share": 0.2
+    },
+    {
+      "hex": "#6b7280",
+      "share": 0.2
+    },
+    {
+      "hex": "#059669",
+      "share": 0.1
+    },
+    {
+      "hex": "#fee2e2",
+      "share": 0.1
+    },
+    {
+      "hex": "#374151",
+      "share": 0.0
+    },
+    {
+      "hex": "#dc2626",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.56px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 10,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.08) 0px 1px 2px 0px",
+      "md": "rgba(0, 0, 0, 0.08) 0px 1px 2px 0px",
+      "lg": "rgba(0, 0, 0, 0.08) 0px 1px 2px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        16,
+        24
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700,
+      1000
+    ],
+    "motion": {
+      "duration": 400,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "coins",
+    "tile": "none",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "clear",
+      "trustworthy",
+      "sober"
+    ],
+    "voice": {
+      "summary": "Tillmark sounds like a shop's bookkeeper who explains the week without drama. It reports figures, deltas and causes in plain words and avoids hype in either direction.",
+      "dos": [
+        "Give the number and the change together",
+        "Use the shop's own product names",
+        "Say what the period covers"
+      ],
+      "donts": [
+        "Do not dramatise a dip",
+        "Do not use growth-hacking language",
+        "Do not round away a meaningful decimal"
+      ]
+    },
+    "taglines": [
+      "Know your takings, daily",
+      "Revenue you can read at a glance",
+      "Orders, income, and why",
+      "Your shop's week, in plain numbers",
+      "Every sale accounted for"
+    ],
+    "boilerplate": "Tillmark is a revenue dashboard for online shops, showing sales, orders and top products over seven, thirty or ninety days.",
+    "microcopy": {
+      "primaryCta": "Overview",
+      "secondaryCta": "30D",
+      "success": "Updated. Showing revenue for the last 30 days.",
+      "error": "We could not load your figures. Refresh to try again.",
+      "empty": "No orders in this period. Pick a longer range."
+    }
+  }
+}

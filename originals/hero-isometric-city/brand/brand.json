@@ -1,0 +1,182 @@
+{
+  "name": "Metroform",
+  "descriptor": "Urban planning studio for councils",
+  "listing": {
+    "key": "o:hero-isometric-city",
+    "title": "Isometric City Hero",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#eef3f2",
+    "surface": "#ffffff",
+    "text": "#10302c",
+    "textMuted": "#4a6560",
+    "primary": "#ff8a5b",
+    "secondary": "#10302c",
+    "border": "#b9ccc8",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#10302c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eef3f2",
+      "share": 89.3
+    },
+    {
+      "hex": "#000000",
+      "share": 4.4
+    },
+    {
+      "hex": "#ffffff",
+      "share": 1.0
+    },
+    {
+      "hex": "#10302c",
+      "share": 1.0
+    },
+    {
+      "hex": "#3a5fd0",
+      "share": 1.0
+    },
+    {
+      "hex": "#2b48a6",
+      "share": 1.0
+    },
+    {
+      "hex": "#dfe8e6",
+      "share": 0.7
+    },
+    {
+      "hex": "#3fbf84",
+      "share": 0.5
+    },
+    {
+      "hex": "#4f7cff",
+      "share": 0.5
+    },
+    {
+      "hex": "#ff8a5b",
+      "share": 0.5
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 80,
+        "weight": "700",
+        "lineHeight": "81.6px",
+        "letterSpacing": "-2.4px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "27.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "500",
+        "lineHeight": "27.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 12,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        24,
+        26,
+        30
+      ]
+    },
+    "container": 1300,
+    "breakpoints": [
+      960
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cube",
+    "tile": "squircle",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "clear",
+      "collaborative",
+      "grounded"
+    ],
+    "voice": {
+      "summary": "Metroform sounds like a planner who prefers conversation to jargon. It explains where homes, offices and parks could go in short, concrete sentences.",
+      "dos": [
+        "Name the district type before the number",
+        "Explain method steps in everyday words",
+        "Frame planning as a conversation with the council"
+      ],
+      "donts": [
+        "Do not use words like stakeholder or smart city",
+        "Avoid promising outcomes before testing",
+        "Never present a model as a final decision"
+      ]
+    },
+    "taglines": [
+      "Cities, planned like a conversation",
+      "Test the plan before the first brick",
+      "Homes, offices and parks, in balance",
+      "Model it first, build it better",
+      "Planning councils can talk about"
+    ],
+    "boilerplate": "Metroform is a planning studio that helps councils test where homes, offices and parks should go through interactive models, before a single brick is laid.",
+    "microcopy": {
+      "primaryCta": "Explore the model",
+      "secondaryCta": "Our method",
+      "success": "Model updated.",
+      "error": "Could not load that district. Please try again.",
+      "empty": "No districts selected."
+    }
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "name": "Chapterhouse",
+  "descriptor": "Short illustrated stories told in sideways chapters",
+  "listing": {
+    "key": "o:hscroll-story",
+    "title": "Horizontal Scroll Story",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#f3efe7",
+    "surface": "#1b1b1f",
+    "text": "#1b1b1f",
+    "textMuted": "#3d3a34",
+    "primary": "#e4572e",
+    "secondary": "#6b82e8",
+    "border": "#1b1b1f",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#662b1c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f3efe7",
+      "share": 56.8
+    },
+    {
+      "hex": "#1b1b1f",
+      "share": 10.9
+    },
+    {
+      "hex": "#ffd9c2",
+      "share": 10.2
+    },
+    {
+      "hex": "#cfe8dc",
+      "share": 10.2
+    },
+    {
+      "hex": "#c9d6ff",
+      "share": 10.2
+    },
+    {
+      "hex": "#e4572e",
+      "share": 0.9
+    },
+    {
+      "hex": "#6b82e8",
+      "share": 0.3
+    },
+    {
+      "hex": "#ffb36b",
+      "share": 0.2
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.2
+    },
+    {
+      "hex": "#3d3a34",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 129.6,
+        "weight": "700",
+        "lineHeight": "123.12px",
+        "letterSpacing": "-3.888px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 129.6,
+        "weight": "700",
+        "lineHeight": "123.12px",
+        "letterSpacing": "-3.888px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 19,
+        "weight": "400",
+        "lineHeight": "30.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 50,
+      "md": 50,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(243, 239, 231) -27px -27px 0px 0px inset, rgb(243, 239, 231) 0px 0px 0px 2px",
+      "md": "rgb(243, 239, 231) -27px -27px 0px 0px inset, rgb(243, 239, 231) 0px 0px 0px 2px",
+      "lg": "rgb(243, 239, 231) -27px -27px 0px 0px inset, rgb(243, 239, 231) 0px 0px 0px 2px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        8,
+        12,
+        16,
+        18,
+        20,
+        24,
+        28,
+        115
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      800
+    ],
+    "motion": {
+      "duration": 700,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "compass",
+    "tile": "circle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "wistful",
+      "lyrical",
+      "gentle"
+    ],
+    "voice": {
+      "summary": "Chapterhouse tells stories in quiet, concrete sentences with a lingering end. It sounds like a bedtime reader who trusts a pause more than an exclamation.",
+      "dos": [
+        "Write each chapter in one image and one feeling",
+        "Keep sentences short and let white space speak",
+        "Number chapters and name the next one"
+      ],
+      "donts": [
+        "Do not explain the moral",
+        "Avoid slang and trend words",
+        "Never rush the ending"
+      ]
+    },
+    "taglines": [
+      "A short story in five chapters",
+      "Scroll slowly, arrive somewhere",
+      "The long way round",
+      "Tales you read sideways",
+      "Five rooms, one journey"
+    ],
+    "boilerplate": "Chapterhouse publishes short illustrated stories as pinned horizontal-scroll experiences, each told in five chapters that unfold as the reader scrolls.",
+    "microcopy": {
+      "primaryCta": "Begin chapter one",
+      "secondaryCta": "Back to the start",
+      "success": "The end. Thank you for reading.",
+      "error": "This chapter would not load. Please scroll again.",
+      "empty": "No stories on the shelf yet."
+    }
+  }
+}

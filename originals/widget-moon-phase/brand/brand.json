@@ -1,0 +1,192 @@
+{
+  "name": "Lantern Almanac",
+  "descriptor": "Almanac of moon phases and night skies",
+  "listing": {
+    "key": "o:widget-moon-phase",
+    "title": "Moon Phase Widget",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#05081a",
+    "surface": "#0c1332",
+    "text": "#a3afdb",
+    "textMuted": "#7d8ac0",
+    "primary": "#8fb4ff",
+    "secondary": "#ffe9a8",
+    "border": "#33407f",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#425274"
+  },
+  "colorInventory": [
+    {
+      "hex": "#05081a",
+      "share": 60.1
+    },
+    {
+      "hex": "#0c1332",
+      "share": 30.2
+    },
+    {
+      "hex": "#000000",
+      "share": 3.8
+    },
+    {
+      "hex": "#ffe9a8",
+      "share": 2.9
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.8
+    },
+    {
+      "hex": "#7e7a6c",
+      "share": 0.7
+    },
+    {
+      "hex": "#141c45",
+      "share": 0.6
+    },
+    {
+      "hex": "#1b2a5a",
+      "share": 0.4
+    },
+    {
+      "hex": "#8fb4ff",
+      "share": 0.3
+    },
+    {
+      "hex": "#26336f",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 64,
+        "weight": "500",
+        "lineHeight": "67.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.4px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Manrope:wght@400;500;700&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 24,
+      "lg": 50,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        20
+      ]
+    },
+    "container": 1080,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 400,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "flame",
+    "tile": "circle",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "calm",
+      "scholarly",
+      "poetic"
+    ],
+    "voice": {
+      "summary": "Lantern Almanac writes like a country almanac by lamplight: plain facts first, a quiet turn of phrase second. It uses exact dates and percentages and lets the moon do the poetry.",
+      "dos": [
+        "Give the phase, illumination and age exactly",
+        "Use the observer's hemisphere",
+        "Pair every fact with a small plain image"
+      ],
+      "donts": [
+        "Do not claim astrological meaning",
+        "Do not use 'mystical' or 'cosmic'",
+        "Do not hide the date format"
+      ]
+    },
+    "taglines": [
+      "Look up, then look it up",
+      "The moon, on any date you choose",
+      "A lantern for the night sky",
+      "Phases, ages and full moons, plainly",
+      "Know the moon before you go out"
+    ],
+    "boilerplate": "Lantern Almanac is a small almanac that calculates the moon's phase, age and illumination for any date, with the next full and new moons.",
+    "microcopy": {
+      "primaryCta": "Today",
+      "secondaryCta": "Southern view",
+      "success": "Showing the moon for 14 June: waxing crescent, 22 percent lit.",
+      "error": "That date is out of range. Choose a year between 1900 and 2100.",
+      "empty": "No phases to show. Pick a date."
+    }
+  }
+}

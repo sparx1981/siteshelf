@@ -1,0 +1,195 @@
+{
+  "name": "Scalewise",
+  "descriptor": "Modular type scale explorer for designers",
+  "listing": {
+    "key": "o:typography-scale",
+    "title": "Modular Type Scale Explorer",
+    "category": "Typography"
+  },
+  "colors": {
+    "background": "#f5f4f1",
+    "surface": "#ffffff",
+    "text": "#1b1b1b",
+    "textMuted": "#6b6963",
+    "primary": "#7b2d8b",
+    "secondary": "#b68cbf",
+    "border": "#e3e0d8",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#b68cbf"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f5f4f1",
+      "share": 89.1
+    },
+    {
+      "hex": "#1b1b1b",
+      "share": 10.7
+    },
+    {
+      "hex": "#2d2a33",
+      "share": 0.1
+    },
+    {
+      "hex": "#6b6963",
+      "share": 0.1
+    },
+    {
+      "hex": "#7b2d8b",
+      "share": 0.0
+    },
+    {
+      "hex": "#000000",
+      "share": 0.0
+    },
+    {
+      "hex": "#b68cbf",
+      "share": 0.0
+    },
+    {
+      "hex": "#e3e0d8",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 54.9,
+        "weight": "700",
+        "lineHeight": "57.6828px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 43.9,
+        "weight": "700",
+        "lineHeight": "50.5287px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 13,
+        "weight": "500",
+        "lineHeight": "20.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Lora:wght@400;600;700&family=Source+Serif+4:wght@400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 16,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        6,
+        8,
+        10,
+        11,
+        14,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      900,
+      1200
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bars",
+    "tile": "circle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "rigorous",
+      "calm",
+      "practical"
+    ],
+    "voice": {
+      "summary": "Sounds like a designer explaining a system to a colleague: calm, exact, mildly opinionated. It shows the steps and trusts the ratio.",
+      "dos": [
+        "Give ratio, base size and steps in plain numbers",
+        "Offer copy-ready CSS",
+        "Explain with one sentence"
+      ],
+      "donts": [
+        "No type jargon without a gloss",
+        "No dogma about one true ratio",
+        "No decoration around the numbers"
+      ]
+    },
+    "taglines": [
+      "Choose a ratio, then trust it",
+      "Hierarchy, worked out for you",
+      "Type scales without the maths",
+      "Copy the scale, keep the system",
+      "Reading is a design decision"
+    ],
+    "boilerplate": "Scalewise is a type scale tool that turns a base size and ratio into a full hierarchy, previews it on a live article and exports ready CSS variables.",
+    "microcopy": {
+      "primaryCta": "Copy CSS",
+      "secondaryCta": "Reset",
+      "success": "CSS copied",
+      "error": "Choose a ratio between 1 and 2",
+      "empty": "Pick a base size and ratio to see the scale"
+    }
+  }
+}

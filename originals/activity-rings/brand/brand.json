@@ -1,0 +1,182 @@
+{
+  "name": "Loopday",
+  "descriptor": "Daily activity rings and streak tracker",
+  "listing": {
+    "key": "o:activity-rings",
+    "title": "Activity Rings Widget",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#1c1c1e",
+    "surface": "#000000",
+    "text": "#ffffff",
+    "textMuted": "#8e8e93",
+    "primary": "#fa114f",
+    "secondary": "#92e82a",
+    "border": "#2c2c2e",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#92e82a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#000000",
+      "share": 45.5
+    },
+    {
+      "hex": "#141416",
+      "share": 43.7
+    },
+    {
+      "hex": "#2c2c2e",
+      "share": 4.7
+    },
+    {
+      "hex": "#fa114f",
+      "share": 2.2
+    },
+    {
+      "hex": "#ffffff",
+      "share": 1.9
+    },
+    {
+      "hex": "#92e82a",
+      "share": 1.1
+    },
+    {
+      "hex": "#1eeaef",
+      "share": 0.5
+    },
+    {
+      "hex": "#ff5c7f",
+      "share": 0.3
+    },
+    {
+      "hex": "#8e8e93",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Sora",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 24,
+        "weight": "700",
+        "lineHeight": "26.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.2px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "16.25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 11,
+        "weight": "600",
+        "lineHeight": "16.5px",
+        "letterSpacing": "1.1px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 7,
+      "md": 14,
+      "lg": 28,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.6) 0px 30px 80px 0px",
+      "md": "rgba(0, 0, 0, 0.6) 0px 30px 80px 0px",
+      "lg": "rgba(0, 0, 0, 0.6) 0px 30px 80px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      480
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "target",
+    "tile": "squircle",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "energetic",
+      "encouraging",
+      "clear"
+    ],
+    "voice": {
+      "summary": "Speaks like a good coach who counts quietly and cheers at the right moment. Numbers lead, praise is brief, and a missed day is treated as information rather than failure.",
+      "dos": [
+        "Lead with the number, then one short line of encouragement",
+        "Celebrate closed rings in a few words",
+        "Use active verbs like close, log and keep"
+      ],
+      "donts": [
+        "Do not shame a broken streak",
+        "Avoid medical or weight-loss claims",
+        "No exclamation marks stacked on top of each other"
+      ]
+    },
+    "taglines": [
+      "Close the loop, every day",
+      "Three rings. One good habit",
+      "Move a little, count it all",
+      "Small wins, closed daily",
+      "Your day, in three colours"
+    ],
+    "boilerplate": "Loopday is a fitness dashboard that turns movement, exercise and standing time into three simple rings and a streak you can see at a glance.",
+    "microcopy": {
+      "primaryCta": "Log 10 min walk",
+      "secondaryCta": "Reset day",
+      "success": "Ring closed. Nice work, streak is now 7.",
+      "error": "Could not save that activity. Try again.",
+      "empty": "Nothing logged yet today. A ten minute walk counts."
+    }
+  }
+}

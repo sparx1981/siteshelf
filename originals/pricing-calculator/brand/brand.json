@@ -1,0 +1,192 @@
+{
+  "name": "Meterly",
+  "descriptor": "Usage-based pricing with a live bill estimator",
+  "listing": {
+    "key": "o:pricing-calculator",
+    "title": "Usage Pricing Calculator",
+    "category": "Pricing"
+  },
+  "colors": {
+    "background": "#f4f6f4",
+    "surface": "#0e3b2e",
+    "text": "#5f7268",
+    "textMuted": "#10231c",
+    "primary": "#b8f2d0",
+    "secondary": "#12b76a",
+    "border": "#dde3dd",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#546c60"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4f6f4",
+      "share": 75.8
+    },
+    {
+      "hex": "#0e3b2e",
+      "share": 22.4
+    },
+    {
+      "hex": "#16513f",
+      "share": 0.5
+    },
+    {
+      "hex": "#12b76a",
+      "share": 0.5
+    },
+    {
+      "hex": "#e4e9e4",
+      "share": 0.2
+    },
+    {
+      "hex": "#5f7268",
+      "share": 0.2
+    },
+    {
+      "hex": "#b8f2d0",
+      "share": 0.1
+    },
+    {
+      "hex": "#10231c",
+      "share": 0.1
+    },
+    {
+      "hex": "#d1fadf",
+      "share": 0.1
+    },
+    {
+      "hex": "#9fc7b3",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "IBM Plex Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 44,
+        "weight": "700",
+        "lineHeight": "48.4px",
+        "letterSpacing": "-1.32px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "IBM Plex Sans",
+        "stack": "'IBM Plex Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "IBM Plex Sans",
+        "stack": "'IBM Plex Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Sora:wght@500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 14,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        9,
+        12,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1120,
+    "breakpoints": [
+      880
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "coins",
+    "tile": "squircle",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "straight",
+      "numerate",
+      "friendly"
+    ],
+    "voice": {
+      "summary": "Meterly speaks like an honest accountant who likes you: plain numbers first, clear about tiers and the cheapest plan. It never hides the maths.",
+      "dos": [
+        "Show the maths: rate, quantity and total",
+        "Name the cheapest plan out loud",
+        "Use tabular figures and currency symbols"
+      ],
+      "donts": [
+        "Do not hide fees in footnotes",
+        "Avoid words like starting from",
+        "Never push a more expensive plan"
+      ]
+    },
+    "taglines": [
+      "Know your bill before you ship",
+      "Pay for what you use",
+      "Slide to see the real maths",
+      "Honest tiers, no surprises",
+      "Estimate it. Then trust it"
+    ],
+    "boilerplate": "Meterly is a usage-based billing platform that shows tiered rates, plan fees and the cheapest plan for any level of monthly usage, with a transparent live estimator.",
+    "microcopy": {
+      "primaryCta": "Estimate your bill",
+      "secondaryCta": "See the breakdown",
+      "success": "Estimate updated.",
+      "error": "That number is out of range. Try 0 to 1,000,000.",
+      "empty": "No usage entered yet."
+    }
+  }
+}

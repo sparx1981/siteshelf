@@ -1,0 +1,160 @@
+{
+  "name": "Keyring",
+  "descriptor": "Secure sign-in with one-time codes",
+  "listing": {
+    "key": "o:otp-input",
+    "title": "One-Time Code Input",
+    "category": "Form Controls"
+  },
+  "colors": {
+    "background": "#f3f5fb",
+    "surface": "#ffffff",
+    "text": "#151a2e",
+    "textMuted": "#2a56ff",
+    "primary": "#2a56ff",
+    "secondary": "#151a2e",
+    "border": "#dde2f0",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#151a2e"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f3f5fb",
+      "share": 98.3
+    },
+    {
+      "hex": "#2a56ff",
+      "share": 1.6
+    },
+    {
+      "hex": "#69708a",
+      "share": 0.1
+    },
+    {
+      "hex": "#151a2e",
+      "share": 0.1
+    },
+    {
+      "hex": "#9aa1b8",
+      "share": 0.0
+    },
+    {
+      "hex": "#dde2f0",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "800",
+        "lineHeight": "31.2px",
+        "letterSpacing": "-0.52px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "500",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Space+Mono:wght@700&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 14,
+      "md": 18,
+      "lg": 24,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(30, 40, 90, 0.12) 0px 20px 50px 0px",
+      "md": "rgba(30, 40, 90, 0.12) 0px 20px 50px 0px",
+      "lg": "rgba(30, 40, 90, 0.12) 0px 20px 50px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        10,
+        14,
+        16,
+        18,
+        24,
+        28,
+        32
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      420
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "shield",
+    "tile": "none",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "careful",
+      "calm",
+      "brief"
+    ],
+    "voice": {
+      "summary": "Keyring is short and unflustered, because people using a code are usually in a hurry. It states what was sent, where and how long it lasts, and never makes someone feel suspect.",
+      "dos": [
+        "Say where the code was sent and how long it lasts",
+        "Use one short sentence for every state",
+        "Offer a way out: resend or use another email"
+      ],
+      "donts": [
+        "Do not use security scare words",
+        "Avoid blaming the user for a wrong digit",
+        "Never show a full email address"
+      ]
+    },
+    "taglines": [
+      "Check your email, then you are in",
+      "Six digits, one door",
+      "Secure sign-in without the fuss",
+      "Your code is on its way",
+      "Open the door, keep the key"
+    ],
+    "boilerplate": "Keyring is a sign-in service that uses short-lived six-digit codes sent by email, built for fast, accessible and private access to everyday accounts.",
+    "microcopy": {
+      "primaryCta": "Verify",
+      "secondaryCta": "Resend code",
+      "success": "You are in. Welcome back.",
+      "error": "That code is not right. Check the digits and try again.",
+      "empty": "No code entered yet."
+    }
+  }
+}

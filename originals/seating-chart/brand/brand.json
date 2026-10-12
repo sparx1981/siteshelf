@@ -1,0 +1,194 @@
+{
+  "name": "Placecard",
+  "descriptor": "Table planner for dinners and celebrations",
+  "listing": {
+    "key": "o:seating-chart",
+    "title": "Event Seating Chart",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#f7f4ee",
+    "surface": "#fffdf8",
+    "text": "#25302a",
+    "textMuted": "#000000",
+    "primary": "#e4ddcf",
+    "secondary": "#7d7a72",
+    "border": "#d7cfbe",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#7d7a72"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f7f4ee",
+      "share": 88.2
+    },
+    {
+      "hex": "#f0e0ff",
+      "share": 3.5
+    },
+    {
+      "hex": "#e3f3d5",
+      "share": 2.3
+    },
+    {
+      "hex": "#ffd9c9",
+      "share": 1.8
+    },
+    {
+      "hex": "#d7e8ff",
+      "share": 1.8
+    },
+    {
+      "hex": "#e4ddcf",
+      "share": 1.4
+    },
+    {
+      "hex": "#25302a",
+      "share": 0.8
+    },
+    {
+      "hex": "#6c756e",
+      "share": 0.2
+    },
+    {
+      "hex": "#5d8a6b",
+      "share": 0.1
+    },
+    {
+      "hex": "#000000",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Nunito",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 28,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 18,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "19.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Nunito:wght@400;600;700&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 18,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        16,
+        18
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      440,
+      820,
+      900
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "target",
+    "tile": "squircle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "tactful",
+      "orderly",
+      "warm"
+    ],
+    "voice": {
+      "summary": "Sounds like a wedding planner who loves a spreadsheet: calm, diplomatic and exact about seat counts. Conflicts are flagged gently and every guest is a name, not a row.",
+      "dos": [
+        "Use guests' names and table numbers",
+        "Warn about conflicts and capacity politely",
+        "Show how many are still unseated"
+      ],
+      "donts": [
+        "Do not use event-industry buzzwords",
+        "Do not call guests attendees",
+        "Do not alarm over a full table"
+      ]
+    },
+    "taglines": [
+      "Everyone has a seat",
+      "Plan the evening, table by table",
+      "Friends beside friends, family close",
+      "Drag, drop, dinner sorted",
+      "Seating without the stress"
+    ],
+    "boilerplate": "Placecard is a table-based seating planner that lets hosts drag guests onto round tables, spot capacity and conflict warnings early and keep a live count of who is unseated.",
+    "microcopy": {
+      "primaryCta": "Auto-seat",
+      "secondaryCta": "Reset",
+      "success": "Guest seated at table 3.",
+      "error": "That table is full. Choose another.",
+      "empty": "Everyone is seated. Nothing left to place."
+    }
+  }
+}

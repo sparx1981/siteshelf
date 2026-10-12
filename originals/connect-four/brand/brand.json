@@ -1,0 +1,171 @@
+{
+  "name": "Drop Four",
+  "descriptor": "Arcade Connect Four against the computer",
+  "listing": {
+    "key": "o:connect-four",
+    "title": "Connect Four vs Computer",
+    "category": "Games"
+  },
+  "colors": {
+    "background": "#1f4bd8",
+    "surface": "#1d3566",
+    "text": "#f4f7ff",
+    "textMuted": "#ffd23f",
+    "primary": "#5ee0ff",
+    "secondary": "#ff4d5e",
+    "border": "#3d63dd",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#2e6474"
+  },
+  "colorInventory": [
+    {
+      "hex": "#1d3566",
+      "share": 36.1
+    },
+    {
+      "hex": "#12203d",
+      "share": 36.1
+    },
+    {
+      "hex": "#1f4bd8",
+      "share": 26.4
+    },
+    {
+      "hex": "#5ee0ff",
+      "share": 1.1
+    },
+    {
+      "hex": "#ff4d5e",
+      "share": 0.1
+    },
+    {
+      "hex": "#f4f7ff",
+      "share": 0.1
+    },
+    {
+      "hex": "#9db0d8",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffd23f",
+      "share": 0.0
+    },
+    {
+      "hex": "#3d63dd",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fredoka",
+    "body": "Fredoka",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fredoka",
+        "stack": "'Fredoka', system-ui, sans-serif",
+        "sizePx": 48,
+        "weight": "700",
+        "lineHeight": "48px",
+        "letterSpacing": "-0.48px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Fredoka",
+        "stack": "'Fredoka', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Fredoka",
+        "stack": "'Fredoka', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "16.8px",
+        "letterSpacing": "0.96px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 9,
+      "md": 14,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(23, 56, 168) 0px -6px 0px 0px inset, rgba(0, 0, 0, 0.45) 0px 18px 40px 0px",
+      "md": "rgba(0, 0, 0, 0.6) 0px 4px 8px 0px inset",
+      "lg": "rgb(23, 56, 168) 0px -6px 0px 0px inset, rgba(0, 0, 0, 0.45) 0px 18px 40px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        3,
+        8,
+        10,
+        12,
+        14,
+        22
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "drop",
+    "tile": "circle",
+    "wordmarkFont": "Fredoka"
+  },
+  "voice": {
+    "personality": [
+      "playful",
+      "cheeky",
+      "competitive"
+    ],
+    "voice": {
+      "summary": "Drop Four sounds like a friendly arcade rival: quick banter, big short words and a grin when you lose. Every line is built to be read at a glance mid-game.",
+      "dos": [
+        "Keep banter to six words or fewer",
+        "Announce turns and results in bold, plain verbs",
+        "Tease the player, never the effort"
+      ],
+      "donts": [
+        "Use long instructions during play",
+        "Sneer at a loss",
+        "Use gamer slang that will date"
+      ]
+    },
+    "taglines": [
+      "Drop it. Line them up.",
+      "Four in a row, no excuses",
+      "Your move, champion",
+      "Gravity is on your side",
+      "One more game, surely"
+    ],
+    "boilerplate": "Drop Four is a browser Connect Four with a minimax computer opponent, three difficulty levels and a two-player mode, built for quick rounds and playful rivalry.",
+    "microcopy": {
+      "primaryCta": "New game",
+      "secondaryCta": "Undo",
+      "success": "Four in a row! You win.",
+      "error": "Column is full. Pick another.",
+      "empty": "Board is clear. Drop a disc."
+    }
+  }
+}

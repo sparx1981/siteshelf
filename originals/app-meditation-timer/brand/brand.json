@@ -1,0 +1,196 @@
+{
+  "name": "Stillwater",
+  "descriptor": "Breath-paced meditation timer",
+  "listing": {
+    "key": "o:app-meditation-timer",
+    "title": "Meditation Timer",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#0f1426",
+    "surface": "#171d36",
+    "text": "#eaeefc",
+    "textMuted": "#a0abd4",
+    "primary": "#7be0ff",
+    "secondary": "#ffc3a0",
+    "border": "#3a4676",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#3a6474"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0f1426",
+      "share": 93.8
+    },
+    {
+      "hex": "#7be0ff",
+      "share": 2.5
+    },
+    {
+      "hex": "#e8eeff",
+      "share": 2.0
+    },
+    {
+      "hex": "#000000",
+      "share": 0.6
+    },
+    {
+      "hex": "#2a3358",
+      "share": 0.6
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.2
+    },
+    {
+      "hex": "#a0abd4",
+      "share": 0.2
+    },
+    {
+      "hex": "#3a4676",
+      "share": 0.1
+    },
+    {
+      "hex": "#c4cdee",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffc3a0",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Cormorant Garamond",
+    "body": "Outfit",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Cormorant Garamond",
+        "stack": "'Cormorant Garamond', Georgia, serif",
+        "sizePx": 64,
+        "weight": "600",
+        "lineHeight": "65.28px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.68px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "2.34px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Outfit:wght@400;500;600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 24,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "color(srgb 0.482353 0.878431 1 / 0.5) 0px 0px 80px 0px",
+      "md": "color(srgb 0.482353 0.878431 1 / 0.5) 0px 0px 80px 0px",
+      "lg": "color(srgb 0.482353 0.878431 1 / 0.5) 0px 0px 80px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1080,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 800,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "drop",
+    "tile": "none",
+    "wordmarkFont": "Cormorant Garamond"
+  },
+  "voice": {
+    "personality": [
+      "quiet",
+      "gentle",
+      "spacious"
+    ],
+    "voice": {
+      "summary": "Stillwater speaks softly and slowly, like a teacher who is happy to let a silence stand. Sentences are short, verbs are kind, and nothing ever asks for urgency.",
+      "dos": [
+        "Use short sentences with room to breathe",
+        "Invite rather than instruct: 'when you are ready'",
+        "Prefer concrete images such as lake, breath and bell"
+      ],
+      "donts": [
+        "Do not use streaks, scores or pressure",
+        "Do not use exclamation marks",
+        "Do not promise enlightenment or cures"
+      ]
+    },
+    "taglines": [
+      "Breathe for a few minutes",
+      "Let the water settle",
+      "One slow breath at a time",
+      "Stillness, kept in your pocket",
+      "Come back to the lake"
+    ],
+    "boilerplate": "Stillwater is a breath-paced meditation timer with gentle interval bells and a private session log, made for a few quiet minutes at a time.",
+    "microcopy": {
+      "primaryCta": "Start",
+      "secondaryCta": "End",
+      "success": "Session saved. Well done for stopping.",
+      "error": "The bell could not play. You can keep breathing without it.",
+      "empty": "No sessions yet. Your first one will appear here."
+    }
+  }
+}

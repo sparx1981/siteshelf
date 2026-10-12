@@ -1,0 +1,196 @@
+{
+  "name": "Harbour Library Redesign",
+  "descriptor": "Project plan drawn as a metro map",
+  "listing": {
+    "key": "o:timeline-subway-map",
+    "title": "Subway Map Timeline",
+    "category": "Timeline"
+  },
+  "colors": {
+    "background": "#efe8d8",
+    "surface": "#f7f1e3",
+    "text": "#5e5444",
+    "textMuted": "#1c1812",
+    "primary": "#2f56d4",
+    "secondary": "#c4532f",
+    "border": "#1c1812",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#a8b8ed"
+  },
+  "colorInventory": [
+    {
+      "hex": "#efe8d8",
+      "share": 90.5
+    },
+    {
+      "hex": "#000000",
+      "share": 3.4
+    },
+    {
+      "hex": "#5e5444",
+      "share": 1.0
+    },
+    {
+      "hex": "#2f56d4",
+      "share": 0.9
+    },
+    {
+      "hex": "#cfe3c0",
+      "share": 0.8
+    },
+    {
+      "hex": "#bcd8e6",
+      "share": 0.7
+    },
+    {
+      "hex": "#9cc0d2",
+      "share": 0.7
+    },
+    {
+      "hex": "#ddd0b3",
+      "share": 0.7
+    },
+    {
+      "hex": "#c9bb9a",
+      "share": 0.7
+    },
+    {
+      "hex": "#dfe7f2",
+      "share": 0.7
+    }
+  ],
+  "typography": {
+    "heading": "Young Serif",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 40,
+        "weight": "400",
+        "lineHeight": "44px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 24,
+        "weight": "400",
+        "lineHeight": "27.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Young+Serif&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 7,
+      "md": 14,
+      "lg": 22,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(247, 241, 227) 0px 0px 0px 3px",
+      "md": "rgb(247, 241, 227) 0px 0px 0px 3px, rgb(255, 255, 255) 0px 0px 0px 4px inset",
+      "lg": "rgb(247, 241, 227) 0px 0px 0px 3px, rgb(28, 24, 18) 0px 0px 0px 7px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1240,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chevrons",
+    "tile": "squircle",
+    "wordmarkFont": "Young Serif"
+  },
+  "voice": {
+    "personality": [
+      "clear",
+      "civic",
+      "methodical"
+    ],
+    "voice": {
+      "summary": "Harbour Library Redesign writes like a well-run project office with a map habit. It names milestones as stations, workstreams as lines and keeps updates short and dated.",
+      "dos": [
+        "Name each milestone as a station with a date",
+        "Say which line a task belongs to",
+        "Keep updates under twenty words"
+      ],
+      "donts": [
+        "Do not use project jargon like leverage",
+        "Avoid vague phases without dates",
+        "Never hide a delay"
+      ]
+    },
+    "taglines": [
+      "Every milestone has a station",
+      "Plan the project like a metro",
+      "Four lines, one library",
+      "Next stop: prototype",
+      "Follow the line to opening day"
+    ],
+    "boilerplate": "Harbour Library Redesign is a project plan drawn as a transit map, with coloured lines for discovery, design and build and stations for each shared milestone.",
+    "microcopy": {
+      "primaryCta": "View map",
+      "secondaryCta": "View list",
+      "success": "Station selected.",
+      "error": "Could not load that milestone. Please try again.",
+      "empty": "No stations on this line."
+    }
+  }
+}

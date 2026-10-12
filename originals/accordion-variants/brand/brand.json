@@ -1,0 +1,200 @@
+{
+  "name": "Quartz UI",
+  "descriptor": "Accessible accordion patterns for interfaces",
+  "listing": {
+    "key": "o:accordion-variants",
+    "title": "Accordion Variants",
+    "category": "Components"
+  },
+  "colors": {
+    "background": "#f8f9fb",
+    "surface": "#efefef",
+    "text": "#475467",
+    "textMuted": "#667085",
+    "primary": "#0e9384",
+    "secondary": "#7ac4bb",
+    "border": "#e4e7ec",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#0c4440"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f8f9fb",
+      "share": 98.7
+    },
+    {
+      "hex": "#475467",
+      "share": 0.7
+    },
+    {
+      "hex": "#667085",
+      "share": 0.2
+    },
+    {
+      "hex": "#101828",
+      "share": 0.2
+    },
+    {
+      "hex": "#0e9384",
+      "share": 0.1
+    },
+    {
+      "hex": "#fef3c7",
+      "share": 0.1
+    },
+    {
+      "hex": "#dbeafe",
+      "share": 0.1
+    },
+    {
+      "hex": "#0b6e63",
+      "share": 0.0
+    },
+    {
+      "hex": "#7ac4bb",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "700",
+        "lineHeight": "33.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.2px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "23.25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "23.25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13.5,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 14,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "stack",
+    "tile": "none",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "tidy",
+      "exact",
+      "friendly"
+    ],
+    "voice": {
+      "summary": "Quartz UI sounds like good documentation written by someone who actually uses the components. It names the pattern, shows the keyboard behaviour and answers the question in the first line.",
+      "dos": [
+        "Answer the question in the opening sentence",
+        "Mention the keyboard shortcut next to each pattern",
+        "Keep headings to four words or fewer"
+      ],
+      "donts": [
+        "Do not call anything 'magical' or 'powerful'",
+        "Do not bury the answer under a preamble",
+        "Do not use exclamation marks in docs"
+      ]
+    },
+    "taglines": [
+      "Five patterns, one keyboard model",
+      "Open what you need, nothing more",
+      "Components that behave themselves",
+      "Expand all, collapse all, break nothing",
+      "Clear panels for clear interfaces"
+    ],
+    "boilerplate": "Quartz UI is a component library whose accordions, tabs and menus share one consistent keyboard model and need no framework.",
+    "microcopy": {
+      "primaryCta": "Expand all",
+      "secondaryCta": "Collapse all",
+      "success": "Panel opened. Focus moved to its content.",
+      "error": "That panel could not open. Reload the page and try again.",
+      "empty": "No questions yet. Add the first one."
+    }
+  }
+}

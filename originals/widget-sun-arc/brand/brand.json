@@ -1,0 +1,187 @@
+{
+  "name": "Halcyon Daylight",
+  "descriptor": "Daylight times for coastal towns",
+  "listing": {
+    "key": "o:widget-sun-arc",
+    "title": "Sunrise Sunset Arc",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#0b1026",
+    "surface": "#121a42",
+    "text": "#eef1ff",
+    "textMuted": "#a7b0d6",
+    "primary": "#ffd36b",
+    "secondary": "#161e48",
+    "border": "#333f7c",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#161e48"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b1026",
+      "share": 86.0
+    },
+    {
+      "hex": "#121a42",
+      "share": 5.5
+    },
+    {
+      "hex": "#000000",
+      "share": 4.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 1.9
+    },
+    {
+      "hex": "#382b1e",
+      "share": 0.8
+    },
+    {
+      "hex": "#8c6b4c",
+      "share": 0.7
+    },
+    {
+      "hex": "#664e37",
+      "share": 0.7
+    },
+    {
+      "hex": "#eef1ff",
+      "share": 0.2
+    },
+    {
+      "hex": "#a7b0d6",
+      "share": 0.1
+    },
+    {
+      "hex": "#232c5a",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Bricolage Grotesque",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 44,
+        "weight": "600",
+        "lineHeight": "46.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "2.16px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600&family=Inter:wght@400;500;600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 16,
+      "lg": 28,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.5) 0px 30px 80px 0px",
+      "md": "rgba(0, 0, 0, 0.5) 0px 30px 80px 0px",
+      "lg": "rgba(0, 0, 0, 0.5) 0px 30px 80px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        22
+      ]
+    },
+    "container": 1000,
+    "breakpoints": [
+      420,
+      760
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "orbit",
+    "tile": "none",
+    "wordmarkFont": "Bricolage Grotesque"
+  },
+  "voice": {
+    "personality": [
+      "serene",
+      "precise",
+      "poetic"
+    ],
+    "voice": {
+      "summary": "Halcyon Daylight reads like a gentle almanac: accurate times set in quiet, unhurried sentences. It names golden hour and daylight length as plainly as sunrise.",
+      "dos": [
+        "Give times to the minute with the town and date",
+        "Say how much daylight changes day to day",
+        "Use calm, concrete sky words"
+      ],
+      "donts": [
+        "Do not use dramatic sunset cliches",
+        "Avoid vague times like early evening",
+        "Never mix time zones"
+      ]
+    },
+    "taglines": [
+      "Follow the sun, minute by minute",
+      "Daylight, plainly told",
+      "Golden hour, set to the minute",
+      "Light for every little town",
+      "The day, in one long arc"
+    ],
+    "boilerplate": "Halcyon Daylight is a daylight widget showing sunrise, sunset, golden hour and daylight length for five coastal towns, with a draggable sun on a sky that shifts through the day.",
+    "microcopy": {
+      "primaryCta": "Now",
+      "secondaryCta": "Sunset",
+      "success": "Showing sunset in Pennick Bay.",
+      "error": "Could not load that town. Please try again.",
+      "empty": "No town selected."
+    }
+  }
+}

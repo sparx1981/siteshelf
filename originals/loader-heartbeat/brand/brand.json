@@ -1,0 +1,186 @@
+{
+  "name": "Pulse Ledger",
+  "descriptor": "Patient-data platform with a calm loading monitor",
+  "listing": {
+    "key": "o:loader-heartbeat",
+    "title": "Heartbeat Loader",
+    "category": "Loaders"
+  },
+  "colors": {
+    "background": "#06180f",
+    "surface": "#0a2a22",
+    "text": "#8ec9ae",
+    "textMuted": "#d4f5e5",
+    "primary": "#ff5a6e",
+    "secondary": "#3dffa0",
+    "border": "#1f5a45",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#3dffa0"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0a2a22",
+      "share": 49.1
+    },
+    {
+      "hex": "#04100d",
+      "share": 49.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.8
+    },
+    {
+      "hex": "#8ec9ae",
+      "share": 0.4
+    },
+    {
+      "hex": "#d4f5e5",
+      "share": 0.3
+    },
+    {
+      "hex": "#3dffa0",
+      "share": 0.2
+    },
+    {
+      "hex": "#bfeed7",
+      "share": 0.1
+    },
+    {
+      "hex": "#ff5a6e",
+      "share": 0.1
+    },
+    {
+      "hex": "#d98a94",
+      "share": 0.0
+    },
+    {
+      "hex": "#1f5a45",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Space Grotesk",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 54,
+        "weight": "700",
+        "lineHeight": "56.16px",
+        "letterSpacing": "-1.08px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "500",
+        "lineHeight": "25.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.34px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=VT323&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 10,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(61, 255, 160, 0.06) 0px 0px 0px 1px, rgb(0, 0, 0) 0px 30px 70px -30px, rgba(61, 255, 160, 0.05) 0px 0px 90px 0px inset",
+      "md": "rgb(61, 255, 160) 0px 0px 8px 0px",
+      "lg": "rgba(61, 255, 160, 0.06) 0px 0px 0px 1px, rgb(0, 0, 0) 0px 30px 70px -30px, rgba(61, 255, 160, 0.05) 0px 0px 90px 0px inset"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        18,
+        20
+      ]
+    },
+    "container": 1020,
+    "breakpoints": [
+      760
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "pulse",
+    "tile": "squircle",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "steady",
+      "clinical",
+      "reassuring"
+    ],
+    "voice": {
+      "summary": "A monitor in a quiet ward: precise, level and never alarmed. Short phrases that tell the user the system is alive and working.",
+      "dos": [
+        "Keep status lines literal, such as loading records",
+        "Use clinical terms correctly, such as bpm and trace",
+        "Reassure in as few words as possible"
+      ],
+      "donts": [
+        "Dramatic medical language",
+        "Cute heart emoji",
+        "Promising timings it cannot keep"
+      ]
+    },
+    "taglines": [
+      "A steady beat while we load",
+      "Records on their way",
+      "Every pulse, accounted for",
+      "Calm data, steady rhythm",
+      "Hold on, we have a pulse"
+    ],
+    "boilerplate": "Pulse Ledger is a patient-data platform with a monitor-style loader, designed to keep users calmly informed while records load. All data shown is fictional.",
+    "microcopy": {
+      "primaryCta": "Pause",
+      "secondaryCta": "Resume",
+      "success": "Records loaded",
+      "error": "Connection dropped. Reconnecting",
+      "empty": "No readings yet"
+    }
+  }
+}

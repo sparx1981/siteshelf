@@ -1,0 +1,176 @@
+{
+  "name": "Tether",
+  "descriptor": "Playful 404 page with a floating astronaut",
+  "listing": {
+    "key": "o:lost-in-space",
+    "title": "Lost in Space 404 Page",
+    "category": "Error Page"
+  },
+  "colors": {
+    "background": "#0a0d24",
+    "surface": "#2a1f63",
+    "text": "#eef0ff",
+    "textMuted": "#9aa1d6",
+    "primary": "#ffb84d",
+    "secondary": "#2a1f63",
+    "border": "#eef0ff",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#2a1f63"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0a0d24",
+      "share": 82.2
+    },
+    {
+      "hex": "#2a1f63",
+      "share": 16.4
+    },
+    {
+      "hex": "#000000",
+      "share": 0.3
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.3
+    },
+    {
+      "hex": "#eef0ff",
+      "share": 0.2
+    },
+    {
+      "hex": "#ffb84d",
+      "share": 0.1
+    },
+    {
+      "hex": "#e0782f",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffd28a",
+      "share": 0.1
+    },
+    {
+      "hex": "#b8501f",
+      "share": 0.1
+    },
+    {
+      "hex": "#9aa1d6",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Unbounded",
+    "body": "Outfit",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Unbounded",
+        "stack": "'Unbounded', system-ui, sans-serif",
+        "sizePx": 40,
+        "weight": "600",
+        "lineHeight": "48px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "300",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "300",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Outfit:wght@300;400;500&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 50,
+      "md": 50,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.45) -22px -18px 40px 0px inset",
+      "md": "rgba(0, 0, 0, 0.45) -22px -18px 40px 0px inset",
+      "lg": "rgba(0, 0, 0, 0.45) -22px -18px 40px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        10,
+        12,
+        16,
+        20,
+        22,
+        24,
+        28,
+        40
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "orbit",
+    "tile": "squircle",
+    "wordmarkFont": "Unbounded"
+  },
+  "voice": {
+    "personality": [
+      "playful",
+      "calm",
+      "wry"
+    ],
+    "voice": {
+      "summary": "Talks like a mission controller with a sense of humour: crisp radio phrases, a deadpan joke, and a clear route home. It treats the broken link as a minor drift, not a disaster.",
+      "dos": [
+        "Use mission-control phrasing like roger and copy that",
+        "Offer a clear way back immediately",
+        "Keep jokes dry and short"
+      ],
+      "donts": [
+        "No real alarm or panic wording",
+        "Avoid space jargon that needs explaining",
+        "Never blame the visitor"
+      ]
+    },
+    "taglines": [
+      "Houston, this page drifted away",
+      "Floating free, but not for long",
+      "Copy that. Tracking down your page",
+      "Stay on the tether",
+      "Back to base in one click"
+    ],
+    "boilerplate": "Tether is a playful 404 page featuring a CSS astronaut on a line among drifting stars, with a search box that points visitors back to the right page.",
+    "microcopy": {
+      "primaryCta": "Search the site",
+      "secondaryCta": "Return to base",
+      "success": "Found it. Bringing you in.",
+      "error": "Signal lost. Try that search again.",
+      "empty": "No matches in this sector. Try another word."
+    }
+  }
+}

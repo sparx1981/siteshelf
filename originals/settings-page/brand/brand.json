@@ -1,0 +1,196 @@
+{
+  "name": "Plainsight",
+  "descriptor": "Account app whose settings stay simple and visible",
+  "listing": {
+    "key": "o:settings-page",
+    "title": "Settings Page",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#f5f6f8",
+    "surface": "#ffffff",
+    "text": "#667085",
+    "textMuted": "#101828",
+    "primary": "#3b6cff",
+    "secondary": "#d92d20",
+    "border": "#e4e7ec",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#1f3474"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f5f6f8",
+      "share": 96.5
+    },
+    {
+      "hex": "#101828",
+      "share": 2.5
+    },
+    {
+      "hex": "#3b6cff",
+      "share": 0.4
+    },
+    {
+      "hex": "#d92d20",
+      "share": 0.3
+    },
+    {
+      "hex": "#667085",
+      "share": 0.2
+    },
+    {
+      "hex": "#7c5cff",
+      "share": 0.1
+    },
+    {
+      "hex": "#12a150",
+      "share": 0.1
+    },
+    {
+      "hex": "#e4e7ec",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    },
+    {
+      "hex": "#1f3474",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Public Sans",
+    "body": "Public Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Public Sans",
+        "stack": "'Public Sans', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "700",
+        "lineHeight": "33.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Public Sans",
+        "stack": "'Public Sans', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Public Sans",
+        "stack": "'Public Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Public Sans",
+        "stack": "'Public Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Public Sans",
+        "stack": "'Public Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 14,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(59, 108, 255) 3px 0px 0px 0px inset, rgb(228, 231, 236) 0px 0px 0px 1px",
+      "md": "rgba(0, 0, 0, 0.4) 0px 20px 50px 0px",
+      "lg": "rgb(59, 108, 255) 3px 0px 0px 0px inset, rgb(228, 231, 236) 0px 0px 0px 1px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1040,
+    "breakpoints": [
+      800
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "diamond",
+    "tile": "none",
+    "wordmarkFont": "Inter Bold (stand-in for Public Sans)"
+  },
+  "voice": {
+    "personality": [
+      "lucid",
+      "trustworthy",
+      "low-key"
+    ],
+    "voice": {
+      "summary": "A calm admin voice: clear labels, neutral tone and no surprises. It explains consequences before you click and confirms afterwards.",
+      "dos": [
+        "Explain what each toggle changes",
+        "Warn clearly before destructive actions",
+        "Confirm saved changes with a single sentence"
+      ],
+      "donts": [
+        "Playful jokes next to account deletion",
+        "Hidden defaults",
+        "Passive blame like invalid input"
+      ]
+    },
+    "taglines": [
+      "Everything you can change, in plain sight",
+      "Your account, your rules",
+      "Settings that explain themselves",
+      "Change it. Check it. Done",
+      "Control without confusion"
+    ],
+    "boilerplate": "Plainsight is an account platform whose settings pages group profile, notifications, appearance, security and billing in one clear, reversible place.",
+    "microcopy": {
+      "primaryCta": "Save changes",
+      "secondaryCta": "Discard",
+      "success": "Changes saved",
+      "error": "That email looks invalid. Check and retry",
+      "empty": "No notifications set. Choose what to hear"
+    }
+  }
+}

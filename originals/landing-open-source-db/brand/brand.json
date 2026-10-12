@@ -1,0 +1,206 @@
+{
+  "name": "Tessel",
+  "descriptor": "Embeddable open-source SQL database",
+  "listing": {
+    "key": "o:landing-open-source-db",
+    "title": "Tessel Database",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#f6f3ea",
+    "surface": "#ffffff",
+    "text": "#5a584f",
+    "textMuted": "#121212",
+    "primary": "#ff6a13",
+    "secondary": "#8fb4ff",
+    "border": "#121212",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#713311"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6f3ea",
+      "share": 67.3
+    },
+    {
+      "hex": "#ffffff",
+      "share": 25.0
+    },
+    {
+      "hex": "#121212",
+      "share": 6.9
+    },
+    {
+      "hex": "#ff6a13",
+      "share": 0.4
+    },
+    {
+      "hex": "#5a584f",
+      "share": 0.3
+    },
+    {
+      "hex": "#000000",
+      "share": 0.0
+    },
+    {
+      "hex": "#ff9d57",
+      "share": 0.0
+    },
+    {
+      "hex": "#14532d",
+      "share": 0.0
+    },
+    {
+      "hex": "#8fb4ff",
+      "share": 0.0
+    },
+    {
+      "hex": "#9be3b0",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "IBM Plex Mono",
+    "body": "IBM Plex Sans",
+    "mono": "monospace",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 72,
+        "weight": "500",
+        "lineHeight": "75.6px",
+        "letterSpacing": "-2.88px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 42,
+        "weight": "500",
+        "lineHeight": "46.2px",
+        "letterSpacing": "-1.26px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "IBM Plex Sans",
+        "stack": "'IBM Plex Sans', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 13,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "monospace",
+        "stack": "ui-monospace, Menlo, monospace",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 0,
+      "md": 0,
+      "lg": 0,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgb(18, 18, 18) 4px 4px 0px 0px",
+      "md": "rgb(18, 18, 18) 6px 6px 0px 0px",
+      "lg": "rgb(18, 18, 18) 4px 4px 0px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        20,
+        30
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      860
+    ],
+    "motion": {
+      "duration": 120,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "grid",
+    "tile": "circle",
+    "wordmarkFont": "IBM Plex Mono"
+  },
+  "voice": {
+    "personality": [
+      "dry",
+      "technical",
+      "friendly"
+    ],
+    "voice": {
+      "summary": "Sounds like an engineer writing a README for a friend: precise, understated and a bit wry. It states sizes, guarantees and commands, and trusts code samples to do the persuading.",
+      "dos": [
+        "Give real numbers like 1.2MB and ten seconds",
+        "Show a command or query instead of an adjective",
+        "Keep jokes to one dry line"
+      ],
+      "donts": [
+        "Do not claim to be the fastest without a benchmark",
+        "Do not use enterprise buzzwords",
+        "Do not hide the install command"
+      ]
+    },
+    "taglines": [
+      "A database small enough to hold",
+      "One binary. No server. Real SQL.",
+      "Small enough to read, strong to ship",
+      "ACID, embedded, entirely yours",
+      "A query planner on a postcard"
+    ],
+    "boilerplate": "Tessel is an open-source, embeddable SQL database delivered as a single 1.2MB binary with no server, ACID transactions and a query planner small enough to read in one sitting.",
+    "microcopy": {
+      "primaryCta": "Install",
+      "secondaryCta": "Quick start",
+      "success": "Query ran. Three rows returned.",
+      "error": "Syntax error near line 1. Check the query.",
+      "empty": "No rows. Run a query to see results."
+    }
+  }
+}

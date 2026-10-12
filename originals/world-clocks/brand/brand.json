@@ -1,0 +1,193 @@
+{
+  "name": "Anywhen",
+  "descriptor": "World clock and meeting overlap board",
+  "listing": {
+    "key": "o:world-clocks",
+    "title": "World Clocks",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#0b1220",
+    "surface": "#121a2c",
+    "text": "#eef2ff",
+    "textMuted": "#8f9bc0",
+    "primary": "#7cc4f0",
+    "secondary": "#fca5a5",
+    "border": "#1f2a44",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#3a596e"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b1220",
+      "share": 93.6
+    },
+    {
+      "hex": "#7cc4f0",
+      "share": 1.2
+    },
+    {
+      "hex": "#26335a",
+      "share": 1.1
+    },
+    {
+      "hex": "#2a6fb8",
+      "share": 1.0
+    },
+    {
+      "hex": "#34d399",
+      "share": 0.9
+    },
+    {
+      "hex": "#5b3b6e",
+      "share": 0.5
+    },
+    {
+      "hex": "#d98a6a",
+      "share": 0.5
+    },
+    {
+      "hex": "#6b3f5c",
+      "share": 0.5
+    },
+    {
+      "hex": "#e48b4f",
+      "share": 0.5
+    },
+    {
+      "hex": "#eef2ff",
+      "share": 0.3
+    }
+  ],
+  "typography": {
+    "heading": "Lexend",
+    "body": "Lexend",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Lexend",
+        "stack": "'Lexend', system-ui, sans-serif",
+        "sizePx": 30,
+        "weight": "600",
+        "lineHeight": "33px",
+        "letterSpacing": "-0.6px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Lexend",
+        "stack": "'Lexend', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "600",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Lexend",
+        "stack": "'Lexend', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Lexend",
+        "stack": "'Lexend', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Lexend",
+        "stack": "'Lexend', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "19.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 7,
+      "md": 10,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        16,
+        20
+      ]
+    },
+    "container": 1180,
+    "breakpoints": [
+      600,
+      900
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "dial",
+    "tile": "circle",
+    "wordmarkFont": "Lexend"
+  },
+  "voice": {
+    "personality": [
+      "clear",
+      "global",
+      "calm"
+    ],
+    "voice": {
+      "summary": "Anywhen sounds like a well-travelled friend glancing at their watch: relaxed, exact and a little poetic about daylight. It uses city names and local times, never abbreviations alone.",
+      "dos": [
+        "Pair every time with a city name",
+        "Describe day or night in one word",
+        "Say plainly when there is no overlap"
+      ],
+      "donts": [
+        "Do not use only UTC offsets",
+        "Avoid ambiguous 12-hour times without am or pm",
+        "Never hide the current date"
+      ]
+    },
+    "taglines": [
+      "Every hour, somewhere",
+      "The world, on one board",
+      "Know when they are awake",
+      "Time zones without the maths",
+      "Clocks for a connected day"
+    ],
+    "boilerplate": "Anywhen is a world clock board that shows analogue and digital time for any city, tints each card by time of day and highlights shared working hours.",
+    "microcopy": {
+      "primaryCta": "Add a city",
+      "secondaryCta": "Switch to 24h",
+      "success": "City added to your board.",
+      "error": "That city was not found. Check the spelling.",
+      "empty": "No shared working hours today."
+    }
+  }
+}

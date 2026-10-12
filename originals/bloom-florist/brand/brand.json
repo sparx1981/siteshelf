@@ -1,0 +1,162 @@
+{
+  "name": "Bloom & Stem",
+  "descriptor": "Seasonal bouquets from local growers",
+  "listing": {
+    "key": "o:bloom-florist",
+    "title": "Bloom & Stem Florist Hero",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#fbe9e4",
+    "surface": "#d6456b",
+    "text": "#3a1f2b",
+    "textMuted": "#7e666c",
+    "primary": "#d6456b",
+    "secondary": "#3a1f2b",
+    "border": "#3a1f2b",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#3a1f2b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fbe9e4",
+      "share": 99.0
+    },
+    {
+      "hex": "#d6456b",
+      "share": 0.4
+    },
+    {
+      "hex": "#3a1f2b",
+      "share": 0.2
+    },
+    {
+      "hex": "#7a5cc4",
+      "share": 0.1
+    },
+    {
+      "hex": "#e0891a",
+      "share": 0.1
+    },
+    {
+      "hex": "#3f8a62",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.0
+    },
+    {
+      "hex": "#7e666c",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Cormorant Garamond",
+    "body": "Mulish",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Cormorant Garamond",
+        "stack": "'Cormorant Garamond', Georgia, serif",
+        "sizePx": 115.2,
+        "weight": "500",
+        "lineHeight": "109.44px",
+        "letterSpacing": "-2.304px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Mulish",
+        "stack": "'Mulish', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Mulish:wght@400;600;700&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 0,
+      "md": 0,
+      "lg": 0,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(251, 233, 228) 0px 0px 0px 3px inset",
+      "md": "rgb(251, 233, 228) 0px 0px 0px 3px inset",
+      "lg": "rgb(251, 233, 228) 0px 0px 0px 3px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        12,
+        14,
+        16,
+        20,
+        24,
+        30,
+        32,
+        56,
+        120
+      ]
+    },
+    "container": 900,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 600,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "sprout",
+    "tile": "squircle",
+    "wordmarkFont": "Cormorant Garamond"
+  },
+  "voice": {
+    "personality": [
+      "fresh",
+      "tender",
+      "local"
+    ],
+    "voice": {
+      "summary": "Bloom & Stem speaks in the voice of a florist who knows the growers by name. It is soft, seasonal and specific about where and when each stem was cut.",
+      "dos": [
+        "Name the flower, the grower and the morning it was cut",
+        "Write in the present tense, as if the buds are open now",
+        "Keep it short enough to read at the counter"
+      ],
+      "donts": [
+        "Do not use 'stunning' or 'gorgeous'",
+        "Do not promise more than a bouquet can deliver",
+        "Do not hide delivery times"
+      ]
+    },
+    "taglines": [
+      "Flowers that bloom on arrival",
+      "Hand-tied this morning, at your door tonight",
+      "Grown within thirty miles of you",
+      "Seasonal stems, no stale roses",
+      "Say it with what is in season"
+    ],
+    "boilerplate": "Bloom & Stem is a florist delivering seasonal bouquets from growers within thirty miles, hand-tied the same morning and delivered by dinner.",
+    "microcopy": {
+      "primaryCta": "Choose a bouquet",
+      "secondaryCta": "See what is in season",
+      "success": "Your bouquet is on its way. It will be at your door by dinner.",
+      "error": "We could not take that order. Please check your postcode.",
+      "empty": "No stems picked yet. Choose a bouquet to begin."
+    }
+  }
+}

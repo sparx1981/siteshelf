@@ -1,0 +1,181 @@
+{
+  "name": "Pocket Notes",
+  "descriptor": "Quick notes app with a one-thumb menu",
+  "listing": {
+    "key": "o:nav-radial-menu",
+    "title": "Radial Menu",
+    "category": "Navigation"
+  },
+  "colors": {
+    "background": "#162a2e",
+    "surface": "#0d1b1e",
+    "text": "#a7c3c0",
+    "textMuted": "#e6f4f2",
+    "primary": "#4fe3c1",
+    "secondary": "#2b7d6a",
+    "border": "#26454b",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#2b7d6a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#162a2e",
+      "share": 49.7
+    },
+    {
+      "hex": "#0d1b1e",
+      "share": 48.7
+    },
+    {
+      "hex": "#4fe3c1",
+      "share": 0.6
+    },
+    {
+      "hex": "#a7c3c0",
+      "share": 0.6
+    },
+    {
+      "hex": "#e6f4f2",
+      "share": 0.3
+    },
+    {
+      "hex": "#8fb3b0",
+      "share": 0.2
+    },
+    {
+      "hex": "#2b7d6a",
+      "share": 0.0
+    },
+    {
+      "hex": "#26454b",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Outfit",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 32,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "20.15px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "23.25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "400",
+        "lineHeight": "19.375px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 14,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(79, 227, 193, 0.55) 0px 14px 30px -8px",
+      "md": "rgba(79, 227, 193, 0.55) 0px 14px 30px -8px",
+      "lg": "rgba(79, 227, 193, 0.55) 0px 14px 30px -8px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        28
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      480
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "dial",
+    "tile": "circle",
+    "wordmarkFont": "Outfit"
+  },
+  "voice": {
+    "personality": [
+      "quick",
+      "handy",
+      "minimal"
+    ],
+    "voice": {
+      "summary": "Pocket Notes sounds like a clear-headed friend jotting things down next to you. It keeps labels to one word, states each action as a verb and trusts the thumb more than the manual.",
+      "dos": [
+        "Use single-word action labels: pin, share, delete",
+        "Describe keyboard shortcuts in one sentence",
+        "Show the result of an action immediately"
+      ],
+      "donts": [
+        "Do not use productivity-guru language",
+        "Avoid menus nested more than one level",
+        "Never delete without an undo"
+      ]
+    },
+    "taglines": [
+      "Notes within thumb's reach",
+      "Tap once, fan out five actions",
+      "Jot it down. Move on",
+      "Small notes, quick hands",
+      "Everything within a swipe"
+    ],
+    "boilerplate": "Pocket Notes is a minimalist notes app whose floating radial menu puts pin, share, tag, archive and delete within a single thumb's reach.",
+    "microcopy": {
+      "primaryCta": "New note",
+      "secondaryCta": "Search notes",
+      "success": "Note pinned.",
+      "error": "Could not save the note. Try again.",
+      "empty": "No notes yet. Tap the round button to add one."
+    }
+  }
+}

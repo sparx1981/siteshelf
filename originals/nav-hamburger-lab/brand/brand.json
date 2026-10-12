@@ -1,0 +1,202 @@
+{
+  "name": "Foldline Labs",
+  "descriptor": "Menu animation experiments for interface designers",
+  "listing": {
+    "key": "o:nav-hamburger-lab",
+    "title": "Hamburger Morph Lab",
+    "category": "Navigation"
+  },
+  "colors": {
+    "background": "#101216",
+    "surface": "#181b21",
+    "text": "#9aa3b2",
+    "textMuted": "#eef0f4",
+    "primary": "#8f74ff",
+    "secondary": "#c6f25a",
+    "border": "#2a2f38",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#c6f25a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#101216",
+      "share": 74.6
+    },
+    {
+      "hex": "#f3f1ec",
+      "share": 16.8
+    },
+    {
+      "hex": "#1f232b",
+      "share": 5.4
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.7
+    },
+    {
+      "hex": "#e1dcf2",
+      "share": 0.7
+    },
+    {
+      "hex": "#dff0b8",
+      "share": 0.7
+    },
+    {
+      "hex": "#f4d9c9",
+      "share": 0.7
+    },
+    {
+      "hex": "#8f74ff",
+      "share": 0.3
+    },
+    {
+      "hex": "#9aa3b2",
+      "share": 0.2
+    },
+    {
+      "hex": "#4b4658",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Space Grotesk",
+    "mono": "JetBrains Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 44,
+        "weight": "700",
+        "lineHeight": "46.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.56px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 36,
+        "weight": "700",
+        "lineHeight": "37.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "500",
+        "lineHeight": "19.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12.5,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 2,
+      "md": 12,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        8,
+        9,
+        10,
+        14,
+        16,
+        18,
+        22,
+        24
+      ]
+    },
+    "container": 1180,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 380,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "bars",
+    "tile": "circle",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "inventive",
+      "technical",
+      "playful"
+    ],
+    "voice": {
+      "summary": "Foldline Labs sounds like a design studio's experiment bench: clear instructions, light humour and exact numbers. It labels each animation like a lab sample.",
+      "dos": [
+        "Name each morph and show its speed and easing",
+        "Write short, instructional labels",
+        "Keep jokes to the odd pun on lines and folds"
+      ],
+      "donts": [
+        "Do not explain the obvious",
+        "Avoid motion jargon without values",
+        "Never skip the Escape and focus details"
+      ]
+    },
+    "taglines": [
+      "Three lines, six ways out",
+      "Pick a morph, tune the timing",
+      "Menus that move with manners",
+      "Fold it, flip it, close it",
+      "Little animations, carefully tested"
+    ],
+    "boilerplate": "Foldline Labs is an experiment bench for interface designers, offering six animated menu icon morphs with live speed and easing controls tested on a real slide-in menu.",
+    "microcopy": {
+      "primaryCta": "Try it on the menu",
+      "secondaryCta": "Reset speed",
+      "success": "Morph applied.",
+      "error": "That setting is out of range. Try 100 to 800 ms.",
+      "empty": "No morph selected."
+    }
+  }
+}

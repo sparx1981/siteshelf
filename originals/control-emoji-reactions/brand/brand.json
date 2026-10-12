@@ -1,0 +1,186 @@
+{
+  "name": "Huddle Square",
+  "descriptor": "Friendly social feed with expressive reactions",
+  "listing": {
+    "key": "o:control-emoji-reactions",
+    "title": "Emoji Reaction Bar",
+    "category": "Form Controls"
+  },
+  "colors": {
+    "background": "#f0f2f8",
+    "surface": "#ffffff",
+    "text": "#1b2133",
+    "textMuted": "#5a6480",
+    "primary": "#ffb48a",
+    "secondary": "#1b2133",
+    "border": "#dfe3ef",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#1b2133"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f0f2f8",
+      "share": 95.7
+    },
+    {
+      "hex": "#ffb48a",
+      "share": 1.0
+    },
+    {
+      "hex": "#e9c07a",
+      "share": 0.5
+    },
+    {
+      "hex": "#b9772f",
+      "share": 0.5
+    },
+    {
+      "hex": "#9bc7e6",
+      "share": 0.5
+    },
+    {
+      "hex": "#b7d4e6",
+      "share": 0.5
+    },
+    {
+      "hex": "#5b2a6e",
+      "share": 0.5
+    },
+    {
+      "hex": "#1b2133",
+      "share": 0.4
+    },
+    {
+      "hex": "#d99a4e",
+      "share": 0.3
+    },
+    {
+      "hex": "#fff0b8",
+      "share": 0.3
+    }
+  ],
+  "typography": {
+    "heading": "Figtree",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 54,
+        "weight": "800",
+        "lineHeight": "56.16px",
+        "letterSpacing": "-1.62px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "500",
+        "lineHeight": "27px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "2.08px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700;800&family=Inter:wght@400;500&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 14,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(255, 255, 255) 0px 0px 0px 5px",
+      "md": "rgba(27, 33, 51, 0.5) 0px 18px 40px -30px",
+      "lg": "rgba(27, 33, 51, 0.45) 0px 18px 40px -10px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        6,
+        7,
+        8,
+        10,
+        12,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      520
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "grid",
+    "tile": "none",
+    "wordmarkFont": "Figtree"
+  },
+  "voice": {
+    "personality": [
+      "warm",
+      "lively",
+      "inclusive"
+    ],
+    "voice": {
+      "summary": "Sounds like a neighbour leaning over the fence: cheerful, informal and generous with praise. It gives people small, delightful ways to say how they feel.",
+      "dos": [
+        "Celebrate other people's posts in the interface text",
+        "Keep reaction labels to one friendly word",
+        "Use contractions and a light touch of humour"
+      ],
+      "donts": [
+        "No sarcasm in reaction feedback",
+        "Avoid pressure to react",
+        "Do not use more than one emoji in a sentence"
+      ]
+    },
+    "taglines": [
+      "React with a flourish",
+      "Say it with a little pop",
+      "Every post deserves a reaction",
+      "Gather round, say something",
+      "The square where neighbours cheer"
+    ],
+    "boilerplate": "Huddle Square is a friendly social feed where neighbours share posts and respond with six hand-drawn reactions that pop, float and are announced for everyone.",
+    "microcopy": {
+      "primaryCta": "Add reaction",
+      "secondaryCta": "Show all reactions",
+      "success": "Reaction added. Your neighbour will love it.",
+      "error": "That reaction did not stick. Try again.",
+      "empty": "No reactions yet. Be the first."
+    }
+  }
+}

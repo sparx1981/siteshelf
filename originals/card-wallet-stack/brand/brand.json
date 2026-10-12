@@ -1,0 +1,197 @@
+{
+  "name": "Pocketbank",
+  "descriptor": "Everyday banking with neatly stacked cards",
+  "listing": {
+    "key": "o:card-wallet-stack",
+    "title": "Wallet Card Stack",
+    "category": "Cards"
+  },
+  "colors": {
+    "background": "#e9edf3",
+    "surface": "#f6f8fb",
+    "text": "#151a24",
+    "textMuted": "#4b5668",
+    "primary": "#2457ff",
+    "secondary": "#ff7a45",
+    "border": "#c6cfdd",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#a3b8ff"
+  },
+  "colorInventory": [
+    {
+      "hex": "#e9edf3",
+      "share": 74.9
+    },
+    {
+      "hex": "#f8fafd",
+      "share": 18.7
+    },
+    {
+      "hex": "#2457ff",
+      "share": 0.8
+    },
+    {
+      "hex": "#6a96ff",
+      "share": 0.8
+    },
+    {
+      "hex": "#0e8f6c",
+      "share": 0.8
+    },
+    {
+      "hex": "#43d1a0",
+      "share": 0.8
+    },
+    {
+      "hex": "#ff7a45",
+      "share": 0.8
+    },
+    {
+      "hex": "#ffc15e",
+      "share": 0.8
+    },
+    {
+      "hex": "#1b1f2a",
+      "share": 0.8
+    },
+    {
+      "hex": "#434b60",
+      "share": 0.8
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 60,
+        "weight": "800",
+        "lineHeight": "61.2px",
+        "letterSpacing": "-1.8px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "500",
+        "lineHeight": "27px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "2.08px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@600;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 7,
+      "md": 22,
+      "lg": 28,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.2) 0px 0px 0px 1px inset",
+      "md": "rgba(0, 0, 0, 0.55) 0px 12px 24px -12px",
+      "lg": "rgba(21, 26, 36, 0.5) 0px 40px 80px -40px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        8,
+        9,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        24
+      ]
+    },
+    "container": 1040,
+    "breakpoints": [
+      440,
+      900
+    ],
+    "motion": {
+      "duration": 420,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "coins",
+    "tile": "none",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "friendly",
+      "tidy",
+      "plain-spoken"
+    ],
+    "voice": {
+      "summary": "Pocketbank sounds like a helpful friend who is good with money and never makes you feel small about it. Copy is short, uses everyday words, and keeps the numbers masked until you ask to see them.",
+      "dos": [
+        "Use everyday words: freeze, spend, top up",
+        "Keep figures masked by default and say so",
+        "Confirm security actions in one reassuring line"
+      ],
+      "donts": [
+        "Do not use banking jargon like 'facilitate' or 'remittance'",
+        "Avoid scare tactics around security",
+        "Never show a full card number without a clear tap"
+      ]
+    },
+    "taglines": [
+      "Your cards, neatly stacked",
+      "Freeze it in one tap",
+      "All your cards, one tidy pile",
+      "Money you can find at a glance",
+      "Spend, save, sorted"
+    ],
+    "boilerplate": "Pocketbank is a mobile banking app that keeps debit, savings, travel and business cards in one tidy stack, with instant freeze and clear spending history.",
+    "microcopy": {
+      "primaryCta": "Show number",
+      "secondaryCta": "Copy number",
+      "success": "Card number copied.",
+      "error": "Could not freeze this card. Please try again.",
+      "empty": "No recent spending on this card."
+    }
+  }
+}

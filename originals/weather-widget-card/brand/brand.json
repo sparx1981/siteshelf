@@ -1,0 +1,164 @@
+{
+  "name": "Fairweather",
+  "descriptor": "Weather widget for travellers and city dwellers",
+  "listing": {
+    "key": "o:weather-widget-card",
+    "title": "Weather Widget Card",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#e9eef5",
+    "surface": "#4facfe",
+    "text": "#1b2a4a",
+    "textMuted": "#636f86",
+    "primary": "#00c6fb",
+    "secondary": "#8fd3ff",
+    "border": "#ccd3dd",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#065a72"
+  },
+  "colorInventory": [
+    {
+      "hex": "#e9eef5",
+      "share": 88.3
+    },
+    {
+      "hex": "#4facfe",
+      "share": 5.2
+    },
+    {
+      "hex": "#00c6fb",
+      "share": 5.2
+    },
+    {
+      "hex": "#ffe27a",
+      "share": 0.6
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.6
+    },
+    {
+      "hex": "#8fd3ff",
+      "share": 0.0
+    },
+    {
+      "hex": "#1b2a4a",
+      "share": 0.0
+    },
+    {
+      "hex": "#636f86",
+      "share": 0.0
+    },
+    {
+      "hex": "#ccd3dd",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Outfit",
+    "body": "Outfit",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Button",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 16.7,
+        "weight": "300",
+        "lineHeight": "23.3333px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 16,
+      "lg": 28,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(27, 42, 74, 0.25) 0px 24px 60px 0px",
+      "md": "rgb(255, 226, 122) 0px 0px 60px 0px",
+      "lg": "rgba(27, 42, 74, 0.25) 0px 24px 60px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        24
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 600,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cloud",
+    "tile": "squircle",
+    "wordmarkFont": "Outfit"
+  },
+  "voice": {
+    "personality": [
+      "cheerful",
+      "clear",
+      "light"
+    ],
+    "voice": {
+      "summary": "Sounds like a friendly forecaster: simple, sunny and honest about rain. Conditions come first, then a gentle suggestion.",
+      "dos": [
+        "Put temperature and condition first",
+        "Offer a small, kind suggestion",
+        "Show both units on demand"
+      ],
+      "donts": [
+        "No scary storm language",
+        "No jargon like isobar",
+        "No false precision"
+      ]
+    },
+    "taglines": [
+      "Know the sky before you step out",
+      "Weather, kept simple",
+      "Four cities, five days",
+      "Sun, rain, snow, all clear",
+      "Your pocket forecast"
+    ],
+    "boilerplate": "Fairweather is a compact weather widget that switches between cities, shows hourly and five-day forecasts and converts between Celsius and Fahrenheit.",
+    "microcopy": {
+      "primaryCta": "Switch city",
+      "secondaryCta": "°C / °F",
+      "success": "Forecast updated",
+      "error": "Could not load the forecast, try again",
+      "empty": "No cities selected yet"
+    }
+  }
+}

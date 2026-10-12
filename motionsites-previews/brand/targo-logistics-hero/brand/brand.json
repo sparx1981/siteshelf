@@ -1,0 +1,186 @@
+{
+  "name": "targo",
+  "descriptor": "Freight and delivery planning for fleets",
+  "listing": {
+    "key": "m:targo-logistics-hero",
+    "title": "Targo Logistics Hero",
+    "category": "SaaS"
+  },
+  "colors": {
+    "background": "#000000",
+    "surface": "#ee3f2c",
+    "text": "#ffffff",
+    "textMuted": "#a6a6a6",
+    "primary": "#ee3f2c",
+    "secondary": "#f6958b",
+    "border": "#242424",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#6a211b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#000000",
+      "share": 99.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.5
+    },
+    {
+      "hex": "#ee3f2c",
+      "share": 0.5
+    },
+    {
+      "hex": "#a6a6a6",
+      "share": 0.0
+    },
+    {
+      "hex": "#f6958b",
+      "share": 0.0
+    },
+    {
+      "hex": "#242424",
+      "share": 0.0
+    },
+    {
+      "hex": "#6a211b",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Rubik",
+    "body": "Rubik",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Rubik",
+        "stack": "'Rubik', system-ui, sans-serif",
+        "sizePx": 64,
+        "weight": "700",
+        "lineHeight": "65.28px",
+        "letterSpacing": "-2.56px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Rubik",
+        "stack": "'Rubik', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.44px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Rubik",
+        "stack": "'Rubik', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21.7px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Rubik",
+        "stack": "'Rubik', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Rubik",
+        "stack": "'Rubik', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 20,
+      "md": 20,
+      "lg": 20,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.25) 0px 1px 1px 0px inset, rgba(255, 255, 255, 0.03) 0px -20px 40px 0px inset, rgba(0, 0, 0, 0.35) 0px 24px 60px 0px",
+      "md": "rgba(255, 255, 255, 0.25) 0px 1px 1px 0px inset, rgba(255, 255, 255, 0.03) 0px -20px 40px 0px inset, rgba(0, 0, 0, 0.35) 0px 24px 60px 0px",
+      "lg": "rgba(255, 255, 255, 0.25) 0px 1px 1px 0px inset, rgba(255, 255, 255, 0.03) 0px -20px 40px 0px inset, rgba(0, 0, 0, 0.35) 0px 24px 60px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        6,
+        10,
+        12,
+        16,
+        20,
+        28,
+        36,
+        48
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      420,
+      819,
+      820
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "target",
+    "tile": "circle",
+    "wordmarkFont": "Rubik"
+  },
+  "voice": {
+    "personality": [
+      "swift",
+      "direct",
+      "dependable"
+    ],
+    "voice": {
+      "summary": "targo talks like a dispatcher on a deadline: short, bold and sure of the route. It states routes, windows and promises in plain words and keeps the replies fast.",
+      "dos": [
+        "Use short, bold headline phrases",
+        "Mention routes, windows and fleets by name",
+        "Promise a reply time and keep it"
+      ],
+      "donts": [
+        "Use vague promises like 'best in class'",
+        "Pad with logistics jargon",
+        "Overstate speed"
+      ]
+    },
+    "taglines": [
+      "Swift and simple transport",
+      "Every route, right on time",
+      "Your fleet, one clear plan",
+      "Delivery windows kept",
+      "Talk to someone who moves freight"
+    ],
+    "boilerplate": "targo is a logistics company that plans routes, fleets and delivery windows for businesses, with a specialist who replies to every enquiry within one business day.",
+    "microcopy": {
+      "primaryCta": "Get Started",
+      "secondaryCta": "Book a Call",
+      "success": "Request sent. We reply within one business day.",
+      "error": "That did not send. Please try again.",
+      "empty": "No shipments yet. Book your first."
+    }
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "name": "Crewhouse",
+  "descriptor": "HR and payroll for remote teams",
+  "listing": {
+    "key": "m:hr-saas-hero",
+    "title": "HR SaaS Hero",
+    "category": "SaaS"
+  },
+  "colors": {
+    "background": "#ffffff",
+    "surface": "#3a3d47",
+    "text": "#14161f",
+    "textMuted": "#373a46",
+    "primary": "#f5a524",
+    "secondary": "#8a4cf0",
+    "border": "#dedee0",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#8a4cf0"
+  },
+  "colorInventory": [
+    {
+      "hex": "#ffffff",
+      "share": 99.7
+    },
+    {
+      "hex": "#14161f",
+      "share": 0.1
+    },
+    {
+      "hex": "#373a46",
+      "share": 0.1
+    },
+    {
+      "hex": "#e8f0ff",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffe9e0",
+      "share": 0.0
+    },
+    {
+      "hex": "#f5a524",
+      "share": 0.0
+    },
+    {
+      "hex": "#8a4cf0",
+      "share": 0.0
+    },
+    {
+      "hex": "#f0623b",
+      "share": 0.0
+    },
+    {
+      "hex": "#3b6cf0",
+      "share": 0.0
+    },
+    {
+      "hex": "#1fa45a",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Geist",
+    "body": "Geist",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Geist",
+        "stack": "'Geist', system-ui, sans-serif",
+        "sizePx": 80,
+        "weight": "500",
+        "lineHeight": "84px",
+        "letterSpacing": "-3.2px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Geist",
+        "stack": "'Geist', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Geist",
+        "stack": "'Geist', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 0,
+      "md": 0,
+      "lg": 0,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.08) 0px 2px 6px 0px",
+      "md": "rgba(201, 201, 201, 0.08) -4px -6px 25px 0px inset, rgba(29, 29, 29, 0.24) 4px 4px 10px 0px inset, rgba(20, 22, 31, 0.22) 0px 6px 16px 0px",
+      "lg": "rgba(194, 194, 194, 0.25) 0px 10px 40px 5px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        8,
+        12,
+        14,
+        24,
+        32
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      560,
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "globe",
+    "tile": "circle",
+    "wordmarkFont": "Inter Bold (stand-in for Geist)"
+  },
+  "voice": {
+    "personality": [
+      "steady",
+      "human",
+      "calm"
+    ],
+    "voice": {
+      "summary": "Crewhouse speaks like a competent people-ops lead who wants everyone paid and happy. It is calm, practical and respectful of borders and time zones.",
+      "dos": [
+        "Name the task: hire, onboard, pay",
+        "Mention countries and currencies precisely",
+        "Use people-first words like crew and team"
+      ],
+      "donts": [
+        "Do not use 'human capital'",
+        "Do not hide compliance details",
+        "Do not promise 'zero admin'"
+      ]
+    },
+    "taglines": [
+      "Simple management for your remote team",
+      "Hire, onboard and pay across borders",
+      "One calm workspace for your crew",
+      "Contracts, payroll and time-off, sorted",
+      "Distributed teams, close to home"
+    ],
+    "boilerplate": "Crewhouse is a workspace for hiring, onboarding and paying distributed teams, with contracts, time-off and payroll that work across borders.",
+    "microcopy": {
+      "primaryCta": "Create free account",
+      "secondaryCta": "See pricing",
+      "success": "Account created. Welcome aboard.",
+      "error": "We could not create your account. Check your email and try again.",
+      "empty": "No team members yet. Invite your first hire."
+    }
+  }
+}

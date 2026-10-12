@@ -1,0 +1,207 @@
+{
+  "name": "Meridian Desk",
+  "descriptor": "Time zone planner for distributed teams",
+  "listing": {
+    "key": "o:tool-meeting-planner",
+    "title": "Meeting Time Planner",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#eaf1f8",
+    "surface": "#ffffff",
+    "text": "#10213a",
+    "textMuted": "#4b5d78",
+    "primary": "#1f5fd1",
+    "secondary": "#10213a",
+    "border": "#ffffff",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#10213a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eaf1f8",
+      "share": 47.4
+    },
+    {
+      "hex": "#ffffff",
+      "share": 44.7
+    },
+    {
+      "hex": "#1e2b4a",
+      "share": 2.4
+    },
+    {
+      "hex": "#bfe8d4",
+      "share": 2.1
+    },
+    {
+      "hex": "#fde8b8",
+      "share": 1.5
+    },
+    {
+      "hex": "#000000",
+      "share": 0.8
+    },
+    {
+      "hex": "#1f5fd1",
+      "share": 0.3
+    },
+    {
+      "hex": "#7a3a7e",
+      "share": 0.3
+    },
+    {
+      "hex": "#4f7f86",
+      "share": 0.3
+    },
+    {
+      "hex": "#6a6aa8",
+      "share": 0.3
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 52,
+        "weight": "800",
+        "lineHeight": "53.56px",
+        "letterSpacing": "-0.52px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.3px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 14.5,
+        "weight": "400",
+        "lineHeight": "21.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=DM+Sans:wght@400;500;600&family=Manrope:wght@700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 10,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(16, 33, 58) 0px 0px 0px 2px inset",
+      "md": "rgb(31, 95, 209) 0px 0px 0px 3px inset",
+      "lg": "rgb(16, 33, 58) 0px 0px 0px 2px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        24
+      ]
+    },
+    "container": 1240,
+    "breakpoints": [
+      600,
+      760
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "globe",
+    "tile": "none",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "considerate",
+      "tidy",
+      "global"
+    ],
+    "voice": {
+      "summary": "Meridian Desk sounds like a scheduling assistant with a very good map in its head. It is polite, careful about time zones and gives one clear best slot with the invite line ready to paste.",
+      "dos": [
+        "Name the cities and the local times together",
+        "Offer the best slot first",
+        "Spell out time zone abbreviations once"
+      ],
+      "donts": [
+        "Do not use ambiguous times without a zone",
+        "Avoid jokes about time zones",
+        "Never suggest a slot outside working hours"
+      ]
+    },
+    "taglines": [
+      "Find the hour that works for everyone",
+      "Meet across the map",
+      "One slot, five cities",
+      "Time zones, tamed",
+      "Schedule kindly, wherever they are"
+    ],
+    "boilerplate": "Meridian Desk is a meeting planner that compares working hours across up to five cities, finds the best shared slot and writes the invite line for you.",
+    "microcopy": {
+      "primaryCta": "Jump to best slot",
+      "secondaryCta": "Add city",
+      "success": "Invite line copied.",
+      "error": "That city could not be found. Check the spelling.",
+      "empty": "Add a city to compare working hours."
+    }
+  }
+}

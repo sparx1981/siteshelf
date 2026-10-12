@@ -1,0 +1,158 @@
+{
+  "name": "Kestrel",
+  "descriptor": "Workspace platform with guided onboarding",
+  "listing": {
+    "key": "o:loader-setup-checklist",
+    "title": "Workspace Setup Loader",
+    "category": "Loaders"
+  },
+  "colors": {
+    "background": "#10122b",
+    "surface": "#262a6b",
+    "text": "#e9ebff",
+    "textMuted": "#aab0e6",
+    "primary": "#7c8cff",
+    "secondary": "#262a6b",
+    "border": "#ffffff",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#262a6b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#10122b",
+      "share": 79.6
+    },
+    {
+      "hex": "#262a6b",
+      "share": 19.9
+    },
+    {
+      "hex": "#7c8cff",
+      "share": 0.2
+    },
+    {
+      "hex": "#e9ebff",
+      "share": 0.1
+    },
+    {
+      "hex": "#aab0e6",
+      "share": 0.1
+    },
+    {
+      "hex": "#4ade80",
+      "share": 0.0
+    },
+    {
+      "hex": "#052e16",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "400",
+        "lineHeight": "18.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 22,
+      "md": 22,
+      "lg": 22,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        4,
+        8,
+        10,
+        12,
+        14,
+        22,
+        24
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      480
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "target",
+    "tile": "squircle",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "focused",
+      "steady",
+      "helpful"
+    ],
+    "voice": {
+      "summary": "Kestrel keeps onboarding quiet and specific: it names each step, shows what it is doing right now and says how long is left. Failure is explained in plain terms with a clear retry.",
+      "dos": [
+        "Name the step in progress with a real verb",
+        "Give time estimates in seconds or minutes",
+        "Offer a retry on every failure"
+      ],
+      "donts": [
+        "Do not say 'magic' or 'just a moment'",
+        "Avoid cute loading jokes",
+        "Never leave a failed step unexplained"
+      ]
+    },
+    "taglines": [
+      "Setting up, one step at a time",
+      "Ready in under a minute",
+      "Your workspace, taking shape",
+      "Nothing to do but watch",
+      "Set up properly, then go"
+    ],
+    "boilerplate": "Kestrel is a team workspace platform whose guided setup creates projects, invites teammates and connects tools in about a minute, with clear progress at every step.",
+    "microcopy": {
+      "primaryCta": "Open workspace",
+      "secondaryCta": "Retry step",
+      "success": "Workspace ready.",
+      "error": "This step failed. Retry, or skip for now.",
+      "empty": "No steps to run yet."
+    }
+  }
+}

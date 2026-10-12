@@ -1,0 +1,199 @@
+{
+  "name": "Mindloop",
+  "descriptor": "Newsletter about technology, depth and direction",
+  "listing": {
+    "key": "m:mindloop-landing",
+    "title": "Mindloop Landing",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#000000",
+    "surface": "#ffffff",
+    "text": "#f0f2f4",
+    "textMuted": "#a6a6a6",
+    "primary": "#3a2a1f",
+    "secondary": "#c9a58a",
+    "border": "#ffffff",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#c9a58a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#000000",
+      "share": 99.0
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.5
+    },
+    {
+      "hex": "#f0f2f4",
+      "share": 0.2
+    },
+    {
+      "hex": "#a6a6a6",
+      "share": 0.2
+    },
+    {
+      "hex": "#555555",
+      "share": 0.1
+    },
+    {
+      "hex": "#222222",
+      "share": 0.1
+    },
+    {
+      "hex": "#444444",
+      "share": 0.0
+    },
+    {
+      "hex": "#3a2a1f",
+      "share": 0.0
+    },
+    {
+      "hex": "#6b5b4b",
+      "share": 0.0
+    },
+    {
+      "hex": "#8a6a55",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 96,
+        "weight": "500",
+        "lineHeight": "100.8px",
+        "letterSpacing": "-2px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "0.56px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 8,
+      "lg": 8,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset",
+      "md": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset",
+      "lg": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        24
+      ]
+    },
+    "container": 1152,
+    "breakpoints": [
+      480,
+      640,
+      768,
+      1024
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "spark",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "thoughtful",
+      "literate",
+      "quiet"
+    ],
+    "voice": {
+      "summary": "Mindloop writes like a considered long-form newsletter: unhurried, slightly literary and curious about meaning. It prefers one italic word of emphasis to any exclamation mark.",
+      "dos": [
+        "Use one italic accent word per headline",
+        "Write to the reader as a thinker, not a customer",
+        "Give a clear reason for each issue"
+      ],
+      "donts": [
+        "Do not use clickbait or growth hacks",
+        "Avoid hype about technology",
+        "Never fill a line with filler adjectives"
+      ]
+    },
+    "taglines": [
+      "Get inspired with us",
+      "Depth, direction, and a weekly note",
+      "Read less, mean more",
+      "Technology, with a point of view",
+      "Where curiosity loops back"
+    ],
+    "boilerplate": "Mindloop is a content platform and newsletter sharing meaningful updates and essays about technology for readers who want depth and direction.",
+    "microcopy": {
+      "primaryCta": "Subscribe now",
+      "secondaryCta": "Start writing",
+      "success": "You're subscribed. First issue arrives Sunday.",
+      "error": "That email did not look right. Please try again.",
+      "empty": "No issues yet. Subscribe to get the first one."
+    }
+  }
+}

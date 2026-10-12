@@ -1,0 +1,178 @@
+{
+  "name": "Vaultline Docs",
+  "descriptor": "Shared workspace for sensitive documents",
+  "listing": {
+    "key": "o:error-403-locked",
+    "title": "403 Locked Error Page",
+    "category": "Error Page"
+  },
+  "colors": {
+    "background": "#151821",
+    "surface": "#1d2130",
+    "text": "#98a0b8",
+    "textMuted": "#eef0f6",
+    "primary": "#ffb020",
+    "secondary": "#ff5d6c",
+    "border": "#343c58",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#715016"
+  },
+  "colorInventory": [
+    {
+      "hex": "#151821",
+      "share": 97.6
+    },
+    {
+      "hex": "#ffb020",
+      "share": 1.9
+    },
+    {
+      "hex": "#ff5d6c",
+      "share": 0.2
+    },
+    {
+      "hex": "#98a0b8",
+      "share": 0.2
+    },
+    {
+      "hex": "#eef0f6",
+      "share": 0.1
+    },
+    {
+      "hex": "#aab2c8",
+      "share": 0.1
+    },
+    {
+      "hex": "#2a1c00",
+      "share": 0.0
+    },
+    {
+      "hex": "#343c58",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    },
+    {
+      "hex": "#715016",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Sora",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 120,
+        "weight": "700",
+        "lineHeight": "120px",
+        "letterSpacing": "-4.8px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "700",
+        "lineHeight": "40.3px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 18,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        10,
+        12,
+        16,
+        18,
+        20,
+        22,
+        32
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 500,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "shield",
+    "tile": "squircle",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "firm",
+      "fair",
+      "considerate"
+    ],
+    "voice": {
+      "summary": "Vaultline Docs says no politely and says why. It names the document and the owner, so a locked door reads like a clear rule rather than a failure.",
+      "dos": [
+        "Name the document and who owns it",
+        "Offer the next step in the same message",
+        "Keep a steady, respectful tone even when refusing"
+      ],
+      "donts": [
+        "Blame the user for a permission gap",
+        "Use scary security language",
+        "Joke about being locked out"
+      ]
+    },
+    "taglines": [
+      "Locked for a reason",
+      "Ask nicely, we will open up",
+      "Access, with a paper trail",
+      "Some doors need a key",
+      "Private until you are invited"
+    ],
+    "boilerplate": "Vaultline Docs is a document workspace where every file has an owner and an access list, so teams can share sensitive material with clear permission requests.",
+    "microcopy": {
+      "primaryCta": "Request access",
+      "secondaryCta": "Go back",
+      "success": "Request sent to Dana Whitlock.",
+      "error": "We could not send your request. Try again.",
+      "empty": "No requests pending."
+    }
+  }
+}

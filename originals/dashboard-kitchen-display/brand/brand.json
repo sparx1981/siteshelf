@@ -1,0 +1,172 @@
+{
+  "name": "THE PASS",
+  "descriptor": "Kitchen ticket screen for busy services",
+  "listing": {
+    "key": "o:dashboard-kitchen-display",
+    "title": "Kitchen Order Display",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#101114",
+    "surface": "#1b1d22",
+    "text": "#f4f5f7",
+    "textMuted": "#a3a8b3",
+    "primary": "#7cc4ff",
+    "secondary": "#2fd07d",
+    "border": "#4a4f5a",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#3a5974"
+  },
+  "colorInventory": [
+    {
+      "hex": "#101114",
+      "share": 81.6
+    },
+    {
+      "hex": "#2fd07d",
+      "share": 7.2
+    },
+    {
+      "hex": "#ff5a5a",
+      "share": 3.0
+    },
+    {
+      "hex": "#ffb020",
+      "share": 2.8
+    },
+    {
+      "hex": "#7cc4ff",
+      "share": 2.7
+    },
+    {
+      "hex": "#3a3e47",
+      "share": 1.4
+    },
+    {
+      "hex": "#2b2f37",
+      "share": 0.5
+    },
+    {
+      "hex": "#f4f5f7",
+      "share": 0.5
+    },
+    {
+      "hex": "#a3a8b3",
+      "share": 0.1
+    },
+    {
+      "hex": "#d5d9e2",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Oswald",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Oswald",
+        "stack": "'Oswald', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.8px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "19.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 10,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      1000
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "flame",
+    "tile": "none",
+    "wordmarkFont": "Oswald"
+  },
+  "voice": {
+    "personality": [
+      "urgent",
+      "blunt",
+      "calm under pressure"
+    ],
+    "voice": {
+      "summary": "THE PASS talks the way a head chef calls a service: one or two words, clear volume and no wasted breath. Every label has to be readable from across a hot kitchen.",
+      "dos": [
+        "Use call-out words such as 'Fire', 'Bump' and 'Hands'",
+        "Put allergens in plain capitals",
+        "Show times as numbers first, words second"
+      ],
+      "donts": [
+        "Use soft or polite phrasing on a live ticket",
+        "Use corporate dashboard words like 'insights'",
+        "Add decoration to an alert"
+      ]
+    },
+    "taglines": [
+      "Fire it. Plate it. Bump it.",
+      "Every ticket, in its time",
+      "Calm tickets, loud kitchen",
+      "Service runs on the pass",
+      "Nothing waits, nothing gets lost"
+    ],
+    "boilerplate": "THE PASS is a kitchen display system that sorts live orders into New, Cooking and Ready, with ageing timers, station filters and allergen flags for fast restaurant service.",
+    "microcopy": {
+      "primaryCta": "Bump",
+      "secondaryCta": "Recall ticket",
+      "success": "Ticket cleared.",
+      "error": "Ticket failed to bump. Try again.",
+      "empty": "No tickets. Kitchen is quiet."
+    }
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "name": "Tidepool UI",
+  "descriptor": "Button design system with liquid fills",
+  "listing": {
+    "key": "o:button-liquid-fill",
+    "title": "Liquid Fill Buttons",
+    "category": "Buttons"
+  },
+  "colors": {
+    "background": "#f4f7f9",
+    "surface": "#ffffff",
+    "text": "#4a5b67",
+    "textMuted": "#0f1b24",
+    "primary": "#0b7f99",
+    "secondary": "#ff6a4d",
+    "border": "#ffffff",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#99c9d4"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4f7f9",
+      "share": 78.4
+    },
+    {
+      "hex": "#0ea5c6",
+      "share": 14.5
+    },
+    {
+      "hex": "#0f1b24",
+      "share": 6.6
+    },
+    {
+      "hex": "#4a5b67",
+      "share": 0.2
+    },
+    {
+      "hex": "#ff6a4d",
+      "share": 0.1
+    },
+    {
+      "hex": "#1f8a5b",
+      "share": 0.1
+    },
+    {
+      "hex": "#7c4dff",
+      "share": 0.1
+    },
+    {
+      "hex": "#9fb2bf",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b7f99",
+      "share": 0.0
+    },
+    {
+      "hex": "#99c9d4",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 60,
+        "weight": "700",
+        "lineHeight": "61.2px",
+        "letterSpacing": "-1.5px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "26.35px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.82px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 20,
+      "lg": 48,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(185, 198, 207) 0px 0px 0px 1.5px",
+      "md": "rgb(15, 27, 36) 0px 0px 0px 3px",
+      "lg": "rgb(15, 27, 36) 0px 0px 0px 2px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        3,
+        8,
+        10,
+        14,
+        16,
+        20,
+        22,
+        24
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      560,
+      980
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "drop",
+    "tile": "none",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "fluid",
+      "friendly",
+      "crisp"
+    ],
+    "voice": {
+      "summary": "Talks like a design system maintainer who likes water metaphors but keeps docs crisp. It explains behaviour in one line and lets the demo do the rest.",
+      "dos": [
+        "Describe motion in a verb and a duration",
+        "Name tokens and themes plainly: Ocean, Sunset",
+        "Give each button label two words or fewer"
+      ],
+      "donts": [
+        "No vague promises of delight",
+        "No design-speak like synergy or touchpoints",
+        "No paragraphs where a caption will do"
+      ]
+    },
+    "taglines": [
+      "Buttons that fill like water",
+      "Hover and the tide comes in",
+      "Tiny floods, tidy code",
+      "Press, pour, done",
+      "Motion with a shoreline"
+    ],
+    "boilerplate": "Tidepool UI is a small design system of buttons that flood with colour from wherever the pointer enters, with keyboard fills, themes and speed controls built in.",
+    "microcopy": {
+      "primaryCta": "Get started",
+      "secondaryCta": "See pricing",
+      "success": "Fill complete, theme applied",
+      "error": "That fill failed to start, try again",
+      "empty": "No buttons in this theme yet"
+    }
+  }
+}

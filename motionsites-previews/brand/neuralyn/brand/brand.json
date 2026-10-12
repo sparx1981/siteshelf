@@ -1,0 +1,198 @@
+{
+  "name": "Neuralyn",
+  "descriptor": "Analytics dashboard for goals and metrics",
+  "listing": {
+    "key": "m:neuralyn",
+    "title": "Neuralyn",
+    "category": "SaaS"
+  },
+  "colors": {
+    "background": "#000000",
+    "surface": "#0d0f14",
+    "text": "#ffffff",
+    "textMuted": "#f0f2f4",
+    "primary": "#071a4a",
+    "secondary": "#c58c66",
+    "border": "#ffffff",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#c58c66"
+  },
+  "colorInventory": [
+    {
+      "hex": "#000000",
+      "share": 89.5
+    },
+    {
+      "hex": "#0d0f14",
+      "share": 5.3
+    },
+    {
+      "hex": "#0a1a48",
+      "share": 2.0
+    },
+    {
+      "hex": "#123a86",
+      "share": 2.0
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.8
+    },
+    {
+      "hex": "#595959",
+      "share": 0.1
+    },
+    {
+      "hex": "#6b7080",
+      "share": 0.1
+    },
+    {
+      "hex": "#262a35",
+      "share": 0.1
+    },
+    {
+      "hex": "#7d8fb5",
+      "share": 0.0
+    },
+    {
+      "hex": "#2a1a12",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 72,
+        "weight": "500",
+        "lineHeight": "82.8px",
+        "letterSpacing": "-2px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "14px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.5px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 10,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 8,
+      "lg": 10,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset",
+      "md": "rgba(0, 0, 0, 0.5) 0px 30px 80px 0px",
+      "lg": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        7,
+        8,
+        10,
+        12,
+        16,
+        32,
+        40
+      ]
+    },
+    "container": 1024,
+    "breakpoints": [
+      420,
+      700,
+      768
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "spark",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "sharp",
+      "calm",
+      "precise"
+    ],
+    "voice": {
+      "summary": "Neuralyn writes like a data lead in a dark room: calm, exact and short on hype. It sets one clear overview above many numbers and uses one italic word for emphasis.",
+      "dos": [
+        "Lead with the single clear overview",
+        "Use precise metric names",
+        "Use italic for one word only"
+      ],
+      "donts": [
+        "Do not say 'AI-powered' without saying what it does",
+        "Do not clutter the headline",
+        "Do not use stock chart language"
+      ]
+    },
+    "taglines": [
+      "Your insights, one clear overview",
+      "Metrics, goals and progress in view",
+      "Precision for teams that measure",
+      "See the full picture, faster",
+      "Track what matters, ignore the rest"
+    ],
+    "boilerplate": "Neuralyn is an analytics dashboard that helps teams track metrics, goals and progress with precision in a single clear overview.",
+    "microcopy": {
+      "primaryCta": "Get started for free",
+      "secondaryCta": "Sign in",
+      "success": "Dashboard ready. Your first metrics are loading.",
+      "error": "We could not connect that source. Check your key.",
+      "empty": "No metrics yet. Connect a data source."
+    }
+  }
+}

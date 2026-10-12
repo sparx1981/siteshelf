@@ -1,0 +1,176 @@
+{
+  "name": "Tallyboard",
+  "descriptor": "Simple kanban board for small teams",
+  "listing": {
+    "key": "o:kanban-board",
+    "title": "Kanban Board",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#f1f2f6",
+    "surface": "#e6e8f0",
+    "text": "#1b1d29",
+    "textMuted": "#666871",
+    "primary": "#ec4899",
+    "secondary": "#0ea5e9",
+    "border": "#e1e3ec",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#692549"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f1f2f6",
+      "share": 98.3
+    },
+    {
+      "hex": "#ec4899",
+      "share": 0.4
+    },
+    {
+      "hex": "#1b1d29",
+      "share": 0.3
+    },
+    {
+      "hex": "#4f46e5",
+      "share": 0.3
+    },
+    {
+      "hex": "#0ea5e9",
+      "share": 0.2
+    },
+    {
+      "hex": "#3b82f6",
+      "share": 0.2
+    },
+    {
+      "hex": "#f59e0b",
+      "share": 0.1
+    },
+    {
+      "hex": "#6d7287",
+      "share": 0.1
+    },
+    {
+      "hex": "#10b981",
+      "share": 0.0
+    },
+    {
+      "hex": "#ef4444",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Onest",
+    "body": "Onest",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Onest",
+        "stack": "'Onest', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.44px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Onest",
+        "stack": "'Onest', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Onest",
+        "stack": "'Onest', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 9,
+      "md": 12,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(20, 22, 40, 0.06) 0px 1px 2px 0px",
+      "md": "rgba(20, 22, 40, 0.06) 0px 1px 2px 0px",
+      "lg": "rgba(20, 22, 40, 0.06) 0px 1px 2px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      800
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "stack",
+    "tile": "circle",
+    "wordmarkFont": "Inter Bold (stand-in for Onest)"
+  },
+  "voice": {
+    "personality": [
+      "tidy",
+      "brisk",
+      "friendly"
+    ],
+    "voice": {
+      "summary": "Sounds like a good team lead at a whiteboard: short labels, clear verbs, no fluff. It keeps tasks small and counts them honestly.",
+      "dos": [
+        "Name cards with a verb and an object",
+        "Show counts on every column",
+        "Keep tags to one lowercase word"
+      ],
+      "donts": [
+        "No productivity slogans",
+        "No guilt about overdue cards",
+        "No emoji in card titles"
+      ]
+    },
+    "taglines": [
+      "Move work, not mouths",
+      "Every card, one column",
+      "Small boards, finished work",
+      "Drag it forward",
+      "Plan the sprint, then do it"
+    ],
+    "boilerplate": "Tallyboard is a lightweight kanban board for small teams, with drag-and-drop columns, quick card capture and filters that keep a sprint visible.",
+    "microcopy": {
+      "primaryCta": "+ Add card",
+      "secondaryCta": "Filter cards",
+      "success": "Card moved to Done",
+      "error": "Could not move that card, try again",
+      "empty": "Nothing here yet, add a card"
+    }
+  }
+}

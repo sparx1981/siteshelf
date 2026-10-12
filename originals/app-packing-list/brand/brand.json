@@ -1,0 +1,176 @@
+{
+  "name": "Packwise",
+  "descriptor": "Weather-aware trip packing checklist",
+  "listing": {
+    "key": "o:app-packing-list",
+    "title": "Trip Packing List",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#f6f3ec",
+    "surface": "#ffffff",
+    "text": "#1f2a2e",
+    "textMuted": "#5a666b",
+    "primary": "#2f8a5b",
+    "secondary": "#8a5a00",
+    "border": "#b9b19c",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#1a402f"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6f3ec",
+      "share": 49.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 47.6
+    },
+    {
+      "hex": "#35495f",
+      "share": 0.9
+    },
+    {
+      "hex": "#fde8d6",
+      "share": 0.7
+    },
+    {
+      "hex": "#e0f1ee",
+      "share": 0.7
+    },
+    {
+      "hex": "#2f8a5b",
+      "share": 0.3
+    },
+    {
+      "hex": "#000000",
+      "share": 0.2
+    },
+    {
+      "hex": "#b7c8d8",
+      "share": 0.2
+    },
+    {
+      "hex": "#8aa1b8",
+      "share": 0.2
+    },
+    {
+      "hex": "#5d7690",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "DM Sans",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.3px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "33px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.34px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 16,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(40, 30, 10, 0.5) 0px 40px 80px -40px",
+      "md": "rgba(40, 30, 10, 0.5) 0px 40px 80px -40px",
+      "lg": "rgba(40, 30, 10, 0.5) 0px 40px 80px -40px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bag",
+    "tile": "none",
+    "wordmarkFont": "DM Sans"
+  },
+  "voice": {
+    "personality": [
+      "helpful",
+      "breezy",
+      "organised"
+    ],
+    "voice": {
+      "summary": "Sounds like a well-travelled friend leaning over your suitcase: friendly, a bit wry and always practical. It reacts to the forecast and the length of the trip rather than giving generic advice.",
+      "dos": [
+        "Tie every suggestion to the weather or the number of nights",
+        "Keep item names short and concrete",
+        "Celebrate progress lightly, like a tick and a quick nod"
+      ],
+      "donts": [
+        "Do not nag about forgotten items",
+        "Do not use travel brochure superlatives",
+        "Do not suggest anything without a reason"
+      ]
+    },
+    "taglines": [
+      "Pack once, pack right",
+      "Know the forecast before you zip",
+      "Light bags, no last-minute panic",
+      "Everything you need, nothing you don't",
+      "The list that checks the weather"
+    ],
+    "boilerplate": "Packwise is a trip packing planner that builds a checklist from your destination weather, number of nights and who is travelling, and saves it on your own device.",
+    "microcopy": {
+      "primaryCta": "Start packing",
+      "secondaryCta": "Add your own item",
+      "success": "Packed. Safe travels.",
+      "error": "That item could not be added. Try again.",
+      "empty": "Nothing on the list yet. Pick a trip length to begin."
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "name": "Relay",
+  "descriptor": "Notification tooling for product teams",
+  "listing": {
+    "key": "o:toast-center",
+    "title": "Toast Notification Center",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#f6f6f9",
+    "surface": "#ffffff",
+    "text": "#6b6b82",
+    "textMuted": "#17172a",
+    "primary": "#17172a",
+    "secondary": "#4f46e5",
+    "border": "#d9d9e6",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#4f46e5"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6f6f9",
+      "share": 98.5
+    },
+    {
+      "hex": "#4f46e5",
+      "share": 0.7
+    },
+    {
+      "hex": "#17172a",
+      "share": 0.5
+    },
+    {
+      "hex": "#6b6b82",
+      "share": 0.3
+    },
+    {
+      "hex": "#dc2626",
+      "share": 0.0
+    },
+    {
+      "hex": "#12803a",
+      "share": 0.0
+    },
+    {
+      "hex": "#a85a05",
+      "share": 0.0
+    },
+    {
+      "hex": "#b91c1c",
+      "share": 0.0
+    },
+    {
+      "hex": "#0284c7",
+      "share": 0.0
+    },
+    {
+      "hex": "#0369a1",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Public Sans",
+    "body": "Public Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Public Sans",
+        "stack": "'Public Sans', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.52px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Public Sans",
+        "stack": "'Public Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "21.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 14,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(23, 23, 42, 0.18) 0px 12px 32px 0px",
+      "md": "rgba(23, 23, 42, 0.18) 0px 12px 32px 0px",
+      "lg": "rgba(23, 23, 42, 0.18) 0px 12px 32px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      560
+    ],
+    "motion": {
+      "duration": 260,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chat",
+    "tile": "squircle",
+    "wordmarkFont": "Inter Bold (stand-in for Public Sans)"
+  },
+  "voice": {
+    "personality": [
+      "responsive",
+      "tidy",
+      "reliable"
+    ],
+    "voice": {
+      "summary": "Relay speaks in the clear one-liners of well-designed software: what happened, what can be done, nothing more. It gives developers short examples and names the toast type in plain words.",
+      "dos": [
+        "State the outcome first, then offer an action",
+        "Use consistent verbs across toast types",
+        "Keep messages under twelve words"
+      ],
+      "donts": [
+        "Do not use alarming language for warnings",
+        "Avoid auto-dismissing errors too fast",
+        "Never stack identical toasts"
+      ]
+    },
+    "taglines": [
+      "Toasts that know their place",
+      "Notify without nagging",
+      "Say it once, clearly",
+      "Messages that wait for you",
+      "Undo is always one click away"
+    ],
+    "boilerplate": "Relay is a notification toolkit for product teams, offering success, warning, error and info toasts with timers, undo and a history drawer.",
+    "microcopy": {
+      "primaryCta": "Send a toast",
+      "secondaryCta": "Open history",
+      "success": "Changes saved.",
+      "error": "Could not save changes. Try again.",
+      "empty": "No notifications yet. Fire a toast to see it here."
+    }
+  }
+}

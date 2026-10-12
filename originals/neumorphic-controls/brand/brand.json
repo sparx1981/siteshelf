@@ -1,0 +1,172 @@
+{
+  "name": "Softset",
+  "descriptor": "Soft-touch control panels for smart homes",
+  "listing": {
+    "key": "o:neumorphic-controls",
+    "title": "Neumorphic Controls",
+    "category": "Form Controls"
+  },
+  "colors": {
+    "background": "#e4e9f0",
+    "surface": "#bcc3cf",
+    "text": "#4a5262",
+    "textMuted": "#808794",
+    "primary": "#5b8cff",
+    "secondary": "#a5c0ff",
+    "border": "#ced4dc",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#2d4174"
+  },
+  "colorInventory": [
+    {
+      "hex": "#e4e9f0",
+      "share": 99.6
+    },
+    {
+      "hex": "#bcc3cf",
+      "share": 0.1
+    },
+    {
+      "hex": "#5b8cff",
+      "share": 0.1
+    },
+    {
+      "hex": "#4a5262",
+      "share": 0.1
+    },
+    {
+      "hex": "#808794",
+      "share": 0.0
+    },
+    {
+      "hex": "#a5c0ff",
+      "share": 0.0
+    },
+    {
+      "hex": "#ced4dc",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    },
+    {
+      "hex": "#2d4174",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Nunito",
+    "body": "Nunito",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "22.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 2,
+      "md": 20,
+      "lg": 28,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(91, 140, 255) 0px 0px 6px 0px",
+      "md": "rgb(188, 195, 207) 6px 6px 12px 0px, rgb(255, 255, 255) -6px -6px 12px 0px",
+      "lg": "rgb(188, 195, 207) 8px 8px 18px 0px, rgb(255, 255, 255) -8px -8px 18px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        12,
+        14,
+        16,
+        18,
+        26,
+        28,
+        30
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      640
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "dial",
+    "tile": "circle",
+    "wordmarkFont": "Nunito"
+  },
+  "voice": {
+    "personality": [
+      "gentle",
+      "tactile",
+      "quiet"
+    ],
+    "voice": {
+      "summary": "Softset sounds like a product that was pressed into clay: calm, short and sensory. Labels describe light, shadow and touch because everything on the panel is one colour.",
+      "dos": [
+        "Use touch words: press, turn, slide, rest",
+        "Keep values large and labels small",
+        "Mention modes by name: Eco, Comfort, Boost"
+      ],
+      "donts": [
+        "Do not use techy words like interface or module",
+        "Avoid shouting alerts for normal changes",
+        "Never explain with long sentences"
+      ]
+    },
+    "taglines": [
+      "Everything the same colour",
+      "Press, turn, and feel the light",
+      "Controls that sit quietly",
+      "Comfort at the turn of a dial",
+      "Light and shadow, nothing more"
+    ],
+    "boilerplate": "Softset makes soft-surface control panels for smart homes, with raised knobs, pressed buttons and a thermostat dial moulded from a single colour.",
+    "microcopy": {
+      "primaryCta": "Boost",
+      "secondaryCta": "Eco",
+      "success": "Set to 21 degrees.",
+      "error": "Panel is not responding. Try again.",
+      "empty": "No devices connected."
+    }
+  }
+}

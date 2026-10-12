@@ -1,0 +1,202 @@
+{
+  "name": "Keystone",
+  "descriptor": "Phishing-proof hardware security key",
+  "listing": {
+    "key": "o:landing-hardware-key",
+    "title": "Keystone Security Key",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#0f1214",
+    "surface": "#181c1f",
+    "text": "#eef3f1",
+    "textMuted": "#9aa8a3",
+    "primary": "#1fe08a",
+    "secondary": "#ff9a9a",
+    "border": "#2a3136",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#136443"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0f1214",
+      "share": 96.9
+    },
+    {
+      "hex": "#1fe08a",
+      "share": 2.1
+    },
+    {
+      "hex": "#eef3f1",
+      "share": 0.3
+    },
+    {
+      "hex": "#9aa8a3",
+      "share": 0.2
+    },
+    {
+      "hex": "#3a454b",
+      "share": 0.1
+    },
+    {
+      "hex": "#232a2e",
+      "share": 0.1
+    },
+    {
+      "hex": "#8a6a1c",
+      "share": 0.1
+    },
+    {
+      "hex": "#d9b24a",
+      "share": 0.1
+    },
+    {
+      "hex": "#ff9a9a",
+      "share": 0.0
+    },
+    {
+      "hex": "#6c7a75",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 80.6,
+        "weight": "700",
+        "lineHeight": "80.64px",
+        "letterSpacing": "-2.4192px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 46,
+        "weight": "700",
+        "lineHeight": "48.3px",
+        "letterSpacing": "-0.92px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        8,
+        9,
+        10,
+        12,
+        14,
+        18,
+        20,
+        22,
+        26
+      ]
+    },
+    "container": 1240,
+    "breakpoints": [
+      860
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "shield",
+    "tile": "none",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "assured",
+      "plain-spoken",
+      "protective"
+    ],
+    "voice": {
+      "summary": "Keystone sounds like a security engineer explaining things to a friend over coffee: confident, blunt about threats and free of fear tactics. It states facts and lets the demo prove them.",
+      "dos": [
+        "State the threat and the fix in one sentence",
+        "Use real numbers, such as price and compatibility",
+        "Let the demo do the persuading"
+      ],
+      "donts": [
+        "Use fear-based copy about hackers",
+        "Use security jargon without a gloss",
+        "Claim total invulnerability"
+      ]
+    },
+    "taglines": [
+      "Passwords get stolen. This cannot",
+      "Tap once. Phishing gets nothing",
+      "Proof you are really you",
+      "Make phishing a non-event",
+      "The key that checks the site"
+    ],
+    "boilerplate": "Keystone is a USB security key from Lockhart Labs that proves identity only to the real website, so phishing pages never receive a usable credential.",
+    "microcopy": {
+      "primaryCta": "Buy for £29",
+      "secondaryCta": "How it works",
+      "success": "Verified. Signed in to the real site.",
+      "error": "Blocked. This site is not who it claims to be.",
+      "empty": "No keys registered yet. Tap to add one."
+    }
+  }
+}

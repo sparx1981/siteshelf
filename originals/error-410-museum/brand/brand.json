@@ -1,0 +1,196 @@
+{
+  "name": "Brightwick & Sons",
+  "descriptor": "Retailer whose retired pages get a museum plaque",
+  "listing": {
+    "key": "o:error-410-museum",
+    "title": "Page Gone Museum",
+    "category": "Error Page"
+  },
+  "colors": {
+    "background": "#f4eddd",
+    "surface": "#e9e2d4",
+    "text": "#2a241b",
+    "textMuted": "#5d5342",
+    "primary": "#ffecaa",
+    "secondary": "#8a2a2a",
+    "border": "#4a3424",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#8a2a2a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4eddd",
+      "share": 38.4
+    },
+    {
+      "hex": "#fffaf0",
+      "share": 15.9
+    },
+    {
+      "hex": "#ffecaa",
+      "share": 15.2
+    },
+    {
+      "hex": "#2a241b",
+      "share": 8.2
+    },
+    {
+      "hex": "#3a2f26",
+      "share": 7.4
+    },
+    {
+      "hex": "#5a4130",
+      "share": 5.3
+    },
+    {
+      "hex": "#e3c97a",
+      "share": 3.1
+    },
+    {
+      "hex": "#b8923f",
+      "share": 3.1
+    },
+    {
+      "hex": "#d9b863",
+      "share": 3.1
+    },
+    {
+      "hex": "#5d5342",
+      "share": 0.4
+    }
+  ],
+  "typography": {
+    "heading": "Playfair Display",
+    "body": "Lora",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Playfair Display",
+        "stack": "'Playfair Display', Georgia, serif",
+        "sizePx": 52,
+        "weight": "700",
+        "lineHeight": "56.16px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Lora",
+        "stack": "'Lora', Georgia, serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.88px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Playfair Display",
+        "stack": "'Playfair Display', Georgia, serif",
+        "sizePx": 26,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Lora",
+        "stack": "'Lora', Georgia, serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "28.05px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Lora",
+        "stack": "'Lora', Georgia, serif",
+        "sizePx": 16,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 4,
+      "lg": 8,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(40, 25, 10, 0.6) 0px 14px 26px -12px, rgba(255, 255, 255, 0.5) 0px 1px 0px 0px inset",
+      "md": "rgba(60, 40, 10, 0.25) 0px 0px 40px 0px inset",
+      "lg": "rgba(40, 25, 10, 0.55) 0px 30px 60px -20px, rgba(255, 255, 255, 0.06) 0px 0px 0px 2px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        8,
+        10,
+        11,
+        14,
+        16,
+        20,
+        22,
+        24
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "monogram",
+    "tile": "circle",
+    "wordmarkFont": "Playfair Display"
+  },
+  "voice": {
+    "personality": [
+      "dry-witted",
+      "dignified",
+      "kind"
+    ],
+    "voice": {
+      "summary": "The deadpan voice of a museum curator describing an extinct web page with total solemnity. It is affectionate about loss and always points visitors to something living.",
+      "dos": [
+        "Write in plaque style, with date, medium and provenance",
+        "Keep the joke straight-faced",
+        "Always offer a next step"
+      ],
+      "donts": [
+        "Sarcasm at the visitor's expense",
+        "Technical error codes without context",
+        "Cutesy emoji or slang"
+      ]
+    },
+    "taglines": [
+      "This page has left the building",
+      "Gone, but not forgotten",
+      "Exhibit No. 410, retired in 2019",
+      "Please visit the gift shop",
+      "Admire from a distance. It cannot return"
+    ],
+    "boilerplate": "Brightwick & Sons is a family retailer whose retired web pages are preserved as museum exhibits, with a gift shop and a guide to what remains.",
+    "microcopy": {
+      "primaryCta": "Visit the gift shop",
+      "secondaryCta": "Audio guide",
+      "success": "Flowers left. Thank you",
+      "error": "The shop is closed for restoration. Try again",
+      "empty": "No exhibits found. Try another search"
+    }
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "name": "Tern",
+  "descriptor": "Friendly carbon footprint tracker",
+  "listing": {
+    "key": "o:landing-carbon-tracker",
+    "title": "Tern Carbon Tracker",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#eef4ea",
+    "surface": "#ffffff",
+    "text": "#17331f",
+    "textMuted": "#4c6a55",
+    "primary": "#f2b544",
+    "secondary": "#17331f",
+    "border": "#d6e3cf",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#17331f"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eef4ea",
+      "share": 62.9
+    },
+    {
+      "hex": "#ffffff",
+      "share": 26.5
+    },
+    {
+      "hex": "#17331f",
+      "share": 9.6
+    },
+    {
+      "hex": "#f2b544",
+      "share": 0.5
+    },
+    {
+      "hex": "#e1ecda",
+      "share": 0.3
+    },
+    {
+      "hex": "#4c6a55",
+      "share": 0.2
+    },
+    {
+      "hex": "#2f9e5b",
+      "share": 0.0
+    },
+    {
+      "hex": "#000000",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 78,
+        "weight": "600",
+        "lineHeight": "81.12px",
+        "letterSpacing": "-1.56px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 46,
+        "weight": "600",
+        "lineHeight": "50.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,wght@0,600;1,600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 20,
+      "lg": 26,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(23, 51, 31, 0.5) 0px 30px 70px -40px",
+      "md": "rgba(23, 51, 31, 0.5) 0px 30px 70px -40px",
+      "lg": "rgba(23, 51, 31, 0.5) 0px 30px 70px -40px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        10,
+        14,
+        16,
+        18,
+        20,
+        22,
+        24
+      ]
+    },
+    "container": 1060,
+    "breakpoints": [
+      860
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "sprout",
+    "tile": "squircle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "kind",
+      "hopeful",
+      "clear"
+    ],
+    "voice": {
+      "summary": "Sounds like an encouraging friend with a calculator: turns guilt into small wins and shows the numbers plainly. Savings are celebrated softly.",
+      "dos": [
+        "Give one number, then one swap to shrink it",
+        "Frame choices as small wins",
+        "Use tonnes and weekly habits in plain language"
+      ],
+      "donts": [
+        "No doom or guilt",
+        "No lecturing about lifestyle",
+        "No claims that sound like greenwashing"
+      ]
+    },
+    "taglines": [
+      "Know your footprint. Shrink it, kindly",
+      "Small swaps. Big year",
+      "One clear number, one next step",
+      "Climate action, kept friendly",
+      "Lighter living, one swap at a time"
+    ],
+    "boilerplate": "Tern is a carbon footprint app that turns daily habits into one clear number and then suggests the small swaps that save the most each year.",
+    "microcopy": {
+      "primaryCta": "Get the app",
+      "secondaryCta": "See the swaps",
+      "success": "Swap added, you just saved 0.3 t a year",
+      "error": "We could not update your footprint, try again",
+      "empty": "Move a slider to see your footprint"
+    }
+  }
+}

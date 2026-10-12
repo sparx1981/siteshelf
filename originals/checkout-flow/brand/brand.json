@@ -1,0 +1,183 @@
+{
+  "name": "Fieldwork",
+  "descriptor": "Outdoor and workwear store with fast checkout",
+  "listing": {
+    "key": "o:checkout-flow",
+    "title": "Checkout Flow",
+    "category": "E-commerce"
+  },
+  "colors": {
+    "background": "#f7f7f9",
+    "surface": "#0f766e",
+    "text": "#16161d",
+    "textMuted": "#6b6b7b",
+    "primary": "#0f766e",
+    "secondary": "#d5b98f",
+    "border": "#dcdce4",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#d5b98f"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f7f7f9",
+      "share": 98.0
+    },
+    {
+      "hex": "#0f766e",
+      "share": 1.2
+    },
+    {
+      "hex": "#16161d",
+      "share": 0.3
+    },
+    {
+      "hex": "#e3e8dc",
+      "share": 0.2
+    },
+    {
+      "hex": "#6b6b7b",
+      "share": 0.1
+    },
+    {
+      "hex": "#5d6b45",
+      "share": 0.1
+    },
+    {
+      "hex": "#d5b98f",
+      "share": 0.1
+    },
+    {
+      "hex": "#a9a9b5",
+      "share": 0.1
+    },
+    {
+      "hex": "#4a4a58",
+      "share": 0.0
+    },
+    {
+      "hex": "#000000",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter Tight",
+    "body": "Inter Tight",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Inter Tight",
+        "stack": "'Inter Tight', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "650",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.44px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Inter Tight",
+        "stack": "'Inter Tight', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "650",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter Tight",
+        "stack": "'Inter Tight', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter Tight",
+        "stack": "'Inter Tight', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "20px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+    "headingWeight": 650
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 14,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        3,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        24
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      900,
+      901
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bag",
+    "tile": "squircle",
+    "wordmarkFont": "Inter Bold (stand-in for Inter Tight)"
+  },
+  "voice": {
+    "personality": [
+      "clear",
+      "steady",
+      "trustworthy"
+    ],
+    "voice": {
+      "summary": "Fieldwork keeps checkout copy short and calm so people never wonder what happens next. Every step says what it needs, why, and what it will cost in pounds.",
+      "dos": [
+        "Label every field with the exact thing needed",
+        "State totals, delivery and dates in plain numbers",
+        "Explain an error in the field where it occurred"
+      ],
+      "donts": [
+        "Do not use urgency timers or pressure",
+        "Avoid jargon like authorisation hold",
+        "Never hide delivery costs until the last step"
+      ]
+    },
+    "taglines": [
+      "Pay once, and be done",
+      "Checkout without the guesswork",
+      "Gear for the job, paid for simply",
+      "Four steps, no surprises",
+      "Careful orders, honestly priced"
+    ],
+    "boilerplate": "Fieldwork is a UK outdoor and workwear store with a clear four-step checkout, honest delivery options and an order summary that always shows the real total.",
+    "microcopy": {
+      "primaryCta": "Pay £177.00",
+      "secondaryCta": "Apply",
+      "success": "Order placed. A receipt is on its way.",
+      "error": "That card number looks wrong. Check it and try again.",
+      "empty": "Your bag is empty."
+    }
+  }
+}

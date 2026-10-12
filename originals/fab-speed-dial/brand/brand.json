@@ -1,0 +1,166 @@
+{
+  "name": "Jotter",
+  "descriptor": "Quick notes app with fast actions",
+  "listing": {
+    "key": "o:fab-speed-dial",
+    "title": "Floating Action Button Speed Dial",
+    "category": "Buttons"
+  },
+  "colors": {
+    "background": "#eef0f6",
+    "surface": "#ffffff",
+    "text": "#4b5563",
+    "textMuted": "#151826",
+    "primary": "#6c4bf4",
+    "secondary": "#f59e0b",
+    "border": "#d7dae1",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#f59e0b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eef0f6",
+      "share": 71.7
+    },
+    {
+      "hex": "#ffffff",
+      "share": 17.6
+    },
+    {
+      "hex": "#fef3c7",
+      "share": 4.8
+    },
+    {
+      "hex": "#ccfbf1",
+      "share": 4.8
+    },
+    {
+      "hex": "#6c4bf4",
+      "share": 0.4
+    },
+    {
+      "hex": "#4b5563",
+      "share": 0.3
+    },
+    {
+      "hex": "#151826",
+      "share": 0.2
+    },
+    {
+      "hex": "#f59e0b",
+      "share": 0.0
+    },
+    {
+      "hex": "#f43f8e",
+      "share": 0.0
+    },
+    {
+      "hex": "#3b82f6",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Outfit",
+    "body": "Outfit",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 16,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.06) 0px 1px 3px 0px",
+      "md": "rgba(0, 0, 0, 0.18) 0px 4px 12px 0px",
+      "lg": "rgba(0, 0, 0, 0.25) 0px 6px 14px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      460
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "spark",
+    "tile": "none",
+    "wordmarkFont": "Outfit"
+  },
+  "voice": {
+    "personality": [
+      "quick",
+      "light",
+      "friendly"
+    ],
+    "voice": {
+      "summary": "Sounds like a pen that is always at hand: very short phrases, active verbs, no ceremony. Actions are labelled like a note's first word.",
+      "dos": [
+        "Start every action with a verb",
+        "Keep labels to two words",
+        "Show state in the label, not a paragraph"
+      ],
+      "donts": [
+        "No long onboarding text",
+        "No guilt about unfinished notes",
+        "No emoji in action labels"
+      ]
+    },
+    "taglines": [
+      "Jot it down, move on",
+      "Notes at the speed of thought",
+      "One tap, one thought",
+      "Capture first, tidy later",
+      "Your notes, always within reach"
+    ],
+    "boilerplate": "Jotter is a notes app built for speed, with a floating action button that fans out into new note, checklist, voice and photo in a single motion.",
+    "microcopy": {
+      "primaryCta": "New note",
+      "secondaryCta": "Open speed dial",
+      "success": "Note saved",
+      "error": "Could not save that note, try again",
+      "empty": "No notes yet, tap the plus to start"
+    }
+  }
+}

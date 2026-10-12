@@ -1,0 +1,164 @@
+{
+  "name": "Pressline",
+  "descriptor": "Interface buttons that show what they are doing",
+  "listing": {
+    "key": "o:button-states",
+    "title": "Button Loading States",
+    "category": "Buttons"
+  },
+  "colors": {
+    "background": "#f5f4f1",
+    "surface": "#ffffff",
+    "text": "#1d1c1a",
+    "textMuted": "#696865",
+    "primary": "#4338ff",
+    "secondary": "#e5484d",
+    "border": "#e6e3dc",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#b0abff"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f5f4f1",
+      "share": 94.4
+    },
+    {
+      "hex": "#4338ff",
+      "share": 2.2
+    },
+    {
+      "hex": "#1d1c1a",
+      "share": 1.8
+    },
+    {
+      "hex": "#2a2a3a",
+      "share": 1.3
+    },
+    {
+      "hex": "#77736a",
+      "share": 0.2
+    },
+    {
+      "hex": "#e5484d",
+      "share": 0.0
+    },
+    {
+      "hex": "#e6e3dc",
+      "share": 0.0
+    },
+    {
+      "hex": "#b0abff",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Onest",
+    "body": "Onest",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Onest",
+        "stack": "'Onest', system-ui, sans-serif",
+        "sizePx": 44,
+        "weight": "700",
+        "lineHeight": "46.2px",
+        "letterSpacing": "-1.32px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Onest",
+        "stack": "'Onest', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "500",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Onest",
+        "stack": "'Onest', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 14,
+      "lg": 18,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        16,
+        18,
+        20,
+        22,
+        26,
+        40
+      ]
+    },
+    "container": 1000,
+    "breakpoints": [
+      560,
+      860
+    ],
+    "motion": {
+      "duration": 100,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "pulse",
+    "tile": "squircle",
+    "wordmarkFont": "Inter Bold (stand-in for Onest)"
+  },
+  "voice": {
+    "personality": [
+      "exact",
+      "tactile",
+      "friendly"
+    ],
+    "voice": {
+      "summary": "Pressline speaks like a craftsperson who obsesses over a single click. It describes states in plain verbs and short beats: sending, sent, failed, undone.",
+      "dos": [
+        "Describe each state with one present or past verb",
+        "Say what happens next in under six words",
+        "Keep humour dry and tiny"
+      ],
+      "donts": [
+        "Do not use vague progress words like processing",
+        "Avoid blaming the user when something fails",
+        "Never over-celebrate a success"
+      ]
+    },
+    "taglines": [
+      "Every click deserves an answer",
+      "Six ways to say working",
+      "Buttons that tell the truth",
+      "Idle, loading, done, or failed",
+      "Feedback, one press at a time"
+    ],
+    "boilerplate": "Pressline is a specimen collection of action buttons that move cleanly between idle, loading, success and error, designed for teams who care about feedback.",
+    "microcopy": {
+      "primaryCta": "Replay all",
+      "secondaryCta": "Reset",
+      "success": "Sent. That was quick.",
+      "error": "Did not send. Try again.",
+      "empty": "No demos running. Press replay."
+    }
+  }
+}

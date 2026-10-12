@@ -1,0 +1,186 @@
+{
+  "name": "SceneAI",
+  "descriptor": "Text-to-3D scene generator",
+  "listing": {
+    "key": "s:69ef9de7f4d5236f91d13060",
+    "title": "SceneAI",
+    "category": "Create awesome 3D scenes with AI"
+  },
+  "colors": {
+    "background": "#000000",
+    "surface": "#3b1d6e",
+    "text": "#ffffff",
+    "textMuted": "#a6a6a6",
+    "primary": "#3b1d6e",
+    "secondary": "#fbbf24",
+    "border": "#242424",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#fbbf24"
+  },
+  "colorInventory": [
+    {
+      "hex": "#000000",
+      "share": 88.7
+    },
+    {
+      "hex": "#3b1d6e",
+      "share": 10.4
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.3
+    },
+    {
+      "hex": "#140c00",
+      "share": 0.3
+    },
+    {
+      "hex": "#14141a",
+      "share": 0.2
+    },
+    {
+      "hex": "#f97316",
+      "share": 0.0
+    },
+    {
+      "hex": "#fbbf24",
+      "share": 0.0
+    },
+    {
+      "hex": "#a855f7",
+      "share": 0.0
+    },
+    {
+      "hex": "#a6a6a6",
+      "share": 0.0
+    },
+    {
+      "hex": "#242424",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 80,
+        "weight": "700",
+        "lineHeight": "81.6px",
+        "letterSpacing": "-3.2px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 11,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "1.98px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 12,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(168, 85, 247) 0px 0px 10px 3px",
+      "md": "rgb(168, 85, 247) 0px 0px 10px 3px",
+      "lg": "rgb(168, 85, 247) 0px 0px 10px 3px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        7,
+        8,
+        10,
+        14,
+        16,
+        20,
+        32,
+        34
+      ]
+    },
+    "container": 900,
+    "breakpoints": [
+      860
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cube",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "inventive",
+      "fast",
+      "friendly"
+    ],
+    "voice": {
+      "summary": "SceneAI speaks like a creative collaborator who makes complicated things simple. It describes worlds in plain words and promises that lighting, camera and materials are handled.",
+      "dos": [
+        "Invite people to describe a scene in plain words",
+        "Say what the system handles for you",
+        "Use vivid but concrete scene words"
+      ],
+      "donts": [
+        "Do not use technical rendering jargon",
+        "Avoid claims of perfect realism",
+        "Never promise instant results without limits"
+      ]
+    },
+    "taglines": [
+      "Describe a world, watch it render",
+      "Create awesome 3D scenes with AI",
+      "Lighting and camera, handled",
+      "From a sentence to a scene",
+      "Build worlds in plain words"
+    ],
+    "boilerplate": "SceneAI is an AI tool that turns plain-language descriptions into 3D scenes, handling lighting, camera and materials so creators can build worlds in seconds.",
+    "microcopy": {
+      "primaryCta": "Start building",
+      "secondaryCta": "Watch Demo",
+      "success": "Scene generated.",
+      "error": "Could not build that scene. Try rewording it.",
+      "empty": "No scenes yet. Describe one to start."
+    }
+  }
+}

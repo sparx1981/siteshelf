@@ -1,0 +1,184 @@
+{
+  "name": "Layover",
+  "descriptor": "Destination discovery deck for spontaneous trips",
+  "listing": {
+    "key": "o:stacked-cards",
+    "title": "Stacked Card Deck",
+    "category": "Cards"
+  },
+  "colors": {
+    "background": "#222222",
+    "surface": "#3a2a6b",
+    "text": "#ffffff",
+    "textMuted": "#bdb4dc",
+    "primary": "#ffb27a",
+    "secondary": "#3a2a6b",
+    "border": "#ffb27a",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#3a2a6b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#222222",
+      "share": 36.3
+    },
+    {
+      "hex": "#3a2a6b",
+      "share": 31.5
+    },
+    {
+      "hex": "#0a0619",
+      "share": 6.3
+    },
+    {
+      "hex": "#2f5f8f",
+      "share": 5.0
+    },
+    {
+      "hex": "#6a2f3f",
+      "share": 4.4
+    },
+    {
+      "hex": "#1fa0b0",
+      "share": 3.9
+    },
+    {
+      "hex": "#1e2f5c",
+      "share": 3.4
+    },
+    {
+      "hex": "#1f5a4a",
+      "share": 3.4
+    },
+    {
+      "hex": "#3a1f2f",
+      "share": 3.0
+    },
+    {
+      "hex": "#0f4d6b",
+      "share": 2.7
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "700",
+        "lineHeight": "28.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.3px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 28,
+      "md": 50,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.45) 0px 24px 50px 0px",
+      "md": "rgba(255, 255, 255, 0.4) 0px 0px 60px 20px",
+      "lg": "rgba(0, 0, 0, 0.45) 0px 24px 50px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        12,
+        16,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 150,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "plane",
+    "tile": "squircle",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "wanderlust",
+      "light",
+      "decisive"
+    ],
+    "voice": {
+      "summary": "Layover talks like a friend with a map and a free weekend: quick, evocative and decisive. It names places and moods in a few words and invites a swipe.",
+      "dos": [
+        "Name the place and one feeling in a line",
+        "Use short imperatives: swipe, save, pass",
+        "Keep captions under ten words"
+      ],
+      "donts": [
+        "Do not use tourism cliches like hidden gem",
+        "Avoid listing facts a map already shows",
+        "Never push a booking"
+      ]
+    },
+    "taglines": [
+      "Where next?",
+      "Swipe to your next escape",
+      "Pass, save, or pack",
+      "Seven places, one good idea",
+      "Find a weekend worth leaving for"
+    ],
+    "boilerplate": "Layover is a destination discovery app that deals travel ideas as a swipeable card deck, letting you pass or save places and keep a short list for later.",
+    "microcopy": {
+      "primaryCta": "Shuffle remaining",
+      "secondaryCta": "Save for later",
+      "success": "Saved to your list.",
+      "error": "Could not save that place. Try again.",
+      "empty": "The deck is empty. Shuffle to see more."
+    }
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "name": "Linden Physiotherapy",
+  "descriptor": "Physio clinic with online booking",
+  "listing": {
+    "key": "o:form-appointment-slots",
+    "title": "Appointment Slot Picker",
+    "category": "Form"
+  },
+  "colors": {
+    "background": "#eef4f4",
+    "surface": "#ffffff",
+    "text": "#10292b",
+    "textMuted": "#4f6b6d",
+    "primary": "#0f8b8d",
+    "secondary": "#7bbfc0",
+    "border": "#bcd2d2",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#0d4144"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eef4f4",
+      "share": 68.7
+    },
+    {
+      "hex": "#ffffff",
+      "share": 30.4
+    },
+    {
+      "hex": "#0f8b8d",
+      "share": 0.5
+    },
+    {
+      "hex": "#10292b",
+      "share": 0.3
+    },
+    {
+      "hex": "#4f6b6d",
+      "share": 0.2
+    },
+    {
+      "hex": "#8aa0a1",
+      "share": 0.0
+    },
+    {
+      "hex": "#d8f3f3",
+      "share": 0.0
+    },
+    {
+      "hex": "#7bbfc0",
+      "share": 0.0
+    },
+    {
+      "hex": "#bcd2d2",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 52,
+        "weight": "700",
+        "lineHeight": "56.16px",
+        "letterSpacing": "-1.04px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.44px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "18.6px",
+        "letterSpacing": "0.72px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 16,
+      "lg": 22,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        24
+      ]
+    },
+    "container": 1120,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "pulse",
+    "tile": "squircle",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "caring",
+      "precise",
+      "reassuring"
+    ],
+    "voice": {
+      "summary": "Linden Physiotherapy sounds like a calm clinician: clear about the time, the length and the person you will see. It uses short, kind sentences and never makes someone feel rushed.",
+      "dos": [
+        "State the day, time, length and clinician in full",
+        "Explain the five-minute hold in plain words",
+        "Acknowledge discomfort without clinical jargon"
+      ],
+      "donts": [
+        "Do not use medical terms the patient has not used",
+        "Avoid pressure about slots running out",
+        "Never promise outcomes of treatment"
+      ]
+    },
+    "taglines": [
+      "Book your physio, then breathe",
+      "Moving better starts with a booking",
+      "Care that keeps its appointments",
+      "Pick a day. We will hold it",
+      "Clear times, kind hands"
+    ],
+    "boilerplate": "Linden Physiotherapy is a clinic offering initial assessments and follow-up treatment with an online booking form that holds a chosen slot for five minutes.",
+    "microcopy": {
+      "primaryCta": "Confirm appointment",
+      "secondaryCta": "Choose a different time",
+      "success": "Booked. We will see you then.",
+      "error": "That slot was released. Please pick another.",
+      "empty": "No slots on this day."
+    }
+  }
+}

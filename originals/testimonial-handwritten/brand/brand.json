@@ -1,0 +1,187 @@
+{
+  "name": "Little Orchard Nursery",
+  "descriptor": "Plant nursery and garden shop",
+  "listing": {
+    "key": "o:testimonial-handwritten",
+    "title": "Handwritten Note Wall",
+    "category": "Testimonials"
+  },
+  "colors": {
+    "background": "#efe6d4",
+    "surface": "#d9cdb4",
+    "text": "#2b2418",
+    "textMuted": "#5a4e3a",
+    "primary": "#d9482b",
+    "secondary": "#fff6a8",
+    "border": "#b6a785",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#fff6a8"
+  },
+  "colorInventory": [
+    {
+      "hex": "#efe6d4",
+      "share": 58.7
+    },
+    {
+      "hex": "#d9cdb4",
+      "share": 14.7
+    },
+    {
+      "hex": "#fff6a8",
+      "share": 6.1
+    },
+    {
+      "hex": "#ffd6e0",
+      "share": 5.8
+    },
+    {
+      "hex": "#cfeedd",
+      "share": 5.0
+    },
+    {
+      "hex": "#cfe3ff",
+      "share": 3.1
+    },
+    {
+      "hex": "#ffe0b8",
+      "share": 3.0
+    },
+    {
+      "hex": "#ffffff",
+      "share": 2.6
+    },
+    {
+      "hex": "#2b2418",
+      "share": 0.7
+    },
+    {
+      "hex": "#d9482b",
+      "share": 0.3
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Caveat",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 64,
+        "weight": "800",
+        "lineHeight": "64px",
+        "letterSpacing": "-1.92px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Caveat",
+        "stack": "'Caveat', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "600",
+        "lineHeight": "32.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.82px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;800&family=Kalam:wght@400&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 6,
+      "lg": 6,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(80, 60, 20, 0.25) 2px 6px 18px 0px",
+      "md": "rgba(217, 72, 43, 0.7) 0px 8px 20px -8px",
+      "lg": "rgba(120, 90, 40, 0.18) 0px 0px 160px 0px inset"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        6,
+        10,
+        13,
+        14,
+        16,
+        20,
+        22,
+        24,
+        26
+      ]
+    },
+    "container": 1120,
+    "breakpoints": [
+      620,
+      980
+    ],
+    "motion": {
+      "duration": 220,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "sprout",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "homely",
+      "cheerful",
+      "generous"
+    ],
+    "voice": {
+      "summary": "Little Orchard Nursery sounds like a garden gate chat: warm, specific about plants and a bit chatty. It lets customers speak first and thanks them like neighbours.",
+      "dos": [
+        "Let the customer's words come first, unedited",
+        "Use plant names and seasons freely",
+        "Sign off notes with a first name and a town"
+      ],
+      "donts": [
+        "Do not polish a customer's words into marketing",
+        "Avoid corporate thank-you language",
+        "Never invent a testimonial"
+      ]
+    },
+    "taglines": [
+      "Notes from the garden gate",
+      "Pinned up by our customers",
+      "Grown here, loved there",
+      "Words from happy gardens",
+      "Come and see what grew"
+    ],
+    "boilerplate": "Little Orchard Nursery is a plant nursery and garden shop whose customers pin handwritten notes about what they have grown, shared on a wall of paper cards.",
+    "microcopy": {
+      "primaryCta": "Add your note",
+      "secondaryCta": "Pin yours here",
+      "success": "Pinned. Thank you for the kind words.",
+      "error": "Could not pin your note. Please try again.",
+      "empty": "No notes yet. Be the first to pin one."
+    }
+  }
+}

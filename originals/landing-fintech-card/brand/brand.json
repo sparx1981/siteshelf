@@ -1,0 +1,206 @@
+{
+  "name": "Quill",
+  "descriptor": "Spend card with rules you set yourself",
+  "listing": {
+    "key": "o:landing-fintech-card",
+    "title": "Quill Spend Card",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#071a1f",
+    "surface": "#0e2a31",
+    "text": "#9ec2bd",
+    "textMuted": "#e8fbf6",
+    "primary": "#36e2b8",
+    "secondary": "#244a53",
+    "border": "#1b4650",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#244a53"
+  },
+  "colorInventory": [
+    {
+      "hex": "#071a1f",
+      "share": 82.3
+    },
+    {
+      "hex": "#0e2a31",
+      "share": 13.2
+    },
+    {
+      "hex": "#0f5c52",
+      "share": 1.3
+    },
+    {
+      "hex": "#1b9c86",
+      "share": 1.3
+    },
+    {
+      "hex": "#36e2b8",
+      "share": 1.0
+    },
+    {
+      "hex": "#9ec2bd",
+      "share": 0.3
+    },
+    {
+      "hex": "#e8fbf6",
+      "share": 0.3
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.3
+    },
+    {
+      "hex": "#244a53",
+      "share": 0.2
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 80,
+        "weight": "700",
+        "lineHeight": "81.6px",
+        "letterSpacing": "-2.4px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 48,
+        "weight": "700",
+        "lineHeight": "52.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "27.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "20.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 20,
+      "md": 22,
+      "lg": 22,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.7) 0px 40px 80px -30px, rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset",
+      "md": "rgba(0, 0, 0, 0.7) 0px 40px 80px -30px, rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset",
+      "lg": "rgba(0, 0, 0, 0.7) 0px 40px 80px -30px, rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        6,
+        8,
+        14,
+        18,
+        20,
+        24,
+        26,
+        28
+      ]
+    },
+    "container": 1240,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "shield",
+    "tile": "circle",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "assured",
+      "clear",
+      "modern"
+    ],
+    "voice": {
+      "summary": "Sounds like a smart friend who happens to build payments: confident, brief and rule-minded. It talks control, limits and the till, and avoids bank-speak.",
+      "dos": [
+        "Use verbs like set, block and freeze",
+        "Show limits and categories as concrete examples",
+        "Keep promises about spending to what the card does"
+      ],
+      "donts": [
+        "Do not use jargon like leveraging financial solutions",
+        "Do not imply guaranteed savings",
+        "Do not use fear to sell"
+      ]
+    },
+    "taglines": [
+      "A card that follows your rules",
+      "Set the limit. Spend with ease.",
+      "Freeze it in one tap",
+      "Your money. Your rules.",
+      "Enforced at the till, not after"
+    ],
+    "boilerplate": "Quill is a spend card whose owners set their own rules, with weekly limits, blocked categories and an instant freeze enforced at the till rather than after the fact.",
+    "microcopy": {
+      "primaryCta": "Get the card",
+      "secondaryCta": "See how rules work",
+      "success": "Rule saved. It applies from the next purchase.",
+      "error": "Rule not saved. Check your connection and retry.",
+      "empty": "No rules yet. Add a limit to start."
+    }
+  }
+}

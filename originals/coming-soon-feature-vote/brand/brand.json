@@ -1,0 +1,177 @@
+{
+  "name": "Orbit Notes",
+  "descriptor": "Note-taking app letting its users choose what ships first",
+  "listing": {
+    "key": "o:coming-soon-feature-vote",
+    "title": "Feature Vote Coming Soon",
+    "category": "Coming Soon"
+  },
+  "colors": {
+    "background": "#0c0f14",
+    "surface": "#151a22",
+    "text": "#8b97aa",
+    "textMuted": "#f2f5fa",
+    "primary": "#3b82f6",
+    "secondary": "#1a2130",
+    "border": "#232b38",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#1a2130"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0c0f14",
+      "share": 79.4
+    },
+    {
+      "hex": "#1a2130",
+      "share": 19.9
+    },
+    {
+      "hex": "#3b82f6",
+      "share": 0.3
+    },
+    {
+      "hex": "#8b97aa",
+      "share": 0.2
+    },
+    {
+      "hex": "#f2f5fa",
+      "share": 0.2
+    },
+    {
+      "hex": "#a3e635",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 48,
+        "weight": "700",
+        "lineHeight": "50.4px",
+        "letterSpacing": "-0.96px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.4px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "400",
+        "lineHeight": "18.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 14,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(59, 130, 246) 0px 0px 14px 0px",
+      "md": "rgb(59, 130, 246) 0px 0px 14px 0px",
+      "lg": "rgb(59, 130, 246) 0px 0px 14px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        48
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "orbit",
+    "tile": "squircle",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "open",
+      "dev-friendly",
+      "upbeat"
+    ],
+    "voice": {
+      "summary": "Talks like a small product team building in public: transparent, a little geeky and grateful. Every line makes the visitor feel like a co-author, not a lead.",
+      "dos": [
+        "Be specific about the vote: counts, days left, one vote each",
+        "Thank people in plain words",
+        "Use product-team language such as ships and roadmap"
+      ],
+      "donts": [
+        "Hype about revolutionary features",
+        "Hiding how votes are counted",
+        "Pressure tactics around the countdown"
+      ]
+    },
+    "taglines": [
+      "Help us choose what ships first",
+      "Your vote shapes the roadmap",
+      "Build it with the people who use it",
+      "One vote, real consequences",
+      "Notes, ordered by you"
+    ],
+    "boilerplate": "Orbit Notes is an upcoming note-taking app that lets its first visitors vote on which feature ships first, with one vote each and a launch date in sight.",
+    "microcopy": {
+      "primaryCta": "Cast my vote",
+      "secondaryCta": "Suggest a feature",
+      "success": "Vote counted. Thanks for steering",
+      "error": "That did not register. Try again in a moment",
+      "empty": "No suggestions yet. Be the first"
+    }
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "name": "Night Reel",
+  "descriptor": "Photographer collective and vertical story archive",
+  "listing": {
+    "key": "o:gallery-reel-snap",
+    "title": "Vertical Reel Gallery",
+    "category": "Gallery"
+  },
+  "colors": {
+    "background": "#0c0c0f",
+    "surface": "#000000",
+    "text": "#d9d6e6",
+    "textMuted": "#ffffff",
+    "primary": "#f77f00",
+    "secondary": "#c8b6ff",
+    "border": "#ffffff",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#6e3c09"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0c0c0f",
+      "share": 90.9
+    },
+    {
+      "hex": "#f77f00",
+      "share": 1.2
+    },
+    {
+      "hex": "#219ebc",
+      "share": 1.2
+    },
+    {
+      "hex": "#c8b6ff",
+      "share": 1.0
+    },
+    {
+      "hex": "#ffd6a5",
+      "share": 1.0
+    },
+    {
+      "hex": "#5bc0be",
+      "share": 1.0
+    },
+    {
+      "hex": "#118ab2",
+      "share": 1.0
+    },
+    {
+      "hex": "#ffd166",
+      "share": 1.0
+    },
+    {
+      "hex": "#c77dff",
+      "share": 1.0
+    },
+    {
+      "hex": "#f4f1de",
+      "share": 0.9
+    }
+  ],
+  "typography": {
+    "heading": "Syne",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Syne",
+        "stack": "'Syne', system-ui, sans-serif",
+        "sizePx": 120,
+        "weight": "800",
+        "lineHeight": "114px",
+        "letterSpacing": "-3.6px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Syne",
+        "stack": "'Syne', system-ui, sans-serif",
+        "sizePx": 24,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "26.35px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Syne:wght@700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 10,
+      "lg": 10,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(0, 0, 0) 0px 0px 0px 6px",
+      "md": "rgb(0, 0, 0) 0px 0px 0px 6px",
+      "lg": "rgb(0, 0, 0) 0px 0px 0px 6px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        4,
+        6,
+        7,
+        8,
+        10,
+        12,
+        18,
+        26,
+        30
+      ]
+    },
+    "container": 900,
+    "breakpoints": [
+      600
+    ],
+    "motion": {
+      "duration": 450,
+      "easing": "cubic-bezier(0.2"
+    }
+  },
+  "logo": {
+    "motif": "play",
+    "tile": "circle",
+    "wordmarkFont": "Syne"
+  },
+  "voice": {
+    "personality": [
+      "moody",
+      "punchy",
+      "street-smart"
+    ],
+    "voice": {
+      "summary": "Speaks in tight, tactile captions: where, when and on what film. It treats each panel like a single beat in a night shoot and keeps comment short enough to read between swipes.",
+      "dos": [
+        "Caption with place, time and gear in one line",
+        "Use vivid verbs and sparse adjectives",
+        "Credit the photographer"
+      ],
+      "donts": [
+        "Do not describe the obvious in the image",
+        "Do not use filter-app language",
+        "Do not write paragraphs"
+      ]
+    },
+    "taglines": [
+      "Shot at dusk, shared at speed",
+      "One frame at a time, all night",
+      "City light, collected",
+      "The night shift of photography",
+      "Swipe up into the evening"
+    ],
+    "boilerplate": "Night Reel is a photographer collective that publishes an archive of dusk and night stories as full-screen vertical panels, each with a short note on where and how it was shot.",
+    "microcopy": {
+      "primaryCta": "View details",
+      "secondaryCta": "Close",
+      "success": "Panel saved to your reel.",
+      "error": "This panel failed to load. Swipe on.",
+      "empty": "No panels in this reel yet."
+    }
+  }
+}

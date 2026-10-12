@@ -1,0 +1,196 @@
+{
+  "name": "Roompulse",
+  "descriptor": "Meeting room finder for small teams",
+  "listing": {
+    "key": "o:room-pulse-booking",
+    "title": "Room Pulse Booking",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#f5f8fb",
+    "surface": "#e9f0f7",
+    "text": "#5e6e84",
+    "textMuted": "#23334a",
+    "primary": "#23334a",
+    "secondary": "#868f9b",
+    "border": "#bccbde",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#868f9b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f5f8fb",
+      "share": 96.0
+    },
+    {
+      "hex": "#dce0e5",
+      "share": 2.4
+    },
+    {
+      "hex": "#285b9a",
+      "share": 0.6
+    },
+    {
+      "hex": "#23334a",
+      "share": 0.5
+    },
+    {
+      "hex": "#5e6e84",
+      "share": 0.3
+    },
+    {
+      "hex": "#375578",
+      "share": 0.1
+    },
+    {
+      "hex": "#868f9b",
+      "share": 0.0
+    },
+    {
+      "hex": "#bccbde",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "DM Sans",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 40,
+        "weight": "600",
+        "lineHeight": "60px",
+        "letterSpacing": "-1.2px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 19,
+        "weight": "600",
+        "lineHeight": "28.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "700",
+        "lineHeight": "27px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 11,
+        "weight": "400",
+        "lineHeight": "16.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "18px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 6,
+      "lg": 10,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        4,
+        6,
+        9,
+        10,
+        12,
+        13,
+        14,
+        18,
+        20
+      ]
+    },
+    "container": 1260,
+    "breakpoints": [
+      560,
+      760,
+      1000
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "pulse",
+    "tile": "none",
+    "wordmarkFont": "DM Sans"
+  },
+  "voice": {
+    "personality": [
+      "clear",
+      "brisk",
+      "friendly"
+    ],
+    "voice": {
+      "summary": "Sounds like a helpful office manager: concise, specific about capacity and time, and gently funny about thinking rooms. Availability is the headline every time.",
+      "dos": [
+        "Give capacity and equipment in numbers",
+        "Show free or booked in the label",
+        "Confirm bookings with the time and room name"
+      ],
+      "donts": [
+        "No facilities-management jargon",
+        "No apology for a busy diary",
+        "No exclamation marks"
+      ]
+    },
+    "taglines": [
+      "Find a little thinking room",
+      "Book the space, not the stress",
+      "Free, booked, done",
+      "Right room, right time",
+      "Rooms that fit the work"
+    ],
+    "boilerplate": "Roompulse helps small teams compare meeting rooms by capacity and equipment, pick a conflict-free slot and reserve it in seconds.",
+    "microcopy": {
+      "primaryCta": "Reserve room",
+      "secondaryCta": "Cancel",
+      "success": "Reserved: Room 2, 10:30 to 11:00",
+      "error": "That slot was just taken, pick another",
+      "empty": "No reservations yet"
+    }
+  }
+}

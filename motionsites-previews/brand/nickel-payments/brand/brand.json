@@ -1,0 +1,181 @@
+{
+  "name": "nickel",
+  "descriptor": "Payments and collections for accounts-payable teams",
+  "listing": {
+    "key": "m:nickel-payments",
+    "title": "Nickel Payments",
+    "category": "SaaS"
+  },
+  "colors": {
+    "background": "#f3f2f7",
+    "surface": "#ffffff",
+    "text": "#16161d",
+    "textMuted": "#6d6d7b",
+    "primary": "#ffcda8",
+    "secondary": "#f2601b",
+    "border": "#d4d3d8",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#f2601b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f3f2f7",
+      "share": 88.2
+    },
+    {
+      "hex": "#ffcda8",
+      "share": 3.8
+    },
+    {
+      "hex": "#ff8a4a",
+      "share": 3.8
+    },
+    {
+      "hex": "#f2601b",
+      "share": 3.8
+    },
+    {
+      "hex": "#16161d",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffa970",
+      "share": 0.1
+    },
+    {
+      "hex": "#6d6d7b",
+      "share": 0.0
+    },
+    {
+      "hex": "#d4d3d8",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 72,
+        "weight": "500",
+        "lineHeight": "75.6px",
+        "letterSpacing": "-1.8px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "400",
+        "lineHeight": "32.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "500",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 24,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.6px",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 2,
+      "md": 8,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(225, 225, 232) 0px 0px 0px 1px",
+      "md": "rgba(20, 20, 40, 0.06) 0px 1px 2px 0px",
+      "lg": "rgba(240, 100, 30, 0.55) 0px 8px 20px -8px, rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        8,
+        16,
+        20,
+        22,
+        24,
+        32,
+        40
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      560,
+      640,
+      768,
+      1024
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "coins",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "plainspoken",
+      "dependable",
+      "brisk"
+    ],
+    "voice": {
+      "summary": "nickel sounds like a sharp finance lead who respects your time. Short, confident sentences promise automation, honest net terms and a real person to talk to.",
+      "dos": [
+        "Name the outcome: payments, terms, collections",
+        "Use verbs finance teams use: reconcile, collect, extend",
+        "Offer a human option in every flow"
+      ],
+      "donts": [
+        "Do not use fintech buzzwords like 'disrupt'",
+        "Avoid vague claims about 'growth'",
+        "Never hide fees"
+      ]
+    },
+    "taglines": [
+      "Unlock growth with every payment",
+      "Net terms, extended",
+      "Collections that run themselves",
+      "Run payments. Skip the chase",
+      "Talk to a human"
+    ],
+    "boilerplate": "nickel is a payments platform that lets businesses run payments, extend net terms and automate collections compliance, with specialist tools for accountants.",
+    "microcopy": {
+      "primaryCta": "Get started",
+      "secondaryCta": "Talk to a human",
+      "success": "Payment scheduled.",
+      "error": "That payment did not go through. Please check the details.",
+      "empty": "No invoices due. All paid up."
+    }
+  }
+}

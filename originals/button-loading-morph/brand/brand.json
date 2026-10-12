@@ -1,0 +1,192 @@
+{
+  "name": "Settlebook",
+  "descriptor": "Payments tool that confirms every action",
+  "listing": {
+    "key": "o:button-loading-morph",
+    "title": "Loading Morph Button",
+    "category": "Buttons"
+  },
+  "colors": {
+    "background": "#eef1f4",
+    "surface": "#ffffff",
+    "text": "#11181f",
+    "textMuted": "#4a5864",
+    "primary": "#12805c",
+    "secondary": "#2f7bff",
+    "border": "#dde3e8",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#9bcabb"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eef1f4",
+      "share": 71.6
+    },
+    {
+      "hex": "#ffffff",
+      "share": 15.8
+    },
+    {
+      "hex": "#11181f",
+      "share": 10.4
+    },
+    {
+      "hex": "#12805c",
+      "share": 0.9
+    },
+    {
+      "hex": "#6a3df0",
+      "share": 0.8
+    },
+    {
+      "hex": "#4a5864",
+      "share": 0.2
+    },
+    {
+      "hex": "#2f7bff",
+      "share": 0.2
+    },
+    {
+      "hex": "#2457ff",
+      "share": 0.1
+    },
+    {
+      "hex": "#b7c2cb",
+      "share": 0.1
+    },
+    {
+      "hex": "#9fb0bc",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Plus Jakarta Sans",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 56,
+        "weight": "800",
+        "lineHeight": "57.12px",
+        "letterSpacing": "-1.68px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "26.35px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "1.82px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 16,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        8,
+        9,
+        10,
+        12,
+        14,
+        16,
+        18,
+        22,
+        24
+      ]
+    },
+    "container": 1080,
+    "breakpoints": [
+      860
+    ],
+    "motion": {
+      "duration": 320,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "book",
+    "tile": "circle",
+    "wordmarkFont": "Plus Jakarta Sans"
+  },
+  "voice": {
+    "personality": [
+      "reassuring",
+      "exact",
+      "brisk"
+    ],
+    "voice": {
+      "summary": "Settlebook speaks like a good till operator: calm, quick and clear about what just happened. Every state gets one short sentence in plain language, with the amount and the outcome up front.",
+      "dos": [
+        "State the outcome first, then the next step",
+        "Include the amount or the name that changed",
+        "Use past tense for what is done: 'paid', 'saved', 'sent'"
+      ],
+      "donts": [
+        "Do not leave a spinner without a status message",
+        "Do not blame the user for a failure",
+        "Do not use exclamation marks near money"
+      ]
+    },
+    "taglines": [
+      "Buttons that tell you what happened",
+      "Paid, saved, sent: you will know",
+      "Every click gets an answer",
+      "Payments that never leave you guessing",
+      "Clear feedback, down to the penny"
+    ],
+    "boilerplate": "Settlebook is a payments tool whose buttons show exactly what happened, from taking a payment to saving a profile and inviting a teammate.",
+    "microcopy": {
+      "primaryCta": "Pay £24.00",
+      "secondaryCta": "Reset all",
+      "success": "Payment received. £24.00 has been taken.",
+      "error": "That did not go through. You have not been charged, so please try again.",
+      "empty": "No payments yet. The first one will show here."
+    }
+  }
+}

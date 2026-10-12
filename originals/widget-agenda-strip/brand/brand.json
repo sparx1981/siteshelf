@@ -1,0 +1,186 @@
+{
+  "name": "Lantern Calendar",
+  "descriptor": "Calendar app with a horizontal day strip",
+  "listing": {
+    "key": "o:widget-agenda-strip",
+    "title": "Agenda Strip",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#f4efe6",
+    "surface": "#fffdf8",
+    "text": "#6b6253",
+    "textMuted": "#1f1a14",
+    "primary": "#2f56d4",
+    "secondary": "#c4532f",
+    "border": "#cfc3ac",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#a8b8ed"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4efe6",
+      "share": 53.3
+    },
+    {
+      "hex": "#fffdf8",
+      "share": 39.9
+    },
+    {
+      "hex": "#2f56d4",
+      "share": 1.8
+    },
+    {
+      "hex": "#c4532f",
+      "share": 1.0
+    },
+    {
+      "hex": "#2a2a5a",
+      "share": 1.0
+    },
+    {
+      "hex": "#1f7a58",
+      "share": 0.7
+    },
+    {
+      "hex": "#000000",
+      "share": 0.6
+    },
+    {
+      "hex": "#8a8fc0",
+      "share": 0.5
+    },
+    {
+      "hex": "#6a6aa8",
+      "share": 0.5
+    },
+    {
+      "hex": "#4a4a88",
+      "share": 0.5
+    }
+  ],
+  "typography": {
+    "heading": "Young Serif",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 44,
+        "weight": "400",
+        "lineHeight": "46.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "21.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 24,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.5) 0px 0px 0px 2px",
+      "md": "rgba(30, 20, 10, 0.22) 0px 4px 12px 0px",
+      "lg": "rgba(60, 40, 10, 0.16) 0px 24px 60px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        20
+      ]
+    },
+    "container": 1120,
+    "breakpoints": [
+      760
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "spark",
+    "tile": "squircle",
+    "wordmarkFont": "Young Serif"
+  },
+  "voice": {
+    "personality": [
+      "clear",
+      "calm",
+      "organised"
+    ],
+    "voice": {
+      "summary": "Lantern Calendar speaks like a thoughtful assistant who lights what is next. It gives times in full, names the room, and keeps the day readable at a glance.",
+      "dos": [
+        "Give start and end times in 24-hour form",
+        "Name the place or room with each event",
+        "Summarise the next event in one sentence"
+      ],
+      "donts": [
+        "Do not use busy-ness language like packed",
+        "Avoid nagging reminders",
+        "Never hide overlaps"
+      ]
+    },
+    "taglines": [
+      "See your whole day at a glance",
+      "Light on what is next",
+      "Calm mornings, clear agendas",
+      "Your day, side to side",
+      "The day, laid out"
+    ],
+    "boilerplate": "Lantern Calendar is a calendar app that lays out the day on a horizontal strip with lanes, a live now line and a clear summary of what comes next.",
+    "microcopy": {
+      "primaryCta": "Today",
+      "secondaryCta": "Open details",
+      "success": "Event updated.",
+      "error": "Could not load events. Please try again.",
+      "empty": "Nothing scheduled. Enjoy the quiet."
+    }
+  }
+}

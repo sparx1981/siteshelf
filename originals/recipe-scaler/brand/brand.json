@@ -1,0 +1,197 @@
+{
+  "name": "Ashdown Kitchen",
+  "descriptor": "Home cook's recipe collection by Marguerite Ashdown",
+  "listing": {
+    "key": "o:recipe-scaler",
+    "title": "Recipe Scaler",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#fbf6ee",
+    "surface": "#ffffff",
+    "text": "#2a211b",
+    "textMuted": "#7a6a5a",
+    "primary": "#d6452b",
+    "secondary": "#eadfca",
+    "border": "#eadfca",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#eadfca"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fbf6ee",
+      "share": 97.0
+    },
+    {
+      "hex": "#d6452b",
+      "share": 1.2
+    },
+    {
+      "hex": "#2a211b",
+      "share": 1.0
+    },
+    {
+      "hex": "#eadfca",
+      "share": 0.4
+    },
+    {
+      "hex": "#f6d98a",
+      "share": 0.2
+    },
+    {
+      "hex": "#4f7a3a",
+      "share": 0.1
+    },
+    {
+      "hex": "#7a6a5a",
+      "share": 0.1
+    },
+    {
+      "hex": "#ff8a6c",
+      "share": 0.0
+    },
+    {
+      "hex": "#d9c9a8",
+      "share": 0.0
+    },
+    {
+      "hex": "#5f8e48",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "DM Serif Display",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "DM Serif Display",
+        "stack": "'DM Serif Display', Georgia, serif",
+        "sizePx": 64,
+        "weight": "400",
+        "lineHeight": "65.28px",
+        "letterSpacing": "-0.64px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "DM Serif Display",
+        "stack": "'DM Serif Display', Georgia, serif",
+        "sizePx": 28,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "27.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14.2,
+        "weight": "400",
+        "lineHeight": "22.6667px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Figtree:wght@400;500;600;700&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 16,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.15) 0px 1px 3px 0px",
+      "md": "rgba(60, 35, 10, 0.5) 0px 20px 40px -32px",
+      "lg": "rgba(0, 0, 0, 0.15) 0px 1px 3px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        11,
+        12,
+        14,
+        16,
+        24
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      420,
+      860
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "flame",
+    "tile": "circle",
+    "wordmarkFont": "DM Serif Display"
+  },
+  "voice": {
+    "personality": [
+      "warm",
+      "generous",
+      "exact"
+    ],
+    "voice": {
+      "summary": "Sounds like a favourite aunt who writes recipes down clearly: welcoming, specific and practical. Quantities are precise and the tone is encouraging rather than fussy.",
+      "dos": [
+        "Give quantities and times exactly",
+        "Use sensory cues like until glossy",
+        "Address the cook directly"
+      ],
+      "donts": [
+        "No chef-show drama",
+        "Avoid superlative food adjectives",
+        "Never skip a unit"
+      ]
+    },
+    "taglines": [
+      "Cook for two, or for twelve",
+      "Scale the recipe, keep the flavour",
+      "Slow-roasted and well worth it",
+      "Tick it off, cook it through",
+      "Dinner, scaled to your table"
+    ],
+    "boilerplate": "Ashdown Kitchen is a home cook's recipe collection by Marguerite Ashdown, with scalable ingredient lists, metric and imperial units and a built-in cooking timer.",
+    "microcopy": {
+      "primaryCta": "Start 40 min timer",
+      "secondaryCta": "Copy shopping list",
+      "success": "Shopping list copied.",
+      "error": "Couldn't copy the list. Try selecting it.",
+      "empty": "Nothing gathered yet. Tick off ingredients as you go."
+    }
+  }
+}

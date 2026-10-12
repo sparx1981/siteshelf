@@ -1,0 +1,177 @@
+{
+  "name": "Tickdown",
+  "descriptor": "Live countdown cards for dates that matter",
+  "listing": {
+    "key": "o:widget-countdown-events",
+    "title": "Event Countdown Widgets",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#ffffff",
+    "surface": "#e8f1ff",
+    "text": "#1b1f3a",
+    "textMuted": "#6b6f94",
+    "primary": "#4f46e5",
+    "secondary": "#1b1f3a",
+    "border": "#d7daf0",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#1b1f3a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#ffffff",
+      "share": 54.2
+    },
+    {
+      "hex": "#e8f1ff",
+      "share": 44.2
+    },
+    {
+      "hex": "#4f46e5",
+      "share": 0.7
+    },
+    {
+      "hex": "#1b1f3a",
+      "share": 0.3
+    },
+    {
+      "hex": "#6b6f94",
+      "share": 0.3
+    },
+    {
+      "hex": "#0ea5a4",
+      "share": 0.1
+    },
+    {
+      "hex": "#f97316",
+      "share": 0.1
+    },
+    {
+      "hex": "#e11d48",
+      "share": 0.1
+    },
+    {
+      "hex": "#5b5f86",
+      "share": 0.0
+    },
+    {
+      "hex": "#d7daf0",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Archivo",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Archivo",
+        "stack": "'Archivo', system-ui, sans-serif",
+        "sizePx": 30,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Archivo",
+        "stack": "'Archivo', system-ui, sans-serif",
+        "sizePx": 19,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Archivo:wght@500;700&family=Inter:wght@400;600&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 16,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(255, 255, 255) 0px 0px 0px 3px, rgb(27, 31, 58) 0px 0px 0px 5px",
+      "md": "rgba(27, 31, 58, 0.07) 0px 6px 20px 0px",
+      "lg": "rgba(79, 70, 229, 0.08) 0px 6px 20px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        11,
+        12,
+        16,
+        18
+      ]
+    },
+    "container": 1000,
+    "breakpoints": [
+      560,
+      860
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "pulse",
+    "tile": "circle",
+    "wordmarkFont": "Archivo"
+  },
+  "voice": {
+    "personality": [
+      "clear",
+      "punctual",
+      "upbeat"
+    ],
+    "voice": {
+      "summary": "Tickdown sounds like a stopwatch with a friendly face: crisp, numerical and glad when the big day arrives. Units and times lead, and feelings follow.",
+      "dos": [
+        "Put days, hours, minutes and seconds in that order",
+        "Name the event and its date plainly",
+        "Mark passed events calmly as 'ended'"
+      ],
+      "donts": [
+        "Create anxiety about deadlines",
+        "Use drama for ordinary dates",
+        "Hide the target date"
+      ]
+    },
+    "taglines": [
+      "Count down to what matters",
+      "Every second, in its place",
+      "Dates you can watch arrive",
+      "Ticking toward launch day",
+      "Know exactly how long to go"
+    ],
+    "boilerplate": "Tickdown is a countdown widget that tracks launches, offsites, quarter ends and personal dates with live flip-style digits, sorted so the soonest event is always first.",
+    "microcopy": {
+      "primaryCta": "Add event",
+      "secondaryCta": "Remove",
+      "success": "Event added. 12 days to go.",
+      "error": "Choose a future date and time.",
+      "empty": "No countdowns yet. Add your first."
+    }
+  }
+}

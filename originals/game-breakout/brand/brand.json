@@ -1,0 +1,190 @@
+{
+  "name": "Starlight Arcade",
+  "descriptor": "Night-sky arcade with polished classic games",
+  "listing": {
+    "key": "o:game-breakout",
+    "title": "Brick Breaker",
+    "category": "Games"
+  },
+  "colors": {
+    "background": "#0b1030",
+    "surface": "#12163c",
+    "text": "#b9b4de",
+    "textMuted": "#f3f0ff",
+    "primary": "#ffb347",
+    "secondary": "#b9b4de",
+    "border": "#3a3f8a",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#715227"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b1030",
+      "share": 97.6
+    },
+    {
+      "hex": "#1c1040",
+      "share": 0.8
+    },
+    {
+      "hex": "#000000",
+      "share": 0.8
+    },
+    {
+      "hex": "#ffb347",
+      "share": 0.5
+    },
+    {
+      "hex": "#fff3d0",
+      "share": 0.1
+    },
+    {
+      "hex": "#b9b4de",
+      "share": 0.1
+    },
+    {
+      "hex": "#f3f0ff",
+      "share": 0.1
+    },
+    {
+      "hex": "#3a3f8a",
+      "share": 0.0
+    },
+    {
+      "hex": "#715227",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 44,
+        "weight": "600",
+        "lineHeight": "44px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 36,
+        "weight": "600",
+        "lineHeight": "39.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.16px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Sora:wght@600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 18,
+      "lg": 18,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.04) 0px 0px 0px 1px, rgba(120, 100, 255, 0.25) 0px 0px 60px 0px, rgba(120, 100, 255, 0.15) 0px 0px 40px 0px inset",
+      "md": "rgba(255, 255, 255, 0.04) 0px 0px 0px 1px, rgba(120, 100, 255, 0.25) 0px 0px 60px 0px, rgba(120, 100, 255, 0.15) 0px 0px 40px 0px inset",
+      "lg": "rgba(255, 255, 255, 0.04) 0px 0px 0px 1px, rgba(120, 100, 255, 0.25) 0px 0px 60px 0px, rgba(120, 100, 255, 0.15) 0px 0px 40px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "spark",
+    "tile": "none",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "bright",
+      "playful",
+      "competitive"
+    ],
+    "voice": {
+      "summary": "A friendly arcade attendant under neon: encouraging, quick and fond of high scores. Copy is punchy and games-first, with a little starry wonder.",
+      "dos": [
+        "Use arcade verbs like launch, smash and clear",
+        "Show lives and scores as plain numbers",
+        "Celebrate in one line then get back to the game"
+      ],
+      "donts": [
+        "Gambling language such as jackpot",
+        "Long tutorials before play",
+        "Insults for losing"
+      ]
+    },
+    "taglines": [
+      "Break the sky, one brick at a time",
+      "Starlight on every high score",
+      "Paddle up, ball away",
+      "Classic play, clean glow",
+      "One more round under the stars"
+    ],
+    "boilerplate": "Starlight Arcade is an invented arcade of polished browser games, led by Brick Breaker, with power-ups, three levels and a saved high score.",
+    "microcopy": {
+      "primaryCta": "Start game",
+      "secondaryCta": "Pause",
+      "success": "New high score. Look at you",
+      "error": "Game over. One more go?",
+      "empty": "No high score yet. Set the first"
+    }
+  }
+}

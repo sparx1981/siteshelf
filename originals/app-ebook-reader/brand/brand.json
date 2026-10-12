@@ -1,0 +1,187 @@
+{
+  "name": "The Lantern Keeper's Atlas",
+  "descriptor": "A novella to read page by page, by lamplight",
+  "listing": {
+    "key": "o:app-ebook-reader",
+    "title": "E-Book Reader",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#cfc8b8",
+    "surface": "#fbf8f1",
+    "text": "#231f19",
+    "textMuted": "#5f5a51",
+    "primary": "#d6532f",
+    "secondary": "#e8a08d",
+    "border": "#b7b0a2",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#60291c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#cfc8b8",
+      "share": 59.1
+    },
+    {
+      "hex": "#fbf8f1",
+      "share": 30.6
+    },
+    {
+      "hex": "#efe9da",
+      "share": 6.0
+    },
+    {
+      "hex": "#231f19",
+      "share": 4.2
+    },
+    {
+      "hex": "#d6532f",
+      "share": 0.0
+    },
+    {
+      "hex": "#5f5a51",
+      "share": 0.0
+    },
+    {
+      "hex": "#e8a08d",
+      "share": 0.0
+    },
+    {
+      "hex": "#b7b0a2",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    },
+    {
+      "hex": "#60291c",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Lora",
+    "body": "Lora",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Lora",
+        "stack": "'Lora', Georgia, serif",
+        "sizePx": 30,
+        "weight": "700",
+        "lineHeight": "36px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Lora",
+        "stack": "'Lora', Georgia, serif",
+        "sizePx": 20,
+        "weight": "400",
+        "lineHeight": "34px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "19.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "2.16px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@400;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 18,
+      "lg": 18,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.55) 0px 40px 90px -30px",
+      "md": "rgba(0, 0, 0, 0.55) 0px 40px 90px -30px",
+      "lg": "rgba(0, 0, 0, 0.55) 0px 40px 90px -30px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        10,
+        14,
+        16,
+        24,
+        36,
+        48,
+        64
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      560,
+      900
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "book",
+    "tile": "squircle",
+    "wordmarkFont": "Lora"
+  },
+  "voice": {
+    "personality": [
+      "hushed",
+      "literary",
+      "patient"
+    ],
+    "voice": {
+      "summary": "Reads like a quiet marginal note in a well-loved book: low-voiced, a little mysterious and never in a hurry. The interface keeps out of the way so the story keeps the spotlight.",
+      "dos": [
+        "Write controls as short, unshowy labels the reader barely notices",
+        "Borrow the novella's lantern and sea imagery sparingly",
+        "Confirm actions in a single calm line"
+      ],
+      "donts": [
+        "Gamified streaks or reading targets",
+        "Loud exclamations that break the spell",
+        "Technical jargon about rendering or storage"
+      ]
+    },
+    "taglines": [
+      "The sea keeps a second map",
+      "Read on, the lamp is lit",
+      "One more page by lantern light",
+      "A story kept at Kestrel Point",
+      "Turn the page, mind the tide"
+    ],
+    "boilerplate": "The Lantern Keeper's Atlas is a novella by Isolde Marchetti, set at a lonely lighthouse, presented in a paged reader with three themes and a chapter drawer.",
+    "microcopy": {
+      "primaryCta": "Begin reading",
+      "secondaryCta": "Open chapters",
+      "success": "Bookmark kept. Your place is saved",
+      "error": "This page would not turn. Try again",
+      "empty": "No bookmarks yet. Tap the corner to keep one"
+    }
+  }
+}

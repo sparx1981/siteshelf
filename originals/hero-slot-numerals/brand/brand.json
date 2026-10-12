@@ -1,0 +1,156 @@
+{
+  "name": "Tallyho",
+  "descriptor": "Analytics for teams that watch numbers",
+  "listing": {
+    "key": "o:hero-slot-numerals",
+    "title": "Slot Machine Numerals",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#0f0f0f",
+    "surface": "#1a1a18",
+    "text": "#ffe14d",
+    "textMuted": "#f5f5f0",
+    "primary": "#ffe14d",
+    "secondary": "#8c7c2a",
+    "border": "#2e2e2a",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#8c7c2a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0f0f0f",
+      "share": 96.1
+    },
+    {
+      "hex": "#ffe14d",
+      "share": 3.7
+    },
+    {
+      "hex": "#f5f5f0",
+      "share": 0.1
+    },
+    {
+      "hex": "#a8a89c",
+      "share": 0.1
+    },
+    {
+      "hex": "#8c7c2a",
+      "share": 0.0
+    },
+    {
+      "hex": "#2e2e2a",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Space Grotesk",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 56,
+        "weight": "700",
+        "lineHeight": "60.48px",
+        "letterSpacing": "-1.4px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Mono",
+        "stack": "'DM Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 18,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        15,
+        18,
+        20,
+        26
+      ]
+    },
+    "container": 1180,
+    "breakpoints": [
+      560
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "cubic-bezier(0.2"
+    }
+  },
+  "logo": {
+    "motif": "bars",
+    "tile": "squircle",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "punchy",
+      "upbeat",
+      "numerate"
+    ],
+    "voice": {
+      "summary": "Tallyho talks like a sharp sports commentator who adores a good number. It is short, energetic and always gives the figure first, then the reason.",
+      "dos": [
+        "Lead with the figure, then explain",
+        "Use verbs of motion: climb, roll, land",
+        "Keep every line short enough for a headline"
+      ],
+      "donts": [
+        "Do not bury the number in a sentence",
+        "Do not use 'insights' as a noun more than once",
+        "Do not exaggerate a change"
+      ]
+    },
+    "taglines": [
+      "Numbers that move your team",
+      "Watch the reels land on your figures",
+      "Your metrics, rolling in",
+      "Know the score before the meeting",
+      "Count on it, every day"
+    ],
+    "boilerplate": "Tallyho is an analytics tool that turns a team's key metrics into clear, live figures everyone can read at a glance.",
+    "microcopy": {
+      "primaryCta": "Get early access",
+      "secondaryCta": "Spin again",
+      "success": "You are on the list. Check your inbox.",
+      "error": "That email address is not valid. Try again.",
+      "empty": "No numbers yet. Connect a source to begin."
+    }
+  }
+}

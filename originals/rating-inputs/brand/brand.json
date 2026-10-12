@@ -1,0 +1,172 @@
+{
+  "name": "Crumb & Co.",
+  "descriptor": "Bakery box subscription asking how it went",
+  "listing": {
+    "key": "o:rating-inputs",
+    "title": "Rating & Slider Inputs",
+    "category": "Form Controls"
+  },
+  "colors": {
+    "background": "#fff8ef",
+    "surface": "#ffffff",
+    "text": "#2b2118",
+    "textMuted": "#2b1700",
+    "primary": "#f59e0b",
+    "secondary": "#2b2118",
+    "border": "#f0e4d0",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#2b2118"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fff8ef",
+      "share": 98.6
+    },
+    {
+      "hex": "#f59e0b",
+      "share": 0.8
+    },
+    {
+      "hex": "#2b2118",
+      "share": 0.2
+    },
+    {
+      "hex": "#f3e8d4",
+      "share": 0.2
+    },
+    {
+      "hex": "#86735e",
+      "share": 0.1
+    },
+    {
+      "hex": "#fde68a",
+      "share": 0.0
+    },
+    {
+      "hex": "#2b1700",
+      "share": 0.0
+    },
+    {
+      "hex": "#b45309",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Nunito",
+    "body": "Nunito",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "800",
+        "lineHeight": "31.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 10,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(180, 83, 9, 0.08) 0px 18px 40px 0px",
+      "md": "rgba(180, 83, 9, 0.08) 0px 18px 40px 0px",
+      "lg": "rgba(180, 83, 9, 0.08) 0px 18px 40px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        12,
+        16,
+        18
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      480
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bag",
+    "tile": "circle",
+    "wordmarkFont": "Nunito"
+  },
+  "voice": {
+    "personality": [
+      "cheerful",
+      "warm",
+      "brief"
+    ],
+    "voice": {
+      "summary": "A baker asking how the box went over a quick chat: friendly, informal and quick. The form promises about 30 seconds and keeps its promise.",
+      "dos": [
+        "Ask short, specific questions",
+        "Say how long the form takes",
+        "Thank people warmly and promptly"
+      ],
+      "donts": [
+        "Long surveys",
+        "Pushy follow-ups",
+        "Corporate language like customer satisfaction"
+      ]
+    },
+    "taglines": [
+      "How was your box?",
+      "Thirty seconds, tell us everything",
+      "Your feedback rises like dough",
+      "Tell us what you loved",
+      "Crumbs of thought welcome"
+    ],
+    "boilerplate": "Crumb & Co. Bakery Box is a bakery subscription that delivers boxes of fresh bread and pastries, and invites customers to rate each box in about 30 seconds.",
+    "microcopy": {
+      "primaryCta": "Send feedback",
+      "secondaryCta": "Skip for now",
+      "success": "Thanks. Your feedback is in the oven",
+      "error": "That didn't send. Please try once more",
+      "empty": "No rating yet. Tap a star"
+    }
+  }
+}

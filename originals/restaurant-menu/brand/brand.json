@@ -1,0 +1,180 @@
+{
+  "name": "Ember & Olive",
+  "descriptor": "Wood-fired restaurant serving Mediterranean plates",
+  "listing": {
+    "key": "o:restaurant-menu",
+    "title": "Restaurant Menu",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#1a1410",
+    "surface": "#28221e",
+    "text": "#b8a88f",
+    "textMuted": "#f3e9d8",
+    "primary": "#e07a3f",
+    "secondary": "#eeb695",
+    "border": "#e07a3f",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#643a23"
+  },
+  "colorInventory": [
+    {
+      "hex": "#1a1410",
+      "share": 99.4
+    },
+    {
+      "hex": "#b8a88f",
+      "share": 0.4
+    },
+    {
+      "hex": "#f3e9d8",
+      "share": 0.2
+    },
+    {
+      "hex": "#e07a3f",
+      "share": 0.0
+    },
+    {
+      "hex": "#28221e",
+      "share": 0.0
+    },
+    {
+      "hex": "#eeb695",
+      "share": 0.0
+    },
+    {
+      "hex": "#643a23",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Cormorant Garamond",
+    "body": "Jost",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Cormorant Garamond",
+        "stack": "'Cormorant Garamond', Georgia, serif",
+        "sizePx": 64,
+        "weight": "500",
+        "lineHeight": "64px",
+        "letterSpacing": "-0.64px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Cormorant Garamond",
+        "stack": "'Cormorant Garamond', Georgia, serif",
+        "sizePx": 34,
+        "weight": "600",
+        "lineHeight": "37.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Cormorant Garamond",
+        "stack": "'Cormorant Garamond', Georgia, serif",
+        "sizePx": 24,
+        "weight": "600",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Jost",
+        "stack": "'Jost', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Jost",
+        "stack": "'Jost', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "1.8px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 4,
+      "lg": 4,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      600
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "flame",
+    "tile": "squircle",
+    "wordmarkFont": "Cormorant Garamond"
+  },
+  "voice": {
+    "personality": [
+      "warm",
+      "sensual",
+      "assured"
+    ],
+    "voice": {
+      "summary": "Sounds like a host reading the evening menu: unhurried, appetising and precise about ingredients. Dishes are described by what's on the plate and how it was cooked, with a hint of fire.",
+      "dos": [
+        "Name the main ingredient and method in each dish",
+        "Use warm sensory verbs like charred or slow-roasted",
+        "Write allergens and dietary tags plainly"
+      ],
+      "donts": [
+        "Do not use foodie cliches like to die for",
+        "Do not over-adjective",
+        "Do not use ALL CAPS"
+      ]
+    },
+    "taglines": [
+      "Fire, olive oil and good company",
+      "Cooked slowly, served late",
+      "From the embers to your table",
+      "Open flame, open evenings",
+      "Eat well, stay late"
+    ],
+    "boilerplate": "Ember & Olive is a wood-fired restaurant serving Mediterranean-inspired starters, mains and desserts from a charcoal grill, open Tuesday to Sunday from noon until late.",
+    "microcopy": {
+      "primaryCta": "Starters",
+      "secondaryCta": "Vegetarian",
+      "success": "Filter applied. Showing vegetarian dishes.",
+      "error": "The menu failed to load. Please refresh.",
+      "empty": "Nothing matches those filters. Clear one to see more."
+    }
+  }
+}

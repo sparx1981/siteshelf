@@ -1,0 +1,206 @@
+{
+  "name": "The Mosaic Museum",
+  "descriptor": "Museum with swipeable visitor answers",
+  "listing": {
+    "key": "o:faq-card-swipe",
+    "title": "FAQ Card Swipe",
+    "category": "FAQ"
+  },
+  "colors": {
+    "background": "#efe9fb",
+    "surface": "#ffd166",
+    "text": "#231942",
+    "textMuted": "#5d5278",
+    "primary": "#231942",
+    "secondary": "#ffd166",
+    "border": "#231942",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#ffd166"
+  },
+  "colorInventory": [
+    {
+      "hex": "#efe9fb",
+      "share": 78.0
+    },
+    {
+      "hex": "#ffd166",
+      "share": 7.6
+    },
+    {
+      "hex": "#c9254f",
+      "share": 6.8
+    },
+    {
+      "hex": "#06d6a0",
+      "share": 6.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.7
+    },
+    {
+      "hex": "#231942",
+      "share": 0.6
+    },
+    {
+      "hex": "#5d5278",
+      "share": 0.1
+    },
+    {
+      "hex": "#cfc5ea",
+      "share": 0.0
+    },
+    {
+      "hex": "#ef476f",
+      "share": 0.0
+    },
+    {
+      "hex": "#8ecae6",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "DM Serif Display",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "DM Serif Display",
+        "stack": "'DM Serif Display', Georgia, serif",
+        "sizePx": 64,
+        "weight": "400",
+        "lineHeight": "65.28px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "DM Serif Display",
+        "stack": "'DM Serif Display', Georgia, serif",
+        "sizePx": 29,
+        "weight": "400",
+        "lineHeight": "31.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "DM Serif Display",
+        "stack": "'DM Serif Display', Georgia, serif",
+        "sizePx": 24,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "23.25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 28,
+      "lg": 28,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(35, 25, 66) 6px 6px 0px 0px",
+      "md": "rgb(35, 25, 66) 3px 3px 0px 0px",
+      "lg": "rgb(35, 25, 66) 6px 6px 0px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      420
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "grid",
+    "tile": "none",
+    "wordmarkFont": "DM Serif Display"
+  },
+  "voice": {
+    "personality": [
+      "welcoming",
+      "curious",
+      "bright"
+    ],
+    "voice": {
+      "summary": "The Mosaic Museum answers visitors like a cheerful front-of-house guide who has heard every question twice and still enjoys it. It is concrete about hours, access and cost, and playful only when it helps.",
+      "dos": [
+        "Answer the question in the first line",
+        "Give hours, prices and access details exactly",
+        "Use second person and a friendly tone"
+      ],
+      "donts": [
+        "Do not use museum jargon like 'collections-led'",
+        "Do not make access details hard to find",
+        "Do not use quizzes or gimmicks for facts"
+      ]
+    },
+    "taglines": [
+      "Planning a visit? Swipe through",
+      "Eight answers before you arrive",
+      "Come as you are, stay as long",
+      "Every piece of the picture",
+      "Tiles of art, arranged for you"
+    ],
+    "boilerplate": "The Mosaic Museum is a public museum of colour and craft, open daily and free to enter, with step-free access throughout.",
+    "microcopy": {
+      "primaryCta": "Plan your visit",
+      "secondaryCta": "Save for later",
+      "success": "Saved. We will keep this card for you.",
+      "error": "That card would not move. Use the arrow buttons instead.",
+      "empty": "You have no saved cards yet."
+    }
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "name": "Daybreak",
+  "descriptor": "Pocket-size local news app",
+  "listing": {
+    "key": "o:pull-to-refresh",
+    "title": "Pull-to-Refresh Feed",
+    "category": "Loaders"
+  },
+  "colors": {
+    "background": "#dfe3ea",
+    "surface": "#ffffff",
+    "text": "#12151c",
+    "textMuted": "#9d174d",
+    "primary": "#ff6a2b",
+    "secondary": "#9d174d",
+    "border": "#101216",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#9d174d"
+  },
+  "colorInventory": [
+    {
+      "hex": "#dfe3ea",
+      "share": 78.3
+    },
+    {
+      "hex": "#ffffff",
+      "share": 20.0
+    },
+    {
+      "hex": "#12151c",
+      "share": 0.4
+    },
+    {
+      "hex": "#fce7f3",
+      "share": 0.3
+    },
+    {
+      "hex": "#3b82f6",
+      "share": 0.2
+    },
+    {
+      "hex": "#8b5cf6",
+      "share": 0.2
+    },
+    {
+      "hex": "#ec4899",
+      "share": 0.2
+    },
+    {
+      "hex": "#6b7280",
+      "share": 0.2
+    },
+    {
+      "hex": "#dcfce7",
+      "share": 0.2
+    },
+    {
+      "hex": "#ffedd5",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.44px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 15.5,
+        "weight": "800",
+        "lineHeight": "20.15px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "500",
+        "lineHeight": "18.125px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 16,
+      "lg": 36,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px",
+      "md": "rgba(16, 18, 22, 0.3) 0px 30px 70px 0px",
+      "lg": "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        9,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      460
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "spark",
+    "tile": "squircle",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "brisk",
+      "fair",
+      "neighbourly"
+    ],
+    "voice": {
+      "summary": "Sounds like a morning radio bulletin: short headlines, plain verbs and no panic. Stories are local, specific and told in the order they matter.",
+      "dos": [
+        "Write headlines in 12 words or fewer, present tense",
+        "Name the town and the thing",
+        "Mark updates with a quiet count"
+      ],
+      "donts": [
+        "Do not use outrage bait",
+        "Do not stack exclamation marks",
+        "Do not use vague words like shocking"
+      ]
+    },
+    "taglines": [
+      "The day's news, first light",
+      "Pull down, get what's new",
+      "Local stories before breakfast",
+      "Small town, big headlines, no noise",
+      "Fresh stories, no fuss"
+    ],
+    "boilerplate": "Daybreak is a mobile news app for local and curious readers that delivers short, carefully edited stories each morning and refreshes with a simple pull of the screen.",
+    "microcopy": {
+      "primaryCta": "Refresh",
+      "secondaryCta": "Open story",
+      "success": "Three new stories added.",
+      "error": "Couldn't refresh. Check your connection.",
+      "empty": "You're all caught up."
+    }
+  }
+}

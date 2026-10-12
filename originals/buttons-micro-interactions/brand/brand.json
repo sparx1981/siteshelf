@@ -1,0 +1,175 @@
+{
+  "name": "Tapback",
+  "descriptor": "Button feedback patterns for product interfaces",
+  "listing": {
+    "key": "o:buttons-micro-interactions",
+    "title": "Button Micro-Interactions",
+    "category": "Buttons"
+  },
+  "colors": {
+    "background": "#f4f5f9",
+    "surface": "#ffffff",
+    "text": "#141824",
+    "textMuted": "#6d4aff",
+    "primary": "#6d4aff",
+    "secondary": "#e5484d",
+    "border": "#e3e6ee",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#c2b3ff"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4f5f9",
+      "share": 97.6
+    },
+    {
+      "hex": "#141824",
+      "share": 1.3
+    },
+    {
+      "hex": "#6d4aff",
+      "share": 0.8
+    },
+    {
+      "hex": "#6b7390",
+      "share": 0.3
+    },
+    {
+      "hex": "#e5484d",
+      "share": 0.0
+    },
+    {
+      "hex": "#ff4d79",
+      "share": 0.0
+    },
+    {
+      "hex": "#e3e6ee",
+      "share": 0.0
+    },
+    {
+      "hex": "#c2b3ff",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "800",
+        "lineHeight": "42px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 14,
+      "md": 20,
+      "lg": 20,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        14,
+        16,
+        20,
+        22
+      ]
+    },
+    "container": 960,
+    "breakpoints": [
+      600,
+      900
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "spark",
+    "tile": "squircle",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "playful",
+      "precise",
+      "reassuring"
+    ],
+    "voice": {
+      "summary": "Sounds like a design engineer showing you a trick: friendly, a little proud, always clear about what just happened. Copy is tiny because the motion is doing most of the talking.",
+      "dos": [
+        "Describe the state change in a few words",
+        "Confirm the result right after the click",
+        "Use verbs a person would say aloud"
+      ],
+      "donts": [
+        "Do not over-explain a one-second interaction",
+        "Do not use technical terms in button labels",
+        "Do not make confirmations sound alarming"
+      ]
+    },
+    "taglines": [
+      "Small moments that feel answered",
+      "Every click deserves a reply",
+      "Feedback you can feel",
+      "Press, hold, copy, done",
+      "Buttons that talk back, politely"
+    ],
+    "boilerplate": "Tapback is a collection of button micro-interactions, from loading morphs to hold-to-confirm rings, that helps teams make every click feel acknowledged and safe.",
+    "microcopy": {
+      "primaryCta": "Send message",
+      "secondaryCta": "Reset all",
+      "success": "Done. Message sent.",
+      "error": "Something went wrong. Tap to retry.",
+      "empty": "Nothing to show yet."
+    }
+  }
+}

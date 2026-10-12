@@ -1,0 +1,186 @@
+{
+  "name": "Pair Up",
+  "descriptor": "Card-flipping memory game",
+  "listing": {
+    "key": "o:memory-match",
+    "title": "Memory Match",
+    "category": "Games"
+  },
+  "colors": {
+    "background": "#ffe8c8",
+    "surface": "#ffffff",
+    "text": "#1f1b2e",
+    "textMuted": "#6d6364",
+    "primary": "#ff6b4a",
+    "secondary": "#ffd23c",
+    "border": "#1f1b2e",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#713328"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fff7ec",
+      "share": 41.9
+    },
+    {
+      "hex": "#ffe8c8",
+      "share": 39.7
+    },
+    {
+      "hex": "#ff6b4a",
+      "share": 8.4
+    },
+    {
+      "hex": "#ff9a3c",
+      "share": 7.8
+    },
+    {
+      "hex": "#1f1b2e",
+      "share": 1.1
+    },
+    {
+      "hex": "#ffd23c",
+      "share": 0.5
+    },
+    {
+      "hex": "#f5b400",
+      "share": 0.2
+    },
+    {
+      "hex": "#22a06b",
+      "share": 0.2
+    },
+    {
+      "hex": "#7c3aed",
+      "share": 0.2
+    },
+    {
+      "hex": "#ec4899",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Baloo 2",
+    "body": "Nunito",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Baloo 2",
+        "stack": "'Baloo 2', system-ui, sans-serif",
+        "sizePx": 48,
+        "weight": "800",
+        "lineHeight": "48px",
+        "letterSpacing": "-0.96px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Baloo 2",
+        "stack": "'Baloo 2', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 11,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "0.88px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;700&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 20,
+      "lg": 20,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgb(255, 255, 255) 0px 0px 0px 4px inset",
+      "md": "rgb(31, 27, 46) 3px 3px 0px 0px",
+      "lg": "rgb(255, 255, 255) 0px 0px 0px 4px inset"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        22
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      420
+    ],
+    "motion": {
+      "duration": 400,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "diamond",
+    "tile": "circle",
+    "wordmarkFont": "Baloo 2"
+  },
+  "voice": {
+    "personality": [
+      "cheerful",
+      "quick",
+      "friendly"
+    ],
+    "voice": {
+      "summary": "Sounds like a game-show host who is on your side: short, playful, big on tiny celebrations. Instructions fit in a single line.",
+      "dos": [
+        "Use two or three words for each button",
+        "Celebrate a match with a short cheer",
+        "Show moves and time as plain numbers"
+      ],
+      "donts": [
+        "No sarcasm about misses",
+        "No long rules",
+        "No more than one exclamation mark"
+      ]
+    },
+    "taglines": [
+      "Flip two, find the pairs",
+      "Fewest moves wins",
+      "Match them all",
+      "Remember, flip, repeat",
+      "A small game for a short break"
+    ],
+    "boilerplate": "Pair Up is a card-flipping memory game with 3D flips, a move counter, best scores and a hard mode, built for quick breaks.",
+    "microcopy": {
+      "primaryCta": "Restart",
+      "secondaryCta": "Hard 4×4",
+      "success": "Pair found, nice one",
+      "error": "Those two don't match, try again",
+      "empty": "Flip a card to begin"
+    }
+  }
+}

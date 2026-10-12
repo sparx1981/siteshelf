@@ -1,0 +1,183 @@
+{
+  "name": "Chirpwell",
+  "descriptor": "Friendly social network with small, readable feeds",
+  "listing": {
+    "key": "o:social-post-cards",
+    "title": "Social Post Cards",
+    "category": "Cards"
+  },
+  "colors": {
+    "background": "#eaf0f8",
+    "surface": "#ffffff",
+    "text": "#0f1a2b",
+    "textMuted": "#5b6b82",
+    "primary": "#2f6bff",
+    "secondary": "#ffb86b",
+    "border": "#dde5f0",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#ffb86b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eaf0f8",
+      "share": 70.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 27.3
+    },
+    {
+      "hex": "#ffb86b",
+      "share": 0.5
+    },
+    {
+      "hex": "#ff5e7e",
+      "share": 0.5
+    },
+    {
+      "hex": "#2b3a67",
+      "share": 0.4
+    },
+    {
+      "hex": "#1b2547",
+      "share": 0.4
+    },
+    {
+      "hex": "#0f1a2b",
+      "share": 0.4
+    },
+    {
+      "hex": "#fff3c4",
+      "share": 0.2
+    },
+    {
+      "hex": "#5b6b82",
+      "share": 0.1
+    },
+    {
+      "hex": "#2f6bff",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Plus Jakarta Sans",
+    "body": "Plus Jakarta Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "33px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "400",
+        "lineHeight": "18.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 12,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(255, 233, 168) 0px 0px 60px 0px",
+      "md": "rgb(255, 233, 168) 0px 0px 60px 0px",
+      "lg": "rgb(255, 233, 168) 0px 0px 60px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      600
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chat",
+    "tile": "squircle",
+    "wordmarkFont": "Plus Jakarta Sans"
+  },
+  "voice": {
+    "personality": [
+      "chatty",
+      "lighthearted",
+      "quick"
+    ],
+    "voice": {
+      "summary": "Sounds like a friend writing a quick post: casual, brief and happy to react. It keeps feedback instant and tidy, never pushy about engagement.",
+      "dos": [
+        "Use short, conversational verbs like repost and mute",
+        "Acknowledge actions immediately and offer undo",
+        "Keep counts in plain numbers"
+      ],
+      "donts": [
+        "Engagement bait like smash that like",
+        "Algorithm talk",
+        "Shaming for muting or leaving"
+      ]
+    },
+    "taglines": [
+      "Say it, share it, chirp on",
+      "Home to small good conversations",
+      "Posts that feel like people",
+      "Your feed, your pace",
+      "Where the quay gets chatty"
+    ],
+    "boilerplate": "Chirpwell is a friendly social network built around short posts, polls and link previews, with quick reactions and an easy way to mute what you do not want.",
+    "microcopy": {
+      "primaryCta": "Post",
+      "secondaryCta": "Show more",
+      "success": "Reposted. Nicely shared",
+      "error": "Couldn't post. Try again",
+      "empty": "Nothing here yet. Follow someone"
+    }
+  }
+}

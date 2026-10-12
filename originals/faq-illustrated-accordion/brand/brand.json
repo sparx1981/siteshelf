@@ -1,0 +1,196 @@
+{
+  "name": "loamly",
+  "descriptor": "Plant delivery with care guides",
+  "listing": {
+    "key": "o:faq-illustrated-accordion",
+    "title": "Illustrated FAQ",
+    "category": "FAQ"
+  },
+  "colors": {
+    "background": "#f6efe4",
+    "surface": "#fffaf1",
+    "text": "#2b241b",
+    "textMuted": "#6a5e4f",
+    "primary": "#f0a824",
+    "secondary": "#f7cf87",
+    "border": "#e7dac3",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#6b4d18"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6efe4",
+      "share": 95.7
+    },
+    {
+      "hex": "#2b241b",
+      "share": 1.4
+    },
+    {
+      "hex": "#000000",
+      "share": 1.0
+    },
+    {
+      "hex": "#fbeccd",
+      "share": 0.5
+    },
+    {
+      "hex": "#dff0f6",
+      "share": 0.4
+    },
+    {
+      "hex": "#f0a824",
+      "share": 0.4
+    },
+    {
+      "hex": "#cb9a63",
+      "share": 0.2
+    },
+    {
+      "hex": "#2f4a35",
+      "share": 0.2
+    },
+    {
+      "hex": "#8a6c3a",
+      "share": 0.2
+    },
+    {
+      "hex": "#6a5e4f",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Gloock",
+    "body": "Nunito",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Gloock",
+        "stack": "'Gloock', Georgia, serif",
+        "sizePx": 72,
+        "weight": "400",
+        "lineHeight": "72px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "27.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "27.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Gloock",
+        "stack": "'Gloock', Georgia, serif",
+        "sizePx": 22,
+        "weight": "400",
+        "lineHeight": "27.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Gloock&family=Nunito:wght@400;700&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 20,
+      "md": 22,
+      "lg": 22,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(47, 74, 53, 0.6) 0px 22px 40px -28px",
+      "md": "rgba(47, 74, 53, 0.6) 0px 22px 40px -28px",
+      "lg": "rgba(47, 74, 53, 0.6) 0px 22px 40px -28px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        8,
+        10,
+        12,
+        16,
+        18,
+        20,
+        22,
+        24,
+        30
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      640
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "sprout",
+    "tile": "squircle",
+    "wordmarkFont": "Gloock"
+  },
+  "voice": {
+    "personality": [
+      "warm",
+      "knowledgeable",
+      "green-fingered"
+    ],
+    "voice": {
+      "summary": "loamly sounds like a friendly neighbour with an allotment: generous with tips, relaxed about mistakes and fond of a gentle joke. It answers plant questions in plain language.",
+      "dos": [
+        "Answer the question in the first sentence",
+        "Use everyday plant words, not Latin names",
+        "Reassure after any bad news"
+      ],
+      "donts": [
+        "Use plant-shop puns on every line",
+        "Blame the owner when a plant struggles",
+        "Use technical horticulture terms"
+      ]
+    },
+    "taglines": [
+      "Plant questions, answered",
+      "Happy plants, delivered right",
+      "Greenhouse to windowsill, gently",
+      "Grow something, we will help",
+      "Roots, light and a little water"
+    ],
+    "boilerplate": "loamly is a plant delivery service that sends healthy houseplants from its greenhouse to the windowsill, with care guides and quick answers to every common question.",
+    "microcopy": {
+      "primaryCta": "Read the care guide",
+      "secondaryCta": "Ask us a question",
+      "success": "Question sent. We reply within a day.",
+      "error": "Something went wrong. Please try again.",
+      "empty": "No answers here yet. Ask away."
+    }
+  }
+}

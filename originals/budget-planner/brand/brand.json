@@ -1,0 +1,177 @@
+{
+  "name": "Penny Jar",
+  "descriptor": "Friendly monthly budget planner",
+  "listing": {
+    "key": "o:budget-planner",
+    "title": "Budget Planner",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#f5f6fa",
+    "surface": "#ffffff",
+    "text": "#1b2033",
+    "textMuted": "#667089",
+    "primary": "#4f46e5",
+    "secondary": "#f59e0b",
+    "border": "#e4e7f0",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#f59e0b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f5f6fa",
+      "share": 98.4
+    },
+    {
+      "hex": "#f59e0b",
+      "share": 0.3
+    },
+    {
+      "hex": "#4f46e5",
+      "share": 0.3
+    },
+    {
+      "hex": "#1b2033",
+      "share": 0.3
+    },
+    {
+      "hex": "#dc2626",
+      "share": 0.2
+    },
+    {
+      "hex": "#0ea5e9",
+      "share": 0.1
+    },
+    {
+      "hex": "#667089",
+      "share": 0.1
+    },
+    {
+      "hex": "#10b981",
+      "share": 0.1
+    },
+    {
+      "hex": "#94a3b8",
+      "share": 0.1
+    },
+    {
+      "hex": "#ec4899",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 11.7,
+        "weight": "500",
+        "lineHeight": "17.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 12,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(27, 32, 51, 0.3) 0px 8px 24px -20px",
+      "md": "rgba(27, 32, 51, 0.3) 0px 8px 24px -20px",
+      "lg": "rgba(27, 32, 51, 0.3) 0px 8px 24px -20px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        11,
+        12,
+        14,
+        20
+      ]
+    },
+    "container": 1160,
+    "breakpoints": [
+      460,
+      900
+    ],
+    "motion": {
+      "duration": 400,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "coins",
+    "tile": "squircle",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "friendly",
+      "encouraging",
+      "straight-talking"
+    ],
+    "voice": {
+      "summary": "Penny Jar talks like a sensible friend who is good with money and never makes you feel small about it. It uses plain pounds and pence and celebrates the small wins.",
+      "dos": [
+        "Say what was spent and what is left, in pounds",
+        "Frame an over-budget alert as a heads-up, not a telling-off",
+        "Use everyday words like 'rent' and 'shop' rather than finance terms"
+      ],
+      "donts": [
+        "Shame or scold about spending",
+        "Use banking jargon like 'allocate' or 'expenditure'",
+        "Use exclamation marks on bad news"
+      ]
+    },
+    "taglines": [
+      "Know where it all went",
+      "Small jars, big peace of mind",
+      "Spend with your eyes open",
+      "Budgeting that does not nag",
+      "Every penny has a place"
+    ],
+    "boilerplate": "Penny Jar is a household budgeting app that turns monthly spending into clear category limits and gentle alerts, so families can see what is left before the month runs out.",
+    "microcopy": {
+      "primaryCta": "Add expense",
+      "secondaryCta": "Edit budgets",
+      "success": "Expense added. £42 left in Food.",
+      "error": "That amount does not look right. Check and retry.",
+      "empty": "No expenses yet this month."
+    }
+  }
+}

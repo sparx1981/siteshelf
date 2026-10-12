@@ -1,0 +1,156 @@
+{
+  "name": "Stowaway",
+  "descriptor": "File upload component for web forms",
+  "listing": {
+    "key": "o:file-uploader",
+    "title": "File Uploader",
+    "category": "Form Controls"
+  },
+  "colors": {
+    "background": "#f6f7fb",
+    "surface": "#4f46e5",
+    "text": "#667096",
+    "textMuted": "#151a30",
+    "primary": "#4f46e5",
+    "secondary": "#151a30",
+    "border": "#e3e6ef",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#151a30"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6f7fb",
+      "share": 99.4
+    },
+    {
+      "hex": "#4f46e5",
+      "share": 0.4
+    },
+    {
+      "hex": "#667096",
+      "share": 0.1
+    },
+    {
+      "hex": "#151a30",
+      "share": 0.1
+    },
+    {
+      "hex": "#e3e6ef",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Outfit",
+    "body": "Outfit",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "700",
+        "lineHeight": "31.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 16,
+      "lg": 20,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(30, 41, 90, 0.3) 0px 24px 60px -24px",
+      "md": "rgba(30, 41, 90, 0.3) 0px 24px 60px -24px",
+      "lg": "rgba(30, 41, 90, 0.3) 0px 24px 60px -24px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        16,
+        20,
+        24,
+        28,
+        34
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      520
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "stack",
+    "tile": "circle",
+    "wordmarkFont": "Outfit"
+  },
+  "voice": {
+    "personality": [
+      "dependable",
+      "plain",
+      "helpful"
+    ],
+    "voice": {
+      "summary": "Stowaway sounds like a good form helper: it names the limits first and the mistakes second. Every message states the file, the problem and the fix.",
+      "dos": [
+        "Name the file in every message about it",
+        "Give limits upfront: type, size and count",
+        "Offer retry or cancel beside each error"
+      ],
+      "donts": [
+        "Do not say 'invalid file' without a reason",
+        "Avoid technical codes in messages",
+        "Never celebrate a finished upload loudly"
+      ]
+    },
+    "taglines": [
+      "Drop it in. We will carry it",
+      "Files in, fuss out",
+      "Uploads that explain themselves",
+      "Six files, five megabytes, no stress",
+      "Every file accounted for"
+    ],
+    "boilerplate": "Stowaway is an accessible drag and drop file uploader with clear limits, per-file progress, previews and simple retry for forms that collect documents and images.",
+    "microcopy": {
+      "primaryCta": "Browse files",
+      "secondaryCta": "Cancel upload",
+      "success": "All files uploaded.",
+      "error": "That file is too large. The limit is 5 MB.",
+      "empty": "No files yet. Drag some here."
+    }
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "name": "Last Quarter Arcade",
+  "descriptor": "Retro arcade with high-score tables",
+  "listing": {
+    "key": "o:synthwave-arcade",
+    "title": "Synthwave Arcade",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#12002b",
+    "surface": "#ff2e93",
+    "text": "#ffffff",
+    "textMuted": "#b79ad6",
+    "primary": "#ffe14d",
+    "secondary": "#22e3ff",
+    "border": "#ff2e93",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#716529"
+  },
+  "colorInventory": [
+    {
+      "hex": "#12002b",
+      "share": 88.5
+    },
+    {
+      "hex": "#ff2e93",
+      "share": 5.4
+    },
+    {
+      "hex": "#2a0650",
+      "share": 5.3
+    },
+    {
+      "hex": "#22e3ff",
+      "share": 0.4
+    },
+    {
+      "hex": "#ffe14d",
+      "share": 0.2
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.1
+    },
+    {
+      "hex": "#b79ad6",
+      "share": 0.1
+    },
+    {
+      "hex": "#f5eaff",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    },
+    {
+      "hex": "#716529",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Orbitron",
+    "body": "Rajdhani",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Orbitron",
+        "stack": "'Orbitron', system-ui, sans-serif",
+        "sizePx": 104,
+        "weight": "900",
+        "lineHeight": "98.8px",
+        "letterSpacing": "2.08px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Orbitron",
+        "stack": "'Orbitron', system-ui, sans-serif",
+        "sizePx": 44,
+        "weight": "900",
+        "lineHeight": "normal",
+        "letterSpacing": "2.64px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Rajdhani",
+        "stack": "'Rajdhani', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "500",
+        "lineHeight": "30px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Orbitron",
+        "stack": "'Orbitron', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.16px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Rajdhani",
+        "stack": "'Rajdhani', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "22.5px",
+        "letterSpacing": "1.5px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;600;700&display=swap",
+    "headingWeight": 900
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 6,
+      "lg": 6,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(34, 227, 255) 0px 0px 16px 0px, rgba(34, 227, 255, 0.3) 0px 0px 16px 0px inset",
+      "md": "rgba(255, 46, 147, 0.55) 0px 0px 18px 0px, rgba(255, 46, 147, 0.15) 0px 0px 18px 0px inset",
+      "lg": "rgba(34, 227, 255, 0.55) 0px 0px 18px 0px, rgba(34, 227, 255, 0.15) 0px 0px 18px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        14,
+        16,
+        20,
+        22,
+        24,
+        28,
+        30,
+        32
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      800
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "coins",
+    "tile": "none",
+    "wordmarkFont": "Inter Bold (stand-in for Orbitron)"
+  },
+  "voice": {
+    "personality": [
+      "electric",
+      "nostalgic",
+      "cheeky"
+    ],
+    "voice": {
+      "summary": "Shouts in neon capitals with a wink: arcade-cabinet language, high scores and sound-effect energy. It is loud and friendly, all quarters and combos.",
+      "dos": [
+        "Use arcade phrases like insert coin and high score",
+        "Write headings in capitals",
+        "Keep every line to a punchy burst"
+      ],
+      "donts": [
+        "No modern gaming slang",
+        "Avoid long sentences",
+        "Never lose the neon fun"
+      ]
+    },
+    "taglines": [
+      "Retro arcade, rebooted",
+      "Insert coin to play",
+      "Chase the high score",
+      "Rewind to 1985",
+      "Neon nights, last quarter in"
+    ],
+    "boilerplate": "Last Quarter Arcade is a retro arcade bringing 1980s cabinets, a scrolling high-score table and neon style to a modern landing page.",
+    "microcopy": {
+      "primaryCta": "INSERT COIN",
+      "secondaryCta": "VIEW SCORES",
+      "success": "COIN ACCEPTED. PLAYER ONE READY.",
+      "error": "INSERT COIN AGAIN. SOMETHING JAMMED.",
+      "empty": "NO SCORES YET. BE FIRST."
+    }
+  }
+}

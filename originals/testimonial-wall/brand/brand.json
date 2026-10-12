@@ -1,0 +1,173 @@
+{
+  "name": "Pacepoint",
+  "descriptor": "Project scheduling tool for teams who hate status chasing",
+  "listing": {
+    "key": "o:testimonial-wall",
+    "title": "Testimonial Wall",
+    "category": "Testimonials"
+  },
+  "colors": {
+    "background": "#fbfaf7",
+    "surface": "#fff0e4",
+    "text": "#1e1b16",
+    "textMuted": "#6f695d",
+    "primary": "#f0562a",
+    "secondary": "#8a2a6a",
+    "border": "#ebe6da",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#8a2a6a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fbfaf7",
+      "share": 96.2
+    },
+    {
+      "hex": "#1e1b16",
+      "share": 1.3
+    },
+    {
+      "hex": "#f0562a",
+      "share": 0.6
+    },
+    {
+      "hex": "#f1ece0",
+      "share": 0.5
+    },
+    {
+      "hex": "#8a2a6a",
+      "share": 0.4
+    },
+    {
+      "hex": "#2a1a4a",
+      "share": 0.4
+    },
+    {
+      "hex": "#6f695d",
+      "share": 0.3
+    },
+    {
+      "hex": "#3d6bff",
+      "share": 0.2
+    },
+    {
+      "hex": "#16a085",
+      "share": 0.2
+    },
+    {
+      "hex": "#8a5cff",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Instrument Serif",
+    "body": "Hanken Grotesk",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Instrument Serif",
+        "stack": "'Instrument Serif', Georgia, serif",
+        "sizePx": 72,
+        "weight": "400",
+        "lineHeight": "72px",
+        "letterSpacing": "-1.44px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Hanken Grotesk",
+        "stack": "'Hanken Grotesk', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Hanken Grotesk",
+        "stack": "'Hanken Grotesk', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 14,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1160,
+    "breakpoints": [
+      600,
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "target",
+    "tile": "squircle",
+    "wordmarkFont": "Instrument Serif"
+  },
+  "voice": {
+    "personality": [
+      "upbeat",
+      "grounded",
+      "sharp"
+    ],
+    "voice": {
+      "summary": "A team lead who lived the problem and shares it: relaxed, specific and a touch wry about status meetings. Customer stories are the star, in their own words.",
+      "dos": [
+        "Quote customers in their own words with role and company",
+        "Quantify outcomes, such as meetings cut or days saved",
+        "Keep the headline conversational"
+      ],
+      "donts": [
+        "Over-claiming results",
+        "Anonymous testimonials",
+        "Management buzzwords"
+      ]
+    },
+    "taglines": [
+      "Teams that stopped chasing status updates",
+      "Plans that update themselves",
+      "Fewer meetings, clearer schedules",
+      "See who's on track at a glance",
+      "Real teams, real relief"
+    ],
+    "boilerplate": "Pacepoint is a project scheduling tool that keeps plans and progress in sync, so teams can stop chasing status updates; trusted by teams across industries.",
+    "microcopy": {
+      "primaryCta": "Start your plan",
+      "secondaryCta": "Filter by role",
+      "success": "Filters applied. Showing 18 of 18 reviews",
+      "error": "Couldn't load reviews. Try again",
+      "empty": "No reviews match. Clear the filters"
+    }
+  }
+}

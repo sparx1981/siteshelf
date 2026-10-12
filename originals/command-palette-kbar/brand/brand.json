@@ -1,0 +1,168 @@
+{
+  "name": "Parcel",
+  "descriptor": "Dashboard for shipments, with a command palette",
+  "listing": {
+    "key": "o:command-palette-kbar",
+    "title": "Command Palette with Nested Pages",
+    "category": "Components"
+  },
+  "colors": {
+    "background": "#eceff4",
+    "surface": "#ffffff",
+    "text": "#0f172a",
+    "textMuted": "#5c6371",
+    "primary": "#4f46e5",
+    "secondary": "#9e99f1",
+    "border": "#e2e8f0",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#9e99f1"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eceff4",
+      "share": 77.6
+    },
+    {
+      "hex": "#ffffff",
+      "share": 17.2
+    },
+    {
+      "hex": "#4f46e5",
+      "share": 5.1
+    },
+    {
+      "hex": "#64748b",
+      "share": 0.1
+    },
+    {
+      "hex": "#0f172a",
+      "share": 0.0
+    },
+    {
+      "hex": "#5c6371",
+      "share": 0.0
+    },
+    {
+      "hex": "#9e99f1",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "33px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "400",
+        "lineHeight": "18.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 12,
+      "lg": 14,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        10,
+        12,
+        14,
+        16,
+        20,
+        28
+      ]
+    },
+    "container": 960,
+    "breakpoints": [
+      640
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cube",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "quick",
+      "neat",
+      "knowing"
+    ],
+    "voice": {
+      "summary": "Parcel sounds like a power user's best shortcut: compact, imperative and lightly nerdy. Labels are verbs, hints are keys, and nothing takes longer to read than to press.",
+      "dos": [
+        "Use imperative verbs for every command",
+        "Show the shortcut beside the action",
+        "Keep result groups short and scannable"
+      ],
+      "donts": [
+        "Do not explain what the keyboard already shows",
+        "Avoid exclamation marks and emoji",
+        "Never bury the command under a menu name"
+      ]
+    },
+    "taglines": [
+      "Search it. Run it. Done.",
+      "Every action, one keystroke away",
+      "Ship faster from the keyboard",
+      "Type less, deliver more",
+      "Press K to go anywhere"
+    ],
+    "boilerplate": "Parcel is a shipment-tracking dashboard with a keyboard-first command palette that lets teams jump to any page, theme or action in a few keystrokes.",
+    "microcopy": {
+      "primaryCta": "Search or run a command",
+      "secondaryCta": "Open theme picker",
+      "success": "Command ran.",
+      "error": "No command matches that. Try a shorter word.",
+      "empty": "No recent commands yet."
+    }
+  }
+}

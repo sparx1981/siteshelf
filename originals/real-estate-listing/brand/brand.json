@@ -1,0 +1,207 @@
+{
+  "name": "Alder & Finch",
+  "descriptor": "Estate agents for harbourside homes",
+  "listing": {
+    "key": "o:real-estate-listing",
+    "title": "Property Listing",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#fbfaf8",
+    "surface": "#dddddd",
+    "text": "#394150",
+    "textMuted": "#1d2330",
+    "primary": "#0f5e63",
+    "secondary": "#c46a3d",
+    "border": "#d6d1c5",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#9abbbd"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fbfaf8",
+      "share": 71.3
+    },
+    {
+      "hex": "#dddddd",
+      "share": 25.3
+    },
+    {
+      "hex": "#1d2330",
+      "share": 1.3
+    },
+    {
+      "hex": "#0f5e63",
+      "share": 0.5
+    },
+    {
+      "hex": "#c46a3d",
+      "share": 0.4
+    },
+    {
+      "hex": "#000000",
+      "share": 0.3
+    },
+    {
+      "hex": "#c9a87c",
+      "share": 0.2
+    },
+    {
+      "hex": "#fff8d8",
+      "share": 0.2
+    },
+    {
+      "hex": "#e8ecef",
+      "share": 0.2
+    },
+    {
+      "hex": "#394150",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 26,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 20,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "26.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 14.5,
+        "weight": "500",
+        "lineHeight": "23.925px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@500;600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.25) 0px 4px 14px 0px",
+      "md": "rgba(29, 35, 48, 0.4) 0px 20px 40px -30px",
+      "lg": "rgba(0, 0, 0, 0.25) 0px 4px 14px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        11,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      520,
+      900
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "monogram",
+    "tile": "none",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "polished",
+      "local",
+      "honest"
+    ],
+    "voice": {
+      "summary": "Sounds like an agent who actually likes the street: precise on facts, soft on atmosphere. It shows numbers first, then the light in the kitchen.",
+      "dos": [
+        "Lead with the address and the key facts",
+        "Describe rooms with one sensory detail",
+        "State monthly figures with their assumptions"
+      ],
+      "donts": [
+        "No estate-agent superlatives like stunning",
+        "No hiding the service charge",
+        "No pressure to book now"
+      ]
+    },
+    "taglines": [
+      "Homes with a view of the harbour",
+      "Find the house, then the street",
+      "Honest listings, local knowledge",
+      "Viewings arranged properly",
+      "A good address, plainly told"
+    ],
+    "boilerplate": "Alder & Finch is a harbourside estate agency listing homes with full facts, floor plans and honest estimates, including 14 Wren Lane in Bristol.",
+    "microcopy": {
+      "primaryCta": "Request viewing",
+      "secondaryCta": "Read more",
+      "success": "Viewing requested, we will call within a day",
+      "error": "Please check your details and try again",
+      "empty": "No viewing slots selected yet"
+    }
+  }
+}

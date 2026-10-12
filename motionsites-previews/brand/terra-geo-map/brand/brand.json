@@ -1,0 +1,197 @@
+{
+  "name": "Terra",
+  "descriptor": "Geo-mapping platform for teams",
+  "listing": {
+    "key": "m:terra-geo-map",
+    "title": "Terra Geo Map",
+    "category": "SaaS"
+  },
+  "colors": {
+    "background": "#ffffff",
+    "surface": "#dbe8f4",
+    "text": "#5b6475",
+    "textMuted": "#dc2626",
+    "primary": "#2e7df3",
+    "secondary": "#dc2626",
+    "border": "#e5e7eb",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#1a3b6f"
+  },
+  "colorInventory": [
+    {
+      "hex": "#ffffff",
+      "share": 85.1
+    },
+    {
+      "hex": "#dbe8f4",
+      "share": 13.9
+    },
+    {
+      "hex": "#2e7df3",
+      "share": 0.4
+    },
+    {
+      "hex": "#b0b0b0",
+      "share": 0.3
+    },
+    {
+      "hex": "#767676",
+      "share": 0.1
+    },
+    {
+      "hex": "#d3d3d3",
+      "share": 0.1
+    },
+    {
+      "hex": "#5b6475",
+      "share": 0.1
+    },
+    {
+      "hex": "#dc2626",
+      "share": 0.0
+    },
+    {
+      "hex": "#60a5fa",
+      "share": 0.0
+    },
+    {
+      "hex": "#0f172a",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 72,
+        "weight": "500",
+        "lineHeight": "77.76px",
+        "letterSpacing": "-2.52px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.2px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 10,
+        "weight": "600",
+        "lineHeight": "11.5px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(46, 125, 243, 0.2) 0px 10px 24px 0px",
+      "md": "rgba(46, 125, 243, 0.2) 0px 10px 24px 0px",
+      "lg": "rgba(46, 125, 243, 0.2) 0px 10px 24px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        16,
+        20,
+        32
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      768,
+      1024
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "globe",
+    "tile": "circle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "clear",
+      "collaborative",
+      "confident"
+    ],
+    "voice": {
+      "summary": "Sounds like a friendly GIS expert: practical, upbeat and impatient with jargon. It focuses on teams building maps together.",
+      "dos": [
+        "Speak about maps as shared work",
+        "Use verbs: design, collaborate, share",
+        "Define spatial terms once"
+      ],
+      "donts": [
+        "No GIS jargon without a gloss",
+        "No hype about intelligence",
+        "No vague 'unlock insights' claims"
+      ]
+    },
+    "taglines": [
+      "The ultimate geomap builder",
+      "Build maps together",
+      "Design, collaborate, share",
+      "Spatial intelligence for teams",
+      "Maps that move your work"
+    ],
+    "boilerplate": "Terra is a geo-mapping platform where teams design maps, collaborate on spatial intelligence and share their work with everyone in one place.",
+    "microcopy": {
+      "primaryCta": "Get started",
+      "secondaryCta": "See examples",
+      "success": "Map published",
+      "error": "We could not load that layer, try again",
+      "empty": "No maps yet, create your first"
+    }
+  }
+}

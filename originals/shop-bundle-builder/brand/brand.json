@@ -1,0 +1,196 @@
+{
+  "name": "Daybreak Supply",
+  "descriptor": "Outdoor-and-home goods for early starts",
+  "listing": {
+    "key": "o:shop-bundle-builder",
+    "title": "Bundle Builder",
+    "category": "E-commerce"
+  },
+  "colors": {
+    "background": "#f7f1e5",
+    "surface": "#fffdf8",
+    "text": "#201b15",
+    "textMuted": "#675c4c",
+    "primary": "#7a4a08",
+    "secondary": "#e3bfa4",
+    "border": "#201b15",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#e3bfa4"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f7f1e5",
+      "share": 59.9
+    },
+    {
+      "hex": "#fffdf8",
+      "share": 34.1
+    },
+    {
+      "hex": "#000000",
+      "share": 3.0
+    },
+    {
+      "hex": "#c7ced6",
+      "share": 0.8
+    },
+    {
+      "hex": "#e8dcc4",
+      "share": 0.5
+    },
+    {
+      "hex": "#e3bfa4",
+      "share": 0.5
+    },
+    {
+      "hex": "#8aa89a",
+      "share": 0.5
+    },
+    {
+      "hex": "#4a5a6a",
+      "share": 0.2
+    },
+    {
+      "hex": "#5a6a3a",
+      "share": 0.2
+    },
+    {
+      "hex": "#201b15",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Young Serif",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 56,
+        "weight": "400",
+        "lineHeight": "57.12px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 24,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(70, 45, 10, 0.16) 0px 22px 50px 0px",
+      "md": "rgba(70, 45, 10, 0.16) 0px 22px 50px 0px",
+      "lg": "rgba(70, 45, 10, 0.16) 0px 22px 50px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1260,
+    "breakpoints": [
+      960
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bag",
+    "tile": "circle",
+    "wordmarkFont": "Young Serif"
+  },
+  "voice": {
+    "personality": [
+      "upbeat",
+      "practical",
+      "honest"
+    ],
+    "voice": {
+      "summary": "Sounds like a friendly shopkeeper who weighs everything before recommending it. Savings are stated plainly as pounds off, not hype.",
+      "dos": [
+        "State the saving as a number",
+        "Name each product by what it does",
+        "Keep calls to action to three words"
+      ],
+      "donts": [
+        "No fake countdowns",
+        "No vague 'amazing deal' language",
+        "No hidden conditions"
+      ]
+    },
+    "taglines": [
+      "Pick any three, save a fifth",
+      "Build a box worth opening",
+      "Good gear, bundled kindly",
+      "Fill the box, see the saving",
+      "Supplies for early starts"
+    ],
+    "boilerplate": "Daybreak Supply sells outdoor and home goods and lets shoppers build their own gift box of three products with an automatic fifth off.",
+    "microcopy": {
+      "primaryCta": "Add to bundle",
+      "secondaryCta": "Fill with favourites",
+      "success": "Bundle added, you saved £14",
+      "error": "That item is out of stock, choose another",
+      "empty": "Choose 3 items to start your bundle"
+    }
+  }
+}

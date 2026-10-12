@@ -1,0 +1,207 @@
+{
+  "name": "Orbis.Nft",
+  "descriptor": "Space-object NFT collection",
+  "listing": {
+    "key": "m:orbis-nft",
+    "title": "Orbis NFT",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#010828",
+    "surface": "#6fff00",
+    "text": "#eff4ff",
+    "textMuted": "#6fff00",
+    "primary": "#6fff00",
+    "secondary": "#b724ff",
+    "border": "#222946",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#b724ff"
+  },
+  "colorInventory": [
+    {
+      "hex": "#010828",
+      "share": 99.7
+    },
+    {
+      "hex": "#eff4ff",
+      "share": 0.2
+    },
+    {
+      "hex": "#6fff00",
+      "share": 0.1
+    },
+    {
+      "hex": "#b724ff",
+      "share": 0.0
+    },
+    {
+      "hex": "#7c3aed",
+      "share": 0.0
+    },
+    {
+      "hex": "#222946",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Anton",
+    "body": "ui-monospace",
+    "mono": "ui-monospace",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Anton",
+        "stack": "'Anton', system-ui, sans-serif",
+        "sizePx": 90,
+        "weight": "400",
+        "lineHeight": "90px",
+        "letterSpacing": "0.45px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Anton",
+        "stack": "'Anton', system-ui, sans-serif",
+        "sizePx": 60,
+        "weight": "400",
+        "lineHeight": "61.2px",
+        "letterSpacing": "normal",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "ui-monospace",
+        "stack": "ui-monospace, Menlo, monospace",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "0.16px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Anton",
+        "stack": "'Anton', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Anton",
+        "stack": "'Anton', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "0.32px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "ui-monospace",
+        "stack": "ui-monospace, Menlo, monospace",
+        "sizePx": 11,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "0.44px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Mono",
+        "family": "ui-monospace",
+        "stack": "ui-monospace, Menlo, monospace",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "0.16px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500&family=Condiment&family=Oswald:wght@500&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 16,
+      "md": 24,
+      "lg": 32,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset",
+      "md": "rgba(168, 85, 247, 0.5) 0px 10px 15px -3px, rgba(168, 85, 247, 0.5) 0px 4px 6px -4px",
+      "lg": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        6,
+        8,
+        12,
+        16,
+        18,
+        20,
+        24,
+        32
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      420,
+      640,
+      768,
+      1024
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "orbit",
+    "tile": "none",
+    "wordmarkFont": "Inter Bold (stand-in for Anton)"
+  },
+  "voice": {
+    "personality": [
+      "cosmic",
+      "enigmatic",
+      "minimal"
+    ],
+    "voice": {
+      "summary": "Sounds like a signal from deep space: spare, mysterious and a little poetic. Sentences are short and often end with a quiet beat.",
+      "dos": [
+        "Use space and distance imagery",
+        "Keep to two short lines per idea",
+        "Use the cursive voice only for accents"
+      ],
+      "donts": [
+        "No crypto hype or price talk",
+        "No exclamation marks",
+        "No overexplaining the mystery"
+      ]
+    },
+    "taglines": [
+      "Beyond earth and its familiar boundaries",
+      "Follow the signal",
+      "Reveal what's hidden",
+      "Define what's next",
+      "Objects fixed beyond time"
+    ],
+    "boilerplate": "Orbis.Nft is a collection of digital space objects, each a quiet study of distance, form and silence, released for collectors who follow the signal.",
+    "microcopy": {
+      "primaryCta": "Join us",
+      "secondaryCta": "Explore the gallery",
+      "success": "Signal received",
+      "error": "Signal lost, please try again",
+      "empty": "The collection is empty for now"
+    }
+  }
+}

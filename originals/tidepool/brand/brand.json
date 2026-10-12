@@ -1,0 +1,142 @@
+{
+  "name": "Skerry Marine Lab",
+  "descriptor": "Coastal research lab with an open archive",
+  "listing": {
+    "key": "o:tidepool",
+    "title": "Tidepool Hero Section",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#dcefec",
+    "surface": "#ffffff",
+    "text": "#0b2b33",
+    "textMuted": "#547074",
+    "primary": "#0b2b33",
+    "secondary": "#ff6b4a",
+    "border": "#0b2b33",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#ff6b4a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#dcefec",
+      "share": 87.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 12.6
+    },
+    {
+      "hex": "#0b2b33",
+      "share": 0.3
+    },
+    {
+      "hex": "#ff6b4a",
+      "share": 0.0
+    },
+    {
+      "hex": "#547074",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 103.7,
+        "weight": "300",
+        "lineHeight": "105.754px",
+        "letterSpacing": "-3.1104px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "26.35px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fraunces:ital,wght@0,300;0,400;1,300&display=swap",
+    "headingWeight": 300
+  },
+  "tokens": {
+    "radius": {
+      "sm": 50,
+      "md": 50,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        10,
+        20,
+        24,
+        28,
+        32,
+        36,
+        48,
+        56
+      ]
+    },
+    "container": 900,
+    "breakpoints": [
+      760
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "wave",
+    "tile": "circle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "observant",
+      "dry",
+      "generous"
+    ],
+    "voice": {
+      "summary": "Skerry Marine Lab writes like a long-serving scientist: precise, patient and a little wry. It states what was recorded and when, and opens its archive without fuss.",
+      "dos": [
+        "Give dates and places for every observation",
+        "Use measured verbs: logged, recorded, observed",
+        "Invite readers to ask for the archive"
+      ],
+      "donts": [
+        "Do not use dramatic ocean language",
+        "Avoid claims beyond the data",
+        "Never close the archive behind a form"
+      ]
+    },
+    "taglines": [
+      "The sea keeps better records",
+      "Since 1987, every season logged",
+      "An open archive of the coast",
+      "Tides, divers and decades of data",
+      "Ask us what the water did"
+    ],
+    "boilerplate": "Skerry Marine Lab has logged every season on one stretch of coast since 1987 using divers and tide gauges, and keeps the full archive open to anyone who asks.",
+    "microcopy": {
+      "primaryCta": "Request the archive",
+      "secondaryCta": "Read the latest log",
+      "success": "Request received. We will reply within a week.",
+      "error": "Could not send that request. Please try again.",
+      "empty": "No records for that date."
+    }
+  }
+}

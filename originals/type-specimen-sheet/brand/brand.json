@@ -1,0 +1,156 @@
+{
+  "name": "Marlowe Display",
+  "descriptor": "Variable serif typeface with weights 300 to 900",
+  "listing": {
+    "key": "o:type-specimen-sheet",
+    "title": "Type Specimen Sheet",
+    "category": "Typography"
+  },
+  "colors": {
+    "background": "#f7f5f0",
+    "surface": "#ffffff",
+    "text": "#141414",
+    "textMuted": "#636361",
+    "primary": "#141414",
+    "secondary": "#7e7e7e",
+    "border": "#d9d5cb",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#7e7e7e"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f7f5f0",
+      "share": 98.9
+    },
+    {
+      "hex": "#141414",
+      "share": 1.0
+    },
+    {
+      "hex": "#75716a",
+      "share": 0.1
+    },
+    {
+      "hex": "#636361",
+      "share": 0.0
+    },
+    {
+      "hex": "#7e7e7e",
+      "share": 0.0
+    },
+    {
+      "hex": "#d9d5cb",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Fraunces",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 84,
+        "weight": "700",
+        "lineHeight": "79.8px",
+        "letterSpacing": "-2.52px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 20,
+        "weight": "400",
+        "lineHeight": "30px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "0.96px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 6,
+      "lg": 6,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        6,
+        8,
+        12,
+        14,
+        16,
+        18,
+        20,
+        24
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "monogram",
+    "tile": "none",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "refined",
+      "exacting",
+      "expressive"
+    ],
+    "voice": {
+      "summary": "Sounds like a type designer's specimen notes: precise about weights, glyphs and spacing, and quietly proud of the details. Terms stay technical but warm.",
+      "dos": [
+        "Use typographic terms like leading, glyph and weight",
+        "State metrics like U+0052 and em width",
+        "Show type in use before describing it"
+      ],
+      "donts": [
+        "Do not say beautiful typeface",
+        "Do not hide licensing details",
+        "Do not use decorative copy over clarity"
+      ]
+    },
+    "taglines": [
+      "Letters with something to say",
+      "Nine weights, one voice",
+      "Soft edges, sharp ideas, one serif",
+      "Set it large, then set it small",
+      "Every glyph earns its place"
+    ],
+    "boilerplate": "Marlowe Display is a variable serif typeface family with weights from 300 to 900 and matching italics, shown here in a full specimen with glyph grid and paragraph tester.",
+    "microcopy": {
+      "primaryCta": "Copy glyph",
+      "secondaryCta": "Italic",
+      "success": "Glyph copied.",
+      "error": "That glyph is not in this font.",
+      "empty": "Type something to preview."
+    }
+  }
+}

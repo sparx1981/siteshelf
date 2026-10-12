@@ -1,0 +1,186 @@
+{
+  "name": "Foldwell",
+  "descriptor": "Packing workshop that finds the smallest safe carton",
+  "listing": {
+    "key": "o:parcel-fit-studio",
+    "title": "Parcel Fit Studio",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#f4efe5",
+    "surface": "#e7d9c7",
+    "text": "#302a23",
+    "textMuted": "#665d51",
+    "primary": "#a33e25",
+    "secondary": "#e7d9c7",
+    "border": "#9b8c77",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#e7d9c7"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4efe5",
+      "share": 77.8
+    },
+    {
+      "hex": "#e7d9c7",
+      "share": 14.2
+    },
+    {
+      "hex": "#a33e25",
+      "share": 4.9
+    },
+    {
+      "hex": "#302a23",
+      "share": 2.1
+    },
+    {
+      "hex": "#715237",
+      "share": 0.8
+    },
+    {
+      "hex": "#665d51",
+      "share": 0.2
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.0
+    },
+    {
+      "hex": "#9b8c77",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 52,
+        "weight": "500",
+        "lineHeight": "54.6px",
+        "letterSpacing": "-1.56px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 26,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "23.25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "23.25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "18.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@500;600&family=IBM+Plex+Mono:wght@400&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 4,
+      "lg": 6,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        3,
+        6,
+        10,
+        12,
+        15,
+        16,
+        18,
+        20,
+        22
+      ]
+    },
+    "container": 1260,
+    "breakpoints": [
+      650,
+      760,
+      1080
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cube",
+    "tile": "squircle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "methodical",
+      "craftsmanlike",
+      "reassuring"
+    ],
+    "voice": {
+      "summary": "A packing-bench craftsperson who measures twice: precise, plain and fond of a neat fit. Numbers are given in centimetres and every warning arrives with a fix.",
+      "dos": [
+        "Give dimensions in centimetres with the unit every time",
+        "Explain cushioning as added to every side",
+        "When nothing fits, say what to try next"
+      ],
+      "donts": [
+        "Vague words like roughly or about",
+        "Shipping jargon without explanation",
+        "Blame for wrong measurements"
+      ]
+    },
+    "taglines": [
+      "A smaller box. A better fit",
+      "Measure once, pack once",
+      "Right-sized cartons, safely cushioned",
+      "Less air, more protection",
+      "Fit it snug, ship it safe"
+    ],
+    "boilerplate": "Foldwell is a packing workshop that finds the smallest stocked carton for an item, based on its dimensions, cushioning and rotation.",
+    "microcopy": {
+      "primaryCta": "Find a carton",
+      "secondaryCta": "Compare boxes",
+      "success": "Best fit found: Moss, 18 × 14 × 12 cm",
+      "error": "Check the measurements, one is missing",
+      "empty": "Enter your item to see cartons"
+    }
+  }
+}

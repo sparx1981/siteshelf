@@ -1,0 +1,196 @@
+{
+  "name": "Tidewalk",
+  "descriptor": "Coastal walks planner with tide times",
+  "listing": {
+    "key": "o:nav-bottom-sheet-tabs",
+    "title": "Bottom Sheet Tab Bar",
+    "category": "Navigation"
+  },
+  "colors": {
+    "background": "#e9f1f2",
+    "surface": "#0e2a33",
+    "text": "#0e2a33",
+    "textMuted": "#4c6b72",
+    "primary": "#0f8b8d",
+    "secondary": "#f0b86b",
+    "border": "#d6e6e8",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#f0b86b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#e9f1f2",
+      "share": 51.9
+    },
+    {
+      "hex": "#0e2a33",
+      "share": 25.5
+    },
+    {
+      "hex": "#ffffff",
+      "share": 19.4
+    },
+    {
+      "hex": "#cfe7e8",
+      "share": 2.1
+    },
+    {
+      "hex": "#7cc4c6",
+      "share": 0.4
+    },
+    {
+      "hex": "#3ea2a5",
+      "share": 0.3
+    },
+    {
+      "hex": "#0f8b8d",
+      "share": 0.2
+    },
+    {
+      "hex": "#f0b86b",
+      "share": 0.2
+    },
+    {
+      "hex": "#4c6b72",
+      "share": 0.1
+    },
+    {
+      "hex": "#2b1a00",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 24,
+        "weight": "700",
+        "lineHeight": "27.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "0.84px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 11,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 18,
+      "lg": 24,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(240, 184, 107, 0.9) 0px 12px 24px -8px, rgb(255, 255, 255) 0px 0px 0px 6px",
+      "md": "rgba(14, 42, 51, 0.3) 0px -18px 40px -12px",
+      "lg": "rgba(14, 42, 51, 0.55) 0px 40px 80px -30px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      560
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "compass",
+    "tile": "squircle",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "fresh",
+      "friendly",
+      "outdoorsy"
+    ],
+    "voice": {
+      "summary": "Sounds like a local who knows the cliff path and the tides: friendly, practical, a bit salty. It mixes weather and route facts into one sentence.",
+      "dos": [
+        "Pair tide times with route advice",
+        "Use first names and the time of day",
+        "Keep directions short and concrete"
+      ],
+      "donts": [
+        "No adventure-sport hype",
+        "No unsafe advice about tides",
+        "No long paragraphs on a small screen"
+      ]
+    },
+    "taglines": [
+      "Walk the coast with the tide",
+      "Low tide, high spirits",
+      "Plan a walk, mind the sea",
+      "Know before you go",
+      "Cliffs, coves and good timing"
+    ],
+    "boilerplate": "Tidewalk is a coastal walking app that pairs route suggestions with tide times and weather, so you pick the right path for the hour.",
+    "microcopy": {
+      "primaryCta": "Start now",
+      "secondaryCta": "Tide times",
+      "success": "Walk saved to your list",
+      "error": "Could not load routes, try again",
+      "empty": "No saved walks yet"
+    }
+  }
+}

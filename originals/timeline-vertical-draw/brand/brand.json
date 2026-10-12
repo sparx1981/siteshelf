@@ -1,0 +1,187 @@
+{
+  "name": "Lanternworks",
+  "descriptor": "Lighting studio and lantern makers by the harbour",
+  "listing": {
+    "key": "o:timeline-vertical-draw",
+    "title": "Self-Drawing Timeline",
+    "category": "Timeline"
+  },
+  "colors": {
+    "background": "#f6efe2",
+    "surface": "#dcebe1",
+    "text": "#4a4132",
+    "textMuted": "#1c1812",
+    "primary": "#c4532f",
+    "secondary": "#1a1033",
+    "border": "#c4532f",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#1a1033"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6efe2",
+      "share": 92.5
+    },
+    {
+      "hex": "#000000",
+      "share": 3.2
+    },
+    {
+      "hex": "#1a1033",
+      "share": 1.1
+    },
+    {
+      "hex": "#c4532f",
+      "share": 0.7
+    },
+    {
+      "hex": "#e8d8c4",
+      "share": 0.6
+    },
+    {
+      "hex": "#cfdde8",
+      "share": 0.6
+    },
+    {
+      "hex": "#7a4a9a",
+      "share": 0.4
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.4
+    },
+    {
+      "hex": "#1b2a5a",
+      "share": 0.3
+    },
+    {
+      "hex": "#4a4132",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Young Serif",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 92,
+        "weight": "400",
+        "lineHeight": "90.16px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 28,
+        "weight": "400",
+        "lineHeight": "32.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "27.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.08) 0px 0px 0px 1px inset",
+      "md": "rgba(0, 0, 0, 0.08) 0px 0px 0px 1px inset",
+      "lg": "rgba(0, 0, 0, 0.08) 0px 0px 0px 1px inset"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        6,
+        8,
+        10,
+        16,
+        17,
+        18,
+        20,
+        24
+      ]
+    },
+    "container": 1080,
+    "breakpoints": [
+      520,
+      860
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "spark",
+    "tile": "none",
+    "wordmarkFont": "Young Serif"
+  },
+  "voice": {
+    "personality": [
+      "warm",
+      "humble",
+      "storytelling"
+    ],
+    "voice": {
+      "summary": "Sounds like a founder telling the story over a cup of tea: warm, specific and funny about the early days. Years and details carry the story, and the tone stays modest even when the studio is not.",
+      "dos": [
+        "Anchor each milestone to a year and a concrete detail",
+        "Use plain words like desk, kettle and lantern",
+        "Let the founders appear as we"
+      ],
+      "donts": [
+        "Do not claim to have changed the world",
+        "Do not use startup origin-myth cliches",
+        "Do not skip the hard years"
+      ]
+    },
+    "taglines": [
+      "Twelve years of small lights",
+      "Two desks, a kettle, a lantern",
+      "Made by the harbour, for any room",
+      "Small lights, kept burning",
+      "Our story, one lantern at a time"
+    ],
+    "boilerplate": "Lanternworks is a lighting studio by the harbour that has made hand-built lanterns for twelve years, growing from two desks and a kettle to a team of twelve.",
+    "microcopy": {
+      "primaryCta": "Sign up for the 2027 letter",
+      "secondaryCta": "Read our story",
+      "success": "You're on the list. Thank you.",
+      "error": "That email didn't go through. Please try again.",
+      "empty": "No milestones yet. Scroll to begin."
+    }
+  }
+}

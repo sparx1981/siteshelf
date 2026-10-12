@@ -1,0 +1,196 @@
+{
+  "name": "Moonfield Cards",
+  "descriptor": "Foil collectible trading cards",
+  "listing": {
+    "key": "o:card-holo-collectible",
+    "title": "Holographic Collectible Card",
+    "category": "Cards"
+  },
+  "colors": {
+    "background": "#120d24",
+    "surface": "#3a2a7a",
+    "text": "#efeaff",
+    "textMuted": "#c3b8e6",
+    "primary": "#ffd86b",
+    "secondary": "#2a1560",
+    "border": "#4a3b8a",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#2a1560"
+  },
+  "colorInventory": [
+    {
+      "hex": "#120d24",
+      "share": 62.4
+    },
+    {
+      "hex": "#3a2a7a",
+      "share": 17.6
+    },
+    {
+      "hex": "#fbf4e2",
+      "share": 7.2
+    },
+    {
+      "hex": "#ffffff",
+      "share": 4.9
+    },
+    {
+      "hex": "#1c1450",
+      "share": 2.0
+    },
+    {
+      "hex": "#e8c36a",
+      "share": 1.3
+    },
+    {
+      "hex": "#fff0b8",
+      "share": 1.3
+    },
+    {
+      "hex": "#d9a93e",
+      "share": 1.3
+    },
+    {
+      "hex": "#ff0080",
+      "share": 1.2
+    },
+    {
+      "hex": "#7a2fa0",
+      "share": 0.7
+    }
+  ],
+  "typography": {
+    "heading": "Unbounded",
+    "body": "Outfit",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Unbounded",
+        "stack": "'Unbounded', system-ui, sans-serif",
+        "sizePx": 54,
+        "weight": "700",
+        "lineHeight": "58.32px",
+        "letterSpacing": "-1.08px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Unbounded",
+        "stack": "'Unbounded', system-ui, sans-serif",
+        "sizePx": 20.8,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Unbounded",
+        "stack": "'Unbounded', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.68px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Unbounded:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 10,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.3) 0px 0px 0px 1px inset",
+      "md": "rgba(0, 0, 0, 0.7) 0px 30px 60px -20px",
+      "lg": "rgba(0, 0, 0, 0.3) 0px 0px 0px 1px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        3,
+        4,
+        8,
+        10,
+        11,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "diamond",
+    "tile": "squircle",
+    "wordmarkFont": "Unbounded"
+  },
+  "voice": {
+    "personality": [
+      "glittering",
+      "playful",
+      "collector-minded"
+    ],
+    "voice": {
+      "summary": "Moonfield Cards writes like a card-shop owner who loves the hobby and the shine. It is excited without being loud, and it handles rarity and condition with a collector's care.",
+      "dos": [
+        "Name the creature and its rarity in the first line",
+        "Use light words: foil, glint, sheen, glare",
+        "Describe condition honestly"
+      ],
+      "donts": [
+        "Do not promise investment returns",
+        "Do not use 'epic' or 'legendary' for common cards",
+        "Do not shout in capitals"
+      ]
+    },
+    "taglines": [
+      "A card that catches the light",
+      "Tilt it, flip it, keep it",
+      "Foil worth turning over twice",
+      "Rare finds from the Moonfield",
+      "A little night in every card"
+    ],
+    "boilerplate": "Moonfield Cards makes foil trading cards with moving holographic finishes, designed to be tilted in the hand and collected by the set.",
+    "microcopy": {
+      "primaryCta": "Flip card",
+      "secondaryCta": "Switch card",
+      "success": "Card flipped. Stats are on the back.",
+      "error": "That card would not load. Pick another from the shelf.",
+      "empty": "Your binder is empty. Find a card to start it."
+    }
+  }
+}

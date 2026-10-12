@@ -1,0 +1,180 @@
+{
+  "name": "Datacore",
+  "descriptor": "Hotel and resort booking with fast, 24/7 support",
+  "listing": {
+    "key": "m:datacore-booking",
+    "title": "Datacore Booking",
+    "category": "SaaS"
+  },
+  "colors": {
+    "background": "#07030f",
+    "surface": "#7b39fc",
+    "text": "#ffffff",
+    "textMuted": "#a8a7ab",
+    "primary": "#7b39fc",
+    "secondary": "#2b2344",
+    "border": "#d4d4d4",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#2b2344"
+  },
+  "colorInventory": [
+    {
+      "hex": "#07030f",
+      "share": 97.1
+    },
+    {
+      "hex": "#7b39fc",
+      "share": 1.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.8
+    },
+    {
+      "hex": "#2b2344",
+      "share": 0.7
+    },
+    {
+      "hex": "#55506e",
+      "share": 0.3
+    },
+    {
+      "hex": "#171717",
+      "share": 0.0
+    },
+    {
+      "hex": "#a8a7ab",
+      "share": 0.0
+    },
+    {
+      "hex": "#d4d4d4",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Instrument Serif",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Instrument Serif",
+        "stack": "'Instrument Serif', Georgia, serif",
+        "sizePx": 96,
+        "weight": "400",
+        "lineHeight": "105.6px",
+        "letterSpacing": "-0.96px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "14px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "20px",
+        "letterSpacing": "-0.4px",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Inter:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 8,
+      "lg": 10,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.25) 0px 1px 2px 0px, rgba(123, 57, 252, 0.35) 0px 4px 14px 0px",
+      "md": "rgba(0, 0, 0, 0.25) 0px 1px 2px 0px, rgba(123, 57, 252, 0.35) 0px 4px 14px 0px",
+      "lg": "rgba(0, 0, 0, 0.25) 0px 1px 2px 0px, rgba(123, 57, 252, 0.35) 0px 4px 14px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        5,
+        6,
+        10,
+        12,
+        16,
+        24,
+        28
+      ]
+    },
+    "container": 1000,
+    "breakpoints": [
+      480,
+      768,
+      1024
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "globe",
+    "tile": "none",
+    "wordmarkFont": "Instrument Serif"
+  },
+  "voice": {
+    "personality": [
+      "effortless",
+      "reliable",
+      "modern"
+    ],
+    "voice": {
+      "summary": "A concierge with a laptop: quick, polite and very sure of the details. Plain statements about deals and support, with a touch of luxury.",
+      "dos": [
+        "Lead with the benefit, such as instant booking",
+        "Name places and dates plainly",
+        "Keep reassurance concrete, like 24/7 support"
+      ],
+      "donts": [
+        "Travel cliches like paradise awaits",
+        "Hidden fees",
+        "Technical talk about data"
+      ]
+    },
+    "taglines": [
+      "Book your perfect stay instantly",
+      "Handpicked hotels, hassle-free",
+      "Deals worth packing for",
+      "Your next stay, one click away",
+      "Rooms confirmed, worries cleared"
+    ],
+    "boilerplate": "Datacore is a booking platform for handpicked hotels, resorts and stays, offering exclusive deals, fast checkout and round-the-clock support.",
+    "microcopy": {
+      "primaryCta": "Get started",
+      "secondaryCta": "Services",
+      "success": "Booking confirmed. Safe travels",
+      "error": "We couldn't hold that room. Try another",
+      "empty": "No stays match. Adjust your dates"
+    }
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "name": "Dayglow",
+  "descriptor": "Private mood journal with a monthly mosaic",
+  "listing": {
+    "key": "o:app-mood-journal",
+    "title": "Mood Journal",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#efeaf7",
+    "surface": "#ffffff",
+    "text": "#261f3a",
+    "textMuted": "#6a6285",
+    "primary": "#8fc7f0",
+    "secondary": "#ffcf4a",
+    "border": "#cfc6e6",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#425a6e"
+  },
+  "colorInventory": [
+    {
+      "hex": "#efeaf7",
+      "share": 64.9
+    },
+    {
+      "hex": "#ffffff",
+      "share": 31.4
+    },
+    {
+      "hex": "#8fc7f0",
+      "share": 0.9
+    },
+    {
+      "hex": "#8fd18a",
+      "share": 0.9
+    },
+    {
+      "hex": "#b9a2e8",
+      "share": 0.6
+    },
+    {
+      "hex": "#f08aa0",
+      "share": 0.3
+    },
+    {
+      "hex": "#ffcf4a",
+      "share": 0.3
+    },
+    {
+      "hex": "#6b3fb8",
+      "share": 0.3
+    },
+    {
+      "hex": "#261f3a",
+      "share": 0.2
+    },
+    {
+      "hex": "#6a6285",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Young Serif",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 52,
+        "weight": "400",
+        "lineHeight": "54.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 26,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "700",
+        "lineHeight": "18.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.08px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 16,
+      "lg": 28,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(38, 31, 58) 0px 0px 0px 3px",
+      "md": "rgba(60, 30, 120, 0.5) 0px 30px 60px -38px",
+      "lg": "rgb(38, 31, 58) 0px 0px 0px 3px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        13,
+        16
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      480,
+      900
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "spark",
+    "tile": "squircle",
+    "wordmarkFont": "Young Serif"
+  },
+  "voice": {
+    "personality": [
+      "gentle",
+      "reflective",
+      "soft"
+    ],
+    "voice": {
+      "summary": "Writes like a kind friend asking how you are at the end of the day, with no hurry and no diagnosis. Sentences are short, lowercase-friendly in tone and never clinical.",
+      "dos": [
+        "Ask open, low-pressure questions",
+        "Name feelings in everyday words like low or rough",
+        "Remind people their entries stay on their own device"
+      ],
+      "donts": [
+        "No clinical or therapy language",
+        "Never score or judge a mood",
+        "Avoid pushy streak guilt"
+      ]
+    },
+    "taglines": [
+      "How did today feel?",
+      "Every colour of today, kept",
+      "A small light at day's end",
+      "Your mood, one tile at a time",
+      "Write it down. Let it glow"
+    ],
+    "boilerplate": "Dayglow is a private daily mood journal that turns five drawn faces and a few lines of writing into a colourful monthly mosaic, stored only on your device.",
+    "microcopy": {
+      "primaryCta": "Save entry",
+      "secondaryCta": "See the month",
+      "success": "Saved. See you tomorrow.",
+      "error": "That did not save. Your words are still here, try again.",
+      "empty": "No entry for this day. Pick a face to begin."
+    }
+  }
+}

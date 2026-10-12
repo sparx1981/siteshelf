@@ -1,0 +1,164 @@
+{
+  "name": "Orrin Cloud",
+  "descriptor": "Cloud storage platform with a public status page",
+  "listing": {
+    "key": "o:error-maintenance-status",
+    "title": "Maintenance Page with Live Status",
+    "category": "Error Page"
+  },
+  "colors": {
+    "background": "#0b1220",
+    "surface": "#121c31",
+    "text": "#e8edf7",
+    "textMuted": "#9fb0cc",
+    "primary": "#f5b84b",
+    "secondary": "#1b2740",
+    "border": "#23314e",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#1b2740"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b1220",
+      "share": 79.5
+    },
+    {
+      "hex": "#1b2740",
+      "share": 19.9
+    },
+    {
+      "hex": "#f5b84b",
+      "share": 0.4
+    },
+    {
+      "hex": "#e8edf7",
+      "share": 0.1
+    },
+    {
+      "hex": "#9fb0cc",
+      "share": 0.1
+    },
+    {
+      "hex": "#1a1205",
+      "share": 0.0
+    },
+    {
+      "hex": "#7f93b4",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "IBM Plex Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 48,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "IBM Plex Sans",
+        "stack": "'IBM Plex Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(245, 184, 75, 0.063) 0px 0px 0px 8.71716px",
+      "md": "rgba(245, 184, 75, 0.063) 0px 0px 0px 8.71716px",
+      "lg": "rgba(245, 184, 75, 0.063) 0px 0px 0px 8.71716px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        24
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      520
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cloud",
+    "tile": "squircle",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "transparent",
+      "measured",
+      "reassuring"
+    ],
+    "voice": {
+      "summary": "Orrin Cloud tells people what is happening during downtime in plain sentences, with times and service names rather than apologies. It is reassuring because it is specific: nothing is lost, and here is the clock.",
+      "dos": [
+        "State what is happening, what is safe and when we return",
+        "Show countdowns and service states in exact terms",
+        "Apologise once, briefly, and move on"
+      ],
+      "donts": [
+        "Do not blame gremlins or glitches",
+        "Avoid vague 'soon' without a time",
+        "Never use cheerful emoji during an outage"
+      ]
+    },
+    "taglines": [
+      "Back shortly. Nothing is lost",
+      "Upgrading storage, protecting your data",
+      "Quiet now, faster after",
+      "We will say when we are back",
+      "Planned work, plainly explained"
+    ],
+    "boilerplate": "Orrin Cloud is a storage platform whose maintenance page shows a live countdown, per-service status and email notification, so customers always know what is happening.",
+    "microcopy": {
+      "primaryCta": "Notify me",
+      "secondaryCta": "View status history",
+      "success": "You will get an email when we are back.",
+      "error": "That email does not look right. Please check it.",
+      "empty": "No incidents to report."
+    }
+  }
+}

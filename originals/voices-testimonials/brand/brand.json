@@ -1,0 +1,162 @@
+{
+  "name": "Sayso",
+  "descriptor": "Customer story platform for small teams",
+  "listing": {
+    "key": "o:voices-testimonials",
+    "title": "Voices Testimonial Carousel",
+    "category": "Testimonials"
+  },
+  "colors": {
+    "background": "#14201c",
+    "surface": "#3d6b5a",
+    "text": "#f1f4ee",
+    "textMuted": "#ffffff",
+    "primary": "#c9f27a",
+    "secondary": "#b5724a",
+    "border": "#333e39",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#b5724a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#14201c",
+      "share": 98.8
+    },
+    {
+      "hex": "#f1f4ee",
+      "share": 0.4
+    },
+    {
+      "hex": "#3d6b5a",
+      "share": 0.3
+    },
+    {
+      "hex": "#b5724a",
+      "share": 0.1
+    },
+    {
+      "hex": "#5a62a8",
+      "share": 0.1
+    },
+    {
+      "hex": "#a8566f",
+      "share": 0.1
+    },
+    {
+      "hex": "#7b8f3d",
+      "share": 0.1
+    },
+    {
+      "hex": "#c9f27a",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.0
+    },
+    {
+      "hex": "#333e39",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Arial",
+    "body": "Instrument Serif",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Instrument Sans",
+        "stack": "'Instrument Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "21px",
+        "letterSpacing": "0.84px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 0,
+      "md": 0,
+      "lg": 0,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        10,
+        12,
+        16,
+        18,
+        20,
+        36,
+        40,
+        96
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 350,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chat",
+    "tile": "squircle",
+    "wordmarkFont": "Inter Bold (stand-in for Arial)"
+  },
+  "voice": {
+    "personality": [
+      "human",
+      "upbeat",
+      "grounded"
+    ],
+    "voice": {
+      "summary": "Sounds like a thoughtful interviewer: quotes come first, names are real and small details do the persuading. The brand steps back so customers can talk.",
+      "dos": [
+        "Quote customers in their own words",
+        "Name the person and the team",
+        "Keep the quote to a sentence or two"
+      ],
+      "donts": [
+        "Do not paraphrase into marketing speak",
+        "Do not invent job titles",
+        "Do not crowd the quote with logos"
+      ]
+    },
+    "taglines": [
+      "Customers say it better",
+      "Real voices, right on the page",
+      "One honest quote at a time",
+      "Listen first, then decide",
+      "People talking, plainly"
+    ],
+    "boilerplate": "Sayso is a platform that helps small teams collect, curate and show customer stories as simple rotating quotes, with names, faces and the time to read them.",
+    "microcopy": {
+      "primaryCta": "Next voice",
+      "secondaryCta": "Pause",
+      "success": "Quote added to your page.",
+      "error": "That quote couldn't be saved. Try again.",
+      "empty": "No quotes yet. Add your first customer story."
+    }
+  }
+}

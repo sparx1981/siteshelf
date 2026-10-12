@@ -1,0 +1,182 @@
+{
+  "name": "The Long Way Round",
+  "descriptor": "Trip planner for places worth the detour",
+  "listing": {
+    "key": "o:expanding-panels",
+    "title": "Expanding Panels",
+    "category": "Gallery"
+  },
+  "colors": {
+    "background": "#0e1116",
+    "surface": "#1d3b4f",
+    "text": "#ffffff",
+    "textMuted": "#abacad",
+    "primary": "#ff9e6d",
+    "secondary": "#8ecae6",
+    "border": "#303237",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#714936"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0e1116",
+      "share": 70.8
+    },
+    {
+      "hex": "#ffffff",
+      "share": 7.0
+    },
+    {
+      "hex": "#1d3b4f",
+      "share": 5.9
+    },
+    {
+      "hex": "#8ecae6",
+      "share": 5.9
+    },
+    {
+      "hex": "#000000",
+      "share": 4.4
+    },
+    {
+      "hex": "#7b2d12",
+      "share": 1.2
+    },
+    {
+      "hex": "#f4a261",
+      "share": 1.2
+    },
+    {
+      "hex": "#3b1d2e",
+      "share": 1.2
+    },
+    {
+      "hex": "#e76f88",
+      "share": 1.2
+    },
+    {
+      "hex": "#14301f",
+      "share": 1.2
+    }
+  ],
+  "typography": {
+    "heading": "Bricolage Grotesque",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 52,
+        "weight": "800",
+        "lineHeight": "52px",
+        "letterSpacing": "-1.56px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 56,
+        "weight": "800",
+        "lineHeight": "56px",
+        "letterSpacing": "-1.68px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 22,
+      "md": 22,
+      "lg": 22,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        24
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      760
+    ],
+    "motion": {
+      "duration": 700,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "globe",
+    "tile": "squircle",
+    "wordmarkFont": "Bricolage Grotesque"
+  },
+  "voice": {
+    "personality": [
+      "wanderlust",
+      "vivid",
+      "friendly"
+    ],
+    "voice": {
+      "summary": "A well-travelled friend with a map on the table: enthusiastic, specific and very slightly smug about knowing the back roads. Sentences are short and place names do the heavy lifting.",
+      "dos": [
+        "Lead with the place name and one sensory detail",
+        "Frame every trip as a conversation, such as pick one and we start the plan",
+        "Keep descriptions to a line or two"
+      ],
+      "donts": [
+        "Brochure phrases like bucket list",
+        "Exclamation marks after every place",
+        "Generic claims about unforgettable experiences"
+      ]
+    },
+    "taglines": [
+      "Where next?",
+      "Five places worth the detour",
+      "Pick one, we'll plan the rest",
+      "Take the long way round",
+      "Slow journeys, sharply planned"
+    ],
+    "boilerplate": "The Long Way Round plans small journeys to destinations such as Iceland, Kyoto and Patagonia, starting from one chosen place and building the route around it.",
+    "microcopy": {
+      "primaryCta": "Plan this trip",
+      "secondaryCta": "Pause",
+      "success": "Trip started. We'll draft the route",
+      "error": "Could not start the plan. Try again",
+      "empty": "No trips chosen. Pick a panel"
+    }
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "name": "Pulse",
+  "descriptor": "Product analytics dashboard for growing teams",
+  "listing": {
+    "key": "o:analytics-dashboard",
+    "title": "Analytics Dashboard",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#0f1115",
+    "surface": "#171b22",
+    "text": "#e8ebf2",
+    "textMuted": "#8a93a6",
+    "primary": "#4c8dff",
+    "secondary": "#fb7185",
+    "border": "#232832",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#264274"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0f1115",
+      "share": 95.7
+    },
+    {
+      "hex": "#4c8dff",
+      "share": 1.6
+    },
+    {
+      "hex": "#222a37",
+      "share": 1.2
+    },
+    {
+      "hex": "#2dd4bf",
+      "share": 0.8
+    },
+    {
+      "hex": "#8a93a6",
+      "share": 0.2
+    },
+    {
+      "hex": "#e8ebf2",
+      "share": 0.2
+    },
+    {
+      "hex": "#fbbf24",
+      "share": 0.1
+    },
+    {
+      "hex": "#fb7185",
+      "share": 0.1
+    },
+    {
+      "hex": "#a78bfa",
+      "share": 0.0
+    },
+    {
+      "hex": "#f59e0b",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter Tight",
+    "body": "Inter Tight",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter Tight",
+        "stack": "'Inter Tight', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "600",
+        "lineHeight": "31.2px",
+        "letterSpacing": "-0.52px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter Tight",
+        "stack": "'Inter Tight', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter Tight",
+        "stack": "'Inter Tight', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter Tight",
+        "stack": "'Inter Tight', system-ui, sans-serif",
+        "sizePx": 11.7,
+        "weight": "400",
+        "lineHeight": "17.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 9,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      520,
+      900,
+      1100
+    ],
+    "motion": {
+      "duration": 500,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "pulse",
+    "tile": "squircle",
+    "wordmarkFont": "Inter Bold (stand-in for Inter Tight)"
+  },
+  "voice": {
+    "personality": [
+      "sharp",
+      "calm",
+      "numerate"
+    ],
+    "voice": {
+      "summary": "Reads like a good analyst's margin note: short, specific and unbothered by noise. It states what changed, by how much and over what window, and leaves the interpretation to the reader.",
+      "dos": [
+        "State the delta and the period together, for example up 12% in 30 days",
+        "Use tabular figures and consistent units",
+        "Label every chart with what is being counted"
+      ],
+      "donts": [
+        "Do not celebrate vanity numbers with exclamation marks",
+        "Do not hide a drop behind soft wording",
+        "Do not use growth hacker slang"
+      ]
+    },
+    "taglines": [
+      "See the signal, skip the noise",
+      "Your traffic, read at a glance",
+      "Every visit, accounted for",
+      "Know what moved, and why",
+      "Analytics that keeps its cool"
+    ],
+    "boilerplate": "Pulse is a product analytics platform that turns visitor, acquisition and page data into clear dashboards so product teams can see what changed and decide what to do next.",
+    "microcopy": {
+      "primaryCta": "Export report",
+      "secondaryCta": "Change date range",
+      "success": "Report exported. Check your downloads.",
+      "error": "Data failed to load. Retry the last range.",
+      "empty": "No visitors recorded for this range."
+    }
+  }
+}

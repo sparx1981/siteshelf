@@ -1,0 +1,150 @@
+{
+  "name": "Parcelo",
+  "descriptor": "Shipping software priced by seats",
+  "listing": {
+    "key": "o:pricing-plan-quiz",
+    "title": "Find-Your-Plan Pricing Quiz",
+    "category": "Pricing"
+  },
+  "colors": {
+    "background": "#f3f0fb",
+    "surface": "#ffffff",
+    "text": "#241a3d",
+    "textMuted": "#6b5e8a",
+    "primary": "#241a3d",
+    "secondary": "#878194",
+    "border": "#e6defa",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#878194"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f3f0fb",
+      "share": 99.5
+    },
+    {
+      "hex": "#e6defa",
+      "share": 0.2
+    },
+    {
+      "hex": "#241a3d",
+      "share": 0.1
+    },
+    {
+      "hex": "#6b5e8a",
+      "share": 0.1
+    },
+    {
+      "hex": "#5b2ea6",
+      "share": 0.1
+    },
+    {
+      "hex": "#878194",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Plus Jakarta Sans",
+    "body": "Plus Jakarta Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "800",
+        "lineHeight": "33.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 14,
+      "md": 20,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(91, 46, 166, 0.15) 0px 18px 50px 0px",
+      "md": "rgba(91, 46, 166, 0.15) 0px 18px 50px 0px",
+      "lg": "rgba(91, 46, 166, 0.15) 0px 18px 50px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        10,
+        16,
+        18,
+        20,
+        22,
+        24,
+        32
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      600
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bag",
+    "tile": "squircle",
+    "wordmarkFont": "Plus Jakarta Sans"
+  },
+  "voice": {
+    "personality": [
+      "helpful",
+      "upbeat",
+      "clear"
+    ],
+    "voice": {
+      "summary": "Parcelo sounds like a friendly adviser who asks three questions and gives one answer. It is brisk, jargon-free and open about price, and it never makes the reader feel they chose the wrong plan.",
+      "dos": [
+        "Ask one question at a time in plain words",
+        "Recommend one plan and say why",
+        "State the price per seat per month, with annual savings"
+      ],
+      "donts": [
+        "Do not hide alternatives",
+        "Do not use 'enterprise-grade'",
+        "Do not push the dearest plan"
+      ]
+    },
+    "taglines": [
+      "Find the plan that fits your team",
+      "Three questions, one clear answer",
+      "Priced by seats, nothing sneaky",
+      "Right-sized shipping for your crew",
+      "Pick a plan, not a puzzle"
+    ],
+    "boilerplate": "Parcelo is shipping and parcel software priced by seat, helping teams pick the right plan with a three-question quiz.",
+    "microcopy": {
+      "primaryCta": "See my plan",
+      "secondaryCta": "Retake the quiz",
+      "success": "Based on your answers, we recommend Studio.",
+      "error": "Pick an answer to continue.",
+      "empty": "No answers yet. Start with team size."
+    }
+  }
+}

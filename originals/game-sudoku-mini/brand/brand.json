@@ -1,0 +1,174 @@
+{
+  "name": "Pencil & Page",
+  "descriptor": "Puzzle press with a compact six-by-six sudoku",
+  "listing": {
+    "key": "o:game-sudoku-mini",
+    "title": "Mini Sudoku",
+    "category": "Games"
+  },
+  "colors": {
+    "background": "#4a2e18",
+    "surface": "#fbf5e6",
+    "text": "#ffffff",
+    "textMuted": "#c0b6ae",
+    "primary": "#fff1b8",
+    "secondary": "#a8743e",
+    "border": "#1f1b16",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#a8743e"
+  },
+  "colorInventory": [
+    {
+      "hex": "#4a2e18",
+      "share": 60.9
+    },
+    {
+      "hex": "#fbf5e6",
+      "share": 23.1
+    },
+    {
+      "hex": "#f3ead2",
+      "share": 3.3
+    },
+    {
+      "hex": "#ffffff",
+      "share": 3.3
+    },
+    {
+      "hex": "#000000",
+      "share": 3.1
+    },
+    {
+      "hex": "#2a1608",
+      "share": 2.9
+    },
+    {
+      "hex": "#a8743e",
+      "share": 2.4
+    },
+    {
+      "hex": "#f2c94a",
+      "share": 0.5
+    },
+    {
+      "hex": "#fff1b8",
+      "share": 0.3
+    },
+    {
+      "hex": "#2a2a2e",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Newsreader",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 38,
+        "weight": "600",
+        "lineHeight": "39.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Mono:wght@500&family=Figtree:wght@500;700&family=Newsreader:wght@600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 12,
+      "lg": 16,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.3) 0px 2px 3px 0px, rgba(0, 0, 0, 0.5) 0px 24px 48px 0px, rgba(150, 110, 50, 0.12) 0px 0px 60px 0px inset",
+      "md": "rgba(0, 0, 0, 0.3) 0px 8px 20px 0px",
+      "lg": "rgba(0, 0, 0, 0.3) 0px 2px 3px 0px, rgba(0, 0, 0, 0.5) 0px 24px 48px 0px, rgba(150, 110, 50, 0.12) 0px 0px 60px 0px inset"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        6,
+        8,
+        10,
+        12,
+        14,
+        18
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      560
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "grid",
+    "tile": "squircle",
+    "wordmarkFont": "Newsreader"
+  },
+  "voice": {
+    "personality": [
+      "quiet",
+      "bookish",
+      "encouraging"
+    ],
+    "voice": {
+      "summary": "Speaks like a puzzle-book editor in cardigan sleeves: gentle, dry and happy to let you think. Hints are offered like a friendly nod, not a lecture.",
+      "dos": [
+        "Give instructions in one clear line, such as digits 1 to 6",
+        "Keep hints kind and never reveal more than asked",
+        "Use pencil and paper vocabulary"
+      ],
+      "donts": [
+        "Scoring pressure or timers that shame",
+        "Jargon like algorithm or solver",
+        "Cheerful emoji"
+      ]
+    },
+    "taglines": [
+      "A small puzzle, a good pencil",
+      "Six squares by six, no rush",
+      "Think it through, then ink it in",
+      "Puzzles for pen-and-paper people",
+      "Quiet minutes on a wooden desk"
+    ],
+    "boilerplate": "Pencil & Page is a puzzle press publishing compact logic games, starting with a six-by-six sudoku with unique solutions, pencil notes and three difficulties.",
+    "microcopy": {
+      "primaryCta": "New game",
+      "secondaryCta": "Hint",
+      "success": "Solved. Nicely done",
+      "error": "That digit clashes. Take a look",
+      "empty": "Nothing pencilled in yet"
+    }
+  }
+}

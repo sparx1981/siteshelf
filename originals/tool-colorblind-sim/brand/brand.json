@@ -1,0 +1,217 @@
+{
+  "name": "Huewise",
+  "descriptor": "Accessibility tool for colour vision",
+  "listing": {
+    "key": "o:tool-colorblind-sim",
+    "title": "Colour Blindness Simulator",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#ffffff",
+    "surface": "#f6f4ef",
+    "text": "#1b1b1f",
+    "textMuted": "#55525a",
+    "primary": "#f29e1c",
+    "secondary": "#d7263d",
+    "border": "#d6d0c2",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#d7263d"
+  },
+  "colorInventory": [
+    {
+      "hex": "#ffffff",
+      "share": 83.2
+    },
+    {
+      "hex": "#fdf3dc",
+      "share": 11.8
+    },
+    {
+      "hex": "#efecff",
+      "share": 1.7
+    },
+    {
+      "hex": "#b9cfae",
+      "share": 0.9
+    },
+    {
+      "hex": "#a3bf97",
+      "share": 0.7
+    },
+    {
+      "hex": "#1b1b1f",
+      "share": 0.5
+    },
+    {
+      "hex": "#2e933c",
+      "share": 0.4
+    },
+    {
+      "hex": "#d7263d",
+      "share": 0.3
+    },
+    {
+      "hex": "#f29e1c",
+      "share": 0.3
+    },
+    {
+      "hex": "#2f6fdb",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Outfit",
+    "body": "Inter",
+    "mono": "IBM Plex Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 52,
+        "weight": "600",
+        "lineHeight": "53.56px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.3px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14.5,
+        "weight": "400",
+        "lineHeight": "21.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Mono",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 9.5,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&family=Outfit:wght@600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(30, 30, 40, 0.5) 0px 24px 40px -28px",
+      "md": "rgba(30, 30, 40, 0.5) 0px 24px 40px -28px",
+      "lg": "rgba(30, 30, 40, 0.5) 0px 24px 40px -28px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1240,
+    "breakpoints": [
+      560,
+      1000
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "aperture",
+    "tile": "circle",
+    "wordmarkFont": "Outfit"
+  },
+  "voice": {
+    "personality": [
+      "practical",
+      "inclusive",
+      "plainly helpful"
+    ],
+    "voice": {
+      "summary": "Sounds like an accessibility specialist who explains without lecturing: calm, concrete and kind about real people with real eyes. It names the problem pair and suggests a fix.",
+      "dos": [
+        "Name the specific colours that clash",
+        "Describe what a person sees in plain words",
+        "Use American spelling, but say colour-blind accurately"
+      ],
+      "donts": [
+        "No medical jargon in the interface",
+        "Avoid blaming designers",
+        "Never imply colour blindness is a defect"
+      ]
+    },
+    "taglines": [
+      "See your palette through other eyes",
+      "Colour that works for everyone",
+      "Test before you ship",
+      "Find the pairs that blur",
+      "Design everyone can read"
+    ],
+    "boilerplate": "Huewise is an accessibility website offering a colour blindness simulator that shows how a palette, chart and scene look under the main types of colour vision deficiency.",
+    "microcopy": {
+      "primaryCta": "Randomize",
+      "secondaryCta": "Reset palette",
+      "success": "Palette checked. No confusing pairs found.",
+      "error": "Couldn't read that colour. Enter a hex code like #f29e1c.",
+      "empty": "No colours yet. Add a swatch to start."
+    }
+  }
+}

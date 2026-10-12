@@ -1,0 +1,166 @@
+{
+  "name": "Kerbhop",
+  "descriptor": "Fast city rides with upfront fares",
+  "listing": {
+    "key": "o:app-ride-booking",
+    "title": "Ride Booking Sheet",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#14161f",
+    "surface": "#e9e6df",
+    "text": "#ffffff",
+    "textMuted": "#adadb1",
+    "primary": "#3a3fd8",
+    "secondary": "#0b5c3d",
+    "border": "#dcdfe9",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#acaeef"
+  },
+  "colorInventory": [
+    {
+      "hex": "#14161f",
+      "share": 26.6
+    },
+    {
+      "hex": "#f4f1ea",
+      "share": 26.5
+    },
+    {
+      "hex": "#d9d4c6",
+      "share": 26.5
+    },
+    {
+      "hex": "#ffffff",
+      "share": 16.5
+    },
+    {
+      "hex": "#000000",
+      "share": 3.0
+    },
+    {
+      "hex": "#3a3fd8",
+      "share": 0.7
+    },
+    {
+      "hex": "#5c6275",
+      "share": 0.1
+    },
+    {
+      "hex": "#c5c8d4",
+      "share": 0.0
+    },
+    {
+      "hex": "#7aa86a",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b5c3d",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "21.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "500",
+        "lineHeight": "18.125px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 2,
+      "md": 16,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.2) 0px 6px 16px 0px",
+      "md": "rgba(0, 0, 0, 0.4) 0px -20px 50px -20px",
+      "lg": "rgba(0, 0, 0, 0.6) 0px 50px 100px -30px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      520
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "target",
+    "tile": "none",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "quick",
+      "reassuring",
+      "local"
+    ],
+    "voice": {
+      "summary": "Kerbhop sounds like a cab driver who knows the streets and quotes a fair price before you get in. Copy is brisk and British, with minutes and pounds always stated up front.",
+      "dos": [
+        "Show the fare and the wait together, like '3 min away, £9.30'",
+        "Use plain street words: pickup, drop-off, kerb",
+        "Confirm every step with a short present-tense line"
+      ],
+      "donts": [
+        "Do not hide surge or fees behind small print",
+        "Avoid slang that confuses first-time riders",
+        "Never promise an arrival time the map cannot back up"
+      ]
+    },
+    "taglines": [
+      "Your ride, at your kerb",
+      "Know the fare before you go",
+      "Three minutes away, give or take",
+      "Hop in, we know the way",
+      "City rides without the haggle"
+    ],
+    "boilerplate": "Kerbhop is a ride-hailing app that shows live fares, seat counts and arrival times for every vehicle before a driver is requested.",
+    "microcopy": {
+      "primaryCta": "Request Comfort",
+      "secondaryCta": "Change pickup",
+      "success": "Driver found. Priya is two minutes away.",
+      "error": "We could not find a driver. Try a different vehicle.",
+      "empty": "No saved places yet. Add home or work."
+    }
+  }
+}

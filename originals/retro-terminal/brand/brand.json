@@ -1,0 +1,136 @@
+{
+  "name": "Phosphor",
+  "descriptor": "Developer portfolio built as a green-screen terminal",
+  "listing": {
+    "key": "o:retro-terminal",
+    "title": "Terminal Portfolio",
+    "category": "Portfolio"
+  },
+  "colors": {
+    "background": "#050805",
+    "surface": "#0c130c",
+    "text": "#39ff88",
+    "textMuted": "#27a95a",
+    "primary": "#39ff88",
+    "secondary": "#1f8c4b",
+    "border": "#1d2a1d",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#1f8c4b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#050805",
+      "share": 99.4
+    },
+    {
+      "hex": "#39ff88",
+      "share": 0.5
+    },
+    {
+      "hex": "#1d2a1d",
+      "share": 0.1
+    },
+    {
+      "hex": "#27a95a",
+      "share": 0.0
+    },
+    {
+      "hex": "#1f8c4b",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "IBM Plex Mono",
+    "body": "IBM Plex Mono",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Button",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=VT323&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 14,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "color(srgb 0.223529 1 0.533333 / 0.3) 0px 0px 60px -10px",
+      "md": "color(srgb 0.223529 1 0.533333 / 0.3) 0px 0px 60px -10px",
+      "lg": "color(srgb 0.223529 1 0.533333 / 0.3) 0px 0px 60px -10px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      600
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chevrons",
+    "tile": "squircle",
+    "wordmarkFont": "IBM Plex Mono"
+  },
+  "voice": {
+    "personality": [
+      "dry",
+      "technical",
+      "nostalgic"
+    ],
+    "voice": {
+      "summary": "Phosphor writes like a man page with a sense of humour: terse, lowercase-friendly and full of understated commands. It uses dry in-jokes for those who recognise them and plain help text for everyone else.",
+      "dos": [
+        "Answer commands with one clear line",
+        "Offer help text without asking",
+        "Use technical words accurately and sparingly"
+      ],
+      "donts": [
+        "Do not fake hacker slang",
+        "Avoid long paragraphs in the terminal",
+        "Never leave a command without feedback"
+      ]
+    },
+    "taglines": [
+      "Type help to begin",
+      "A portfolio you run",
+      "Booting a better CV",
+      "Green screens never die",
+      "Commands, not clicks"
+    ],
+    "boilerplate": "Phosphor is a developer's portfolio disguised as a green-screen terminal, where projects, skills and contact details are all one typed command away.",
+    "microcopy": {
+      "primaryCta": "Run help",
+      "secondaryCta": "Switch theme",
+      "success": "Theme set to amber.",
+      "error": "Command not found. Type help for a list.",
+      "empty": "No history yet. Type a command and press Enter."
+    }
+  }
+}

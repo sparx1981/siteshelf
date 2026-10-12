@@ -1,0 +1,206 @@
+{
+  "name": "Stash",
+  "descriptor": "A calm home for links, notes and ideas",
+  "listing": {
+    "key": "o:sticky-scroll-features",
+    "title": "Sticky Scroll Features",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#f7f5f0",
+    "surface": "#ffd9c2",
+    "text": "#1b1812",
+    "textMuted": "#6e675a",
+    "primary": "#e4572e",
+    "secondary": "#22a06b",
+    "border": "#e2ddd2",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#662b1c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f7f5f0",
+      "share": 91.3
+    },
+    {
+      "hex": "#ffd9c2",
+      "share": 7.8
+    },
+    {
+      "hex": "#1b1812",
+      "share": 0.5
+    },
+    {
+      "hex": "#6e675a",
+      "share": 0.3
+    },
+    {
+      "hex": "#e4572e",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffe08a",
+      "share": 0.0
+    },
+    {
+      "hex": "#22a06b",
+      "share": 0.0
+    },
+    {
+      "hex": "#e2ddd2",
+      "share": 0.0
+    },
+    {
+      "hex": "#000000",
+      "share": 0.0
+    },
+    {
+      "hex": "#b03a17",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Instrument Serif",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Instrument Serif",
+        "stack": "'Instrument Serif', Georgia, serif",
+        "sizePx": 84,
+        "weight": "400",
+        "lineHeight": "85.68px",
+        "letterSpacing": "-1.68px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Instrument Serif",
+        "stack": "'Instrument Serif', Georgia, serif",
+        "sizePx": 52,
+        "weight": "400",
+        "lineHeight": "54.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "400",
+        "lineHeight": "32px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "27.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14.2,
+        "weight": "500",
+        "lineHeight": "22.6667px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 12,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.2) 0px 10px 30px -14px",
+      "md": "rgba(40, 30, 10, 0.35) 0px 40px 80px -30px",
+      "lg": "rgba(0, 0, 0, 0.2) 0px 10px 30px -14px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        8,
+        9,
+        10,
+        12,
+        14,
+        16,
+        26
+      ]
+    },
+    "container": 1180,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "stack",
+    "tile": "none",
+    "wordmarkFont": "Instrument Serif"
+  },
+  "voice": {
+    "personality": [
+      "tidy",
+      "calm",
+      "clever"
+    ],
+    "voice": {
+      "summary": "A minimalist friend who keeps everything in order: unfussy, light-hearted and confident that less is enough. Feature descriptions are small, concrete moments.",
+      "dos": [
+        "Describe each feature as a single action, such as capture, organise, find, share",
+        "Show the keystroke or click involved",
+        "Keep copy sentence-case and short"
+      ],
+      "donts": [
+        "Productivity hype",
+        "Long feature lists",
+        "Overusing words like effortless"
+      ]
+    },
+    "taglines": [
+      "Everything you save, exactly where you left it",
+      "One shelf, all your ideas",
+      "Capture in a keystroke",
+      "Tidy by default",
+      "Save it now, find it fast"
+    ],
+    "boilerplate": "Stash is a calm home for links, notes and ideas, built on four small habits: capture, organise, find and share a tidy shelf.",
+    "microcopy": {
+      "primaryCta": "Save to Stash",
+      "secondaryCta": "Copy",
+      "success": "Saved to your shelf",
+      "error": "Couldn't save that. Try again",
+      "empty": "Your shelf is empty. Save something"
+    }
+  }
+}

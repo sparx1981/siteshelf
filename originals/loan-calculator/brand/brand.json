@@ -1,0 +1,181 @@
+{
+  "name": "Fernlane Finance",
+  "descriptor": "Plain-English mortgage and loan calculators",
+  "listing": {
+    "key": "o:loan-calculator",
+    "title": "Loan Calculator",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#f4f6f3",
+    "surface": "#ffffff",
+    "text": "#17261f",
+    "textMuted": "#5b6b62",
+    "primary": "#0f6b4a",
+    "secondary": "#d98a1c",
+    "border": "#cdd5cb",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#d98a1c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4f6f3",
+      "share": 97.1
+    },
+    {
+      "hex": "#0f6b4a",
+      "share": 1.6
+    },
+    {
+      "hex": "#17261f",
+      "share": 0.9
+    },
+    {
+      "hex": "#5b6b62",
+      "share": 0.3
+    },
+    {
+      "hex": "#d98a1c",
+      "share": 0.1
+    },
+    {
+      "hex": "#cdd5cb",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Figtree",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 38,
+        "weight": "700",
+        "lineHeight": "43.7px",
+        "letterSpacing": "-0.76px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "19.5px",
+        "letterSpacing": "0.78px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:wght@600&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 10,
+      "lg": 12,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(20, 40, 30, 0.05) 0px 1px 2px 0px",
+      "md": "rgba(0, 0, 0, 0.12) 0px 1px 3px 0px",
+      "lg": "rgba(20, 40, 30, 0.05) 0px 1px 2px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        11,
+        12,
+        18,
+        20,
+        22
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      520,
+      860
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "coins",
+    "tile": "squircle",
+    "wordmarkFont": "Figtree"
+  },
+  "voice": {
+    "personality": [
+      "steady",
+      "transparent",
+      "friendly"
+    ],
+    "voice": {
+      "summary": "Fernlane Finance explains loans the way a patient adviser would over tea: figures first, jargon translated, nothing scary. Every number is shown with its meaning and every assumption is stated.",
+      "dos": [
+        "Show the monthly payment first, then how it is made up",
+        "Define terms like APR in one plain sentence",
+        "State that figures are illustrative"
+      ],
+      "donts": [
+        "Do not use scare phrases like 'trapped in debt'",
+        "Avoid hidden assumptions",
+        "Never recommend a product without the numbers"
+      ]
+    },
+    "taglines": [
+      "Know your repayments before you ask",
+      "Move a slider, see the number",
+      "Loans without the jargon",
+      "Borrowing, shown clearly",
+      "Every pound explained"
+    ],
+    "boilerplate": "Fernlane Finance is a set of plain-English tools for understanding mortgages and loans, with live repayment figures, interest breakdowns and a full amortisation table.",
+    "microcopy": {
+      "primaryCta": "See my repayments",
+      "secondaryCta": "Show full table",
+      "success": "Calculation updated.",
+      "error": "Enter an amount between £1,000 and £1,000,000.",
+      "empty": "Enter your loan details to see the monthly payment."
+    }
+  }
+}

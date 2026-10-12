@@ -1,0 +1,193 @@
+{
+  "name": "Ember & Oak",
+  "descriptor": "Home and outdoor goods shop",
+  "listing": {
+    "key": "o:shop-flash-sale",
+    "title": "Flash Sale Countdown",
+    "category": "E-commerce"
+  },
+  "colors": {
+    "background": "#1b1320",
+    "surface": "#261b2e",
+    "text": "#fff3df",
+    "textMuted": "#e6d9ea",
+    "primary": "#ffc247",
+    "secondary": "#4a3226",
+    "border": "#3d2e4a",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#4a3226"
+  },
+  "colorInventory": [
+    {
+      "hex": "#1b1320",
+      "share": 87.9
+    },
+    {
+      "hex": "#ff6a2b",
+      "share": 7.3
+    },
+    {
+      "hex": "#000000",
+      "share": 2.3
+    },
+    {
+      "hex": "#3d2e4a",
+      "share": 0.7
+    },
+    {
+      "hex": "#ffc247",
+      "share": 0.6
+    },
+    {
+      "hex": "#4a3226",
+      "share": 0.3
+    },
+    {
+      "hex": "#2a3a38",
+      "share": 0.3
+    },
+    {
+      "hex": "#4a5a3a",
+      "share": 0.3
+    },
+    {
+      "hex": "#fff3df",
+      "share": 0.2
+    },
+    {
+      "hex": "#6fe0a8",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Bricolage Grotesque",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 92,
+        "weight": "800",
+        "lineHeight": "87.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.4px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        16,
+        20
+      ]
+    },
+    "container": 1240,
+    "breakpoints": [
+      420,
+      900
+    ],
+    "motion": {
+      "duration": 400,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bolt",
+    "tile": "circle",
+    "wordmarkFont": "Bricolage Grotesque"
+  },
+  "voice": {
+    "personality": [
+      "warm",
+      "energetic",
+      "honest"
+    ],
+    "voice": {
+      "summary": "Sounds like a shopkeeper who truly wants you to enjoy a good afternoon: excited but straightforward, and upfront that counts are simulated. No pressure beyond the clock.",
+      "dos": [
+        "Say how many are left in plain numbers",
+        "Be transparent that the sale ends",
+        "Keep urgency friendly, never panicked"
+      ],
+      "donts": [
+        "No fake scarcity",
+        "Avoid shouting in capitals",
+        "Never guilt a shopper for leaving"
+      ]
+    },
+    "taglines": [
+      "Up to 40 percent off, one afternoon",
+      "Good things, for a short time",
+      "Warm deals while the fire's lit",
+      "One afternoon, honest prices",
+      "Grab it before the embers fade"
+    ],
+    "boilerplate": "Ember & Oak is a shop selling well-made home and outdoor goods, running an honest one-afternoon flash sale with real countdowns and a short cart hold.",
+    "microcopy": {
+      "primaryCta": "Add to bag",
+      "secondaryCta": "Notify me",
+      "success": "Added to your bag. Held for 10 minutes.",
+      "error": "That one just sold out. Tap notify me.",
+      "empty": "Your bag is empty. Have a look around."
+    }
+  }
+}

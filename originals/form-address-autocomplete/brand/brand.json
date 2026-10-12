@@ -1,0 +1,164 @@
+{
+  "name": "Doorstep",
+  "descriptor": "Delivery address entry that does the typing",
+  "listing": {
+    "key": "o:form-address-autocomplete",
+    "title": "Address Form with Autocomplete",
+    "category": "Form"
+  },
+  "colors": {
+    "background": "#f6f3ee",
+    "surface": "#ffffff",
+    "text": "#1d2a2f",
+    "textMuted": "#5b6b70",
+    "primary": "#0f766e",
+    "secondary": "#7bb4af",
+    "border": "#cfd8d6",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#7bb4af"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6f3ee",
+      "share": 82.8
+    },
+    {
+      "hex": "#ffffff",
+      "share": 15.6
+    },
+    {
+      "hex": "#0f766e",
+      "share": 1.5
+    },
+    {
+      "hex": "#1d2a2f",
+      "share": 0.1
+    },
+    {
+      "hex": "#5b6b70",
+      "share": 0.1
+    },
+    {
+      "hex": "#7bb4af",
+      "share": 0.0
+    },
+    {
+      "hex": "#cfd8d6",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 28,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Inter:wght@400;600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 12,
+      "lg": 16,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(29, 42, 47, 0.12) 0px 12px 40px 0px",
+      "md": "rgba(29, 42, 47, 0.12) 0px 12px 40px 0px",
+      "lg": "rgba(29, 42, 47, 0.12) 0px 12px 40px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        11,
+        12,
+        13,
+        14,
+        16,
+        18,
+        24
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      520
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "home",
+    "tile": "circle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "helpful",
+      "brisk",
+      "careful"
+    ],
+    "voice": {
+      "summary": "Sounds like a courier who just wants to get it right: short questions, instant confirmation and no jargon. Errors are specific and always say how to fix them.",
+      "dos": [
+        "Ask one thing at a time",
+        "Confirm the address back in full",
+        "Name the field when something is wrong"
+      ],
+      "donts": [
+        "No generic invalid input messages",
+        "Avoid abbreviations like addr",
+        "Never make people retype what we already know"
+      ]
+    },
+    "taglines": [
+      "Where should we deliver?",
+      "Type less, arrive sooner",
+      "Your door, found in seconds",
+      "Right address, first time",
+      "Delivery starts at your doorstep"
+    ],
+    "boilerplate": "Doorstep is an address form component that suggests matching addresses as you type, fills in street, city and postcode, and confirms the result before checkout.",
+    "microcopy": {
+      "primaryCta": "Confirm address",
+      "secondaryCta": "Enter manually",
+      "success": "Address confirmed. We'll deliver there.",
+      "error": "We couldn't find that address. Check it or enter it manually.",
+      "empty": "Start typing to see matching addresses."
+    }
+  }
+}

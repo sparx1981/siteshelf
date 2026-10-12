@@ -1,0 +1,207 @@
+{
+  "name": "Starling Almanac",
+  "descriptor": "Quarterly almanac of small rockets and the people behind them",
+  "listing": {
+    "key": "o:footer-rocket-top",
+    "title": "Rocket Back-To-Top",
+    "category": "Footer"
+  },
+  "colors": {
+    "background": "#070b1f",
+    "surface": "#101735",
+    "text": "#aab4e6",
+    "textMuted": "#eef1ff",
+    "primary": "#5ce1ff",
+    "secondary": "#c4ccf2",
+    "border": "#26306b",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#2d6574"
+  },
+  "colorInventory": [
+    {
+      "hex": "#070b1f",
+      "share": 72.9
+    },
+    {
+      "hex": "#101735",
+      "share": 16.6
+    },
+    {
+      "hex": "#4b2aa8",
+      "share": 9.1
+    },
+    {
+      "hex": "#5ce1ff",
+      "share": 0.3
+    },
+    {
+      "hex": "#aab4e6",
+      "share": 0.3
+    },
+    {
+      "hex": "#ff7a2f",
+      "share": 0.2
+    },
+    {
+      "hex": "#1a2250",
+      "share": 0.2
+    },
+    {
+      "hex": "#eef1ff",
+      "share": 0.2
+    },
+    {
+      "hex": "#ffd24a",
+      "share": 0.1
+    },
+    {
+      "hex": "#c084fc",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Outfit",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 84,
+        "weight": "800",
+        "lineHeight": "82.32px",
+        "letterSpacing": "-2.1px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 19,
+        "weight": "400",
+        "lineHeight": "30.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.3px",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@600;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 20,
+      "md": 20,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 122, 47, 0.8) 0px 14px 30px -12px",
+      "md": "rgba(255, 122, 47, 0.8) 0px 14px 30px -12px",
+      "lg": "rgba(255, 122, 47, 0.8) 0px 14px 30px -12px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        5,
+        10,
+        12,
+        18,
+        20,
+        22,
+        24
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      520,
+      860
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "rocket",
+    "tile": "squircle",
+    "wordmarkFont": "Outfit"
+  },
+  "voice": {
+    "personality": [
+      "wry",
+      "enthusiastic",
+      "historical"
+    ],
+    "voice": {
+      "summary": "Starling Almanac writes with the nerdy affection of a space-history society newsletter. Countdowns, mission names and tiny engineering anecdotes carry the story, with a wink at near-failures.",
+      "dos": [
+        "Use mission names and dates as hooks",
+        "Tell the story of the engineers, not just the hardware",
+        "Keep a dry countdown rhythm: three, two, one"
+      ],
+      "donts": [
+        "Do not use space-race hype or 'to infinity' puns",
+        "Avoid unexplained acronyms",
+        "Never sound like a launch-day press release"
+      ]
+    },
+    "taglines": [
+      "Every launch begins with a countdown",
+      "Small rockets, patient engineers",
+      "The missions that nearly did not fly",
+      "Ten, nine, scroll home",
+      "History from the launch pad up"
+    ],
+    "boilerplate": "Starling Almanac is a quarterly publication celebrating small rockets, patient engineers and the missions that nearly did not fly, from Lantern-1 to the Tern Relay.",
+    "microcopy": {
+      "primaryCta": "Launch to top",
+      "secondaryCta": "Read the almanac",
+      "success": "Liftoff. You are back at the top.",
+      "error": "Ignition failed. Please press the button again.",
+      "empty": "No missions in this issue yet."
+    }
+  }
+}

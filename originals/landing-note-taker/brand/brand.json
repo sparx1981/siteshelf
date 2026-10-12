@@ -1,0 +1,206 @@
+{
+  "name": "Marginalia",
+  "descriptor": "AI meeting notes for small teams",
+  "listing": {
+    "key": "o:landing-note-taker",
+    "title": "Marginalia Meeting Notes",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#fbf8f2",
+    "surface": "#ffffff",
+    "text": "#6b6256",
+    "textMuted": "#1f1b16",
+    "primary": "#1f6b4f",
+    "secondary": "#b3261e",
+    "border": "#e8e0d0",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#a1c1b5"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fbf8f2",
+      "share": 87.2
+    },
+    {
+      "hex": "#1f6b4f",
+      "share": 12.3
+    },
+    {
+      "hex": "#6b6256",
+      "share": 0.3
+    },
+    {
+      "hex": "#1f1b16",
+      "share": 0.2
+    },
+    {
+      "hex": "#dff3ea",
+      "share": 0.0
+    },
+    {
+      "hex": "#e8e0d0",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffe27a",
+      "share": 0.0
+    },
+    {
+      "hex": "#000000",
+      "share": 0.0
+    },
+    {
+      "hex": "#b3261e",
+      "share": 0.0
+    },
+    {
+      "hex": "#14543d",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Newsreader",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 76,
+        "weight": "500",
+        "lineHeight": "79.04px",
+        "letterSpacing": "-1.52px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.68px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "19.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,500;1,500&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 18,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(60, 40, 10, 0.28) 0px 30px 80px -30px",
+      "md": "rgba(60, 40, 10, 0.28) 0px 30px 80px -30px",
+      "lg": "rgba(60, 40, 10, 0.28) 0px 30px 80px -30px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        24,
+        26
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      820
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "book",
+    "tile": "none",
+    "wordmarkFont": "Newsreader"
+  },
+  "voice": {
+    "personality": [
+      "thoughtful",
+      "literate",
+      "useful"
+    ],
+    "voice": {
+      "summary": "Marginalia sounds like a good note-taker at the table: calm, precise and quietly editorial. It talks about decisions and actions, not artificial intelligence.",
+      "dos": [
+        "Name outputs: decision, action item, owner",
+        "Keep promises about notes modest and specific",
+        "Use italic emphasis for the one word that matters"
+      ],
+      "donts": [
+        "Do not lean on AI jargon in headlines",
+        "Avoid claims of perfect accuracy",
+        "Never nag people about meetings"
+      ]
+    },
+    "taglines": [
+      "Meetings end. The notes shouldn't",
+      "Give your next meeting a memory",
+      "Every decision, written down",
+      "Notes that write themselves, kindly",
+      "Hear every decision, keep every action"
+    ],
+    "boilerplate": "Marginalia is an AI meeting-notes tool for small teams that joins calls, writes clean notes live and pulls out every decision and action item before the meeting ends.",
+    "microcopy": {
+      "primaryCta": "Start free, no card",
+      "secondaryCta": "Watch a 2 minute demo",
+      "success": "Notes saved to your workspace.",
+      "error": "Could not join that call. Check the link and try again.",
+      "empty": "No meetings yet. Paste a call link."
+    }
+  }
+}

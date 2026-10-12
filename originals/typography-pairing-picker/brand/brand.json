@@ -1,0 +1,190 @@
+{
+  "name": "Pairhouse",
+  "descriptor": "Font pairing tool with live editorial samples",
+  "listing": {
+    "key": "o:typography-pairing-picker",
+    "title": "Font Pairing Picker",
+    "category": "Typography"
+  },
+  "colors": {
+    "background": "#faf6ee",
+    "surface": "#ffffff",
+    "text": "#1f1b16",
+    "textMuted": "#7a6f5c",
+    "primary": "#b4451f",
+    "secondary": "#d69984",
+    "border": "#e9e1d2",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#d69984"
+  },
+  "colorInventory": [
+    {
+      "hex": "#faf6ee",
+      "share": 92.4
+    },
+    {
+      "hex": "#1f1b16",
+      "share": 6.3
+    },
+    {
+      "hex": "#b4451f",
+      "share": 0.8
+    },
+    {
+      "hex": "#f3e9d6",
+      "share": 0.1
+    },
+    {
+      "hex": "#7a6f5c",
+      "share": 0.1
+    },
+    {
+      "hex": "#5d5445",
+      "share": 0.1
+    },
+    {
+      "hex": "#d69984",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Source Sans 3",
+    "mono": "monospace",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Playfair Display",
+        "stack": "'Playfair Display', Georgia, serif",
+        "sizePx": 52,
+        "weight": "700",
+        "lineHeight": "54.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Source Sans 3",
+        "stack": "'Source Sans 3', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "30.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "400",
+        "lineHeight": "18.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "monospace",
+        "stack": "ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "18px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&family=DM+Serif+Display&family=Fraunces:wght@400;600;800&family=Inter:wght@400;600&family=Lora:ital,wght@0,400;1,400&family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@400;600&family=Space+Grotesk:wght@400;500;700&family=Work+Sans:wght@400;500&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 10,
+      "lg": 10,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        8,
+        9,
+        10,
+        12,
+        14,
+        18,
+        20,
+        22
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      860
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "monogram",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "thoughtful",
+      "tasteful",
+      "hands-on"
+    ],
+    "voice": {
+      "summary": "A type designer teaching by example: precise about weights and sizes, relaxed about taste. It always shows the pair before it explains it.",
+      "dos": [
+        "Name typefaces, sizes and weights exactly",
+        "Describe a pairing by its effect on reading",
+        "Offer the CSS right away"
+      ],
+      "donts": [
+        "Declaring a font right or wrong",
+        "Jargon without an example",
+        "Hype about trends"
+      ]
+    },
+    "taglines": [
+      "Find the pair that reads right",
+      "Type that disappears into reading",
+      "Try before you copy",
+      "Two fonts, one good page",
+      "Headings and body, in harmony"
+    ],
+    "boilerplate": "Pairhouse is a font pairing tool that lets designers browse curated heading and body combinations on a live editorial sample and copy the CSS.",
+    "microcopy": {
+      "primaryCta": "Copy CSS",
+      "secondaryCta": "Continue reading",
+      "success": "CSS copied to clipboard",
+      "error": "Couldn't copy. Select the code by hand",
+      "empty": "No pair selected. Choose one"
+    }
+  }
+}

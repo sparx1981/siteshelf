@@ -1,0 +1,187 @@
+{
+  "name": "Northfold",
+  "descriptor": "Product company with a tidy, collapsible site footer",
+  "listing": {
+    "key": "o:footer-sitemap-accordion",
+    "title": "Footer with Accordion Sitemap",
+    "category": "Footer"
+  },
+  "colors": {
+    "background": "#f1f4f0",
+    "surface": "#101418",
+    "text": "#5b665f",
+    "textMuted": "#101418",
+    "primary": "#b6f23d",
+    "secondary": "#648522",
+    "border": "#2b3641",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#648522"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f1f4f0",
+      "share": 72.7
+    },
+    {
+      "hex": "#101418",
+      "share": 26.5
+    },
+    {
+      "hex": "#1a2128",
+      "share": 0.5
+    },
+    {
+      "hex": "#aeb8c2",
+      "share": 0.2
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.0
+    },
+    {
+      "hex": "#5b665f",
+      "share": 0.0
+    },
+    {
+      "hex": "#d4dde5",
+      "share": 0.0
+    },
+    {
+      "hex": "#b6f23d",
+      "share": 0.0
+    },
+    {
+      "hex": "#648522",
+      "share": 0.0
+    },
+    {
+      "hex": "#2b3641",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 34,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 18.7,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "1.3px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 8,
+      "lg": 8,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(182, 242, 61, 0.18) 0px 0px 0px 4px",
+      "md": "rgba(182, 242, 61, 0.18) 0px 0px 0px 4px",
+      "lg": "rgba(182, 242, 61, 0.18) 0px 0px 0px 4px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        16,
+        22,
+        24,
+        32
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      760,
+      761
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "diamond",
+    "tile": "squircle",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "orderly",
+      "modern",
+      "helpful"
+    ],
+    "voice": {
+      "summary": "Plain-spoken and structured, like a good sitemap: everything has a place and a label that says what it is. It reassures with status and clarity, not slogans.",
+      "dos": [
+        "Label links with the noun a visitor expects",
+        "Keep status messages literal, such as all systems normal",
+        "Write headings in sentence-length fragments, never puns"
+      ],
+      "donts": [
+        "Clever link names that hide the destination",
+        "Legal text in marketing voice",
+        "Exclamation marks in a footer"
+      ]
+    },
+    "taglines": [
+      "Everything, neatly in its place",
+      "Find your way in one fold",
+      "Clear links, calm pages",
+      "Navigation without the maze",
+      "All systems normal, all paths clear"
+    ],
+    "boilerplate": "Northfold makes software for small teams, and keeps its site simple with clear sections for product, company, resources and legal, plus a live status indicator.",
+    "microcopy": {
+      "primaryCta": "Back to top",
+      "secondaryCta": "Open section",
+      "success": "Language updated",
+      "error": "Could not change currency. Try again",
+      "empty": "No links in this section"
+    }
+  }
+}

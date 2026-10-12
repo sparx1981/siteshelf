@@ -1,0 +1,171 @@
+{
+  "name": "Aphelion Voyages",
+  "descriptor": "Deep-space travel for private passengers",
+  "listing": {
+    "key": "m:space-voyage",
+    "title": "Space Voyage",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#85a7d1",
+    "surface": "#ffffff",
+    "text": "#000000",
+    "textMuted": "#2f3a49",
+    "primary": "#000000",
+    "secondary": "#737373",
+    "border": "#7290b4",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#737373"
+  },
+  "colorInventory": [
+    {
+      "hex": "#85a7d1",
+      "share": 98.9
+    },
+    {
+      "hex": "#ffffff",
+      "share": 1.1
+    },
+    {
+      "hex": "#000000",
+      "share": 0.0
+    },
+    {
+      "hex": "#2f3a49",
+      "share": 0.0
+    },
+    {
+      "hex": "#737373",
+      "share": 0.0
+    },
+    {
+      "hex": "#7290b4",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Instrument Serif",
+    "body": "Barlow",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Instrument Serif",
+        "stack": "'Instrument Serif', Georgia, serif",
+        "sizePx": 88,
+        "weight": "400",
+        "lineHeight": "70.4px",
+        "letterSpacing": "-4px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Barlow",
+        "stack": "'Barlow', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "300",
+        "lineHeight": "20px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Barlow",
+        "stack": "'Barlow', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Barlow",
+        "stack": "'Barlow', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&family=Archivo:wght@300;400;500;600&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 8,
+      "lg": 8,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset",
+      "md": "rgba(0, 0, 0, 0.05) 4px 4px 4px 0px, rgba(255, 255, 255, 0.15) 0px 1px 1px 0px inset",
+      "lg": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        24
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      768,
+      1024
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "rocket",
+    "tile": "squircle",
+    "wordmarkFont": "Instrument Serif"
+  },
+  "voice": {
+    "personality": [
+      "awestruck",
+      "poised",
+      "confident"
+    ],
+    "voice": {
+      "summary": "Aphelion Voyages speaks with the quiet awe of a veteran pilot describing the first view of the Earth from orbit. It is cinematic and spare, with an italic serif accent for the big moments.",
+      "dos": [
+        "Use concrete spaceflight images",
+        "Pair wonder with plain logistics",
+        "Reserve italics for the headline words"
+      ],
+      "donts": [
+        "Do not use 'galaxy-brain' or 'to infinity'",
+        "Do not promise safety guarantees",
+        "Do not overuse exclamation marks"
+      ]
+    },
+    "taglines": [
+      "Venture past our sky",
+      "Across the universe, within reach",
+      "Take your seat among the stars",
+      "Voyages to worlds beyond",
+      "Claim a spot, leave the atmosphere"
+    ],
+    "boilerplate": "Aphelion Voyages is a private spaceflight company offering seats on deep-space voyages, built with pioneering vessels and extraordinary engineering.",
+    "microcopy": {
+      "primaryCta": "Claim a spot",
+      "secondaryCta": "View liftoff",
+      "success": "Seat reserved. Your voyage coordinator will call you.",
+      "error": "We could not hold that seat. Please try again.",
+      "empty": "No voyages scheduled. Check back soon."
+    }
+  }
+}

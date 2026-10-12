@@ -1,0 +1,172 @@
+{
+  "name": "Tallybook",
+  "descriptor": "Customer records, sorted and counted",
+  "listing": {
+    "key": "o:data-table",
+    "title": "Data Table",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#f8fafc",
+    "surface": "#dcfce7",
+    "text": "#0f172a",
+    "textMuted": "#64748b",
+    "primary": "#4f46e5",
+    "secondary": "#15803d",
+    "border": "#e2e8f0",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#b5b1f4"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f8fafc",
+      "share": 97.4
+    },
+    {
+      "hex": "#dcfce7",
+      "share": 0.7
+    },
+    {
+      "hex": "#4f46e5",
+      "share": 0.5
+    },
+    {
+      "hex": "#0f172a",
+      "share": 0.4
+    },
+    {
+      "hex": "#64748b",
+      "share": 0.3
+    },
+    {
+      "hex": "#fee2e2",
+      "share": 0.2
+    },
+    {
+      "hex": "#0891b2",
+      "share": 0.2
+    },
+    {
+      "hex": "#7c3aed",
+      "share": 0.1
+    },
+    {
+      "hex": "#16a34a",
+      "share": 0.1
+    },
+    {
+      "hex": "#e2e8f0",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "600",
+        "lineHeight": "31.2px",
+        "letterSpacing": "-0.52px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "18px",
+        "letterSpacing": "-0.52px",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 14,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1180,
+    "breakpoints": [
+      760
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "grid",
+    "tile": "none",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "orderly",
+      "practical",
+      "plain-spoken"
+    ],
+    "voice": {
+      "summary": "Tallybook sounds like a tidy bookkeeper: clear about counts, statuses and what a bulk action will touch. It uses ordinary business words and never dresses up a spreadsheet.",
+      "dos": [
+        "Put the count in the label, such as '3 selected'",
+        "Name each status in a single word",
+        "Say exactly how many rows an action affects"
+      ],
+      "donts": [
+        "Use words like 'leverage' or 'empower'",
+        "Hide what a bulk action will change",
+        "Write long empty-state messages"
+      ]
+    },
+    "taglines": [
+      "Every customer, in order",
+      "Sort it, filter it, done",
+      "Counts you can trust",
+      "Records without the clutter",
+      "Find the row, skip the hunt"
+    ],
+    "boilerplate": "Tallybook is a customer data table with sorting, filters, bulk actions and export, built for small teams that need to find and update accounts quickly.",
+    "microcopy": {
+      "primaryCta": "Add customer",
+      "secondaryCta": "Export",
+      "success": "3 customers exported.",
+      "error": "Could not export. Check your selection and retry.",
+      "empty": "No customers match these filters."
+    }
+  }
+}

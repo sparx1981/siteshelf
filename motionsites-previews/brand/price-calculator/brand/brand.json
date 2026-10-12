@@ -1,0 +1,184 @@
+{
+  "name": "Ballpark",
+  "descriptor": "Project estimation tool for web studios",
+  "listing": {
+    "key": "m:price-calculator",
+    "title": "Price Calculator",
+    "category": "SaaS"
+  },
+  "colors": {
+    "background": "#0a0a0a",
+    "surface": "#262626",
+    "text": "#fafafa",
+    "textMuted": "#a3a3a3",
+    "primary": "#ff5656",
+    "secondary": "#ffa2a2",
+    "border": "#525252",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#712a2d"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0a0a0a",
+      "share": 92.6
+    },
+    {
+      "hex": "#262626",
+      "share": 4.0
+    },
+    {
+      "hex": "#ec4899",
+      "share": 1.3
+    },
+    {
+      "hex": "#f97316",
+      "share": 1.3
+    },
+    {
+      "hex": "#fafafa",
+      "share": 0.4
+    },
+    {
+      "hex": "#a3a3a3",
+      "share": 0.2
+    },
+    {
+      "hex": "#d4d4d4",
+      "share": 0.1
+    },
+    {
+      "hex": "#ff5656",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffa2a2",
+      "share": 0.0
+    },
+    {
+      "hex": "#525252",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 48,
+        "weight": "400",
+        "lineHeight": "55.2px",
+        "letterSpacing": "-0.96px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "500",
+        "lineHeight": "27px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "DM Mono",
+        "stack": "'DM Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "19.5px",
+        "letterSpacing": "1.3px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 16,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        8,
+        12,
+        16,
+        18,
+        24,
+        28,
+        48,
+        64
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      420,
+      768,
+      1024
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bars",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "straight-talking",
+      "friendly",
+      "practical"
+    ],
+    "voice": {
+      "summary": "Ballpark sounds like a seasoned studio lead giving you a fair estimate across a table. It trusts numbers and asks plain questions before offering a range.",
+      "dos": [
+        "Ask one question at a time",
+        "Present a price as a range",
+        "Explain what moves the number"
+      ],
+      "donts": [
+        "Do not hide the range behind a form",
+        "Avoid 'premium' without evidence",
+        "Never quote without listing the assumptions"
+      ]
+    },
+    "taglines": [
+      "Get a premium website within your budget",
+      "Price your project in a minute",
+      "A fair number, before the call",
+      "Know the cost before the kickoff",
+      "Estimates without the runaround"
+    ],
+    "boilerplate": "Ballpark is a project estimation calculator for web studios, giving clients an instant price range based on pages, features and timeline.",
+    "microcopy": {
+      "primaryCta": "Get my estimate",
+      "secondaryCta": "Talk to us",
+      "success": "Estimate ready. Your range is below.",
+      "error": "We could not calculate that. Please check your inputs.",
+      "empty": "Choose your project options to see a range."
+    }
+  }
+}

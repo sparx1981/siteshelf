@@ -1,0 +1,172 @@
+{
+  "name": "Caret",
+  "descriptor": "Regular expression workbench",
+  "listing": {
+    "key": "o:tool-regex-tester",
+    "title": "Regex Tester",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#eef2f7",
+    "surface": "#ffffff",
+    "text": "#14213d",
+    "textMuted": "#000000",
+    "primary": "#2563eb",
+    "secondary": "#14213d",
+    "border": "#d3dbe8",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#14213d"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eef2f7",
+      "share": 64.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 35.3
+    },
+    {
+      "hex": "#fde68a",
+      "share": 0.4
+    },
+    {
+      "hex": "#14213d",
+      "share": 0.1
+    },
+    {
+      "hex": "#2563eb",
+      "share": 0.0
+    },
+    {
+      "hex": "#000000",
+      "share": 0.0
+    },
+    {
+      "hex": "#5b6b88",
+      "share": 0.0
+    },
+    {
+      "hex": "#7b8aa6",
+      "share": 0.0
+    },
+    {
+      "hex": "#d3dbe8",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 24,
+        "weight": "700",
+        "lineHeight": "36px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "22.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 6,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(20, 33, 61, 0.07) 0px 4px 16px 0px",
+      "md": "rgba(20, 33, 61, 0.07) 0px 4px 16px 0px",
+      "lg": "rgba(20, 33, 61, 0.07) 0px 4px 16px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1040,
+    "breakpoints": [
+      800
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chip",
+    "tile": "circle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "exact",
+      "terse",
+      "developer-friendly"
+    ],
+    "voice": {
+      "summary": "Writes like a good linter: precise, minimal and impatient with fluff. Errors point at the character and the reason.",
+      "dos": [
+        "Quote the exact character or token that failed",
+        "Use regex terms like group and flag",
+        "Keep messages under ten words"
+      ],
+      "donts": [
+        "No friendly filler like oops",
+        "Avoid long explanations",
+        "Never hide the real error message"
+      ]
+    },
+    "taglines": [
+      "Test patterns, see matches",
+      "Regex without guesswork",
+      "Match first, ship second",
+      "Every group, highlighted",
+      "Know what your pattern catches"
+    ],
+    "boilerplate": "Caret is a live regular expression workbench with flag toggles, highlighted matches and a capture-group table, built for developers who test patterns before shipping.",
+    "microcopy": {
+      "primaryCta": "Copy regex",
+      "secondaryCta": "Load sample",
+      "success": "Regex copied.",
+      "error": "Unterminated group at position 7.",
+      "empty": "No matches. Check your pattern and flags."
+    }
+  }
+}

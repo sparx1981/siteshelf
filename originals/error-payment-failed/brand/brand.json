@@ -1,0 +1,183 @@
+{
+  "name": "Oakhill Home",
+  "descriptor": "Independent homeware shop with secure checkout",
+  "listing": {
+    "key": "o:error-payment-failed",
+    "title": "Payment Failed Recovery",
+    "category": "Error Page"
+  },
+  "colors": {
+    "background": "#faf8f5",
+    "surface": "#0f766e",
+    "text": "#1e1b16",
+    "textMuted": "#625a4d",
+    "primary": "#0f766e",
+    "secondary": "#c9402e",
+    "border": "#d8cfbf",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#9ac5c2"
+  },
+  "colorInventory": [
+    {
+      "hex": "#faf8f5",
+      "share": 97.2
+    },
+    {
+      "hex": "#0f766e",
+      "share": 1.5
+    },
+    {
+      "hex": "#1e1b16",
+      "share": 0.5
+    },
+    {
+      "hex": "#fbe4e0",
+      "share": 0.2
+    },
+    {
+      "hex": "#e9d9c0",
+      "share": 0.2
+    },
+    {
+      "hex": "#d6e6e0",
+      "share": 0.2
+    },
+    {
+      "hex": "#625a4d",
+      "share": 0.1
+    },
+    {
+      "hex": "#2f7a6b",
+      "share": 0.1
+    },
+    {
+      "hex": "#a47b4a",
+      "share": 0.1
+    },
+    {
+      "hex": "#c9654f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 40,
+        "weight": "600",
+        "lineHeight": "44px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 20,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Fraunces:wght@600&family=Inter:wght@400;500;600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 14,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        4,
+        8,
+        10,
+        12,
+        14,
+        15,
+        16,
+        18
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      480,
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "home",
+    "tile": "circle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "reassuring",
+      "plain-spoken",
+      "warm"
+    ],
+    "voice": {
+      "summary": "Sounds like a shopkeeper who comes round the counter when the card machine fails: calm, clear and kind. It says first that nothing was charged, then helps, never blames.",
+      "dos": [
+        "Say what has and hasn't happened in the first sentence",
+        "Offer one clear next step at a time",
+        "Keep the basket and the time left visible"
+      ],
+      "donts": [
+        "Do not blame the customer or the bank",
+        "Do not use alarm words like failed transaction",
+        "Do not hide the support option"
+      ]
+    },
+    "taglines": [
+      "Nothing charged. Let's try again.",
+      "Your basket is safe with us",
+      "A hiccup, not a dead end",
+      "Real people, ready to help",
+      "Homewares you can take your time over"
+    ],
+    "boilerplate": "Oakhill Home is an independent British homeware shop selling considered furniture and kitchen pieces, with secure checkout and a team of real people on hand when something goes wrong.",
+    "microcopy": {
+      "primaryCta": "Pay £184.50",
+      "secondaryCta": "Chat with us",
+      "success": "Payment received. Your order is on its way.",
+      "error": "Your payment didn't go through. You haven't been charged.",
+      "empty": "Your basket is empty. Browse the shop to begin."
+    }
+  }
+}

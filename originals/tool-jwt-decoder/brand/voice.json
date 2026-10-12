@@ -1,0 +1,43 @@
+{
+  "brandName": "Sealwright",
+  "descriptor": "Developer tools for reading signed tokens",
+  "personality": [
+    "careful",
+    "exact",
+    "developer-honest"
+  ],
+  "voice": {
+    "summary": "Sealwright sounds like a careful engineer who respects the difference between decoding and verifying. It is precise, calm and never overclaims what the tool can prove.",
+    "dos": [
+      "Say 'decode' for what it does and 'verify' only when it truly verifies",
+      "Use claim names exactly as in the token",
+      "State expiry in clear time units"
+    ],
+    "donts": [
+      "Imply a token is trustworthy because it decodes",
+      "Use cryptography scare language",
+      "Use cute security metaphors beyond the wax seal"
+    ]
+  },
+  "taglines": [
+    "Read the token. Trust nothing.",
+    "Decoding is not verifying",
+    "Every claim, laid out plainly",
+    "See inside the seal",
+    "Tokens, taken apart carefully"
+  ],
+  "boilerplate": "Sealwright is a developer tool that decodes sample JSON web tokens in the browser, showing header, payload, claims and expiry without ever verifying or transmitting them.",
+  "microcopy": {
+    "primaryCta": "Decode token",
+    "secondaryCta": "Clear",
+    "success": "Decoded. Valid for 2 hours.",
+    "error": "This token is malformed. Check the three parts.",
+    "empty": "Paste a token to begin."
+  },
+  "logo": {
+    "motif": "chip",
+    "monogram": "S",
+    "wordmarkCase": "as-is",
+    "note": "A chip suggests a small, technical component, matching a tool for reading machine tokens."
+  }
+}

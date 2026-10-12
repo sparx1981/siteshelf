@@ -1,0 +1,193 @@
+{
+  "name": "Marlowe General",
+  "descriptor": "Hospital ward bed management board",
+  "listing": {
+    "key": "o:dashboard-bed-board",
+    "title": "Ward Bed Board",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#f1f6f7",
+    "surface": "#ffffff",
+    "text": "#12292e",
+    "textMuted": "#4f6a70",
+    "primary": "#0e7c86",
+    "secondary": "#e08a00",
+    "border": "#d7e4e6",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#9ac8cc"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f1f6f7",
+      "share": 78.6
+    },
+    {
+      "hex": "#0e7c86",
+      "share": 15.4
+    },
+    {
+      "hex": "#2f9e5a",
+      "share": 2.0
+    },
+    {
+      "hex": "#e08a00",
+      "share": 1.5
+    },
+    {
+      "hex": "#6b5bd6",
+      "share": 1.4
+    },
+    {
+      "hex": "#6b7a80",
+      "share": 0.7
+    },
+    {
+      "hex": "#12292e",
+      "share": 0.3
+    },
+    {
+      "hex": "#4f6a70",
+      "share": 0.1
+    },
+    {
+      "hex": "#2b1a00",
+      "share": 0.1
+    },
+    {
+      "hex": "#0a5a62",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.22px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "20.3px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.22px",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 12,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        5,
+        6,
+        8,
+        9,
+        10,
+        14,
+        15,
+        16
+      ]
+    },
+    "container": 1320,
+    "breakpoints": [
+      560,
+      1000
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "pulse",
+    "tile": "none",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "clear",
+      "calm",
+      "exact"
+    ],
+    "voice": {
+      "summary": "Speaks like a good charge nurse at handover: short, unambiguous and free of drama. Status words are fixed and never softened.",
+      "dos": [
+        "Use the same status words everywhere: occupied, cleaning, ready",
+        "Lead with the bed or bay number",
+        "Keep actions as imperative verbs"
+      ],
+      "donts": [
+        "No euphemisms for clinical status",
+        "No exclamation marks or emoji",
+        "No abbreviations that are not on the ward"
+      ]
+    },
+    "taglines": [
+      "Every bed, at a glance",
+      "Clear status, calm ward",
+      "Know the ward, hand over well",
+      "From discharge to ready",
+      "One board for the whole bay"
+    ],
+    "boilerplate": "Marlowe General runs Ward 6B with a live bed board that shows each bay, each bed's status and the steps from discharge through cleaning to ready.",
+    "microcopy": {
+      "primaryCta": "Print handover",
+      "secondaryCta": "Mark as cleaning",
+      "success": "Bed 6B-14 is now ready",
+      "error": "Could not update that bed, check the connection",
+      "empty": "Select a bed to see details and actions"
+    }
+  }
+}

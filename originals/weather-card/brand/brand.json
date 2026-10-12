@@ -1,0 +1,166 @@
+{
+  "name": "Skylark",
+  "descriptor": "Weather widget with city views and an animated sky",
+  "listing": {
+    "key": "o:weather-card",
+    "title": "Weather Widget",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#7d8fa6",
+    "surface": "#bcc8d6",
+    "text": "#ffffff",
+    "textMuted": "#1d2a3c",
+    "primary": "#ffd45c",
+    "secondary": "#9be3ff",
+    "border": "#ffffff",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#715f2f"
+  },
+  "colorInventory": [
+    {
+      "hex": "#7d8fa6",
+      "share": 48.8
+    },
+    {
+      "hex": "#bcc8d6",
+      "share": 48.8
+    },
+    {
+      "hex": "#ffffff",
+      "share": 1.9
+    },
+    {
+      "hex": "#000000",
+      "share": 0.1
+    },
+    {
+      "hex": "#9be3ff",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffd37a",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffd45c",
+      "share": 0.1
+    },
+    {
+      "hex": "#1d2a3c",
+      "share": 0.0
+    },
+    {
+      "hex": "#dfe8f5",
+      "share": 0.0
+    },
+    {
+      "hex": "#7cc4ff",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Urbanist",
+    "body": "Urbanist",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Button",
+        "family": "Urbanist",
+        "stack": "'Urbanist', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Urbanist",
+        "stack": "'Urbanist', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "16.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 16,
+      "md": 32,
+      "lg": 32,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.18) 0px 30px 60px 0px",
+      "md": "rgba(0, 0, 0, 0.18) 0px 30px 60px 0px",
+      "lg": "rgba(0, 0, 0, 0.18) 0px 30px 60px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12,
+        16,
+        22
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      420
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cloud",
+    "tile": "squircle",
+    "wordmarkFont": "Inter Bold (stand-in for Urbanist)"
+  },
+  "voice": {
+    "personality": [
+      "bright",
+      "friendly",
+      "effortless"
+    ],
+    "voice": {
+      "summary": "A cheerful morning forecaster: short, upbeat and honest about rain. It describes the sky first and the numbers second.",
+      "dos": [
+        "Name the condition before the temperature",
+        "Use both °C and °F cleanly",
+        "Keep forecasts to a plain sentence"
+      ],
+      "donts": [
+        "Meteorological jargon",
+        "Doom about storms",
+        "Vague lines like it may be nice"
+      ]
+    },
+    "taglines": [
+      "Know the sky before you go",
+      "Sun, rain or snow, at a glance",
+      "Five days, one friendly forecast",
+      "Look up, then step out",
+      "Weather that feels like weather"
+    ],
+    "boilerplate": "Skylark is a weather widget that shows the current sky, an hourly temperature curve and a five day forecast for a handful of cities.",
+    "microcopy": {
+      "primaryCta": "Switch city",
+      "secondaryCta": "Use °F",
+      "success": "Forecast updated",
+      "error": "Couldn't reach the weather. Showing the last reading",
+      "empty": "No cities saved. Add one"
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "name": "Noughts & Co.",
+  "descriptor": "Game studio of tiny classic games",
+  "listing": {
+    "key": "o:tic-tac-toe",
+    "title": "Tic-Tac-Toe vs Computer",
+    "category": "Games"
+  },
+  "colors": {
+    "background": "#fff4e6",
+    "surface": "#1f2a44",
+    "text": "#1f2a44",
+    "textMuted": "#7a6f5e",
+    "primary": "#1f2a44",
+    "secondary": "#ff7a59",
+    "border": "#f1dfc4",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#ff7a59"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fff4e6",
+      "share": 76.6
+    },
+    {
+      "hex": "#1f2a44",
+      "share": 11.1
+    },
+    {
+      "hex": "#2b3858",
+      "share": 8.5
+    },
+    {
+      "hex": "#ffffff",
+      "share": 3.7
+    },
+    {
+      "hex": "#7a6f5e",
+      "share": 0.0
+    },
+    {
+      "hex": "#ff7a59",
+      "share": 0.0
+    },
+    {
+      "hex": "#1e9cd0",
+      "share": 0.0
+    },
+    {
+      "hex": "#f1dfc4",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Baloo 2",
+    "body": "Nunito",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Baloo 2",
+        "stack": "'Baloo 2', system-ui, sans-serif",
+        "sizePx": 48,
+        "weight": "800",
+        "lineHeight": "48px",
+        "letterSpacing": "-0.48px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "0.96px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@600;700&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 9,
+      "md": 14,
+      "lg": 22,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        24
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "grid",
+    "tile": "squircle",
+    "wordmarkFont": "Baloo 2"
+  },
+  "voice": {
+    "personality": [
+      "playful",
+      "friendly",
+      "competitive"
+    ],
+    "voice": {
+      "summary": "Talks like a cheerful board-game shop owner: bright, encouraging and happy to lose to you. Jokes are small and scoreboards honest.",
+      "dos": [
+        "Cheer both players equally",
+        "Use short, chunky sentences",
+        "Name scores clearly: You, Draws, Computer"
+      ],
+      "donts": [
+        "No smugness after a computer win",
+        "Avoid insider gaming slang",
+        "Never call a draw a loss"
+      ]
+    },
+    "taglines": [
+      "Three in a row wins",
+      "Noughts, crosses, no hard feelings",
+      "Classic games, a little brighter",
+      "Your move, champion",
+      "Beat the computer if you can"
+    ],
+    "boilerplate": "Noughts & Co. is a game studio making tiny, polished versions of classic games, starting with tic-tac-toe against a computer or a friend.",
+    "microcopy": {
+      "primaryCta": "New game",
+      "secondaryCta": "Undo",
+      "success": "You win this round!",
+      "error": "Not that square. Pick an empty one.",
+      "empty": "No games yet. Pick a mode to begin."
+    }
+  }
+}

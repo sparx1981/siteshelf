@@ -1,0 +1,173 @@
+{
+  "name": "APEX",
+  "descriptor": "Lead and revenue growth platform for sales teams",
+  "listing": {
+    "key": "m:apex-saas",
+    "title": "Apex SaaS",
+    "category": "SaaS"
+  },
+  "colors": {
+    "background": "#05010e",
+    "surface": "#7c3bed",
+    "text": "#f3f3f1",
+    "textMuted": "#d4d2ce",
+    "primary": "#7c3bed",
+    "secondary": "#b793f5",
+    "border": "#313135",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#b793f5"
+  },
+  "colorInventory": [
+    {
+      "hex": "#05010e",
+      "share": 99.6
+    },
+    {
+      "hex": "#7c3bed",
+      "share": 0.3
+    },
+    {
+      "hex": "#f3f3f1",
+      "share": 0.1
+    },
+    {
+      "hex": "#d4d2ce",
+      "share": 0.0
+    },
+    {
+      "hex": "#27272a",
+      "share": 0.0
+    },
+    {
+      "hex": "#b793f5",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Geist",
+    "body": "Geist",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Geist",
+        "stack": "'Geist', system-ui, sans-serif",
+        "sizePx": 72,
+        "weight": "600",
+        "lineHeight": "75.6px",
+        "letterSpacing": "-1.8px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Geist",
+        "stack": "'Geist', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "32px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Geist",
+        "stack": "'Geist', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Geist",
+        "stack": "'Geist', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 24,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset",
+      "md": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset",
+      "lg": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64
+      ]
+    },
+    "container": 1024,
+    "breakpoints": [
+      640,
+      700,
+      768,
+      1024
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "peak",
+    "tile": "squircle",
+    "wordmarkFont": "Inter Bold (stand-in for Geist)"
+  },
+  "voice": {
+    "personality": [
+      "driven",
+      "sleek",
+      "energetic"
+    ],
+    "voice": {
+      "summary": "Sounds like a sales leader's morning pep talk: fast, outcome-first and confident. Sentences are short, verbs are strong and every claim points to pipeline, funnel or revenue.",
+      "dos": [
+        "Lead with the outcome, such as more qualified leads",
+        "Use strong verbs like drive, close and convert",
+        "Keep CTA copy to three or four words"
+      ],
+      "donts": [
+        "Do not promise guaranteed revenue",
+        "Do not bury the sign-up under features",
+        "Do not pile on buzzwords"
+      ]
+    },
+    "taglines": [
+      "Accelerate your revenue growth",
+      "Move your funnel forward",
+      "Leads in, revenue up",
+      "Sell smarter, close faster",
+      "Growth with a clear line of sight"
+    ],
+    "boilerplate": "APEX is a revenue growth platform that connects workflows, analytics and lead management so sales and marketing teams can move prospects through the funnel faster.",
+    "microcopy": {
+      "primaryCta": "Start free right now",
+      "secondaryCta": "Schedule a consult",
+      "success": "You're in. Your workspace is ready.",
+      "error": "We couldn't create your account. Please try again.",
+      "empty": "No leads yet. Import a list to begin."
+    }
+  }
+}

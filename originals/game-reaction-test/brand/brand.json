@@ -1,0 +1,176 @@
+{
+  "name": "Pole Position Labs",
+  "descriptor": "Motorsport-style reaction time test club",
+  "listing": {
+    "key": "o:game-reaction-test",
+    "title": "Reaction Time Test",
+    "category": "Games"
+  },
+  "colors": {
+    "background": "#1b2c5a",
+    "surface": "#0e1224",
+    "text": "#f4f6ff",
+    "textMuted": "#b3bbe0",
+    "primary": "#ffb020",
+    "secondary": "#ffd3a0",
+    "border": "#5a6498",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#715016"
+  },
+  "colorInventory": [
+    {
+      "hex": "#1b2c5a",
+      "share": 58.4
+    },
+    {
+      "hex": "#0e1224",
+      "share": 30.6
+    },
+    {
+      "hex": "#000000",
+      "share": 3.7
+    },
+    {
+      "hex": "#ffffff",
+      "share": 2.5
+    },
+    {
+      "hex": "#1c2244",
+      "share": 2.4
+    },
+    {
+      "hex": "#3a3f5c",
+      "share": 1.1
+    },
+    {
+      "hex": "#3a8a4a",
+      "share": 0.5
+    },
+    {
+      "hex": "#fff6d0",
+      "share": 0.3
+    },
+    {
+      "hex": "#ffb020",
+      "share": 0.3
+    },
+    {
+      "hex": "#ffd3a0",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Unbounded",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Unbounded",
+        "stack": "'Unbounded', system-ui, sans-serif",
+        "sizePx": 46,
+        "weight": "600",
+        "lineHeight": "46px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.4px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Unbounded:wght@600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 18,
+      "lg": 22,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.4) 0px 8px 20px 0px",
+      "md": "rgba(0, 0, 0, 0.5) 0px 24px 50px 0px",
+      "lg": "rgba(0, 0, 0, 0.4) 0px 8px 20px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 980,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "target",
+    "tile": "squircle",
+    "wordmarkFont": "Unbounded"
+  },
+  "voice": {
+    "personality": [
+      "competitive",
+      "crisp",
+      "good-humoured"
+    ],
+    "voice": {
+      "summary": "Sounds like a race-day commentator: clipped, energetic and fair. It counts in milliseconds, calls a false start clearly and keeps the banter kind.",
+      "dos": [
+        "Report times in milliseconds with the best and average",
+        "Use race words like lights, launch and false start",
+        "Keep instructions to five words or fewer"
+      ],
+      "donts": [
+        "Do not mock slow reactions",
+        "Do not use hype that overpromises a prize",
+        "Do not use long explanations before the start"
+      ]
+    },
+    "taglines": [
+      "Lights out and away we go",
+      "Five lights. One reaction. No excuses.",
+      "Find your launch time",
+      "Fast hands, faster starts",
+      "How quick off the line are you?"
+    ],
+    "boilerplate": "Pole Position Labs is a motorsport-inspired club that runs a start-lights reaction test, measuring your launch time over five attempts and charting your best and average.",
+    "microcopy": {
+      "primaryCta": "Start",
+      "secondaryCta": "Reset",
+      "success": "Lights out. 214 ms, a clean launch.",
+      "error": "False start. Wait for the lights to go out.",
+      "empty": "No attempts yet. Press Start."
+    }
+  }
+}

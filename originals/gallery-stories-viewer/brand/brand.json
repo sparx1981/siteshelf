@@ -1,0 +1,172 @@
+{
+  "name": "Ringtale",
+  "descriptor": "Short stories in tappable rings",
+  "listing": {
+    "key": "o:gallery-stories-viewer",
+    "title": "Stories Viewer",
+    "category": "Gallery"
+  },
+  "colors": {
+    "background": "#0b0b0f",
+    "surface": "#f59e0b",
+    "text": "#8c8d9c",
+    "textMuted": "#cfd0da",
+    "primary": "#f59e0b",
+    "secondary": "#8b5cf6",
+    "border": "#1d1d23",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#6d490d"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b0b0f",
+      "share": 98.5
+    },
+    {
+      "hex": "#f59e0b",
+      "share": 0.4
+    },
+    {
+      "hex": "#ec4899",
+      "share": 0.3
+    },
+    {
+      "hex": "#8b5cf6",
+      "share": 0.2
+    },
+    {
+      "hex": "#7c3aed",
+      "share": 0.1
+    },
+    {
+      "hex": "#059669",
+      "share": 0.1
+    },
+    {
+      "hex": "#14b8a6",
+      "share": 0.1
+    },
+    {
+      "hex": "#e11d48",
+      "share": 0.1
+    },
+    {
+      "hex": "#f97316",
+      "share": 0.1
+    },
+    {
+      "hex": "#2563eb",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Figtree",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "30.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "22.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "18.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 0,
+      "md": 0,
+      "lg": 0,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        3,
+        6,
+        8,
+        12,
+        16,
+        18,
+        20,
+        28
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      480
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "target",
+    "tile": "squircle",
+    "wordmarkFont": "Figtree"
+  },
+  "voice": {
+    "personality": [
+      "quick",
+      "casual",
+      "expressive"
+    ],
+    "voice": {
+      "summary": "Ringtale talks in the clipped, friendly way people caption a story: lowercase-leaning, brisk and a little playful. Instructions are tiny because a story is only seconds long.",
+      "dos": [
+        "Give instructions in four words or fewer",
+        "Use first names and handles as written",
+        "Keep captions bold and short"
+      ],
+      "donts": [
+        "Use influencer hype",
+        "Explain tap zones at length",
+        "Add pressure about unseen stories"
+      ]
+    },
+    "taglines": [
+      "Tap a ring, see the story",
+      "Seconds long, stays with you",
+      "Hold to pause, tap to skip",
+      "Small stories, big feelings",
+      "Today, in a few taps"
+    ],
+    "boilerplate": "Ringtale is a stories player with segmented progress bars, tap zones and hold-to-pause, made for short visual updates from friends and creators.",
+    "microcopy": {
+      "primaryCta": "Open story",
+      "secondaryCta": "Close",
+      "success": "Story shared with your friends.",
+      "error": "This story could not load. Tap to retry.",
+      "empty": "No new stories. You are all caught up."
+    }
+  }
+}

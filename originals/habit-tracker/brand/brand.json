@@ -1,0 +1,175 @@
+{
+  "name": "Tickmark",
+  "descriptor": "Friendly weekly habit tracker",
+  "listing": {
+    "key": "o:habit-tracker",
+    "title": "Habit Tracker",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#f6f1ea",
+    "surface": "#ffffff",
+    "text": "#2b2620",
+    "textMuted": "#726d67",
+    "primary": "#b4570a",
+    "secondary": "#d9ccb6",
+    "border": "#ddd2c0",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#d9ccb6"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6f1ea",
+      "share": 65.7
+    },
+    {
+      "hex": "#ffffff",
+      "share": 33.2
+    },
+    {
+      "hex": "#2b2620",
+      "share": 0.5
+    },
+    {
+      "hex": "#5fa37a",
+      "share": 0.3
+    },
+    {
+      "hex": "#7a6f62",
+      "share": 0.2
+    },
+    {
+      "hex": "#d9ccb6",
+      "share": 0.1
+    },
+    {
+      "hex": "#b4570a",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Bricolage Grotesque",
+    "body": "Nunito Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 32,
+        "weight": "700",
+        "lineHeight": "35.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Nunito Sans",
+        "stack": "'Nunito Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Nunito Sans",
+        "stack": "'Nunito Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Nunito Sans",
+        "stack": "'Nunito Sans', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "400",
+        "lineHeight": "18.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Nunito+Sans:wght@400;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "color(srgb 0.937255 0.435294 0.368627 / 0.3) 0px 0px 0px 3px",
+      "md": "color(srgb 0.298039 0.607843 0.909804 / 0.3) 0px 0px 0px 3px",
+      "lg": "rgba(80, 60, 30, 0.3) 0px 6px 20px -12px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 960,
+    "breakpoints": [
+      600,
+      820
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "grid",
+    "tile": "squircle",
+    "wordmarkFont": "Bricolage Grotesque"
+  },
+  "voice": {
+    "personality": [
+      "gentle",
+      "bright",
+      "steady"
+    ],
+    "voice": {
+      "summary": "Sounds like a supportive friend who remembers what you said you'd do: warm, light on advice and quick with a small cheer. Missed days are met with a shrug, not a lecture.",
+      "dos": [
+        "Greet by time of day and use the person's own habit names",
+        "Celebrate streaks with one short line",
+        "Make resetting a day feel easy"
+      ],
+      "donts": [
+        "Do not scold for missed days",
+        "Do not use diet or hustle language",
+        "Do not stack more than one cheer per screen"
+      ]
+    },
+    "taglines": [
+      "Small ticks, big changes",
+      "One day at a time, ticked",
+      "Habits that stay friendly",
+      "Show up, tick, repeat",
+      "Your week, gently tracked"
+    ],
+    "boilerplate": "Tickmark is a weekly habit tracker with tappable day checks, streaks and a daily progress ring, made for people who want steady routines without guilt, and stored on their own device.",
+    "microcopy": {
+      "primaryCta": "Add habit",
+      "secondaryCta": "This week",
+      "success": "Ticked. That's a four day streak.",
+      "error": "That didn't save. Tap to try again.",
+      "empty": "No habits yet. Add your first one."
+    }
+  }
+}

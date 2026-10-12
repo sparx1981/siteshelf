@@ -1,0 +1,178 @@
+{
+  "name": "Bloom",
+  "descriptor": "AI-powered floral and plant design platform",
+  "listing": {
+    "key": "m:bloom-ai",
+    "title": "Bloom AI",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#0a0a0a",
+    "surface": "#222222",
+    "text": "#ffffff",
+    "textMuted": "#a9a9a9",
+    "primary": "#ffffff",
+    "secondary": "#8c8c8c",
+    "border": "#2c2c2c",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#8c8c8c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0a0a0a",
+      "share": 99.4
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.4
+    },
+    {
+      "hex": "#222222",
+      "share": 0.2
+    },
+    {
+      "hex": "#a9a9a9",
+      "share": 0.0
+    },
+    {
+      "hex": "#8c8c8c",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Poppins",
+    "body": "Poppins",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Poppins",
+        "stack": "'Poppins', system-ui, sans-serif",
+        "sizePx": 72,
+        "weight": "500",
+        "lineHeight": "73.44px",
+        "letterSpacing": "-3.6px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Poppins",
+        "stack": "'Poppins', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Poppins",
+        "stack": "'Poppins', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "18px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Poppins",
+        "stack": "'Poppins', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Poppins",
+        "stack": "'Poppins', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Newsreader:ital,wght@1,400&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 16,
+      "md": 24,
+      "lg": 40,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset",
+      "md": "rgba(0, 0, 0, 0.05) 4px 4px 4px 0px, rgba(255, 255, 255, 0.15) 0px 1px 1px 0px inset",
+      "lg": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        24,
+        28
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      480,
+      640,
+      1024
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "sprout",
+    "tile": "squircle",
+    "wordmarkFont": "Poppins"
+  },
+  "voice": {
+    "personality": [
+      "dreamy",
+      "airy",
+      "poetic"
+    ],
+    "voice": {
+      "summary": "Speaks like an artist describing a garden at dawn: soft, imaginative and a little mythic. Plain verbs keep the poetry grounded.",
+      "dos": [
+        "Use growth and light imagery sparingly",
+        "Keep sentences short and open",
+        "Let one quote carry the mood"
+      ],
+      "donts": [
+        "No tech-bro AI buzzwords",
+        "No heavy punctuation",
+        "No promises of perfection"
+      ]
+    },
+    "taglines": [
+      "Innovating the spirit of bloom",
+      "A realm with no ending",
+      "Design that grows with you",
+      "Where plants meet imagination",
+      "Let your garden dream"
+    ],
+    "boilerplate": "Bloom is an AI-powered plant and floral design platform that helps creators imagine, shape and share botanical worlds with liquid, glass-like interfaces.",
+    "microcopy": {
+      "primaryCta": "Explore now",
+      "secondaryCta": "Menu",
+      "success": "Saved to your garden",
+      "error": "Could not generate that design, try again",
+      "empty": "Your garden is empty, start with a seed"
+    }
+  }
+}

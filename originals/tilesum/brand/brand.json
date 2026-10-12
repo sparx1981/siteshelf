@@ -1,0 +1,170 @@
+{
+  "name": "Tilesum",
+  "descriptor": "Sliding-tile number puzzle game",
+  "listing": {
+    "key": "o:tilesum",
+    "title": "Tilesum Puzzle Game",
+    "category": "Games"
+  },
+  "colors": {
+    "background": "#0a1e20",
+    "surface": "#17474b",
+    "text": "#8bb5b0",
+    "textMuted": "#eafaf6",
+    "primary": "#2fa8a0",
+    "secondary": "#0b3b36",
+    "border": "#3a6f72",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#0b3b36"
+  },
+  "colorInventory": [
+    {
+      "hex": "#17474b",
+      "share": 48.0
+    },
+    {
+      "hex": "#0f2b2e",
+      "share": 48.0
+    },
+    {
+      "hex": "#d7f3ec",
+      "share": 3.4
+    },
+    {
+      "hex": "#2fa8a0",
+      "share": 0.5
+    },
+    {
+      "hex": "#8bb5b0",
+      "share": 0.1
+    },
+    {
+      "hex": "#eafaf6",
+      "share": 0.1
+    },
+    {
+      "hex": "#3a6f72",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Rubik",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Rubik",
+        "stack": "'Rubik', system-ui, sans-serif",
+        "sizePx": 52,
+        "weight": "800",
+        "lineHeight": "52px",
+        "letterSpacing": "-1.56px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Rubik",
+        "stack": "'Rubik', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 11,
+        "weight": "400",
+        "lineHeight": "16.5px",
+        "letterSpacing": "1.1px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Rubik:wght@500;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 14,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 80,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "grid",
+    "tile": "none",
+    "wordmarkFont": "Rubik"
+  },
+  "voice": {
+    "personality": [
+      "crisp",
+      "playful",
+      "satisfying"
+    ],
+    "voice": {
+      "summary": "Sounds like a puzzle that wants to be played again: short, friendly and slightly smug about a good merge. Instructions fit in one line and wins are celebrated softly.",
+      "dos": [
+        "Explain the rules in one sentence",
+        "Use verbs like slide, merge and spawn",
+        "Show scores as plain numbers"
+      ],
+      "donts": [
+        "Do not scold failed attempts",
+        "Do not stack overlay messages",
+        "Do not use casino language"
+      ]
+    },
+    "taglines": [
+      "Slide. Merge. Repeat.",
+      "Equal numbers, one bigger tile",
+      "One more move, always",
+      "Small board, big streaks",
+      "Match, combine, climb"
+    ],
+    "boilerplate": "Tilesum is a sliding-tile number puzzle where equal tiles merge into larger ones, played with arrow keys or swipes on a responsive board with undo, scores and best-score tracking.",
+    "microcopy": {
+      "primaryCta": "New game",
+      "secondaryCta": "Undo",
+      "success": "You made 2048. Keep going?",
+      "error": "No moves left. Start a new game.",
+      "empty": "Slide to begin."
+    }
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "name": "Tuft & Burrow",
+  "descriptor": "Garden games with cheerful characters",
+  "listing": {
+    "key": "o:game-whack-a-mole",
+    "title": "Whack A Mole",
+    "category": "Games"
+  },
+  "colors": {
+    "background": "#8fd0f0",
+    "surface": "#6fbf4a",
+    "text": "#1c2a16",
+    "textMuted": "#1f5a2c",
+    "primary": "#ffcf3d",
+    "secondary": "#6fbf4a",
+    "border": "#1c2a16",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#715d22"
+  },
+  "colorInventory": [
+    {
+      "hex": "#8fd0f0",
+      "share": 63.7
+    },
+    {
+      "hex": "#6fbf4a",
+      "share": 15.9
+    },
+    {
+      "hex": "#1c2a16",
+      "share": 9.5
+    },
+    {
+      "hex": "#ffffff",
+      "share": 5.7
+    },
+    {
+      "hex": "#000000",
+      "share": 1.9
+    },
+    {
+      "hex": "#d4a770",
+      "share": 0.9
+    },
+    {
+      "hex": "#b88a58",
+      "share": 0.8
+    },
+    {
+      "hex": "#3f8a2e",
+      "share": 0.6
+    },
+    {
+      "hex": "#a9763f",
+      "share": 0.5
+    },
+    {
+      "hex": "#9fd68a",
+      "share": 0.5
+    }
+  ],
+  "typography": {
+    "heading": "Baloo 2",
+    "body": "Nunito",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Baloo 2",
+        "stack": "'Baloo 2', system-ui, sans-serif",
+        "sizePx": 56,
+        "weight": "700",
+        "lineHeight": "56px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Baloo 2",
+        "stack": "'Baloo 2', system-ui, sans-serif",
+        "sizePx": 30,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito:wght@400;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(20, 60, 20, 0.3) 0px 20px 40px 0px",
+      "md": "rgba(20, 60, 20, 0.3) 0px 20px 40px 0px",
+      "lg": "rgba(20, 60, 20, 0.3) 0px 20px 40px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        8,
+        10,
+        12,
+        14,
+        16,
+        22,
+        24
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      520
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "target",
+    "tile": "squircle",
+    "wordmarkFont": "Baloo 2"
+  },
+  "voice": {
+    "personality": [
+      "bouncy",
+      "sunny",
+      "silly"
+    ],
+    "voice": {
+      "summary": "Sounds like a garden fete announcer: bright, quick and slightly daft. Scores arrive with a grin and decoys get a gentle warning.",
+      "dos": [
+        "Use short exclamations for hits, one per round",
+        "Name the garden things: moles, gnomes, mounds",
+        "Keep instructions to three words"
+      ],
+      "donts": [
+        "No violence beyond a bonk",
+        "No sarcasm about low scores",
+        "No long rules text mid-game"
+      ]
+    },
+    "taglines": [
+      "Thirty seconds, nine holes",
+      "Pop up, whack, repeat",
+      "Garden games, no weeding",
+      "Mind the gnomes",
+      "Mole mayhem on the lawn"
+    ],
+    "boilerplate": "Tuft & Burrow makes garden games for a sunny afternoon, from a thirty-second whack-a-mole with decoy gnomes to quieter lawn puzzles, all painted by hand.",
+    "microcopy": {
+      "primaryCta": "Start",
+      "secondaryCta": "Pause",
+      "success": "Nice whack, combo x3",
+      "error": "Oops, that was a gnome",
+      "empty": "Press start to dig in"
+    }
+  }
+}

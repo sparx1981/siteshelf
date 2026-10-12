@@ -1,0 +1,169 @@
+{
+  "name": "Digitwist",
+  "descriptor": "AI website builder",
+  "listing": {
+    "key": "m:digitwist-ai-builder",
+    "title": "Digitwist AI Builder",
+    "category": "SaaS"
+  },
+  "colors": {
+    "background": "#000000",
+    "surface": "#ffffff",
+    "text": "#ffffff",
+    "textMuted": "#a6a6a6",
+    "primary": "#b4c0ff",
+    "secondary": "#3054ff",
+    "border": "#242424",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#3054ff"
+  },
+  "colorInventory": [
+    {
+      "hex": "#000000",
+      "share": 98.0
+    },
+    {
+      "hex": "#ffffff",
+      "share": 1.5
+    },
+    {
+      "hex": "#b4c0ff",
+      "share": 0.4
+    },
+    {
+      "hex": "#3054ff",
+      "share": 0.0
+    },
+    {
+      "hex": "#a6a6a6",
+      "share": 0.0
+    },
+    {
+      "hex": "#242424",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Instrument Sans",
+    "body": "Instrument Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Instrument Sans",
+        "stack": "'Instrument Sans', system-ui, sans-serif",
+        "sizePx": 136,
+        "weight": "600",
+        "lineHeight": "122.4px",
+        "letterSpacing": "-6.8px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Instrument Sans",
+        "stack": "'Instrument Sans', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "400",
+        "lineHeight": "33px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Instrument Sans",
+        "stack": "'Instrument Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Instrument Sans",
+        "stack": "'Instrument Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 50,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        16,
+        20,
+        24,
+        32,
+        48
+      ]
+    },
+    "container": 1024,
+    "breakpoints": [
+      380,
+      640,
+      768,
+      1024
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "spark",
+    "tile": "squircle",
+    "wordmarkFont": "Inter Bold (stand-in for Instrument Sans)"
+  },
+  "voice": {
+    "personality": [
+      "fast",
+      "sleek",
+      "assured"
+    ],
+    "voice": {
+      "summary": "Sounds like a product demo at speed: short, clipped and confident, in the register of a dark-mode launch page. It talks about building rather than tooling.",
+      "dos": [
+        "Lead with the speed claim",
+        "Use short verbs like design, build and ship",
+        "Keep headlines to two or three words"
+      ],
+      "donts": [
+        "No jargon like leverage or empower",
+        "Avoid vague AI hype",
+        "Never promise instant perfection"
+      ]
+    },
+    "taglines": [
+      "Build faster",
+      "Design at the speed of thought",
+      "From prompt to published site",
+      "Sites that build themselves",
+      "Your next site, drafted in seconds"
+    ],
+    "boilerplate": "Digitwist is an AI website builder that turns a short description into a designed, published site, for teams that want to move from idea to launch fast.",
+    "microcopy": {
+      "primaryCta": "Products",
+      "secondaryCta": "See customer stories",
+      "success": "Site published.",
+      "error": "We couldn't build that site. Try rephrasing your prompt.",
+      "empty": "No sites yet. Describe one to begin."
+    }
+  }
+}

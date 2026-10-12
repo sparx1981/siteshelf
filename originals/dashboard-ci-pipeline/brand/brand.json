@@ -1,0 +1,190 @@
+{
+  "name": "Pipewise",
+  "descriptor": "CI pipeline monitoring for developers",
+  "listing": {
+    "key": "o:dashboard-ci-pipeline",
+    "title": "CI Pipeline Dashboard",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#0d1117",
+    "surface": "#151b23",
+    "text": "#e6edf3",
+    "textMuted": "#8b98a9",
+    "primary": "#3fb950",
+    "secondary": "#d29922",
+    "border": "#283241",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#21542a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0d1117",
+      "share": 97.5
+    },
+    {
+      "hex": "#1c2430",
+      "share": 0.9
+    },
+    {
+      "hex": "#e6edf3",
+      "share": 0.5
+    },
+    {
+      "hex": "#3fb950",
+      "share": 0.3
+    },
+    {
+      "hex": "#3a4658",
+      "share": 0.2
+    },
+    {
+      "hex": "#238636",
+      "share": 0.2
+    },
+    {
+      "hex": "#8b98a9",
+      "share": 0.2
+    },
+    {
+      "hex": "#283241",
+      "share": 0.1
+    },
+    {
+      "hex": "#d29922",
+      "share": 0.1
+    },
+    {
+      "hex": "#f85149",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "JetBrains Mono",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 11,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.1px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 7,
+      "md": 10,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1320,
+    "breakpoints": [],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chevrons",
+    "tile": "circle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "terse",
+      "technical",
+      "calm"
+    ],
+    "voice": {
+      "summary": "Pipewise talks like an on-call colleague who has already read the logs. It states the stage, the job and the duration, and keeps its tone even when a build is red.",
+      "dos": [
+        "Lead with the status and the job name",
+        "Give durations in seconds or minutes, exactly",
+        "Use code font for hashes, branches and commands"
+      ],
+      "donts": [
+        "Do not blame the author of a failing commit",
+        "Do not hide flaky tests behind a green tick",
+        "Do not use exclamation marks in logs"
+      ]
+    },
+    "taglines": [
+      "Every stage, every job, one view",
+      "Green builds, honest reds",
+      "Catch the flaky test first",
+      "Pipelines you can read at a glance",
+      "Fewer reruns, clearer runs"
+    ],
+    "boilerplate": "Pipewise is a CI dashboard that shows staged pipelines, parallel jobs and flaky tests so developers can see exactly where a build slowed or failed.",
+    "microcopy": {
+      "primaryCta": "Run pipeline",
+      "secondaryCta": "Rerun failed jobs",
+      "success": "Run #2842 passed in 6m 48s.",
+      "error": "Run #2839 failed at Unit tests. Open the log for details.",
+      "empty": "No runs yet. Push a commit to start one."
+    }
+  }
+}

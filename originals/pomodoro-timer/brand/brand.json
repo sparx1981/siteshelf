@@ -1,0 +1,158 @@
+{
+  "name": "Slowtick",
+  "descriptor": "Focus timer with gentle breaks",
+  "listing": {
+    "key": "o:pomodoro-timer",
+    "title": "Pomodoro Focus Timer",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#2b1a1a",
+    "surface": "#ff6b5a",
+    "text": "#ffffff",
+    "textMuted": "#b5afaf",
+    "primary": "#ff6b5a",
+    "secondary": "#ffaea4",
+    "border": "#493a3a",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#71332e"
+  },
+  "colorInventory": [
+    {
+      "hex": "#2b1a1a",
+      "share": 98.1
+    },
+    {
+      "hex": "#ff6b5a",
+      "share": 1.8
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.1
+    },
+    {
+      "hex": "#1a0d0b",
+      "share": 0.0
+    },
+    {
+      "hex": "#b5afaf",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffaea4",
+      "share": 0.0
+    },
+    {
+      "hex": "#493a3a",
+      "share": 0.0
+    },
+    {
+      "hex": "#71332e",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.44px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 28,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 107, 90, 0.18) 0px 0px 0px 3px, rgb(255, 107, 90) 0px 0px 0px 2px inset",
+      "md": "rgba(255, 107, 90, 0.18) 0px 0px 0px 3px, rgb(255, 107, 90) 0px 0px 0px 2px inset",
+      "lg": "rgba(255, 107, 90, 0.18) 0px 0px 0px 3px, rgb(255, 107, 90) 0px 0px 0px 2px inset"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        18
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      420
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "dial",
+    "tile": "squircle",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "steady",
+      "kind",
+      "focused"
+    ],
+    "voice": {
+      "summary": "Slowtick sounds like a patient study partner who watches the clock so you don't have to. It is encouraging without pushing, and treats breaks as seriously as work.",
+      "dos": [
+        "Use the session count and the mode in each message",
+        "Treat breaks as part of the work",
+        "Keep timer words short: start, skip, reset"
+      ],
+      "donts": [
+        "Do not praise overwork",
+        "Do not use guilt when a session is skipped",
+        "Do not use 'hustle'"
+      ]
+    },
+    "taglines": [
+      "Focus a little, rest a little",
+      "Twenty-five minutes at a time",
+      "Work in rounds, not marathons",
+      "A gentle clock for good days",
+      "One session, then a proper break"
+    ],
+    "boilerplate": "Slowtick is a focus timer with focus, short break and long break modes, session dots and a simple log of the day's completed work.",
+    "microcopy": {
+      "primaryCta": "Start",
+      "secondaryCta": "Skip",
+      "success": "Session 1 done. Take a short break.",
+      "error": "The chime could not play. The timer is still running.",
+      "empty": "No sessions yet today. Press Start."
+    }
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "name": "Billwright",
+  "descriptor": "Quick invoice maker for freelancers",
+  "listing": {
+    "key": "o:invoice-builder",
+    "title": "Invoice Builder",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#eef0f4",
+    "surface": "#ffffff",
+    "text": "#1a1f2b",
+    "textMuted": "#2f5bea",
+    "primary": "#2f5bea",
+    "secondary": "#8da5f3",
+    "border": "#d5d9e3",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#8da5f3"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eef0f4",
+      "share": 43.9
+    },
+    {
+      "hex": "#ffffff",
+      "share": 38.8
+    },
+    {
+      "hex": "#dde1ea",
+      "share": 16.8
+    },
+    {
+      "hex": "#2f5bea",
+      "share": 0.2
+    },
+    {
+      "hex": "#1a1f2b",
+      "share": 0.1
+    },
+    {
+      "hex": "#667085",
+      "share": 0.1
+    },
+    {
+      "hex": "#98a2b3",
+      "share": 0.0
+    },
+    {
+      "hex": "#8da5f3",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "DM Sans",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 34,
+        "weight": "700",
+        "lineHeight": "34px",
+        "letterSpacing": "-0.68px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.04px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 11.7,
+        "weight": "400",
+        "lineHeight": "16.9167px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 10,
+      "lg": 16,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(30, 40, 70, 0.18) 0px 20px 50px 0px",
+      "md": "rgba(30, 40, 70, 0.18) 0px 20px 50px 0px",
+      "lg": "rgba(30, 40, 70, 0.18) 0px 20px 50px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        24
+      ]
+    },
+    "container": 1360,
+    "breakpoints": [
+      560,
+      1000
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "coins",
+    "tile": "squircle",
+    "wordmarkFont": "DM Sans"
+  },
+  "voice": {
+    "personality": [
+      "tidy",
+      "brisk",
+      "trustworthy"
+    ],
+    "voice": {
+      "summary": "Sounds like a sensible bookkeeper: brisk, exact and never condescending about money. Labels are standard invoice words, and totals are always shown with currency and tax so nothing is a surprise.",
+      "dos": [
+        "Use standard invoice terms like subtotal, tax and due date",
+        "Always show currency and tax rate with totals",
+        "Confirm changes immediately in the preview"
+      ],
+      "donts": [
+        "Do not use accounting jargon without a label",
+        "Do not hide discounts or fees",
+        "Do not add cute copy to money"
+      ]
+    },
+    "taglines": [
+      "Invoices that look the part",
+      "Type it once, print it right",
+      "Get paid with less paperwork",
+      "Line items, totals, done",
+      "Billing without the busywork"
+    ],
+    "boilerplate": "Billwright is a split-screen invoice builder that lets freelancers and small businesses edit line items, tax and discounts and see a print-ready invoice update as they type.",
+    "microcopy": {
+      "primaryCta": "Print / Save PDF",
+      "secondaryCta": "Add item",
+      "success": "Invoice ready. Save it as a PDF.",
+      "error": "Check the highlighted amounts. They need to be numbers.",
+      "empty": "No line items yet. Add your first item."
+    }
+  }
+}

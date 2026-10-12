@@ -1,0 +1,168 @@
+{
+  "name": "Inkline",
+  "descriptor": "Signing for documents, drawn or typed",
+  "listing": {
+    "key": "o:control-signature-pad",
+    "title": "Signature Pad",
+    "category": "Form Controls"
+  },
+  "colors": {
+    "background": "#eef0f4",
+    "surface": "#ffffff",
+    "text": "#14213d",
+    "textMuted": "#56627a",
+    "primary": "#1f4fd1",
+    "secondary": "#14213d",
+    "border": "#d9dde6",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#14213d"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eef0f4",
+      "share": 70.4
+    },
+    {
+      "hex": "#ffffff",
+      "share": 27.9
+    },
+    {
+      "hex": "#8da4e6",
+      "share": 1.1
+    },
+    {
+      "hex": "#14213d",
+      "share": 0.4
+    },
+    {
+      "hex": "#56627a",
+      "share": 0.1
+    },
+    {
+      "hex": "#1f4fd1",
+      "share": 0.1
+    },
+    {
+      "hex": "#0e7a5a",
+      "share": 0.0
+    },
+    {
+      "hex": "#d9dde6",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Newsreader",
+    "body": "Newsreader",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 38,
+        "weight": "600",
+        "lineHeight": "41.8px",
+        "letterSpacing": "-0.38px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.68px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@400;500;600&family=Kalam:wght@400&family=Newsreader:wght@500;600&family=Shadows+Into+Light&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 9,
+      "md": 12,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(255, 255, 255) 0px 0px 0px 2px, rgb(170, 180, 200) 0px 0px 0px 3.5px",
+      "md": "rgba(0, 0, 0, 0.12) 0px 1px 4px 0px",
+      "lg": "rgba(20, 33, 61, 0.5) 0px 24px 50px -34px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        16
+      ]
+    },
+    "container": 1080,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "monogram",
+    "tile": "squircle",
+    "wordmarkFont": "Newsreader"
+  },
+  "voice": {
+    "personality": [
+      "formal",
+      "reassuring",
+      "exact"
+    ],
+    "voice": {
+      "summary": "Inkline sounds like a careful notary: courteous, precise and entirely unhurried about consequence. It tells people exactly what signing does before they do it.",
+      "dos": [
+        "Say what a click commits the person to",
+        "Use full sentences for anything legally relevant",
+        "Keep labels formal and short"
+      ],
+      "donts": [
+        "Use breezy or jokey language near a signature",
+        "Hide the terms behind vague wording",
+        "Use contractions in required statements"
+      ]
+    },
+    "taglines": [
+      "Sign once, sign properly",
+      "Your name, in your hand",
+      "Agreements, without the paper",
+      "Draw it or type it",
+      "Put your name to it"
+    ],
+    "boilerplate": "Inkline is a document signing field that lets people draw or type a signature, preview it and accept an agreement only after a clear required check.",
+    "microcopy": {
+      "primaryCta": "Accept and sign",
+      "secondaryCta": "Clear signature",
+      "success": "Signed. A copy has been sent to you.",
+      "error": "Please sign above the line before accepting.",
+      "empty": "No signature yet. Draw or type to begin."
+    }
+  }
+}

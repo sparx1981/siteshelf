@@ -1,0 +1,174 @@
+{
+  "name": "Inkwell & Co.",
+  "descriptor": "Independent type foundry and lab",
+  "listing": {
+    "key": "o:type-playground",
+    "title": "Type Playground",
+    "category": "Typography"
+  },
+  "colors": {
+    "background": "#faf8f4",
+    "surface": "#1c1a17",
+    "text": "#1c1a17",
+    "textMuted": "#77715f",
+    "primary": "#d4472b",
+    "secondary": "#e79a8a",
+    "border": "#e8e3d9",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#edb2a6"
+  },
+  "colorInventory": [
+    {
+      "hex": "#faf8f4",
+      "share": 82.9
+    },
+    {
+      "hex": "#1c1a17",
+      "share": 16.8
+    },
+    {
+      "hex": "#77715f",
+      "share": 0.2
+    },
+    {
+      "hex": "#efe9d9",
+      "share": 0.1
+    },
+    {
+      "hex": "#d4472b",
+      "share": 0.0
+    },
+    {
+      "hex": "#e79a8a",
+      "share": 0.0
+    },
+    {
+      "hex": "#edb2a6",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Fraunces",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Subheading / H3",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 22,
+        "weight": "600",
+        "lineHeight": "25.3px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 11,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Fraunces:wght@100..900&family=Inter:wght@100..900&family=Playfair+Display:wght@400..900&family=Space+Grotesk:wght@300..700&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 5,
+      "md": 10,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.12) 0px 1px 3px 0px",
+      "md": "rgba(0, 0, 0, 0.12) 0px 1px 3px 0px",
+      "lg": "rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        16,
+        18
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "drop",
+    "tile": "none",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "curious",
+      "tasteful",
+      "tactile"
+    ],
+    "voice": {
+      "summary": "Inkwell & Co. sounds like a foundry owner showing a friend a specimen sheet. It is knowledgeable, quietly opinionated and always more interested in the letters than in itself.",
+      "dos": [
+        "Name the typeface, weight and size",
+        "Use specimen language: ascender, counter, tracking",
+        "Invite the reader to type and test"
+      ],
+      "donts": [
+        "Do not call fonts 'beautiful' without a reason",
+        "Do not mention trends",
+        "Do not use more than one adjective per feature"
+      ]
+    },
+    "taglines": [
+      "Click the text to edit it",
+      "Set it, test it, copy the CSS",
+      "Type, tried at every size",
+      "A specimen sheet that listens",
+      "Letters worth looking at twice"
+    ],
+    "boilerplate": "Inkwell & Co. is an independent type foundry whose Type Lab lets designers test fonts, pairings and settings live and copy the resulting CSS.",
+    "microcopy": {
+      "primaryCta": "Copy CSS",
+      "secondaryCta": "Reset",
+      "success": "CSS copied. Paste it into your stylesheet.",
+      "error": "That weight is not available for this family.",
+      "empty": "Type something to preview it."
+    }
+  }
+}

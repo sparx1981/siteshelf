@@ -1,0 +1,186 @@
+{
+  "name": "Lattice",
+  "descriptor": "Calm workspace for small studios",
+  "listing": {
+    "key": "o:hero-glass-dock",
+    "title": "Glass Dock Hero",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#0b1020",
+    "surface": "#5a6bff",
+    "text": "#f4f6ff",
+    "textMuted": "#b9c0e6",
+    "primary": "#5a6bff",
+    "secondary": "#ff6fb5",
+    "border": "#ffffff",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#2c3374"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b1020",
+      "share": 36.5
+    },
+    {
+      "hex": "#5a6bff",
+      "share": 21.1
+    },
+    {
+      "hex": "#ff6fb5",
+      "share": 21.0
+    },
+    {
+      "hex": "#2fe0c0",
+      "share": 21.0
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.3
+    },
+    {
+      "hex": "#b9c0e6",
+      "share": 0.1
+    },
+    {
+      "hex": "#ff9a5a",
+      "share": 0.0
+    },
+    {
+      "hex": "#ff5d7a",
+      "share": 0.0
+    },
+    {
+      "hex": "#5ad1ff",
+      "share": 0.0
+    },
+    {
+      "hex": "#a45cff",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 88,
+        "weight": "800",
+        "lineHeight": "89.76px",
+        "letterSpacing": "-2.64px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "27.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@600;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 7,
+      "md": 28,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.3) 0px 6px 16px 0px, rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset",
+      "md": "rgba(0, 0, 0, 0.3) 0px 6px 16px 0px, rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset",
+      "lg": "rgba(0, 0, 0, 0.3) 0px 6px 16px 0px, rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        7,
+        10,
+        12,
+        15,
+        16,
+        20,
+        22,
+        26,
+        28
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "diamond",
+    "tile": "circle",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "calm",
+      "considered",
+      "soft-spoken"
+    ],
+    "voice": {
+      "summary": "Lattice speaks in the hush of a well-organised studio. Its sentences are gentle and short, and it promises quiet rather than productivity.",
+      "dos": [
+        "Describe features by how they feel to use",
+        "Keep headings to a short, plain phrase",
+        "Name the four things: notes, tasks, files, calendar"
+      ],
+      "donts": [
+        "Do not promise to '10x' anyone",
+        "Do not use exclamation marks",
+        "Do not describe the app as 'powerful'"
+      ]
+    },
+    "taglines": [
+      "Everything within reach",
+      "One quiet place for your work",
+      "Notes, tasks, files and time",
+      "A workspace that does not shout",
+      "Small studio, steady day"
+    ],
+    "boilerplate": "Lattice is a calm workspace for small studios that keeps notes, tasks, files and calendar together in one quiet app for Mac.",
+    "microcopy": {
+      "primaryCta": "Download for Mac",
+      "secondaryCta": "See it in action",
+      "success": "Welcome to Lattice. Your workspace is ready.",
+      "error": "We could not start the download. Try again in a moment.",
+      "empty": "Nothing here yet. Press N to start a note."
+    }
+  }
+}

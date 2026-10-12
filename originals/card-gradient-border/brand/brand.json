@@ -1,0 +1,183 @@
+{
+  "name": "Prismcraft",
+  "descriptor": "Design studio for colour, motion and type",
+  "listing": {
+    "key": "o:card-gradient-border",
+    "title": "Spinning Border Cards",
+    "category": "Cards"
+  },
+  "colors": {
+    "background": "#08080f",
+    "surface": "#4b2fd0",
+    "text": "#a5a8c8",
+    "textMuted": "#f1f2ff",
+    "primary": "#19e6c9",
+    "secondary": "#7c5cff",
+    "border": "#3a3d5e",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#7c5cff"
+  },
+  "colorInventory": [
+    {
+      "hex": "#08080f",
+      "share": 72.9
+    },
+    {
+      "hex": "#4b2fd0",
+      "share": 9.1
+    },
+    {
+      "hex": "#0ba8a0",
+      "share": 9.1
+    },
+    {
+      "hex": "#7c5cff",
+      "share": 4.0
+    },
+    {
+      "hex": "#19e6c9",
+      "share": 2.0
+    },
+    {
+      "hex": "#ff6bd6",
+      "share": 2.0
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.4
+    },
+    {
+      "hex": "#a5a8c8",
+      "share": 0.3
+    },
+    {
+      "hex": "#1e2038",
+      "share": 0.2
+    },
+    {
+      "hex": "#3a3d5e",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 66,
+        "weight": "800",
+        "lineHeight": "66px",
+        "letterSpacing": "-1.98px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.22px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.08px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@600;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 14,
+      "md": 16,
+      "lg": 22,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        20,
+        22
+      ]
+    },
+    "container": 1120,
+    "breakpoints": [
+      620,
+      980
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "diamond",
+    "tile": "squircle",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "luminous",
+      "exact",
+      "playful"
+    ],
+    "voice": {
+      "summary": "Speaks as a studio that treats details like jewellery: confident, a touch theatrical, but always specific about the craft. Short, glowing nouns beat adjectives.",
+      "dos": [
+        "Name the craft: colour systems, motion library",
+        "Use light and edge words sparingly but exactly",
+        "Pair every flourish with a practical point"
+      ],
+      "donts": [
+        "No generic creativity clichés",
+        "No walls of adjectives",
+        "No hiding the tool behind the metaphor"
+      ]
+    },
+    "taglines": [
+      "Borders that never sit still",
+      "Edges with a pulse",
+      "Colour, cut to order",
+      "Craft you can see move",
+      "Where the gradient meets the grid"
+    ],
+    "boilerplate": "Prismcraft is a design studio building colour systems, motion libraries, icon sets and type pairings, with spinning gradient details that make interface edges feel alive.",
+    "microcopy": {
+      "primaryCta": "Explore the library",
+      "secondaryCta": "Compare palettes",
+      "success": "Palette applied",
+      "error": "That setting is not supported here, using the static border",
+      "empty": "No cards in this collection yet"
+    }
+  }
+}

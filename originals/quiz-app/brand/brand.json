@@ -1,0 +1,175 @@
+{
+  "name": "Web Wits",
+  "descriptor": "Timed quiz about the web, CSS and design history",
+  "listing": {
+    "key": "o:quiz-app",
+    "title": "Timed Quiz App",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#fff4dc",
+    "surface": "#e8d8b0",
+    "text": "#5d5a52",
+    "textMuted": "#111111",
+    "primary": "#ffd95e",
+    "secondary": "#8c7734",
+    "border": "#111111",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#8c7734"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fff4dc",
+      "share": 71.3
+    },
+    {
+      "hex": "#e8d8b0",
+      "share": 17.8
+    },
+    {
+      "hex": "#ffffff",
+      "share": 10.3
+    },
+    {
+      "hex": "#ffd95e",
+      "share": 0.4
+    },
+    {
+      "hex": "#5d5a52",
+      "share": 0.1
+    },
+    {
+      "hex": "#111111",
+      "share": 0.0
+    },
+    {
+      "hex": "#000000",
+      "share": 0.0
+    },
+    {
+      "hex": "#8c7734",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Bricolage Grotesque",
+    "body": "Bricolage Grotesque",
+    "mono": "Space Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 56,
+        "weight": "800",
+        "lineHeight": "56px",
+        "letterSpacing": "-1.68px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "500",
+        "lineHeight": "24.65px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "Space Mono",
+        "stack": "'Space Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 17,
+        "weight": "500",
+        "lineHeight": "24.65px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Space+Mono:wght@400;700&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 14,
+      "md": 20,
+      "lg": 20,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgb(17, 17, 17) 6px 6px 0px 0px",
+      "md": "rgb(17, 17, 17) 4px 4px 0px 0px",
+      "lg": "rgb(17, 17, 17) 6px 6px 0px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        12,
+        14,
+        18,
+        24,
+        26,
+        28
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      480
+    ],
+    "motion": {
+      "duration": 80,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bolt",
+    "tile": "circle",
+    "wordmarkFont": "Bricolage Grotesque"
+  },
+  "voice": {
+    "personality": [
+      "quick",
+      "cheeky",
+      "clever"
+    ],
+    "voice": {
+      "summary": "Web Wits is a game-show host with a stopwatch: fast, cheeky and quick with a groan-worthy pun. It cheers right answers loudly and explains wrong ones kindly.",
+      "dos": [
+        "Keep questions and feedback to one line",
+        "Reward streaks with short exclamations",
+        "Explain wrong answers in one sentence"
+      ],
+      "donts": [
+        "Do not lecture after a wrong answer",
+        "Avoid long intros",
+        "Never mock slow thinkers"
+      ]
+    },
+    "taglines": [
+      "Think fast, the clock is ticking",
+      "Test your web wits",
+      "Quick questions, quicker feedback",
+      "CSS trivia with a timer",
+      "Beat the countdown"
+    ],
+    "boilerplate": "Web Wits is a timed quiz game about the web, CSS and design history, with streak bonuses, instant feedback and a results screen that reviews what you missed.",
+    "microcopy": {
+      "primaryCta": "Start quiz",
+      "secondaryCta": "Review misses",
+      "success": "Correct. That's a 3 streak.",
+      "error": "Not quite. The answer was grid.",
+      "empty": "No missed questions. A perfect round."
+    }
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "name": "Alder Basin",
+  "descriptor": "Reservoir monitoring and conservation console",
+  "listing": {
+    "key": "o:reservoir-console",
+    "title": "Reservoir Console",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#eef3f1",
+    "surface": "#153a33",
+    "text": "#14332d",
+    "textMuted": "#50675f",
+    "primary": "#14332d",
+    "secondary": "#764414",
+    "border": "#d5ded9",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#9ca9a7"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eef3f1",
+      "share": 72.1
+    },
+    {
+      "hex": "#153a33",
+      "share": 16.2
+    },
+    {
+      "hex": "#ffffff",
+      "share": 10.2
+    },
+    {
+      "hex": "#dce9e2",
+      "share": 1.3
+    },
+    {
+      "hex": "#50675f",
+      "share": 0.1
+    },
+    {
+      "hex": "#b9e4c7",
+      "share": 0.1
+    },
+    {
+      "hex": "#764414",
+      "share": 0.0
+    },
+    {
+      "hex": "#9ca9a7",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "DM Sans",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 42,
+        "weight": "600",
+        "lineHeight": "63px",
+        "letterSpacing": "-1.26px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "30px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "18px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "18px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 8,
+      "lg": 10,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        9,
+        10,
+        12,
+        16,
+        18,
+        20,
+        22
+      ]
+    },
+    "container": 1260,
+    "breakpoints": [
+      600,
+      760,
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "drop",
+    "tile": "circle",
+    "wordmarkFont": "DM Sans"
+  },
+  "voice": {
+    "personality": [
+      "sober",
+      "accurate",
+      "calm"
+    ],
+    "voice": {
+      "summary": "Alder Basin writes like an engineer's control room log: precise readings, units, and plainly worded alerts. It makes conservation targets and delayed telemetry easy to read without alarm.",
+      "dos": [
+        "Give readings with units and percentages",
+        "State when data is delayed and by how much",
+        "Describe alerts in one factual sentence"
+      ],
+      "donts": [
+        "Do not use disaster language for a low reading",
+        "Avoid rounding that hides change",
+        "Never hide a stale reading"
+      ]
+    },
+    "taglines": [
+      "Every reading, in its place",
+      "Water levels, plainly told",
+      "Monitor today, conserve tomorrow",
+      "Calm data for careful decisions",
+      "Know the level, hold the target"
+    ],
+    "boilerplate": "Alder Basin is a reservoir operations console showing water levels, sensor alerts and conservation targets across stations, built for fictional demonstration of accessible monitoring.",
+    "microcopy": {
+      "primaryCta": "Acknowledge sensor",
+      "secondaryCta": "View last 24 hours",
+      "success": "Alert acknowledged. Logged at 14:02.",
+      "error": "Telemetry is delayed. Last reading is shown.",
+      "empty": "No active alerts."
+    }
+  }
+}

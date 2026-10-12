@@ -1,0 +1,187 @@
+{
+  "name": "clearair",
+  "descriptor": "City air quality board with plain health advice",
+  "listing": {
+    "key": "o:dashboard-air-quality",
+    "title": "City Air Quality Board",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#ffffff",
+    "surface": "#eaf4fb",
+    "text": "#11263a",
+    "textMuted": "#526a80",
+    "primary": "#11263a",
+    "secondary": "#f08a24",
+    "border": "#dbe7f1",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#f08a24"
+  },
+  "colorInventory": [
+    {
+      "hex": "#ffffff",
+      "share": 69.1
+    },
+    {
+      "hex": "#eaf4fb",
+      "share": 25.9
+    },
+    {
+      "hex": "#f08a24",
+      "share": 1.4
+    },
+    {
+      "hex": "#2bb673",
+      "share": 1.2
+    },
+    {
+      "hex": "#e6c229",
+      "share": 1.0
+    },
+    {
+      "hex": "#11263a",
+      "share": 0.9
+    },
+    {
+      "hex": "#000000",
+      "share": 0.3
+    },
+    {
+      "hex": "#526a80",
+      "share": 0.2
+    },
+    {
+      "hex": "#1a1200",
+      "share": 0.0
+    },
+    {
+      "hex": "#dbe7f1",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 34,
+        "weight": "800",
+        "lineHeight": "37.4px",
+        "letterSpacing": "-0.68px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 9,
+      "md": 12,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(43, 182, 115, 0) 0px 0px 0px 8.98656px",
+      "md": "rgba(17, 38, 58, 0.5) 0px 20px 40px -32px",
+      "lg": "rgba(43, 182, 115, 0) 0px 0px 0px 8.98656px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        6,
+        7,
+        8,
+        10,
+        12,
+        13,
+        14
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      560,
+      1000
+    ],
+    "motion": {
+      "duration": 600,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cloud",
+    "tile": "squircle",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "clear",
+      "trustworthy",
+      "civic"
+    ],
+    "voice": {
+      "summary": "Public-service voice with a human tone: factual, calm about numbers and quick to say what they mean for your day. It never alarms and never plays down a poor reading.",
+      "dos": [
+        "Name the band and the advice together, such as Moderate, acceptable",
+        "Give units and station names every time",
+        "Say what to do, for example sensitive groups limit long outdoor effort"
+      ],
+      "donts": [
+        "Scare words like toxic or deadly",
+        "Unexplained jargon such as PM2.5 without a gloss",
+        "Pretending simulated readings are live"
+      ]
+    },
+    "taglines": [
+      "Know the air before you go",
+      "Every station, every hour",
+      "Breathe easier with clear numbers",
+      "Marlowe's air, in plain sight",
+      "Real readings, plain advice"
+    ],
+    "boilerplate": "clearair is a city air quality board that shows station readings, pollutant levels and health advice for Marlowe, Northgate and Harbourside in plain language.",
+    "microcopy": {
+      "primaryCta": "Check my station",
+      "secondaryCta": "Filter by pollutant",
+      "success": "Readings updated just now",
+      "error": "We lost this station. Showing the last reading",
+      "empty": "No stations in this area"
+    }
+  }
+}

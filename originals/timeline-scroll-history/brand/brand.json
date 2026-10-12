@@ -1,0 +1,181 @@
+{
+  "name": "Harrow Observatory",
+  "descriptor": "Public observatory with sixty years of history",
+  "listing": {
+    "key": "o:timeline-scroll-history",
+    "title": "Scroll-Linked History Timeline",
+    "category": "Timeline"
+  },
+  "colors": {
+    "background": "#0b1220",
+    "surface": "#111b33",
+    "text": "#93a0c0",
+    "textMuted": "#e9eefc",
+    "primary": "#fbbf24",
+    "secondary": "#818cf8",
+    "border": "#fbbf24",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#705718"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b1220",
+      "share": 99.2
+    },
+    {
+      "hex": "#93a0c0",
+      "share": 0.4
+    },
+    {
+      "hex": "#1d2a45",
+      "share": 0.2
+    },
+    {
+      "hex": "#e9eefc",
+      "share": 0.1
+    },
+    {
+      "hex": "#fbbf24",
+      "share": 0.1
+    },
+    {
+      "hex": "#5eead4",
+      "share": 0.0
+    },
+    {
+      "hex": "#818cf8",
+      "share": 0.0
+    },
+    {
+      "hex": "#16100a",
+      "share": 0.0
+    },
+    {
+      "hex": "#705718",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 60,
+        "weight": "700",
+        "lineHeight": "63px",
+        "letterSpacing": "-1.2px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 10,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(251, 191, 36) 0px 0px 18px 0px",
+      "md": "rgb(251, 191, 36) 0px 0px 18px 0px",
+      "lg": "rgb(251, 191, 36) 0px 0px 18px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        10,
+        16,
+        20,
+        44,
+        56,
+        64
+      ]
+    },
+    "container": 980,
+    "breakpoints": [
+      760
+    ],
+    "motion": {
+      "duration": 600,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "aperture",
+    "tile": "squircle",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "curious",
+      "grateful",
+      "grounded"
+    ],
+    "voice": {
+      "summary": "Harrow Observatory writes like an amateur astronomer sharing a hard-won story over tea. It is warm, factual about dates and instruments, and quietly awed rather than grand.",
+      "dos": [
+        "Give the year and the instrument for each event",
+        "Use plain observing language: night, dome, plate",
+        "Credit the volunteers by name"
+      ],
+      "donts": [
+        "Do not exaggerate discoveries",
+        "Do not use space-opera adjectives",
+        "Do not skip the people behind the telescope"
+      ]
+    },
+    "taglines": [
+      "Sixty years under one dome",
+      "From a borrowed refractor to a survey",
+      "Looking up since 1962",
+      "A small dome with long memory",
+      "Every clear night, a little more"
+    ],
+    "boilerplate": "Harrow Observatory is a volunteer-run public observatory that has welcomed stargazers for sixty years, growing from a borrowed refractor to a robotic survey telescope.",
+    "microcopy": {
+      "primaryCta": "Book a viewing night",
+      "secondaryCta": "Read the story",
+      "success": "Booked. Wrap up warm and bring a torch.",
+      "error": "Cloud has cancelled tonight's viewing. Choose another date.",
+      "empty": "No events in this decade yet."
+    }
+  }
+}

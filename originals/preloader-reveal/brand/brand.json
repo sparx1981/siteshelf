@@ -1,0 +1,175 @@
+{
+  "name": "Kōdo Atelier",
+  "descriptor": "Four-person studio making brand systems and sites",
+  "listing": {
+    "key": "o:preloader-reveal",
+    "title": "Preloader & Curtain Reveal",
+    "category": "Loaders"
+  },
+  "colors": {
+    "background": "#0b0b0c",
+    "surface": "#f2efe8",
+    "text": "#f2efe8",
+    "textMuted": "#ff4b2b",
+    "primary": "#ff4b2b",
+    "secondary": "#ff9c8a",
+    "border": "#2b2b2b",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#71261b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b0b0c",
+      "share": 51.5
+    },
+    {
+      "hex": "#f2efe8",
+      "share": 48.4
+    },
+    {
+      "hex": "#ff4b2b",
+      "share": 0.1
+    },
+    {
+      "hex": "#ff9c8a",
+      "share": 0.0
+    },
+    {
+      "hex": "#2b2b2b",
+      "share": 0.0
+    },
+    {
+      "hex": "#71261b",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Syne",
+    "body": "Space Mono",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Syne",
+        "stack": "'Syne', system-ui, sans-serif",
+        "sizePx": 150,
+        "weight": "800",
+        "lineHeight": "138px",
+        "letterSpacing": "-4.5px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Space Mono",
+        "stack": "'Space Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Space Mono",
+        "stack": "'Space Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Space Mono",
+        "stack": "'Space Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "1.44px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Syne",
+        "stack": "'Syne', system-ui, sans-serif",
+        "sizePx": 65,
+        "weight": "800",
+        "lineHeight": "52px",
+        "letterSpacing": "-13px",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Space+Mono&family=Syne:wght@700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 0,
+      "md": 0,
+      "lg": 0,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        14,
+        16,
+        20,
+        22,
+        24,
+        30,
+        48,
+        54
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      560
+    ],
+    "motion": {
+      "duration": 900,
+      "easing": "cubic-bezier(0.2"
+    }
+  },
+  "logo": {
+    "motif": "monogram",
+    "tile": "squircle",
+    "wordmarkFont": "Syne"
+  },
+  "voice": {
+    "personality": [
+      "precise",
+      "confident",
+      "wry"
+    ],
+    "voice": {
+      "summary": "A small studio that thinks carefully and talks briefly: confident, a little deadpan and obsessed with feel. Copy is short and typeset like a caption.",
+      "dos": [
+        "Use verbs of making, such as design, build and ship",
+        "Keep lines to a breath",
+        "Let the studio's humour show in status lines"
+      ],
+      "donts": [
+        "Agency cliches like full-service solutions",
+        "Long client lists",
+        "Hype about awards"
+      ]
+    },
+    "taglines": [
+      "Digital craft with a slowburn",
+      "Make it feel right",
+      "Small studio, long care",
+      "Brand systems, built to last",
+      "Warming up, almost there"
+    ],
+    "boilerplate": "Kōdo Atelier is a four-person studio making brand systems, websites and small tools for people who care how things feel.",
+    "microcopy": {
+      "primaryCta": "Replay",
+      "secondaryCta": "Skip intro",
+      "success": "Welcome in. The page is ready",
+      "error": "The reveal stalled. Skip to the page",
+      "empty": "No work to show yet"
+    }
+  }
+}

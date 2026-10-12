@@ -1,0 +1,169 @@
+{
+  "name": "Stayfold",
+  "descriptor": "Booking widget for short stays",
+  "listing": {
+    "key": "o:date-range-picker",
+    "title": "Date Range Picker",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#f4f7f6",
+    "surface": "#ffffff",
+    "text": "#14231f",
+    "textMuted": "#5f726c",
+    "primary": "#0b6f61",
+    "secondary": "#79b0a8",
+    "border": "#e3ebe8",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#79b0a8"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4f7f6",
+      "share": 98.9
+    },
+    {
+      "hex": "#c5d3ce",
+      "share": 0.5
+    },
+    {
+      "hex": "#14231f",
+      "share": 0.2
+    },
+    {
+      "hex": "#d9f3ee",
+      "share": 0.2
+    },
+    {
+      "hex": "#5f726c",
+      "share": 0.1
+    },
+    {
+      "hex": "#b7c4bf",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b6f61",
+      "share": 0.0
+    },
+    {
+      "hex": "#79b0a8",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Outfit",
+    "body": "Outfit",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.52px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "16.8px",
+        "letterSpacing": "0.96px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 14,
+      "md": 24,
+      "lg": 24,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(15, 157, 138, 0.15) 0px 0px 0px 3px",
+      "md": "rgb(15, 157, 138) 0px 0px 0px 1.5px inset",
+      "lg": "rgba(15, 60, 50, 0.12) 0px 20px 50px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        14,
+        16,
+        20,
+        22,
+        24,
+        28,
+        32
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      720,
+      721
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "home",
+    "tile": "squircle",
+    "wordmarkFont": "Outfit"
+  },
+  "voice": {
+    "personality": [
+      "easygoing",
+      "clear",
+      "considerate"
+    ],
+    "voice": {
+      "summary": "Stayfold sounds like a good host: welcoming, specific about dates and never pushy. Copy counts nights and totals openly so guests always know what they are choosing.",
+      "dos": [
+        "State nights and dates together, such as '3 nights, 12 to 15 June'",
+        "Use the host's 'you' in short, friendly sentences",
+        "Show the total before the guest asks"
+      ],
+      "donts": [
+        "Do not hide fees until checkout",
+        "Avoid hotel-brochure adjectives like 'luxurious'",
+        "Never block dates without saying why"
+      ]
+    },
+    "taglines": [
+      "Plan your stay",
+      "Pick the nights, we do the sums",
+      "Your dates, sorted in two clicks",
+      "Stay a little longer",
+      "Nights worth planning"
+    ],
+    "boilerplate": "Stayfold is a booking widget for small guesthouses and holiday lets, with a two-month range picker, live night counts and a clear summary of every stay.",
+    "microcopy": {
+      "primaryCta": "Reserve these dates",
+      "secondaryCta": "Clear dates",
+      "success": "Dates saved. Your summary is ready.",
+      "error": "Those dates are not available. Try a nearby range.",
+      "empty": "Choose a check-in date to begin."
+    }
+  }
+}

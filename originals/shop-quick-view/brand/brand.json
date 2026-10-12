@@ -1,0 +1,176 @@
+{
+  "name": "Parcel & Pine",
+  "descriptor": "Shop selling quiet things for wet days",
+  "listing": {
+    "key": "o:shop-quick-view",
+    "title": "Quick View Modal",
+    "category": "E-commerce"
+  },
+  "colors": {
+    "background": "#f5f0e6",
+    "surface": "#fffdf8",
+    "text": "#1c1915",
+    "textMuted": "#675d4f",
+    "primary": "#e3bfa4",
+    "secondary": "#183a2c",
+    "border": "#e4dac7",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#183a2c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f5f0e6",
+      "share": 59.2
+    },
+    {
+      "hex": "#fffdf8",
+      "share": 34.6
+    },
+    {
+      "hex": "#000000",
+      "share": 2.8
+    },
+    {
+      "hex": "#e8dcc4",
+      "share": 0.6
+    },
+    {
+      "hex": "#e3bfa4",
+      "share": 0.6
+    },
+    {
+      "hex": "#c7ced6",
+      "share": 0.6
+    },
+    {
+      "hex": "#183a2c",
+      "share": 0.6
+    },
+    {
+      "hex": "#7fa889",
+      "share": 0.3
+    },
+    {
+      "hex": "#4f7d63",
+      "share": 0.3
+    },
+    {
+      "hex": "#2f5a46",
+      "share": 0.3
+    }
+  ],
+  "typography": {
+    "heading": "Young Serif",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 60,
+        "weight": "400",
+        "lineHeight": "60px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 16,
+      "lg": 22,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.25) 0px 0px 0px 1px inset",
+      "md": "rgba(0, 0, 0, 0.25) 0px 0px 0px 1px inset",
+      "lg": "rgba(0, 0, 0, 0.25) 0px 0px 0px 1px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      760
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "sprout",
+    "tile": "squircle",
+    "wordmarkFont": "Young Serif"
+  },
+  "voice": {
+    "personality": [
+      "cosy",
+      "understated",
+      "thoughtful"
+    ],
+    "voice": {
+      "summary": "A gently humorous shopkeeper in a wool jumper: quiet, considered and fond of a good coat for the rain. Product notes are practical first, poetic second.",
+      "dos": [
+        "Name materials, sizes and stock plainly",
+        "Use weather and woodland imagery sparingly",
+        "Keep descriptions to two sentences"
+      ],
+      "donts": [
+        "Sale shouting and countdown banners",
+        "Trend words like must-have",
+        "Stacking adjectives"
+      ]
+    },
+    "taglines": [
+      "Quiet things for wet days",
+      "Packed up with pine and care",
+      "Autumn edit, softly curated",
+      "Good gear for grey skies",
+      "Stay dry, stay unhurried"
+    ],
+    "boilerplate": "Parcel & Pine is a small online store selling bags, everyday and home goods designed for wet-weather days, with an autumn edit of thoughtfully chosen pieces.",
+    "microcopy": {
+      "primaryCta": "Add to bag",
+      "secondaryCta": "Quick view",
+      "success": "Added to your bag",
+      "error": "That size just sold out. Try another",
+      "empty": "Nothing here yet. Try another category"
+    }
+  }
+}

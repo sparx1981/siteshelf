@@ -1,0 +1,166 @@
+{
+  "name": "Orbit",
+  "descriptor": "Self-custody wallet for digital assets",
+  "listing": {
+    "key": "m:orbit-web3",
+    "title": "Orbit Web3",
+    "category": "Web3"
+  },
+  "colors": {
+    "background": "#0a0f0d",
+    "surface": "#12382a",
+    "text": "#ede9de",
+    "textMuted": "#ffffff",
+    "primary": "#ecd693",
+    "secondary": "#12382a",
+    "border": "#2a2e2a",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#12382a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0a0f0d",
+      "share": 95.0
+    },
+    {
+      "hex": "#12382a",
+      "share": 4.0
+    },
+    {
+      "hex": "#ecd693",
+      "share": 0.5
+    },
+    {
+      "hex": "#faf6eb",
+      "share": 0.3
+    },
+    {
+      "hex": "#ede9de",
+      "share": 0.2
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.1
+    },
+    {
+      "hex": "#2a2e2a",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Instrument Serif",
+    "body": "Instrument Serif",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Instrument Serif",
+        "stack": "'Instrument Serif', Georgia, serif",
+        "sizePx": 112,
+        "weight": "400",
+        "lineHeight": "106.4px",
+        "letterSpacing": "-2.8px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Instrument Serif",
+        "stack": "'Instrument Serif', Georgia, serif",
+        "sizePx": 20,
+        "weight": "400",
+        "lineHeight": "28px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Instrument Serif",
+        "stack": "'Instrument Serif', Georgia, serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 0,
+      "md": 0,
+      "lg": 0,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(217, 172, 38, 0.6) 0px 4px 95px 4px",
+      "md": "rgba(217, 172, 38, 0.6) 0px 4px 95px 4px",
+      "lg": "rgba(217, 172, 38, 0.6) 0px 4px 95px 4px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40,
+        48,
+        64
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      420,
+      768,
+      1024
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "orbit",
+    "tile": "none",
+    "wordmarkFont": "Instrument Serif"
+  },
+  "voice": {
+    "personality": [
+      "dignified",
+      "cinematic",
+      "secure"
+    ],
+    "voice": {
+      "summary": "Sounds like a private banker in a quiet room: elegant, sparing and serious about safety. The tone is low and slow, with serif gravitas.",
+      "dos": [
+        "Use short, dignified sentences",
+        "Name the action: send, receive, hold",
+        "Treat security as a matter of fact"
+      ],
+      "donts": [
+        "No crypto-bro slang",
+        "Avoid price speculation",
+        "Never use exclamation marks"
+      ]
+    },
+    "taglines": [
+      "Own the future of your assets",
+      "Your vault, your orbit",
+      "Hold what's yours",
+      "Quiet security for digital wealth",
+      "Send, receive, keep"
+    ],
+    "boilerplate": "Orbit is a self-custody wallet for digital assets, offering a secure vault with simple send and receive tools, trusted by builders worldwide.",
+    "microcopy": {
+      "primaryCta": "Launch your orbit",
+      "secondaryCta": "Open vault",
+      "success": "Transfer sent.",
+      "error": "Transfer failed. Your funds are safe. Try again.",
+      "empty": "Your vault is empty. Receive your first asset."
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "name": "Six Sides",
+  "descriptor": "Small gallery of six works on a cube",
+  "listing": {
+    "key": "o:gallery-cube-rotator",
+    "title": "Cube Rotator Gallery",
+    "category": "Gallery"
+  },
+  "colors": {
+    "background": "#efe9e0",
+    "surface": "#ffffff",
+    "text": "#231d16",
+    "textMuted": "#6a5f50",
+    "primary": "#ff9f1c",
+    "secondary": "#5bc0be",
+    "border": "#cdbfab",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#714914"
+  },
+  "colorInventory": [
+    {
+      "hex": "#efe9e0",
+      "share": 85.8
+    },
+    {
+      "hex": "#ffffff",
+      "share": 6.6
+    },
+    {
+      "hex": "#5bc0be",
+      "share": 1.7
+    },
+    {
+      "hex": "#f4a261",
+      "share": 1.4
+    },
+    {
+      "hex": "#ff9f1c",
+      "share": 1.0
+    },
+    {
+      "hex": "#ffd166",
+      "share": 0.8
+    },
+    {
+      "hex": "#f26b4f",
+      "share": 0.7
+    },
+    {
+      "hex": "#1b1b3a",
+      "share": 0.7
+    },
+    {
+      "hex": "#6a4c93",
+      "share": 0.7
+    },
+    {
+      "hex": "#0b132b",
+      "share": 0.7
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 76,
+        "weight": "600",
+        "lineHeight": "76px",
+        "letterSpacing": "-1.52px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 24,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=Inter:wght@400;500;600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 18,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.35) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.18) 0px 0px 60px 0px inset",
+      "md": "rgba(60, 40, 20, 0.6) 0px 14px 30px -22px",
+      "lg": "rgba(255, 255, 255, 0.35) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.18) 0px 0px 60px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        16,
+        18,
+        20,
+        22
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      600
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cube",
+    "tile": "none",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "curious",
+      "playful",
+      "gallery-quiet"
+    ],
+    "voice": {
+      "summary": "Six Sides sounds like a gallery guide who loves a small, odd show: warm, short and gently teasing. It invites a turn of the cube before it explains anything.",
+      "dos": [
+        "Name each work and artist in one short caption",
+        "Invite action with a verb, such as 'Turn'",
+        "Describe colour and mood rather than technique"
+      ],
+      "donts": [
+        "Use art-world abstractions",
+        "Over-explain the artwork",
+        "Talk down to the visitor"
+      ]
+    },
+    "taglines": [
+      "Every side has a story",
+      "Turn the cube, meet the work",
+      "Six small works, one object",
+      "Look all the way around",
+      "A gallery you can spin"
+    ],
+    "boilerplate": "Six Sides is an online gallery that shows six small invented artworks on a rotating cube, with a caption for each face and a slow auto-spin for looking around.",
+    "microcopy": {
+      "primaryCta": "Turn the cube",
+      "secondaryCta": "Auto-spin",
+      "success": "Now showing: Morning Roof.",
+      "error": "The cube is stuck. Refresh to spin again.",
+      "empty": "No work on this face yet."
+    }
+  }
+}

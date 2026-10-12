@@ -1,0 +1,166 @@
+{
+  "name": "Daybreak Coffee",
+  "descriptor": "Single-origin roaster with a brew calculator",
+  "listing": {
+    "key": "o:daybreak-coffee",
+    "title": "Daybreak Coffee Brew Calculator Hero",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#2a1810",
+    "surface": "#38231a",
+    "text": "#f5e9d8",
+    "textMuted": "#e8a34a",
+    "primary": "#e8a34a",
+    "secondary": "#f2cc9b",
+    "border": "#e8a34a",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#684b28"
+  },
+  "colorInventory": [
+    {
+      "hex": "#2a1810",
+      "share": 96.8
+    },
+    {
+      "hex": "#f5e9d8",
+      "share": 2.2
+    },
+    {
+      "hex": "#e8a34a",
+      "share": 1.0
+    },
+    {
+      "hex": "#f2cc9b",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    },
+    {
+      "hex": "#684b28",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Albert Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 86.4,
+        "weight": "300",
+        "lineHeight": "88.128px",
+        "letterSpacing": "-1.728px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Albert Sans",
+        "stack": "'Albert Sans', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Albert Sans",
+        "stack": "'Albert Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Albert Sans",
+        "stack": "'Albert Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300;1,9..144,600&family=Albert+Sans:wght@400;500;600&display=swap",
+    "headingWeight": 300
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 12,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        10,
+        14,
+        16,
+        20,
+        22,
+        24,
+        28,
+        30
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      960
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "drop",
+    "tile": "squircle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "slow",
+      "craft",
+      "warm"
+    ],
+    "voice": {
+      "summary": "Sounds like a roaster pouring you a cup while explaining the ratio: unhurried, knowledgeable and generous. Detail about grams and seconds is delivered with a smile, not a lecture.",
+      "dos": [
+        "Give exact grams, water and timings",
+        "Use brewing terms such as bloom, dose and pour",
+        "Keep the morning mood: slow, steady, kind"
+      ],
+      "donts": [
+        "Coffee snob condescension",
+        "Caffeine-fuelled hustle talk",
+        "Rounded numbers that hurt the brew"
+      ]
+    },
+    "taglines": [
+      "Good mornings start slowly",
+      "Roasted twice a week",
+      "Brew it properly, taste the difference",
+      "One cup at a time",
+      "Beans first, then patience"
+    ],
+    "boilerplate": "Daybreak Coffee is a small roaster selling single-origin beans roasted twice a week, with a brew-ratio calculator that sets dose, water and timer for each method.",
+    "microcopy": {
+      "primaryCta": "Start brew",
+      "secondaryCta": "Pick a method",
+      "success": "Brew done. Enjoy that first sip",
+      "error": "Timer stalled. Start the brew again",
+      "empty": "No cups set. Choose how many"
+    }
+  }
+}

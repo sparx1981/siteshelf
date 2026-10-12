@@ -1,0 +1,43 @@
+{
+  "brandName": "Harbor Ops",
+  "descriptor": "Infrastructure monitoring for fast-moving teams",
+  "personality": [
+    "vigilant",
+    "level",
+    "technical"
+  ],
+  "voice": {
+    "summary": "Harbor Ops reads like a good incident report: calm, specific and timestamped. It names the host, the metric and the threshold, and never raises its voice above what the graph shows.",
+    "dos": [
+      "Name host, metric and value together",
+      "Timestamp every alert",
+      "Use severity words consistently: ok, warn, critical"
+    ],
+    "donts": [
+      "Do not use dramatic words such as 'catastrophic'",
+      "Avoid vague 'issues detected'",
+      "Never alert without a next step"
+    ]
+  },
+  "taglines": [
+    "Calm waters, clear signals",
+    "Watch every host, every second",
+    "See trouble before it lands",
+    "Ops, without the noise",
+    "Your fleet at a glance"
+  ],
+  "boilerplate": "Harbor Ops is an infrastructure monitoring service that streams CPU, memory, request and latency data for production services and raises clear, prioritised alerts.",
+  "microcopy": {
+    "primaryCta": "Simulate incident",
+    "secondaryCta": "View alerts",
+    "success": "Incident resolved. Latency back to normal.",
+    "error": "Lost connection to api-1. Retrying.",
+    "empty": "No alerts in this time range."
+  },
+  "logo": {
+    "motif": "pulse",
+    "monogram": "H",
+    "wordmarkCase": "as-is",
+    "note": "A pulse trace is the classic picture of a system's live heartbeat."
+  }
+}

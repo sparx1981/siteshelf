@@ -1,0 +1,152 @@
+{
+  "name": "Bracewell",
+  "descriptor": "JSON formatter and tree viewer for developers",
+  "listing": {
+    "key": "o:json-formatter",
+    "title": "JSON Formatter & Tree Viewer",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#0f1115",
+    "surface": "#171a21",
+    "text": "#8b93a3",
+    "textMuted": "#7dd3fc",
+    "primary": "#38bdf8",
+    "secondary": "#86efac",
+    "border": "#272c36",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#1e5671"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0f1115",
+      "share": 99.3
+    },
+    {
+      "hex": "#38bdf8",
+      "share": 0.2
+    },
+    {
+      "hex": "#232836",
+      "share": 0.1
+    },
+    {
+      "hex": "#8b93a3",
+      "share": 0.1
+    },
+    {
+      "hex": "#7dd3fc",
+      "share": 0.1
+    },
+    {
+      "hex": "#555d6e",
+      "share": 0.1
+    },
+    {
+      "hex": "#e6e9ef",
+      "share": 0.1
+    },
+    {
+      "hex": "#86efac",
+      "share": 0.0
+    },
+    {
+      "hex": "#4ade80",
+      "share": 0.0
+    },
+    {
+      "hex": "#04202e",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "JetBrains Mono",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13.5,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 5,
+      "md": 9,
+      "lg": 12,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "stack",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "terse",
+      "exact",
+      "developer-grade"
+    ],
+    "voice": {
+      "summary": "Writes error messages like a good linter and nothing else: terse, exact and slightly dry. If it can give a line and column, it will.",
+      "dos": [
+        "Report errors with line, column and the offending token",
+        "Use correct JSON terms such as key, value and array",
+        "Keep labels to a single verb"
+      ],
+      "donts": [
+        "Cutesy error text",
+        "Vague words like invalid data",
+        "Marketing copy inside the tool"
+      ]
+    },
+    "taglines": [
+      "Valid JSON, instantly",
+      "Format, minify, move on",
+      "See the error where it lives",
+      "Brace for clean data",
+      "Trees you can actually read"
+    ],
+    "boilerplate": "Bracewell is a developer tool that validates, formats and minifies JSON, shows exact error positions and renders a collapsible, searchable tree.",
+    "microcopy": {
+      "primaryCta": "Format",
+      "secondaryCta": "Copy path",
+      "success": "Formatted. 214 lines",
+      "error": "Unexpected token at line 12, column 5",
+      "empty": "Paste JSON to begin"
+    }
+  }
+}

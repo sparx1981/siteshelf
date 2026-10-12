@@ -1,0 +1,186 @@
+{
+  "name": "Kernel & Cog",
+  "descriptor": "Developer tools for build and deploy",
+  "listing": {
+    "key": "o:footer-terminal",
+    "title": "Terminal Footer",
+    "category": "Footer"
+  },
+  "colors": {
+    "background": "#0b0f0d",
+    "surface": "#16201b",
+    "text": "#a9bbb0",
+    "textMuted": "#7f968a",
+    "primary": "#5df2a0",
+    "secondary": "#ff6b5e",
+    "border": "#2c4136",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#2d6c4c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b0f0d",
+      "share": 96.5
+    },
+    {
+      "hex": "#16201b",
+      "share": 2.6
+    },
+    {
+      "hex": "#5df2a0",
+      "share": 0.4
+    },
+    {
+      "hex": "#a9bbb0",
+      "share": 0.2
+    },
+    {
+      "hex": "#7f968a",
+      "share": 0.2
+    },
+    {
+      "hex": "#d8e6dd",
+      "share": 0.2
+    },
+    {
+      "hex": "#ff6b5e",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffc561",
+      "share": 0.0
+    },
+    {
+      "hex": "#2c4136",
+      "share": 0.0
+    },
+    {
+      "hex": "#2d6c4c",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Space Grotesk",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 66,
+        "weight": "700",
+        "lineHeight": "66px",
+        "letterSpacing": "-1.65px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 13,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "22.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 10,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(93, 242, 160, 0.04) 0px 0px 0px 1px, rgba(0, 0, 0, 0.9) 0px 30px 80px -30px, rgba(93, 242, 160, 0.04) 0px 0px 80px 0px inset",
+      "md": "rgba(93, 242, 160, 0.04) 0px 0px 0px 1px, rgba(0, 0, 0, 0.9) 0px 30px 80px -30px, rgba(93, 242, 160, 0.04) 0px 0px 80px 0px inset",
+      "lg": "rgba(93, 242, 160, 0.04) 0px 0px 0px 1px, rgba(0, 0, 0, 0.9) 0px 30px 80px -30px, rgba(93, 242, 160, 0.04) 0px 0px 80px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        22
+      ]
+    },
+    "container": 980,
+    "breakpoints": [
+      640
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chip",
+    "tile": "none",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "dry",
+      "competent",
+      "hacker-friendly"
+    ],
+    "voice": {
+      "summary": "Kernel & Cog sounds like a seasoned sysadmin typing in a terminal: dry, exact and quietly funny. It prefers commands and examples to adjectives.",
+      "dos": [
+        "Show the command rather than describing it",
+        "Use lowercase for prompts and imperative verbs",
+        "Keep jokes small and technical"
+      ],
+      "donts": [
+        "Do not say 'revolutionise your workflow'",
+        "Do not explain what a terminal is",
+        "Do not hide the clickable link behind the gimmick"
+      ]
+    },
+    "taglines": [
+      "Tools that stay out of your way",
+      "Same build on laptop and in prod",
+      "Cache it, log it, ship it",
+      "Quiet tools for loud deadlines",
+      "One command from deployed"
+    ],
+    "boilerplate": "Kernel & Cog makes a build cache, a log viewer and a deploy button that behave the same on a developer's laptop and in production.",
+    "microcopy": {
+      "primaryCta": "help",
+      "secondaryCta": "ls",
+      "success": "ok: theme set to amber",
+      "error": "error: command not found. try help",
+      "empty": "empty: nothing in history yet"
+    }
+  }
+}

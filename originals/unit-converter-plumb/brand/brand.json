@@ -1,0 +1,170 @@
+{
+  "name": "Plumb",
+  "descriptor": "Unit converter for everyday measures",
+  "listing": {
+    "key": "o:unit-converter-plumb",
+    "title": "Multi-Category Unit Converter",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#f1f5f4",
+    "surface": "#ffffff",
+    "text": "#10231f",
+    "textMuted": "#0b4f4a",
+    "primary": "#0f766e",
+    "secondary": "#7bb4af",
+    "border": "#dfe7e5",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#7bb4af"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f1f5f4",
+      "share": 96.4
+    },
+    {
+      "hex": "#d9f2ee",
+      "share": 2.8
+    },
+    {
+      "hex": "#0f766e",
+      "share": 0.6
+    },
+    {
+      "hex": "#10231f",
+      "share": 0.1
+    },
+    {
+      "hex": "#5f7771",
+      "share": 0.1
+    },
+    {
+      "hex": "#0b4f4a",
+      "share": 0.0
+    },
+    {
+      "hex": "#7bb4af",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Manrope",
+    "mono": "IBM Plex Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 24,
+        "weight": "800",
+        "lineHeight": "36px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "19.5px",
+        "letterSpacing": "1.04px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=IBM+Plex+Mono:wght@500&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 12,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        24,
+        32
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      480
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "drop",
+    "tile": "squircle",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "exact",
+      "calm",
+      "helpful"
+    ],
+    "voice": {
+      "summary": "Plumb is straight and level: it converts, shows the result and says nothing else. Words are chosen like units, short and unambiguous.",
+      "dos": [
+        "Show the result before explaining it",
+        "Name units in full on first use",
+        "Offer precision as a plain choice"
+      ],
+      "donts": [
+        "Do not add cute commentary to results",
+        "Avoid rounding without saying so",
+        "Never mix unit systems in a sentence"
+      ]
+    },
+    "taglines": [
+      "Convert it. Check it. Done",
+      "Every unit, plumb and true",
+      "Length, weight, heat and speed",
+      "Quick conversions, no clutter",
+      "Measure twice, convert once"
+    ],
+    "boilerplate": "Plumb is a multi-category unit converter for length, weight, temperature, volume and speed, with two-way live fields, precision control and a quick reference table.",
+    "microcopy": {
+      "primaryCta": "Copy result",
+      "secondaryCta": "Swap units",
+      "success": "Result copied.",
+      "error": "That is not a number. Try digits only.",
+      "empty": "No recent conversions yet."
+    }
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "name": "Larder & Ladle",
+  "descriptor": "Seasonal recipes for slow home cooking",
+  "listing": {
+    "key": "o:recipe-card",
+    "title": "Recipe Card",
+    "category": "Cards"
+  },
+  "colors": {
+    "background": "#fbf6ee",
+    "surface": "#2b2118",
+    "text": "#2b2118",
+    "textMuted": "#5a4a3a",
+    "primary": "#c8402a",
+    "secondary": "#2b2118",
+    "border": "#eadfcb",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#2b2118"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fbf6ee",
+      "share": 98.1
+    },
+    {
+      "hex": "#2b2118",
+      "share": 1.3
+    },
+    {
+      "hex": "#c8402a",
+      "share": 0.2
+    },
+    {
+      "hex": "#5a4a3a",
+      "share": 0.1
+    },
+    {
+      "hex": "#d9573e",
+      "share": 0.1
+    },
+    {
+      "hex": "#e8694f",
+      "share": 0.1
+    },
+    {
+      "hex": "#eadfcb",
+      "share": 0.0
+    },
+    {
+      "hex": "#c9b79b",
+      "share": 0.0
+    },
+    {
+      "hex": "#3f6b45",
+      "share": 0.0
+    },
+    {
+      "hex": "#7d6e5c",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Playfair Display",
+    "body": "Playfair Display",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Playfair Display",
+        "stack": "'Playfair Display', Georgia, serif",
+        "sizePx": 52,
+        "weight": "700",
+        "lineHeight": "56.16px",
+        "letterSpacing": "-0.52px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Playfair Display",
+        "stack": "'Playfair Display', Georgia, serif",
+        "sizePx": 26,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.56px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Playfair Display",
+        "stack": "'Playfair Display', Georgia, serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "20.8px",
+        "letterSpacing": "1.82px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 6,
+      "lg": 6,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(60, 40, 10, 0.35) 0px 18px 40px -22px",
+      "md": "rgba(60, 40, 10, 0.35) 0px 18px 40px -22px",
+      "lg": "rgba(60, 40, 10, 0.35) 0px 18px 40px -22px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        3,
+        6,
+        8,
+        10,
+        11,
+        12,
+        14,
+        20,
+        22
+      ]
+    },
+    "container": 960,
+    "breakpoints": [
+      800
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "flame",
+    "tile": "none",
+    "wordmarkFont": "Playfair Display"
+  },
+  "voice": {
+    "personality": [
+      "generous",
+      "earthy",
+      "reassuring"
+    ],
+    "voice": {
+      "summary": "Larder & Ladle writes like a kind aunt reading a recipe aloud at the stove. It is warm, specific about heat and time, and fond of cupboard staples and long evenings.",
+      "dos": [
+        "Give quantities in both metric and US cups",
+        "Describe doneness by sight and smell",
+        "Say how long and how hot, exactly"
+      ],
+      "donts": [
+        "Do not use 'foodie' or 'hack'",
+        "Do not call a dish 'easy' without saying why",
+        "Do not rush the cook"
+      ]
+    },
+    "taglines": [
+      "Slow food for long evenings",
+      "Tin-cupboard cooking, made lovely",
+      "Low heat, deep flavour",
+      "Recipes you can cook in slippers",
+      "Soup with time in it"
+    ],
+    "boilerplate": "Larder & Ladle publishes seasonal recipes for slow home cooking, with scalable quantities, metric and US measures, and a step-by-step cook mode.",
+    "microcopy": {
+      "primaryCta": "Start cooking",
+      "secondaryCta": "Print",
+      "success": "Timer set for 40 minutes. We will tell you when to check.",
+      "error": "That timer would not start. Use your own clock for now.",
+      "empty": "No ingredients ticked yet. Tap one as you add it."
+    }
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "name": "Pedalo",
+  "descriptor": "City bike-share for everyday rides",
+  "listing": {
+    "key": "o:faq-helpful-votes",
+    "title": "FAQ With Helpful Votes",
+    "category": "FAQ"
+  },
+  "colors": {
+    "background": "#f6faf6",
+    "surface": "#0f3d24",
+    "text": "#2f4a39",
+    "textMuted": "#14281c",
+    "primary": "#0f3d24",
+    "secondary": "#ffe66d",
+    "border": "#bcd5c1",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#ffe66d"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6faf6",
+      "share": 77.1
+    },
+    {
+      "hex": "#0f3d24",
+      "share": 18.1
+    },
+    {
+      "hex": "#e6efe7",
+      "share": 1.7
+    },
+    {
+      "hex": "#1f9d57",
+      "share": 1.4
+    },
+    {
+      "hex": "#2f4a39",
+      "share": 0.9
+    },
+    {
+      "hex": "#14281c",
+      "share": 0.4
+    },
+    {
+      "hex": "#50685a",
+      "share": 0.2
+    },
+    {
+      "hex": "#bcd9c6",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffe66d",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 60,
+        "weight": "600",
+        "lineHeight": "63px",
+        "letterSpacing": "-1.2px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "25.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "25.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Inter:wght@400;500;600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 12,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(15, 61, 36, 0.6) 0px 14px 30px -24px",
+      "md": "rgba(31, 157, 87, 0.7) 0px 18px 34px -26px",
+      "lg": "rgba(15, 61, 36, 0.6) 0px 14px 30px -24px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "orbit",
+    "tile": "circle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "friendly",
+      "straight",
+      "upbeat"
+    ],
+    "voice": {
+      "summary": "Sounds like a helpful rider who has fixed a puncture or two: cheerful, direct and short on small print. Answers are in plain words with real numbers, and it openly asks if they helped.",
+      "dos": [
+        "Answer the question in the first sentence",
+        "Give prices, times and distances as figures",
+        "Ask for feedback without begging for it"
+      ],
+      "donts": [
+        "Do not hide answers behind terms and conditions",
+        "Do not use cycling jargon",
+        "Do not blame riders for faults"
+      ]
+    },
+    "taglines": [
+      "Questions riders actually ask",
+      "Unlock, ride, park, done",
+      "Bikes for the short way round",
+      "Your city, one pedal at a time",
+      "Straight answers, quick rides"
+    ],
+    "boilerplate": "Pedalo is a city bike-share scheme in the UK offering unlockable bikes at docks and designated parking bays, priced per ride and supported by a plain-language help centre.",
+    "microcopy": {
+      "primaryCta": "Find a bike",
+      "secondaryCta": "Report a fault",
+      "success": "Thanks. Your vote helps us fix the answers.",
+      "error": "We couldn't save your vote. Try again.",
+      "empty": "No questions match your search."
+    }
+  }
+}

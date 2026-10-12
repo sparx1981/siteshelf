@@ -1,0 +1,186 @@
+{
+  "name": "The Meridian Society",
+  "descriptor": "Imaginary exploration club with four centuries of milestones",
+  "listing": {
+    "key": "o:timeline-horizontal",
+    "title": "Horizontal History Timeline",
+    "category": "Timeline"
+  },
+  "colors": {
+    "background": "#f3e9d6",
+    "surface": "#2a2118",
+    "text": "#4a3d2a",
+    "textMuted": "#241c12",
+    "primary": "#c9973f",
+    "secondary": "#3f8fa6",
+    "border": "#14110f",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#5b4623"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f3e9d6",
+      "share": 55.4
+    },
+    {
+      "hex": "#14110f",
+      "share": 21.3
+    },
+    {
+      "hex": "#2a2118",
+      "share": 21.1
+    },
+    {
+      "hex": "#4a3d2a",
+      "share": 0.9
+    },
+    {
+      "hex": "#9a7ce0",
+      "share": 0.3
+    },
+    {
+      "hex": "#3f8fa6",
+      "share": 0.2
+    },
+    {
+      "hex": "#a89c86",
+      "share": 0.2
+    },
+    {
+      "hex": "#c9973f",
+      "share": 0.2
+    },
+    {
+      "hex": "#d97a4a",
+      "share": 0.1
+    },
+    {
+      "hex": "#e5d3a8",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Cormorant Garamond",
+    "body": "Work Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Cormorant Garamond",
+        "stack": "'Cormorant Garamond', Georgia, serif",
+        "sizePx": 56,
+        "weight": "600",
+        "lineHeight": "56px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Cormorant Garamond",
+        "stack": "'Cormorant Garamond', Georgia, serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "23px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Work Sans",
+        "stack": "'Work Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Work Sans",
+        "stack": "'Work Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Work+Sans:wght@400;500;600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 9,
+      "md": 12,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.4) 0px 14px 30px 0px",
+      "md": "rgba(0, 0, 0, 0.4) 0px 14px 30px 0px",
+      "lg": "rgba(0, 0, 0, 0.4) 0px 14px 30px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        16,
+        18,
+        20,
+        22
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "compass",
+    "tile": "circle",
+    "wordmarkFont": "Cormorant Garamond"
+  },
+  "voice": {
+    "personality": [
+      "learned",
+      "adventurous",
+      "dignified"
+    ],
+    "voice": {
+      "summary": "A learned society's secretary, writing in a quill-and-brass register: formal, a little whimsical and precise about dates. Every milestone has a year, a place and a small flourish.",
+      "dos": [
+        "Lead each entry with the year and the era",
+        "Keep prose in a slightly period register without pastiche",
+        "Use era names Dawn, Sail, Steam and Signal consistently"
+      ],
+      "donts": [
+        "Modern slang",
+        "Treating the fictional events as real history",
+        "Over-decorated archaic spellings"
+      ]
+    },
+    "taglines": [
+      "Four centuries of imaginary exploration",
+      "Drag the timeline, follow the stars",
+      "Dawn to Signal, charted in brass",
+      "Members since 1620, in spirit",
+      "History for armchair navigators"
+    ],
+    "boilerplate": "The Meridian Society is an imaginary exploration club, with a timeline of invented expeditions from 1620 to 2020 across the Dawn, Sail, Steam and Signal eras.",
+    "microcopy": {
+      "primaryCta": "Open the record",
+      "secondaryCta": "All eras",
+      "success": "Entry opened",
+      "error": "The timeline stuck. Drag or use the arrow keys",
+      "empty": "No events in this era"
+    }
+  }
+}

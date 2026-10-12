@@ -1,0 +1,168 @@
+{
+  "name": "The Marlowe",
+  "descriptor": "Playhouse staging live theatre with a new show tonight",
+  "listing": {
+    "key": "o:hero-curtain-open",
+    "title": "Curtain Reveal Hero",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#7a1426",
+    "surface": "#120a0c",
+    "text": "#fbefd8",
+    "textMuted": "#e9d9bc",
+    "primary": "#e7bb6a",
+    "secondary": "#8a5a12",
+    "border": "#e7bb6a",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#8a5a12"
+  },
+  "colorInventory": [
+    {
+      "hex": "#7a1426",
+      "share": 50.1
+    },
+    {
+      "hex": "#120a0c",
+      "share": 48.8
+    },
+    {
+      "hex": "#e7bb6a",
+      "share": 0.4
+    },
+    {
+      "hex": "#8a5a12",
+      "share": 0.3
+    },
+    {
+      "hex": "#2b6b3d",
+      "share": 0.2
+    },
+    {
+      "hex": "#fbefd8",
+      "share": 0.1
+    },
+    {
+      "hex": "#e9d9bc",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffe6b8",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Playfair Display",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Playfair Display",
+        "stack": "'Playfair Display', Georgia, serif",
+        "sizePx": 120,
+        "weight": "700",
+        "lineHeight": "120px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "27.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 16,
+      "md": 16,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.5) -30px 0px 40px 0px inset, rgb(212, 162, 76) 0px -8px 0px 0px inset",
+      "md": "rgba(0, 0, 0, 0.5) 30px 0px 40px 0px inset, rgb(212, 162, 76) 0px -8px 0px 0px inset",
+      "lg": "rgba(0, 0, 0, 0.5) -30px 0px 40px 0px inset, rgb(212, 162, 76) 0px -8px 0px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        8,
+        9,
+        14,
+        15,
+        16,
+        18,
+        20,
+        28
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "monogram",
+    "tile": "squircle",
+    "wordmarkFont": "Playfair Display"
+  },
+  "voice": {
+    "personality": [
+      "theatrical",
+      "gracious",
+      "dramatic"
+    ],
+    "voice": {
+      "summary": "A front-of-house voice in evening dress: warm, a touch grand and fond of a well-timed pause. Short, stagey lines that make tonight feel like an occasion.",
+      "dos": [
+        "Lead with tonight, with date, show and price",
+        "Use theatre terms like curtain, company and stalls",
+        "Keep the drama to one line, then give the practical detail"
+      ],
+      "donts": [
+        "Over-the-top superlatives like best show ever",
+        "Hiding prices",
+        "Casual slang"
+      ]
+    },
+    "taglines": [
+      "Tonight, the curtain rises",
+      "Live theatre, close enough to touch",
+      "A company of fourteen, one stage",
+      "Take your seats",
+      "Bring a coat, leave with a story"
+    ],
+    "boilerplate": "The Marlowe Playhouse is a theatre staging new productions, currently a new staging of The Lantern Keeper with live music and a company of fourteen.",
+    "microcopy": {
+      "primaryCta": "Book seats from £18",
+      "secondaryCta": "Cast and crew",
+      "success": "Seats held. See you in the stalls",
+      "error": "We could not hold those seats. Try again",
+      "empty": "No performances tonight. See the listings"
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "name": "Greenhatch Garden Centres",
+  "descriptor": "Garden centres across a fictional county",
+  "listing": {
+    "key": "o:store-locator",
+    "title": "Store Locator",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#f6f7f4",
+    "surface": "#e7efe3",
+    "text": "#1e2a22",
+    "textMuted": "#62705f",
+    "primary": "#127446",
+    "secondary": "#cfe3ee",
+    "border": "#cdd3c7",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#cfe3ee"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6f7f4",
+      "share": 57.6
+    },
+    {
+      "hex": "#e7efe3",
+      "share": 39.4
+    },
+    {
+      "hex": "#62705f",
+      "share": 0.7
+    },
+    {
+      "hex": "#1e2a22",
+      "share": 0.5
+    },
+    {
+      "hex": "#cfe3ee",
+      "share": 0.4
+    },
+    {
+      "hex": "#cfe6c4",
+      "share": 0.4
+    },
+    {
+      "hex": "#1f6b45",
+      "share": 0.3
+    },
+    {
+      "hex": "#000000",
+      "share": 0.3
+    },
+    {
+      "hex": "#1f9d62",
+      "share": 0.2
+    },
+    {
+      "hex": "#3c4a3f",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Albert Sans",
+    "body": "Albert Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Albert Sans",
+        "stack": "'Albert Sans', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Albert Sans",
+        "stack": "'Albert Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 8,
+      "lg": 10,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        11,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "sprout",
+    "tile": "squircle",
+    "wordmarkFont": "Inter Bold (stand-in for Albert Sans)"
+  },
+  "voice": {
+    "personality": [
+      "helpful",
+      "grounded",
+      "neighbourly"
+    ],
+    "voice": {
+      "summary": "Greenhatch sounds like a knowledgeable assistant in a green apron, ready with directions and plant advice. It is plain, friendly and clear about hours and what each store offers.",
+      "dos": [
+        "State whether a store is open now and when it closes",
+        "Mention services in plain words",
+        "Give directions before anything else"
+      ],
+      "donts": [
+        "Do not use landscaping jargon",
+        "Do not hide opening hours",
+        "Do not call customers 'guests'"
+      ]
+    },
+    "taglines": [
+      "Find your nearest store",
+      "Seeds, soil and good advice",
+      "A garden centre close to home",
+      "Open now, and we know where",
+      "Grow something this weekend"
+    ],
+    "boilerplate": "Greenhatch Garden Centres is a retailer with eight stores across a county, offering plants, garden advice, click and collect, a café and pet supplies.",
+    "microcopy": {
+      "primaryCta": "Get directions",
+      "secondaryCta": "Use my location",
+      "success": "Showing 3 stores open now near you.",
+      "error": "We could not find your location. Enter a town or postcode.",
+      "empty": "No stores match. Try removing a filter."
+    }
+  }
+}

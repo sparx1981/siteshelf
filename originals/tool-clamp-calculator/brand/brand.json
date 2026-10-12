@@ -1,0 +1,217 @@
+{
+  "name": "Stepwise",
+  "descriptor": "Fluid type calculator for designers",
+  "listing": {
+    "key": "o:tool-clamp-calculator",
+    "title": "Fluid Type Calculator",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#fffdf7",
+    "surface": "#f4efe4",
+    "text": "#1d2b26",
+    "textMuted": "#56655f",
+    "primary": "#1f6b4f",
+    "secondary": "#2a2a5a",
+    "border": "#bdb59f",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#a1c1b5"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fffdf7",
+      "share": 50.1
+    },
+    {
+      "hex": "#f4efe4",
+      "share": 44.1
+    },
+    {
+      "hex": "#e8c7a8",
+      "share": 3.3
+    },
+    {
+      "hex": "#16231e",
+      "share": 0.6
+    },
+    {
+      "hex": "#ebe4cf",
+      "share": 0.5
+    },
+    {
+      "hex": "#1f6b4f",
+      "share": 0.4
+    },
+    {
+      "hex": "#2a2a5a",
+      "share": 0.3
+    },
+    {
+      "hex": "#000000",
+      "share": 0.2
+    },
+    {
+      "hex": "#8a8fc0",
+      "share": 0.2
+    },
+    {
+      "hex": "#6a6aa8",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Inter",
+    "mono": "monospace",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 52,
+        "weight": "600",
+        "lineHeight": "54.08px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.3px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 42.6,
+        "weight": "600",
+        "lineHeight": "45.9594px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14.5,
+        "weight": "400",
+        "lineHeight": "21.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Mono",
+        "family": "monospace",
+        "stack": "ui-monospace, Menlo, monospace",
+        "sizePx": 14.5,
+        "weight": "400",
+        "lineHeight": "21.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 12,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(30, 40, 35, 0.04) 0px 1px 0px 0px",
+      "md": "rgba(20, 40, 30, 0.5) 0px 18px 40px -22px",
+      "lg": "rgba(30, 40, 35, 0.04) 0px 1px 0px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1260,
+    "breakpoints": [
+      420,
+      1000
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chevrons",
+    "tile": "squircle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "precise",
+      "calm",
+      "practical"
+    ],
+    "voice": {
+      "summary": "Stepwise sounds like a patient senior designer at the next desk. It states the number, shows the working, and never hides behind jargon.",
+      "dos": [
+        "Lead with the value, then the reason",
+        "Use plain units (px, rem, vw)",
+        "Keep sentences under 20 words"
+      ],
+      "donts": [
+        "Do not use hype or exclamation marks",
+        "Do not say 'simply' or 'just'",
+        "Do not leave an error without a fix"
+      ]
+    },
+    "taglines": [
+      "Type that scales, step by step",
+      "Every size, exactly where it belongs",
+      "From phone to widescreen, in one line",
+      "Fluid type without the maths",
+      "Set it once, read it everywhere"
+    ],
+    "boilerplate": "Stepwise turns two sizes and two screen widths into one precise clamp() value and a full fluid type scale.",
+    "microcopy": {
+      "primaryCta": "Copy clamp()",
+      "secondaryCta": "Copy as CSS variables",
+      "success": "Copied. Paste it into your stylesheet.",
+      "error": "Max viewport must be larger than min viewport.",
+      "empty": "Enter two sizes and two widths to begin."
+    }
+  }
+}

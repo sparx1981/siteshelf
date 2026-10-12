@@ -1,0 +1,160 @@
+{
+  "name": "Metrolane",
+  "descriptor": "Pocket converter for everyday measurements",
+  "listing": {
+    "key": "o:unit-converter",
+    "title": "Unit Converter",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#eef3f1",
+    "surface": "#ffffff",
+    "text": "#12211c",
+    "textMuted": "#566a62",
+    "primary": "#0f8a73",
+    "secondary": "#7bbfb2",
+    "border": "#d6e0dc",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#0d4039"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eef3f1",
+      "share": 70.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 29.4
+    },
+    {
+      "hex": "#0f8a73",
+      "share": 0.3
+    },
+    {
+      "hex": "#12211c",
+      "share": 0.2
+    },
+    {
+      "hex": "#566a62",
+      "share": 0.0
+    },
+    {
+      "hex": "#7bbfb2",
+      "share": 0.0
+    },
+    {
+      "hex": "#d6e0dc",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    },
+    {
+      "hex": "#0d4039",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Nunito Sans",
+    "body": "Nunito Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Nunito Sans",
+        "stack": "'Nunito Sans', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "1.04px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Nunito Sans",
+        "stack": "'Nunito Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Nunito+Sans:wght@400;600;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 10,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.18) 0px 2px 8px 0px",
+      "md": "rgba(18, 33, 28, 0.07) 0px 10px 30px 0px",
+      "lg": "rgba(0, 0, 0, 0.18) 0px 2px 8px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        14,
+        16,
+        20,
+        22,
+        24
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bars",
+    "tile": "none",
+    "wordmarkFont": "Inter Bold (stand-in for Nunito Sans)"
+  },
+  "voice": {
+    "personality": [
+      "friendly",
+      "exact",
+      "helpful"
+    ],
+    "voice": {
+      "summary": "Sounds like a helpful neighbour with a ruler and a calculator: light, accurate and not afraid of a number. Examples are everyday, like cups and kilometres.",
+      "dos": [
+        "Show the formula result with its units",
+        "Use everyday examples",
+        "Keep labels short"
+      ],
+      "donts": [
+        "No technical jargon like SI base unit",
+        "Avoid rounding without saying so",
+        "Never make users do the maths"
+      ]
+    },
+    "taglines": [
+      "Every unit, one tap away",
+      "Convert in either direction",
+      "From metres to miles, easily",
+      "Right number, right unit",
+      "Measure up, convert quickly"
+    ],
+    "boilerplate": "Metrolane is a pocket unit converter covering length, mass, temperature, volume and speed, with instant two-way conversion and a list of recent results.",
+    "microcopy": {
+      "primaryCta": "Convert",
+      "secondaryCta": "Swap units",
+      "success": "Converted. 1 metre equals 3.2808 feet.",
+      "error": "Enter a number to convert.",
+      "empty": "No recent conversions yet."
+    }
+  }
+}

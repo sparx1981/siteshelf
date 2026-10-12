@@ -1,0 +1,160 @@
+{
+  "name": "Kite",
+  "descriptor": "Calendar that plans your week around energy",
+  "listing": {
+    "key": "o:countdown-launch",
+    "title": "Countdown Launch Page",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#ece8ff",
+    "surface": "#1a1432",
+    "text": "#1a1432",
+    "textMuted": "#645e7a",
+    "primary": "#1a1432",
+    "secondary": "#ff4f81",
+    "border": "#cfc7f5",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#ff4f81"
+  },
+  "colorInventory": [
+    {
+      "hex": "#ece8ff",
+      "share": 89.7
+    },
+    {
+      "hex": "#1a1432",
+      "share": 7.4
+    },
+    {
+      "hex": "#ffffff",
+      "share": 2.1
+    },
+    {
+      "hex": "#ff4f81",
+      "share": 0.8
+    },
+    {
+      "hex": "#645e7a",
+      "share": 0.0
+    },
+    {
+      "hex": "#cfc7f5",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Karla",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 86.4,
+        "weight": "700",
+        "lineHeight": "86.4px",
+        "letterSpacing": "-3.024px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Karla:wght@400;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 16,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 79, 129, 0.043) 0px 0px 0px 1.54327px",
+      "md": "rgba(255, 79, 129, 0.043) 0px 0px 0px 1.54327px",
+      "lg": "rgba(255, 79, 129, 0.043) 0px 0px 0px 1.54327px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        16,
+        18,
+        24,
+        26,
+        30
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "diamond",
+    "tile": "circle",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "airy",
+      "hopeful",
+      "teasing"
+    ],
+    "voice": {
+      "summary": "Kite sounds like a launch teaser from friendly people: light, a touch mysterious and always specific about the date. It promises calm weeks rather than faster ones.",
+      "dos": [
+        "Tease the idea in one sentence, then name the date",
+        "Talk about energy and time, not inboxes and tasks",
+        "Keep the waitlist ask to a single line"
+      ],
+      "donts": [
+        "Do not overpromise features that are not built",
+        "Avoid pressure like 'last chance'",
+        "Never use rocket or hustle metaphors"
+      ]
+    },
+    "taglines": [
+      "Something light is about to take off",
+      "Plan the week around your energy",
+      "A calmer calendar is coming",
+      "Join the first flight",
+      "Your week, with a tailwind"
+    ],
+    "boilerplate": "Kite is a calendar that plans your week around your energy rather than your inbox, now opening early access to a waitlist ahead of its launch.",
+    "microcopy": {
+      "primaryCta": "Join the waitlist",
+      "secondaryCta": "Add to calendar",
+      "success": "You are on the list. We will write soon.",
+      "error": "That email does not look right. Please check it.",
+      "empty": "No one has joined yet. Be the first."
+    }
+  }
+}

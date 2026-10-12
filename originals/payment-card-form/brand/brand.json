@@ -1,0 +1,176 @@
+{
+  "name": "Tidewell Goods",
+  "descriptor": "Everyday goods shop with a simple checkout",
+  "listing": {
+    "key": "o:payment-card-form",
+    "title": "Payment Card Form",
+    "category": "Form"
+  },
+  "colors": {
+    "background": "#0b1226",
+    "surface": "#ffffff",
+    "text": "#ffffff",
+    "textMuted": "#c7d0e6",
+    "primary": "#19c39a",
+    "secondary": "#1d3a7a",
+    "border": "#d0d5dd",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#1d3a7a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b1226",
+      "share": 63.0
+    },
+    {
+      "hex": "#1d3a7a",
+      "share": 15.8
+    },
+    {
+      "hex": "#ffffff",
+      "share": 15.7
+    },
+    {
+      "hex": "#2c4fd6",
+      "share": 1.5
+    },
+    {
+      "hex": "#7b3fe4",
+      "share": 1.5
+    },
+    {
+      "hex": "#c03fd0",
+      "share": 1.5
+    },
+    {
+      "hex": "#19c39a",
+      "share": 1.0
+    },
+    {
+      "hex": "#d0d5dd",
+      "share": 0.0
+    },
+    {
+      "hex": "#667085",
+      "share": 0.0
+    },
+    {
+      "hex": "#f5d77a",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "800",
+        "lineHeight": "33px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 9,
+        "weight": "400",
+        "lineHeight": "13.5px",
+        "letterSpacing": "1px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 12,
+      "lg": 18,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.533) 0px 24px 50px 0px",
+      "md": "rgba(0, 0, 0, 0.533) 0px 24px 50px 0px",
+      "lg": "rgba(0, 0, 0, 0.533) 0px 24px 50px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        3,
+        6,
+        10,
+        12,
+        14,
+        16,
+        18,
+        22,
+        24
+      ]
+    },
+    "container": 980,
+    "breakpoints": [
+      860
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "drop",
+    "tile": "squircle",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "trustworthy",
+      "calm",
+      "clear"
+    ],
+    "voice": {
+      "summary": "Sounds like a shopkeeper who wants the payment to feel easy: short, clear steps and reassurance when it counts. It never rushes or surprises with extra charges.",
+      "dos": [
+        "State the total up front",
+        "Explain errors by field",
+        "Use a reassuring tone for security"
+      ],
+      "donts": [
+        "No pressure like order now",
+        "Avoid payment jargon",
+        "Never hide the test-card notice"
+      ]
+    },
+    "taglines": [
+      "Pay with confidence",
+      "A simple checkout, nothing hidden",
+      "Goods, delivered. Payment, secure",
+      "Your card, in safe hands",
+      "Quick payment, clear total"
+    ],
+    "boilerplate": "Tidewell Goods is a small online shop selling everyday goods, with a straightforward checkout that shows your card live and confirms every detail.",
+    "microcopy": {
+      "primaryCta": "Pay $98.00",
+      "secondaryCta": "Back to basket",
+      "success": "Payment received. Thank you!",
+      "error": "Card declined. Check the details and try again.",
+      "empty": "Your basket is empty. Add something first."
+    }
+  }
+}

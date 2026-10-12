@@ -1,0 +1,196 @@
+{
+  "name": "Recall",
+  "descriptor": "Flashcard study app with spaced review",
+  "listing": {
+    "key": "o:flashcards",
+    "title": "Flashcard Study App",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#f4f1fb",
+    "surface": "#ffffff",
+    "text": "#6c6489",
+    "textMuted": "#1d1636",
+    "primary": "#1fa971",
+    "secondary": "#f0614f",
+    "border": "#e3ddf3",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#134d38"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4f1fb",
+      "share": 89.9
+    },
+    {
+      "hex": "#6a4dff",
+      "share": 3.6
+    },
+    {
+      "hex": "#4a2fe0",
+      "share": 3.6
+    },
+    {
+      "hex": "#1fa971",
+      "share": 1.3
+    },
+    {
+      "hex": "#f0614f",
+      "share": 1.2
+    },
+    {
+      "hex": "#6c6489",
+      "share": 0.1
+    },
+    {
+      "hex": "#1d1636",
+      "share": 0.1
+    },
+    {
+      "hex": "#e3ddf3",
+      "share": 0.1
+    },
+    {
+      "hex": "#5b3df5",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Sora",
+    "mono": "Sora",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "20.15px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 14,
+      "lg": 16,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(91, 61, 245, 0.133) 0px 0px 0px 3px",
+      "md": "rgba(60, 30, 150, 0.5) 0px 40px 60px -36px",
+      "lg": "rgba(91, 61, 245, 0.133) 0px 0px 0px 3px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        8,
+        10,
+        12,
+        13,
+        14,
+        16,
+        22
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      480
+    ],
+    "motion": {
+      "duration": 500,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "book",
+    "tile": "squircle",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "focused",
+      "encouraging",
+      "brisk"
+    ],
+    "voice": {
+      "summary": "Recall sounds like a good study partner: short prompts, quick praise and no fuss between cards. It keeps attention on the answer instead of on itself.",
+      "dos": [
+        "Use two-word prompts like 'I knew it' and 'Need review'",
+        "Praise effort, not just a perfect score",
+        "Show the shortcut key next to each action"
+      ],
+      "donts": [
+        "Use gamified hype about streaks",
+        "Lecture on study technique",
+        "Pad card feedback with extra words"
+      ]
+    },
+    "taglines": [
+      "Learn it once, keep it",
+      "Flip, think, remember",
+      "Little decks, lasting words",
+      "Review smarter, not longer",
+      "Say it before you see it"
+    ],
+    "boilerplate": "Recall is a flashcard app that uses spaced repetition to bring back the words people are about to forget, with keyboard shortcuts and a short summary after each session.",
+    "microcopy": {
+      "primaryCta": "Start studying",
+      "secondaryCta": "Shuffle",
+      "success": "Deck complete. 10 of 12 known.",
+      "error": "Could not save your progress. Try again.",
+      "empty": "No cards due. Come back tomorrow."
+    }
+  }
+}

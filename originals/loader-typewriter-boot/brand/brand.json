@@ -1,0 +1,192 @@
+{
+  "name": "Quillboard",
+  "descriptor": "Project boards for planning, reading and notes",
+  "listing": {
+    "key": "o:loader-typewriter-boot",
+    "title": "Typewriter Boot Loader",
+    "category": "Loaders"
+  },
+  "colors": {
+    "background": "#0a0d12",
+    "surface": "#f4f1ea",
+    "text": "#e9e4d8",
+    "textMuted": "#8d8a80",
+    "primary": "#7ad7ff",
+    "secondary": "#7be39a",
+    "border": "#3a4658",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#3a6174"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0a0d12",
+      "share": 49.8
+    },
+    {
+      "hex": "#f4f1ea",
+      "share": 39.6
+    },
+    {
+      "hex": "#131a24",
+      "share": 9.9
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.3
+    },
+    {
+      "hex": "#ece6d6",
+      "share": 0.2
+    },
+    {
+      "hex": "#6a6458",
+      "share": 0.1
+    },
+    {
+      "hex": "#d9482b",
+      "share": 0.1
+    },
+    {
+      "hex": "#4a55e8",
+      "share": 0.0
+    },
+    {
+      "hex": "#0f8a73",
+      "share": 0.0
+    },
+    {
+      "hex": "#8d8a80",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Bricolage Grotesque",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 48,
+        "weight": "800",
+        "lineHeight": "49.92px",
+        "letterSpacing": "-1.2px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Space Mono",
+        "stack": "'Space Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "19.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Inter:wght@400;500&family=Space+Mono:wght@400;700&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1000,
+    "breakpoints": [
+      640
+    ],
+    "motion": {
+      "duration": 700,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chevrons",
+    "tile": "none",
+    "wordmarkFont": "Bricolage Grotesque"
+  },
+  "voice": {
+    "personality": [
+      "quick",
+      "wry",
+      "tidy"
+    ],
+    "voice": {
+      "summary": "Sounds like a terminal that likes you: terse boot lines with an occasional dry aside, then a friendly good morning. Status words are precise and the greeting is human.",
+      "dos": [
+        "Write status lines as short verb phrases",
+        "Greet by name and name the day's count of tasks",
+        "Use OK, WARN and READY as tag words"
+      ],
+      "donts": [
+        "Do not use real error codes for fun",
+        "Do not overload the boot log with jokes",
+        "Do not use corporate tool jargon"
+      ]
+    },
+    "taglines": [
+      "Good morning. Three boards are ready.",
+      "Boot up, start planning",
+      "Your boards, loaded in order",
+      "Plan the day. Skip the loading.",
+      "Quiet tools for tidy minds"
+    ],
+    "boilerplate": "Quillboard is a project tool that organises launch plans, reading lists and garden notes into simple boards, greeting each morning with what is moving and what needs doing today.",
+    "microcopy": {
+      "primaryCta": "Skip",
+      "secondaryCta": "Replay",
+      "success": "All systems OK. Boards ready.",
+      "error": "Boot hung at step three. Replay to retry.",
+      "empty": "No boards yet. Start one."
+    }
+  }
+}

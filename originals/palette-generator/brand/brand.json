@@ -1,0 +1,154 @@
+{
+  "name": "Hues",
+  "descriptor": "Colour palettes you can lock and ship",
+  "listing": {
+    "key": "o:palette-generator",
+    "title": "Palette Generator",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#fafaf7",
+    "surface": "#14f9e3",
+    "text": "#111111",
+    "textMuted": "#6c6c66",
+    "primary": "#2d4ffa",
+    "secondary": "#14f9e3",
+    "border": "#111111",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#14f9e3"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fafaf7",
+      "share": 53.0
+    },
+    {
+      "hex": "#14f9e3",
+      "share": 9.4
+    },
+    {
+      "hex": "#17a6f9",
+      "share": 9.4
+    },
+    {
+      "hex": "#2d4ffa",
+      "share": 9.4
+    },
+    {
+      "hex": "#8757f7",
+      "share": 9.4
+    },
+    {
+      "hex": "#d866fb",
+      "share": 9.4
+    },
+    {
+      "hex": "#141414",
+      "share": 0.2
+    },
+    {
+      "hex": "#6c6c66",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "JetBrains Mono",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.66px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 10,
+      "lg": 10,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12,
+        16,
+        18
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      800
+    ],
+    "motion": {
+      "duration": 350,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "aperture",
+    "tile": "none",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "quick",
+      "tool-minded",
+      "unfussy"
+    ],
+    "voice": {
+      "summary": "Hues sounds like a handy tool made by designers: clipped, practical and lightly playful. It talks in hex codes, ratios and single keystrokes.",
+      "dos": [
+        "Show the hex, the ratio and the shortcut",
+        "Use one-word actions like 'Lock' and 'Copy'",
+        "Keep microcopy lower in volume than the colours"
+      ],
+      "donts": [
+        "Use colour-theory lectures",
+        "Write long toasts",
+        "Use marketing flourishes"
+      ]
+    },
+    "taglines": [
+      "Five colours, one keystroke",
+      "Press space, find a palette",
+      "Lock what you love",
+      "Palettes that pass contrast",
+      "Shuffle until it clicks"
+    ],
+    "boilerplate": "Hues is a palette generator that creates harmonious five-colour sets, flags contrast against black and white text, and exports CSS variables or JSON in one click.",
+    "microcopy": {
+      "primaryCta": "Generate",
+      "secondaryCta": "Copy hex",
+      "success": "Copied 14f9e3.",
+      "error": "Could not copy. Select the hex instead.",
+      "empty": "No history yet. Press Space."
+    }
+  }
+}

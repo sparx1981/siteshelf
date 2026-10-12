@@ -1,0 +1,190 @@
+{
+  "name": "brightwire",
+  "descriptor": "Broadband that helps you fix it yourself",
+  "listing": {
+    "key": "o:faq-troubleshoot-tree",
+    "title": "Troubleshooting Flowchart",
+    "category": "FAQ"
+  },
+  "colors": {
+    "background": "#f3f7fc",
+    "surface": "#ffffff",
+    "text": "#0e2038",
+    "textMuted": "#4f6280",
+    "primary": "#1d5fe0",
+    "secondary": "#0e2038",
+    "border": "#1d5fe0",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#0e2038"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f3f7fc",
+      "share": 97.8
+    },
+    {
+      "hex": "#c9d4e6",
+      "share": 0.9
+    },
+    {
+      "hex": "#000000",
+      "share": 0.6
+    },
+    {
+      "hex": "#0e2038",
+      "share": 0.3
+    },
+    {
+      "hex": "#4f6280",
+      "share": 0.2
+    },
+    {
+      "hex": "#1d5fe0",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Figtree",
+    "body": "Figtree",
+    "mono": "Figtree",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 58,
+        "weight": "700",
+        "lineHeight": "61.48px",
+        "letterSpacing": "-1.16px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 30,
+        "weight": "700",
+        "lineHeight": "36px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "23.25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 14,
+      "lg": 22,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(14, 32, 56, 0.5) 0px 24px 50px -36px",
+      "md": "rgba(14, 32, 56, 0.5) 0px 24px 50px -36px",
+      "lg": "rgba(14, 32, 56, 0.5) 0px 24px 50px -36px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        22,
+        24
+      ]
+    },
+    "container": 1120,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "wave",
+    "tile": "circle",
+    "wordmarkFont": "Figtree"
+  },
+  "voice": {
+    "personality": [
+      "patient",
+      "clear",
+      "reassuring"
+    ],
+    "voice": {
+      "summary": "Sounds like a calm engineer on the phone: asks one question at a time, never makes you feel silly. Steps are short and numbered.",
+      "dos": [
+        "Ask one yes or no question at a time",
+        "Describe lights and cables by what you can see",
+        "Say how long each fix takes"
+      ],
+      "donts": [
+        "No jargon like DHCP or latency",
+        "No blaming the customer's setup",
+        "No more than three sentences per step"
+      ]
+    },
+    "taglines": [
+      "Let's get you back online",
+      "Fix it in a few questions",
+      "Your connection, explained simply",
+      "Lights on, worries off",
+      "Help that starts with a question"
+    ],
+    "boilerplate": "brightwire is a broadband provider whose help centre walks customers through a simple yes or no flowchart to fix the router themselves, with an engineer on hand if not.",
+    "microcopy": {
+      "primaryCta": "Yes",
+      "secondaryCta": "Contact us",
+      "success": "Back online, glad that worked",
+      "error": "That did not fix it, let's try the next step",
+      "empty": "You have not answered any questions yet"
+    }
+  }
+}

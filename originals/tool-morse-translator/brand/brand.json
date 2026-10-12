@@ -1,0 +1,207 @@
+{
+  "name": "Lampwick",
+  "descriptor": "Signalling-history site with a silent Morse translator",
+  "listing": {
+    "key": "o:tool-morse-translator",
+    "title": "Morse Translator",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#07121f",
+    "surface": "#0f2236",
+    "text": "#a9bdd2",
+    "textMuted": "#e8f1fa",
+    "primary": "#ffd166",
+    "secondary": "#a9bdd2",
+    "border": "#26415e",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#715e34"
+  },
+  "colorInventory": [
+    {
+      "hex": "#07121f",
+      "share": 62.1
+    },
+    {
+      "hex": "#0f2236",
+      "share": 34.4
+    },
+    {
+      "hex": "#ffd166",
+      "share": 1.8
+    },
+    {
+      "hex": "#000000",
+      "share": 0.8
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.4
+    },
+    {
+      "hex": "#e8eeff",
+      "share": 0.2
+    },
+    {
+      "hex": "#a9bdd2",
+      "share": 0.1
+    },
+    {
+      "hex": "#f7dc8e",
+      "share": 0.1
+    },
+    {
+      "hex": "#b8892f",
+      "share": 0.1
+    },
+    {
+      "hex": "#6e4d14",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 54,
+        "weight": "600",
+        "lineHeight": "55.62px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.56px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "19.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Mono",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 11.5,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 5,
+      "md": 10,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(74, 53, 12) 0px 8px 0px 0px, rgba(0, 0, 0, 0.5) 0px 14px 20px 0px",
+      "md": "rgb(255, 255, 255) 0px 0px 6px 0px",
+      "lg": "rgb(74, 53, 12) 0px 8px 0px 0px, rgba(0, 0, 0, 0.5) 0px 14px 20px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1240,
+    "breakpoints": [
+      560,
+      1000
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "flame",
+    "tile": "circle",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "patient",
+      "maritime",
+      "playful"
+    ],
+    "voice": {
+      "summary": "A lighthouse keeper's quiet wit: patient, dry and fond of old signalling lore. It is exact about dots and dashes and says clearly that the demo makes no sound.",
+      "dos": [
+        "Show dots and dashes accurately",
+        "Use maritime and signalling vocabulary",
+        "Say plainly that playback is light only, not audio"
+      ],
+      "donts": [
+        "Spy-thriller language",
+        "Claiming sound that does not exist",
+        "Jargon without explanation"
+      ]
+    },
+    "taglines": [
+      "Say it with light",
+      "Dots, dashes and a patient lamp",
+      "Learn the old signals, silently",
+      "Every message is a flash",
+      "A lighthouse for your words"
+    ],
+    "boilerplate": "Lampwick is a signalling-history site with a silent Morse translator, a painted lighthouse lamp that flashes messages and a tap pad for practice.",
+    "microcopy": {
+      "primaryCta": "Play",
+      "secondaryCta": "Swap",
+      "success": "Message decoded",
+      "error": "That symbol isn't in the code. Try again",
+      "empty": "Nothing to translate. Type a message"
+    }
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "name": "Slideway",
+  "descriptor": "A scientific calculator that shows its working",
+  "listing": {
+    "key": "o:app-scientific-calculator",
+    "title": "Scientific Calculator",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#3a3a44",
+    "surface": "#16181c",
+    "text": "#f1f3f7",
+    "textMuted": "#9cc8ff",
+    "primary": "#ffd37a",
+    "secondary": "#9cc8ff",
+    "border": "#343a46",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#715f3c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#3a3a44",
+      "share": 44.1
+    },
+    {
+      "hex": "#16181c",
+      "share": 44.1
+    },
+    {
+      "hex": "#262b33",
+      "share": 8.3
+    },
+    {
+      "hex": "#3a2f1c",
+      "share": 1.6
+    },
+    {
+      "hex": "#4a2326",
+      "share": 0.8
+    },
+    {
+      "hex": "#f1f3f7",
+      "share": 0.3
+    },
+    {
+      "hex": "#8c93a3",
+      "share": 0.2
+    },
+    {
+      "hex": "#f0c262",
+      "share": 0.2
+    },
+    {
+      "hex": "#d9982f",
+      "share": 0.2
+    },
+    {
+      "hex": "#ffd37a",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Space Grotesk",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 44,
+        "weight": "700",
+        "lineHeight": "46.2px",
+        "letterSpacing": "-0.88px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Mono",
+        "stack": "'DM Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.34px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 5,
+      "md": 9,
+      "lg": 12,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgb(20, 22, 26) 0px 3px 0px 0px",
+      "md": "rgba(0, 0, 0, 0.6) 0px 2px 8px 0px inset",
+      "lg": "rgb(0, 0, 0) 0px 40px 80px -30px, rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        9,
+        10,
+        12,
+        16,
+        20,
+        22
+      ]
+    },
+    "container": 960,
+    "breakpoints": [
+      400,
+      860
+    ],
+    "motion": {
+      "duration": 60,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "dial",
+    "tile": "squircle",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "exact",
+      "workshop",
+      "transparent"
+    ],
+    "voice": {
+      "summary": "Talks like a well-kept brass instrument manual: exact, a touch dry and proud of showing every step. It trusts the user to be numerate and never hides how an answer was reached.",
+      "dos": [
+        "Show the expression before the result",
+        "Use correct mathematical terms such as radians and memory recall",
+        "State the mode, DEG or RAD, whenever it matters"
+      ],
+      "donts": [
+        "Cute maths puns",
+        "Vague error text like something went wrong",
+        "Hiding working behind a single answer"
+      ]
+    },
+    "taglines": [
+      "A calculator that shows its working",
+      "Every step on the tape",
+      "Brass keys, honest sums",
+      "Slide the rule forward",
+      "Check the working, then trust the answer"
+    ],
+    "boilerplate": "Slideway is a brass-and-slate scientific calculator that keeps a reusable history tape, offers memory keys and degree or radian modes, and parses expressions safely.",
+    "microcopy": {
+      "primaryCta": "Calculate",
+      "secondaryCta": "Clear history",
+      "success": "Result copied to memory",
+      "error": "Check the expression, a bracket is missing",
+      "empty": "The tape is empty. Work something out"
+    }
+  }
+}

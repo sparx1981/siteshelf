@@ -1,0 +1,182 @@
+{
+  "name": "STOCKROOM",
+  "descriptor": "Warehouse floor heatmap for pick activity",
+  "listing": {
+    "key": "o:dashboard-warehouse-heatmap",
+    "title": "Warehouse Pick Heatmap",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#14161a",
+    "surface": "#1c1f25",
+    "text": "#eceff4",
+    "textMuted": "#9aa3b2",
+    "primary": "#f5d34f",
+    "secondary": "#9bd17a",
+    "border": "#2c313a",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#6d5f2a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#14161a",
+      "share": 87.7
+    },
+    {
+      "hex": "#ffd400",
+      "share": 2.5
+    },
+    {
+      "hex": "#4fa3a5",
+      "share": 2.4
+    },
+    {
+      "hex": "#9bd17a",
+      "share": 2.4
+    },
+    {
+      "hex": "#f5d34f",
+      "share": 1.9
+    },
+    {
+      "hex": "#3f6a8f",
+      "share": 1.3
+    },
+    {
+      "hex": "#f59f3a",
+      "share": 0.9
+    },
+    {
+      "hex": "#ee5a3a",
+      "share": 0.4
+    },
+    {
+      "hex": "#2a3a55",
+      "share": 0.3
+    },
+    {
+      "hex": "#eceff4",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Big Shoulders Display",
+    "body": "Work Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Big Shoulders Display",
+        "stack": "'Big Shoulders Display', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "1.2px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Big Shoulders Display",
+        "stack": "'Big Shoulders Display', system-ui, sans-serif",
+        "sizePx": 34,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "1.36px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Work Sans",
+        "stack": "'Work Sans', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Work Sans",
+        "stack": "'Work Sans', system-ui, sans-serif",
+        "sizePx": 11,
+        "weight": "600",
+        "lineHeight": "16.5px",
+        "letterSpacing": "0.44px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=DM+Mono:wght@400&family=Work+Sans:wght@400;500;600&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 6,
+      "lg": 14,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      1000
+    ],
+    "motion": {
+      "duration": 350,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cube",
+    "tile": "squircle",
+    "wordmarkFont": "Big Shoulders Display"
+  },
+  "voice": {
+    "personality": [
+      "blunt",
+      "operational",
+      "alert"
+    ],
+    "voice": {
+      "summary": "Talks like a floor supervisor on a radio: short, factual and in the present tense. It names aisles, shifts and seconds, and flags congestion before anyone has to ask.",
+      "dos": [
+        "Name the aisle, shift and metric in every message",
+        "Use imperative verbs like move, swap and check",
+        "Keep numbers first and units close"
+      ],
+      "donts": [
+        "Do not soften a problem with hedging",
+        "Do not use consulting phrases like optimise throughput",
+        "Do not use warm filler"
+      ]
+    },
+    "taglines": [
+      "See where the picks are hot",
+      "Every aisle, every hour, on one floor",
+      "Cut the walk, lift the picks",
+      "Slot smarter. Walk less.",
+      "The floor, read by heat"
+    ],
+    "boilerplate": "STOCKROOM is a warehouse analytics view for the Brightwater distribution centre that maps pick activity by aisle and hour so supervisors can reduce travel time and congestion.",
+    "microcopy": {
+      "primaryCta": "View aisle",
+      "secondaryCta": "Switch shift",
+      "success": "Slotting change logged for review.",
+      "error": "Floor data unavailable. Check the connection.",
+      "empty": "No picks recorded for this shift."
+    }
+  }
+}

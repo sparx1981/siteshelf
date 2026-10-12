@@ -1,0 +1,153 @@
+{
+  "name": "Driftboard",
+  "descriptor": "Moodboard pinboard for creative projects",
+  "listing": {
+    "key": "o:gallery-pinboard",
+    "title": "Draggable Pinboard",
+    "category": "Gallery"
+  },
+  "colors": {
+    "background": "#1b2421",
+    "surface": "#2d3a35",
+    "text": "#e8f0ec",
+    "textMuted": "#9fb2a9",
+    "primary": "#ff7a59",
+    "secondary": "#2ec4b6",
+    "border": "#3a4a44",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#713a2e"
+  },
+  "colorInventory": [
+    {
+      "hex": "#1b2421",
+      "share": 33.0
+    },
+    {
+      "hex": "#2d3a35",
+      "share": 27.1
+    },
+    {
+      "hex": "#e7ece9",
+      "share": 23.2
+    },
+    {
+      "hex": "#ffffff",
+      "share": 8.5
+    },
+    {
+      "hex": "#c5d0ca",
+      "share": 5.8
+    },
+    {
+      "hex": "#fff3b0",
+      "share": 0.6
+    },
+    {
+      "hex": "#ffd9d2",
+      "share": 0.6
+    },
+    {
+      "hex": "#dbe5ff",
+      "share": 0.6
+    },
+    {
+      "hex": "#264653",
+      "share": 0.3
+    },
+    {
+      "hex": "#6a4c93",
+      "share": 0.3
+    }
+  ],
+  "typography": {
+    "heading": "Caveat",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Button",
+        "family": "Caveat",
+        "stack": "'Caveat', system-ui, sans-serif",
+        "sizePx": 32,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=DM+Sans:wght@400;500;700&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 2,
+      "md": 10,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.35) 0px 3px 4px 0px",
+      "md": "rgba(0, 0, 0, 0.4) 0px 8px 14px -8px",
+      "lg": "rgba(0, 0, 0, 0.45) 0px 8px 16px -8px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        10,
+        14,
+        16,
+        20,
+        36,
+        40
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "grid",
+    "tile": "none",
+    "wordmarkFont": "Caveat"
+  },
+  "voice": {
+    "personality": [
+      "loose",
+      "creative",
+      "tidy-minded"
+    ],
+    "voice": {
+      "summary": "Driftboard sounds like a studio wall: casual and visual, with labels that read like sticky notes. It encourages play first and offers neat-up tools without scolding.",
+      "dos": [
+        "Write labels the way people write on sticky notes",
+        "Use verbs that move things: drag, pin, snap, tidy",
+        "Announce each move in plain words"
+      ],
+      "donts": [
+        "Do not insist on structure; let the board be messy",
+        "Avoid design buzzwords like ideate",
+        "Never auto-delete anything without an undo"
+      ]
+    },
+    "taglines": [
+      "Pin it. Move it. Make a mood",
+      "A wall for half-formed ideas",
+      "Drag your references into place",
+      "Messy now, tidy when you say",
+      "Everything on one board"
+    ],
+    "boilerplate": "Driftboard is a draggable moodboard where designers pin images, notes and colour swatches, nudge them with the keyboard and keep the layout saved between visits.",
+    "microcopy": {
+      "primaryCta": "+ Note",
+      "secondaryCta": "+ Swatch",
+      "success": "Pinned. Moved to the front.",
+      "error": "Could not save the board. Your layout is still here.",
+      "empty": "Nothing pinned yet. Add a note or swatch."
+    }
+  }
+}

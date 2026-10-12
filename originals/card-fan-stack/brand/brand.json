@@ -1,0 +1,187 @@
+{
+  "name": "Wayfarer Postcards",
+  "descriptor": "Illustrated postcards from five places, one pile",
+  "listing": {
+    "key": "o:card-fan-stack",
+    "title": "Fanned Card Stack",
+    "category": "Cards"
+  },
+  "colors": {
+    "background": "#0f3b3f",
+    "surface": "#fbf5e6",
+    "text": "#b8d9d2",
+    "textMuted": "#eaf6f2",
+    "primary": "#ff9f6b",
+    "secondary": "#9ad2e6",
+    "border": "#e0d3b3",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#714936"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0f3b3f",
+      "share": 59.2
+    },
+    {
+      "hex": "#fbf5e6",
+      "share": 30.2
+    },
+    {
+      "hex": "#1d6b70",
+      "share": 7.4
+    },
+    {
+      "hex": "#9ad2e6",
+      "share": 0.5
+    },
+    {
+      "hex": "#3f8aa3",
+      "share": 0.5
+    },
+    {
+      "hex": "#f2a98f",
+      "share": 0.5
+    },
+    {
+      "hex": "#d8e6b4",
+      "share": 0.5
+    },
+    {
+      "hex": "#f3e7c2",
+      "share": 0.5
+    },
+    {
+      "hex": "#8ec17a",
+      "share": 0.5
+    },
+    {
+      "hex": "#ff9f6b",
+      "share": 0.5
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Karla",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 62,
+        "weight": "700",
+        "lineHeight": "62px",
+        "letterSpacing": "-1.24px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.08px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Karla:wght@400;500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 14,
+      "md": 14,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.6) 0px 14px 30px -12px",
+      "md": "rgba(0, 0, 0, 0.6) 0px 14px 30px -12px",
+      "lg": "rgba(0, 0, 0, 0.6) 0px 14px 30px -12px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        8,
+        10,
+        11,
+        12,
+        14,
+        16,
+        20,
+        22
+      ]
+    },
+    "container": 1120,
+    "breakpoints": [
+      600,
+      900
+    ],
+    "motion": {
+      "duration": 520,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "compass",
+    "tile": "none",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "wistful",
+      "well-travelled",
+      "tidy"
+    ],
+    "voice": {
+      "summary": "Writes like the back of a postcard: brief, warm and a bit nostalgic, with a travelling friend's eye for detail. It favours place names and small sensory notes over sales language.",
+      "dos": [
+        "Write in postcard-length lines that name a place",
+        "Use warm, informal asides, like wish you were here",
+        "Keep captions to a single image and a feeling"
+      ],
+      "donts": [
+        "Holiday-brochure superlatives like breathtaking",
+        "Listing every feature of the stack mechanics",
+        "Exclamation marks beyond a rare one"
+      ]
+    },
+    "taglines": [
+      "Five places, one pile",
+      "Wish you were here, in print",
+      "Postmarked, stamped, sent with love",
+      "Pick a card, pick a place",
+      "Little pictures from the long way round"
+    ],
+    "boilerplate": "Wayfarer Postcards is an independent stationer that prints illustrated postcards of far-off places, sold as stacks you can fan out and choose from.",
+    "microcopy": {
+      "primaryCta": "Fan out",
+      "secondaryCta": "Stack",
+      "success": "Card on top. Where to next?",
+      "error": "The cards slipped. Give the pile a shuffle",
+      "empty": "The pile is empty. Add a postcard"
+    }
+  }
+}

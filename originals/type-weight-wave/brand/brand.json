@@ -1,0 +1,183 @@
+{
+  "name": "Inkwell & Ox",
+  "descriptor": "Type studio for variable serif",
+  "listing": {
+    "key": "o:type-weight-wave",
+    "title": "Variable Weight Wave",
+    "category": "Typography"
+  },
+  "colors": {
+    "background": "#10142e",
+    "surface": "#ffffff",
+    "text": "#fff3df",
+    "textMuted": "#c9c2e8",
+    "primary": "#ffb347",
+    "secondary": "#3a6aff",
+    "border": "#3a4286",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#3a6aff"
+  },
+  "colorInventory": [
+    {
+      "hex": "#10142e",
+      "share": 90.6
+    },
+    {
+      "hex": "#ffffff",
+      "share": 3.5
+    },
+    {
+      "hex": "#000000",
+      "share": 1.7
+    },
+    {
+      "hex": "#ffb347",
+      "share": 1.4
+    },
+    {
+      "hex": "#ff5a3c",
+      "share": 0.6
+    },
+    {
+      "hex": "#2f56d4",
+      "share": 0.6
+    },
+    {
+      "hex": "#7a3fa0",
+      "share": 0.6
+    },
+    {
+      "hex": "#3a6aff",
+      "share": 0.6
+    },
+    {
+      "hex": "#fff3df",
+      "share": 0.4
+    },
+    {
+      "hex": "#c9c2e8",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "DM Mono",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 123.8,
+        "weight": "400",
+        "lineHeight": "123.84px",
+        "letterSpacing": "-1.2384px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Mono",
+        "stack": "'DM Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.4px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Fraunces:opsz,wght@9..144,100..900&family=Space+Grotesk:wght@400;500;700&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 18,
+      "lg": 18,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1180,
+    "breakpoints": [
+      420,
+      700
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "wave",
+    "tile": "none",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "inky",
+      "exacting",
+      "playful"
+    ],
+    "voice": {
+      "summary": "Inkwell & Ox sounds like a type foundry that likes to show off in the nicest way: precise about axes and weights, but joyful when a sentence starts to move.",
+      "dos": [
+        "Name the axis and the value when describing type",
+        "Treat letters as living things",
+        "Use one sharp specimen sentence"
+      ],
+      "donts": [
+        "Use font-industry hype",
+        "Over-explain the animation",
+        "Use exclamation marks"
+      ]
+    },
+    "taglines": [
+      "Weight is just another way to move",
+      "Letters that breathe",
+      "Heavy, light and everything between",
+      "Specimen sheets that move",
+      "Set it. Then watch it swell"
+    ],
+    "boilerplate": "Inkwell & Ox is a type studio that designs and tests variable serif typefaces, publishing numbered specimens that show every weight moving in a single line.",
+    "microcopy": {
+      "primaryCta": "Reset the wave",
+      "secondaryCta": "Try your own text",
+      "success": "Wave reset to the pointer.",
+      "error": "Weight out of range. Slide back a little.",
+      "empty": "No specimen loaded."
+    }
+  }
+}

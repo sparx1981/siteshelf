@@ -1,0 +1,186 @@
+{
+  "name": "Harbourlight",
+  "descriptor": "Uptime monitoring for small websites",
+  "listing": {
+    "key": "o:pricing-tier-carousel",
+    "title": "Tier Carousel Pricing",
+    "category": "Pricing"
+  },
+  "colors": {
+    "background": "#07202b",
+    "surface": "#0e3140",
+    "text": "#e9f7f5",
+    "textMuted": "#9bc2c0",
+    "primary": "#20c9b0",
+    "secondary": "#ff7a59",
+    "border": "#3b7487",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#145b53"
+  },
+  "colorInventory": [
+    {
+      "hex": "#07202b",
+      "share": 67.0
+    },
+    {
+      "hex": "#0e3140",
+      "share": 30.7
+    },
+    {
+      "hex": "#20c9b0",
+      "share": 0.7
+    },
+    {
+      "hex": "#12485a",
+      "share": 0.7
+    },
+    {
+      "hex": "#e9f7f5",
+      "share": 0.5
+    },
+    {
+      "hex": "#9bc2c0",
+      "share": 0.1
+    },
+    {
+      "hex": "#ff7a59",
+      "share": 0.1
+    },
+    {
+      "hex": "#2a5b6e",
+      "share": 0.0
+    },
+    {
+      "hex": "#2a0d05",
+      "share": 0.0
+    },
+    {
+      "hex": "#3b7487",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Outfit",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 64,
+        "weight": "700",
+        "lineHeight": "67.2px",
+        "letterSpacing": "-1.28px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 24,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "25.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 14,
+      "md": 26,
+      "lg": 26,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(32, 201, 176, 0.6) 0px 30px 70px -30px",
+      "md": "rgba(32, 201, 176, 0.6) 0px 30px 70px -30px",
+      "lg": "rgba(32, 201, 176, 0.6) 0px 30px 70px -30px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        5,
+        6,
+        10,
+        12,
+        13,
+        14,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      600
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "pulse",
+    "tile": "squircle",
+    "wordmarkFont": "Outfit"
+  },
+  "voice": {
+    "personality": [
+      "watchful",
+      "reassuring",
+      "nautical"
+    ],
+    "voice": {
+      "summary": "Harbourlight sounds like a lighthouse keeper with a pager: calm, specific and a little salty. It promises to know the moment your site goes down and to say so clearly.",
+      "dos": [
+        "Talk about sites going down and coming back in plain terms",
+        "Name plans with boat names and give exact prices",
+        "Use sea metaphors sparingly, one per page"
+      ],
+      "donts": [
+        "Do not use fear of downtime as a hook",
+        "Avoid technical alerts jargon",
+        "Never hide currency or billing period"
+      ]
+    },
+    "taglines": [
+      "Know the moment your site goes down",
+      "A light on your harbour",
+      "Alerts that arrive before customers do",
+      "Pick the plan that fits your harbour",
+      "Watch the coast, sleep soundly"
+    ],
+    "boilerplate": "Harbourlight is an uptime monitoring service for small websites, with SSL checks and instant alerts on every plan, from a solo Dinghy to a team-ready Schooner.",
+    "microcopy": {
+      "primaryCta": "Start free",
+      "secondaryCta": "Choose Skiff",
+      "success": "Plan chosen. Your first check runs now.",
+      "error": "Could not switch currency. Please try again.",
+      "empty": "No monitors yet. Add your first site."
+    }
+  }
+}

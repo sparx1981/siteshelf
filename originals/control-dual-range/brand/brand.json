@@ -1,0 +1,189 @@
+{
+  "name": "Hearthstone Stays",
+  "descriptor": "Cosy rentals priced by the night",
+  "listing": {
+    "key": "o:control-dual-range",
+    "title": "Dual Range Slider",
+    "category": "Form Controls"
+  },
+  "colors": {
+    "background": "#faf6ef",
+    "surface": "#ffffff",
+    "text": "#2a2218",
+    "textMuted": "#6d6250",
+    "primary": "#c2522d",
+    "secondary": "#a7c6e6",
+    "border": "#eadfca",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#a7c6e6"
+  },
+  "colorInventory": [
+    {
+      "hex": "#faf6ef",
+      "share": 93.4
+    },
+    {
+      "hex": "#c2522d",
+      "share": 2.1
+    },
+    {
+      "hex": "#2a2218",
+      "share": 2.1
+    },
+    {
+      "hex": "#e9c07a",
+      "share": 0.7
+    },
+    {
+      "hex": "#9bc7a2",
+      "share": 0.7
+    },
+    {
+      "hex": "#a7c6e6",
+      "share": 0.7
+    },
+    {
+      "hex": "#6d6250",
+      "share": 0.2
+    },
+    {
+      "hex": "#e5d9c3",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Young Serif",
+    "body": "Karla",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 58,
+        "weight": "400",
+        "lineHeight": "60.32px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 24,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.08px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Young+Serif&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 12,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(80, 40, 10, 0.3) 0px 3px 8px 0px",
+      "md": "rgba(80, 50, 10, 0.5) 0px 30px 60px -36px",
+      "lg": "rgba(80, 40, 10, 0.3) 0px 3px 8px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        3,
+        4,
+        8,
+        10,
+        12,
+        14,
+        20,
+        24
+      ]
+    },
+    "container": 1000,
+    "breakpoints": [
+      560,
+      980
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "home",
+    "tile": "none",
+    "wordmarkFont": "Young Serif"
+  },
+  "voice": {
+    "personality": [
+      "homely",
+      "honest",
+      "warm"
+    ],
+    "voice": {
+      "summary": "Hearthstone Stays sounds like a host who leaves a note by the kettle. It is friendly and plain about price, and it talks about a night's stay rather than a transaction.",
+      "dos": [
+        "Talk about nights, not 'units' or 'inventory'",
+        "State prices in pounds with no hidden extras",
+        "Describe places by what you can touch: hearth, quilt, kettle"
+      ],
+      "donts": [
+        "Do not use 'luxury' or 'getaway' as filler",
+        "Do not hide fees until checkout",
+        "Do not rush the guest"
+      ]
+    },
+    "taglines": [
+      "What does a good night cost?",
+      "Warm beds at honest prices",
+      "Find a hearth that fits your budget",
+      "Stay somewhere that feels like someone's home",
+      "Your price, your pillow, your night"
+    ],
+    "boilerplate": "Hearthstone Stays lists cosy rental homes and guesthouses with transparent per-night prices and filters that let guests search by what they want to spend.",
+    "microcopy": {
+      "primaryCta": "Show stays",
+      "secondaryCta": "Reset",
+      "success": "42 stays match your range.",
+      "error": "The minimum cannot be higher than the maximum. Adjust a handle.",
+      "empty": "No stays at that price. Try widening the range."
+    }
+  }
+}

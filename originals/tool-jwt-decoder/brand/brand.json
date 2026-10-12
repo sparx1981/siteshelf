@@ -1,0 +1,203 @@
+{
+  "name": "Sealwright",
+  "descriptor": "Developer tools for reading signed tokens",
+  "listing": {
+    "key": "o:tool-jwt-decoder",
+    "title": "Token Decoder",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#0e1322",
+    "surface": "#161d33",
+    "text": "#eef1fb",
+    "textMuted": "#a9b4d3",
+    "primary": "#b9a2ff",
+    "secondary": "#ff8f6b",
+    "border": "#3a4770",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#544a74"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0e1322",
+      "share": 96.9
+    },
+    {
+      "hex": "#1c2542",
+      "share": 1.5
+    },
+    {
+      "hex": "#000000",
+      "share": 0.7
+    },
+    {
+      "hex": "#eef1fb",
+      "share": 0.3
+    },
+    {
+      "hex": "#a9b4d3",
+      "share": 0.3
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.1
+    },
+    {
+      "hex": "#52d6c4",
+      "share": 0.1
+    },
+    {
+      "hex": "#9ae6a8",
+      "share": 0.1
+    },
+    {
+      "hex": "#b9a2ff",
+      "share": 0.1
+    },
+    {
+      "hex": "#ff8f6b",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 52,
+        "weight": "600",
+        "lineHeight": "53.56px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.3px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14.5,
+        "weight": "400",
+        "lineHeight": "21.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13.5,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Mono",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 20,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        26
+      ]
+    },
+    "container": 1240,
+    "breakpoints": [
+      640,
+      960
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chip",
+    "tile": "circle",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "careful",
+      "exact",
+      "developer-honest"
+    ],
+    "voice": {
+      "summary": "Sealwright sounds like a careful engineer who respects the difference between decoding and verifying. It is precise, calm and never overclaims what the tool can prove.",
+      "dos": [
+        "Say 'decode' for what it does and 'verify' only when it truly verifies",
+        "Use claim names exactly as in the token",
+        "State expiry in clear time units"
+      ],
+      "donts": [
+        "Imply a token is trustworthy because it decodes",
+        "Use cryptography scare language",
+        "Use cute security metaphors beyond the wax seal"
+      ]
+    },
+    "taglines": [
+      "Read the token. Trust nothing.",
+      "Decoding is not verifying",
+      "Every claim, laid out plainly",
+      "See inside the seal",
+      "Tokens, taken apart carefully"
+    ],
+    "boilerplate": "Sealwright is a developer tool that decodes sample JSON web tokens in the browser, showing header, payload, claims and expiry without ever verifying or transmitting them.",
+    "microcopy": {
+      "primaryCta": "Decode token",
+      "secondaryCta": "Clear",
+      "success": "Decoded. Valid for 2 hours.",
+      "error": "This token is malformed. Check the three parts.",
+      "empty": "Paste a token to begin."
+    }
+  }
+}

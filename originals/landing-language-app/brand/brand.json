@@ -1,0 +1,196 @@
+{
+  "name": "parley",
+  "descriptor": "Speaking-first language app with patient voice tutors",
+  "listing": {
+    "key": "o:landing-language-app",
+    "title": "Parley Language App",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#fff6e9",
+    "surface": "#4a3aff",
+    "text": "#2a1f3d",
+    "textMuted": "#6a5b7f",
+    "primary": "#ffc933",
+    "secondary": "#4a3aff",
+    "border": "#2a1f3d",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#4a3aff"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fff6e9",
+      "share": 70.7
+    },
+    {
+      "hex": "#4a3aff",
+      "share": 13.5
+    },
+    {
+      "hex": "#ffffff",
+      "share": 9.1
+    },
+    {
+      "hex": "#e9dcc3",
+      "share": 2.3
+    },
+    {
+      "hex": "#ffc933",
+      "share": 1.9
+    },
+    {
+      "hex": "#c9c4ff",
+      "share": 0.8
+    },
+    {
+      "hex": "#ff9a8e",
+      "share": 0.6
+    },
+    {
+      "hex": "#2a1f3d",
+      "share": 0.5
+    },
+    {
+      "hex": "#9be8d2",
+      "share": 0.3
+    },
+    {
+      "hex": "#2fc9a0",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Bricolage Grotesque",
+    "body": "Nunito",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 86.4,
+        "weight": "800",
+        "lineHeight": "84.672px",
+        "letterSpacing": "-2.592px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "1.68px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=Nunito:wght@400;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 20,
+      "md": 22,
+      "lg": 28,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(42, 31, 61) 4px 4px 0px 0px",
+      "md": "rgb(42, 31, 61) 3px 3px 0px 0px",
+      "lg": "rgb(42, 31, 61) 4px 4px 0px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        13,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1240,
+    "breakpoints": [
+      860
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chat",
+    "tile": "circle",
+    "wordmarkFont": "Bricolage Grotesque"
+  },
+  "voice": {
+    "personality": [
+      "playful",
+      "encouraging",
+      "bold"
+    ],
+    "voice": {
+      "summary": "parley sounds like a lively friend who would rather you say something wrong than say nothing. It is sticker-bright and encouraging, using short phrases in the target language with the translation right behind.",
+      "dos": [
+        "Show a real phrase before explaining grammar",
+        "Cheer every attempt, even wrong ones",
+        "Keep sentences under twelve words"
+      ],
+      "donts": [
+        "Do not lecture about verb tables",
+        "Avoid guilt-inducing streak reminders",
+        "Never use patronising baby talk"
+      ]
+    },
+    "taglines": [
+      "Talk first. Textbook later",
+      "Speak real sentences on day one",
+      "A tutor that never sighs",
+      "Five minutes to your first chat",
+      "Say it badly. Say it today"
+    ],
+    "boilerplate": "parley is a language app that gets learners speaking real sentences on day one, with short voice lessons, a patient AI tutor and a daily streak to keep things fun.",
+    "microcopy": {
+      "primaryCta": "Start free",
+      "secondaryCta": "See how it works",
+      "success": "Brilliant. That's 5 days in a row.",
+      "error": "We did not catch that. Try saying it again.",
+      "empty": "No phrases yet. Pick a language to begin."
+    }
+  }
+}

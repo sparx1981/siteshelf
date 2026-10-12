@@ -1,0 +1,194 @@
+{
+  "name": "Plainpage",
+  "descriptor": "Writing tools for clear prose",
+  "listing": {
+    "key": "o:tool-readability-counter",
+    "title": "Readability Counter",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#f6f1e6",
+    "surface": "#fffdf8",
+    "text": "#1c1a17",
+    "textMuted": "#5b564b",
+    "primary": "#0f6b66",
+    "secondary": "#b88a10",
+    "border": "#c9bea4",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#9ac1bf"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6f1e6",
+      "share": 62.5
+    },
+    {
+      "hex": "#fffdf8",
+      "share": 32.2
+    },
+    {
+      "hex": "#000000",
+      "share": 3.1
+    },
+    {
+      "hex": "#9fb6d6",
+      "share": 0.8
+    },
+    {
+      "hex": "#1c1a17",
+      "share": 0.4
+    },
+    {
+      "hex": "#5a3515",
+      "share": 0.3
+    },
+    {
+      "hex": "#efe3cf",
+      "share": 0.2
+    },
+    {
+      "hex": "#0f6b66",
+      "share": 0.2
+    },
+    {
+      "hex": "#2a3a6a",
+      "share": 0.1
+    },
+    {
+      "hex": "#b88a10",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Lora",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Lora",
+        "stack": "'Lora', Georgia, serif",
+        "sizePx": 52,
+        "weight": "600",
+        "lineHeight": "54.08px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.3px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&family=Lora:wght@400;600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 16,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        26,
+        44
+      ]
+    },
+    "container": 1240,
+    "breakpoints": [
+      560,
+      700,
+      980
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "book",
+    "tile": "squircle",
+    "wordmarkFont": "Lora"
+  },
+  "voice": {
+    "personality": [
+      "plain",
+      "encouraging",
+      "exact"
+    ],
+    "voice": {
+      "summary": "Plainpage sounds like a good editor who would rather cut a word than praise one. It is direct, kind about drafts and specific about which sentence is too long.",
+      "dos": [
+        "Quote the sentence you are flagging",
+        "Give counts and times as numbers",
+        "Suggest one fix at a time"
+      ],
+      "donts": [
+        "Do not use grammar jargon",
+        "Do not scold long sentences",
+        "Do not claim to write for the user"
+      ]
+    },
+    "taglines": [
+      "Write it plain, then read it again",
+      "Count the words, trim the rest",
+      "Clear sentences, one at a time",
+      "See where readers get lost",
+      "Tighten the draft, keep your voice"
+    ],
+    "boilerplate": "Plainpage is a writing workspace that counts words, estimates reading and speaking time, scores readability and flags overlong sentences, all without uploading any text.",
+    "microcopy": {
+      "primaryCta": "Copy stats",
+      "secondaryCta": "Clear",
+      "success": "Stats copied. 412 words, a 3 minute read.",
+      "error": "Nothing to copy yet. Paste or write some text first.",
+      "empty": "Write or paste text to see your score."
+    }
+  }
+}

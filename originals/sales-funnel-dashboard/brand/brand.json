@@ -1,0 +1,193 @@
+{
+  "name": "Pipelane",
+  "descriptor": "Revenue operations dashboard",
+  "listing": {
+    "key": "o:sales-funnel-dashboard",
+    "title": "Sales Funnel Dashboard",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#f3f5f9",
+    "surface": "#ffffff",
+    "text": "#0f172a",
+    "textMuted": "#334155",
+    "primary": "#2563eb",
+    "secondary": "#92400e",
+    "border": "#e2e7ef",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#a3bdf7"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f3f5f9",
+      "share": 96.8
+    },
+    {
+      "hex": "#2563eb",
+      "share": 1.5
+    },
+    {
+      "hex": "#0f172a",
+      "share": 0.6
+    },
+    {
+      "hex": "#5c3cdd",
+      "share": 0.3
+    },
+    {
+      "hex": "#dcfce7",
+      "share": 0.2
+    },
+    {
+      "hex": "#64748b",
+      "share": 0.2
+    },
+    {
+      "hex": "#e0e7ff",
+      "share": 0.2
+    },
+    {
+      "hex": "#fef3c7",
+      "share": 0.2
+    },
+    {
+      "hex": "#1a35e6",
+      "share": 0.2
+    },
+    {
+      "hex": "#cffafe",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 24,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 11.7,
+        "weight": "500",
+        "lineHeight": "17.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 7,
+      "md": 10,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        10,
+        11,
+        12,
+        14
+      ]
+    },
+    "container": 1240,
+    "breakpoints": [
+      520,
+      980
+    ],
+    "motion": {
+      "duration": 600,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "chevrons",
+    "tile": "circle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "analytical",
+      "brisk",
+      "plain"
+    ],
+    "voice": {
+      "summary": "Pipelane talks like a sharp revenue analyst: numbers first, caveats second, jargon never. It points to drop-offs and trends without pretending to know the cause.",
+      "dos": [
+        "State the number, the delta and the period",
+        "Name the stage where drop-off is largest",
+        "Use plain stage names: lead, qualified, won"
+      ],
+      "donts": [
+        "Do not call a dip a disaster",
+        "Avoid vanity metrics",
+        "Never show a rate without its base"
+      ]
+    },
+    "taglines": [
+      "See where deals leak",
+      "Your funnel, in numbers",
+      "From first lead to closed won",
+      "Win rates you can explain",
+      "Revenue, without the spreadsheets"
+    ],
+    "boilerplate": "Pipelane is a revenue operations dashboard with a live funnel, KPI deltas, win-rate trends and a regional leaderboard so teams can see where deals are won and lost.",
+    "microcopy": {
+      "primaryCta": "Export CSV",
+      "secondaryCta": "Last 30 days",
+      "success": "Export ready.",
+      "error": "Could not load that segment. Try again.",
+      "empty": "No deals match these filters."
+    }
+  }
+}

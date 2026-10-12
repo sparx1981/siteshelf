@@ -1,0 +1,175 @@
+{
+  "name": "Splitframe",
+  "descriptor": "Before and after image comparison slider",
+  "listing": {
+    "key": "o:compare-slider",
+    "title": "Before/After Compare Slider",
+    "category": "Gallery"
+  },
+  "colors": {
+    "background": "#101114",
+    "surface": "#ff9a6b",
+    "text": "#9a9ba6",
+    "textMuted": "#f2f2f5",
+    "primary": "#ffd166",
+    "secondary": "#9fd6e8",
+    "border": "#2d2e37",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#715e34"
+  },
+  "colorInventory": [
+    {
+      "hex": "#101114",
+      "share": 67.9
+    },
+    {
+      "hex": "#ff9a6b",
+      "share": 6.8
+    },
+    {
+      "hex": "#ffd9a0",
+      "share": 6.8
+    },
+    {
+      "hex": "#9fd6e8",
+      "share": 6.8
+    },
+    {
+      "hex": "#4aa3c8",
+      "share": 6.8
+    },
+    {
+      "hex": "#fff6c9",
+      "share": 1.4
+    },
+    {
+      "hex": "#7a5c8a",
+      "share": 1.0
+    },
+    {
+      "hex": "#4e3d70",
+      "share": 1.0
+    },
+    {
+      "hex": "#2c2552",
+      "share": 1.0
+    },
+    {
+      "hex": "#1e1f26",
+      "share": 0.4
+    }
+  ],
+  "typography": {
+    "heading": "Hanken Grotesk",
+    "body": "Hanken Grotesk",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Hanken Grotesk",
+        "stack": "'Hanken Grotesk', system-ui, sans-serif",
+        "sizePx": 30,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.6px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Hanken Grotesk",
+        "stack": "'Hanken Grotesk', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Hanken Grotesk",
+        "stack": "'Hanken Grotesk', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 16,
+      "md": 24,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.45) 0px 0px 0px 7.8978px, rgba(0, 0, 0, 0.4) 0px 6px 20px 0px",
+      "md": "rgba(0, 0, 0, 0.4) 0px 0px 12px 0px",
+      "lg": "rgb(255, 233, 168) 0px 0px 60px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        9,
+        14,
+        16,
+        18,
+        24
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      640
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chevrons",
+    "tile": "squircle",
+    "wordmarkFont": "Inter Bold (stand-in for Hanken Grotesk)"
+  },
+  "voice": {
+    "personality": [
+      "clear",
+      "visual",
+      "modest"
+    ],
+    "voice": {
+      "summary": "Writes like a showroom guide who steps back and lets the picture speak. Short instructions, concrete scene names and a calm tone that never oversells the result.",
+      "dos": [
+        "Tell the viewer how to interact in one sentence",
+        "Name scenes plainly, like Mountains or Living room",
+        "Keep labels to one or two words"
+      ],
+      "donts": [
+        "Do not claim dramatic transformations",
+        "Do not use the word magic",
+        "Do not bury the instruction under hype"
+      ]
+    },
+    "taglines": [
+      "See the difference",
+      "Drag to compare, stay for the detail",
+      "Two images, one honest line",
+      "Slide the line, judge for yourself",
+      "Before and after, side by side"
+    ],
+    "boilerplate": "Splitframe is an image comparison component that lets visitors drag a divider, tap or use the keyboard to see a before and after side by side, in any scene.",
+    "microcopy": {
+      "primaryCta": "Drag the handle",
+      "secondaryCta": "Switch scene",
+      "success": "Compare ready. Slide to explore.",
+      "error": "The image could not load. Please reload the scene.",
+      "empty": "Pick a scene to compare."
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "name": "Tabstop",
+  "descriptor": "Keyboard-first workspace with a command palette",
+  "listing": {
+    "key": "o:command-palette",
+    "title": "Command Palette",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#0e0f13",
+    "surface": "#16181e",
+    "text": "#8a90a0",
+    "textMuted": "#e7e9ee",
+    "primary": "#8a90a0",
+    "secondary": "#bfc2cb",
+    "border": "#262932",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#40434c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0e0f13",
+      "share": 99.8
+    },
+    {
+      "hex": "#8a90a0",
+      "share": 0.1
+    },
+    {
+      "hex": "#e7e9ee",
+      "share": 0.1
+    },
+    {
+      "hex": "#bfc2cb",
+      "share": 0.0
+    },
+    {
+      "hex": "#262932",
+      "share": 0.0
+    },
+    {
+      "hex": "#40434c",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 30,
+        "weight": "600",
+        "lineHeight": "36px",
+        "letterSpacing": "-0.6px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "400",
+        "lineHeight": "18.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 8,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        9,
+        10,
+        14,
+        16,
+        18,
+        20,
+        28
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bolt",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "efficient",
+      "terse",
+      "dry"
+    ],
+    "voice": {
+      "summary": "Writes like a good terminal: minimal, literal and quietly witty. Every word earns its keystroke, and keyboard hints are part of the sentence.",
+      "dos": [
+        "Name actions as verbs a user would type",
+        "Show the shortcut alongside the label",
+        "Keep toast messages under six words"
+      ],
+      "donts": [
+        "No mouse-first instructions",
+        "Avoid decoration or filler adjectives",
+        "Never explain a shortcut the user just used"
+      ]
+    },
+    "taglines": [
+      "Everything is one keystroke away",
+      "Type less, do more",
+      "Press K to begin",
+      "The workspace that listens to your keys",
+      "Fast hands, calm screen"
+    ],
+    "boilerplate": "Tabstop is a keyboard-first team workspace built around a command palette that finds any page, person or action in a couple of keystrokes.",
+    "microcopy": {
+      "primaryCta": "Open command palette",
+      "secondaryCta": "Switch theme",
+      "success": "Done. Theme set to light.",
+      "error": "No such command. Try another word.",
+      "empty": "No recent commands. Press Cmd K to start."
+    }
+  }
+}

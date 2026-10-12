@@ -1,0 +1,186 @@
+{
+  "name": "Slowcast",
+  "descriptor": "Narrative podcast player with a patient queue",
+  "listing": {
+    "key": "o:app-podcast-queue",
+    "title": "Podcast Queue Player",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#14110f",
+    "surface": "#ffb454",
+    "text": "#f6efe6",
+    "textMuted": "#b3a99a",
+    "primary": "#ffb454",
+    "secondary": "#2a2a5a",
+    "border": "#ffffff",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#2a2a5a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#14110f",
+      "share": 86.9
+    },
+    {
+      "hex": "#2a2a5a",
+      "share": 4.0
+    },
+    {
+      "hex": "#000000",
+      "share": 2.2
+    },
+    {
+      "hex": "#4a4a88",
+      "share": 1.7
+    },
+    {
+      "hex": "#6a6aa8",
+      "share": 1.6
+    },
+    {
+      "hex": "#8a8fc0",
+      "share": 1.5
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.7
+    },
+    {
+      "hex": "#ffb454",
+      "share": 0.7
+    },
+    {
+      "hex": "#fffbe8",
+      "share": 0.5
+    },
+    {
+      "hex": "#b3a99a",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 30,
+        "weight": "700",
+        "lineHeight": "34.5px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "700",
+        "lineHeight": "18.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "2.34px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@400;500;700;800&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 14,
+      "lg": 28,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.5) 0px 2px 8px 0px",
+      "md": "rgba(0, 0, 0, 0.7) 0px 30px 60px -20px",
+      "lg": "rgba(0, 0, 0, 0.5) 0px 2px 8px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        22,
+        26
+      ]
+    },
+    "container": 1060,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 180,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "wave",
+    "tile": "squircle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "intimate",
+      "unhurried",
+      "literary"
+    ],
+    "voice": {
+      "summary": "Slowcast talks like a late-night host leaning toward the microphone: warm, low-key and fond of a well-placed pause. It would rather set a scene than shout a feature.",
+      "dos": [
+        "Write chapter and episode names like short story titles",
+        "Keep controls described in plain, quiet verbs",
+        "Use the second person sparingly and softly"
+      ],
+      "donts": [
+        "Use hype words like 'binge' or 'must-listen'",
+        "Fill silence with extra explanation",
+        "Use all caps or exclamation marks"
+      ]
+    },
+    "taglines": [
+      "Good stories take their time",
+      "Press play, then let go",
+      "Listening, the long way round",
+      "Up next, whenever you are ready",
+      "Stories worth the whole walk home"
+    ],
+    "boilerplate": "Slowcast is a podcast player for long, story-driven shows, with a reorderable queue, chapter markers and a sleep timer that lets listeners drift off mid-episode.",
+    "microcopy": {
+      "primaryCta": "Play next",
+      "secondaryCta": "Add to queue",
+      "success": "Queue saved. Sleep well.",
+      "error": "That episode will not load. Try again in a moment.",
+      "empty": "Your queue is empty. Choose something slow."
+    }
+  }
+}

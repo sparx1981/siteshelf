@@ -1,0 +1,176 @@
+{
+  "name": "Cargo Drop",
+  "descriptor": "File transfer manager for big project folders",
+  "listing": {
+    "key": "o:loader-file-transfer",
+    "title": "File Transfer Progress",
+    "category": "Loaders"
+  },
+  "colors": {
+    "background": "#eef1f6",
+    "surface": "#ffffff",
+    "text": "#121826",
+    "textMuted": "#5f646f",
+    "primary": "#2f6bff",
+    "secondary": "#f59e0b",
+    "border": "#f0f2f6",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#a8c1ff"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eef1f6",
+      "share": 70.4
+    },
+    {
+      "hex": "#ffffff",
+      "share": 28.7
+    },
+    {
+      "hex": "#667085",
+      "share": 0.2
+    },
+    {
+      "hex": "#121826",
+      "share": 0.1
+    },
+    {
+      "hex": "#e5484d",
+      "share": 0.1
+    },
+    {
+      "hex": "#7c4dff",
+      "share": 0.1
+    },
+    {
+      "hex": "#0ea5e9",
+      "share": 0.1
+    },
+    {
+      "hex": "#16a34a",
+      "share": 0.1
+    },
+    {
+      "hex": "#f59e0b",
+      "share": 0.1
+    },
+    {
+      "hex": "#14b8a6",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "700",
+        "lineHeight": "27px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 11.7,
+        "weight": "400",
+        "lineHeight": "17.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 12,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(18, 24, 38, 0.1) 0px 18px 50px 0px",
+      "md": "rgba(18, 24, 38, 0.1) 0px 18px 50px 0px",
+      "lg": "rgba(18, 24, 38, 0.1) 0px 18px 50px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      520
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "linear"
+    }
+  },
+  "logo": {
+    "motif": "cube",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "reliable",
+      "brisk",
+      "matter-of-fact"
+    ],
+    "voice": {
+      "summary": "Cargo Drop talks like a good logistics manager: it tells you what is moving, how fast and how long is left, and never dramatises a delay. Errors come with a clear retry.",
+      "dos": [
+        "Report size, speed and time left in one line",
+        "Use verbs: pause, resume, retry",
+        "Keep status text under ten words"
+      ],
+      "donts": [
+        "Do not use cute loading puns",
+        "Avoid hiding failed items",
+        "Never say 'something went wrong' without naming the file"
+      ]
+    },
+    "taglines": [
+      "Move big files, calmly",
+      "Every file accounted for",
+      "Upload it. Forget it",
+      "Fast lanes for heavy folders",
+      "Delivered, down to the byte"
+    ],
+    "boilerplate": "Cargo Drop is a file transfer manager that uploads large project folders reliably, showing per-file progress, speed and time remaining with pause, resume and retry.",
+    "microcopy": {
+      "primaryCta": "Pause all",
+      "secondaryCta": "Cancel all",
+      "success": "All 6 files uploaded.",
+      "error": "Upload failed for report.pdf. Retry?",
+      "empty": "No files queued. Drop some here."
+    }
+  }
+}

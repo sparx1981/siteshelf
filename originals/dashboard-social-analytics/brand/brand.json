@@ -1,0 +1,186 @@
+{
+  "name": "Chirpwise",
+  "descriptor": "Social reach analytics for small teams",
+  "listing": {
+    "key": "o:dashboard-social-analytics",
+    "title": "Social Reach Analytics",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#fbf6f1",
+    "surface": "#ffffff",
+    "text": "#231a2e",
+    "textMuted": "#6b5d78",
+    "primary": "#d6246e",
+    "secondary": "#127046",
+    "border": "#eadfd3",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#eea3c2"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fbf6f1",
+      "share": 97.6
+    },
+    {
+      "hex": "#231a2e",
+      "share": 0.8
+    },
+    {
+      "hex": "#d6246e",
+      "share": 0.7
+    },
+    {
+      "hex": "#a89bb5",
+      "share": 0.5
+    },
+    {
+      "hex": "#e3f6ec",
+      "share": 0.2
+    },
+    {
+      "hex": "#8d7e9a",
+      "share": 0.1
+    },
+    {
+      "hex": "#6b5d78",
+      "share": 0.1
+    },
+    {
+      "hex": "#5b2a86",
+      "share": 0.0
+    },
+    {
+      "hex": "#ff8a3d",
+      "share": 0.0
+    },
+    {
+      "hex": "#1fa3a3",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Plus Jakarta Sans",
+    "body": "Plus Jakarta Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 30,
+        "weight": "800",
+        "lineHeight": "33px",
+        "letterSpacing": "-0.6px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 11.7,
+        "weight": "600",
+        "lineHeight": "17.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 9,
+      "md": 12,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.12) 0px 1px 4px 0px",
+      "md": "rgba(0, 0, 0, 0.12) 0px 1px 4px 0px",
+      "lg": "rgba(0, 0, 0, 0.12) 0px 1px 4px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        11,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1240,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chat",
+    "tile": "squircle",
+    "wordmarkFont": "Plus Jakarta Sans"
+  },
+  "voice": {
+    "personality": [
+      "bright",
+      "plainspoken",
+      "encouraging"
+    ],
+    "voice": {
+      "summary": "Chirpwise explains numbers the way a friendly strategist would over coffee. It leads with what rose or fell, names the post, and never buries a bad week under vanity metrics.",
+      "dos": [
+        "Say what changed and by how much",
+        "Name the network and the post",
+        "Compare with the previous period in plain words"
+      ],
+      "donts": [
+        "Do not call a small dip a 'crisis'",
+        "Do not use 'engagement' without saying what was counted",
+        "Do not celebrate vanity metrics"
+      ]
+    },
+    "taglines": [
+      "See who you reached and why",
+      "Reach, explained in plain words",
+      "Know which post earned its keep",
+      "Your audience, without the guesswork",
+      "Numbers that talk back kindly"
+    ],
+    "boilerplate": "Chirpwise is an analytics tool that tracks reach across Loop, Frame and Chirp and shows small teams which posts are actually growing their audience.",
+    "microcopy": {
+      "primaryCta": "Export",
+      "secondaryCta": "Compare to previous period",
+      "success": "Report exported. Your CSV is ready.",
+      "error": "We could not load Frame data. Try again in a minute.",
+      "empty": "No posts in this range. Try 28 days."
+    }
+  }
+}

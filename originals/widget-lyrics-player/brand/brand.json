@@ -1,0 +1,176 @@
+{
+  "name": "Paper Lanterns",
+  "descriptor": "Now-playing card for an original song by Maren Vale",
+  "listing": {
+    "key": "o:widget-lyrics-player",
+    "title": "Lyrics Now Playing",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#14183a",
+    "surface": "#0b0d22",
+    "text": "#ffffff",
+    "textMuted": "#d9dcf5",
+    "primary": "#ffe9a8",
+    "secondary": "#8a2a1a",
+    "border": "#fff3d6",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#8a2a1a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#14183a",
+      "share": 65.5
+    },
+    {
+      "hex": "#0b0d22",
+      "share": 29.7
+    },
+    {
+      "hex": "#000000",
+      "share": 1.6
+    },
+    {
+      "hex": "#ffffff",
+      "share": 1.5
+    },
+    {
+      "hex": "#fff3d6",
+      "share": 0.8
+    },
+    {
+      "hex": "#ffc86e",
+      "share": 0.6
+    },
+    {
+      "hex": "#ffe9a8",
+      "share": 0.3
+    },
+    {
+      "hex": "#8a2a1a",
+      "share": 0.1
+    },
+    {
+      "hex": "#d9dcf5",
+      "share": 0.0
+    },
+    {
+      "hex": "#2a1a00",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 32,
+        "weight": "600",
+        "lineHeight": "35.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.16px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 28,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.55) 0px 26px 60px 0px",
+      "md": "rgba(0, 0, 0, 0.55) 0px 26px 60px 0px",
+      "lg": "rgba(0, 0, 0, 0.55) 0px 26px 60px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        6,
+        8,
+        10,
+        14,
+        18,
+        20,
+        26,
+        28
+      ]
+    },
+    "container": 1060,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "play",
+    "tile": "circle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "dreamy",
+      "soft",
+      "poetic"
+    ],
+    "voice": {
+      "summary": "Speaks like liner notes: gentle, image-led and a little hushed. Lyrics are the star, so interface text stays small and warm.",
+      "dos": [
+        "Quote a lyric line when you can",
+        "Keep controls to a verb or a symbol",
+        "Credit artist and album every time"
+      ],
+      "donts": [
+        "No streaming-service jargon",
+        "No hype about play counts",
+        "No spoilers of the whole lyric in a tagline"
+      ]
+    },
+    "taglines": [
+      "Low tide letters, lantern light",
+      "Sing along, word by word",
+      "Folding into mist",
+      "A song you can watch",
+      "Listen with the lights down"
+    ],
+    "boilerplate": "Paper Lanterns is an original song by Maren Vale from the album Low Tide Letters, presented as a now-playing card with lyrics that light up word by word.",
+    "microcopy": {
+      "primaryCta": "Karaoke fill",
+      "secondaryCta": "Announce lines",
+      "success": "Lyrics synced to the song",
+      "error": "Playback paused, tap play to continue",
+      "empty": "Press play to start the lyrics"
+    }
+  }
+}

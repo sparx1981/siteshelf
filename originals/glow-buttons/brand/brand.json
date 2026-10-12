@@ -1,0 +1,174 @@
+{
+  "name": "Pushlight",
+  "descriptor": "Collection of glowing, interactive buttons",
+  "listing": {
+    "key": "o:glow-buttons",
+    "title": "Glow Button Collection",
+    "category": "Buttons"
+  },
+  "colors": {
+    "background": "#0d0d12",
+    "surface": "#8b5cf6",
+    "text": "#8a8a9e",
+    "textMuted": "#ffffff",
+    "primary": "#8b5cf6",
+    "secondary": "#22d3ee",
+    "border": "#23232e",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#22d3ee"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0d0d12",
+      "share": 97.2
+    },
+    {
+      "hex": "#8b5cf6",
+      "share": 1.6
+    },
+    {
+      "hex": "#22d3ee",
+      "share": 0.4
+    },
+    {
+      "hex": "#f472b6",
+      "share": 0.4
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.2
+    },
+    {
+      "hex": "#8a8a9e",
+      "share": 0.1
+    },
+    {
+      "hex": "#ececf3",
+      "share": 0.0
+    },
+    {
+      "hex": "#a3e635",
+      "share": 0.0
+    },
+    {
+      "hex": "#04222a",
+      "share": 0.0
+    },
+    {
+      "hex": "#23232e",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 56,
+        "weight": "700",
+        "lineHeight": "58.8px",
+        "letterSpacing": "-1.68px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Geist Mono",
+        "stack": "'Geist Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "0.96px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Geist+Mono:wght@400&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 14,
+      "md": 20,
+      "lg": 20,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgb(91, 52, 196) 0px 6px 0px 0px",
+      "md": "rgb(91, 52, 196) 0px 6px 0px 0px",
+      "lg": "rgb(91, 52, 196) 0px 6px 0px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        8,
+        16,
+        28,
+        32,
+        40,
+        64
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      560,
+      1000
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "spark",
+    "tile": "circle",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "bold",
+      "showy",
+      "precise"
+    ],
+    "voice": {
+      "summary": "Writes like a demo reel narrator who knows the effect speaks for itself: clipped and confident. Each button name says what it does and nothing else.",
+      "dos": [
+        "Name the effect in one or two words",
+        "Use present tense",
+        "Keep captions in lowercase technical labels"
+      ],
+      "donts": [
+        "No claims about conversion",
+        "Avoid adjectives like stunning",
+        "Never explain a hover state in a paragraph"
+      ]
+    },
+    "taglines": [
+      "Eight ways to press a button",
+      "Press it. It glows",
+      "Interaction with a bit of light",
+      "Buttons that answer back",
+      "One dark board, many sparks"
+    ],
+    "boilerplate": "Pushlight is a collection of eight glowing button styles, from gradient sweeps to magnetic pulls, built for keyboard and pointer alike.",
+    "microcopy": {
+      "primaryCta": "Get started",
+      "secondaryCta": "See the code",
+      "success": "Success. Button state saved.",
+      "error": "Something broke. Press to try again.",
+      "empty": "No buttons match. Clear the filter."
+    }
+  }
+}

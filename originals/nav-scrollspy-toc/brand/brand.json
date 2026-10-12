@@ -1,0 +1,188 @@
+{
+  "name": "Kiln Docs",
+  "descriptor": "Documentation for deploying static sites",
+  "listing": {
+    "key": "o:nav-scrollspy-toc",
+    "title": "Scrollspy Table of Contents",
+    "category": "Navigation"
+  },
+  "colors": {
+    "background": "#ffffff",
+    "surface": "#0f172a",
+    "text": "#374151",
+    "textMuted": "#111827",
+    "primary": "#0d9488",
+    "secondary": "#7ac4be",
+    "border": "#e5e7eb",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#0c4542"
+  },
+  "colorInventory": [
+    {
+      "hex": "#ffffff",
+      "share": 91.0
+    },
+    {
+      "hex": "#0f172a",
+      "share": 7.3
+    },
+    {
+      "hex": "#374151",
+      "share": 1.4
+    },
+    {
+      "hex": "#d6e0f5",
+      "share": 0.2
+    },
+    {
+      "hex": "#6b7280",
+      "share": 0.1
+    },
+    {
+      "hex": "#0d9488",
+      "share": 0.0
+    },
+    {
+      "hex": "#7ac4be",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    },
+    {
+      "hex": "#0c4542",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 36,
+        "weight": "700",
+        "lineHeight": "41.4px",
+        "letterSpacing": "-0.72px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "700",
+        "lineHeight": "44.2px",
+        "letterSpacing": "-0.26px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 19,
+        "weight": "700",
+        "lineHeight": "32.3px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "27.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "20.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        8,
+        12,
+        14,
+        16,
+        24,
+        28,
+        48
+      ]
+    },
+    "container": 1040,
+    "breakpoints": [
+      960
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "flame",
+    "tile": "circle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "clear",
+      "practical",
+      "technical"
+    ],
+    "voice": {
+      "summary": "A senior engineer writing a guide for a colleague: direct, numbered and free of fluff. It gives the command, the expected result and the next step.",
+      "dos": [
+        "Use imperative verbs and numbered steps",
+        "Show exact commands and versions, such as Node 20",
+        "State the expected result after each step"
+      ],
+      "donts": [
+        "Humour that buries the command",
+        "Undefined jargon",
+        "Long preambles before the first step"
+      ]
+    },
+    "taglines": [
+      "From laptop to edge in ten minutes",
+      "Deploy, then relax",
+      "Docs that get to the point",
+      "Build it, fire it, ship it",
+      "Static sites, solid docs"
+    ],
+    "boilerplate": "Kiln Docs is the documentation for Kiln, a platform that takes static sites from a laptop to a global edge network in about ten minutes.",
+    "microcopy": {
+      "primaryCta": "Start the guide",
+      "secondaryCta": "Copy command",
+      "success": "Copied to clipboard",
+      "error": "Deploy failed. Check the build log",
+      "empty": "No results. Try another term"
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "name": "Skiff Cloud",
+  "descriptor": "Small-boat cloud hosting",
+  "listing": {
+    "key": "o:error-500-page",
+    "title": "500 Server Error Page",
+    "category": "Error Page"
+  },
+  "colors": {
+    "background": "#0f1720",
+    "surface": "#16212e",
+    "text": "#8fa2b7",
+    "textMuted": "#e8eef5",
+    "primary": "#4cc2ff",
+    "secondary": "#ffb454",
+    "border": "#263648",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#265874"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0f1720",
+      "share": 79.4
+    },
+    {
+      "hex": "#1f3a5f",
+      "share": 18.9
+    },
+    {
+      "hex": "#4cc2ff",
+      "share": 0.6
+    },
+    {
+      "hex": "#1c2a3b",
+      "share": 0.3
+    },
+    {
+      "hex": "#e8eef5",
+      "share": 0.2
+    },
+    {
+      "hex": "#000000",
+      "share": 0.2
+    },
+    {
+      "hex": "#8fa2b7",
+      "share": 0.2
+    },
+    {
+      "hex": "#2a2113",
+      "share": 0.1
+    },
+    {
+      "hex": "#2c5a86",
+      "share": 0.1
+    },
+    {
+      "hex": "#8ae0ff",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "IBM Plex Sans",
+    "mono": "IBM Plex Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 60,
+        "weight": "700",
+        "lineHeight": "63px",
+        "letterSpacing": "-1.2px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "IBM Plex Sans",
+        "stack": "'IBM Plex Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "IBM Plex Sans",
+        "stack": "'IBM Plex Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "IBM Plex Sans",
+        "stack": "'IBM Plex Sans', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "20.6667px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "0.6px",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500&family=Sora:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      480
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "linear"
+    }
+  },
+  "logo": {
+    "motif": "cloud",
+    "tile": "squircle",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "steady",
+      "honest",
+      "reassuring"
+    ],
+    "voice": {
+      "summary": "Skiff Cloud sounds like a calm harbour pilot when something has gone wrong. It owns the fault, says what is safe, and gives the reader one thing to do next.",
+      "dos": [
+        "Own the problem in the first sentence",
+        "Say plainly that the user's work is safe",
+        "Give a reference code and one next step"
+      ],
+      "donts": [
+        "Do not blame the user or their device",
+        "Do not use 'oops' or cheerful puns",
+        "Do not hide how long a retry will take"
+      ]
+    },
+    "taglines": [
+      "Something broke on our side",
+      "Your work is safe",
+      "Steady hands on a rough day",
+      "Back on the water shortly",
+      "We will fix it and tell you"
+    ],
+    "boilerplate": "Skiff Cloud is a cloud hosting service for small teams, built to be light, quick to launch and open about outages when they happen.",
+    "microcopy": {
+      "primaryCta": "Retry now",
+      "secondaryCta": "Send report",
+      "success": "Report received. Thank you, our engineers will read it.",
+      "error": "We could not send your report. Copy the reference and try again.",
+      "empty": "No incidents reported in the last 24 hours."
+    }
+  }
+}

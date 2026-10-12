@@ -1,0 +1,192 @@
+{
+  "name": "Steepline",
+  "descriptor": "Single-garden tea club with a brewing timer",
+  "listing": {
+    "key": "o:landing-tea-ritual",
+    "title": "Steepline Tea Club",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#f6f1e6",
+    "surface": "#ffffff",
+    "text": "#1e2a22",
+    "textMuted": "#5c6a5f",
+    "primary": "#1f3a2d",
+    "secondary": "#b5532e",
+    "border": "#e4dcc8",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#b5532e"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6f1e6",
+      "share": 82.2
+    },
+    {
+      "hex": "#ffffff",
+      "share": 15.6
+    },
+    {
+      "hex": "#1f3a2d",
+      "share": 1.0
+    },
+    {
+      "hex": "#d9cfb8",
+      "share": 0.4
+    },
+    {
+      "hex": "#e6efc9",
+      "share": 0.4
+    },
+    {
+      "hex": "#5c6a5f",
+      "share": 0.2
+    },
+    {
+      "hex": "#000000",
+      "share": 0.1
+    },
+    {
+      "hex": "#b9b2a0",
+      "share": 0.0
+    },
+    {
+      "hex": "#b5532e",
+      "share": 0.0
+    },
+    {
+      "hex": "#c7dd7a",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Newsreader",
+    "body": "Karla",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 84,
+        "weight": "500",
+        "lineHeight": "85.68px",
+        "letterSpacing": "-1.26px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 50,
+        "weight": "500",
+        "lineHeight": "52.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Newsreader:ital,wght@0,500;1,500&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 18,
+      "md": 20,
+      "lg": 24,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        14,
+        16,
+        20,
+        22,
+        26
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      860
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "sprout",
+    "tile": "none",
+    "wordmarkFont": "Newsreader"
+  },
+  "voice": {
+    "personality": [
+      "unhurried",
+      "knowledgeable",
+      "warm"
+    ],
+    "voice": {
+      "summary": "Steepline sounds like a tea buyer who loves the details but never talks down. It gives temperatures and times as plainly as a recipe and treats the daily cup as a small ceremony.",
+      "dos": [
+        "Give exact temperature and time for every tea",
+        "Name the garden and the season",
+        "Use sensory words: toasty, floral, malty"
+      ],
+      "donts": [
+        "Do not use wellness claims like 'detox'",
+        "Avoid snobbery about milk or sugar",
+        "Never rush the reader towards a purchase"
+      ]
+    },
+    "taglines": [
+      "A slower, better cup",
+      "Brew it right, every time",
+      "Four teas, one tin",
+      "Tea from small gardens",
+      "Wait for the colour to deepen"
+    ],
+    "boilerplate": "Steepline Tea Club is a subscription that posts four single-garden teas each month in a tin, with a brewing guide and timer so every cup is steeped at the right temperature.",
+    "microcopy": {
+      "primaryCta": "Join the club",
+      "secondaryCta": "Choose your blends",
+      "success": "Your tin is on its way.",
+      "error": "The timer could not start. Please try again.",
+      "empty": "No blends chosen yet. Pick up to four."
+    }
+  }
+}

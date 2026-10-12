@@ -1,0 +1,202 @@
+{
+  "name": "Vaultline",
+  "descriptor": "Cloud storage with a clearly indexed help centre",
+  "listing": {
+    "key": "o:faq-sticky-index",
+    "title": "Sticky Index FAQ",
+    "category": "FAQ"
+  },
+  "colors": {
+    "background": "#0e1218",
+    "surface": "#151b24",
+    "text": "#c4cfdf",
+    "textMuted": "#e8edf5",
+    "primary": "#4cc9f0",
+    "secondary": "#ffc857",
+    "border": "#26303d",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#265b6e"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0e1218",
+      "share": 97.6
+    },
+    {
+      "hex": "#c4cfdf",
+      "share": 1.0
+    },
+    {
+      "hex": "#17303d",
+      "share": 0.7
+    },
+    {
+      "hex": "#e8edf5",
+      "share": 0.3
+    },
+    {
+      "hex": "#4cc9f0",
+      "share": 0.2
+    },
+    {
+      "hex": "#9aa8bb",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.0
+    },
+    {
+      "hex": "#06222c",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffc857",
+      "share": 0.0
+    },
+    {
+      "hex": "#6f7e93",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "IBM Plex Sans",
+    "body": "IBM Plex Sans",
+    "mono": "IBM Plex Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "IBM Plex Sans",
+        "stack": "'IBM Plex Sans', system-ui, sans-serif",
+        "sizePx": 56,
+        "weight": "600",
+        "lineHeight": "60.48px",
+        "letterSpacing": "-1.12px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "0.96px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "IBM Plex Sans",
+        "stack": "'IBM Plex Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "26.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "IBM Plex Sans",
+        "stack": "'IBM Plex Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "500",
+        "lineHeight": "26.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500;600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 5,
+      "md": 10,
+      "lg": 14,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        8,
+        9,
+        10,
+        12,
+        14,
+        16,
+        18,
+        39,
+        44
+      ]
+    },
+    "container": 1180,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "shield",
+    "tile": "squircle",
+    "wordmarkFont": "IBM Plex Sans"
+  },
+  "voice": {
+    "personality": [
+      "precise",
+      "friendly",
+      "dependable"
+    ],
+    "voice": {
+      "summary": "A support engineer who writes the docs they would want to read: concise, exact and on your side. Answers come first, then the detail, with no padding.",
+      "dos": [
+        "Answer in the first sentence, then explain",
+        "Name features exactly as they appear in the product",
+        "Offer a copyable link for every answer"
+      ],
+      "donts": [
+        "Cheerful filler like great question",
+        "Security hand-waving with no specifics",
+        "Walls of text without headings"
+      ]
+    },
+    "taglines": [
+      "Help, indexed",
+      "Find the answer, share the link",
+      "Your files, your answers",
+      "Every question has an address",
+      "Storage you can ask about"
+    ],
+    "boilerplate": "Vaultline is a cloud storage service for teams and individuals, backed by a help centre organised by topic with a shareable link on every answer.",
+    "microcopy": {
+      "primaryCta": "Search help",
+      "secondaryCta": "Contact support",
+      "success": "Link copied to clipboard",
+      "error": "Search is unavailable. Try again shortly",
+      "empty": "No answers found. Contact support"
+    }
+  }
+}

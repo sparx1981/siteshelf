@@ -1,0 +1,207 @@
+{
+  "name": "Depth Bench",
+  "descriptor": "Utility site for CSS box shadows",
+  "listing": {
+    "key": "o:tool-shadow-lab",
+    "title": "Box Shadow Lab",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#f1f3f8",
+    "surface": "#ffffff",
+    "text": "#161a26",
+    "textMuted": "#586078",
+    "primary": "#4153d6",
+    "secondary": "#efe3cd",
+    "border": "#c9cfe0",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#efe3cd"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f1f3f8",
+      "share": 94.6
+    },
+    {
+      "hex": "#0f1220",
+      "share": 3.2
+    },
+    {
+      "hex": "#000000",
+      "share": 0.9
+    },
+    {
+      "hex": "#4153d6",
+      "share": 0.6
+    },
+    {
+      "hex": "#efe3cd",
+      "share": 0.2
+    },
+    {
+      "hex": "#dfe4f8",
+      "share": 0.2
+    },
+    {
+      "hex": "#d6e3d4",
+      "share": 0.2
+    },
+    {
+      "hex": "#c9683a",
+      "share": 0.0
+    },
+    {
+      "hex": "#4a7a5a",
+      "share": 0.0
+    },
+    {
+      "hex": "#586078",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Inter",
+    "mono": "IBM Plex Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 44,
+        "weight": "600",
+        "lineHeight": "46.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "0.84px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "600",
+        "lineHeight": "22px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Mono",
+        "family": "IBM Plex Mono",
+        "stack": "'IBM Plex Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 13,
+        "weight": "500",
+        "lineHeight": "20.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&family=Sora:wght@600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 7,
+      "md": 10,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(20, 25, 50, 0.1) 0px 1px 2px 0px, rgba(20, 25, 50, 0.1) 0px 4px 8px 0px, rgba(20, 25, 50, 0.12) 0px 12px 24px 0px",
+      "md": "rgba(20, 25, 50, 0.12) 0px 2px 6px 0px",
+      "lg": "rgba(20, 25, 50, 0.08) 0px 2px 8px 0px, rgba(20, 25, 50, 0.1) 0px 8px 24px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      560,
+      980
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "stack",
+    "tile": "none",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "practical",
+      "tidy",
+      "nerdy"
+    ],
+    "voice": {
+      "summary": "Depth Bench talks like a workshop bench for front-end developers: tools first, jargon welcome and nothing flashy. Labels are exact and every control shows its CSS.",
+      "dos": [
+        "Name each control with its CSS property",
+        "Show the copy-ready CSS at all times",
+        "Explain presets in a single phrase"
+      ],
+      "donts": [
+        "Do not call a shadow beautiful or stunning",
+        "Avoid vague words like nice",
+        "Never hide the generated code"
+      ]
+    },
+    "taglines": [
+      "Shadows, built layer by layer",
+      "Natural depth from one number",
+      "Tweak, preview and copy",
+      "Soft, layered or sharp",
+      "CSS shadows without the guessing"
+    ],
+    "boilerplate": "Depth Bench is a utility site for designers and developers featuring a layered box-shadow editor, a natural shadow generator and copy-ready CSS for any surface.",
+    "microcopy": {
+      "primaryCta": "Generate",
+      "secondaryCta": "Copy",
+      "success": "CSS copied.",
+      "error": "Could not copy. Select the CSS by hand.",
+      "empty": "No layers yet. Add a layer."
+    }
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "name": "Tumble & Toss",
+  "descriptor": "Toy-shop loading animations that bounce",
+  "listing": {
+    "key": "o:loader-block-bounce",
+    "title": "Block Bounce Loader",
+    "category": "Loaders"
+  },
+  "colors": {
+    "background": "#fff3d6",
+    "surface": "#fffaf0",
+    "text": "#2a2118",
+    "textMuted": "#6e5a3f",
+    "primary": "#ffc531",
+    "secondary": "#d1432f",
+    "border": "#2a2118",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#d1432f"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fff3d6",
+      "share": 68.6
+    },
+    {
+      "hex": "#f0d9a0",
+      "share": 17.2
+    },
+    {
+      "hex": "#fffaf0",
+      "share": 12.5
+    },
+    {
+      "hex": "#ffc531",
+      "share": 0.4
+    },
+    {
+      "hex": "#2a2118",
+      "share": 0.4
+    },
+    {
+      "hex": "#d9a65c",
+      "share": 0.4
+    },
+    {
+      "hex": "#2f9bff",
+      "share": 0.2
+    },
+    {
+      "hex": "#ff5a4d",
+      "share": 0.2
+    },
+    {
+      "hex": "#8a5cff",
+      "share": 0.2
+    },
+    {
+      "hex": "#3fcf8e",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Baloo 2",
+    "body": "Nunito",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Baloo 2",
+        "stack": "'Baloo 2', system-ui, sans-serif",
+        "sizePx": 68,
+        "weight": "800",
+        "lineHeight": "68px",
+        "letterSpacing": "-0.68px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.34px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;700&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 12,
+      "lg": 24,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.4) 0px 4.48px 0px 0px inset, rgba(0, 0, 0, 0.14) 0px -4.48px 0px 0px inset",
+      "md": "rgb(184, 133, 63) 0px 3px 0px 0px",
+      "lg": "rgba(90, 60, 10, 0.5) 0px 24px 50px -30px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        20,
+        22
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      560
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "stack",
+    "tile": "squircle",
+    "wordmarkFont": "Baloo 2"
+  },
+  "voice": {
+    "personality": [
+      "silly",
+      "bouncy",
+      "warm"
+    ],
+    "voice": {
+      "summary": "Tumble & Toss talks like a toy-shop owner with a wink: cheerful, bouncy and fond of small puns. Waiting is treated as a game, not an apology.",
+      "dos": [
+        "Write loading messages as short playful actions",
+        "Keep puns light and kind",
+        "Use warm primary-colour imagery"
+      ],
+      "donts": [
+        "Use technical loading jargon",
+        "Apologise for the wait",
+        "Use cynicism or sarcasm"
+      ]
+    },
+    "taglines": [
+      "Please bounce responsibly",
+      "Good things take a few bounces",
+      "Stacking up something nice",
+      "Wait with a wiggle",
+      "Blocks are on the way"
+    ],
+    "boilerplate": "Tumble & Toss is a toy-shop-inspired set of loading animations in which stacked blocks bounce, squash and stretch while cheerful messages keep the wait light.",
+    "microcopy": {
+      "primaryCta": "Pause",
+      "secondaryCta": "Bounce again",
+      "success": "All blocks landed. Ready!",
+      "error": "A block rolled away. Let us try again.",
+      "empty": "No blocks yet. Add a few."
+    }
+  }
+}

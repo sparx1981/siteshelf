@@ -1,0 +1,170 @@
+{
+  "name": "Northlight Journal",
+  "descriptor": "Independent magazine of features and essays",
+  "listing": {
+    "key": "o:nav-shrink-header",
+    "title": "Shrinking Sticky Header",
+    "category": "Navigation"
+  },
+  "colors": {
+    "background": "#faf7f2",
+    "surface": "#14202b",
+    "text": "#1c1a17",
+    "textMuted": "#5d574e",
+    "primary": "#14202b",
+    "secondary": "#d0542b",
+    "border": "#d0542b",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#d0542b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#faf7f2",
+      "share": 71.5
+    },
+    {
+      "hex": "#14202b",
+      "share": 27.4
+    },
+    {
+      "hex": "#1c1a17",
+      "share": 0.6
+    },
+    {
+      "hex": "#d0542b",
+      "share": 0.3
+    },
+    {
+      "hex": "#f6c58b",
+      "share": 0.1
+    },
+    {
+      "hex": "#e5dccb",
+      "share": 0.0
+    },
+    {
+      "hex": "#5d574e",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Playfair Display",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Playfair Display",
+        "stack": "'Playfair Display', Georgia, serif",
+        "sizePx": 128,
+        "weight": "800",
+        "lineHeight": "121.6px",
+        "letterSpacing": "-2.56px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Playfair Display",
+        "stack": "'Playfair Display', Georgia, serif",
+        "sizePx": 34,
+        "weight": "700",
+        "lineHeight": "39.1px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 19,
+        "weight": "400",
+        "lineHeight": "32.3px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "28.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 8,
+      "lg": 8,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        8,
+        10,
+        12,
+        16,
+        20,
+        22,
+        24,
+        34
+      ]
+    },
+    "container": 1180,
+    "breakpoints": [
+      760
+    ],
+    "motion": {
+      "duration": 350,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "compass",
+    "tile": "squircle",
+    "wordmarkFont": "Playfair Display"
+  },
+  "voice": {
+    "personality": [
+      "editorial",
+      "reflective",
+      "wintry"
+    ],
+    "voice": {
+      "summary": "Reads like a well-set feature article: long sentences when needed, vivid and weather-aware. It trusts the reader with nuance and sometimes ends on a quiet image.",
+      "dos": [
+        "Lead with a scene or person",
+        "Use specific weather and place names",
+        "Let headlines carry a single image"
+      ],
+      "donts": [
+        "No news-bulletin urgency",
+        "Avoid clickbait headlines",
+        "Never rush a paragraph to a point"
+      ]
+    },
+    "taglines": [
+      "The last good winter",
+      "Stories under a long northern sky",
+      "Features, essays and field notes",
+      "Read by the light of short days",
+      "Where the weather writes the story"
+    ],
+    "boilerplate": "Northlight Journal is an independent magazine publishing features, essays and field notes about weather, seasons and the people who work outdoors.",
+    "microcopy": {
+      "primaryCta": "Read the feature",
+      "secondaryCta": "Browse the archive",
+      "success": "Saved to your reading list.",
+      "error": "Couldn't load the story. Try again.",
+      "empty": "No stories saved yet."
+    }
+  }
+}

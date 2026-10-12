@@ -1,0 +1,172 @@
+{
+  "name": "Brookline Water",
+  "descriptor": "Hydration brand with a fill-up loader",
+  "listing": {
+    "key": "o:loader-water-fill",
+    "title": "Water Fill Loader",
+    "category": "Loaders"
+  },
+  "colors": {
+    "background": "#06263a",
+    "surface": "#ffffff",
+    "text": "#eaf8ff",
+    "textMuted": "#9fc7d8",
+    "primary": "#1aa6d6",
+    "secondary": "#bfeaff",
+    "border": "#bef0ff",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#114c63"
+  },
+  "colorInventory": [
+    {
+      "hex": "#06263a",
+      "share": 95.4
+    },
+    {
+      "hex": "#000000",
+      "share": 2.1
+    },
+    {
+      "hex": "#1aa6d6",
+      "share": 0.7
+    },
+    {
+      "hex": "#d9f4ff",
+      "share": 0.7
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.4
+    },
+    {
+      "hex": "#0b3550",
+      "share": 0.3
+    },
+    {
+      "hex": "#78dcff",
+      "share": 0.1
+    },
+    {
+      "hex": "#9fc7d8",
+      "share": 0.1
+    },
+    {
+      "hex": "#4cd0f5",
+      "share": 0.1
+    },
+    {
+      "hex": "#bfeaff",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fredoka",
+    "body": "Nunito",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fredoka",
+        "stack": "'Fredoka', system-ui, sans-serif",
+        "sizePx": 72,
+        "weight": "700",
+        "lineHeight": "72px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "26.35px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "2.34px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 10,
+      "lg": 10,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        24,
+        26
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      560
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "drop",
+    "tile": "squircle",
+    "wordmarkFont": "Fredoka"
+  },
+  "voice": {
+    "personality": [
+      "clean",
+      "refreshing",
+      "helpful"
+    ],
+    "voice": {
+      "summary": "Brookline Water sounds like a cool glass on a hot day: clear, simple and quietly encouraging. Short sentences make a point about drinking enough without nagging.",
+      "dos": [
+        "Use short, clear sentences about water and levels",
+        "Show percentages as plain figures",
+        "Encourage habits kindly"
+      ],
+      "donts": [
+        "Use wellness hype or health claims",
+        "Use aquatic puns on every line",
+        "Talk down about hydration"
+      ]
+    },
+    "taglines": [
+      "Fill it up",
+      "A little more every hour",
+      "Clear, cold and ready",
+      "Drink up, stay level",
+      "Top up the day"
+    ],
+    "boilerplate": "Brookline Water is a hydration brand that helps people drink enough through simple reminders, a visual fill gauge and bottles designed to be refilled.",
+    "microcopy": {
+      "primaryCta": "Fill it up",
+      "secondaryCta": "Top up",
+      "success": "Glass full. Nice work.",
+      "error": "Could not update your level. Try again.",
+      "empty": "Your glass is empty. Start filling."
+    }
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "name": "Trellis",
+  "descriptor": "Compact project planner for builds and renovations",
+  "listing": {
+    "key": "o:timeline-gantt-lite",
+    "title": "Gantt Chart Lite",
+    "category": "Timeline"
+  },
+  "colors": {
+    "background": "#f1f4ef",
+    "surface": "#ffffff",
+    "text": "#1a2420",
+    "textMuted": "#5c6a63",
+    "primary": "#1f6b52",
+    "secondary": "#a8532a",
+    "border": "#eef1ec",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#a1c1b6"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f1f4ef",
+      "share": 56.0
+    },
+    {
+      "hex": "#ffffff",
+      "share": 39.1
+    },
+    {
+      "hex": "#000000",
+      "share": 1.2
+    },
+    {
+      "hex": "#5c6a63",
+      "share": 1.1
+    },
+    {
+      "hex": "#1d6f86",
+      "share": 0.5
+    },
+    {
+      "hex": "#7a3f8a",
+      "share": 0.5
+    },
+    {
+      "hex": "#a9d29a",
+      "share": 0.4
+    },
+    {
+      "hex": "#7fb871",
+      "share": 0.4
+    },
+    {
+      "hex": "#5a9a56",
+      "share": 0.4
+    },
+    {
+      "hex": "#1a2420",
+      "share": 0.3
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 44,
+        "weight": "600",
+        "lineHeight": "46.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "20.3px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&family=Sora:wght@600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 8,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(20, 40, 30, 0.22) 0px 3px 8px 0px, rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset",
+      "md": "rgba(20, 40, 30, 0.22) 0px 3px 8px 0px, rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset",
+      "lg": "rgba(20, 40, 30, 0.22) 0px 3px 8px 0px, rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bars",
+    "tile": "circle",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "methodical",
+      "practical",
+      "calm"
+    ],
+    "voice": {
+      "summary": "Trellis sounds like a site foreman with a whiteboard: clear, grounded and unflappable. It names tasks, dates and dependencies plainly and highlights the critical path without drama.",
+      "dos": [
+        "Name tasks as verbs plus objects",
+        "Show dates as day and month",
+        "Call out the critical path in one phrase"
+      ],
+      "donts": [
+        "Do not use agile jargon",
+        "Avoid colours as the only signal",
+        "Never move dates without saying why"
+      ]
+    },
+    "taglines": [
+      "Plan the build, bar by bar",
+      "Dependencies, kept in line",
+      "Your project on one page",
+      "Know what slips what",
+      "From foundations to finish"
+    ],
+    "boilerplate": "Trellis is a compact Gantt planner for builds and renovations, with draggable bars, dependency lines and a highlighted critical path for small project teams.",
+    "microcopy": {
+      "primaryCta": "Today",
+      "secondaryCta": "Reset plan",
+      "success": "Plan saved.",
+      "error": "That move would break a dependency. Adjust the earlier task.",
+      "empty": "No tasks yet. Add your first task."
+    }
+  }
+}

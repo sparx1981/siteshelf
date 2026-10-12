@@ -1,0 +1,177 @@
+{
+  "name": "Postwise",
+  "descriptor": "Calm email client for focused teams",
+  "listing": {
+    "key": "o:email-inbox",
+    "title": "Email Inbox",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#f6f7f9",
+    "surface": "#eaf0ff",
+    "text": "#667087",
+    "textMuted": "#1c2230",
+    "primary": "#2f6bff",
+    "secondary": "#f2b01e",
+    "border": "#e3e6ec",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#f2b01e"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6f7f9",
+      "share": 96.8
+    },
+    {
+      "hex": "#667087",
+      "share": 1.1
+    },
+    {
+      "hex": "#1c2230",
+      "share": 0.9
+    },
+    {
+      "hex": "#2f6bff",
+      "share": 0.7
+    },
+    {
+      "hex": "#e4ebff",
+      "share": 0.5
+    },
+    {
+      "hex": "#c3c8d4",
+      "share": 0.0
+    },
+    {
+      "hex": "#2fb36b",
+      "share": 0.0
+    },
+    {
+      "hex": "#e0662f",
+      "share": 0.0
+    },
+    {
+      "hex": "#1f4fd1",
+      "share": 0.0
+    },
+    {
+      "hex": "#f2b01e",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "DM Sans",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "28.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 11.7,
+        "weight": "400",
+        "lineHeight": "16.9167px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 8,
+      "lg": 10,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(47, 107, 255) 3px 0px 0px 0px inset",
+      "md": "rgb(47, 107, 255) 3px 0px 0px 0px inset",
+      "lg": "rgb(47, 107, 255) 3px 0px 0px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700,
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "plane",
+    "tile": "none",
+    "wordmarkFont": "DM Sans"
+  },
+  "voice": {
+    "personality": [
+      "calm",
+      "tidy",
+      "dependable"
+    ],
+    "voice": {
+      "summary": "Sounds like a quiet colleague who sorts your desk: short, polite and unhurried. Messages say what happened, what can be undone and what is next.",
+      "dos": [
+        "Confirm each action with a verb and offer Undo",
+        "Keep labels to one word where possible",
+        "Use plain mail words like inbox, draft and archive"
+      ],
+      "donts": [
+        "Do not use urgent red language for ordinary mail",
+        "Do not gamify inbox zero",
+        "Do not use shouting capitals"
+      ]
+    },
+    "taglines": [
+      "Email, at a calmer pace",
+      "Read, reply, archive, breathe",
+      "Mail that stays out of the way",
+      "Less noise in every thread",
+      "Mail that respects your morning"
+    ],
+    "boilerplate": "Postwise is a three-pane email client with folders, search and keyboard shortcuts that helps teams read, reply and archive messages without the clutter of a typical inbox.",
+    "microcopy": {
+      "primaryCta": "Compose",
+      "secondaryCta": "Archive",
+      "success": "Message archived. Undo?",
+      "error": "Message could not be sent. It is saved in Drafts.",
+      "empty": "Inbox clear. Nothing waiting."
+    }
+  }
+}

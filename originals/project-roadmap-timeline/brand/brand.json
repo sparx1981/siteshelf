@@ -1,0 +1,161 @@
+{
+  "name": "Orbit Notes",
+  "descriptor": "Note-taking product roadmap",
+  "listing": {
+    "key": "o:project-roadmap-timeline",
+    "title": "Project Roadmap Timeline",
+    "category": "Timeline"
+  },
+  "colors": {
+    "background": "#f4f6fa",
+    "surface": "#ffffff",
+    "text": "#172033",
+    "textMuted": "#62708a",
+    "primary": "#2f6bff",
+    "secondary": "#172033",
+    "border": "#172033",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#172033"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4f6fa",
+      "share": 81.0
+    },
+    {
+      "hex": "#2f6bff",
+      "share": 6.6
+    },
+    {
+      "hex": "#12a37a",
+      "share": 5.6
+    },
+    {
+      "hex": "#8b97ad",
+      "share": 3.2
+    },
+    {
+      "hex": "#f59e0b",
+      "share": 1.9
+    },
+    {
+      "hex": "#172033",
+      "share": 1.6
+    },
+    {
+      "hex": "#e5484d",
+      "share": 0.1
+    },
+    {
+      "hex": "#62708a",
+      "share": 0.0
+    },
+    {
+      "hex": "#2b1d00",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Sora",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "30px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "19.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 16,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.133) 0px 1px 3px 0px",
+      "md": "rgba(23, 32, 51, 0.133) 0px 2px 6px 0px",
+      "lg": "rgba(0, 0, 0, 0.133) 0px 1px 3px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "orbit",
+    "tile": "none",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "organised",
+      "candid",
+      "steady"
+    ],
+    "voice": {
+      "summary": "Orbit Notes writes roadmaps the way a good product team does: clear about what is planned, in progress, shipped or at risk. Status words are exact and dates are never a surprise.",
+      "dos": [
+        "Use the four statuses exactly: planned, in progress, shipped, at risk",
+        "Put dates and owners in the first line of an item",
+        "Explain slips in one sentence"
+      ],
+      "donts": [
+        "Do not promise dates without a status",
+        "Avoid vague words like soon or later",
+        "Never hide at-risk items"
+      ]
+    },
+    "taglines": [
+      "See what ships, and when",
+      "The plan, out in the open",
+      "Four lanes, one honest roadmap",
+      "Quarter by quarter, no spin",
+      "Know what is next"
+    ],
+    "boilerplate": "Orbit Notes is a note-taking product that shares its quarterly roadmap in public, organised into Design, Web, Mobile and Platform lanes with honest status for each item.",
+    "microcopy": {
+      "primaryCta": "Zoom to month",
+      "secondaryCta": "Today",
+      "success": "Item updated.",
+      "error": "Could not open that item. Please try again.",
+      "empty": "No items in this lane."
+    }
+  }
+}

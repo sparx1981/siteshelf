@@ -1,0 +1,171 @@
+{
+  "name": "Wren & Lodge",
+  "descriptor": "Small-batch furniture, made to be repaired",
+  "listing": {
+    "key": "o:about-founders-letter",
+    "title": "Founders Letter About Page",
+    "category": "About Page"
+  },
+  "colors": {
+    "background": "#f8f3ea",
+    "surface": "#ffe58a",
+    "text": "#241f19",
+    "textMuted": "#243b9c",
+    "primary": "#243b9c",
+    "secondary": "#ffe58a",
+    "border": "#241f19",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#ffe58a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f8f3ea",
+      "share": 96.6
+    },
+    {
+      "hex": "#ffe58a",
+      "share": 2.3
+    },
+    {
+      "hex": "#241f19",
+      "share": 1.0
+    },
+    {
+      "hex": "#243b9c",
+      "share": 0.1
+    },
+    {
+      "hex": "#7a6f60",
+      "share": 0.0
+    },
+    {
+      "hex": "#e0d6c2",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Newsreader",
+    "body": "Newsreader",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 56,
+        "weight": "500",
+        "lineHeight": "61.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Work Sans",
+        "stack": "'Work Sans', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.82px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 20,
+        "weight": "400",
+        "lineHeight": "34px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 20,
+        "weight": "400",
+        "lineHeight": "34px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Work+Sans:wght@500;600&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 6,
+      "lg": 6,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        8,
+        10,
+        12,
+        16,
+        20,
+        24,
+        28,
+        52
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      600,
+      1000
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "home",
+    "tile": "squircle",
+    "wordmarkFont": "Newsreader"
+  },
+  "voice": {
+    "personality": [
+      "candid",
+      "warm",
+      "unhurried"
+    ],
+    "voice": {
+      "summary": "Wren & Lodge writes the way a maker talks across a workbench: plainly, in the first person plural, with the occasional admission of a mistake. Sentences are long enough to breathe and short enough to be believed.",
+      "dos": [
+        "Write in letter form, as 'we' speaking to 'you', and sign off with names",
+        "Give the real cost or the real flaw before the benefit",
+        "Use workshop nouns: oak, joint, glue, offcut, bench"
+      ],
+      "donts": [
+        "Never use words like premium, curated or bespoke",
+        "Do not hide a price or a delay behind soft phrasing",
+        "Avoid exclamation marks and sales urgency"
+      ]
+    },
+    "taglines": [
+      "Honest wood, plainly made",
+      "Built to be mended, not replaced",
+      "Furniture that keeps its word",
+      "A chair you can fix yourself",
+      "Small batches, long lives"
+    ],
+    "boilerplate": "Wren & Lodge is a small furniture maker building repairable pieces from honest materials in limited batches, with fair pay and visible costs on every order.",
+    "microcopy": {
+      "primaryCta": "Read the full letter",
+      "secondaryCta": "Print this letter",
+      "success": "Thank you for reading. Write back any time.",
+      "error": "That did not go through. Please try once more.",
+      "empty": "Nothing here yet, but we are working on it."
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "name": "Namesake",
+  "descriptor": "Profile builder for tags and skills",
+  "listing": {
+    "key": "o:controls-tag-input",
+    "title": "Tag Input with Suggestions",
+    "category": "Form Controls"
+  },
+  "colors": {
+    "background": "#f4f2ee",
+    "surface": "#ffffff",
+    "text": "#221f1a",
+    "textMuted": "#5b21b6",
+    "primary": "#5b21b6",
+    "secondary": "#166534",
+    "border": "#d9d4c8",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#baa2e0"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4f2ee",
+      "share": 85.7
+    },
+    {
+      "hex": "#ffffff",
+      "share": 14.0
+    },
+    {
+      "hex": "#dcfce7",
+      "share": 0.2
+    },
+    {
+      "hex": "#221f1a",
+      "share": 0.1
+    },
+    {
+      "hex": "#5b21b6",
+      "share": 0.0
+    },
+    {
+      "hex": "#166534",
+      "share": 0.0
+    },
+    {
+      "hex": "#7a7468",
+      "share": 0.0
+    },
+    {
+      "hex": "#d9d4c8",
+      "share": 0.0
+    },
+    {
+      "hex": "#baa2e0",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Onest",
+    "body": "Onest",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Onest",
+        "stack": "'Onest', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "33px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Onest",
+        "stack": "'Onest', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "22px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Onest",
+        "stack": "'Onest', system-ui, sans-serif",
+        "sizePx": 11.7,
+        "weight": "400",
+        "lineHeight": "17.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Onest:wght@400;600&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 18,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(34, 31, 26, 0.1) 0px 10px 36px 0px",
+      "md": "rgba(34, 31, 26, 0.1) 0px 10px 36px 0px",
+      "lg": "rgba(34, 31, 26, 0.1) 0px 10px 36px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        4,
+        6,
+        8,
+        11,
+        16,
+        22,
+        24,
+        26,
+        30
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      520
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "monogram",
+    "tile": "none",
+    "wordmarkFont": "Inter Bold (stand-in for Onest)"
+  },
+  "voice": {
+    "personality": [
+      "helpful",
+      "neat",
+      "modest"
+    ],
+    "voice": {
+      "summary": "Namesake guides people through a form like a considerate receptionist. It confirms what you typed, tells you the limit before you hit it and is never cross about a duplicate.",
+      "dos": [
+        "Tell people the limit before they reach it",
+        "Confirm each tag in a few words",
+        "Offer a fix with every error"
+      ],
+      "donts": [
+        "Do not scold for duplicates",
+        "Do not use technical words like 'validation'",
+        "Do not hide what a field is for"
+      ]
+    },
+    "taglines": [
+      "Tell us what you are good at",
+      "Skills, in your own words",
+      "Your profile, one tag at a time",
+      "Add it, press Enter, move on",
+      "Be found for the things you do"
+    ],
+    "boilerplate": "Namesake helps people build a clear profile by adding skills and contact details as simple tags, with suggestions as they type.",
+    "microcopy": {
+      "primaryCta": "Save profile",
+      "secondaryCta": "Clear all",
+      "success": "Added. You can add 3 more skills.",
+      "error": "That email address needs an @ sign. Please check it.",
+      "empty": "No skills yet. Start typing to see suggestions."
+    }
+  }
+}

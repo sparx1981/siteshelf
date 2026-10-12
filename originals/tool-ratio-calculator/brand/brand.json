@@ -1,0 +1,207 @@
+{
+  "name": "Framewell",
+  "descriptor": "Aspect ratio tool for photographers and layout designers",
+  "listing": {
+    "key": "o:tool-ratio-calculator",
+    "title": "Aspect Ratio Calculator",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#efece6",
+    "surface": "#fffdf9",
+    "text": "#1a1a1a",
+    "textMuted": "#57534a",
+    "primary": "#0b6e6e",
+    "secondary": "#3a1c08",
+    "border": "#1a1a1a",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#3a1c08"
+  },
+  "colorInventory": [
+    {
+      "hex": "#efece6",
+      "share": 65.7
+    },
+    {
+      "hex": "#fffdf9",
+      "share": 22.6
+    },
+    {
+      "hex": "#101216",
+      "share": 6.9
+    },
+    {
+      "hex": "#1e2226",
+      "share": 1.7
+    },
+    {
+      "hex": "#d9f0ee",
+      "share": 1.0
+    },
+    {
+      "hex": "#1e0e04",
+      "share": 0.6
+    },
+    {
+      "hex": "#000000",
+      "share": 0.5
+    },
+    {
+      "hex": "#3a1c08",
+      "share": 0.3
+    },
+    {
+      "hex": "#5e3010",
+      "share": 0.3
+    },
+    {
+      "hex": "#8a4a1a",
+      "share": 0.3
+    }
+  ],
+  "typography": {
+    "heading": "Syne",
+    "body": "Inter",
+    "mono": "DM Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Syne",
+        "stack": "'Syne', system-ui, sans-serif",
+        "sizePx": 54,
+        "weight": "700",
+        "lineHeight": "55.08px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Syne",
+        "stack": "'Syne', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.3px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14.5,
+        "weight": "400",
+        "lineHeight": "21.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Mono",
+        "family": "DM Mono",
+        "stack": "'DM Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "23.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Inter:wght@400;500;600&family=Syne:wght@700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 10,
+      "lg": 12,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgb(11, 110, 110) 0px 0px 0px 1px inset",
+      "md": "rgba(8, 10, 14, 0.62) 0px 0px 0px 999px",
+      "lg": "rgba(0, 0, 0, 0.6) 0px 12px 30px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1240,
+    "breakpoints": [
+      520,
+      980
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "aperture",
+    "tile": "none",
+    "wordmarkFont": "Syne"
+  },
+  "voice": {
+    "personality": [
+      "precise",
+      "visual",
+      "calm"
+    ],
+    "voice": {
+      "summary": "Sounds like a studio technician: exact numbers, short explanations, and a love of good framing. Output is always ready to copy.",
+      "dos": [
+        "State ratios and pixel values plainly",
+        "Give the CSS next to the result",
+        "Name preset frames by use"
+      ],
+      "donts": [
+        "No lens or camera jargon",
+        "No rounding without saying so",
+        "No unnecessary adjectives"
+      ]
+    },
+    "taglines": [
+      "Frame it right",
+      "Every ratio, ready to copy",
+      "See the crop before you shoot",
+      "Sizes that match",
+      "A tidy contact sheet for layout"
+    ],
+    "boilerplate": "Framewell is a photography-and-layout tool that calculates matching widths and heights, shows the ratio's crop in a viewfinder and outputs the CSS to use.",
+    "microcopy": {
+      "primaryCta": "Use",
+      "secondaryCta": "Copy CSS",
+      "success": "CSS copied",
+      "error": "Enter a width and height greater than zero",
+      "empty": "No preset selected yet"
+    }
+  }
+}

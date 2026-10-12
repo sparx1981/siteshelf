@@ -1,0 +1,173 @@
+{
+  "name": "Slidewell",
+  "descriptor": "Colourful sliding tile puzzles in three sizes",
+  "listing": {
+    "key": "o:game-sliding-puzzle",
+    "title": "Sliding Tile Puzzle",
+    "category": "Games"
+  },
+  "colors": {
+    "background": "#1e1530",
+    "surface": "#2a1f42",
+    "text": "#ffffff",
+    "textMuted": "#b3a6d6",
+    "primary": "#4a3880",
+    "secondary": "#b3a6d6",
+    "border": "#3e364d",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#b3a6d6"
+  },
+  "colorInventory": [
+    {
+      "hex": "#1e1530",
+      "share": 68.6
+    },
+    {
+      "hex": "#3a2468",
+      "share": 17.1
+    },
+    {
+      "hex": "#2a1f42",
+      "share": 13.1
+    },
+    {
+      "hex": "#4a3880",
+      "share": 0.4
+    },
+    {
+      "hex": "#eceb51",
+      "share": 0.1
+    },
+    {
+      "hex": "#97da2f",
+      "share": 0.1
+    },
+    {
+      "hex": "#67ec51",
+      "share": 0.1
+    },
+    {
+      "hex": "#2fda5a",
+      "share": 0.1
+    },
+    {
+      "hex": "#6751ec",
+      "share": 0.1
+    },
+    {
+      "hex": "#8d2fda",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Fredoka",
+    "body": "Fredoka",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fredoka",
+        "stack": "'Fredoka', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "600",
+        "lineHeight": "39.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Fredoka",
+        "stack": "'Fredoka', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Fredoka",
+        "stack": "'Fredoka', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "16.8px",
+        "letterSpacing": "0.96px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 9,
+      "md": 12,
+      "lg": 16,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.2) 0px -4px 0px 0px inset, rgba(0, 0, 0, 0.267) 0px 3px 8px 0px",
+      "md": "rgba(0, 0, 0, 0.4) 0px 20px 50px 0px",
+      "lg": "rgba(0, 0, 0, 0.2) 0px -4px 0px 0px inset, rgba(0, 0, 0, 0.267) 0px 3px 8px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 180,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "chevrons",
+    "tile": "none",
+    "wordmarkFont": "Fredoka"
+  },
+  "voice": {
+    "personality": [
+      "bubbly",
+      "encouraging",
+      "bright"
+    ],
+    "voice": {
+      "summary": "Slidewell has the cheerful voice of a children's puzzle book for grown-ups. Instructions are tiny, praise is generous and every number is tied to the satisfaction of a tile clicking home.",
+      "dos": [
+        "Use big friendly verbs: slide, solve, shuffle",
+        "Praise progress with specific numbers",
+        "Keep each hint to one line"
+      ],
+      "donts": [
+        "Do not shame slow solves",
+        "Avoid overly technical words like 'permutation'",
+        "Never hide the best-score tracker"
+      ]
+    },
+    "taglines": [
+      "Slide it into place",
+      "Shuffle. Solve. Repeat",
+      "Every tile has a home",
+      "Three sizes, endless fun",
+      "A puzzle that clicks"
+    ],
+    "boilerplate": "Slidewell is a sliding tile puzzle with 3×3, 4×4 and 5×5 boards, guaranteed solvable shuffles and a built-in tracker for moves, time and best score.",
+    "microcopy": {
+      "primaryCta": "New game",
+      "secondaryCta": "Change size",
+      "success": "Solved in 42 moves. New best.",
+      "error": "That tile cannot move. Try one next to the gap.",
+      "empty": "No best score yet for this size."
+    }
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "name": "Cookline",
+  "descriptor": "Step-by-step cooking view for busy kitchens",
+  "listing": {
+    "key": "o:app-cook-mode",
+    "title": "Recipe Cook Mode",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#fbf3e4",
+    "surface": "#fffaf0",
+    "text": "#2a1f14",
+    "textMuted": "#6b5a45",
+    "primary": "#2a1f14",
+    "secondary": "#d6432b",
+    "border": "#d8c59d",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#d6432b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fbf3e4",
+      "share": 76.9
+    },
+    {
+      "hex": "#ffffff",
+      "share": 19.9
+    },
+    {
+      "hex": "#2a1f14",
+      "share": 1.8
+    },
+    {
+      "hex": "#f0e2c3",
+      "share": 0.4
+    },
+    {
+      "hex": "#d6432b",
+      "share": 0.4
+    },
+    {
+      "hex": "#f0a020",
+      "share": 0.3
+    },
+    {
+      "hex": "#cdbb92",
+      "share": 0.1
+    },
+    {
+      "hex": "#6b5a45",
+      "share": 0.0
+    },
+    {
+      "hex": "#e5d4ad",
+      "share": 0.0
+    },
+    {
+      "hex": "#2a1500",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Fraunces",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 32,
+        "weight": "700",
+        "lineHeight": "35.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 30,
+        "weight": "700",
+        "lineHeight": "34.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 30,
+        "weight": "600",
+        "lineHeight": "40.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "800",
+        "lineHeight": "27px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "800",
+        "lineHeight": "19.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;800&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 22,
+      "lg": 28,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(184, 120, 18) 0px 3px 0px 0px",
+      "md": "rgba(80, 50, 10, 0.55) 0px 40px 90px -40px",
+      "lg": "rgb(184, 120, 18) 0px 3px 0px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        16,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "dial",
+    "tile": "none",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "steady",
+      "encouraging",
+      "clear"
+    ],
+    "voice": {
+      "summary": "Cookline talks like a patient friend reading you the recipe while your hands are full. Sentences are short, verbs come first, and every number (minutes, grams, degrees) is given plainly so it can be read from across the counter.",
+      "dos": [
+        "Lead each step with the action: soften, stir, taste",
+        "Put the time in the sentence, such as 'about 8 minutes'",
+        "Keep text large and one idea per step"
+      ],
+      "donts": [
+        "Do not tell stories before the first step",
+        "Avoid vague quantities like 'a bit' or 'some'",
+        "Never pad steps with chef jargon"
+      ]
+    },
+    "taglines": [
+      "Hands full? We have the next step",
+      "Cook it one step at a time",
+      "Read the recipe from across the room",
+      "Timers that find themselves",
+      "Dinner, minus the scrolling"
+    ],
+    "boilerplate": "Cookline is a hands-free recipe app that breaks dishes into large, readable steps, finds the timers inside them and keeps the screen awake while you cook.",
+    "microcopy": {
+      "primaryCta": "Next step",
+      "secondaryCta": "Ingredients",
+      "success": "Nicely done. Dinner is ready.",
+      "error": "The timer did not start. Tap it again.",
+      "empty": "No timers running. Start one from any step."
+    }
+  }
+}

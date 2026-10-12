@@ -1,0 +1,194 @@
+{
+  "name": "Lanewise",
+  "descriptor": "Kanban boards with team swimlanes",
+  "listing": {
+    "key": "o:kanban-swimlanes",
+    "title": "Kanban Swimlanes",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#f3f4f8",
+    "surface": "#e9ebf3",
+    "text": "#1b2033",
+    "textMuted": "#646b82",
+    "primary": "#1b2033",
+    "secondary": "#7a4b00",
+    "border": "#e0e3ec",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#9fa1a9"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f3f4f8",
+      "share": 97.8
+    },
+    {
+      "hex": "#1b2033",
+      "share": 0.6
+    },
+    {
+      "hex": "#e2e5ff",
+      "share": 0.4
+    },
+    {
+      "hex": "#e09a1f",
+      "share": 0.3
+    },
+    {
+      "hex": "#1f9d6b",
+      "share": 0.2
+    },
+    {
+      "hex": "#646b82",
+      "share": 0.2
+    },
+    {
+      "hex": "#4b4fe0",
+      "share": 0.1
+    },
+    {
+      "hex": "#d9486e",
+      "share": 0.1
+    },
+    {
+      "hex": "#fde2e2",
+      "share": 0.1
+    },
+    {
+      "hex": "#fbe3b4",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": "Inter",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "18.85px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 8,
+      "lg": 10,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(27, 32, 51, 0.05) 0px 1px 2px 0px",
+      "md": "rgba(27, 32, 51, 0.05) 0px 1px 2px 0px",
+      "lg": "rgba(27, 32, 51, 0.05) 0px 1px 2px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "stack",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "organised",
+      "clear",
+      "even-handed"
+    ],
+    "voice": {
+      "summary": "Lanewise reads like a good project lead's stand-up notes: factual, short and evenhanded. It flags limits without blaming anyone and names people and columns precisely.",
+      "dos": [
+        "Name the person, the lane and the column",
+        "State limits as numbers, not warnings",
+        "Use verbs of motion: pick up, move, drop"
+      ],
+      "donts": [
+        "Do not scold for exceeding a limit",
+        "Do not use 'velocity' as a stick",
+        "Do not hide who owns a card"
+      ]
+    },
+    "taglines": [
+      "Every lane, every limit, in view",
+      "Move work, not meetings",
+      "Clear lanes make calm sprints",
+      "Flag the overflow, keep the flow",
+      "Sprint planning without the shouting"
+    ],
+    "boilerplate": "Lanewise is a project tool that splits kanban boards into team swimlanes with work-in-progress limits, so teams can see where work is piling up.",
+    "microcopy": {
+      "primaryCta": "Add card",
+      "secondaryCta": "Collapse all",
+      "success": "Card moved to Doing. That lane has 3 of 4.",
+      "error": "Doing is over its limit by 1. You can still drop the card.",
+      "empty": "No cards in this cell. Add one with the plus button."
+    }
+  }
+}

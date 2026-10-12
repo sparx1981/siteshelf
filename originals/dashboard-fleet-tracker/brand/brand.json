@@ -1,0 +1,177 @@
+{
+  "name": "convoy",
+  "descriptor": "Live fleet tracking for courier teams",
+  "listing": {
+    "key": "o:dashboard-fleet-tracker",
+    "title": "Fleet Tracker Board",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#0f1318",
+    "surface": "#171d25",
+    "text": "#e9eef5",
+    "textMuted": "#98a6b8",
+    "primary": "#38d39f",
+    "secondary": "#ffb454",
+    "border": "#2a3340",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#1e5f4b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0f1318",
+      "share": 90.1
+    },
+    {
+      "hex": "#38d39f",
+      "share": 1.8
+    },
+    {
+      "hex": "#2f3d50",
+      "share": 1.7
+    },
+    {
+      "hex": "#3a4b62",
+      "share": 1.7
+    },
+    {
+      "hex": "#000000",
+      "share": 1.6
+    },
+    {
+      "hex": "#1f2a35",
+      "share": 1.5
+    },
+    {
+      "hex": "#12304a",
+      "share": 0.7
+    },
+    {
+      "hex": "#e9eef5",
+      "share": 0.4
+    },
+    {
+      "hex": "#7aa7d9",
+      "share": 0.3
+    },
+    {
+      "hex": "#98a6b8",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "18px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 12,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(56, 211, 159, 0) 0px 0px 0px 8.9952px",
+      "md": "rgba(56, 211, 159, 0) 0px 0px 0px 8.9952px",
+      "lg": "rgba(56, 211, 159, 0) 0px 0px 0px 8.9952px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        18
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700,
+      1100
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chevrons",
+    "tile": "none",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "alert",
+      "crisp",
+      "calm"
+    ],
+    "voice": {
+      "summary": "convoy talks like a good dispatcher: short, factual and never rattled. It gives the status, the driver and the minutes, and leaves the drama to the traffic.",
+      "dos": [
+        "Lead with status and ETA in minutes",
+        "Use driver first names and street names",
+        "Keep alert text to one line with an action"
+      ],
+      "donts": [
+        "Do not use alarmist words for a minor delay",
+        "Avoid jargon like telematics",
+        "Never show a figure without its unit"
+      ]
+    },
+    "taglines": [
+      "Every van, one clear view",
+      "Know where the day is",
+      "Eight moving, two idle, none lost",
+      "Deliveries on time, drivers at ease",
+      "The route, live"
+    ],
+    "boilerplate": "convoy is a fleet tracking board for courier firms, showing every vehicle's status, route, driver and delivery progress on one live map.",
+    "microcopy": {
+      "primaryCta": "Open route",
+      "secondaryCta": "Filter by status",
+      "success": "Route updated.",
+      "error": "Lost signal from this van. Retrying.",
+      "empty": "No vehicles match that filter."
+    }
+  }
+}

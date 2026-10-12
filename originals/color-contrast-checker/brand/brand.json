@@ -1,0 +1,192 @@
+{
+  "name": "Hueproof",
+  "descriptor": "WCAG colour contrast checker for designers",
+  "listing": {
+    "key": "o:color-contrast-checker",
+    "title": "Colour Contrast Checker",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#f5f6f8",
+    "surface": "#ffffff",
+    "text": "#5d6475",
+    "textMuted": "#1d4f91",
+    "primary": "#1d4f91",
+    "secondary": "#ffd54a",
+    "border": "#dde0e6",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#ffd54a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f5f6f8",
+      "share": 96.4
+    },
+    {
+      "hex": "#dff4e6",
+      "share": 0.8
+    },
+    {
+      "hex": "#14171f",
+      "share": 0.7
+    },
+    {
+      "hex": "#0b6bcb",
+      "share": 0.5
+    },
+    {
+      "hex": "#ffd54a",
+      "share": 0.5
+    },
+    {
+      "hex": "#e06c3c",
+      "share": 0.5
+    },
+    {
+      "hex": "#5d6475",
+      "share": 0.2
+    },
+    {
+      "hex": "#1d4f91",
+      "share": 0.2
+    },
+    {
+      "hex": "#0e6b32",
+      "share": 0.0
+    },
+    {
+      "hex": "#767676",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.56px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "500",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "18px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Manrope:wght@500;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1000,
+    "breakpoints": [
+      820
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "aperture",
+    "tile": "circle",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "exacting",
+      "helpful",
+      "unfussy"
+    ],
+    "voice": {
+      "summary": "Hueproof reads like a calm accessibility colleague who shows the ratio first and the opinion second. It is precise with numbers, kind about failures, and always follows a fail with a way to fix it.",
+      "dos": [
+        "Lead with the ratio, then the verdict",
+        "Name the WCAG level and text size explicitly",
+        "Offer a concrete fix after every failure"
+      ],
+      "donts": [
+        "Do not scold designers for failing",
+        "Avoid vague words like 'readable enough'",
+        "Never present AA and AAA as interchangeable"
+      ]
+    },
+    "taglines": [
+      "Proof your colours",
+      "Contrast, checked in a blink",
+      "Pass with proof",
+      "Colours that read for everyone",
+      "Check the pair. Fix the pair"
+    ],
+    "boilerplate": "Hueproof is a free colour contrast checker that tests any text and background pair against WCAG AA and AAA, shows a live preview and suggests the nearest passing colour.",
+    "microcopy": {
+      "primaryCta": "Suggest a fix",
+      "secondaryCta": "Swap colours",
+      "success": "Passes AA for normal text.",
+      "error": "That is not a valid hex colour. Try six characters, like 1d4f91.",
+      "empty": "Pick two colours to see the ratio."
+    }
+  }
+}

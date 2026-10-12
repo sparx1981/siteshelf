@@ -1,0 +1,188 @@
+{
+  "name": "Finlytic",
+  "descriptor": "AI agent for leads, support and data entry",
+  "listing": {
+    "key": "m:finlytic-ai-agent",
+    "title": "Finlytic AI Agent",
+    "category": "SaaS"
+  },
+  "colors": {
+    "background": "#000000",
+    "surface": "#0e0b1a",
+    "text": "#ffffff",
+    "textMuted": "#9a94b5",
+    "primary": "#7b39fc",
+    "secondary": "#58d6a0",
+    "border": "#242424",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#58d6a0"
+  },
+  "colorInventory": [
+    {
+      "hex": "#000000",
+      "share": 86.8
+    },
+    {
+      "hex": "#0e0b1a",
+      "share": 11.8
+    },
+    {
+      "hex": "#2b2344",
+      "share": 0.3
+    },
+    {
+      "hex": "#7b39fc",
+      "share": 0.3
+    },
+    {
+      "hex": "#58d6a0",
+      "share": 0.2
+    },
+    {
+      "hex": "#9b6bff",
+      "share": 0.2
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.2
+    },
+    {
+      "hex": "#1c1630",
+      "share": 0.1
+    },
+    {
+      "hex": "#9a94b5",
+      "share": 0.0
+    },
+    {
+      "hex": "#e9e6f5",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Subheading / H3",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.18px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "26px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.18px",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&family=Manrope:wght@400;500;600;700&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 10,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(23, 23, 23, 0.04) 0px 4px 16px 0px",
+      "md": "rgba(23, 23, 23, 0.04) 0px 4px 16px 0px",
+      "lg": "rgba(23, 23, 23, 0.04) 0px 4px 16px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1440,
+    "breakpoints": [
+      560,
+      900,
+      1100
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "spark",
+    "tile": "none",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "efficient",
+      "capable",
+      "low-key"
+    ],
+    "voice": {
+      "summary": "Finlytic sounds like a reliable operations colleague who has already finished the task: concise, confident and focused on the work removed from your plate. It lists jobs, not magic.",
+      "dos": [
+        "Name the specific tasks the agent handles",
+        "Lead with the time saved",
+        "Keep claims modest and checkable"
+      ],
+      "donts": [
+        "Use sci-fi AI language",
+        "Promise to replace people",
+        "Use vague words like 'intelligent'"
+      ]
+    },
+    "taglines": [
+      "Let the agent handle it",
+      "Leads, support, data entry: done",
+      "Build while your agent works",
+      "Fewer tasks, more building",
+      "The back office, on autopilot"
+    ],
+    "boilerplate": "Finlytic is an AI agent platform that handles lead generation, customer support and data entry, so small teams can spend their time building the business.",
+    "microcopy": {
+      "primaryCta": "Get started",
+      "secondaryCta": "See how it works",
+      "success": "Agent deployed. It is already working.",
+      "error": "The agent hit a snag. Check its log and retry.",
+      "empty": "No tasks assigned yet."
+    }
+  }
+}

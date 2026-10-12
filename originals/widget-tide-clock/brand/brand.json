@@ -1,0 +1,186 @@
+{
+  "name": "Pennick Bay",
+  "descriptor": "Harbour town with a live tide clock",
+  "listing": {
+    "key": "o:widget-tide-clock",
+    "title": "Tide Clock",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#173a42",
+    "surface": "#0a2230",
+    "text": "#e8f6f8",
+    "textMuted": "#c9e2e8",
+    "primary": "#5fd6e6",
+    "secondary": "#ffe29a",
+    "border": "#2c6482",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#2e6069"
+  },
+  "colorInventory": [
+    {
+      "hex": "#173a42",
+      "share": 61.3
+    },
+    {
+      "hex": "#0a2230",
+      "share": 33.4
+    },
+    {
+      "hex": "#fffbe8",
+      "share": 1.6
+    },
+    {
+      "hex": "#000000",
+      "share": 1.4
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.6
+    },
+    {
+      "hex": "#5fd6e6",
+      "share": 0.5
+    },
+    {
+      "hex": "#4a4a88",
+      "share": 0.5
+    },
+    {
+      "hex": "#2c6482",
+      "share": 0.2
+    },
+    {
+      "hex": "#e8f6f8",
+      "share": 0.2
+    },
+    {
+      "hex": "#bff6fb",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "600",
+        "lineHeight": "30.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.16px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=DM+Sans:wght@400;500;700&family=Sora:wght@600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 16,
+      "lg": 24,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.45) 0px 30px 80px 0px",
+      "md": "rgba(0, 0, 0, 0.45) 0px 30px 80px 0px",
+      "lg": "rgba(0, 0, 0, 0.45) 0px 30px 80px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        24
+      ]
+    },
+    "container": 1060,
+    "breakpoints": [
+      820
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "wave",
+    "tile": "squircle",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "seaworthy",
+      "steady",
+      "helpful"
+    ],
+    "voice": {
+      "summary": "Sounds like the harbourmaster giving the tide at the wall: calm, practical and exact about times. It uses plain guidance for the causeway and slipway, and respects the water.",
+      "dos": [
+        "Give times in 24-hour format with rise or fall",
+        "Say what the tide means for the causeway or slipway",
+        "Keep warnings short and unambiguous"
+      ],
+      "donts": [
+        "Do not predict danger without data",
+        "Do not use dramatic sea cliches",
+        "Do not hide the height in metres"
+      ]
+    },
+    "taglines": [
+      "Know the tide before you go",
+      "Next high, next low, plainly",
+      "The harbour wall, at a glance",
+      "Rising or falling, it's all here",
+      "Time and tide, told simply"
+    ],
+    "boilerplate": "Pennick Bay is a harbour town on the coast whose tide clock shows the current water height, next high and low and a 36-hour curve, with plain guidance for the causeway.",
+    "microcopy": {
+      "primaryCta": "Next high",
+      "secondaryCta": "Next low",
+      "success": "Tide updated to now.",
+      "error": "Tide data unavailable. Check the board at the harbour.",
+      "empty": "No tide times available."
+    }
+  }
+}

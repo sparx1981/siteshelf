@@ -1,0 +1,43 @@
+{
+  "brandName": "Pipewise",
+  "descriptor": "CI pipeline monitoring for developers",
+  "personality": [
+    "terse",
+    "technical",
+    "calm"
+  ],
+  "voice": {
+    "summary": "Pipewise talks like an on-call colleague who has already read the logs. It states the stage, the job and the duration, and keeps its tone even when a build is red.",
+    "dos": [
+      "Lead with the status and the job name",
+      "Give durations in seconds or minutes, exactly",
+      "Use code font for hashes, branches and commands"
+    ],
+    "donts": [
+      "Do not blame the author of a failing commit",
+      "Do not hide flaky tests behind a green tick",
+      "Do not use exclamation marks in logs"
+    ]
+  },
+  "taglines": [
+    "Every stage, every job, one view",
+    "Green builds, honest reds",
+    "Catch the flaky test first",
+    "Pipelines you can read at a glance",
+    "Fewer reruns, clearer runs"
+  ],
+  "boilerplate": "Pipewise is a CI dashboard that shows staged pipelines, parallel jobs and flaky tests so developers can see exactly where a build slowed or failed.",
+  "microcopy": {
+    "primaryCta": "Run pipeline",
+    "secondaryCta": "Rerun failed jobs",
+    "success": "Run #2842 passed in 6m 48s.",
+    "error": "Run #2839 failed at Unit tests. Open the log for details.",
+    "empty": "No runs yet. Push a commit to start one."
+  },
+  "logo": {
+    "motif": "chevrons",
+    "monogram": "P",
+    "wordmarkCase": "lower",
+    "note": "Chevrons mark the forward stages of a pipeline, and the lowercase wordmark matches the page."
+  }
+}

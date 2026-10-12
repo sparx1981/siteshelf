@@ -1,0 +1,158 @@
+{
+  "name": "Parcelo Shipping",
+  "descriptor": "Parcel booking for small businesses",
+  "listing": {
+    "key": "o:autocomplete-select",
+    "title": "Autocomplete & Multi-Select",
+    "category": "Form Controls"
+  },
+  "colors": {
+    "background": "#fafaf9",
+    "surface": "#2563eb",
+    "text": "#78716c",
+    "textMuted": "#1c1917",
+    "primary": "#2563eb",
+    "secondary": "#87a9f4",
+    "border": "#e7e5e4",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#87a9f4"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fafaf9",
+      "share": 99.0
+    },
+    {
+      "hex": "#2563eb",
+      "share": 0.7
+    },
+    {
+      "hex": "#78716c",
+      "share": 0.2
+    },
+    {
+      "hex": "#1c1917",
+      "share": 0.1
+    },
+    {
+      "hex": "#1d4ed8",
+      "share": 0.0
+    },
+    {
+      "hex": "#87a9f4",
+      "share": 0.0
+    },
+    {
+      "hex": "#e7e5e4",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Plus Jakarta Sans",
+    "body": "Plus Jakarta Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "700",
+        "lineHeight": "33.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "15px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        13,
+        16,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cube",
+    "tile": "circle",
+    "wordmarkFont": "Plus Jakarta Sans"
+  },
+  "voice": {
+    "personality": [
+      "efficient",
+      "clear",
+      "dependable"
+    ],
+    "voice": {
+      "summary": "Parcelo writes like a good dispatch clerk: exact, brief and never vague about where a parcel is going. Form labels do the explaining, so the copy stays out of the way.",
+      "dos": [
+        "Name the field and the action in the same words everywhere",
+        "Show the match, then the result, in as few words as possible",
+        "State what happens next after each submit"
+      ],
+      "donts": [
+        "Use courier-industry puffery such as 'lightning fast'",
+        "Write error text that blames the sender",
+        "Use two names for the same field"
+      ]
+    },
+    "taglines": [
+      "Book the parcel, skip the paperwork",
+      "Send it right the first time",
+      "Every address, found in a keystroke",
+      "Shipping that stays out of your way",
+      "From counter to doorstep, sorted"
+    ],
+    "boilerplate": "Parcelo Shipping is a booking tool for small businesses that need to create shipments quickly, with fast address search, tagging and trustworthy confirmation of every parcel.",
+    "microcopy": {
+      "primaryCta": "Create shipment",
+      "secondaryCta": "Save as draft",
+      "success": "Shipment created. Label ready to print.",
+      "error": "Pick a destination city to continue.",
+      "empty": "No matches. Press Enter to add it as new."
+    }
+  }
+}

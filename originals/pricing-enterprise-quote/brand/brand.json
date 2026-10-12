@@ -1,0 +1,192 @@
+{
+  "name": "Northgate",
+  "descriptor": "Operations platform for logistics firms",
+  "listing": {
+    "key": "o:pricing-enterprise-quote",
+    "title": "Enterprise Quote Builder",
+    "category": "Pricing"
+  },
+  "colors": {
+    "background": "#eef1f6",
+    "surface": "#ffffff",
+    "text": "#52617a",
+    "textMuted": "#0f1b2d",
+    "primary": "#2f6bff",
+    "secondary": "#c3d2f2",
+    "border": "#dbe2ee",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#c3d2f2"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eef1f6",
+      "share": 64.5
+    },
+    {
+      "hex": "#ffffff",
+      "share": 26.4
+    },
+    {
+      "hex": "#0f2a52",
+      "share": 7.8
+    },
+    {
+      "hex": "#2f6bff",
+      "share": 0.8
+    },
+    {
+      "hex": "#52617a",
+      "share": 0.2
+    },
+    {
+      "hex": "#0f1b2d",
+      "share": 0.1
+    },
+    {
+      "hex": "#c3d2f2",
+      "share": 0.0
+    },
+    {
+      "hex": "#9fb4de",
+      "share": 0.0
+    },
+    {
+      "hex": "#17b890",
+      "share": 0.0
+    },
+    {
+      "hex": "#5ff0c6",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 58,
+        "weight": "800",
+        "lineHeight": "62.64px",
+        "letterSpacing": "-1.16px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "20.15px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 7,
+      "md": 14,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      960
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "compass",
+    "tile": "squircle",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "assured",
+      "exact",
+      "businesslike"
+    ],
+    "voice": {
+      "summary": "Northgate speaks like a seasoned solutions lead: calm, numerate and respectful of a buyer's time. Prices appear before promises, and every discount is shown with its percentage.",
+      "dos": [
+        "Show line items and totals together",
+        "State the term discount as a percentage",
+        "Name who will confirm the quote and when"
+      ],
+      "donts": [
+        "Do not hide pricing behind 'contact us'",
+        "Avoid enterprise filler like 'robust' and 'end-to-end'",
+        "Never use countdown pressure"
+      ]
+    },
+    "taglines": [
+      "Build your Northgate quote",
+      "Pricing you can read in one go",
+      "Price it. Then talk to us",
+      "Logistics software, plainly quoted",
+      "Seats, terms, total"
+    ],
+    "boilerplate": "Northgate Systems provides an operations platform for logistics firms, with modular pricing, term discounts and a named account manager for every customer.",
+    "microcopy": {
+      "primaryCta": "Request this quote",
+      "secondaryCta": "Copy summary",
+      "success": "Quote requested. Your account manager will reply within one working day.",
+      "error": "We could not send your request. Please try again.",
+      "empty": "Choose at least one module to see your quote."
+    }
+  }
+}

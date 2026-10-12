@@ -1,0 +1,183 @@
+{
+  "name": "Greenlit",
+  "descriptor": "Data upload and insight tool",
+  "listing": {
+    "key": "m:transform-data",
+    "title": "Transform Data",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#eef3fb",
+    "surface": "#ffffff",
+    "text": "#000000",
+    "textMuted": "#505050",
+    "primary": "#5ae14c",
+    "secondary": "#327c2a",
+    "border": "#cdd1d8",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#327c2a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eef3fb",
+      "share": 99.0
+    },
+    {
+      "hex": "#000000",
+      "share": 0.6
+    },
+    {
+      "hex": "#505050",
+      "share": 0.2
+    },
+    {
+      "hex": "#0e1311",
+      "share": 0.1
+    },
+    {
+      "hex": "#5ae14c",
+      "share": 0.1
+    },
+    {
+      "hex": "#222222",
+      "share": 0.0
+    },
+    {
+      "hex": "#0c2a0a",
+      "share": 0.0
+    },
+    {
+      "hex": "#327c2a",
+      "share": 0.0
+    },
+    {
+      "hex": "#cdd1d8",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Outfit",
+    "body": "Outfit",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 80,
+        "weight": "700",
+        "lineHeight": "80px",
+        "letterSpacing": "-4.8px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "500",
+        "lineHeight": "29px",
+        "letterSpacing": "-0.4px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.2px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 24,
+        "weight": "600",
+        "lineHeight": "24px",
+        "letterSpacing": "-1.44px",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 10,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(20, 30, 60, 0.12) 0px 2px 10px 0px",
+      "md": "rgba(0, 0, 0, 0.12) 0px 4px 16px 0px",
+      "lg": "rgba(20, 30, 90, 0.2) 0px 20px 60px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        16,
+        32,
+        34
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      560,
+      1024
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cloud",
+    "tile": "circle",
+    "wordmarkFont": "Outfit"
+  },
+  "voice": {
+    "personality": [
+      "bright",
+      "efficient",
+      "encouraging"
+    ],
+    "voice": {
+      "summary": "Greenlit talks like a helpful analyst who has a good answer ready. It is upbeat, plain and quick, and promises quick insight rather than deep magic.",
+      "dos": [
+        "Lead with what the user will get",
+        "Use verbs: upload, ask, see",
+        "Keep sentences short"
+      ],
+      "donts": [
+        "Do not use 'powerful' or 'effortless'",
+        "Do not overpromise insight",
+        "Do not use technical jargon in the hero"
+      ]
+    },
+    "taglines": [
+      "Transform data quickly",
+      "Upload it, ask, get answers",
+      "Insights as soon as you upload",
+      "Work smarter with your own numbers",
+      "From file to finding in seconds"
+    ],
+    "boilerplate": "Greenlit is a data tool that turns uploaded information into clear insights right away, with voice and prompt input.",
+    "microcopy": {
+      "primaryCta": "Upgrade",
+      "secondaryCta": "Attach a file",
+      "success": "File uploaded. Ask your first question.",
+      "error": "We could not read that file. Try a CSV or spreadsheet.",
+      "empty": "No data yet. Attach a file to begin."
+    }
+  }
+}

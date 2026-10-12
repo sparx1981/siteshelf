@@ -1,0 +1,132 @@
+{
+  "name": "Parsec OS",
+  "descriptor": "A boot-to-launch pre-release for a new operating system",
+  "listing": {
+    "key": "o:coming-soon-terminal-boot",
+    "title": "Terminal Boot Coming Soon",
+    "category": "Coming Soon"
+  },
+  "colors": {
+    "background": "#050805",
+    "surface": "#10281a",
+    "text": "#4ade80",
+    "textMuted": "#2f8f55",
+    "primary": "#4ade80",
+    "secondary": "#297a46",
+    "border": "#2f8f55",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#297a46"
+  },
+  "colorInventory": [
+    {
+      "hex": "#050805",
+      "share": 59.4
+    },
+    {
+      "hex": "#10281a",
+      "share": 39.6
+    },
+    {
+      "hex": "#4ade80",
+      "share": 0.9
+    },
+    {
+      "hex": "#2f8f55",
+      "share": 0.1
+    },
+    {
+      "hex": "#297a46",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "VT323",
+    "body": "VT323",
+    "mono": "VT323",
+    "scale": [
+      {
+        "role": "Mono",
+        "family": "VT323",
+        "stack": "'VT323', ui-monospace, Menlo, monospace",
+        "sizePx": 22,
+        "weight": "400",
+        "lineHeight": "22px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=VT323&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 10,
+      "lg": 10,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "color(srgb 0.290196 0.870588 0.501961 / 0.18) 0px 0px 50px 0px",
+      "md": "color(srgb 0.290196 0.870588 0.501961 / 0.18) 0px 0px 50px 0px",
+      "lg": "color(srgb 0.290196 0.870588 0.501961 / 0.18) 0px 0px 50px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        8,
+        12,
+        16,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      600
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chevrons",
+    "tile": "squircle",
+    "wordmarkFont": "VT323"
+  },
+  "voice": {
+    "personality": [
+      "terse",
+      "nerdy",
+      "dry"
+    ],
+    "voice": {
+      "summary": "Talks in command-line English: lowercase, clipped, with the odd dry joke. It treats the visitor as someone who prefers typing to clicking.",
+      "dos": [
+        "Write messages like system output, one line each",
+        "Use verbs a shell would: boot, notify, launch",
+        "Keep jokes understated and technical"
+      ],
+      "donts": [
+        "No marketing adjectives",
+        "No emoji or exclamation marks",
+        "No full paragraphs inside the terminal"
+      ]
+    },
+    "taglines": [
+      "Boot sequence in progress",
+      "Launch is a command away",
+      "Type help to begin",
+      "Your next OS is compiling",
+      "Systems nominal, countdown running"
+    ],
+    "boilerplate": "Parsec OS is a forthcoming operating system for people who live in the terminal, previewed through a retro boot sequence and a countdown to launch.",
+    "microcopy": {
+      "primaryCta": "notify me",
+      "secondaryCta": "help",
+      "success": "ok: you are on the list",
+      "error": "error: command not found, type help",
+      "empty": "no history yet, try help"
+    }
+  }
+}

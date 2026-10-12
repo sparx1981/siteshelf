@@ -1,0 +1,168 @@
+{
+  "name": "Hearth",
+  "descriptor": "Calm home control for lights, heat and doors",
+  "listing": {
+    "key": "o:smart-home-dashboard",
+    "title": "Smart Home Dashboard",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#12141a",
+    "surface": "#1c1f28",
+    "text": "#8a92a6",
+    "textMuted": "#f1f3f8",
+    "primary": "#3ddc97",
+    "secondary": "#ff7a45",
+    "border": "#2a2e3a",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#206348"
+  },
+  "colorInventory": [
+    {
+      "hex": "#12141a",
+      "share": 97.0
+    },
+    {
+      "hex": "#ffffff",
+      "share": 1.4
+    },
+    {
+      "hex": "#262a36",
+      "share": 0.8
+    },
+    {
+      "hex": "#3ddc97",
+      "share": 0.3
+    },
+    {
+      "hex": "#8a92a6",
+      "share": 0.2
+    },
+    {
+      "hex": "#ffb547",
+      "share": 0.1
+    },
+    {
+      "hex": "#3a3f4e",
+      "share": 0.1
+    },
+    {
+      "hex": "#ff7a45",
+      "share": 0.1
+    },
+    {
+      "hex": "#206348",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter Tight",
+    "body": "Inter Tight",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter Tight",
+        "stack": "'Inter Tight', system-ui, sans-serif",
+        "sizePx": 24,
+        "weight": "700",
+        "lineHeight": "36px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter Tight",
+        "stack": "'Inter Tight', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "18px",
+        "letterSpacing": "0.96px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Inter Tight",
+        "stack": "'Inter Tight', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 18,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        16,
+        18,
+        24
+      ]
+    },
+    "container": 1000,
+    "breakpoints": [
+      640
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "home",
+    "tile": "circle",
+    "wordmarkFont": "Inter Bold (stand-in for Inter Tight)"
+  },
+  "voice": {
+    "personality": [
+      "calm",
+      "helpful",
+      "precise"
+    ],
+    "voice": {
+      "summary": "Hearth sounds like a thoughtful housemate who keeps things comfortable: unobtrusive, brief and exact about temperatures, doors and lights. It greets by name and stays out of the way.",
+      "dos": [
+        "Report states in plain words such as 'Locked' and 'Off'",
+        "Use the person's first name in greetings",
+        "Give numbers with units"
+      ],
+      "donts": [
+        "Use gadget hype",
+        "Bury a security warning in friendly language",
+        "Add noise to quiet states"
+      ]
+    },
+    "taglines": [
+      "Everything at home, in hand",
+      "Good morning, and the house knows",
+      "Warm rooms, locked doors",
+      "Comfort without the fiddling",
+      "Home, quietly looked after"
+    ],
+    "boilerplate": "Hearth is a smart home dashboard that brings lights, thermostat, door locks and energy use together in one calm screen, with scenes for movies, nights and leaving.",
+    "microcopy": {
+      "primaryCta": "Good night",
+      "secondaryCta": "Add a scene",
+      "success": "Front door locked.",
+      "error": "Living room lights are not responding.",
+      "empty": "No activity yet today."
+    }
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "name": "Pip",
+  "descriptor": "Bite-sized habit app with scratch-off deals",
+  "listing": {
+    "key": "o:pricing-coupon-scratch",
+    "title": "Scratch-Off Coupon Pricing",
+    "category": "Pricing"
+  },
+  "colors": {
+    "background": "#fff4d9",
+    "surface": "#ffffff",
+    "text": "#261a05",
+    "textMuted": "#6a5527",
+    "primary": "#e6355b",
+    "secondary": "#2742ff",
+    "border": "#261a05",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#671d2f"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fff4d9",
+      "share": 64.9
+    },
+    {
+      "hex": "#ecd9a6",
+      "share": 16.2
+    },
+    {
+      "hex": "#ffffff",
+      "share": 12.7
+    },
+    {
+      "hex": "#fff0b8",
+      "share": 4.6
+    },
+    {
+      "hex": "#ffd0d9",
+      "share": 0.7
+    },
+    {
+      "hex": "#2742ff",
+      "share": 0.3
+    },
+    {
+      "hex": "#261a05",
+      "share": 0.2
+    },
+    {
+      "hex": "#6a5527",
+      "share": 0.2
+    },
+    {
+      "hex": "#e6355b",
+      "share": 0.2
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Bricolage Grotesque",
+    "body": "Nunito",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 70,
+        "weight": "800",
+        "lineHeight": "70px",
+        "letterSpacing": "-2.1px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 24,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=Nunito:wght@400;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 18,
+      "md": 22,
+      "lg": 22,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(38, 26, 5) 5px 5px 0px 0px",
+      "md": "rgb(38, 26, 5) 3px 3px 0px 0px",
+      "lg": "rgb(38, 26, 5) 5px 5px 0px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20
+      ]
+    },
+    "container": 1040,
+    "breakpoints": [
+      860
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "spark",
+    "tile": "squircle",
+    "wordmarkFont": "Bricolage Grotesque"
+  },
+  "voice": {
+    "personality": [
+      "playful",
+      "bright",
+      "generous"
+    ],
+    "voice": {
+      "summary": "Pip talks like an excitable friend handing you a lottery ticket: bright, chatty and always a bit pleased. Prices and discounts stay plain, so the fun never hides the number.",
+      "dos": [
+        "Treat the discount as a small surprise",
+        "State the price and the saving in numbers",
+        "Keep copy punchy with short verbs"
+      ],
+      "donts": [
+        "Use pushy sales pressure",
+        "Hide the original price",
+        "Overuse exclamation marks"
+      ]
+    },
+    "taglines": [
+      "Scratch it. Save it",
+      "Tiny habits, small prices",
+      "A little luck, a lot of savings",
+      "Grow your habit, keep your change",
+      "Reveal the code, watch it drop"
+    ],
+    "boilerplate": "Pip is a habit-building app made of bite-sized daily actions, offered in three plans from Seed to Grove, with occasional scratch-off coupons for new users.",
+    "microcopy": {
+      "primaryCta": "Apply code",
+      "secondaryCta": "Reveal with keyboard",
+      "success": "Code applied. Prices updated.",
+      "error": "That code is not valid. Try scratching again.",
+      "empty": "No coupon yet. Scratch the card."
+    }
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "name": "Fieldnotes",
+  "descriptor": "Design and engineering notes from a product team",
+  "listing": {
+    "key": "o:blog-index",
+    "title": "Blog Index",
+    "category": "Blog"
+  },
+  "colors": {
+    "background": "#ffffff",
+    "surface": "#c7d2fe",
+    "text": "#667085",
+    "textMuted": "#101828",
+    "primary": "#4f46e5",
+    "secondary": "#fdba74",
+    "border": "#eaecf0",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#fdba74"
+  },
+  "colorInventory": [
+    {
+      "hex": "#ffffff",
+      "share": 91.7
+    },
+    {
+      "hex": "#c7d2fe",
+      "share": 1.7
+    },
+    {
+      "hex": "#a5b4fc",
+      "share": 1.7
+    },
+    {
+      "hex": "#a7f3d0",
+      "share": 1.0
+    },
+    {
+      "hex": "#5eead4",
+      "share": 1.0
+    },
+    {
+      "hex": "#fde68a",
+      "share": 0.7
+    },
+    {
+      "hex": "#fdba74",
+      "share": 0.7
+    },
+    {
+      "hex": "#fbcfe8",
+      "share": 0.7
+    },
+    {
+      "hex": "#f9a8d4",
+      "share": 0.7
+    },
+    {
+      "hex": "#101828",
+      "share": 0.3
+    }
+  ],
+  "typography": {
+    "heading": "Newsreader",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 48,
+        "weight": "600",
+        "lineHeight": "51.84px",
+        "letterSpacing": "-0.96px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 22,
+        "weight": "600",
+        "lineHeight": "27.5px",
+        "letterSpacing": "-0.22px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "26.35px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "23.25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "20.15px",
+        "letterSpacing": "0.78px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,500;0,600;1,400&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 16,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        7,
+        8,
+        10,
+        12,
+        14,
+        18,
+        22,
+        24,
+        28
+      ]
+    },
+    "container": 1120,
+    "breakpoints": [
+      600,
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "book",
+    "tile": "squircle",
+    "wordmarkFont": "Newsreader"
+  },
+  "voice": {
+    "personality": [
+      "thoughtful",
+      "plain",
+      "curious"
+    ],
+    "voice": {
+      "summary": "Writes like a good colleague explaining what worked, with numbers rather than hype. Headlines make one clear claim and the excerpt gives the evidence.",
+      "dos": [
+        "Lead with the result, then the method",
+        "Use one number per excerpt where possible",
+        "Keep titles under ten words"
+      ],
+      "donts": [
+        "No clickbait questions",
+        "No jargon stacked on jargon",
+        "No claims without the measured outcome"
+      ]
+    },
+    "taglines": [
+      "Notes from the work itself",
+      "Small lessons, written down",
+      "What we tried and what held",
+      "Fewer clever ideas, more finished ones",
+      "Plain notes on building well"
+    ],
+    "boilerplate": "Fieldnotes is the working journal of a product team, publishing short essays on design, engineering, product and culture, each with the evidence behind the opinion.",
+    "microcopy": {
+      "primaryCta": "Load more",
+      "secondaryCta": "Read the post",
+      "success": "Subscribed, see you next issue",
+      "error": "Search failed, please try again",
+      "empty": "No posts match that search yet"
+    }
+  }
+}

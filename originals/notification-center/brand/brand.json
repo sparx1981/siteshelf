@@ -1,0 +1,186 @@
+{
+  "name": "Orbit",
+  "descriptor": "Team workspace with a calm notification centre",
+  "listing": {
+    "key": "o:notification-center",
+    "title": "Notification Center",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#f5f6f8",
+    "surface": "#ffffff",
+    "text": "#111827",
+    "textMuted": "#2563eb",
+    "primary": "#2563eb",
+    "secondary": "#93c5fd",
+    "border": "#e4e6eb",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#93c5fd"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f5f6f8",
+      "share": 97.6
+    },
+    {
+      "hex": "#111827",
+      "share": 0.9
+    },
+    {
+      "hex": "#6b7280",
+      "share": 0.5
+    },
+    {
+      "hex": "#2563eb",
+      "share": 0.2
+    },
+    {
+      "hex": "#dc2626",
+      "share": 0.2
+    },
+    {
+      "hex": "#7c3aed",
+      "share": 0.1
+    },
+    {
+      "hex": "#0891b2",
+      "share": 0.1
+    },
+    {
+      "hex": "#16a34a",
+      "share": 0.1
+    },
+    {
+      "hex": "#ea580c",
+      "share": 0.1
+    },
+    {
+      "hex": "#db2777",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Plus Jakarta Sans",
+    "body": "Plus Jakarta Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "700",
+        "lineHeight": "27px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "19.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "19.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(16, 24, 40, 0.25) 0px 20px 50px -12px",
+      "md": "rgba(16, 24, 40, 0.25) 0px 20px 50px -12px",
+      "lg": "rgba(16, 24, 40, 0.25) 0px 20px 50px -12px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        18
+      ]
+    },
+    "container": 900,
+    "breakpoints": [
+      520
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "orbit",
+    "tile": "circle",
+    "wordmarkFont": "Plus Jakarta Sans"
+  },
+  "voice": {
+    "personality": [
+      "organised",
+      "considerate",
+      "crisp"
+    ],
+    "voice": {
+      "summary": "Orbit sounds like a thoughtful teammate who tells you only what matters, in order. Updates name the person, the document and the change in one tidy line.",
+      "dos": [
+        "Name who did what, in that order",
+        "Group updates by day",
+        "Offer undo for every dismissal"
+      ],
+      "donts": [
+        "Do not use alarm language for ordinary updates",
+        "Avoid vague 'You have new activity'",
+        "Never badge a number that is not unread"
+      ]
+    },
+    "taglines": [
+      "Everything that needs you, nothing that doesn't",
+      "Stay in the loop, gently",
+      "Updates in orbit",
+      "Quiet alerts, clear priorities",
+      "Know what changed, instantly"
+    ],
+    "boilerplate": "Orbit is a team workspace whose notification centre groups mentions, system alerts and updates by day, so people can catch up without being interrupted.",
+    "microcopy": {
+      "primaryCta": "Mark all as read",
+      "secondaryCta": "View all",
+      "success": "Marked as read.",
+      "error": "We could not load notifications. Please retry.",
+      "empty": "You are all caught up. No new notifications."
+    }
+  }
+}

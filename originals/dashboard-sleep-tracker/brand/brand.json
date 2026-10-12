@@ -1,0 +1,206 @@
+{
+  "name": "dozeful",
+  "descriptor": "Sleep insights app for night owls and early birds",
+  "listing": {
+    "key": "o:dashboard-sleep-tracker",
+    "title": "Sleep Insights Dashboard",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#0f0b24",
+    "surface": "#181238",
+    "text": "#efeaff",
+    "textMuted": "#a99fd6",
+    "primary": "#a78bfa",
+    "secondary": "#ff8fa3",
+    "border": "#2d2466",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#4d4172"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0f0b24",
+      "share": 60.6
+    },
+    {
+      "hex": "#181238",
+      "share": 38.1
+    },
+    {
+      "hex": "#a78bfa",
+      "share": 0.3
+    },
+    {
+      "hex": "#efeaff",
+      "share": 0.2
+    },
+    {
+      "hex": "#ffe08a",
+      "share": 0.2
+    },
+    {
+      "hex": "#a99fd6",
+      "share": 0.2
+    },
+    {
+      "hex": "#7a6fd0",
+      "share": 0.1
+    },
+    {
+      "hex": "#4338ca",
+      "share": 0.1
+    },
+    {
+      "hex": "#ff8fa3",
+      "share": 0.1
+    },
+    {
+      "hex": "#7dd3fc",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Outfit",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 36,
+        "weight": "700",
+        "lineHeight": "39.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "18px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 16,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(255, 224, 138) -6px -2px 0px 0px inset",
+      "md": "rgb(255, 224, 138) -6px -2px 0px 0px inset",
+      "lg": "rgb(255, 224, 138) -6px -2px 0px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cloud",
+    "tile": "squircle",
+    "wordmarkFont": "Outfit"
+  },
+  "voice": {
+    "personality": [
+      "gentle",
+      "reassuring",
+      "quiet"
+    ],
+    "voice": {
+      "summary": "Sounds like a soft lamp: low voice, no scolding, plain-language insights. Numbers are shown, then explained in a single kind sentence.",
+      "dos": [
+        "Explain every score in one gentle sentence",
+        "Use sleep stage names consistently",
+        "Lowercase the brand and keep it quiet"
+      ],
+      "donts": [
+        "No shaming for a bad night",
+        "No medical claims or diagnoses",
+        "No loud celebration of a high score"
+      ]
+    },
+    "taglines": [
+      "Sleep, understood gently",
+      "Last night, in plain words",
+      "Rest is a rhythm",
+      "Learn your nights, kindly",
+      "Every night tells you something"
+    ],
+    "boilerplate": "dozeful is a sleep tracking app that turns each night into a stage chart, a score and a few plain-language insights, with no shaming and no jargon.",
+    "microcopy": {
+      "primaryCta": "See last night",
+      "secondaryCta": "Compare nights",
+      "success": "Night saved",
+      "error": "We could not read last night's data, try syncing again",
+      "empty": "No sleep data for this night yet"
+    }
+  }
+}

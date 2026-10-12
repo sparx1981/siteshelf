@@ -1,0 +1,164 @@
+{
+  "name": "Kinetic Type Lab",
+  "descriptor": "Playground of moving text effects",
+  "listing": {
+    "key": "o:text-effects",
+    "title": "Kinetic Type Lab",
+    "category": "Typography"
+  },
+  "colors": {
+    "background": "#0d0d12",
+    "surface": "#14141c",
+    "text": "#f5f5fa",
+    "textMuted": "#8d8da3",
+    "primary": "#ffb703",
+    "secondary": "#8c6502",
+    "border": "#25252f",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#8c6502"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0d0d12",
+      "share": 99.1
+    },
+    {
+      "hex": "#ffb703",
+      "share": 0.5
+    },
+    {
+      "hex": "#f5f5fa",
+      "share": 0.2
+    },
+    {
+      "hex": "#8d8da3",
+      "share": 0.1
+    },
+    {
+      "hex": "#b4b4c8",
+      "share": 0.1
+    },
+    {
+      "hex": "#1a1200",
+      "share": 0.0
+    },
+    {
+      "hex": "#8c6502",
+      "share": 0.0
+    },
+    {
+      "hex": "#25252f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Bricolage Grotesque",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 34,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "-1.02px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 24,
+      "lg": 24,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        9,
+        12,
+        13,
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 980,
+    "breakpoints": [
+      640
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "monogram",
+    "tile": "squircle",
+    "wordmarkFont": "Bricolage Grotesque"
+  },
+  "voice": {
+    "personality": [
+      "playful",
+      "nerdy",
+      "energetic"
+    ],
+    "voice": {
+      "summary": "Kinetic Type Lab talks like a type designer on a good day: excited about letterforms and quick to share the trick. Sentences are short, active and full of motion verbs.",
+      "dos": [
+        "Describe each effect by what the letters do",
+        "Use motion verbs: type, scramble, sweep, fill",
+        "Show the editable text first"
+      ],
+      "donts": [
+        "Do not claim any effect is 'revolutionary'",
+        "Do not explain the code in the headline",
+        "Do not use more than one exclamation mark"
+      ]
+    },
+    "taglines": [
+      "Six small text effects",
+      "Pick one, change the words, replay",
+      "Letters with somewhere to be",
+      "Type that moves, on your terms",
+      "Make the words do something"
+    ],
+    "boilerplate": "Kinetic Type Lab is a small showcase of six kinetic text effects built with CSS and JavaScript, which visitors can edit and replay.",
+    "microcopy": {
+      "primaryCta": "Replay",
+      "secondaryCta": "Word swap",
+      "success": "Effect applied. Press Replay to watch it again.",
+      "error": "That text is too long for this effect. Try fewer words.",
+      "empty": "Type some words to see them move."
+    }
+  }
+}

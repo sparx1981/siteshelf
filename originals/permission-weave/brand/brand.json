@@ -1,0 +1,172 @@
+{
+  "name": "Weavegate",
+  "descriptor": "Access control console for teams",
+  "listing": {
+    "key": "o:permission-weave",
+    "title": "Permission Weave",
+    "category": "Components"
+  },
+  "colors": {
+    "background": "#f4f3f8",
+    "surface": "#ffffff",
+    "text": "#625d72",
+    "textMuted": "#161922",
+    "primary": "#3e2775",
+    "secondary": "#9588b3",
+    "border": "#d8d3e4",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#9588b3"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4f3f8",
+      "share": 92.9
+    },
+    {
+      "hex": "#e5def1",
+      "share": 5.9
+    },
+    {
+      "hex": "#161922",
+      "share": 0.5
+    },
+    {
+      "hex": "#625d72",
+      "share": 0.3
+    },
+    {
+      "hex": "#60449a",
+      "share": 0.3
+    },
+    {
+      "hex": "#3e2775",
+      "share": 0.1
+    },
+    {
+      "hex": "#9588b3",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 38,
+        "weight": "600",
+        "lineHeight": "41.8px",
+        "letterSpacing": "-1.14px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 10,
+        "weight": "400",
+        "lineHeight": "15px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 8,
+      "lg": 8,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        6,
+        8,
+        12,
+        14,
+        16,
+        20,
+        22,
+        24
+      ]
+    },
+    "container": 1260,
+    "breakpoints": [
+      560,
+      760,
+      850
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "grid",
+    "tile": "none",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "explicit",
+      "methodical",
+      "calm"
+    ],
+    "voice": {
+      "summary": "Weavegate writes the way a careful administrator would want it: explicit, ordered and complete. It never hides inherited rules behind a friendly word, and it says what changed.",
+      "dos": [
+        "Say whether a permission is inherited or an exception",
+        "Name the role and the resource in each sentence",
+        "Confirm what was saved and what was discarded"
+      ],
+      "donts": [
+        "Do not use vague words like some access",
+        "Avoid scare language about security",
+        "Never imply a change is saved before it is"
+      ]
+    },
+    "taglines": [
+      "Access, made explicit",
+      "Every role, every right, in view",
+      "See inherited rules, change exceptions",
+      "Policy without the guesswork",
+      "Clear access, clean audits"
+    ],
+    "boilerplate": "Weavegate is an access console that shows what every role can do across workspaces, separating inherited access from editable exceptions with explicit review before saving.",
+    "microcopy": {
+      "primaryCta": "Save policy",
+      "secondaryCta": "Discard changes",
+      "success": "Policy saved.",
+      "error": "Could not save the policy. Your edits are still here.",
+      "empty": "No pending changes."
+    }
+  }
+}

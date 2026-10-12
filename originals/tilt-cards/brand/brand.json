@@ -1,0 +1,178 @@
+{
+  "name": "Glimmerdeck",
+  "descriptor": "Collectible holographic cards",
+  "listing": {
+    "key": "o:tilt-cards",
+    "title": "3D Tilt Cards",
+    "category": "Cards"
+  },
+  "colors": {
+    "background": "#12142a",
+    "surface": "#000000",
+    "text": "#ffffff",
+    "textMuted": "#cfd3f5",
+    "primary": "#f59e0b",
+    "secondary": "#5b3df5",
+    "border": "#ffffff",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#5b3df5"
+  },
+  "colorInventory": [
+    {
+      "hex": "#12142a",
+      "share": 31.3
+    },
+    {
+      "hex": "#0b0c14",
+      "share": 26.8
+    },
+    {
+      "hex": "#000000",
+      "share": 23.7
+    },
+    {
+      "hex": "#5b3df5",
+      "share": 2.6
+    },
+    {
+      "hex": "#c23df5",
+      "share": 2.6
+    },
+    {
+      "hex": "#0ea5a4",
+      "share": 2.6
+    },
+    {
+      "hex": "#22c55e",
+      "share": 2.6
+    },
+    {
+      "hex": "#f59e0b",
+      "share": 2.6
+    },
+    {
+      "hex": "#ef4444",
+      "share": 2.6
+    },
+    {
+      "hex": "#ffffff",
+      "share": 2.5
+    }
+  ],
+  "typography": {
+    "heading": "Unbounded",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Unbounded",
+        "stack": "'Unbounded', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "700",
+        "lineHeight": "28.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "20.3px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "20.3px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 11.7,
+        "weight": "500",
+        "lineHeight": "16.9167px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 22,
+      "md": 50,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        12,
+        14,
+        16,
+        34,
+        40
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 500,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "diamond",
+    "tile": "squircle",
+    "wordmarkFont": "Unbounded"
+  },
+  "voice": {
+    "personality": [
+      "shimmering",
+      "collectible",
+      "slightly mythic"
+    ],
+    "voice": {
+      "summary": "Glimmerdeck sounds like a trading card flavour text: short, mythic and a little grand. It describes each card by rarity, power and a single striking image.",
+      "dos": [
+        "Write card text as one vivid, mythic sentence",
+        "Show rarity and power in plain labels",
+        "Use light and metal imagery"
+      ],
+      "donts": [
+        "Use fantasy cliche like 'ancient evil'",
+        "Over-explain stats",
+        "Use exclamation marks"
+      ]
+    },
+    "taglines": [
+      "Forged where the lights touch the sea",
+      "Tilt it toward the light",
+      "Cards that catch the light",
+      "Rare things deserve a shine",
+      "Hold the glare, keep the glow"
+    ],
+    "boilerplate": "Glimmerdeck is a collectible card brand whose holographic cards tilt and shimmer with the viewer's movement, each one carrying a rarity, a power and a short legend.",
+    "microcopy": {
+      "primaryCta": "Collect this card",
+      "secondaryCta": "View the set",
+      "success": "Card added to your collection.",
+      "error": "This card slipped away. Try again.",
+      "empty": "Your collection is empty."
+    }
+  }
+}

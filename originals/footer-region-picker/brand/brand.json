@@ -1,0 +1,187 @@
+{
+  "name": "Fennel & Fig Market",
+  "descriptor": "Neighbourhood grocer with delivery",
+  "listing": {
+    "key": "o:footer-region-picker",
+    "title": "Region And Language Footer",
+    "category": "Footer"
+  },
+  "colors": {
+    "background": "#fdf9f1",
+    "surface": "#1f2a1f",
+    "text": "#26211b",
+    "textMuted": "#615748",
+    "primary": "#8c2f5f",
+    "secondary": "#8fd16a",
+    "border": "#cfc3a8",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#8fd16a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fdf9f1",
+      "share": 69.9
+    },
+    {
+      "hex": "#1f2a1f",
+      "share": 28.3
+    },
+    {
+      "hex": "#f2e3ec",
+      "share": 1.0
+    },
+    {
+      "hex": "#8c2f5f",
+      "share": 0.5
+    },
+    {
+      "hex": "#615748",
+      "share": 0.1
+    },
+    {
+      "hex": "#e9c07a",
+      "share": 0.1
+    },
+    {
+      "hex": "#b0587f",
+      "share": 0.1
+    },
+    {
+      "hex": "#9bb25a",
+      "share": 0.1
+    },
+    {
+      "hex": "#2f7d4f",
+      "share": 0.0
+    },
+    {
+      "hex": "#2f5fb0",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Newsreader",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 64,
+        "weight": "700",
+        "lineHeight": "65.28px",
+        "letterSpacing": "-0.96px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 17,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.6) 0px 24px 60px -20px",
+      "md": "rgba(0, 0, 0, 0.6) 0px 24px 60px -20px",
+      "lg": "rgba(0, 0, 0, 0.6) 0px 24px 60px -20px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        6,
+        8,
+        10,
+        11,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1408,
+    "breakpoints": [
+      560,
+      860
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bag",
+    "tile": "squircle",
+    "wordmarkFont": "Newsreader"
+  },
+  "voice": {
+    "personality": [
+      "welcoming",
+      "fresh",
+      "generous"
+    ],
+    "voice": {
+      "summary": "Fennel & Fig Market talks like a good grocer who knows your name: warm, appetising and unfussy. It greets people in their own language and currency and keeps prices plain.",
+      "dos": [
+        "Greet in the shopper's language when known",
+        "Describe food by taste and season",
+        "Show prices in the local currency"
+      ],
+      "donts": [
+        "Use supermarket slogans like 'unbeatable value'",
+        "Overstate freshness",
+        "Make region settings sound technical"
+      ]
+    },
+    "taglines": [
+      "Good food, delivered like a neighbour",
+      "Fresh from the market, to your door",
+      "Your shop, your language",
+      "A basket with a human touch",
+      "Welcome in, take your time"
+    ],
+    "boilerplate": "Fennel & Fig Market is a neighbourhood grocer that delivers seasonal food across several countries, with prices, greetings and language that adapt to where each shopper lives.",
+    "microcopy": {
+      "primaryCta": "Start shopping",
+      "secondaryCta": "Change region",
+      "success": "Region saved. Prices updated.",
+      "error": "We do not deliver there yet. Try another region.",
+      "empty": "Your basket is empty. Fill it with something good."
+    }
+  }
+}

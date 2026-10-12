@@ -1,0 +1,164 @@
+{
+  "name": "Colour Memory",
+  "descriptor": "Four-pad memory game with tones",
+  "listing": {
+    "key": "o:game-simon-says",
+    "title": "Colour Memory Pads",
+    "category": "Games"
+  },
+  "colors": {
+    "background": "#15171c",
+    "surface": "#0c0d10",
+    "text": "#9aa0b4",
+    "textMuted": "#e8eaf0",
+    "primary": "#eab308",
+    "secondary": "#3b82f6",
+    "border": "#23262e",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#69520c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#15171c",
+      "share": 93.1
+    },
+    {
+      "hex": "#22c55e",
+      "share": 1.6
+    },
+    {
+      "hex": "#ef4444",
+      "share": 1.6
+    },
+    {
+      "hex": "#eab308",
+      "share": 1.6
+    },
+    {
+      "hex": "#3b82f6",
+      "share": 1.6
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.2
+    },
+    {
+      "hex": "#23262e",
+      "share": 0.2
+    },
+    {
+      "hex": "#9aa0b4",
+      "share": 0.0
+    },
+    {
+      "hex": "#e8eaf0",
+      "share": 0.0
+    },
+    {
+      "hex": "#c4c8d8",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Chakra Petch",
+    "body": "Chakra Petch",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Chakra Petch",
+        "stack": "'Chakra Petch', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.68px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Chakra Petch",
+        "stack": "'Chakra Petch', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 50,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(35, 38, 46) 0px 0px 0px 6px, rgba(0, 0, 0, 0.5) 0px 20px 50px 0px",
+      "md": "rgb(35, 38, 46) 0px 0px 0px 6px, rgba(0, 0, 0, 0.5) 0px 20px 50px 0px",
+      "lg": "rgb(35, 38, 46) 0px 0px 0px 6px, rgba(0, 0, 0, 0.5) 0px 20px 50px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        3,
+        5,
+        6,
+        8,
+        10,
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 100,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "dial",
+    "tile": "circle",
+    "wordmarkFont": "Inter Bold (stand-in for Chakra Petch)"
+  },
+  "voice": {
+    "personality": [
+      "sharp",
+      "arcadey",
+      "encouraging"
+    ],
+    "voice": {
+      "summary": "Colour Memory sounds like a dry arcade announcer: very short, slightly robotic and quietly impressed. It speaks in rounds, scores and one-word instructions.",
+      "dos": [
+        "Announce the round in two words",
+        "Give feedback in a single short phrase",
+        "Keep labels uppercase-friendly"
+      ],
+      "donts": [
+        "Use long instructions during play",
+        "Mock a wrong answer",
+        "Use American spellings, since the page uses colour"
+      ]
+    },
+    "taglines": [
+      "Watch. Remember. Repeat.",
+      "How long can you keep up?",
+      "Four colours, one memory",
+      "Listen, then play it back",
+      "Round after round after round"
+    ],
+    "boilerplate": "Colour Memory is a browser memory game with four glowing pads, synthesised tones and strict mode, tracking each player's best round across sessions.",
+    "microcopy": {
+      "primaryCta": "Start",
+      "secondaryCta": "Strict mode",
+      "success": "Round 7. Nicely done.",
+      "error": "Wrong pad. Press Start to try again.",
+      "empty": "No score yet. Press Start."
+    }
+  }
+}

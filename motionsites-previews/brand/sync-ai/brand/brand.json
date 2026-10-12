@@ -1,0 +1,172 @@
+{
+  "name": "Stellar.ai",
+  "descriptor": "AI assistant that automates team tasks",
+  "listing": {
+    "key": "m:sync-ai",
+    "title": "Sync AI",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#ffffff",
+    "surface": "#000000",
+    "text": "#000000",
+    "textMuted": "#4b5563",
+    "primary": "#000000",
+    "secondary": "#737373",
+    "border": "#d1d5db",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#737373"
+  },
+  "colorInventory": [
+    {
+      "hex": "#ffffff",
+      "share": 98.2
+    },
+    {
+      "hex": "#000000",
+      "share": 1.0
+    },
+    {
+      "hex": "#6b7280",
+      "share": 0.4
+    },
+    {
+      "hex": "#9ca3af",
+      "share": 0.4
+    },
+    {
+      "hex": "#4b5563",
+      "share": 0.1
+    },
+    {
+      "hex": "#374151",
+      "share": 0.0
+    },
+    {
+      "hex": "#d1d5db",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 80,
+        "weight": "400",
+        "lineHeight": "88px",
+        "letterSpacing": "-2px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 4,
+      "lg": 4,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        16,
+        20,
+        24,
+        32
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      640,
+      768,
+      1024
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chip",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "quick",
+      "clean",
+      "optimistic"
+    ],
+    "voice": {
+      "summary": "Sounds like a productivity coach with a clean desk: short imperatives, simple words and a nudge to move faster. It promises time saved, never magic.",
+      "dos": [
+        "Use short pairs like Work smarter. Move faster.",
+        "Name the connected tools",
+        "Keep nav and CTA labels to two words"
+      ],
+      "donts": [
+        "Do not promise to replace people",
+        "Do not use science-fiction phrases",
+        "Do not use jargon like synergy"
+      ]
+    },
+    "taglines": [
+      "Work smarter. Move faster.",
+      "AI that powers you up",
+      "Sync with the tools you love",
+      "Save time, boost output",
+      "Automation that stays out of your way"
+    ],
+    "boilerplate": "Stellar.ai is a SaaS platform whose intelligent automation syncs with the tools teams already use to streamline tasks, boost output and save time every day.",
+    "microcopy": {
+      "primaryCta": "Get started free",
+      "secondaryCta": "Login",
+      "success": "You're all set. Your tools are syncing.",
+      "error": "We couldn't connect that tool. Please try again.",
+      "empty": "No tasks yet. Connect a tool to start."
+    }
+  }
+}

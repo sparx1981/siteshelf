@@ -1,0 +1,162 @@
+{
+  "name": "Slow Tide",
+  "descriptor": "Vinyl-style music player with a hand-picked playlist",
+  "listing": {
+    "key": "o:music-player",
+    "title": "Vinyl Music Player Widget",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#1a1410",
+    "surface": "#241c16",
+    "text": "#f6ede2",
+    "textMuted": "#9c8d7c",
+    "primary": "#ff7a45",
+    "secondary": "#ffb699",
+    "border": "#3a2e24",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#713a26"
+  },
+  "colorInventory": [
+    {
+      "hex": "#1a1410",
+      "share": 97.2
+    },
+    {
+      "hex": "#ff7a45",
+      "share": 1.4
+    },
+    {
+      "hex": "#cfc6b8",
+      "share": 1.2
+    },
+    {
+      "hex": "#f6ede2",
+      "share": 0.1
+    },
+    {
+      "hex": "#9c8d7c",
+      "share": 0.1
+    },
+    {
+      "hex": "#000000",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffb699",
+      "share": 0.0
+    },
+    {
+      "hex": "#3a2e24",
+      "share": 0.0
+    },
+    {
+      "hex": "#713a26",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "DM Serif Display",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "DM Serif Display",
+        "stack": "'DM Serif Display', Georgia, serif",
+        "sizePx": 34,
+        "weight": "400",
+        "lineHeight": "37.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 3,
+      "md": 22,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.5) 0px 14px 30px 0px",
+      "md": "rgba(0, 0, 0, 0.5) 0px 14px 30px 0px",
+      "lg": "rgba(0, 0, 0, 0.5) 0px 14px 30px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        9,
+        10,
+        12,
+        14,
+        16,
+        32
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      800
+    ],
+    "motion": {
+      "duration": 500,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "wave",
+    "tile": "none",
+    "wordmarkFont": "DM Serif Display"
+  },
+  "voice": {
+    "personality": [
+      "mellow",
+      "nostalgic",
+      "smooth"
+    ],
+    "voice": {
+      "summary": "A late-night radio host with a lowered voice: smooth, unhurried and slightly poetic. Track details are given like liner notes.",
+      "dos": [
+        "Credit artist and duration for every track",
+        "Write with a gentle, rolling rhythm",
+        "Describe mood in one line"
+      ],
+      "donts": [
+        "Hyped-up streaming slogans",
+        "Algorithm talk like recommended for you",
+        "Emoji"
+      ]
+    },
+    "taglines": [
+      "Records that arrive like the tide",
+      "Drop the needle, let it drift",
+      "Five tracks, nothing rushed",
+      "Slow songs for long evenings",
+      "Music with room to breathe"
+    ],
+    "boilerplate": "Slow Tide is a vinyl-style music player with a spinning record, tonearm and a short, hand-picked playlist of mellow tracks.",
+    "microcopy": {
+      "primaryCta": "Play",
+      "secondaryCta": "Shuffle",
+      "success": "Now playing: Slow Tide",
+      "error": "This track skipped. Try the next one",
+      "empty": "The playlist is empty. Add a track"
+    }
+  }
+}

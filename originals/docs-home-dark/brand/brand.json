@@ -1,0 +1,228 @@
+{
+  "name": "Quillstream",
+  "descriptor": "Real-time events API for developers",
+  "listing": {
+    "key": "o:docs-home-dark",
+    "title": "Dark Docs Home",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#0b0d12",
+    "surface": "#12151d",
+    "text": "#8d96ab",
+    "textMuted": "#e8ebf3",
+    "primary": "#2de2c4",
+    "secondary": "#ffcf70",
+    "border": "#232836",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#19655b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b0d12",
+      "share": 96.6
+    },
+    {
+      "hex": "#232836",
+      "share": 2.6
+    },
+    {
+      "hex": "#8d96ab",
+      "share": 0.4
+    },
+    {
+      "hex": "#e8ebf3",
+      "share": 0.2
+    },
+    {
+      "hex": "#2de2c4",
+      "share": 0.1
+    },
+    {
+      "hex": "#cfd6e6",
+      "share": 0.1
+    },
+    {
+      "hex": "#7ee2a8",
+      "share": 0.0
+    },
+    {
+      "hex": "#6b7488",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffcf70",
+      "share": 0.0
+    },
+    {
+      "hex": "#7aa2ff",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 64,
+        "weight": "700",
+        "lineHeight": "67.2px",
+        "letterSpacing": "-1.92px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.56px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "20.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 10,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(45, 226, 196, 0) 0px 0px 0px 0px",
+      "md": "rgb(45, 226, 196) 0px 0px 10px 0px",
+      "lg": "rgba(45, 226, 196, 0) 0px 0px 0px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        18,
+        20,
+        22
+      ]
+    },
+    "container": 1120,
+    "breakpoints": [
+      560,
+      760,
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "pulse",
+    "tile": "none",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "fast",
+      "precise",
+      "developer-first"
+    ],
+    "voice": {
+      "summary": "Quillstream writes like a senior engineer's good README: terse, example-first and respectful of time. It shows the code before explaining it and promises only what the API does.",
+      "dos": [
+        "Show a working snippet before the explanation",
+        "State limits, versions and status exactly",
+        "Use second person and the imperative mood"
+      ],
+      "donts": [
+        "Do not claim 'zero latency' or 'infinite scale'",
+        "Do not use jargon without a link",
+        "Do not hide breaking changes"
+      ]
+    },
+    "taglines": [
+      "Ship real-time features in an afternoon",
+      "Events in, answers out, quickly",
+      "Docs you can copy and paste",
+      "Streams that behave in production",
+      "Build on a socket you can trust"
+    ],
+    "boilerplate": "Quillstream provides a real-time events API with SDKs for Node and Python, along with guides, references and copy-and-paste examples for developers.",
+    "microcopy": {
+      "primaryCta": "Get an API key",
+      "secondaryCta": "Read the guides",
+      "success": "Copied. Paste it into your terminal.",
+      "error": "No results for that search. Try a method name or a guide title.",
+      "empty": "No recent searches yet."
+    }
+  }
+}

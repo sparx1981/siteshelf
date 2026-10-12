@@ -1,0 +1,197 @@
+{
+  "name": "Springwell",
+  "descriptor": "Charity building wells for rural communities",
+  "listing": {
+    "key": "o:landing-nonprofit-donate",
+    "title": "Nonprofit Donation Landing",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#fdf8f1",
+    "surface": "#0b4f4a",
+    "text": "#4a5e5b",
+    "textMuted": "#1c2b29",
+    "primary": "#0b4f4a",
+    "secondary": "#f2a900",
+    "border": "#e3dccd",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#f2a900"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fdf8f1",
+      "share": 59.6
+    },
+    {
+      "hex": "#0b4f4a",
+      "share": 35.8
+    },
+    {
+      "hex": "#f2a900",
+      "share": 0.9
+    },
+    {
+      "hex": "#7fd0c7",
+      "share": 0.8
+    },
+    {
+      "hex": "#f6c25b",
+      "share": 0.8
+    },
+    {
+      "hex": "#c8571b",
+      "share": 0.8
+    },
+    {
+      "hex": "#efe9dd",
+      "share": 0.7
+    },
+    {
+      "hex": "#17655f",
+      "share": 0.3
+    },
+    {
+      "hex": "#e5f3f0",
+      "share": 0.2
+    },
+    {
+      "hex": "#4a5e5b",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Nunito Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 58,
+        "weight": "800",
+        "lineHeight": "60.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 22,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 20,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Nunito Sans",
+        "stack": "'Nunito Sans', system-ui, sans-serif",
+        "sizePx": 19,
+        "weight": "400",
+        "lineHeight": "30.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Nunito Sans",
+        "stack": "'Nunito Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "25.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Nunito+Sans:wght@400;600;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 9,
+      "md": 16,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.06) 0px 6px 20px 0px",
+      "md": "rgba(11, 79, 74, 0.1) 0px 8px 24px 0px",
+      "lg": "rgba(0, 0, 0, 0.25) 0px 20px 50px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        20
+      ]
+    },
+    "container": 1080,
+    "breakpoints": [
+      480,
+      860
+    ],
+    "motion": {
+      "duration": 1000,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "drop",
+    "tile": "squircle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "hopeful",
+      "grounded",
+      "sincere"
+    ],
+    "voice": {
+      "summary": "Speaks with plain gratitude and no guilt: short, human and focused on one village at a time. Numbers show what a gift does, in dollars and litres.",
+      "dos": [
+        "Name the village or well when possible",
+        "Show exactly what each gift buys",
+        "Thank first, ask second"
+      ],
+      "donts": [
+        "No guilt-trip imagery or pity",
+        "Avoid saviour language",
+        "Never inflate an impact figure"
+      ]
+    },
+    "taglines": [
+      "Clean water, one village at a time",
+      "Your gift runs deep",
+      "Wells that last for decades",
+      "Give once, flow for years",
+      "Every well starts with someone like you"
+    ],
+    "boilerplate": "Springwell is a charity that builds and maintains community wells, bringing clean water to villages for decades and showing donors exactly where each gift goes.",
+    "microcopy": {
+      "primaryCta": "Give now",
+      "secondaryCta": "Read their stories",
+      "success": "Thank you. Your gift is on its way.",
+      "error": "Your gift didn't go through. Please try again.",
+      "empty": "No gifts yet this month. Be the first."
+    }
+  }
+}

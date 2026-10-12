@@ -1,0 +1,182 @@
+{
+  "name": "Pathfinder Docs",
+  "descriptor": "Developer documentation with a sense of humour",
+  "listing": {
+    "key": "o:error-404-game",
+    "title": "404 Mini-Game",
+    "category": "Error Page"
+  },
+  "colors": {
+    "background": "#14121f",
+    "surface": "#1d1a2e",
+    "text": "#9d97bd",
+    "textMuted": "#f2f0ff",
+    "primary": "#6ef3c5",
+    "secondary": "#b9a8ff",
+    "border": "#4a4470",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#356c5b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#14121f",
+      "share": 94.3
+    },
+    {
+      "hex": "#6ef3c5",
+      "share": 2.5
+    },
+    {
+      "hex": "#b9a8ff",
+      "share": 1.5
+    },
+    {
+      "hex": "#ff7a8a",
+      "share": 1.4
+    },
+    {
+      "hex": "#9d97bd",
+      "share": 0.2
+    },
+    {
+      "hex": "#f2f0ff",
+      "share": 0.1
+    },
+    {
+      "hex": "#06251c",
+      "share": 0.0
+    },
+    {
+      "hex": "#4a4470",
+      "share": 0.0
+    },
+    {
+      "hex": "#356c5b",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 200,
+        "weight": "700",
+        "lineHeight": "180px",
+        "letterSpacing": "-10px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 38,
+        "weight": "700",
+        "lineHeight": "43.7px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "27.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 20,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.8) 0px 30px 60px -40px",
+      "md": "rgba(0, 0, 0, 0.8) 0px 30px 60px -40px",
+      "lg": "rgba(0, 0, 0, 0.8) 0px 30px 60px -40px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        20,
+        26
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      480
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "plane",
+    "tile": "squircle",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "friendly",
+      "playful",
+      "helpful"
+    ],
+    "voice": {
+      "summary": "Pathfinder Docs apologises for the missing page with a grin, then immediately points to the right ones. The tone is a helpful senior engineer who still remembers being lost in the docs.",
+      "dos": [
+        "Admit the page is missing in the first line",
+        "Offer three useful links before the joke ends",
+        "Keep puns short and technical"
+      ],
+      "donts": [
+        "Do not blame the reader for a broken link",
+        "Avoid long gags that delay the way back",
+        "Never hide the home link behind the game"
+      ]
+    },
+    "taglines": [
+      "This page wandered off",
+      "Lost? Outrun a few bugs",
+      "404, but we know the way",
+      "Back to the docs in one jump",
+      "Not found. Still fun"
+    ],
+    "boilerplate": "Pathfinder Docs is the documentation site for a developer toolkit, built to keep readers moving even when a page has gone missing.",
+    "microcopy": {
+      "primaryCta": "Play",
+      "secondaryCta": "Back to home",
+      "success": "New best score. Nicely jumped.",
+      "error": "The game hit a bug. Try refreshing.",
+      "empty": "No score yet. Press space to start."
+    }
+  }
+}

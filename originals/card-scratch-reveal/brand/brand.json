@@ -1,0 +1,196 @@
+{
+  "name": "Lucky Lantern Cafe",
+  "descriptor": "Neighbourhood cafe with scratch-card treats",
+  "listing": {
+    "key": "o:card-scratch-reveal",
+    "title": "Scratch Reveal Cards",
+    "category": "Cards"
+  },
+  "colors": {
+    "background": "#2a1710",
+    "surface": "#fff6e4",
+    "text": "#e5cfb6",
+    "textMuted": "#fbeedd",
+    "primary": "#ffd36e",
+    "secondary": "#c4382c",
+    "border": "#e0b04a",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#c4382c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#2a1710",
+      "share": 65.8
+    },
+    {
+      "hex": "#fff6e4",
+      "share": 17.3
+    },
+    {
+      "hex": "#6b3a1e",
+      "share": 16.4
+    },
+    {
+      "hex": "#e9d9ba",
+      "share": 0.2
+    },
+    {
+      "hex": "#7a5a3a",
+      "share": 0.1
+    },
+    {
+      "hex": "#7a4a2a",
+      "share": 0.0
+    },
+    {
+      "hex": "#c4382c",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffd36e",
+      "share": 0.0
+    },
+    {
+      "hex": "#e0b04a",
+      "share": 0.0
+    },
+    {
+      "hex": "#000000",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Gloock",
+    "body": "Nunito",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Gloock",
+        "stack": "'Gloock', Georgia, serif",
+        "sizePx": 68,
+        "weight": "400",
+        "lineHeight": "68px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Gloock",
+        "stack": "'Gloock', Georgia, serif",
+        "sizePx": 20,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "800",
+        "lineHeight": "21.7px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "2.08px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Gloock&family=Nunito:wght@400;600;700;800&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 12,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.7) 0px 24px 40px -20px",
+      "md": "rgba(0, 0, 0, 0.7) 0px 24px 40px -20px",
+      "lg": "rgba(0, 0, 0, 0.7) 0px 24px 40px -20px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        7,
+        8,
+        9,
+        10,
+        12,
+        16,
+        18
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "flame",
+    "tile": "circle",
+    "wordmarkFont": "Gloock"
+  },
+  "voice": {
+    "personality": [
+      "cosy",
+      "festive",
+      "cheeky"
+    ],
+    "voice": {
+      "summary": "Sounds like a cafe owner chalking the specials board: warm, a little theatrical and fond of puns. Everything feels like a small treat handed across the counter.",
+      "dos": [
+        "Use friendly cafe words like sip, treat and lucky dip",
+        "Keep lines short enough for a chalkboard",
+        "Make losing tickets sound kind"
+      ],
+      "donts": [
+        "Do not use gambling language like jackpot or odds",
+        "Do not push urgency or pressure",
+        "Do not sound like a coupon site"
+      ]
+    },
+    "taglines": [
+      "Scratch, sip, smile",
+      "Every cup comes with a little luck",
+      "Hot drinks and happy surprises",
+      "Rub gently. Treats inside.",
+      "A lantern in the window, luck inside"
+    ],
+    "boilerplate": "Lucky Lantern Cafe is a neighbourhood coffee house that hands out scratch-off treat cards with every order, from free biscuits to a surprise cup on the house.",
+    "microcopy": {
+      "primaryCta": "Reveal prize",
+      "secondaryCta": "Reset",
+      "success": "You scratched a winner. Come and collect.",
+      "error": "Foil is stuck. Press Reveal prize instead.",
+      "empty": "No tickets left today. Come back tomorrow."
+    }
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "name": "Harbor Ops",
+  "descriptor": "Infrastructure monitoring for fast-moving teams",
+  "listing": {
+    "key": "o:server-monitor",
+    "title": "Server Monitor Dashboard",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#0b0f14",
+    "surface": "#121820",
+    "text": "#e6edf5",
+    "textMuted": "#8795a8",
+    "primary": "#38d5ff",
+    "secondary": "#3ddc97",
+    "border": "#1f2833",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#1e6074"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b0f14",
+      "share": 95.8
+    },
+    {
+      "hex": "#3ddc97",
+      "share": 2.0
+    },
+    {
+      "hex": "#38d5ff",
+      "share": 0.6
+    },
+    {
+      "hex": "#9a7cff",
+      "share": 0.5
+    },
+    {
+      "hex": "#e6edf5",
+      "share": 0.4
+    },
+    {
+      "hex": "#ffb454",
+      "share": 0.3
+    },
+    {
+      "hex": "#ff5d6c",
+      "share": 0.2
+    },
+    {
+      "hex": "#8795a8",
+      "share": 0.1
+    },
+    {
+      "hex": "#10283a",
+      "share": 0.1
+    },
+    {
+      "hex": "#6b7a8e",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Sora",
+    "mono": "JetBrains Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "19.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Sora:wght@500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 2,
+      "md": 12,
+      "lg": 14,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      700,
+      1000
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "pulse",
+    "tile": "none",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "vigilant",
+      "level",
+      "technical"
+    ],
+    "voice": {
+      "summary": "Harbor Ops reads like a good incident report: calm, specific and timestamped. It names the host, the metric and the threshold, and never raises its voice above what the graph shows.",
+      "dos": [
+        "Name host, metric and value together",
+        "Timestamp every alert",
+        "Use severity words consistently: ok, warn, critical"
+      ],
+      "donts": [
+        "Do not use dramatic words such as 'catastrophic'",
+        "Avoid vague 'issues detected'",
+        "Never alert without a next step"
+      ]
+    },
+    "taglines": [
+      "Calm waters, clear signals",
+      "Watch every host, every second",
+      "See trouble before it lands",
+      "Ops, without the noise",
+      "Your fleet at a glance"
+    ],
+    "boilerplate": "Harbor Ops is an infrastructure monitoring service that streams CPU, memory, request and latency data for production services and raises clear, prioritised alerts.",
+    "microcopy": {
+      "primaryCta": "Simulate incident",
+      "secondaryCta": "View alerts",
+      "success": "Incident resolved. Latency back to normal.",
+      "error": "Lost connection to api-1. Retrying.",
+      "empty": "No alerts in this time range."
+    }
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "name": "Quillstack",
+  "descriptor": "Writing and publishing workspace for editorial teams",
+  "listing": {
+    "key": "o:testimonial-marquee-rows",
+    "title": "Testimonial Marquee Rows",
+    "category": "Testimonials"
+  },
+  "colors": {
+    "background": "#161822",
+    "surface": "#0c0d12",
+    "text": "#eef0f7",
+    "textMuted": "#9aa1b5",
+    "primary": "#ffc857",
+    "secondary": "#1b2140",
+    "border": "#262a38",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#1b2140"
+  },
+  "colorInventory": [
+    {
+      "hex": "#161822",
+      "share": 83.9
+    },
+    {
+      "hex": "#1b2140",
+      "share": 12.4
+    },
+    {
+      "hex": "#eef0f7",
+      "share": 1.7
+    },
+    {
+      "hex": "#9aa1b5",
+      "share": 0.4
+    },
+    {
+      "hex": "#ffc857",
+      "share": 0.3
+    },
+    {
+      "hex": "#5eead4",
+      "share": 0.2
+    },
+    {
+      "hex": "#ff9ec7",
+      "share": 0.2
+    },
+    {
+      "hex": "#a5b4fc",
+      "share": 0.2
+    },
+    {
+      "hex": "#fdba74",
+      "share": 0.2
+    },
+    {
+      "hex": "#86efac",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "DM Serif Display",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "DM Serif Display",
+        "stack": "'DM Serif Display', Georgia, serif",
+        "sizePx": 52,
+        "weight": "400",
+        "lineHeight": "57.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "23.25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "23.25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 18,
+      "md": 18,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        12,
+        14,
+        16,
+        20,
+        72
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      600
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "stack",
+    "tile": "none",
+    "wordmarkFont": "DM Serif Display"
+  },
+  "voice": {
+    "personality": [
+      "credible",
+      "warm",
+      "literate"
+    ],
+    "voice": {
+      "summary": "Sounds like an editor quoting a happy colleague: concise, specific and free of exaggeration. Praise is allowed to speak for itself, and each quote names the team and the job it did.",
+      "dos": [
+        "Quote real-sounding specifics, such as three tools replaced by one",
+        "Credit the person and team",
+        "Let numbers like 4.9 stand with no adjectives"
+      ],
+      "donts": [
+        "Do not edit quotes into hype",
+        "Do not use five-star spam",
+        "Do not claim more than the quotes say"
+      ]
+    },
+    "taglines": [
+      "Loved by twelve thousand teams",
+      "Drafts, reviews and publishing in one place",
+      "Editors say it best",
+      "One workspace, fewer tools",
+      "The place words get finished"
+    ],
+    "boilerplate": "Quillstack is an editorial workspace where teams draft, review and publish in one place, trusted by more than 12,000 teams that have replaced three or more separate tools.",
+    "microcopy": {
+      "primaryCta": "Pause scrolling",
+      "secondaryCta": "Read more stories",
+      "success": "Scrolling resumed.",
+      "error": "Quotes didn't load. Please refresh.",
+      "empty": "No reviews yet. Be the first to share."
+    }
+  }
+}

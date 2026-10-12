@@ -1,0 +1,182 @@
+{
+  "name": "League Night",
+  "descriptor": "Floodlit football scoreboard for Millstone Park",
+  "listing": {
+    "key": "o:widget-scoreboard",
+    "title": "Match Scoreboard",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#0b1030",
+    "surface": "#121a46",
+    "text": "#f1f4ff",
+    "textMuted": "#a9b3e0",
+    "primary": "#ffd84d",
+    "secondary": "#3fd0e0",
+    "border": "#232c63",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#716129"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b1030",
+      "share": 75.0
+    },
+    {
+      "hex": "#121a46",
+      "share": 17.7
+    },
+    {
+      "hex": "#ffffff",
+      "share": 2.6
+    },
+    {
+      "hex": "#232c63",
+      "share": 1.3
+    },
+    {
+      "hex": "#000000",
+      "share": 1.2
+    },
+    {
+      "hex": "#fff6d0",
+      "share": 0.8
+    },
+    {
+      "hex": "#3fd0e0",
+      "share": 0.6
+    },
+    {
+      "hex": "#ff8a3d",
+      "share": 0.6
+    },
+    {
+      "hex": "#ffd84d",
+      "share": 0.3
+    },
+    {
+      "hex": "#a9b3e0",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Oswald",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Heading / H2",
+        "family": "Oswald",
+        "stack": "'Oswald', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "600",
+        "lineHeight": "30.8px",
+        "letterSpacing": "0.56px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.82px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "2.4px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 14,
+      "lg": 24,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        18
+      ]
+    },
+    "container": 1000,
+    "breakpoints": [
+      820
+    ],
+    "motion": {
+      "duration": 500,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "shield",
+    "tile": "squircle",
+    "wordmarkFont": "Oswald"
+  },
+  "voice": {
+    "personality": [
+      "lively",
+      "fair",
+      "matchday"
+    ],
+    "voice": {
+      "summary": "Sounds like a stadium announcer: crisp, rhythmic and impartial, with just enough drama for a late equaliser. Minutes, scorers and stats are read out cleanly.",
+      "dos": [
+        "Announce minute and scorer in that order",
+        "Use short matchday phrases",
+        "Keep stats numerical"
+      ],
+      "donts": [
+        "No taking sides between the teams",
+        "Avoid cliches like game of two halves",
+        "Never invent real players or clubs"
+      ]
+    },
+    "taglines": [
+      "League night under the lights",
+      "Every minute, every goal",
+      "Ninety minutes, played live",
+      "Floodlights on, kick off",
+      "Full time at Millstone Park"
+    ],
+    "boilerplate": "League Night is a live-style football scoreboard for fictional fixtures at Millstone Park, with a match clock, event feed, timeline and team statistics.",
+    "microcopy": {
+      "primaryCta": "Play",
+      "secondaryCta": "Jump to full time",
+      "success": "Goal! Harbord Rovers lead.",
+      "error": "Match feed interrupted. Press reset.",
+      "empty": "No events yet. Kick-off is coming."
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "name": "Viktor-O",
+  "descriptor": "Modern architect portfolio",
+  "listing": {
+    "key": "m:viktor-portfolio",
+    "title": "Viktor Portfolio",
+    "category": "Portfolio"
+  },
+  "colors": {
+    "background": "#000000",
+    "surface": "#ffffff",
+    "text": "#ffffff",
+    "textMuted": "#a6a6a6",
+    "primary": "#ffffff",
+    "secondary": "#8c8c8c",
+    "border": "#ffffff",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#8c8c8c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#000000",
+      "share": 99.6
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.3
+    },
+    {
+      "hex": "#e8f2ff",
+      "share": 0.1
+    },
+    {
+      "hex": "#a6a6a6",
+      "share": 0.0
+    },
+    {
+      "hex": "#8c8c8c",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Orbitron",
+    "body": "Space Grotesk",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Orbitron",
+        "stack": "'Orbitron', system-ui, sans-serif",
+        "sizePx": 72,
+        "weight": "700",
+        "lineHeight": "68.4px",
+        "letterSpacing": "-3.6px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 13,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "0.52px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "300",
+        "lineHeight": "27.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "1.68px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 14,
+      "md": 20,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        7,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        24,
+        32
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      860,
+      1024
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "monogram",
+    "tile": "squircle",
+    "wordmarkFont": "Inter Bold (stand-in for Orbitron)"
+  },
+  "voice": {
+    "personality": [
+      "minimal",
+      "disciplined",
+      "cinematic"
+    ],
+    "voice": {
+      "summary": "Viktor-O writes with the terseness of a drawing set: precise, spare and confident. Every sentence earns its place on the page, like a line on a plan.",
+      "dos": [
+        "State materials and structure plainly",
+        "Use short, declarative sentences",
+        "Name projects and years, nothing more"
+      ],
+      "donts": [
+        "Do not use flowery architectural jargon",
+        "Avoid superlatives and awards bragging",
+        "Never pad a project description"
+      ]
+    },
+    "taglines": [
+      "Clean structure, honest materials",
+      "Spaces and systems, designed together",
+      "Nothing that does not earn its place",
+      "Architecture with discipline",
+      "Built with intent"
+    ],
+    "boilerplate": "Viktor-O is the portfolio of a modern architect designing spaces and systems with clean structure and honest materials, presented as a minimal two-page showcase.",
+    "microcopy": {
+      "primaryCta": "View Project",
+      "secondaryCta": "Next Project",
+      "success": "Message sent. I will respond shortly.",
+      "error": "That did not send. Please email me directly.",
+      "empty": "No projects in this category."
+    }
+  }
+}

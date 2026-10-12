@@ -1,0 +1,169 @@
+{
+  "name": "Switchyard",
+  "descriptor": "Support plans with control panel settings",
+  "listing": {
+    "key": "o:toggle-switches",
+    "title": "Control Panel Toggles and Sliders",
+    "category": "Form Controls"
+  },
+  "colors": {
+    "background": "#eceff4",
+    "surface": "#ffffff",
+    "text": "#1b2230",
+    "textMuted": "#646a75",
+    "primary": "#3b5bfd",
+    "secondary": "#93a5fe",
+    "border": "#dde2ea",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#93a5fe"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eceff4",
+      "share": 66.6
+    },
+    {
+      "hex": "#ffffff",
+      "share": 27.1
+    },
+    {
+      "hex": "#1b2230",
+      "share": 5.9
+    },
+    {
+      "hex": "#3b5bfd",
+      "share": 0.2
+    },
+    {
+      "hex": "#667085",
+      "share": 0.1
+    },
+    {
+      "hex": "#cbd2dd",
+      "share": 0.1
+    },
+    {
+      "hex": "#93a5fe",
+      "share": 0.0
+    },
+    {
+      "hex": "#dde2ea",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Plus Jakarta Sans",
+    "body": "Plus Jakarta Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 24,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.48px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 9,
+      "md": 14,
+      "lg": 24,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.12) 0px 1px 3px 0px",
+      "md": "rgba(27, 34, 48, 0.08) 0px 20px 40px 0px",
+      "lg": "rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1040,
+    "breakpoints": [
+      560,
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "dial",
+    "tile": "squircle",
+    "wordmarkFont": "Plus Jakarta Sans"
+  },
+  "voice": {
+    "personality": [
+      "practical",
+      "tidy",
+      "reassuring"
+    ],
+    "voice": {
+      "summary": "A product-support lead explaining plan options to a busy customer: clear, upbeat and exact about price and response time. Every control states what it does.",
+      "dos": [
+        "State prices and response times together, such as £49 per month with 4 hour reply",
+        "Describe toggles by outcome",
+        "Show a live summary after every change"
+      ],
+      "donts": [
+        "Vague tier names without details",
+        "Pushy upsells",
+        "Technical jargon"
+      ]
+    },
+    "taglines": [
+      "Set it up your way",
+      "Plans you can actually adjust",
+      "Every control, one clear summary",
+      "Switch it, see it, done",
+      "Support that fits your week"
+    ],
+    "boilerplate": "Switchyard offers support plans, Basic, Priority and Premium, with adjustable settings and a live summary so customers know exactly what they will get.",
+    "microcopy": {
+      "primaryCta": "Save settings",
+      "secondaryCta": "Reset",
+      "success": "Settings saved. Your plan is updated",
+      "error": "One setting conflicts. Check the range",
+      "empty": "No plan selected. Pick one"
+    }
+  }
+}

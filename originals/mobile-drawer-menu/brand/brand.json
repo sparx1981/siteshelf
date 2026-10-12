@@ -1,0 +1,176 @@
+{
+  "name": "Pebble&Pine",
+  "descriptor": "Small-batch homewares for quiet mornings",
+  "listing": {
+    "key": "o:mobile-drawer-menu",
+    "title": "Mobile Drawer Menu",
+    "category": "Navigation"
+  },
+  "colors": {
+    "background": "#e9e6df",
+    "surface": "#fbfaf7",
+    "text": "#1b1b1d",
+    "textMuted": "#5a5750",
+    "primary": "#e8553d",
+    "secondary": "#f2a294",
+    "border": "#1b1b1d",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#682a22"
+  },
+  "colorInventory": [
+    {
+      "hex": "#e9e6df",
+      "share": 73.5
+    },
+    {
+      "hex": "#fbfaf7",
+      "share": 18.5
+    },
+    {
+      "hex": "#3f6b5c",
+      "share": 1.5
+    },
+    {
+      "hex": "#c9833b",
+      "share": 1.5
+    },
+    {
+      "hex": "#7a5a8f",
+      "share": 1.5
+    },
+    {
+      "hex": "#b9473a",
+      "share": 1.5
+    },
+    {
+      "hex": "#f3d9c9",
+      "share": 1.4
+    },
+    {
+      "hex": "#1b1b1d",
+      "share": 0.5
+    },
+    {
+      "hex": "#5a5750",
+      "share": 0.0
+    },
+    {
+      "hex": "#6f6c66",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "DM Serif Display",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "DM Serif Display",
+        "stack": "'DM Serif Display', Georgia, serif",
+        "sizePx": 40,
+        "weight": "400",
+        "lineHeight": "42px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 16,
+      "lg": 38,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(27, 27, 29, 0.28) 0px 30px 70px 0px",
+      "md": "rgba(27, 27, 29, 0.28) 0px 30px 70px 0px",
+      "lg": "rgba(27, 27, 29, 0.28) 0px 30px 70px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        6,
+        10,
+        12,
+        13,
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      460
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "stack",
+    "tile": "squircle",
+    "wordmarkFont": "DM Serif Display"
+  },
+  "voice": {
+    "personality": [
+      "gentle",
+      "grounded",
+      "crafted"
+    ],
+    "voice": {
+      "summary": "Pebble&Pine speaks softly, like a shopkeeper who wraps each purchase in paper. Lines are short, sensory and slow, with a bias for mornings, hands and kitchens.",
+      "dos": [
+        "Describe an object by how it feels in the hand",
+        "Use morning and kitchen scenes",
+        "Keep navigation labels to one word"
+      ],
+      "donts": [
+        "Do not use words like curated or artisanal",
+        "Avoid sale shouting",
+        "Never rush the reader"
+      ]
+    },
+    "taglines": [
+      "Slow things, made to last",
+      "Homewares for quiet mornings",
+      "Small batches, kindly made",
+      "Objects that settle into a kitchen",
+      "Made slowly, used gladly"
+    ],
+    "boilerplate": "Pebble&Pine makes and sells small-batch homewares for quiet mornings, from stoneware cups to linen cloths, designed to be used daily and last for years.",
+    "microcopy": {
+      "primaryCta": "Shop the autumn edit",
+      "secondaryCta": "Open menu",
+      "success": "Added to your basket.",
+      "error": "Could not add that. Please try again.",
+      "empty": "Your basket is empty."
+    }
+  }
+}

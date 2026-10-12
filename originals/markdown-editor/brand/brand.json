@@ -1,0 +1,188 @@
+{
+  "name": "Fieldnote",
+  "descriptor": "Markdown editor for short, honest writing",
+  "listing": {
+    "key": "o:markdown-editor",
+    "title": "Markdown Editor",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#f3f1ec",
+    "surface": "#fffefb",
+    "text": "#1f1d1a",
+    "textMuted": "#4a463d",
+    "primary": "#0b6e4f",
+    "secondary": "#79af9e",
+    "border": "#ddd8cc",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#79af9e"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f3f1ec",
+      "share": 67.8
+    },
+    {
+      "hex": "#fffefb",
+      "share": 29.0
+    },
+    {
+      "hex": "#1e2a25",
+      "share": 2.9
+    },
+    {
+      "hex": "#0b6e4f",
+      "share": 0.2
+    },
+    {
+      "hex": "#ddd8cc",
+      "share": 0.1
+    },
+    {
+      "hex": "#4a463d",
+      "share": 0.0
+    },
+    {
+      "hex": "#a8a191",
+      "share": 0.0
+    },
+    {
+      "hex": "#7c766a",
+      "share": 0.0
+    },
+    {
+      "hex": "#79af9e",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Source Serif 4",
+    "mono": "JetBrains Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 30,
+        "weight": "700",
+        "lineHeight": "37.5px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "27.5px",
+        "letterSpacing": "-0.22px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Source Serif 4",
+        "stack": "'Source Serif 4', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "28.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 5,
+      "md": 7,
+      "lg": 8,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        16,
+        17
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      800
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "book",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "plainspoken",
+      "focused",
+      "tidy"
+    ],
+    "voice": {
+      "summary": "Fieldnote sounds like a good editor with a pencil: brief, kind and allergic to padding. It talks about writing as small, useful notes and keeps its own instructions equally short.",
+      "dos": [
+        "Use verbs that match the toolbar: bold, link, copy",
+        "Keep tips to one line",
+        "Show shortcuts in the same sentence as the action"
+      ],
+      "donts": [
+        "Do not use writing-guru phrases like 'unleash your creativity'",
+        "Avoid long onboarding tours",
+        "Never alter the user's text without saying so"
+      ]
+    },
+    "taglines": [
+      "Field notes on writing small",
+      "Write plain. Preview live",
+      "Short notes, well kept",
+      "Markdown without the manual",
+      "Say it in fewer words"
+    ],
+    "boilerplate": "Fieldnote is a split-pane Markdown editor with live preview, keyboard shortcuts, word count and one-click HTML export, built for people who write short and often.",
+    "microcopy": {
+      "primaryCta": "Copy HTML",
+      "secondaryCta": "Clear",
+      "success": "Copied as HTML.",
+      "error": "Could not copy. Select the preview and try again.",
+      "empty": "Nothing written yet. Start typing on the left."
+    }
+  }
+}

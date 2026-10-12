@@ -1,0 +1,166 @@
+{
+  "name": "Tickoff",
+  "descriptor": "Simple daily task list",
+  "listing": {
+    "key": "o:task-list-app",
+    "title": "Task List App",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#f1eefb",
+    "surface": "#ffffff",
+    "text": "#231f3b",
+    "textMuted": "#6d4aff",
+    "primary": "#6d4aff",
+    "secondary": "#231f3b",
+    "border": "#cfc8ee",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#231f3b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f1eefb",
+      "share": 68.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 31.4
+    },
+    {
+      "hex": "#6d4aff",
+      "share": 0.3
+    },
+    {
+      "hex": "#231f3b",
+      "share": 0.1
+    },
+    {
+      "hex": "#7b7599",
+      "share": 0.1
+    },
+    {
+      "hex": "#8d6bff",
+      "share": 0.0
+    },
+    {
+      "hex": "#f4a259",
+      "share": 0.0
+    },
+    {
+      "hex": "#c3bde0",
+      "share": 0.0
+    },
+    {
+      "hex": "#ef476f",
+      "share": 0.0
+    },
+    {
+      "hex": "#4fb286",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "DM Serif Display",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "DM Serif Display",
+        "stack": "'DM Serif Display', Georgia, serif",
+        "sizePx": 40,
+        "weight": "400",
+        "lineHeight": "44px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 22,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(80, 60, 160, 0.35) 0px 30px 70px -30px",
+      "md": "rgba(80, 60, 160, 0.35) 0px 30px 70px -30px",
+      "lg": "rgba(80, 60, 160, 0.35) 0px 30px 70px -30px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        16,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      520
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bars",
+    "tile": "squircle",
+    "wordmarkFont": "DM Serif Display"
+  },
+  "voice": {
+    "personality": [
+      "brisk",
+      "easygoing",
+      "tidy"
+    ],
+    "voice": {
+      "summary": "Tickoff sounds like a friend who keeps your to-do list honest: brisk, kind and tiny on words. It cheers each finished item and treats an empty list as a good day.",
+      "dos": [
+        "Write tasks as short verb phrases",
+        "Celebrate completion in a few words",
+        "Keep counts visible and plain"
+      ],
+      "donts": [
+        "Use productivity guru talk",
+        "Guilt-trip about overdue items",
+        "Bury Undo"
+      ]
+    },
+    "taglines": [
+      "Today, one tick at a time",
+      "Do the next thing",
+      "Short list, clear head",
+      "Tick it off, move on",
+      "Your day, kept simple"
+    ],
+    "boilerplate": "Tickoff is a simple daily task list with quick add, priorities, filters and undo, designed for people who want to finish a short list rather than manage a long one.",
+    "microcopy": {
+      "primaryCta": "Add",
+      "secondaryCta": "Clear completed",
+      "success": "Done. Nicely ticked.",
+      "error": "Could not save that task. Try again.",
+      "empty": "Nothing on your list. Enjoy the day."
+    }
+  }
+}

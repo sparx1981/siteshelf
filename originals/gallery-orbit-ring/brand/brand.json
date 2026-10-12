@@ -1,0 +1,186 @@
+{
+  "name": "Ring Room",
+  "descriptor": "Online gallery of twelve artworks",
+  "listing": {
+    "key": "o:gallery-orbit-ring",
+    "title": "Orbit Ring Gallery",
+    "category": "Gallery"
+  },
+  "colors": {
+    "background": "#0a0b14",
+    "surface": "#6e5aff",
+    "text": "#f1f0ff",
+    "textMuted": "#a6a3cc",
+    "primary": "#ff9f1c",
+    "secondary": "#cbf3f0",
+    "border": "#ffffff",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#714914"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0a0b14",
+      "share": 87.8
+    },
+    {
+      "hex": "#cbf3f0",
+      "share": 2.2
+    },
+    {
+      "hex": "#e9c46a",
+      "share": 2.1
+    },
+    {
+      "hex": "#ff9f1c",
+      "share": 1.7
+    },
+    {
+      "hex": "#f4a261",
+      "share": 1.6
+    },
+    {
+      "hex": "#ff7a59",
+      "share": 1.1
+    },
+    {
+      "hex": "#2ec4b6",
+      "share": 1.1
+    },
+    {
+      "hex": "#264653",
+      "share": 1.0
+    },
+    {
+      "hex": "#6a4c93",
+      "share": 0.8
+    },
+    {
+      "hex": "#6e5aff",
+      "share": 0.6
+    }
+  ],
+  "typography": {
+    "heading": "Syne",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Syne",
+        "stack": "'Syne', system-ui, sans-serif",
+        "sizePx": 80,
+        "weight": "800",
+        "lineHeight": "80px",
+        "letterSpacing": "-2.4px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Syne",
+        "stack": "'Syne', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Syne:wght@700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.8) 0px 20px 50px -20px",
+      "md": "rgba(0, 0, 0, 0.8) 0px 20px 50px -20px",
+      "lg": "rgba(0, 0, 0, 0.8) 0px 20px 50px -20px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        14,
+        18,
+        20,
+        48
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "orbit",
+    "tile": "squircle",
+    "wordmarkFont": "Syne"
+  },
+  "voice": {
+    "personality": [
+      "curious",
+      "hushed",
+      "spacious"
+    ],
+    "voice": {
+      "summary": "Ring Room speaks like a gallery attendant who lets visitors look first and talk second. It gives titles and artists plainly and offers just a line of context.",
+      "dos": [
+        "Give the title, the artist and the year first",
+        "Invite looking before explaining",
+        "Keep captions to one or two sentences"
+      ],
+      "donts": [
+        "Do not use art-speak like 'interrogates' or 'liminal'",
+        "Do not rank the pieces",
+        "Do not crowd a caption with links"
+      ]
+    },
+    "taglines": [
+      "Twelve pieces, one orbit",
+      "Turn the ring, find the piece",
+      "Art that circles back",
+      "A small gallery that keeps moving",
+      "Look closer, then look again"
+    ],
+    "boilerplate": "Ring Room is an online gallery showing twelve invented artworks in a rotating ring, each presented with its title and artist.",
+    "microcopy": {
+      "primaryCta": "Auto-rotate",
+      "secondaryCta": "Look closer",
+      "success": "Opened. Press Esc to return to the ring.",
+      "error": "That piece could not open. Pick another from the ring.",
+      "empty": "The ring is empty. Add a piece to start."
+    }
+  }
+}

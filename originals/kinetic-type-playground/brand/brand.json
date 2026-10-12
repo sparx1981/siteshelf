@@ -1,0 +1,171 @@
+{
+  "name": "Letterbox",
+  "descriptor": "Type playground for moving letters",
+  "listing": {
+    "key": "o:kinetic-type-playground",
+    "title": "Kinetic Type Playground",
+    "category": "Typography"
+  },
+  "colors": {
+    "background": "#0e0e10",
+    "surface": "#18181b",
+    "text": "#f5f5f4",
+    "textMuted": "#c4f1a4",
+    "primary": "#e4ff3a",
+    "secondary": "#ff5c8a",
+    "border": "#2a2a30",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#ff5c8a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0e0e10",
+      "share": 92.9
+    },
+    {
+      "hex": "#ffffff",
+      "share": 4.5
+    },
+    {
+      "hex": "#222228",
+      "share": 1.1
+    },
+    {
+      "hex": "#e4ff3a",
+      "share": 1.0
+    },
+    {
+      "hex": "#ff5c8a",
+      "share": 0.1
+    },
+    {
+      "hex": "#6ee7ff",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffb347",
+      "share": 0.1
+    },
+    {
+      "hex": "#c4f1a4",
+      "share": 0.1
+    },
+    {
+      "hex": "#d4d4d8",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "JetBrains Mono",
+    "mono": "JetBrains Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "700",
+        "lineHeight": "27px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "19.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 12,
+      "lg": 12,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgb(14, 14, 16) 0px 0px 0px 2px inset",
+      "md": "rgb(14, 14, 16) 0px 0px 0px 2px inset",
+      "lg": "rgb(14, 14, 16) 0px 0px 0px 2px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        6,
+        8,
+        12,
+        14,
+        16,
+        20,
+        32
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      860
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "play",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "playful",
+      "precise",
+      "nerdy"
+    ],
+    "voice": {
+      "summary": "Letterbox sounds like a type nerd with a sense of humour: tight labels, live values and a love for tiny details. It rewards poking around and prints the CSS to prove it.",
+      "dos": [
+        "Use type words exactly: tracking, leading, weight, slant",
+        "Show the live value beside every slider",
+        "Make jokes about letters, never about users"
+      ],
+      "donts": [
+        "Do not say fonts when you mean typefaces",
+        "Avoid decorating copy with its own effects",
+        "Never hide the CSS output"
+      ]
+    },
+    "taglines": [
+      "Make it move",
+      "Type that wriggles, on command",
+      "Tweak the letters, copy the CSS",
+      "Sliders for every serif",
+      "Play with type properly"
+    ],
+    "boilerplate": "Letterbox is an interactive type playground with sliders for size, weight, tracking and slant, plus animation presets and one-click CSS export for designers and developers.",
+    "microcopy": {
+      "primaryCta": "Copy CSS",
+      "secondaryCta": "Reset",
+      "success": "CSS copied. Paste it anywhere.",
+      "error": "Could not copy. Select the CSS by hand.",
+      "empty": "Type something to begin."
+    }
+  }
+}

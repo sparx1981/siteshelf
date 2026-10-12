@@ -1,0 +1,197 @@
+{
+  "name": "Fernhill Market",
+  "descriptor": "Neighbourhood grocer with a considered basket",
+  "listing": {
+    "key": "o:control-cart-stepper",
+    "title": "Cart Quantity Stepper",
+    "category": "Form Controls"
+  },
+  "colors": {
+    "background": "#f9f5ec",
+    "surface": "#ffffff",
+    "text": "#6b6253",
+    "textMuted": "#25201a",
+    "primary": "#2f7d4f",
+    "secondary": "#c0352b",
+    "border": "#d9cfb3",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#a8c8b5"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f9f5ec",
+      "share": 75.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 22.3
+    },
+    {
+      "hex": "#25201a",
+      "share": 1.0
+    },
+    {
+      "hex": "#2f7d4f",
+      "share": 0.9
+    },
+    {
+      "hex": "#6b6253",
+      "share": 0.2
+    },
+    {
+      "hex": "#efe6d0",
+      "share": 0.1
+    },
+    {
+      "hex": "#c0352b",
+      "share": 0.1
+    },
+    {
+      "hex": "#e9c07a",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffd6cf",
+      "share": 0.1
+    },
+    {
+      "hex": "#e4ecf7",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 56,
+        "weight": "700",
+        "lineHeight": "58.24px",
+        "letterSpacing": "-0.84px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.08px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 16,
+      "lg": 24,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(60, 40, 10, 0.5) 0px 24px 50px -34px",
+      "md": "rgba(60, 40, 10, 0.5) 0px 24px 50px -34px",
+      "lg": "rgba(60, 40, 10, 0.5) 0px 24px 50px -34px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1040,
+    "breakpoints": [
+      520,
+      860
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "sprout",
+    "tile": "squircle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "warm",
+      "tidy",
+      "honest"
+    ],
+    "voice": {
+      "summary": "Speaks like a grocer who knows your order: friendly, brief and honest about stock. Limits are explained, never just refused.",
+      "dos": [
+        "Explain a limit in a sentence, not an error code",
+        "Show money and counts in plain numbers",
+        "Thank customers once, at the end"
+      ],
+      "donts": [
+        "No pushy upsell wording",
+        "No blaming the customer for stock limits",
+        "No loud sale language"
+      ]
+    },
+    "taglines": [
+      "Your basket, your pace",
+      "Good food, gently priced",
+      "From our shelves to your door",
+      "Fresh by the handful",
+      "A market that knows your name"
+    ],
+    "boilerplate": "Fernhill Market is a neighbourhood grocer that delivers seasonal produce and pantry staples, with a basket that shows exactly what is in stock and what you owe.",
+    "microcopy": {
+      "primaryCta": "Checkout",
+      "secondaryCta": "Undo",
+      "success": "Basket updated",
+      "error": "Only 3 left, we have set it to the most we have",
+      "empty": "Your basket is empty, fill it with something good"
+    }
+  }
+}

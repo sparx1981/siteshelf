@@ -1,0 +1,189 @@
+{
+  "name": "Calmloop",
+  "descriptor": "Quiet loading spinners for interfaces",
+  "listing": {
+    "key": "o:loader-orbit-dots",
+    "title": "Orbit Dot Loaders",
+    "category": "Loaders"
+  },
+  "colors": {
+    "background": "#0f1524",
+    "surface": "#172036",
+    "text": "#9aa8c7",
+    "textMuted": "#e9eefc",
+    "primary": "#6ec7ff",
+    "secondary": "#22304f",
+    "border": "#263250",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#22304f"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0f1524",
+      "share": 69.8
+    },
+    {
+      "hex": "#172036",
+      "share": 29.2
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.4
+    },
+    {
+      "hex": "#9aa8c7",
+      "share": 0.2
+    },
+    {
+      "hex": "#22304f",
+      "share": 0.2
+    },
+    {
+      "hex": "#e9eefc",
+      "share": 0.2
+    },
+    {
+      "hex": "#6ec7ff",
+      "share": 0.1
+    },
+    {
+      "hex": "#b7e4ff",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Outfit",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 58,
+        "weight": "700",
+        "lineHeight": "60.32px",
+        "letterSpacing": "-1.16px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "2.08px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 16,
+      "md": 20,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      560,
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "orbit",
+    "tile": "none",
+    "wordmarkFont": "Outfit"
+  },
+  "voice": {
+    "personality": [
+      "quiet",
+      "gentle",
+      "precise"
+    ],
+    "voice": {
+      "summary": "Calmloop speaks softly to designers who are tired of loud interfaces. It is short, polite and technical when it needs to be, and never uses a shout to make a point.",
+      "dos": [
+        "Describe motion in plain terms: slow, steady, soft",
+        "Give speeds and sizes exactly",
+        "Keep captions below fifteen words"
+      ],
+      "donts": [
+        "Do not use 'blazing' or 'lightning'",
+        "Do not describe a spinner as 'delightful'",
+        "Do not shout"
+      ]
+    },
+    "taglines": [
+      "Loaders that do not shout",
+      "Orbits for the waiting moments",
+      "A calm moment while it loads",
+      "Spin gently, wait kindly",
+      "Small motion, large patience"
+    ],
+    "boilerplate": "Calmloop is a UI kit of six calm orbiting-dot loaders with shared controls for speed, size and colour.",
+    "microcopy": {
+      "primaryCta": "Copy loader",
+      "secondaryCta": "Pause all",
+      "success": "Copied. Paste it into your project.",
+      "error": "Speed must be between 0.5 and 3. Try again.",
+      "empty": "No loaders match. Clear the filter."
+    }
+  }
+}

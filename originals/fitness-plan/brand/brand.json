@@ -1,0 +1,193 @@
+{
+  "name": "Ironleaf",
+  "descriptor": "Strength training planner and session tracker",
+  "listing": {
+    "key": "o:fitness-plan",
+    "title": "Workout Planner",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#101114",
+    "surface": "#1a1c21",
+    "text": "#f3f4f6",
+    "textMuted": "#9aa1ad",
+    "primary": "#c6f432",
+    "secondary": "#ff7a2f",
+    "border": "#3a3e48",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#5a6d1e"
+  },
+  "colorInventory": [
+    {
+      "hex": "#101114",
+      "share": 96.3
+    },
+    {
+      "hex": "#c6f432",
+      "share": 1.5
+    },
+    {
+      "hex": "#1f2229",
+      "share": 1.1
+    },
+    {
+      "hex": "#ff7a2f",
+      "share": 0.3
+    },
+    {
+      "hex": "#f3f4f6",
+      "share": 0.3
+    },
+    {
+      "hex": "#2a2112",
+      "share": 0.2
+    },
+    {
+      "hex": "#9aa1ad",
+      "share": 0.1
+    },
+    {
+      "hex": "#333844",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffb066",
+      "share": 0.0
+    },
+    {
+      "hex": "#3a4a05",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Barlow Condensed",
+    "body": "Barlow",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Barlow Condensed",
+        "stack": "'Barlow Condensed', system-ui, sans-serif",
+        "sizePx": 52,
+        "weight": "700",
+        "lineHeight": "52px",
+        "letterSpacing": "normal",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Barlow Condensed",
+        "stack": "'Barlow Condensed', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.5px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Barlow Condensed",
+        "stack": "'Barlow Condensed', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "0.44px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Barlow",
+        "stack": "'Barlow', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Barlow",
+        "stack": "'Barlow', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "18px",
+        "letterSpacing": "0.96px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      520,
+      900
+    ],
+    "motion": {
+      "duration": 1000,
+      "easing": "linear"
+    }
+  },
+  "logo": {
+    "motif": "sprout",
+    "tile": "squircle",
+    "wordmarkFont": "Inter Bold (stand-in for Barlow Condensed)"
+  },
+  "voice": {
+    "personality": [
+      "driven",
+      "direct",
+      "encouraging"
+    ],
+    "voice": {
+      "summary": "Sounds like a coach counting you through the last rep: short commands, specific numbers and a nod when you finish. Hype is kept for the finish line, not the warm-up.",
+      "dos": [
+        "Use short imperatives like Rest, Lift, Log",
+        "Show sets, reps and kilos exactly",
+        "Give credit when a streak holds"
+      ],
+      "donts": [
+        "Do not shame missed days",
+        "Do not use diet-culture language",
+        "Do not use vague motivation like crush it"
+      ]
+    },
+    "taglines": [
+      "Show up. Lift. Log it.",
+      "Strength that adds up, week by week",
+      "Sixteen sets, no excuses needed",
+      "Train hard, rest harder",
+      "Your week, planned in iron"
+    ],
+    "boilerplate": "Ironleaf is a weekly workout planner that helps lifters schedule training days, track sets, time rests and review weekly volume in one dark, focused app.",
+    "microcopy": {
+      "primaryCta": "Start session",
+      "secondaryCta": "Skip rest",
+      "success": "Session logged. Nice work.",
+      "error": "Set not saved. Tap to try again.",
+      "empty": "Rest day. Nothing planned."
+    }
+  }
+}

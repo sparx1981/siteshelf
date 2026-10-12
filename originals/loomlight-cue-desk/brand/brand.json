@@ -1,0 +1,194 @@
+{
+  "name": "Loomlight",
+  "descriptor": "Rehearsal desk for stage lighting sequences",
+  "listing": {
+    "key": "o:loomlight-cue-desk",
+    "title": "Loomlight Cue Desk",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#171923",
+    "surface": "#20222e",
+    "text": "#b4b1c2",
+    "textMuted": "#f4f1e9",
+    "primary": "#dcc480",
+    "secondary": "#809ccb",
+    "border": "#393b49",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#63593e"
+  },
+  "colorInventory": [
+    {
+      "hex": "#171923",
+      "share": 93.0
+    },
+    {
+      "hex": "#2d2c2c",
+      "share": 2.5
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.9
+    },
+    {
+      "hex": "#db9765",
+      "share": 0.7
+    },
+    {
+      "hex": "#809ccb",
+      "share": 0.7
+    },
+    {
+      "hex": "#000000",
+      "share": 0.6
+    },
+    {
+      "hex": "#f4f1e9",
+      "share": 0.5
+    },
+    {
+      "hex": "#dcc480",
+      "share": 0.4
+    },
+    {
+      "hex": "#393b49",
+      "share": 0.4
+    },
+    {
+      "hex": "#b4b1c2",
+      "share": 0.3
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 42,
+        "weight": "500",
+        "lineHeight": "46.2px",
+        "letterSpacing": "-1.26px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "18px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&family=IBM+Plex+Mono:wght@400&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 6,
+      "lg": 10,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        7,
+        10,
+        12,
+        14,
+        15,
+        18,
+        20,
+        22
+      ]
+    },
+    "container": 1260,
+    "breakpoints": [
+      700,
+      760,
+      950
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bolt",
+    "tile": "circle",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "precise",
+      "theatrical",
+      "quiet"
+    ],
+    "voice": {
+      "summary": "Sounds like a stage manager calling cues: terse, ordered and calm. Numbers and times are the language, adjectives are rare.",
+      "dos": [
+        "Number every cue and name it in two words",
+        "Give levels and fade times in figures",
+        "Use present-tense, imperative calls"
+      ],
+      "donts": [
+        "No flowery lighting poetry",
+        "No emoji",
+        "No guessing at levels, always show the number"
+      ]
+    },
+    "taglines": [
+      "Shape the next moment",
+      "Light in motion, rehearsed",
+      "Cue by cue, fade by fade",
+      "A small rehearsal for big light",
+      "House lights down, story up"
+    ],
+    "boilerplate": "Loomlight is a rehearsal desk for stage lighting, letting designers arrange three-channel cues, set levels and run timed crossfades before they ever touch a rig.",
+    "microcopy": {
+      "primaryCta": "Run sequence",
+      "secondaryCta": "Stop",
+      "success": "Cue saved at 55 / 10 / 80",
+      "error": "Fade could not run, check the cue levels",
+      "empty": "No cues in this sequence yet"
+    }
+  }
+}

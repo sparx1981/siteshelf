@@ -1,0 +1,172 @@
+{
+  "name": "Headroom",
+  "descriptor": "Team capacity and workload planner",
+  "listing": {
+    "key": "o:dashboard-team-workload",
+    "title": "Team Workload Dashboard",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#f4f6fb",
+    "surface": "#ffffff",
+    "text": "#121a2b",
+    "textMuted": "#66718a",
+    "primary": "#f59e0b",
+    "secondary": "#0ea5e9",
+    "border": "#e3e8f2",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#6d490d"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4f6fb",
+      "share": 93.6
+    },
+    {
+      "hex": "#4f46e5",
+      "share": 1.7
+    },
+    {
+      "hex": "#10b981",
+      "share": 1.5
+    },
+    {
+      "hex": "#0ea5e9",
+      "share": 1.5
+    },
+    {
+      "hex": "#f59e0b",
+      "share": 1.0
+    },
+    {
+      "hex": "#121a2b",
+      "share": 0.2
+    },
+    {
+      "hex": "#66718a",
+      "share": 0.2
+    },
+    {
+      "hex": "#6d28d9",
+      "share": 0.1
+    },
+    {
+      "hex": "#0369a1",
+      "share": 0.1
+    },
+    {
+      "hex": "#be185d",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Manrope",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 24,
+        "weight": "800",
+        "lineHeight": "36px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 11.7,
+        "weight": "600",
+        "lineHeight": "17.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 10,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        24
+      ]
+    },
+    "container": 1000,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 400,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bars",
+    "tile": "none",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "balanced",
+      "candid",
+      "supportive"
+    ],
+    "voice": {
+      "summary": "Headroom sounds like a thoughtful manager who looks after people's weeks. It states hours and overloads plainly, and frames fixes as moves to try rather than failures.",
+      "dos": [
+        "Show hours alongside names, never bare percentages",
+        "Frame an overload as a choice with a next step",
+        "Use 'capacity' for people, not 'resources'"
+      ],
+      "donts": [
+        "Do not call people resources or headcount",
+        "Avoid shaming words like underperforming",
+        "Never celebrate full utilisation as a goal"
+      ]
+    },
+    "taglines": [
+      "See the week before it happens",
+      "Capacity that respects people",
+      "Spot overload while it is small",
+      "Plan the load, protect the team",
+      "Fair weeks, fully visible"
+    ],
+    "boilerplate": "Headroom is a team workload dashboard that shows who is booked, who is stretched and who has room, so managers can rebalance before anyone burns out.",
+    "microcopy": {
+      "primaryCta": "Reassign work",
+      "secondaryCta": "Sort by load",
+      "success": "Work reassigned. Hours updated.",
+      "error": "Could not move that task. Nothing changed.",
+      "empty": "No bookings this week."
+    }
+  }
+}

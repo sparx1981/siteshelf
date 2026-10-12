@@ -1,0 +1,217 @@
+{
+  "name": "Hue Bench",
+  "descriptor": "CSS gradient workbench for designers",
+  "listing": {
+    "key": "o:tool-gradient-generator",
+    "title": "Gradient Generator",
+    "category": "Tools"
+  },
+  "colors": {
+    "background": "#12141c",
+    "surface": "#1b1f2b",
+    "text": "#ffffff",
+    "textMuted": "#eef1fa",
+    "primary": "#ff6a88",
+    "secondary": "#ffb86c",
+    "border": "#3a4260",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#713342"
+  },
+  "colorInventory": [
+    {
+      "hex": "#12141c",
+      "share": 64.5
+    },
+    {
+      "hex": "#e9ecf3",
+      "share": 14.5
+    },
+    {
+      "hex": "#ffffff",
+      "share": 12.9
+    },
+    {
+      "hex": "#ff6a88",
+      "share": 1.8
+    },
+    {
+      "hex": "#ffb86c",
+      "share": 1.8
+    },
+    {
+      "hex": "#6a7bff",
+      "share": 1.8
+    },
+    {
+      "hex": "#232838",
+      "share": 1.7
+    },
+    {
+      "hex": "#d6969b",
+      "share": 0.6
+    },
+    {
+      "hex": "#5b4bd8",
+      "share": 0.4
+    },
+    {
+      "hex": "#d6dcf5",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 44,
+        "weight": "600",
+        "lineHeight": "46.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.12px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 52,
+        "weight": "600",
+        "lineHeight": "52px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "25.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Mono",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 13,
+        "weight": "500",
+        "lineHeight": "20.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.5) 0px 2px 8px 0px",
+      "md": "rgba(20, 30, 60, 0.2) 0px 14px 30px 0px",
+      "lg": "rgba(20, 30, 60, 0.3) 0px 18px 40px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      560,
+      980
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "drop",
+    "tile": "none",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "practical",
+      "cool",
+      "exact"
+    ],
+    "voice": {
+      "summary": "Sounds like a designer's bench notes: terse labels, helpful warnings and zero fluff. It explains contrast ratios and stops in numbers, and leaves taste to the user.",
+      "dos": [
+        "Name controls by function, such as stops, angle and type",
+        "Give contrast ratios as numbers",
+        "Provide copyable code, never screenshots"
+      ],
+      "donts": [
+        "Do not describe gradients with poetic filler",
+        "Do not hide the CSS output",
+        "Do not say perfect"
+      ]
+    },
+    "taglines": [
+      "Build gradients you can ship",
+      "Stops, angles, contrast, copy",
+      "The workbench for colour blends",
+      "See it on a real page first",
+      "Clean CSS from a clean bench"
+    ],
+    "boilerplate": "Hue Bench is a compact gradient generator that lets designers build multi-stop linear, radial and conic gradients, test text contrast on the result and copy clean CSS.",
+    "microcopy": {
+      "primaryCta": "Add stop",
+      "secondaryCta": "Random",
+      "success": "CSS copied to the clipboard.",
+      "error": "Contrast too low. Try a darker stop.",
+      "empty": "No stops yet. Add one to start."
+    }
+  }
+}

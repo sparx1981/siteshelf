@@ -1,0 +1,196 @@
+{
+  "name": "Skyline Daily",
+  "descriptor": "Hyperlocal weather with a day and night mode",
+  "listing": {
+    "key": "o:control-sun-moon-switch",
+    "title": "Sun Moon Theme Switch",
+    "category": "Form Controls"
+  },
+  "colors": {
+    "background": "#0b1022",
+    "surface": "#141b36",
+    "text": "#9fb0d9",
+    "textMuted": "#eaf0ff",
+    "primary": "#ffd27a",
+    "secondary": "#9fb0d9",
+    "border": "#262f55",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#715f3c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b1022",
+      "share": 89.9
+    },
+    {
+      "hex": "#141b36",
+      "share": 8.8
+    },
+    {
+      "hex": "#6cc4ff",
+      "share": 0.3
+    },
+    {
+      "hex": "#bfe7ff",
+      "share": 0.3
+    },
+    {
+      "hex": "#9fb0d9",
+      "share": 0.3
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.2
+    },
+    {
+      "hex": "#eaf0ff",
+      "share": 0.1
+    },
+    {
+      "hex": "#b8c0d6",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffd27a",
+      "share": 0.0
+    },
+    {
+      "hex": "#c9cfe6",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 64,
+        "weight": "800",
+        "lineHeight": "65.28px",
+        "letterSpacing": "-1.92px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.34px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@600;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 14,
+      "md": 26,
+      "lg": 26,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.08) 0px 0px 0px 12px, rgba(255, 255, 255, 0.04) 0px 0px 0px 26px, rgba(0, 0, 0, 0.4) 0px 4px 10px 0px",
+      "md": "rgba(255, 255, 255, 0.18) 0px 0px 0px 8px, rgba(0, 0, 0, 0.3) 0px 3px 6px 0px",
+      "lg": "rgba(0, 0, 0, 0.18) 0px 4px 10px 0px inset, rgba(0, 0, 0, 0.35) 0px 10px 24px -10px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        4,
+        6,
+        10,
+        14,
+        16,
+        22,
+        24,
+        30,
+        34
+      ]
+    },
+    "container": 900,
+    "breakpoints": [
+      560
+    ],
+    "motion": {
+      "duration": 400,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cloud",
+    "tile": "circle",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "gentle",
+      "observant",
+      "bright"
+    ],
+    "voice": {
+      "summary": "Skyline Daily sounds like a neighbour leaning over the fence to say the evening will clear up. It is descriptive and a bit poetic about the sky, but never loses a precise temperature.",
+      "dos": [
+        "Describe the sky in one concrete image",
+        "Pair every forecast with a degree and a time",
+        "Greet the time of day: morning, dusk, tonight"
+      ],
+      "donts": [
+        "Do not use meteorological jargon without explaining it",
+        "Avoid fear-mongering about storms",
+        "Never promise sun the forecast cannot back"
+      ]
+    },
+    "taglines": [
+      "Day, meet night",
+      "Weather with a view",
+      "The sky, in plain words",
+      "Dusk is at 5:42",
+      "Know before the clouds do"
+    ],
+    "boilerplate": "Skyline Daily is a weather app for coastal towns like Pennick Bay that pairs honest forecasts with a theme that turns from day to night as the sun sets.",
+    "microcopy": {
+      "primaryCta": "See tonight",
+      "secondaryCta": "Switch theme",
+      "success": "Night mode is on. Preference saved.",
+      "error": "Could not load the forecast. Check your connection and retry.",
+      "empty": "No saved places yet. Add your town."
+    }
+  }
+}

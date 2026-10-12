@@ -1,0 +1,216 @@
+{
+  "name": "Relay",
+  "descriptor": "Message delivery API for email, SMS and webhooks",
+  "listing": {
+    "key": "o:landing-api-docs-product",
+    "title": "Relay API Platform",
+    "category": "Landing Page"
+  },
+  "colors": {
+    "background": "#0a0e17",
+    "surface": "#101726",
+    "text": "#95a1c4",
+    "textMuted": "#e6ebfa",
+    "primary": "#7c83ff",
+    "secondary": "#3ddc97",
+    "border": "#243050",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#3a3d74"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0a0e17",
+      "share": 96.6
+    },
+    {
+      "hex": "#141b33",
+      "share": 2.1
+    },
+    {
+      "hex": "#7c83ff",
+      "share": 0.4
+    },
+    {
+      "hex": "#95a1c4",
+      "share": 0.3
+    },
+    {
+      "hex": "#e6ebfa",
+      "share": 0.3
+    },
+    {
+      "hex": "#3ddc97",
+      "share": 0.2
+    },
+    {
+      "hex": "#7a88b3",
+      "share": 0.1
+    },
+    {
+      "hex": "#9be3b0",
+      "share": 0.0
+    },
+    {
+      "hex": "#cfd7f3",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 76,
+        "weight": "700",
+        "lineHeight": "79.8px",
+        "letterSpacing": "-2.28px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 11,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.54px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 38,
+        "weight": "700",
+        "lineHeight": "41.8px",
+        "letterSpacing": "-0.76px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "23.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(98, 92, 255, 0.6) 0px 40px 90px -40px",
+      "md": "rgba(98, 92, 255, 0.6) 0px 40px 90px -40px",
+      "lg": "rgba(98, 92, 255, 0.6) 0px 40px 90px -40px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        22,
+        24
+      ]
+    },
+    "container": 1040,
+    "breakpoints": [
+      820
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chevrons",
+    "tile": "circle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "technical",
+      "direct",
+      "dry"
+    ],
+    "voice": {
+      "summary": "Relay writes like good API documentation with a sense of humour: exact about behaviour, brief about everything else and happy to show a request rather than describe one. Marketing lines stay short and concrete.",
+      "dos": [
+        "Show real endpoints, status codes and latencies",
+        "Prefer code and numbers to adjectives",
+        "Keep headlines to one blunt idea"
+      ],
+      "donts": [
+        "Use 'revolutionary' or 'game-changing'",
+        "Describe an API without showing a request",
+        "Hide pricing behind a form"
+      ]
+    },
+    "taglines": [
+      "Ship messages, not infrastructure",
+      "Send it. Trace it. Forget it",
+      "One API for every message",
+      "Retries and logs, built in",
+      "Delivery you can actually debug"
+    ],
+    "boilerplate": "Relay is a developer API for sending email, SMS and webhooks through one interface, with automatic retries, tracing and per-message logs included in every plan.",
+    "microcopy": {
+      "primaryCta": "Get API key",
+      "secondaryCta": "Read the docs",
+      "success": "Sent in 84 ms. Response 202.",
+      "error": "Request failed with 401. Check your API key.",
+      "empty": "No messages yet. Send your first request."
+    }
+  }
+}

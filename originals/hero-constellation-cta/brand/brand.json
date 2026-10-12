@@ -1,0 +1,169 @@
+{
+  "name": "Nightjar",
+  "descriptor": "Stargazing app that names what's overhead",
+  "listing": {
+    "key": "o:hero-constellation-cta",
+    "title": "Constellation CTA Hero",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#070b1a",
+    "surface": "#0d1633",
+    "text": "#a9b8e0",
+    "textMuted": "#eef3ff",
+    "primary": "#ffd37a",
+    "secondary": "#a9b8e0",
+    "border": "#1e2336",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#715f3c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#070b1a",
+      "share": 48.8
+    },
+    {
+      "hex": "#0d1633",
+      "share": 48.8
+    },
+    {
+      "hex": "#ffd37a",
+      "share": 1.6
+    },
+    {
+      "hex": "#a9b8e0",
+      "share": 0.4
+    },
+    {
+      "hex": "#eef3ff",
+      "share": 0.3
+    },
+    {
+      "hex": "#715f3c",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 112,
+        "weight": "600",
+        "lineHeight": "112px",
+        "letterSpacing": "-2.24px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "27.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=Inter:wght@400;500;600&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 0,
+      "md": 0,
+      "lg": 0,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(255, 211, 122) 0px 0px 14px 0px",
+      "md": "rgb(255, 211, 122) 0px 0px 14px 0px",
+      "lg": "rgb(255, 211, 122) 0px 0px 14px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        10,
+        16,
+        20,
+        22,
+        24,
+        32,
+        48,
+        56
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "spark",
+    "tile": "none",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "wondering",
+      "lyrical",
+      "clear"
+    ],
+    "voice": {
+      "summary": "Nightjar talks like an amateur astronomer with a love of myths: soft-spoken, curious and exact about what you are looking at. Facts come with a story attached.",
+      "dos": [
+        "Name the object, then give its myth",
+        "Use present tense: 'above you now'",
+        "Keep sentences short enough to read in the dark"
+      ],
+      "donts": [
+        "Do not use astrology language",
+        "Avoid sci-fi hype",
+        "Never present a guess as a fact"
+      ]
+    },
+    "taglines": [
+      "Every star has stories",
+      "Point up. We'll name it",
+      "The sky, explained gently",
+      "Look up and find a myth",
+      "Satellites, planets, old legends"
+    ],
+    "boilerplate": "Nightjar is a stargazing app that uses your phone's camera and sensors to name the stars, planets and satellites above you and tell the myths behind them.",
+    "microcopy": {
+      "primaryCta": "Join the beta",
+      "secondaryCta": "Sky tonight",
+      "success": "You are on the list. Clear skies ahead.",
+      "error": "We could not save your email. Please try again.",
+      "empty": "No objects found overhead. Try another direction."
+    }
+  }
+}

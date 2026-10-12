@@ -1,0 +1,184 @@
+{
+  "name": "Tallyfold",
+  "descriptor": "Team planning tool with three simple plans",
+  "listing": {
+    "key": "o:tally-pricing",
+    "title": "Tally Pricing Section",
+    "category": "Pricing"
+  },
+  "colors": {
+    "background": "#f6f5f1",
+    "surface": "#ffffff",
+    "text": "#17171a",
+    "textMuted": "#6b6b73",
+    "primary": "#5b4bff",
+    "secondary": "#1f9d6b",
+    "border": "#e4e3dc",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#bab3ff"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6f5f1",
+      "share": 97.3
+    },
+    {
+      "hex": "#5b4bff",
+      "share": 1.2
+    },
+    {
+      "hex": "#e9e8e1",
+      "share": 0.9
+    },
+    {
+      "hex": "#17171a",
+      "share": 0.4
+    },
+    {
+      "hex": "#6b6b73",
+      "share": 0.2
+    },
+    {
+      "hex": "#1f9d6b",
+      "share": 0.0
+    },
+    {
+      "hex": "#bab3ff",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Plus Jakarta Sans",
+    "body": "Plus Jakarta Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 64,
+        "weight": "800",
+        "lineHeight": "67.2px",
+        "letterSpacing": "-2.24px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.44px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "21px",
+        "letterSpacing": "0.56px",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 18,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.12) 0px 1px 3px 0px",
+      "md": "rgba(0, 0, 0, 0.12) 0px 1px 3px 0px",
+      "lg": "rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        10,
+        12,
+        14,
+        20,
+        22,
+        24,
+        31
+      ]
+    },
+    "container": 1080,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "stack",
+    "tile": "squircle",
+    "wordmarkFont": "Plus Jakarta Sans"
+  },
+  "voice": {
+    "personality": [
+      "friendly",
+      "clear",
+      "encouraging"
+    ],
+    "voice": {
+      "summary": "Sounds like a helpful sales colleague who actually wants you to choose the cheap plan if it fits: easy, reassuring and light on pressure. Prices are round, limits are visible and cancelling is easy.",
+      "dos": [
+        "Pair each plan with who it suits",
+        "Say cancel any time near the price",
+        "Keep the Most popular label modest"
+      ],
+      "donts": [
+        "Do not use dark patterns or fake urgency",
+        "Do not hide limits in small print",
+        "Do not push the biggest plan"
+      ]
+    },
+    "taglines": [
+      "Simple plans that grow with you",
+      "Start free, upgrade when it makes sense",
+      "Pay for what your team uses",
+      "Plans without puzzles",
+      "Cancel any time, no questions"
+    ],
+    "boilerplate": "Tallyfold is a team planning tool sold on three simple plans, Starter, Studio and Scale, starting free, billed monthly or yearly and cancellable at any time.",
+    "microcopy": {
+      "primaryCta": "Start 14-day trial",
+      "secondaryCta": "Talk to sales",
+      "success": "Plan chosen. Your trial has started.",
+      "error": "We couldn't start that plan. Please try again.",
+      "empty": "No plan selected yet."
+    }
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "name": "Slow Roast Club",
+  "descriptor": "Coffee subscription roasted to order",
+  "listing": {
+    "key": "o:shop-subscription-chooser",
+    "title": "Subscription Box Chooser",
+    "category": "E-commerce"
+  },
+  "colors": {
+    "background": "#f7f0e4",
+    "surface": "#fffaf0",
+    "text": "#261a12",
+    "textMuted": "#6a5a4a",
+    "primary": "#7a3f1d",
+    "secondary": "#3a6b3a",
+    "border": "#d9c9a9",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#c7aea0"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f7f0e4",
+      "share": 94.2
+    },
+    {
+      "hex": "#9a9088",
+      "share": 2.3
+    },
+    {
+      "hex": "#7a3f1d",
+      "share": 1.1
+    },
+    {
+      "hex": "#000000",
+      "share": 1.0
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.5
+    },
+    {
+      "hex": "#261a12",
+      "share": 0.3
+    },
+    {
+      "hex": "#6a5a4a",
+      "share": 0.2
+    },
+    {
+      "hex": "#3a6b3a",
+      "share": 0.1
+    },
+    {
+      "hex": "#5a3420",
+      "share": 0.1
+    },
+    {
+      "hex": "#c4935a",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Young Serif",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 54,
+        "weight": "400",
+        "lineHeight": "55.08px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 22,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 15.5,
+        "weight": "400",
+        "lineHeight": "23.25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Figtree:wght@400;500;700&family=Young+Serif&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 14,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(122, 63, 29) 0px 0px 0px 1.5px inset",
+      "md": "rgba(70, 40, 10, 0.28) 0px 26px 60px 0px",
+      "lg": "rgb(122, 63, 29) 0px 0px 0px 1.5px inset"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        18
+      ]
+    },
+    "container": 1240,
+    "breakpoints": [
+      960
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "flame",
+    "tile": "squircle",
+    "wordmarkFont": "Young Serif"
+  },
+  "voice": {
+    "personality": [
+      "cosy",
+      "knowledgeable",
+      "unhurried"
+    ],
+    "voice": {
+      "summary": "Slow Roast Club talks like a barista who has time for you. It is warm, specific about beans, roast and grind, and flexible about delivery.",
+      "dos": [
+        "Name the roast, grind and bag size",
+        "State the subscribe-and-save price clearly",
+        "Give control: skip, pause, change"
+      ],
+      "donts": [
+        "Do not use 'artisan' or 'curated'",
+        "Do not trap anyone in a subscription",
+        "Do not hide the next delivery date"
+      ]
+    },
+    "taglines": [
+      "Fresh roast, at your door",
+      "Coffee on your schedule",
+      "Roasted slowly, delivered when you want",
+      "Skip, pause, or sip on",
+      "A good cup, no commitment"
+    ],
+    "boilerplate": "Slow Roast Club is a coffee subscription that roasts to order, with choice of roast, grind, bag size and delivery frequency and easy pause or skip.",
+    "microcopy": {
+      "primaryCta": "Start my subscription",
+      "secondaryCta": "Skip next delivery",
+      "success": "Delivery skipped. Your next bag arrives on 4 July.",
+      "error": "We could not update your plan. Nothing has changed.",
+      "empty": "No deliveries scheduled. Choose a roast to begin."
+    }
+  }
+}

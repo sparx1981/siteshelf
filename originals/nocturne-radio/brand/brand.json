@@ -1,0 +1,142 @@
+{
+  "name": "Nocturne Radio",
+  "descriptor": "Late-night radio for the small hours",
+  "listing": {
+    "key": "o:nocturne-radio",
+    "title": "Nocturne Radio Hero Section",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#17101f",
+    "surface": "#ffb347",
+    "text": "#efe8f7",
+    "textMuted": "#a99bbd",
+    "primary": "#ffb347",
+    "secondary": "#8c6227",
+    "border": "#ffb347",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#8c6227"
+  },
+  "colorInventory": [
+    {
+      "hex": "#17101f",
+      "share": 97.5
+    },
+    {
+      "hex": "#ffb347",
+      "share": 2.3
+    },
+    {
+      "hex": "#efe8f7",
+      "share": 0.2
+    },
+    {
+      "hex": "#a99bbd",
+      "share": 0.0
+    },
+    {
+      "hex": "#8c6227",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Syne",
+    "body": "DM Mono",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Syne",
+        "stack": "'Syne', system-ui, sans-serif",
+        "sizePx": 123.8,
+        "weight": "800",
+        "lineHeight": "113.933px",
+        "letterSpacing": "-4.3344px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Syne:wght@800&family=DM+Mono:wght@400;500&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 50,
+      "md": 50,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        10,
+        11,
+        16,
+        18,
+        20,
+        24,
+        32,
+        36
+      ]
+    },
+    "container": 1115,
+    "breakpoints": [
+      800
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "dial",
+    "tile": "squircle",
+    "wordmarkFont": "Syne"
+  },
+  "voice": {
+    "personality": [
+      "nocturnal",
+      "dry",
+      "intimate"
+    ],
+    "voice": {
+      "summary": "Nocturne Radio sounds like the voice on the station at 3 a.m.: low, a little wry and talking to one listener. Station idents are short and slightly mysterious.",
+      "dos": [
+        "Write like an on-air ident, not an advert",
+        "Mention the hour or the dark",
+        "Keep lines under ten words"
+      ],
+      "donts": [
+        "Use morning-radio cheer",
+        "Use shouty promotions",
+        "Over-explain the playlist"
+      ]
+    },
+    "taglines": [
+      "Music for the hours nobody asked for",
+      "Awake? So are we",
+      "Broadcasting from the small hours",
+      "Turn it low, keep it on",
+      "On air until the sun comes up"
+    ],
+    "boilerplate": "Nocturne Radio is an independent late-night station that plays music for insomniacs, night-shift workers and anyone else still awake after midnight.",
+    "microcopy": {
+      "primaryCta": "Tune in",
+      "secondaryCta": "See the schedule",
+      "success": "You are on air. Stay a while.",
+      "error": "The signal dropped. Retuning.",
+      "empty": "Nothing playing. The station is off air."
+    }
+  }
+}

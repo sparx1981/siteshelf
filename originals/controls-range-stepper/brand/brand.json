@@ -1,0 +1,175 @@
+{
+  "name": "Tuner",
+  "descriptor": "Settings controls with live readouts",
+  "listing": {
+    "key": "o:controls-range-stepper",
+    "title": "Range and Stepper Controls",
+    "category": "Form Controls"
+  },
+  "colors": {
+    "background": "#f2f4fa",
+    "surface": "#ffffff",
+    "text": "#151a2e",
+    "textMuted": "#4f46e5",
+    "primary": "#4f46e5",
+    "secondary": "#151a2e",
+    "border": "#e2e6f0",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#151a2e"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f2f4fa",
+      "share": 98.4
+    },
+    {
+      "hex": "#dde1ee",
+      "share": 0.5
+    },
+    {
+      "hex": "#7430e8",
+      "share": 0.3
+    },
+    {
+      "hex": "#4f46e5",
+      "share": 0.2
+    },
+    {
+      "hex": "#e83030",
+      "share": 0.1
+    },
+    {
+      "hex": "#6a7290",
+      "share": 0.1
+    },
+    {
+      "hex": "#151a2e",
+      "share": 0.1
+    },
+    {
+      "hex": "#e8e830",
+      "share": 0.1
+    },
+    {
+      "hex": "#30e830",
+      "share": 0.1
+    },
+    {
+      "hex": "#30e8e8",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Plus Jakarta Sans",
+    "body": "Plus Jakarta Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "800",
+        "lineHeight": "39px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "19.5px",
+        "letterSpacing": "1.04px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 16,
+      "lg": 22,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.133) 0px 1px 4px 0px",
+      "md": "rgba(0, 0, 0, 0.2) 0px 1px 5px 0px",
+      "lg": "rgba(0, 0, 0, 0.2) 0px 3px 8px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        12,
+        14,
+        15,
+        16,
+        22,
+        32
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "dial",
+    "tile": "squircle",
+    "wordmarkFont": "Plus Jakarta Sans"
+  },
+  "voice": {
+    "personality": [
+      "precise",
+      "tactile",
+      "calm"
+    ],
+    "voice": {
+      "summary": "Sounds like a well-made instrument panel label: exact, short and unfussy. Every control says what it sets and shows the value beside it.",
+      "dos": [
+        "Label controls with a noun, then the live value",
+        "Use units and minimums plainly",
+        "Prefer sentence case"
+      ],
+      "donts": [
+        "No marketing copy on a control surface",
+        "No ambiguous toggles without a state word",
+        "No decorative verbs"
+      ]
+    },
+    "taglines": [
+      "Dial it in",
+      "Every setting, within reach",
+      "Fine control, plain labels",
+      "Turn, slide, step, done",
+      "Settings that answer back"
+    ],
+    "boilerplate": "Tuner is a settings and filtering interface with range sliders, steppers, segmented switches and knobs, each showing its value live and working fully from the keyboard.",
+    "microcopy": {
+      "primaryCta": "Copy hex",
+      "secondaryCta": "Reset",
+      "success": "Copied to clipboard",
+      "error": "Value out of range, adjust and retry",
+      "empty": "No filters set yet"
+    }
+  }
+}

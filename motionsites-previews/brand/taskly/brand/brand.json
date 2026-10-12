@@ -1,0 +1,189 @@
+{
+  "name": "Taskly",
+  "descriptor": "Task management for fast-moving teams",
+  "listing": {
+    "key": "m:taskly",
+    "title": "Taskly",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#ffffff",
+    "surface": "#60b1ff",
+    "text": "#0b1220",
+    "textMuted": "#2b3445",
+    "primary": "#0084ff",
+    "secondary": "#ff801e",
+    "border": "#dddee0",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#063e74"
+  },
+  "colorInventory": [
+    {
+      "hex": "#ffffff",
+      "share": 80.6
+    },
+    {
+      "hex": "#60b1ff",
+      "share": 11.9
+    },
+    {
+      "hex": "#319aff",
+      "share": 7.1
+    },
+    {
+      "hex": "#0084ff",
+      "share": 0.3
+    },
+    {
+      "hex": "#0b1220",
+      "share": 0.1
+    },
+    {
+      "hex": "#2b3445",
+      "share": 0.1
+    },
+    {
+      "hex": "#444444",
+      "share": 0.0
+    },
+    {
+      "hex": "#4b5563",
+      "share": 0.0
+    },
+    {
+      "hex": "#ff801e",
+      "share": 0.0
+    },
+    {
+      "hex": "#0066f0",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fustat",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fustat",
+        "stack": "'Fustat', system-ui, sans-serif",
+        "sizePx": 75,
+        "weight": "700",
+        "lineHeight": "78.75px",
+        "letterSpacing": "-2px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27.9px",
+        "letterSpacing": "-0.6px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Fustat",
+        "stack": "'Fustat', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.5px",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fustat:wght@700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 7,
+      "md": 16,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.25) 0px 4px 4px 0px inset, rgba(20, 60, 120, 0.08) 0px 8px 30px 0px",
+      "md": "rgba(255, 255, 255, 0.25) 0px 4px 4px 0px inset",
+      "lg": "rgba(255, 255, 255, 0.35) 0px 4px 4px 0px inset, rgba(0, 100, 240, 0.28) 0px 12px 28px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        7,
+        8,
+        9,
+        10,
+        14,
+        22,
+        24,
+        28
+      ]
+    },
+    "container": 1600,
+    "breakpoints": [
+      480,
+      768,
+      1024,
+      1280
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "stack",
+    "tile": "squircle",
+    "wordmarkFont": "Inter Bold (stand-in for Fustat)"
+  },
+  "voice": {
+    "personality": [
+      "upbeat",
+      "clear",
+      "efficient"
+    ],
+    "voice": {
+      "summary": "Taskly speaks like an organised teammate with a bright desk: short, positive and focused on getting things done. Headlines are action-first and avoid heavy jargon.",
+      "dos": [
+        "Start with a verb: manage, plan, finish",
+        "Keep benefits to one clause",
+        "Use 'you' and 'your team'"
+      ],
+      "donts": [
+        "Do not promise 'effortless' without a demo",
+        "Avoid productivity-guru language",
+        "Never bury the get-started button"
+      ]
+    },
+    "taglines": [
+      "Work smarter, achieve faster",
+      "Plan it, do it, done",
+      "Tasks that stay on track",
+      "Your team, in sync",
+      "Finish more by juggling less"
+    ],
+    "boilerplate": "Taskly is a task management tool that helps teams manage projects, collaborate in one place and reach their goals with less overhead.",
+    "microcopy": {
+      "primaryCta": "Get Started Now",
+      "secondaryCta": "See features",
+      "success": "Task completed.",
+      "error": "Could not save the task. Please try again.",
+      "empty": "No tasks yet. Add your first task."
+    }
+  }
+}

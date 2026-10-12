@@ -1,0 +1,177 @@
+{
+  "name": "Pocketpad",
+  "descriptor": "Local-first notes with folders and pins",
+  "listing": {
+    "key": "o:app-notes-folders",
+    "title": "Notes With Folders",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#e8e4da",
+    "surface": "#ffffff",
+    "text": "#6a6454",
+    "textMuted": "#25221b",
+    "primary": "#2f6b4f",
+    "secondary": "#b4372c",
+    "border": "#d8d3c6",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#a8c1b5"
+  },
+  "colorInventory": [
+    {
+      "hex": "#e8e4da",
+      "share": 50.6
+    },
+    {
+      "hex": "#ffffff",
+      "share": 46.9
+    },
+    {
+      "hex": "#fff1c9",
+      "share": 1.4
+    },
+    {
+      "hex": "#6a6454",
+      "share": 0.4
+    },
+    {
+      "hex": "#2f6b4f",
+      "share": 0.4
+    },
+    {
+      "hex": "#25221b",
+      "share": 0.3
+    },
+    {
+      "hex": "#8a8472",
+      "share": 0.1
+    },
+    {
+      "hex": "#e3a008",
+      "share": 0.0
+    },
+    {
+      "hex": "#b4372c",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffd666",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Figtree",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Body",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 13.5,
+        "weight": "500",
+        "lineHeight": "20.25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "18px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700&family=Newsreader:wght@500;600&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 10,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(40, 30, 10, 0.55) 0px 40px 90px -30px",
+      "md": "rgba(40, 30, 10, 0.55) 0px 40px 90px -30px",
+      "lg": "rgba(40, 30, 10, 0.55) 0px 40px 90px -30px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        18
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      640,
+      900
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "book",
+    "tile": "circle",
+    "wordmarkFont": "Figtree"
+  },
+  "voice": {
+    "personality": [
+      "tidy",
+      "quiet",
+      "dependable"
+    ],
+    "voice": {
+      "summary": "Pocketpad talks like a well-kept notebook: short labels, plain verbs and no fuss. It reassures people that their words stay on their own device and that nothing is lost when they tidy up.",
+      "dos": [
+        "Use two or three words for every action label",
+        "Say where things live: this folder, this device",
+        "Confirm destructive actions with an undo, not a warning"
+      ],
+      "donts": [
+        "Do not use cloud or sync language; notes are stored locally",
+        "Avoid productivity hype and streak counters",
+        "Never scold an empty note"
+      ]
+    },
+    "taglines": [
+      "Notes that stay in your pocket",
+      "A tidy place for loose thoughts",
+      "Write now, file later",
+      "Your notes, kept on your device",
+      "Folders, pins and nothing extra"
+    ],
+    "boilerplate": "Pocketpad is a three-pane notes app with folders, pinned notes and a live-saving editor, storing everything locally so writing stays fast and private.",
+    "microcopy": {
+      "primaryCta": "+ New note",
+      "secondaryCta": "+ New folder",
+      "success": "Saved. Saved here, on this device.",
+      "error": "Could not save that note. Your text is still on screen.",
+      "empty": "No notes in this folder yet. Start one."
+    }
+  }
+}

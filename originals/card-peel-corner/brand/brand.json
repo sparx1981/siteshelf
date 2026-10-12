@@ -1,0 +1,197 @@
+{
+  "name": "Marlow & Pine",
+  "descriptor": "Homeware shop with hidden offers under the corner",
+  "listing": {
+    "key": "o:card-peel-corner",
+    "title": "Peel Corner Cards",
+    "category": "Cards"
+  },
+  "colors": {
+    "background": "#f2ece0",
+    "surface": "#fffdf8",
+    "text": "#6a5f4d",
+    "textMuted": "#2a241b",
+    "primary": "#d9482b",
+    "secondary": "#e9d9c0",
+    "border": "#e2d8c4",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#e9d9c0"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f2ece0",
+      "share": 64.5
+    },
+    {
+      "hex": "#fffdf8",
+      "share": 32.6
+    },
+    {
+      "hex": "#e9d9c0",
+      "share": 0.7
+    },
+    {
+      "hex": "#000000",
+      "share": 0.5
+    },
+    {
+      "hex": "#c9b48e",
+      "share": 0.4
+    },
+    {
+      "hex": "#d6e4de",
+      "share": 0.4
+    },
+    {
+      "hex": "#6e7fb3",
+      "share": 0.4
+    },
+    {
+      "hex": "#d9482b",
+      "share": 0.3
+    },
+    {
+      "hex": "#6a5f4d",
+      "share": 0.2
+    },
+    {
+      "hex": "#2a241b",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Young Serif",
+    "body": "Karla",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 64,
+        "weight": "400",
+        "lineHeight": "64px",
+        "letterSpacing": "-0.64px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 24,
+        "weight": "400",
+        "lineHeight": "26.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27.9px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Karla",
+        "stack": "'Karla', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.08px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Young+Serif&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 22,
+      "lg": 22,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.25) -6px -6px 14px 0px",
+      "md": "rgba(0, 0, 0, 0.25) -6px -6px 14px 0px",
+      "lg": "rgba(0, 0, 0, 0.25) -6px -6px 14px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        8,
+        10,
+        12,
+        14,
+        20,
+        22,
+        24,
+        30
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      600,
+      980
+    ],
+    "motion": {
+      "duration": 380,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "sprout",
+    "tile": "squircle",
+    "wordmarkFont": "Young Serif"
+  },
+  "voice": {
+    "personality": [
+      "playful",
+      "cosy",
+      "assured"
+    ],
+    "voice": {
+      "summary": "Marlow & Pine writes like a friendly shopkeeper who leaves little surprises in the bag. Short, tactile phrases about linen, ceramic and brass, with a gentle wink when there is a code to find.",
+      "dos": [
+        "Describe the material and the feel in one phrase",
+        "Hint at the offer instead of announcing it",
+        "Keep prices and codes plain and legible"
+      ],
+      "donts": [
+        "Do not use countdown pressure or fake scarcity",
+        "Avoid 'must-have' and 'luxury'",
+        "Never hide the terms of a code"
+      ]
+    },
+    "taglines": [
+      "Peek under the corner",
+      "Good things, folded gently",
+      "Homeware with a little surprise",
+      "Linen, brass, ceramic and a secret",
+      "Lift the corner, find the code"
+    ],
+    "boilerplate": "Marlow & Pine is a homeware shop selling linen, ceramics, brass and oak for everyday rooms, with small offers tucked under the corner of each product card.",
+    "microcopy": {
+      "primaryCta": "Reveal the offer",
+      "secondaryCta": "Copy code",
+      "success": "Code copied. Use it at checkout.",
+      "error": "Could not copy that code. Select and copy it by hand.",
+      "empty": "No offers under this corner."
+    }
+  }
+}

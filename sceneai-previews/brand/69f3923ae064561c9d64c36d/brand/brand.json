@@ -1,0 +1,170 @@
+{
+  "name": "Lexo",
+  "descriptor": "Realtime price alerts across 1000+ stores",
+  "listing": {
+    "key": "s:69f3923ae064561c9d64c36d",
+    "title": "Lexo",
+    "category": "Realtime Price Alerts"
+  },
+  "colors": {
+    "background": "#0a0f14",
+    "surface": "#000000",
+    "text": "#ffffff",
+    "textMuted": "#8d97a5",
+    "primary": "#0f3c5a",
+    "secondary": "#ffc220",
+    "border": "#ffffff",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#ffc220"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0a0f14",
+      "share": 51.5
+    },
+    {
+      "hex": "#000000",
+      "share": 38.1
+    },
+    {
+      "hex": "#0f3c5a",
+      "share": 10.3
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.1
+    },
+    {
+      "hex": "#8d97a5",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffc220",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 48,
+        "weight": "600",
+        "lineHeight": "55.2px",
+        "letterSpacing": "-0.96px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Inter:wght@400;500;600;700&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 50,
+      "md": 50,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.7) 0px 0px 8px 2px",
+      "md": "rgba(255, 255, 255, 0.7) 0px 0px 8px 2px",
+      "lg": "rgba(255, 255, 255, 0.7) 0px 0px 8px 2px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        9,
+        18,
+        20,
+        22,
+        24,
+        36,
+        64
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      820
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bolt",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "sharp",
+      "vigilant",
+      "helpful"
+    ],
+    "voice": {
+      "summary": "Lexo talks like a savvy deal-spotter who texts you the second a price drops. It is quick, factual and lightly competitive about beating the market.",
+      "dos": [
+        "State the price change as an exact amount",
+        "Name the store and the product",
+        "Keep alerts to a single line"
+      ],
+      "donts": [
+        "Do not use hype like 'insane deals'",
+        "Avoid fake urgency",
+        "Never alert without the price history"
+      ]
+    },
+    "taglines": [
+      "Stay ahead of every price drop",
+      "Cheaper before you check",
+      "Prices, watched for you",
+      "Alerts the second it drops",
+      "1000+ stores, one watchlist"
+    ],
+    "boilerplate": "Lexo is a price tracking service that monitors over 1000 of the world's most popular stores and sends realtime alerts when prices fall.",
+    "microcopy": {
+      "primaryCta": "Get Started",
+      "secondaryCta": "Learn more",
+      "success": "Alert set. We will tell you when it drops.",
+      "error": "We could not track that link. Please check it and try again.",
+      "empty": "No alerts yet. Paste a product link to begin."
+    }
+  }
+}

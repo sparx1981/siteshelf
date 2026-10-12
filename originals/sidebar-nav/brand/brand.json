@@ -1,0 +1,168 @@
+{
+  "name": "Basecamp Nine",
+  "descriptor": "Project workspace for small teams",
+  "listing": {
+    "key": "o:sidebar-nav",
+    "title": "Collapsible Sidebar Navigation",
+    "category": "Navigation"
+  },
+  "colors": {
+    "background": "#f4f5f9",
+    "surface": "#ffffff",
+    "text": "#3a4160",
+    "textMuted": "#1a1f36",
+    "primary": "#087467",
+    "secondary": "#1a1f36",
+    "border": "#e4e6ee",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#1a1f36"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4f5f9",
+      "share": 99.6
+    },
+    {
+      "hex": "#3a4160",
+      "share": 0.1
+    },
+    {
+      "hex": "#6b7390",
+      "share": 0.1
+    },
+    {
+      "hex": "#0e9f8e",
+      "share": 0.1
+    },
+    {
+      "hex": "#6a4cff",
+      "share": 0.1
+    },
+    {
+      "hex": "#1a1f36",
+      "share": 0.1
+    },
+    {
+      "hex": "#087467",
+      "share": 0.0
+    },
+    {
+      "hex": "#f2b01e",
+      "share": 0.0
+    },
+    {
+      "hex": "#e4e6ee",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Figtree",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 28,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "19.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 5,
+      "md": 10,
+      "lg": 14,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        5,
+        6,
+        10,
+        12,
+        14,
+        20,
+        24
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      820
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "peak",
+    "tile": "circle",
+    "wordmarkFont": "Figtree"
+  },
+  "voice": {
+    "personality": [
+      "organised",
+      "practical",
+      "upbeat"
+    ],
+    "voice": {
+      "summary": "Basecamp Nine speaks in tidy labels and short, helpful hints. It prefers plain nouns for places and verbs for actions, and keeps the workspace feeling light.",
+      "dos": [
+        "Use one-word nouns for navigation items",
+        "Show shortcuts as hints, never as lectures",
+        "Name workspaces and projects in sentence case"
+      ],
+      "donts": [
+        "Do not use corporate words like synergy",
+        "Avoid cute mascots or slang",
+        "Never bury a route under a vague label"
+      ]
+    },
+    "taglines": [
+      "Your projects, one clean sidebar",
+      "Find your way, fast",
+      "Work that stays on the map",
+      "Small teams, tidy workspaces",
+      "Every route within reach"
+    ],
+    "boilerplate": "Basecamp Nine is a project workspace for small teams, with a collapsible sidebar, nested project groups, favourites and a workspace switcher that remembers your layout.",
+    "microcopy": {
+      "primaryCta": "New project",
+      "secondaryCta": "Collapse sidebar",
+      "success": "Workspace switched.",
+      "error": "Could not open that route. Please try again.",
+      "empty": "No favourites pinned yet."
+    }
+  }
+}

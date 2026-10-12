@@ -1,0 +1,176 @@
+{
+  "name": "Wordlantern",
+  "descriptor": "Friendly word puzzles by lantern light",
+  "listing": {
+    "key": "o:game-hangman",
+    "title": "Hangman Words",
+    "category": "Games"
+  },
+  "colors": {
+    "background": "#1f2a5a",
+    "surface": "#181430",
+    "text": "#f6f0ff",
+    "textMuted": "#bdb2dc",
+    "primary": "#ffc247",
+    "secondary": "#bdb2dc",
+    "border": "#5a54a0",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#715827"
+  },
+  "colorInventory": [
+    {
+      "hex": "#1f2a5a",
+      "share": 71.6
+    },
+    {
+      "hex": "#181430",
+      "share": 24.6
+    },
+    {
+      "hex": "#000000",
+      "share": 1.7
+    },
+    {
+      "hex": "#3a2f5a",
+      "share": 1.1
+    },
+    {
+      "hex": "#5a4a7a",
+      "share": 0.6
+    },
+    {
+      "hex": "#ffc247",
+      "share": 0.2
+    },
+    {
+      "hex": "#f6f0ff",
+      "share": 0.1
+    },
+    {
+      "hex": "#8a5a2c",
+      "share": 0.1
+    },
+    {
+      "hex": "#bdb2dc",
+      "share": 0.0
+    },
+    {
+      "hex": "#2f6a44",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fredoka",
+    "body": "Nunito",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fredoka",
+        "stack": "'Fredoka', system-ui, sans-serif",
+        "sizePx": 52,
+        "weight": "600",
+        "lineHeight": "52px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.16px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 16,
+      "lg": 24,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(232, 255, 154, 0.6) 0px 0px 10px 3px",
+      "md": "rgba(232, 255, 154, 0.6) 0px 0px 10px 3px",
+      "lg": "rgba(232, 255, 154, 0.6) 0px 0px 10px 3px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "spark",
+    "tile": "squircle",
+    "wordmarkFont": "Fredoka"
+  },
+  "voice": {
+    "personality": [
+      "cosy",
+      "playful",
+      "encouraging"
+    ],
+    "voice": {
+      "summary": "Sounds like a storyteller by a fire: warm, gentle, never grim. Losing a guess is a flicker, not a failure.",
+      "dos": [
+        "Cheer small wins in a few words",
+        "Phrase wrong guesses softly: the light dims",
+        "Keep hints friendly and cost-honest"
+      ],
+      "donts": [
+        "No dark or violent wording",
+        "No mocking wrong guesses",
+        "No more than one pun per screen"
+      ]
+    },
+    "taglines": [
+      "Guess the word before dark",
+      "Light a word at a time",
+      "Puzzles by paper lantern",
+      "Find the word, keep the glow",
+      "Friendly games for dusk"
+    ],
+    "boilerplate": "Wordlantern is a puzzle site of gentle word games, starting with a lantern-lit hangman that dims one flicker at a time instead of keeping score of failure.",
+    "microcopy": {
+      "primaryCta": "Play again",
+      "secondaryCta": "Use a hint",
+      "success": "You lit it up, the word was lantern",
+      "error": "The light went out, the word was lantern. Try another",
+      "empty": "Pick a category to begin"
+    }
+  }
+}

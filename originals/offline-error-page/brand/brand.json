@@ -1,0 +1,186 @@
+{
+  "name": "Harbourline",
+  "descriptor": "Messaging app that stays useful without a connection",
+  "listing": {
+    "key": "o:offline-error-page",
+    "title": "Offline Error Page",
+    "category": "Error Page"
+  },
+  "colors": {
+    "background": "#0a1a1f",
+    "surface": "#12272e",
+    "text": "#8fb0b0",
+    "textMuted": "#e8f6f4",
+    "primary": "#ffb020",
+    "secondary": "#1d3b44",
+    "border": "#1d2f33",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#1d3b44"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0a1a1f",
+      "share": 99.0
+    },
+    {
+      "hex": "#ffb020",
+      "share": 0.4
+    },
+    {
+      "hex": "#8fb0b0",
+      "share": 0.3
+    },
+    {
+      "hex": "#e8f6f4",
+      "share": 0.1
+    },
+    {
+      "hex": "#000000",
+      "share": 0.1
+    },
+    {
+      "hex": "#1d3b44",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffe08a",
+      "share": 0.0
+    },
+    {
+      "hex": "#2a1c00",
+      "share": 0.0
+    },
+    {
+      "hex": "#3ddc97",
+      "share": 0.0
+    },
+    {
+      "hex": "#cfd8dc",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Space Grotesk",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 44,
+        "weight": "700",
+        "lineHeight": "48.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "21.7px",
+        "letterSpacing": "1.12px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 16,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(61, 220, 151) 0px 0px 12px 0px",
+      "md": "rgb(61, 220, 151) 0px 0px 12px 0px",
+      "lg": "rgb(61, 220, 151) 0px 0px 12px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        8,
+        10,
+        12,
+        16,
+        18,
+        22,
+        24,
+        40
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      480
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bolt",
+    "tile": "squircle",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "friendly",
+      "resilient",
+      "calm"
+    ],
+    "voice": {
+      "summary": "A harbour pilot's steady voice when the signal drops: unbothered, practical and a little wry. It names the problem, says what still works and keeps you company while you wait.",
+      "dos": [
+        "Say what still works while offline",
+        "Give one concrete thing to try, such as check your Wi-Fi",
+        "Keep the humour light and the instructions clear"
+      ],
+      "donts": [
+        "Blaming the user's connection",
+        "Panic words like failure or crash",
+        "Technical codes without translation"
+      ]
+    },
+    "taglines": [
+      "You're offline, but not stranded",
+      "Back in a ripple",
+      "Recent pages still work",
+      "Plugged out, not shut down",
+      "Hold the line, we'll reconnect"
+    ],
+    "boilerplate": "Harbourline is a messaging and reading app that keeps recent pages available offline and reconnects automatically when the network returns.",
+    "microcopy": {
+      "primaryCta": "Try again",
+      "secondaryCta": "Open cached pages",
+      "success": "Back online. Welcome back",
+      "error": "Still offline. Try again in a moment",
+      "empty": "No cached pages yet"
+    }
+  }
+}

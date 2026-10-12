@@ -1,0 +1,174 @@
+{
+  "name": "Wander Deck",
+  "descriptor": "Swipe-to-choose deck for travel ideas",
+  "listing": {
+    "key": "o:cards-swipe-deck",
+    "title": "Swipe Card Deck",
+    "category": "Cards"
+  },
+  "colors": {
+    "background": "#ffffff",
+    "surface": "#fdf2f8",
+    "text": "#6b6885",
+    "textMuted": "#1d1b2e",
+    "primary": "#4c1d95",
+    "secondary": "#2c3e75",
+    "border": "#eaeaee",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#b4a0d2"
+  },
+  "colorInventory": [
+    {
+      "hex": "#ffffff",
+      "share": 69.2
+    },
+    {
+      "hex": "#5b4b8a",
+      "share": 6.5
+    },
+    {
+      "hex": "#2c3e75",
+      "share": 5.9
+    },
+    {
+      "hex": "#7a2e1c",
+      "share": 3.2
+    },
+    {
+      "hex": "#7b5cd6",
+      "share": 2.8
+    },
+    {
+      "hex": "#ffd1a0",
+      "share": 2.6
+    },
+    {
+      "hex": "#ff7e6b",
+      "share": 2.6
+    },
+    {
+      "hex": "#3b2a4d",
+      "share": 2.5
+    },
+    {
+      "hex": "#cfe8ff",
+      "share": 2.3
+    },
+    {
+      "hex": "#7fb2ff",
+      "share": 2.3
+    }
+  ],
+  "typography": {
+    "heading": "Poppins",
+    "body": "Poppins",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Poppins",
+        "stack": "'Poppins', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "700",
+        "lineHeight": "33px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Poppins",
+        "stack": "'Poppins', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "700",
+        "lineHeight": "28.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 24,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 24,
+      "md": 50,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(76, 29, 149, 0.15) 0px 8px 20px 0px",
+      "md": "rgba(76, 29, 149, 0.15) 0px 18px 40px 0px",
+      "lg": "rgba(76, 29, 149, 0.15) 0px 8px 20px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        10,
+        12,
+        16,
+        18,
+        20,
+        24
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [],
+    "motion": {
+      "duration": 150,
+      "easing": "cubic-bezier(0.2"
+    }
+  },
+  "logo": {
+    "motif": "compass",
+    "tile": "circle",
+    "wordmarkFont": "Poppins"
+  },
+  "voice": {
+    "personality": [
+      "breezy",
+      "curious",
+      "light"
+    ],
+    "voice": {
+      "summary": "Sounds like a friend showing postcards across a table. Short, upbeat and a bit cheeky, with one memorable detail per place.",
+      "dos": [
+        "Give each place a sensory detail in under ten words",
+        "Keep the swipe verbs consistent: pass, like, undo",
+        "Use country names in full"
+      ],
+      "donts": [
+        "No brochure superlatives like paradise or hidden gem",
+        "No pressure to book",
+        "No more than one exclamation mark a screen"
+      ]
+    },
+    "taglines": [
+      "Swipe right on places you'd go",
+      "Your next trip, one card at a time",
+      "Pick a place, skip the rest",
+      "Where to next? You decide",
+      "Postcards that ask your opinion"
+    ],
+    "boilerplate": "Wander Deck is a swipeable deck of destination cards that helps travellers choose between places by instinct, with undo, shortlists and a summary of everywhere they liked.",
+    "microcopy": {
+      "primaryCta": "Like",
+      "secondaryCta": "Pass",
+      "success": "Added to your shortlist",
+      "error": "That card would not load, try again",
+      "empty": "The deck is empty, start a fresh round"
+    }
+  }
+}

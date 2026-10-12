@@ -1,0 +1,186 @@
+{
+  "name": "STRIDE",
+  "descriptor": "Running shoes engineered for distance",
+  "listing": {
+    "key": "o:product-page",
+    "title": "Product Detail Page",
+    "category": "E-commerce"
+  },
+  "colors": {
+    "background": "#fafaf8",
+    "surface": "#ffd9cf",
+    "text": "#4a4a44",
+    "textMuted": "#141414",
+    "primary": "#ff4b2b",
+    "secondary": "#1f6feb",
+    "border": "#d4d4ce",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#71261b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fafaf8",
+      "share": 72.1
+    },
+    {
+      "hex": "#ffd9cf",
+      "share": 24.8
+    },
+    {
+      "hex": "#d9d9d2",
+      "share": 0.9
+    },
+    {
+      "hex": "#ff4b2b",
+      "share": 0.9
+    },
+    {
+      "hex": "#141414",
+      "share": 0.6
+    },
+    {
+      "hex": "#4a4a44",
+      "share": 0.3
+    },
+    {
+      "hex": "#000000",
+      "share": 0.1
+    },
+    {
+      "hex": "#1f6feb",
+      "share": 0.1
+    },
+    {
+      "hex": "#1f7a4d",
+      "share": 0.1
+    },
+    {
+      "hex": "#2b2b2f",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Archivo",
+    "body": "Archivo",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Archivo",
+        "stack": "'Archivo', system-ui, sans-serif",
+        "sizePx": 44,
+        "weight": "800",
+        "lineHeight": "44px",
+        "letterSpacing": "-0.88px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Archivo",
+        "stack": "'Archivo', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "25.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Archivo",
+        "stack": "'Archivo', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.04px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Navigation",
+        "family": "Archivo",
+        "stack": "'Archivo', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "500",
+        "lineHeight": "22.4px",
+        "letterSpacing": "1.12px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 14,
+      "lg": 20,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(212, 212, 206) 0px 0px 0px 1.5px",
+      "md": "rgb(20, 20, 20) 0px 0px 0px 2.5px",
+      "lg": "rgb(212, 212, 206) 0px 0px 0px 1.5px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        16,
+        18,
+        22,
+        28
+      ]
+    },
+    "container": 1240,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 400,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chevrons",
+    "tile": "squircle",
+    "wordmarkFont": "Archivo"
+  },
+  "voice": {
+    "personality": [
+      "athletic",
+      "punchy",
+      "direct"
+    ],
+    "voice": {
+      "summary": "A running-shop coach: energetic, brief and specific about foam and fit. Short imperatives, uppercase headings and honest specs.",
+      "dos": [
+        "Use short, active phrases and runner's vocabulary",
+        "State weight, drop and fit as numbers",
+        "Put sizes and stock status up front"
+      ],
+      "donts": [
+        "Hype claims like fastest ever",
+        "Lengthy technical paragraphs",
+        "Vague fit advice"
+      ]
+    },
+    "taglines": [
+      "Run light. Run far",
+      "Built for every mile",
+      "Featherweight, responsive, ready",
+      "Lace up and go",
+      "Fast feet start here"
+    ],
+    "boilerplate": "STRIDE is a running footwear brand making featherweight road shoes with responsive foam midsoles and breathable engineered mesh uppers.",
+    "microcopy": {
+      "primaryCta": "Add to cart",
+      "secondaryCta": "View details",
+      "success": "Added to your cart. Go run",
+      "error": "That size is sold out. Pick another",
+      "empty": "Your cart is empty"
+    }
+  }
+}

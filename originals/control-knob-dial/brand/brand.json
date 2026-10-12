@@ -1,0 +1,197 @@
+{
+  "name": "Tonewheel Audio",
+  "descriptor": "Boutique guitar effects pedals",
+  "listing": {
+    "key": "o:control-knob-dial",
+    "title": "Rotary Knob Control",
+    "category": "Form Controls"
+  },
+  "colors": {
+    "background": "#26262c",
+    "surface": "#121214",
+    "text": "#e8e8ee",
+    "textMuted": "#9a9aa6",
+    "primary": "#ffb020",
+    "secondary": "#3fe0ff",
+    "border": "#3a3a44",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#715016"
+  },
+  "colorInventory": [
+    {
+      "hex": "#26262c",
+      "share": 48.8
+    },
+    {
+      "hex": "#121214",
+      "share": 48.8
+    },
+    {
+      "hex": "#e9e9ee",
+      "share": 1.2
+    },
+    {
+      "hex": "#9a9aa4",
+      "share": 0.6
+    },
+    {
+      "hex": "#ffb020",
+      "share": 0.2
+    },
+    {
+      "hex": "#5df29a",
+      "share": 0.1
+    },
+    {
+      "hex": "#8a8a96",
+      "share": 0.1
+    },
+    {
+      "hex": "#3fe0ff",
+      "share": 0.1
+    },
+    {
+      "hex": "#c8c8d2",
+      "share": 0.0
+    },
+    {
+      "hex": "#ff5bd0",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Oswald",
+    "body": "Inconsolata",
+    "mono": "Inconsolata",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Oswald",
+        "stack": "'Oswald', system-ui, sans-serif",
+        "sizePx": 60,
+        "weight": "700",
+        "lineHeight": "60px",
+        "letterSpacing": "0.6px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Inconsolata",
+        "stack": "'Inconsolata', ui-monospace, Menlo, monospace",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "27px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Oswald",
+        "stack": "'Oswald', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.2px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Oswald",
+        "stack": "'Oswald', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "2.8px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Mono",
+        "family": "Inconsolata",
+        "stack": "'Inconsolata', ui-monospace, Menlo, monospace",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Oswald:wght@500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 5,
+      "md": 24,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(0, 0, 0) 0px 0px 0px 1px inset",
+      "md": "rgba(0, 0, 0, 0.6) 0px 8px 14px 0px, rgb(74, 74, 82) 0px 0px 0px 3px inset, rgb(198, 198, 207) 0px 0px 0px 5px inset, rgba(0, 0, 0, 0.35) 0px 0px 14px 0px inset",
+      "lg": "rgb(0, 0, 0) 0px 40px 80px -30px, rgba(255, 255, 255, 0.06) 0px 1px 0px 0px inset"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        20,
+        22,
+        24
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      480,
+      760
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "dial",
+    "tile": "circle",
+    "wordmarkFont": "Oswald"
+  },
+  "voice": {
+    "personality": [
+      "gritty",
+      "tactile",
+      "confident"
+    ],
+    "voice": {
+      "summary": "Sounds like a pedal builder at the bench: dry humour, hands-on detail and a love for knobs that feel right. It talks tone and touch, never specs for their own sake.",
+      "dos": [
+        "Describe sound in plain terms like warm, crunchy or wide",
+        "Mention the physical control, such as turn, nudge or double-click",
+        "Keep lines punchy, like a pedal label"
+      ],
+      "donts": [
+        "Do not use audiophile jargon without explaining it",
+        "Do not oversell with words like legendary",
+        "Do not write long paragraphs"
+      ]
+    },
+    "taglines": [
+      "Turn it up. Gently.",
+      "Built by ear, tuned by hand",
+      "Tone you can feel in the knob",
+      "Clean to crunch in one twist",
+      "Pedals for people who listen"
+    ],
+    "boilerplate": "Tonewheel Audio designs and hand-builds guitar effects pedals with machined knobs and carefully voiced circuits for players who care about feel as much as sound.",
+    "microcopy": {
+      "primaryCta": "Try the pedal",
+      "secondaryCta": "Reset all",
+      "success": "Setting saved to this preset.",
+      "error": "Signal lost. Check the knob and try again.",
+      "empty": "No presets saved yet."
+    }
+  }
+}

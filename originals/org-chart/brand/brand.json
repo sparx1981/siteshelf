@@ -1,0 +1,196 @@
+{
+  "name": "Kestrel Works",
+  "descriptor": "Product company of twenty people",
+  "listing": {
+    "key": "o:org-chart",
+    "title": "Org Chart",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#f4f5f9",
+    "surface": "#ffffff",
+    "text": "#181b2a",
+    "textMuted": "#4338ca",
+    "primary": "#4338ca",
+    "secondary": "#0ea5e9",
+    "border": "#e0e3ec",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#0ea5e9"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4f5f9",
+      "share": 90.7
+    },
+    {
+      "hex": "#d9dce6",
+      "share": 7.6
+    },
+    {
+      "hex": "#7c5cff",
+      "share": 0.4
+    },
+    {
+      "hex": "#0ea5e9",
+      "share": 0.3
+    },
+    {
+      "hex": "#181b2a",
+      "share": 0.3
+    },
+    {
+      "hex": "#6a7188",
+      "share": 0.2
+    },
+    {
+      "hex": "#f472b6",
+      "share": 0.2
+    },
+    {
+      "hex": "#f59e0b",
+      "share": 0.1
+    },
+    {
+      "hex": "#10b981",
+      "share": 0.1
+    },
+    {
+      "hex": "#4338ca",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.52px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "400",
+        "lineHeight": "18.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(124, 92, 255) 0px 0px 0px 2px, rgba(24, 27, 42, 0.4) 0px 10px 24px -10px",
+      "md": "rgba(24, 27, 42, 0.25) 0px 4px 14px -8px",
+      "lg": "rgb(124, 92, 255) 0px 0px 0px 2px, rgba(24, 27, 42, 0.4) 0px 10px 24px -10px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20
+      ]
+    },
+    "container": 1280,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chevrons",
+    "tile": "squircle",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "clear",
+      "collegial",
+      "tidy"
+    ],
+    "voice": {
+      "summary": "Speaks like a well-run small company handbook: plain, helpful and a little proud of how it is organised. People are named by role first, then by what they do.",
+      "dos": [
+        "Give names and roles together",
+        "Say who works with whom in one line",
+        "Use plain job titles"
+      ],
+      "donts": [
+        "No hierarchy jargon like reports into",
+        "Avoid buzzwords like rockstar",
+        "Never hide who leads a team"
+      ]
+    },
+    "taglines": [
+      "Who works with whom",
+      "Twenty people, one clear chart",
+      "Find the person you need",
+      "Teams, mapped and named",
+      "See how Kestrel fits together"
+    ],
+    "boilerplate": "Kestrel Works is a twenty-person product company organised into product, engineering, design, operations and people teams, with a chart that shows who works with whom.",
+    "microcopy": {
+      "primaryCta": "Expand all",
+      "secondaryCta": "View profile",
+      "success": "Branch expanded.",
+      "error": "Couldn't find that person. Check the spelling.",
+      "empty": "No one matches that search. Try another name."
+    }
+  }
+}

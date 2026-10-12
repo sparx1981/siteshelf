@@ -1,0 +1,158 @@
+{
+  "name": "Nimbus Notes",
+  "descriptor": "Note-taking app for personal use",
+  "listing": {
+    "key": "o:form-signup-strength",
+    "title": "Sign-Up With Strength Meter",
+    "category": "Form"
+  },
+  "colors": {
+    "background": "#0b0a1f",
+    "surface": "#6d4aff",
+    "text": "#f1f0ff",
+    "textMuted": "#b4b2e0",
+    "primary": "#8fe6ff",
+    "secondary": "#6d4aff",
+    "border": "#6c69a0",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#6d4aff"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b0a1f",
+      "share": 46.2
+    },
+    {
+      "hex": "#6d4aff",
+      "share": 26.8
+    },
+    {
+      "hex": "#20d6ff",
+      "share": 26.8
+    },
+    {
+      "hex": "#f1f0ff",
+      "share": 0.1
+    },
+    {
+      "hex": "#b4b2e0",
+      "share": 0.0
+    },
+    {
+      "hex": "#9b98c8",
+      "share": 0.0
+    },
+    {
+      "hex": "#8fe6ff",
+      "share": 0.0
+    },
+    {
+      "hex": "#d4d2f5",
+      "share": 0.0
+    },
+    {
+      "hex": "#6c69a0",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Outfit",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Outfit",
+        "stack": "'Outfit', system-ui, sans-serif",
+        "sizePx": 38,
+        "weight": "700",
+        "lineHeight": "41.8px",
+        "letterSpacing": "-0.76px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 16,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      420
+    ],
+    "motion": {
+      "duration": 250,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cloud",
+    "tile": "squircle",
+    "wordmarkFont": "Outfit"
+  },
+  "voice": {
+    "personality": [
+      "soft",
+      "clear",
+      "reassuring"
+    ],
+    "voice": {
+      "summary": "Sounds like a gentle guide: light, friendly and firm about safety. It cheers a strong password and explains weak ones without scolding.",
+      "dos": [
+        "Say what is missing, not that something failed",
+        "Use friendly second person",
+        "Keep reassurance short, like Free for personal use"
+      ],
+      "donts": [
+        "No scolding about weak passwords",
+        "Avoid security jargon",
+        "Never hide the cost"
+      ]
+    },
+    "taglines": [
+      "Notes that float with you",
+      "Your thoughts, safely in the cloud",
+      "Light notes, strong passwords",
+      "Sign up and start jotting",
+      "Think freely, write easily"
+    ],
+    "boilerplate": "Nimbus Notes is a note-taking app, free for personal use, that keeps ideas in sync across devices with a sign-up flow that helps you choose a strong password.",
+    "microcopy": {
+      "primaryCta": "Create account",
+      "secondaryCta": "Show password",
+      "success": "Account created. Welcome to Nimbus.",
+      "error": "We couldn't create your account. Check the details and try again.",
+      "empty": "Add a password to see how strong it is."
+    }
+  }
+}

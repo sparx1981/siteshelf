@@ -1,0 +1,156 @@
+{
+  "name": "Brightfield",
+  "descriptor": "Team profiles you can edit in place",
+  "listing": {
+    "key": "o:form-inline-profile-edit",
+    "title": "Inline Profile Editor",
+    "category": "Form"
+  },
+  "colors": {
+    "background": "#eceff4",
+    "surface": "#ffffff",
+    "text": "#172033",
+    "textMuted": "#5a6780",
+    "primary": "#4f46e5",
+    "secondary": "#172033",
+    "border": "#d9dfe9",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#172033"
+  },
+  "colorInventory": [
+    {
+      "hex": "#eceff4",
+      "share": 72.2
+    },
+    {
+      "hex": "#ffffff",
+      "share": 25.1
+    },
+    {
+      "hex": "#7c6cf5",
+      "share": 0.6
+    },
+    {
+      "hex": "#4f46e5",
+      "share": 0.6
+    },
+    {
+      "hex": "#22b8cf",
+      "share": 0.6
+    },
+    {
+      "hex": "#ffd1dc",
+      "share": 0.5
+    },
+    {
+      "hex": "#172033",
+      "share": 0.2
+    },
+    {
+      "hex": "#5a6780",
+      "share": 0.0
+    },
+    {
+      "hex": "#d6d9fb",
+      "share": 0.0
+    },
+    {
+      "hex": "#3a33b8",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 22,
+      "lg": 22,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(23, 32, 51, 0.5) 0px 30px 60px -44px",
+      "md": "rgba(23, 32, 51, 0.5) 0px 30px 60px -44px",
+      "lg": "rgba(23, 32, 51, 0.5) 0px 30px 60px -44px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      560
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "diamond",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "efficient",
+      "friendly",
+      "tidy"
+    ],
+    "voice": {
+      "summary": "Brightfield sounds like a helpful colleague in an internal tool: short, precise and quietly reassuring. Every edit is acknowledged in one line and every mistake can be undone.",
+      "dos": [
+        "Confirm each save in a single short sentence",
+        "Tell people how to undo, and for how long",
+        "Label fields with plain nouns"
+      ],
+      "donts": [
+        "Do not hide the undo behind a menu",
+        "Avoid exclamation marks on routine saves",
+        "Never use legal-sounding validation errors"
+      ]
+    },
+    "taglines": [
+      "Edit it right where it is",
+      "Click, type, done",
+      "Profiles that stay current",
+      "Small changes, no friction",
+      "Update anything. Undo anything"
+    ],
+    "boilerplate": "Brightfield is a people directory for growing teams, letting anyone update their profile in place with instant validation and a five-second undo for every change.",
+    "microcopy": {
+      "primaryCta": "Save changes",
+      "secondaryCta": "Cancel",
+      "success": "Saved. You can undo for 5 seconds.",
+      "error": "That value is not valid. Check it and try again.",
+      "empty": "Nothing added yet. Click to edit this field."
+    }
+  }
+}

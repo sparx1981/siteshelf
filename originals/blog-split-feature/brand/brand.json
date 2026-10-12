@@ -1,0 +1,206 @@
+{
+  "name": "Fieldline Review",
+  "descriptor": "Nature magazine for long, patient reading",
+  "listing": {
+    "key": "o:blog-split-feature",
+    "title": "Split Feature Article",
+    "category": "Blog"
+  },
+  "colors": {
+    "background": "#f6f1e5",
+    "surface": "#1d3d31",
+    "text": "#1f2a24",
+    "textMuted": "#4d5a52",
+    "primary": "#efe3c6",
+    "secondary": "#1d3d31",
+    "border": "#b9d3bf",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#1d3d31"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6f1e5",
+      "share": 84.8
+    },
+    {
+      "hex": "#1d3d31",
+      "share": 10.1
+    },
+    {
+      "hex": "#000000",
+      "share": 1.7
+    },
+    {
+      "hex": "#1f2a24",
+      "share": 1.3
+    },
+    {
+      "hex": "#ffd1c4",
+      "share": 0.7
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.6
+    },
+    {
+      "hex": "#4a4a88",
+      "share": 0.2
+    },
+    {
+      "hex": "#d9c9ad",
+      "share": 0.2
+    },
+    {
+      "hex": "#7fa889",
+      "share": 0.2
+    },
+    {
+      "hex": "#4f7d63",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Newsreader",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 64,
+        "weight": "600",
+        "lineHeight": "65.28px",
+        "letterSpacing": "-0.64px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 38,
+        "weight": "600",
+        "lineHeight": "41.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "2.16px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Body",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 21,
+        "weight": "400",
+        "lineHeight": "29.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "2.16px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;1,400&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 12,
+      "lg": 12,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(20, 30, 25, 0.6) 0px 18px 34px -24px",
+      "md": "rgba(20, 30, 25, 0.6) 0px 18px 34px -24px",
+      "lg": "rgba(20, 30, 25, 0.6) 0px 18px 34px -24px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        22,
+        30
+      ]
+    },
+    "container": 1292,
+    "breakpoints": [
+      959
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "wave",
+    "tile": "none",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "observant",
+      "literary",
+      "grounded"
+    ],
+    "voice": {
+      "summary": "Writes like a good field notebook turned essay: precise about place, patient with detail and gently lyrical. Nothing is shouted, and the landscape does most of the talking.",
+      "dos": [
+        "Anchor sentences in specific places, species and seasons",
+        "Use chapter titles that promise a scene, not a topic",
+        "Let notes and captions add a fact, never a nudge"
+      ],
+      "donts": [
+        "Clickbait headlines or listicle numbers",
+        "Urgent calls to subscribe mid-paragraph",
+        "Vague nature clichés like pristine wilderness"
+      ]
+    },
+    "taglines": [
+      "What the marsh remembers",
+      "Slow stories from wet places",
+      "Long reads for people outdoors",
+      "Mud, tide and patience",
+      "Read it the way the tide arrives"
+    ],
+    "boilerplate": "Fieldline Review is a nature magazine publishing long reads on landscape, restoration and the people who tend them, designed to be read slowly.",
+    "microcopy": {
+      "primaryCta": "Start reading",
+      "secondaryCta": "Open the margin notes",
+      "success": "Text size saved",
+      "error": "We lost the page. Reload to continue",
+      "empty": "No notes in this chapter"
+    }
+  }
+}

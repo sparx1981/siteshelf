@@ -1,0 +1,194 @@
+{
+  "name": "Seaside Puzzles",
+  "descriptor": "Themed word-search puzzle press",
+  "listing": {
+    "key": "o:game-word-search",
+    "title": "Word Search",
+    "category": "Games"
+  },
+  "colors": {
+    "background": "#e4f2f4",
+    "surface": "#fffaf0",
+    "text": "#1d2433",
+    "textMuted": "#5a6478",
+    "primary": "#1f7a8c",
+    "secondary": "#ff7a59",
+    "border": "#e6d9c0",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#a1c7cf"
+  },
+  "colorInventory": [
+    {
+      "hex": "#e4f2f4",
+      "share": 69.8
+    },
+    {
+      "hex": "#fffaf0",
+      "share": 26.9
+    },
+    {
+      "hex": "#000000",
+      "share": 0.9
+    },
+    {
+      "hex": "#1f7a8c",
+      "share": 0.7
+    },
+    {
+      "hex": "#7fc4cf",
+      "share": 0.5
+    },
+    {
+      "hex": "#4ea9b8",
+      "share": 0.5
+    },
+    {
+      "hex": "#1d2433",
+      "share": 0.3
+    },
+    {
+      "hex": "#5a6478",
+      "share": 0.1
+    },
+    {
+      "hex": "#ff7a59",
+      "share": 0.1
+    },
+    {
+      "hex": "#c97a5a",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Fredoka",
+    "body": "Nunito",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fredoka",
+        "stack": "'Fredoka', system-ui, sans-serif",
+        "sizePx": 48,
+        "weight": "600",
+        "lineHeight": "48px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Fredoka",
+        "stack": "'Fredoka', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "400",
+        "lineHeight": "21px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 16,
+      "lg": 22,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(20, 60, 80, 0.18) 0px 18px 40px 0px",
+      "md": "rgba(20, 60, 80, 0.18) 0px 18px 40px 0px",
+      "lg": "rgba(20, 60, 80, 0.18) 0px 18px 40px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        5,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1040,
+    "breakpoints": [
+      860
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "wave",
+    "tile": "circle",
+    "wordmarkFont": "Fredoka"
+  },
+  "voice": {
+    "personality": [
+      "breezy",
+      "friendly",
+      "tidy"
+    ],
+    "voice": {
+      "summary": "Seaside Puzzles sounds like a holiday-postcard with a pencil in hand: sunny, short and cheerful. It celebrates finds and never makes a missing word feel like failure.",
+      "dos": [
+        "Keep prompts short and sunny",
+        "Celebrate each found word in a few words",
+        "Mention the theme of the puzzle when helpful"
+      ],
+      "donts": [
+        "Do not use timers as pressure",
+        "Do not scold wrong guesses",
+        "Do not use cluttered puzzle jargon"
+      ]
+    },
+    "taglines": [
+      "Find the words, enjoy the view",
+      "Puzzles with a salty breeze",
+      "Garden, ocean, kitchen: pick a theme",
+      "Twelve by twelve, a hundred small joys",
+      "Pencil down, sea air in"
+    ],
+    "boilerplate": "Seaside Puzzles is a puzzle press publishing themed word searches, with a twelve by twelve grid of hidden words in eight directions.",
+    "microcopy": {
+      "primaryCta": "New puzzle",
+      "secondaryCta": "Hint",
+      "success": "Found it! SEAGULL is on the board.",
+      "error": "No word starts there. Try another letter.",
+      "empty": "All words found. Start a new puzzle."
+    }
+  }
+}

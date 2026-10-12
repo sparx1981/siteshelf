@@ -1,0 +1,176 @@
+{
+  "name": "Corner Table Cafe",
+  "descriptor": "Neighbourhood cafe that asks its regulars",
+  "listing": {
+    "key": "o:live-poll",
+    "title": "Live Poll Widget",
+    "category": "Widgets"
+  },
+  "colors": {
+    "background": "#fff7ea",
+    "surface": "#ffffff",
+    "text": "#2a1e0f",
+    "textMuted": "#c1330f",
+    "primary": "#f2512a",
+    "secondary": "#f89f8a",
+    "border": "#f0e2c8",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#6c281a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fff7ea",
+      "share": 67.6
+    },
+    {
+      "hex": "#ffffff",
+      "share": 31.2
+    },
+    {
+      "hex": "#f2512a",
+      "share": 1.0
+    },
+    {
+      "hex": "#2a1e0f",
+      "share": 0.2
+    },
+    {
+      "hex": "#8a7656",
+      "share": 0.0
+    },
+    {
+      "hex": "#c1330f",
+      "share": 0.0
+    },
+    {
+      "hex": "#f89f8a",
+      "share": 0.0
+    },
+    {
+      "hex": "#f0e2c8",
+      "share": 0.0
+    },
+    {
+      "hex": "#0b0b0f",
+      "share": 0.0
+    },
+    {
+      "hex": "#6c281a",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Bricolage Grotesque",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 34,
+        "weight": "800",
+        "lineHeight": "37.4px",
+        "letterSpacing": "-0.68px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 9,
+      "md": 14,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.12) 0px 1px 4px 0px",
+      "md": "rgba(120, 70, 0, 0.12) 0px 20px 50px 0px",
+      "lg": "rgba(0, 0, 0, 0.12) 0px 1px 4px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      480
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cube",
+    "tile": "squircle",
+    "wordmarkFont": "Bricolage Grotesque"
+  },
+  "voice": {
+    "personality": [
+      "chatty",
+      "inclusive",
+      "sunny"
+    ],
+    "voice": {
+      "summary": "Sounds like the cafe owner chatting while pouring a coffee: curious, open and keen to hear everyone. Questions are short, results are shared openly and there's never a wrong answer.",
+      "dos": [
+        "Ask one short question at a time",
+        "Show results as percentages and votes",
+        "Thank people for voting by name of the menu item"
+      ],
+      "donts": [
+        "Do not use survey-speak like respondents",
+        "Do not guilt people into voting",
+        "Do not hide results"
+      ]
+    },
+    "taglines": [
+      "Pull up a chair, cast a vote",
+      "What should we cook next?",
+      "Your cafe, your menu",
+      "Vote for the pie. Or the soup.",
+      "The regulars decide"
+    ],
+    "boilerplate": "Corner Table Cafe is a neighbourhood cafe that lets regulars vote on new menu items, from autumn soups to seasonal cakes, and shares the results openly in the shop.",
+    "microcopy": {
+      "primaryCta": "Vote",
+      "secondaryCta": "See results",
+      "success": "Vote counted. Thanks for chipping in.",
+      "error": "We couldn't record your vote. Please try again.",
+      "empty": "No votes yet. Be the first."
+    }
+  }
+}

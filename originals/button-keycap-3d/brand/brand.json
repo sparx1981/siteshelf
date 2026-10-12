@@ -1,0 +1,186 @@
+{
+  "name": "Clackworks",
+  "descriptor": "Pressable keycaps with real weight",
+  "listing": {
+    "key": "o:button-keycap-3d",
+    "title": "3D Keycap Buttons",
+    "category": "Buttons"
+  },
+  "colors": {
+    "background": "#14161c",
+    "surface": "#1d2029",
+    "text": "#a9afc4",
+    "textMuted": "#e8eaf2",
+    "primary": "#ffb020",
+    "secondary": "#cfd3e6",
+    "border": "#3a3f55",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#715016"
+  },
+  "colorInventory": [
+    {
+      "hex": "#14161c",
+      "share": 79.1
+    },
+    {
+      "hex": "#b6ae96",
+      "share": 9.2
+    },
+    {
+      "hex": "#5a6496",
+      "share": 6.6
+    },
+    {
+      "hex": "#d8d1be",
+      "share": 4.0
+    },
+    {
+      "hex": "#a8451a",
+      "share": 0.4
+    },
+    {
+      "hex": "#e8eaf2",
+      "share": 0.3
+    },
+    {
+      "hex": "#e0662f",
+      "share": 0.2
+    },
+    {
+      "hex": "#a9afc4",
+      "share": 0.1
+    },
+    {
+      "hex": "#2a2a2a",
+      "share": 0.0
+    },
+    {
+      "hex": "#8890aa",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Space Grotesk",
+    "body": "Space Grotesk",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 60,
+        "weight": "700",
+        "lineHeight": "61.2px",
+        "letterSpacing": "-1.5px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "26.35px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "23.25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Space Grotesk",
+        "stack": "'Space Grotesk', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "2.08px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 24,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.5) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.12) 0px -2px 4px 0px inset, rgba(0, 0, 0, 0) 0px 0px 25.6px 0px",
+      "md": "rgba(0, 0, 0, 0.5) 0px 2px 8px 0px inset, rgb(0, 0, 0) 0px 30px 60px -30px",
+      "lg": "rgba(0, 0, 0, 0.55) 0px 7.68px 10.24px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        8,
+        9,
+        10,
+        14,
+        16,
+        18,
+        20,
+        22,
+        26
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 120,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "cube",
+    "tile": "circle",
+    "wordmarkFont": "Space Grotesk"
+  },
+  "voice": {
+    "personality": [
+      "tactile",
+      "nerdy",
+      "playful"
+    ],
+    "voice": {
+      "summary": "Sounds like an enthusiast on a keyboard forum who has actually bottomed out the switches: affectionate, specific and a little funny. Every line is about feel, travel and weight.",
+      "dos": [
+        "Use switch and keycap vocabulary such as travel, legend and bottom out",
+        "Keep lines short, like a keystroke",
+        "Be silent in claims: the demo makes no sound, so say so"
+      ],
+      "donts": [
+        "Gaming-gear hype like ultimate or insane",
+        "Claims about audio the page does not make",
+        "Long sentences that slow the rhythm"
+      ]
+    },
+    "taglines": [
+      "Keys with real weight",
+      "Press it. Feel it sink",
+      "Legends worth looking at",
+      "Every keystroke has a bottom",
+      "Type something. Anything"
+    ],
+    "boilerplate": "Clackworks is a studio for keycap sets, offering Retro, Neon and Paper designs that sink convincingly under the finger and mirror a real keyboard.",
+    "microcopy": {
+      "primaryCta": "Press ENTER",
+      "secondaryCta": "Clear",
+      "success": "Typed. Nice action on that one",
+      "error": "Key stuck. Press it again",
+      "empty": "Nothing typed yet. Hit a key"
+    }
+  }
+}

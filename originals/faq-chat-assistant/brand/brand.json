@@ -1,0 +1,165 @@
+{
+  "name": "Nimbus Mail",
+  "descriptor": "Private email service with a helpful FAQ bot",
+  "listing": {
+    "key": "o:faq-chat-assistant",
+    "title": "Chat-Style FAQ Assistant",
+    "category": "FAQ"
+  },
+  "colors": {
+    "background": "#f1eefb",
+    "surface": "#ffffff",
+    "text": "#4328c9",
+    "textMuted": "#1b1535",
+    "primary": "#5b3df5",
+    "secondary": "#2d1b69",
+    "border": "#cfc6f5",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#2d1b69"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f1eefb",
+      "share": 71.9
+    },
+    {
+      "hex": "#ffffff",
+      "share": 25.5
+    },
+    {
+      "hex": "#2d1b69",
+      "share": 2.2
+    },
+    {
+      "hex": "#5b3df5",
+      "share": 0.2
+    },
+    {
+      "hex": "#4328c9",
+      "share": 0.1
+    },
+    {
+      "hex": "#1b1535",
+      "share": 0.1
+    },
+    {
+      "hex": "#ffb86b",
+      "share": 0.0
+    },
+    {
+      "hex": "#ff6b9a",
+      "share": 0.0
+    },
+    {
+      "hex": "#4ade80",
+      "share": 0.0
+    },
+    {
+      "hex": "#cfc6f5",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Nunito",
+    "body": "Nunito",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Button",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Nunito",
+        "stack": "'Nunito', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "400",
+        "lineHeight": "18.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 18,
+      "md": 24,
+      "lg": 24,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(45, 27, 105, 0.19) 0px 24px 60px 0px",
+      "md": "rgba(45, 27, 105, 0.19) 0px 24px 60px 0px",
+      "lg": "rgba(45, 27, 105, 0.19) 0px 24px 60px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        22,
+        24
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      600
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chat",
+    "tile": "squircle",
+    "wordmarkFont": "Nunito"
+  },
+  "voice": {
+    "personality": [
+      "friendly",
+      "plainspoken",
+      "patient"
+    ],
+    "voice": {
+      "summary": "Nimbus Mail speaks through Pip, a cheerful guide who answers in short, kind sentences and admits when a person would help better. It explains storage, security and imports without jargon.",
+      "dos": [
+        "Answer in two sentences, then offer a follow-up chip",
+        "Use 'your mail' and 'your storage' in plain terms",
+        "Offer a human when the question is unclear"
+      ],
+      "donts": [
+        "Do not use technical shorthand like IMAP unprompted",
+        "Avoid fake human claims; Pip is a bot",
+        "Never dodge a pricing question"
+      ]
+    },
+    "taglines": [
+      "Email that answers back",
+      "Mail without the small print",
+      "Ask Pip anything about your inbox",
+      "Simple mail, quietly private",
+      "Questions answered before you ask twice"
+    ],
+    "boilerplate": "Nimbus Mail is a private email service for individuals and small teams, with generous storage, easy imports and a friendly assistant named Pip for quick answers.",
+    "microcopy": {
+      "primaryCta": "Ask Pip",
+      "secondaryCta": "Talk to a human",
+      "success": "Glad that helped.",
+      "error": "Pip lost the thread. Try rephrasing, or ask a person.",
+      "empty": "Pip has no answer for that yet."
+    }
+  }
+}

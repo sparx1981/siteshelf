@@ -1,0 +1,171 @@
+{
+  "name": "Slow Scroll",
+  "descriptor": "Quiet gallery of small drifting artworks",
+  "listing": {
+    "key": "o:gallery-parallax-columns",
+    "title": "Parallax Column Gallery",
+    "category": "Gallery"
+  },
+  "colors": {
+    "background": "#f4f1ea",
+    "surface": "#d8d2c4",
+    "text": "#6b665c",
+    "textMuted": "#181613",
+    "primary": "#ffd166",
+    "secondary": "#c8b6ff",
+    "border": "#e1ded6",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#715e34"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f4f1ea",
+      "share": 89.7
+    },
+    {
+      "hex": "#ffd166",
+      "share": 2.0
+    },
+    {
+      "hex": "#5bc0be",
+      "share": 1.2
+    },
+    {
+      "hex": "#f4a261",
+      "share": 1.2
+    },
+    {
+      "hex": "#1b1b3a",
+      "share": 1.2
+    },
+    {
+      "hex": "#e9c46a",
+      "share": 1.1
+    },
+    {
+      "hex": "#118ab2",
+      "share": 1.0
+    },
+    {
+      "hex": "#ffd6a5",
+      "share": 0.9
+    },
+    {
+      "hex": "#c8b6ff",
+      "share": 0.9
+    },
+    {
+      "hex": "#f2cc8f",
+      "share": 0.8
+    }
+  ],
+  "typography": {
+    "heading": "Instrument Serif",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Instrument Serif",
+        "stack": "'Instrument Serif', Georgia, serif",
+        "sizePx": 129.6,
+        "weight": "400",
+        "lineHeight": "114.048px",
+        "letterSpacing": "-3.888px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 6,
+      "lg": 6,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 2,
+      "steps": [
+        14,
+        16,
+        18,
+        30,
+        56,
+        60,
+        90
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      520,
+      900
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bars",
+    "tile": "none",
+    "wordmarkFont": "Instrument Serif"
+  },
+  "voice": {
+    "personality": [
+      "quiet",
+      "editorial",
+      "curious"
+    ],
+    "voice": {
+      "summary": "Speaks like a gallery label written by someone who wants you to stay longer: soft, short and informative. It offers names and years, then steps out of the way.",
+      "dos": [
+        "Give artist, title and year, nothing more",
+        "Invite looking with gentle imperatives",
+        "Use a few italics-worthy words, then stop"
+      ],
+      "donts": [
+        "No art-speak or inflated adjectives",
+        "Avoid urgency or calls to buy",
+        "Do not explain what the viewer can see"
+      ]
+    },
+    "taglines": [
+      "Take your time",
+      "Twenty-four works, drifting by",
+      "Look slowly, scroll slower",
+      "Small art, long attention",
+      "Let the columns drift"
+    ],
+    "boilerplate": "Slow Scroll Studio is an online gallery presenting twenty-four small artworks in drifting columns, designed to be browsed slowly and examined up close.",
+    "microcopy": {
+      "primaryCta": "Take a closer look",
+      "secondaryCta": "Back to the gallery",
+      "success": "Added to your favourites.",
+      "error": "This work failed to load. Try again.",
+      "empty": "No works to show. Clear the filter."
+    }
+  }
+}

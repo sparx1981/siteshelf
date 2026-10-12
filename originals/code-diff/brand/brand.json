@@ -1,0 +1,202 @@
+{
+  "name": "Kestrel Review",
+  "descriptor": "Code review for keyboard-first teams",
+  "listing": {
+    "key": "o:code-diff",
+    "title": "Code Diff Viewer",
+    "category": "Components"
+  },
+  "colors": {
+    "background": "#0d1117",
+    "surface": "#161b22",
+    "text": "#e6edf3",
+    "textMuted": "#ff7b72",
+    "primary": "#ff7b72",
+    "secondary": "#79c0ff",
+    "border": "#30363d",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#713a39"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0d1117",
+      "share": 68.7
+    },
+    {
+      "hex": "#12261e",
+      "share": 18.4
+    },
+    {
+      "hex": "#2d1215",
+      "share": 6.1
+    },
+    {
+      "hex": "#1a2840",
+      "share": 3.6
+    },
+    {
+      "hex": "#1b4332",
+      "share": 1.8
+    },
+    {
+      "hex": "#5a1e24",
+      "share": 0.6
+    },
+    {
+      "hex": "#e6edf3",
+      "share": 0.5
+    },
+    {
+      "hex": "#ff7b72",
+      "share": 0.1
+    },
+    {
+      "hex": "#1f6feb",
+      "share": 0.1
+    },
+    {
+      "hex": "#8b949e",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "JetBrains Mono",
+    "mono": "monospace",
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "0.96px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "JetBrains Mono",
+        "stack": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 13,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 11.7,
+        "weight": "400",
+        "lineHeight": "17.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Mono",
+        "family": "monospace",
+        "stack": "ui-monospace, Menlo, monospace",
+        "sizePx": 12.5,
+        "weight": "400",
+        "lineHeight": "18.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 8,
+      "lg": 10,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18
+      ]
+    },
+    "container": 1500,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chevrons",
+    "tile": "circle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "precise",
+      "terse",
+      "developer-fluent"
+    ],
+    "voice": {
+      "summary": "Kestrel Review sounds like a good reviewer's inline comment: exact, short and focused on the change rather than the person. It uses file names, counts and line numbers as its main vocabulary.",
+      "dos": [
+        "Cite files, line numbers and counts in the interface text",
+        "Use imperative verbs such as 'Expand' and 'Split'",
+        "Phrase feedback about the code, not the author"
+      ],
+      "donts": [
+        "Use emoji or exclamation marks in review states",
+        "Write vague labels like 'See more'",
+        "Add marketing language to a code view"
+      ]
+    },
+    "taglines": [
+      "Read the change, not the noise",
+      "Review at the speed of focus",
+      "Every line, held to account",
+      "Diffs that respect your attention",
+      "Small changes, sharp reviews"
+    ],
+    "boilerplate": "Kestrel Review is a pull request viewer that shows side-by-side and unified diffs, collapsible context and inline comment threads for teams that review code from the keyboard.",
+    "microcopy": {
+      "primaryCta": "Split view",
+      "secondaryCta": "Unified view",
+      "success": "Comment posted on line 42.",
+      "error": "Could not post that comment. Retry.",
+      "empty": "No files changed."
+    }
+  }
+}

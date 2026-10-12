@@ -1,0 +1,172 @@
+{
+  "name": "Spectrum Room",
+  "descriptor": "Studio showing generated art sorted by colour",
+  "listing": {
+    "key": "o:gallery-hue-sort",
+    "title": "Sort By Colour Gallery",
+    "category": "Gallery"
+  },
+  "colors": {
+    "background": "#fafafa",
+    "surface": "#161616",
+    "text": "#161616",
+    "textMuted": "#646464",
+    "primary": "#b11061",
+    "secondary": "#76790b",
+    "border": "#e4e4e4",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#de9bbd"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fafafa",
+      "share": 96.3
+    },
+    {
+      "hex": "#381259",
+      "share": 0.4
+    },
+    {
+      "hex": "#37630d",
+      "share": 0.4
+    },
+    {
+      "hex": "#91221d",
+      "share": 0.4
+    },
+    {
+      "hex": "#b11061",
+      "share": 0.4
+    },
+    {
+      "hex": "#151273",
+      "share": 0.4
+    },
+    {
+      "hex": "#7a501f",
+      "share": 0.4
+    },
+    {
+      "hex": "#5f585b",
+      "share": 0.4
+    },
+    {
+      "hex": "#249e6b",
+      "share": 0.4
+    },
+    {
+      "hex": "#76790b",
+      "share": 0.4
+    }
+  ],
+  "typography": {
+    "heading": "Bricolage Grotesque",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 96,
+        "weight": "800",
+        "lineHeight": "91.2px",
+        "letterSpacing": "-3.84px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "23.25px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Mono",
+        "stack": "'DM Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "0.72px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=DM+Mono:wght@400;500&family=Inter:wght@400;500&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 8,
+      "lg": 8,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        3,
+        4,
+        6,
+        8,
+        10,
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      600
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "grid",
+    "tile": "none",
+    "wordmarkFont": "Bricolage Grotesque"
+  },
+  "voice": {
+    "personality": [
+      "bright",
+      "orderly",
+      "playful"
+    ],
+    "voice": {
+      "summary": "Sounds like a gallery guide with a love of swatches: short, visual, a bit wry. Colours are named precisely, hex codes always shown.",
+      "dos": [
+        "Name colours with a quirky word and show the hex",
+        "Describe sorting in verbs: regroup, reflow, copy",
+        "Keep titles to three words or fewer"
+      ],
+      "donts": [
+        "No art-critic waffle",
+        "No calling every piece unique",
+        "No vague colour words like pretty"
+      ]
+    },
+    "taglines": [
+      "Sorted by colour, nothing else",
+      "Forty-eight works, one rainbow",
+      "Hue first, meaning later",
+      "Change your mind, the tiles follow",
+      "A room full of colour"
+    ],
+    "boilerplate": "Spectrum Room is a studio and gallery of small generated artworks that reorder themselves by hue, lightness or title, with every colour one tap from your clipboard.",
+    "microcopy": {
+      "primaryCta": "Sort by hue",
+      "secondaryCta": "Copy palette",
+      "success": "Colour copied to the clipboard",
+      "error": "That colour could not be copied, try again",
+      "empty": "No works match that hue yet"
+    }
+  }
+}

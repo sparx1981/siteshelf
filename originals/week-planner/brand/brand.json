@@ -1,0 +1,187 @@
+{
+  "name": "Timebox",
+  "descriptor": "Weekly time-block planner",
+  "listing": {
+    "key": "o:week-planner",
+    "title": "Weekly Time-Block Planner",
+    "category": "App UI"
+  },
+  "colors": {
+    "background": "#f7f8fa",
+    "surface": "#c7d2fe",
+    "text": "#6b7280",
+    "textMuted": "#111827",
+    "primary": "#78350f",
+    "secondary": "#134e4a",
+    "border": "#e6e9ef",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#c6aa9a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f7f8fa",
+      "share": 91.5
+    },
+    {
+      "hex": "#c7d2fe",
+      "share": 2.8
+    },
+    {
+      "hex": "#99f6e4",
+      "share": 2.4
+    },
+    {
+      "hex": "#fde68a",
+      "share": 1.6
+    },
+    {
+      "hex": "#fecdd3",
+      "share": 1.0
+    },
+    {
+      "hex": "#4f46e5",
+      "share": 0.1
+    },
+    {
+      "hex": "#6b7280",
+      "share": 0.1
+    },
+    {
+      "hex": "#111827",
+      "share": 0.1
+    },
+    {
+      "hex": "#134e4a",
+      "share": 0.1
+    },
+    {
+      "hex": "#312e81",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 10,
+        "weight": "500",
+        "lineHeight": "14px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 10,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.08) 0px 1px 2px 0px",
+      "md": "rgba(0, 0, 0, 0.08) 0px 1px 2px 0px",
+      "lg": "rgba(0, 0, 0, 0.08) 0px 1px 2px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      640,
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "cube",
+    "tile": "none",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "focused",
+      "tidy",
+      "calm"
+    ],
+    "voice": {
+      "summary": "Sounds like a well-organised friend with an hour-by-hour grid: crisp, quietly encouraging and focused on protecting time. It refers to blocks, hours and the week ahead.",
+      "dos": [
+        "Talk in hours and blocks",
+        "Name the category colours plainly",
+        "Keep prompts to one short line"
+      ],
+      "donts": [
+        "No hustle language",
+        "Avoid guilt about unfilled hours",
+        "Never overload an agenda message"
+      ]
+    },
+    "taglines": [
+      "Block your week, own your time",
+      "Hours, planned on purpose",
+      "See your week at a glance",
+      "Protect time for what matters",
+      "Plan the week in boxes"
+    ],
+    "boilerplate": "Timebox is a weekly time-block planner with an hour-by-hour grid, draggable events and colour categories that help people plan and protect their time.",
+    "microcopy": {
+      "primaryCta": "New event",
+      "secondaryCta": "Today",
+      "success": "Event saved.",
+      "error": "Couldn't save that event. Check the time and retry.",
+      "empty": "Nothing planned yet. Drag across the grid to add a block."
+    }
+  }
+}

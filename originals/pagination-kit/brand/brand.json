@@ -1,0 +1,186 @@
+{
+  "name": "Fernlight Library",
+  "descriptor": "Catalogue of 96 titles with four pager styles",
+  "listing": {
+    "key": "o:pagination-kit",
+    "title": "Pagination Kit",
+    "category": "Navigation"
+  },
+  "colors": {
+    "background": "#f6f3ec",
+    "surface": "#ffffff",
+    "text": "#6f6a5c",
+    "textMuted": "#1d1b16",
+    "primary": "#1f6f54",
+    "secondary": "#b5651d",
+    "border": "#e4dfd2",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#a1c3b7"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f6f3ec",
+      "share": 68.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 30.1
+    },
+    {
+      "hex": "#ebe6d9",
+      "share": 0.7
+    },
+    {
+      "hex": "#1f6f54",
+      "share": 0.2
+    },
+    {
+      "hex": "#b5651d",
+      "share": 0.2
+    },
+    {
+      "hex": "#3b5b92",
+      "share": 0.2
+    },
+    {
+      "hex": "#8a3a5c",
+      "share": 0.2
+    },
+    {
+      "hex": "#6f6a5c",
+      "share": 0.1
+    },
+    {
+      "hex": "#1d1b16",
+      "share": 0.1
+    },
+    {
+      "hex": "#6b7d2c",
+      "share": 0.1
+    }
+  ],
+  "typography": {
+    "heading": "Fraunces",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Fraunces",
+        "stack": "'Fraunces', Georgia, serif",
+        "sizePx": 32,
+        "weight": "700",
+        "lineHeight": "35.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Subheading / H3",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "600",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "400",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 4,
+      "md": 10,
+      "lg": 12,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.133) 4px 0px 0px 0px inset",
+      "md": "rgba(0, 0, 0, 0.133) 0px 1px 3px 0px",
+      "lg": "rgba(0, 0, 0, 0.133) 4px 0px 0px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      560
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "book",
+    "tile": "squircle",
+    "wordmarkFont": "Fraunces"
+  },
+  "voice": {
+    "personality": [
+      "quiet",
+      "orderly",
+      "bookish"
+    ],
+    "voice": {
+      "summary": "Sounds like a thoughtful librarian at the desk: patient, exact and quietly helpful. It names the page, the total and the way to get there, and never makes browsing feel like a chore.",
+      "dos": [
+        "Say where the reader is, such as page 3 of 16",
+        "Describe controls by what they do",
+        "Keep counts tabular and consistent"
+      ],
+      "donts": [
+        "Do not use infinite-scroll hype",
+        "Do not use generic labels like click here",
+        "Do not hide the total"
+      ]
+    },
+    "taglines": [
+      "Browse at your own pace",
+      "Ninety-six titles, four ways to turn pages",
+      "Find your place, lose no time",
+      "Every shelf, one page at a time",
+      "Quiet browsing, well-ordered"
+    ],
+    "boilerplate": "Fernlight Library is a catalogue of 96 invented titles that demonstrates four pagination patterns, numbered, previous and next, load more and dots, with a page-size selector.",
+    "microcopy": {
+      "primaryCta": "Next page",
+      "secondaryCta": "Load more",
+      "success": "Showing 12 more titles.",
+      "error": "That page doesn't exist. Try 1 to 16.",
+      "empty": "No titles match this view."
+    }
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "name": "Orbit Studio",
+  "descriptor": "Studio designing calm, useful software",
+  "listing": {
+    "key": "o:nav-floating-island",
+    "title": "Floating Island Nav",
+    "category": "Navigation"
+  },
+  "colors": {
+    "background": "#f3f1ec",
+    "surface": "#e8eef5",
+    "text": "#15171c",
+    "textMuted": "#4a4d57",
+    "primary": "#ff6a3d",
+    "secondary": "#ffad94",
+    "border": "#d4d2cf",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#713322"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f3f1ec",
+      "share": 95.4
+    },
+    {
+      "hex": "#ffffff",
+      "share": 3.8
+    },
+    {
+      "hex": "#15171c",
+      "share": 0.6
+    },
+    {
+      "hex": "#4a4d57",
+      "share": 0.1
+    },
+    {
+      "hex": "#aaa69b",
+      "share": 0.0
+    },
+    {
+      "hex": "#ff6a3d",
+      "share": 0.0
+    },
+    {
+      "hex": "#ff9a78",
+      "share": 0.0
+    },
+    {
+      "hex": "#c9c5bb",
+      "share": 0.0
+    },
+    {
+      "hex": "#ffad94",
+      "share": 0.0
+    },
+    {
+      "hex": "#d4d2cf",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Sora",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 88,
+        "weight": "700",
+        "lineHeight": "88px",
+        "letterSpacing": "-2.64px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 60,
+        "weight": "700",
+        "lineHeight": "60px",
+        "letterSpacing": "-1.8px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 19,
+        "weight": "400",
+        "lineHeight": "30.4px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Arial",
+        "stack": "'Arial', system-ui, sans-serif",
+        "sizePx": 13.3,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Sora",
+        "stack": "'Sora', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 14,
+      "md": 20,
+      "lg": 26,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(255, 106, 61) 0px 0px 10px 0px",
+      "md": "rgba(0, 0, 0, 0.45) 0px 14px 40px -10px",
+      "lg": "rgb(255, 106, 61) 0px 0px 10px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        12,
+        16,
+        19,
+        20,
+        24,
+        40,
+        86
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "orbit",
+    "tile": "none",
+    "wordmarkFont": "Sora"
+  },
+  "voice": {
+    "personality": [
+      "unhurried",
+      "thoughtful",
+      "deft"
+    ],
+    "voice": {
+      "summary": "Orbit Studio writes like a small studio that prefers to be useful rather than loud. Copy is short, plainly confident and ready to step aside so the work can speak.",
+      "dos": [
+        "Start with the work and the person it helps",
+        "Keep introductions to two sentences",
+        "Use plain verbs: shape, build, ship"
+      ],
+      "donts": [
+        "Do not use 'digital transformation'",
+        "Do not list tools or frameworks in the intro",
+        "Do not claim to be 'passionate'"
+      ]
+    },
+    "taglines": [
+      "We shape calm digital products",
+      "Useful software, quietly made",
+      "A small studio on purpose",
+      "Design that gets out of the way",
+      "Better things to do? Us too"
+    ],
+    "boilerplate": "Orbit Studio is a small design and engineering studio that builds quiet, useful software for people who have better things to do.",
+    "microcopy": {
+      "primaryCta": "Let's talk",
+      "secondaryCta": "See selected work",
+      "success": "Message sent. We will be in touch this week.",
+      "error": "That did not send. Email hello@orbit.studio instead.",
+      "empty": "No journal posts yet. Check back soon."
+    }
+  }
+}

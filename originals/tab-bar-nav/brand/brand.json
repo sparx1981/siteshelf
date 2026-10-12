@@ -1,0 +1,188 @@
+{
+  "name": "Tidepool Go",
+  "descriptor": "Coastal weather and tide companion app",
+  "listing": {
+    "key": "o:tab-bar-nav",
+    "title": "Bottom Tab Bar Navigation",
+    "category": "Navigation"
+  },
+  "colors": {
+    "background": "#e9ecf5",
+    "surface": "#0f1222",
+    "text": "#161a33",
+    "textMuted": "#606477",
+    "primary": "#6a4cff",
+    "secondary": "#161a33",
+    "border": "#eceef6",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#161a33"
+  },
+  "colorInventory": [
+    {
+      "hex": "#e9ecf5",
+      "share": 72.1
+    },
+    {
+      "hex": "#0f1222",
+      "share": 13.9
+    },
+    {
+      "hex": "#fbfbfe",
+      "share": 12.8
+    },
+    {
+      "hex": "#6a4cff",
+      "share": 0.7
+    },
+    {
+      "hex": "#b06cff",
+      "share": 0.4
+    },
+    {
+      "hex": "#7a809c",
+      "share": 0.1
+    },
+    {
+      "hex": "#ff4d6a",
+      "share": 0.0
+    },
+    {
+      "hex": "#606477",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Plus Jakarta Sans",
+    "body": "Plus Jakarta Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 26,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Plus Jakarta Sans",
+        "stack": "'Plus Jakarta Sans', system-ui, sans-serif",
+        "sizePx": 12.5,
+        "weight": "500",
+        "lineHeight": "18.75px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 16,
+      "md": 22,
+      "lg": 34,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(30, 40, 90, 0.05) 0px 2px 8px 0px",
+      "md": "rgba(30, 40, 90, 0.18) 0px 10px 30px 0px",
+      "lg": "rgba(30, 40, 90, 0.3) 0px 30px 60px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        6,
+        10,
+        12,
+        14,
+        15,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      480
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "cubic-bezier(0.3"
+    }
+  },
+  "logo": {
+    "motif": "wave",
+    "tile": "squircle",
+    "wordmarkFont": "Plus Jakarta Sans"
+  },
+  "voice": {
+    "personality": [
+      "breezy",
+      "useful",
+      "friendly"
+    ],
+    "voice": {
+      "summary": "Tidepool Go speaks like a cheerful local who knows the tides: short, friendly and specific about times. It gives the high tide before the greeting finishes.",
+      "dos": [
+        "Give times in 24-hour form with the place",
+        "Open with a warm greeting, then the data",
+        "Keep tab labels to a single word"
+      ],
+      "donts": [
+        "Do not use surf slang or wave puns",
+        "Avoid long weather paragraphs",
+        "Never show a time without a place"
+      ]
+    },
+    "taglines": [
+      "Good morning, high at 11:42",
+      "The coast, in your pocket",
+      "Tides, weather and walks",
+      "Know before you go",
+      "Little app, big tides"
+    ],
+    "boilerplate": "Tidepool Go is a coastal companion app that shows tide times, weather and quick actions on a bottom tab bar, made for walkers, swimmers and small-boat sailors.",
+    "microcopy": {
+      "primaryCta": "Quick actions",
+      "secondaryCta": "Switch location",
+      "success": "Location switched.",
+      "error": "Could not load tide times. Pull down to retry.",
+      "empty": "No messages in your inbox."
+    }
+  }
+}

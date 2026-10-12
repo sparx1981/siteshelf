@@ -1,0 +1,147 @@
+{
+  "name": "Designy",
+  "descriptor": "Data visuals tool for teams",
+  "listing": {
+    "key": "s:6a095218bf2024a645b29105",
+    "title": "Designy",
+    "category": "Footer"
+  },
+  "colors": {
+    "background": "#fafafa",
+    "surface": "#ebebeb",
+    "text": "#71717a",
+    "textMuted": "#0a0a0a",
+    "primary": "#71717a",
+    "secondary": "#b1b1b6",
+    "border": "#f9fafb",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#b1b1b6"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fafafa",
+      "share": 99.6
+    },
+    {
+      "hex": "#71717a",
+      "share": 0.3
+    },
+    {
+      "hex": "#0a0a0a",
+      "share": 0.1
+    },
+    {
+      "hex": "#ebebeb",
+      "share": 0.0
+    },
+    {
+      "hex": "#b1b1b6",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "20.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 28,
+      "md": 28,
+      "lg": 28,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.03) 0px 20px 40px -15px",
+      "md": "rgba(0, 0, 0, 0.03) 0px 20px 40px -15px",
+      "lg": "rgba(0, 0, 0, 0.03) 0px 20px 40px -15px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        10,
+        14,
+        16,
+        18,
+        20,
+        24,
+        32,
+        48,
+        56
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      768,
+      1024
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bars",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "clear",
+      "modest",
+      "helpful"
+    ],
+    "voice": {
+      "summary": "Sounds like a good analyst explaining a chart: plain, patient and focused on understanding. It values clarity over decoration and says what each visual helps people see.",
+      "dos": [
+        "Name the insight each chart supports",
+        "Use plain verbs like share, show and understand",
+        "Keep documentation steps short"
+      ],
+      "donts": [
+        "Do not call charts stunning",
+        "Do not use data science jargon",
+        "Do not overload a visual"
+      ]
+    },
+    "taglines": [
+      "Raw data, clear visuals",
+      "Insights that are easy to share",
+      "Make numbers make sense",
+      "Show what the data says",
+      "From spreadsheet to story"
+    ],
+    "boilerplate": "Designy helps teams turn raw data into clear, compelling visuals, making insights easier to share, understand and act on, supported by plain documentation.",
+    "microcopy": {
+      "primaryCta": "Create visual",
+      "secondaryCta": "Read documentation",
+      "success": "Visual created. Share it with your team.",
+      "error": "We couldn't build that chart. Check your data.",
+      "empty": "No data yet. Upload a file to start."
+    }
+  }
+}

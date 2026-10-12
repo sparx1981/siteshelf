@@ -1,0 +1,176 @@
+{
+  "name": "Safelight Darkroom",
+  "descriptor": "Film darkroom and contact-sheet service",
+  "listing": {
+    "key": "o:gallery-contact-sheet",
+    "title": "Film Contact Sheet",
+    "category": "Gallery"
+  },
+  "colors": {
+    "background": "#17110d",
+    "surface": "#0b0908",
+    "text": "#e0884a",
+    "textMuted": "#efe6da",
+    "primary": "#c8b6ff",
+    "secondary": "#ff7a59",
+    "border": "#4a3c31",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#5a5374"
+  },
+  "colorInventory": [
+    {
+      "hex": "#17110d",
+      "share": 66.8
+    },
+    {
+      "hex": "#222222",
+      "share": 24.7
+    },
+    {
+      "hex": "#cbf3f0",
+      "share": 1.3
+    },
+    {
+      "hex": "#c8b6ff",
+      "share": 1.1
+    },
+    {
+      "hex": "#2ec4b6",
+      "share": 1.0
+    },
+    {
+      "hex": "#6a4c93",
+      "share": 1.0
+    },
+    {
+      "hex": "#d62828",
+      "share": 1.0
+    },
+    {
+      "hex": "#264653",
+      "share": 1.0
+    },
+    {
+      "hex": "#ff7a59",
+      "share": 1.0
+    },
+    {
+      "hex": "#0b132b",
+      "share": 1.0
+    }
+  ],
+  "typography": {
+    "heading": "Instrument Serif",
+    "body": "DM Mono",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Instrument Serif",
+        "stack": "'Instrument Serif', Georgia, serif",
+        "sizePx": 88,
+        "weight": "400",
+        "lineHeight": "83.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Mono",
+        "stack": "'DM Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "1.2px",
+        "textTransform": "uppercase"
+      },
+      {
+        "role": "Button",
+        "family": "DM Mono",
+        "stack": "'DM Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "0.96px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500&family=Instrument+Serif&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 1,
+      "md": 4,
+      "lg": 6,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgb(23, 17, 13) 0px 0px 0px 2px, rgb(255, 255, 255) 0px 0px 0px 4px",
+      "md": "rgb(0, 0, 0) 0px 40px 80px -30px",
+      "lg": "rgb(23, 17, 13) 0px 0px 0px 2px, rgb(255, 255, 255) 0px 0px 0px 4px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        22,
+        28
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      800
+    ],
+    "motion": {
+      "duration": 600,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "aperture",
+    "tile": "none",
+    "wordmarkFont": "Instrument Serif"
+  },
+  "voice": {
+    "personality": [
+      "analogue",
+      "patient",
+      "precise"
+    ],
+    "voice": {
+      "summary": "Writes like a printer under a red lamp: quiet, technical and affectionate toward grain. It speaks in frame numbers and stops, and treats a favourite as a decision worth circling.",
+      "dos": [
+        "Refer to frames, rolls and stops by number",
+        "Use darkroom words like develop, mark and enlarge",
+        "Keep sentences measured and low-key"
+      ],
+      "donts": [
+        "Do not use digital-photo filter language",
+        "Do not hype with words like stunning",
+        "Do not rush"
+      ]
+    },
+    "taglines": [
+      "Circle the frames that matter",
+      "Roll 14, in red pencil",
+      "Grain, patience and a safelight",
+      "Contact sheets, the honest first look",
+      "Develop slowly. Choose well."
+    ],
+    "boilerplate": "Safelight Darkroom develops black and white and colour film, makes proper contact sheets and enlargements, and gives photographers a place to mark their best frames by hand.",
+    "microcopy": {
+      "primaryCta": "Develop colour",
+      "secondaryCta": "Mark mode",
+      "success": "Frame marked. Circled in red.",
+      "error": "That frame won't enlarge. Try another.",
+      "empty": "No marked frames yet."
+    }
+  }
+}

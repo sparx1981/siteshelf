@@ -1,0 +1,170 @@
+{
+  "name": "Plainsight",
+  "descriptor": "Project software with straight answers",
+  "listing": {
+    "key": "o:stack-faq",
+    "title": "Stack FAQ Accordion",
+    "category": "FAQ"
+  },
+  "colors": {
+    "background": "#101312",
+    "surface": "#1e2120",
+    "text": "#c3cdc6",
+    "textMuted": "#e9efe9",
+    "primary": "#b8f36b",
+    "secondary": "#65863b",
+    "border": "#292d2b",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#65863b"
+  },
+  "colorInventory": [
+    {
+      "hex": "#101312",
+      "share": 98.7
+    },
+    {
+      "hex": "#c3cdc6",
+      "share": 0.7
+    },
+    {
+      "hex": "#e9efe9",
+      "share": 0.4
+    },
+    {
+      "hex": "#8d9a92",
+      "share": 0.1
+    },
+    {
+      "hex": "#b8f36b",
+      "share": 0.0
+    },
+    {
+      "hex": "#1e2120",
+      "share": 0.0
+    },
+    {
+      "hex": "#65863b",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Familjen Grotesk",
+    "body": "Geist",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Familjen Grotesk",
+        "stack": "'Familjen Grotesk', system-ui, sans-serif",
+        "sizePx": 72,
+        "weight": "600",
+        "lineHeight": "72px",
+        "letterSpacing": "-2.16px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Geist",
+        "stack": "'Geist', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "400",
+        "lineHeight": "27.2px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Familjen Grotesk",
+        "stack": "'Familjen Grotesk', system-ui, sans-serif",
+        "sizePx": 22,
+        "weight": "500",
+        "lineHeight": "28.6px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Familjen Grotesk",
+        "stack": "'Familjen Grotesk', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "1.82px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Geist:wght@400;500&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "pill": null
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        14,
+        18,
+        20,
+        24,
+        28,
+        40,
+        44,
+        64
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 300,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chat",
+    "tile": "none",
+    "wordmarkFont": "Inter Bold (stand-in for Familjen Grotesk)"
+  },
+  "voice": {
+    "personality": [
+      "frank",
+      "brisk",
+      "modern"
+    ],
+    "voice": {
+      "summary": "Talks like a founder who answers support emails personally: direct, specific and a bit dry. Answers start with yes or no, and the reasoning follows in a sentence or two.",
+      "dos": [
+        "Start answers with yes or no",
+        "Give a number or a date where possible",
+        "Keep each answer under forty words"
+      ],
+      "donts": [
+        "No evasive hedging",
+        "Avoid legal jargon in answers",
+        "Never say it depends without saying on what"
+      ]
+    },
+    "taglines": [
+      "Questions, answered",
+      "The short answer, then the reason",
+      "Straight answers, no runaround",
+      "Everything you'd ask us, covered",
+      "Ask once, get a clear reply"
+    ],
+    "boilerplate": "Plainsight is project software for small teams, with transparent plans, exportable data and a support team that replies within one working day.",
+    "microcopy": {
+      "primaryCta": "Search questions",
+      "secondaryCta": "Email the team",
+      "success": "Thanks. We'll reply within a working day.",
+      "error": "Search failed. Please try again.",
+      "empty": "No questions match that. Ask us directly."
+    }
+  }
+}

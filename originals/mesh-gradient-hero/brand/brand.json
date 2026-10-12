@@ -1,0 +1,184 @@
+{
+  "name": "Halo",
+  "descriptor": "Calm workspace for tasks, docs and chat",
+  "listing": {
+    "key": "o:mesh-gradient-hero",
+    "title": "Mesh Gradient Hero",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#fdf7f2",
+    "surface": "#ffb48a",
+    "text": "#1d1530",
+    "textMuted": "#3c3350",
+    "primary": "#1d1530",
+    "secondary": "#ffb48a",
+    "border": "#ffffff",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#ffb48a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#fdf7f2",
+      "share": 42.4
+    },
+    {
+      "hex": "#ffb48a",
+      "share": 14.4
+    },
+    {
+      "hex": "#a98bff",
+      "share": 13.1
+    },
+    {
+      "hex": "#ff7aa8",
+      "share": 10.8
+    },
+    {
+      "hex": "#7cc4ff",
+      "share": 9.8
+    },
+    {
+      "hex": "#8be8c4",
+      "share": 8.8
+    },
+    {
+      "hex": "#1d1530",
+      "share": 0.6
+    },
+    {
+      "hex": "#3c3350",
+      "share": 0.1
+    },
+    {
+      "hex": "#4a4060",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Instrument Serif",
+    "body": "DM Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Instrument Serif",
+        "stack": "'Instrument Serif', Georgia, serif",
+        "sizePx": 128,
+        "weight": "400",
+        "lineHeight": "121.6px",
+        "letterSpacing": "-2.56px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "400",
+        "lineHeight": "30px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "DM Sans",
+        "stack": "'DM Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "22.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 20,
+      "md": 50,
+      "lg": 50,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(80, 40, 140, 0.12) 0px 10px 40px 0px",
+      "md": "rgba(80, 40, 140, 0.14) 0px 18px 44px 0px",
+      "lg": "rgba(80, 40, 140, 0.12) 0px 10px 40px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        16,
+        22,
+        24,
+        32
+      ]
+    },
+    "container": 1152,
+    "breakpoints": [
+      600,
+      900,
+      901
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "aperture",
+    "tile": "squircle",
+    "wordmarkFont": "Instrument Serif"
+  },
+  "voice": {
+    "personality": [
+      "soft",
+      "luminous",
+      "assured"
+    ],
+    "voice": {
+      "summary": "Halo sounds like a quietly confident product designer introducing a tool they love. Its sentences are airy, warm and light on feature lists, and it favours feeling over specification.",
+      "dos": [
+        "Describe how the product feels before what it does",
+        "Use light imagery sparingly: glow, ease, air",
+        "Keep sentences under eighteen words"
+      ],
+      "donts": [
+        "Do not list integrations in the hero",
+        "Do not use 'supercharge' or 'unleash'",
+        "Do not shout the call to action"
+      ]
+    },
+    "taglines": [
+      "Software that feels like light",
+      "One calm place for the team",
+      "Tasks, docs and talk, together",
+      "Work that is a pleasure to open",
+      "Quiet speed for busy teams"
+    ],
+    "boilerplate": "Halo brings a team's tasks, documents and conversations into one calm, fast workspace that people actually enjoy opening.",
+    "microcopy": {
+      "primaryCta": "Join the waitlist",
+      "secondaryCta": "See pricing",
+      "success": "You are on the list. We will email you when Halo opens.",
+      "error": "That email does not look right. Check it and try again.",
+      "empty": "Nothing here yet. Your first task will glow here."
+    }
+  }
+}

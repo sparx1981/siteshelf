@@ -1,0 +1,175 @@
+{
+  "name": "Stitch & Solve",
+  "descriptor": "Craft puzzle studio for picture logic",
+  "listing": {
+    "key": "o:game-nonogram",
+    "title": "Nonogram Puzzle",
+    "category": "Games"
+  },
+  "colors": {
+    "background": "#e9dcc4",
+    "surface": "#f6ecd6",
+    "text": "#2b2218",
+    "textMuted": "#8a4b1f",
+    "primary": "#d9453a",
+    "secondary": "#2b2218",
+    "border": "#2b2218",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#2b2218"
+  },
+  "colorInventory": [
+    {
+      "hex": "#e9dcc4",
+      "share": 73.2
+    },
+    {
+      "hex": "#f6ecd6",
+      "share": 12.7
+    },
+    {
+      "hex": "#8a6a3a",
+      "share": 4.2
+    },
+    {
+      "hex": "#d9a864",
+      "share": 2.8
+    },
+    {
+      "hex": "#b98a52",
+      "share": 2.8
+    },
+    {
+      "hex": "#000000",
+      "share": 2.1
+    },
+    {
+      "hex": "#ffffff",
+      "share": 1.0
+    },
+    {
+      "hex": "#d9453a",
+      "share": 0.8
+    },
+    {
+      "hex": "#2b2218",
+      "share": 0.2
+    },
+    {
+      "hex": "#9aa2aa",
+      "share": 0.2
+    }
+  ],
+  "typography": {
+    "heading": "Young Serif",
+    "body": "Figtree",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Young Serif",
+        "stack": "'Young Serif', Georgia, serif",
+        "sizePx": 50,
+        "weight": "400",
+        "lineHeight": "50px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Figtree",
+        "stack": "'Figtree', system-ui, sans-serif",
+        "sizePx": 12,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "1.92px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Figtree:wght@500;700&family=Young+Serif&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 10,
+      "lg": 16,
+      "pill": null
+    },
+    "shadow": {
+      "sm": "rgba(0, 0, 0, 0.12) 0px 0px 0px 3px inset, rgba(120, 80, 30, 0.22) 0px 0px 30px 0px inset",
+      "md": "rgba(60, 40, 10, 0.2) 0px 8px 20px 0px",
+      "lg": "rgba(60, 40, 10, 0.45) 0px 20px 40px 0px, rgba(255, 255, 255, 0.12) 0px 0px 0px 4px inset, rgba(0, 0, 0, 0.25) 0px -6px 14px 0px inset"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        34
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "grid",
+    "tile": "squircle",
+    "wordmarkFont": "Young Serif"
+  },
+  "voice": {
+    "personality": [
+      "patient",
+      "crafty",
+      "gentle"
+    ],
+    "voice": {
+      "summary": "Stitch & Solve talks like a craft-club host: warm, unhurried and full of thread and needle talk. It treats every puzzle as a small piece of embroidery, and a mistake as a thread to pull out.",
+      "dos": [
+        "Use sewing words: stitch, thread, hoop, pattern",
+        "Offer hints as a quiet nudge, never an answer",
+        "Celebrate a solve with a quiet flourish"
+      ],
+      "donts": [
+        "Do not use arcade language like score or combo",
+        "Avoid timers and pressure",
+        "Never mock a wrong cell"
+      ]
+    },
+    "taglines": [
+      "Fill the grid, reveal the picture",
+      "One stitch at a time",
+      "Logic you can hang on a wall",
+      "Pull the thread, solve the puzzle",
+      "Puzzles worked in cross-stitch"
+    ],
+    "boilerplate": "Stitch & Solve is a craft-puzzle studio making picture-logic nonograms that finish as coloured cross-stitch designs, from a simple heart to a house.",
+    "microcopy": {
+      "primaryCta": "Check",
+      "secondaryCta": "Hint",
+      "success": "Solved. Your stitching is complete.",
+      "error": "That row does not match its clue yet.",
+      "empty": "The hoop is empty. Pick a picture to begin."
+    }
+  }
+}

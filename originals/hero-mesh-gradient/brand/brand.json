@@ -1,0 +1,182 @@
+{
+  "name": "Prismly",
+  "descriptor": "Living design systems for whole teams",
+  "listing": {
+    "key": "o:hero-mesh-gradient",
+    "title": "Mesh Gradient Hero",
+    "category": "Hero Section"
+  },
+  "colors": {
+    "background": "#0b0b18",
+    "surface": "#000000",
+    "text": "#ffffff",
+    "textMuted": "#aaaaae",
+    "primary": "#7c4dff",
+    "secondary": "#00d4c0",
+    "border": "#ffffff",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#00d4c0"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0b0b18",
+      "share": 97.4
+    },
+    {
+      "hex": "#ffffff",
+      "share": 1.3
+    },
+    {
+      "hex": "#000000",
+      "share": 0.9
+    },
+    {
+      "hex": "#ffd6e0",
+      "share": 0.1
+    },
+    {
+      "hex": "#d6f0ff",
+      "share": 0.1
+    },
+    {
+      "hex": "#e0ffd6",
+      "share": 0.1
+    },
+    {
+      "hex": "#fff3c4",
+      "share": 0.1
+    },
+    {
+      "hex": "#7c4dff",
+      "share": 0.0
+    },
+    {
+      "hex": "#00d4c0",
+      "share": 0.0
+    },
+    {
+      "hex": "#ff8a3d",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Bricolage Grotesque",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Bricolage Grotesque",
+        "stack": "'Bricolage Grotesque', system-ui, sans-serif",
+        "sizePx": 104,
+        "weight": "800",
+        "lineHeight": "101.92px",
+        "letterSpacing": "-3.12px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 19,
+        "weight": "400",
+        "lineHeight": "29.45px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "500",
+        "lineHeight": "26.35px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Inter:wght@400;500;600&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 6,
+      "md": 6,
+      "lg": 6,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        26
+      ]
+    },
+    "container": 920,
+    "breakpoints": [
+      640
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "diamond",
+    "tile": "circle",
+    "wordmarkFont": "Bricolage Grotesque"
+  },
+  "voice": {
+    "personality": [
+      "vivid",
+      "confident",
+      "design-literate"
+    ],
+    "voice": {
+      "summary": "Prismly sounds like a design lead who loves the craft and respects the engineers: confident, colourful and specific about tokens and components. Copy is bold in headline and exact in detail.",
+      "dos": [
+        "Name the real thing, such as tokens, components or docs",
+        "Keep headlines short and punchy",
+        "Use one vivid verb per sentence"
+      ],
+      "donts": [
+        "Use 'seamless' or 'effortless' as filler",
+        "Over-explain colour theory",
+        "Talk about design in abstractions"
+      ]
+    },
+    "taglines": [
+      "Design systems that feel alive",
+      "Tokens, components and docs as one",
+      "A system your team actually uses",
+      "One source for every pixel",
+      "Make the system yours"
+    ],
+    "boilerplate": "Prismly turns design tokens, components and documentation into one living system that designers and engineers can all use, with themes that adapt to every product.",
+    "microcopy": {
+      "primaryCta": "Get started",
+      "secondaryCta": "See the demo",
+      "success": "Palette applied across your system.",
+      "error": "Could not sync tokens. Check your file and retry.",
+      "empty": "No components yet. Import your first."
+    }
+  }
+}

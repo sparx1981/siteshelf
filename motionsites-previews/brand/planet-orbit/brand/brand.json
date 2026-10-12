@@ -1,0 +1,173 @@
+{
+  "name": "APEX",
+  "descriptor": "Revenue growth platform for sales teams",
+  "listing": {
+    "key": "m:planet-orbit",
+    "title": "Planet Orbit",
+    "category": "SaaS"
+  },
+  "colors": {
+    "background": "#05010e",
+    "surface": "#88fc8a",
+    "text": "#f3f3f1",
+    "textMuted": "#d4d2ce",
+    "primary": "#88fc8a",
+    "secondary": "#4b8b4c",
+    "border": "#313135",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#4b8b4c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#05010e",
+      "share": 99.4
+    },
+    {
+      "hex": "#88fc8a",
+      "share": 0.5
+    },
+    {
+      "hex": "#f3f3f1",
+      "share": 0.1
+    },
+    {
+      "hex": "#d4d2ce",
+      "share": 0.1
+    },
+    {
+      "hex": "#27272a",
+      "share": 0.0
+    },
+    {
+      "hex": "#4b8b4c",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Geist",
+    "body": "Geist",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Geist",
+        "stack": "'Geist', system-ui, sans-serif",
+        "sizePx": 72,
+        "weight": "600",
+        "lineHeight": "75.6px",
+        "letterSpacing": "-1.8px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Geist",
+        "stack": "'Geist', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "32px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Geist",
+        "stack": "'Geist', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Geist",
+        "stack": "'Geist', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap",
+    "headingWeight": 600
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 24,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset",
+      "md": "rgba(136, 252, 138, 0.25) 0px 0px 28px 0px",
+      "lg": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        48
+      ]
+    },
+    "container": 1024,
+    "breakpoints": [
+      640,
+      700,
+      768,
+      1024
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "rocket",
+    "tile": "squircle",
+    "wordmarkFont": "Inter Bold (stand-in for Geist)"
+  },
+  "voice": {
+    "personality": [
+      "driven",
+      "sharp",
+      "practical"
+    ],
+    "voice": {
+      "summary": "APEX talks like a sales operator who respects time: short, active and focused on pipeline. It names workflows and lead stages directly.",
+      "dos": [
+        "Lead with the growth outcome",
+        "Name workflows, funnels and leads plainly",
+        "Use active verbs: drive, track, close"
+      ],
+      "donts": [
+        "Do not use buzzwords like synergy",
+        "Avoid vague claims of growth",
+        "Never promise guaranteed revenue"
+      ]
+    },
+    "taglines": [
+      "Accelerate your revenue growth now",
+      "Drive the funnel forward",
+      "Leads in, revenue out",
+      "Workflows that close deals",
+      "Grow faster, with fewer tools"
+    ],
+    "boilerplate": "APEX is a revenue growth platform that helps sales teams drive their funnel with clever workflows, analytics and seamless lead management.",
+    "microcopy": {
+      "primaryCta": "Start Free Right Now",
+      "secondaryCta": "Schedule a Consult",
+      "success": "You are signed up. Welcome aboard.",
+      "error": "Could not sign you up. Please try again.",
+      "empty": "No leads yet. Import some to begin."
+    }
+  }
+}

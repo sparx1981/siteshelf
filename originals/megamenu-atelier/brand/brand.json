@@ -1,0 +1,166 @@
+{
+  "name": "Atelier",
+  "descriptor": "Small-run furniture, textiles and everyday objects",
+  "listing": {
+    "key": "o:megamenu-atelier",
+    "title": "Atelier Mega Menu Navigation",
+    "category": "Navigation"
+  },
+  "colors": {
+    "background": "#f7f5f0",
+    "surface": "#ffffff",
+    "text": "#1d1b19",
+    "textMuted": "#b4452b",
+    "primary": "#b4452b",
+    "secondary": "#d6998a",
+    "border": "#d8d6d2",
+    "onPrimary": "#ffffff",
+    "accentOnTile": "#d6998a"
+  },
+  "colorInventory": [
+    {
+      "hex": "#f7f5f0",
+      "share": 98.2
+    },
+    {
+      "hex": "#1d1b19",
+      "share": 1.6
+    },
+    {
+      "hex": "#77726b",
+      "share": 0.2
+    },
+    {
+      "hex": "#b4452b",
+      "share": 0.0
+    },
+    {
+      "hex": "#d6998a",
+      "share": 0.0
+    },
+    {
+      "hex": "#d8d6d2",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Newsreader",
+    "body": "Public Sans",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 86.4,
+        "weight": "400",
+        "lineHeight": "86.4px",
+        "letterSpacing": "-1.728px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Public Sans",
+        "stack": "'Public Sans', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Public Sans",
+        "stack": "'Public Sans', system-ui, sans-serif",
+        "sizePx": 15,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Newsreader",
+        "stack": "'Newsreader', Georgia, serif",
+        "sizePx": 26,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap",
+    "headingWeight": 400
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 10,
+      "lg": 10,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        4,
+        6,
+        8,
+        14,
+        16,
+        20,
+        28,
+        30,
+        40
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "home",
+    "tile": "circle",
+    "wordmarkFont": "Newsreader"
+  },
+  "voice": {
+    "personality": [
+      "considered",
+      "tactile",
+      "unhurried"
+    ],
+    "voice": {
+      "summary": "A maker describing their own bench: calm, specific and generous with materials and makers' names. Sentences are slow, with room for a good adjective.",
+      "dos": [
+        "Name materials and makers",
+        "Write product copy in plain, quiet sentences",
+        "Mention small runs and finishes honestly"
+      ],
+      "donts": [
+        "Mass-market words like bestseller",
+        "Urgency banners and countdowns",
+        "Vague luxury language"
+      ]
+    },
+    "taglines": [
+      "Objects for slower rooms",
+      "Made in small runs, by name",
+      "Furniture that earns its place",
+      "Hand-finished, never rushed",
+      "Things worth keeping"
+    ],
+    "boilerplate": "Atelier is a shop for hand-finished furniture, textiles and everyday objects, made in small runs by studios it knows by name.",
+    "microcopy": {
+      "primaryCta": "Shop the collection",
+      "secondaryCta": "Visit the studio",
+      "success": "Added to your bag",
+      "error": "That item sold out. See similar pieces",
+      "empty": "Your bag is empty"
+    }
+  }
+}

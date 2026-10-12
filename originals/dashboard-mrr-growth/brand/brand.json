@@ -1,0 +1,186 @@
+{
+  "name": "ledgerly",
+  "descriptor": "Recurring revenue analytics for SaaS teams",
+  "listing": {
+    "key": "o:dashboard-mrr-growth",
+    "title": "Recurring Revenue Dashboard",
+    "category": "Dashboard"
+  },
+  "colors": {
+    "background": "#07120f",
+    "surface": "#0d1d18",
+    "text": "#e7f5ee",
+    "textMuted": "#8fb1a2",
+    "primary": "#3ee0a0",
+    "secondary": "#9d8cff",
+    "border": "#1b3a30",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#20644c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#07120f",
+      "share": 93.9
+    },
+    {
+      "hex": "#0e8f5a",
+      "share": 1.6
+    },
+    {
+      "hex": "#000000",
+      "share": 1.3
+    },
+    {
+      "hex": "#9d8cff",
+      "share": 0.9
+    },
+    {
+      "hex": "#1cb574",
+      "share": 0.5
+    },
+    {
+      "hex": "#3ee0a0",
+      "share": 0.5
+    },
+    {
+      "hex": "#8fb1a2",
+      "share": 0.3
+    },
+    {
+      "hex": "#e7f5ee",
+      "share": 0.3
+    },
+    {
+      "hex": "#a4e07a",
+      "share": 0.3
+    },
+    {
+      "hex": "#bfdb71",
+      "share": 0.3
+    }
+  ],
+  "typography": {
+    "heading": "Manrope",
+    "body": "DM Mono",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 32,
+        "weight": "800",
+        "lineHeight": "35.2px",
+        "letterSpacing": "-0.64px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Heading / H2",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 17,
+        "weight": "800",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 13,
+        "weight": "700",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Manrope",
+        "stack": "'Manrope', system-ui, sans-serif",
+        "sizePx": 11.7,
+        "weight": "600",
+        "lineHeight": "17.5px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap",
+    "headingWeight": 800
+  },
+  "tokens": {
+    "radius": {
+      "sm": 8,
+      "md": 12,
+      "lg": 16,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(62, 224, 160, 0.6) 0px 0px 14px 0px",
+      "md": "rgba(62, 224, 160, 0.6) 0px 0px 14px 0px",
+      "lg": "rgba(62, 224, 160, 0.6) 0px 0px 14px 0px"
+    },
+    "spacing": {
+      "base": 2,
+      "steps": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        10,
+        12,
+        14,
+        16
+      ]
+    },
+    "container": 1260,
+    "breakpoints": [
+      900
+    ],
+    "motion": {
+      "duration": 150,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "bars",
+    "tile": "squircle",
+    "wordmarkFont": "Manrope"
+  },
+  "voice": {
+    "personality": [
+      "analytical",
+      "candid",
+      "calm"
+    ],
+    "voice": {
+      "summary": "ledgerly speaks like a trusted finance lead presenting at a board meeting: numbers first, adjectives last. It reports good and bad movements with the same level tone and always says what moved and by how much.",
+      "dos": [
+        "Report changes as exact amounts and percentages",
+        "Name the period, such as Q3 2026",
+        "Explain what a metric means once, in one clause"
+      ],
+      "donts": [
+        "Do not dress up churn as 'opportunity'",
+        "Avoid unlabelled charts or unexplained acronyms",
+        "Never round a number that is later reconciled"
+      ]
+    },
+    "taglines": [
+      "Revenue health, at a glance",
+      "See where every pound moved",
+      "MRR without the mystery",
+      "Know your numbers cold",
+      "Growth you can audit"
+    ],
+    "boilerplate": "ledgerly is a revenue analytics tool for subscription businesses, showing monthly recurring revenue movement, cohort retention and quarterly trends in one clear dashboard.",
+    "microcopy": {
+      "primaryCta": "View Q3 report",
+      "secondaryCta": "Export CSV",
+      "success": "Report exported.",
+      "error": "Could not load the cohort data. Try again in a moment.",
+      "empty": "No data for this quarter yet."
+    }
+  }
+}

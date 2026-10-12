@@ -1,0 +1,161 @@
+{
+  "name": "Synapse",
+  "descriptor": "Automated testing and deployment platform",
+  "listing": {
+    "key": "m:synapse-dark-hero",
+    "title": "Synapse Dark Hero",
+    "category": "SaaS"
+  },
+  "colors": {
+    "background": "#000000",
+    "surface": "#ffffff",
+    "text": "#ffffff",
+    "textMuted": "#a6a6a6",
+    "primary": "#ffffff",
+    "secondary": "#8c8c8c",
+    "border": "#ffffff",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#8c8c8c"
+  },
+  "colorInventory": [
+    {
+      "hex": "#000000",
+      "share": 99.6
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.3
+    },
+    {
+      "hex": "#c9ccd3",
+      "share": 0.1
+    },
+    {
+      "hex": "#111111",
+      "share": 0.0
+    },
+    {
+      "hex": "#a6a6a6",
+      "share": 0.0
+    },
+    {
+      "hex": "#8c8c8c",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 80,
+        "weight": "500",
+        "lineHeight": "81.6px",
+        "letterSpacing": "-3.6px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Navigation",
+        "family": "Inter",
+        "stack": "'Inter', system-ui, sans-serif",
+        "sizePx": 20,
+        "weight": "500",
+        "lineHeight": "normal",
+        "letterSpacing": "-0.6px",
+        "textTransform": "none"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap",
+    "headingWeight": 500
+  },
+  "tokens": {
+    "radius": {
+      "sm": 0,
+      "md": 0,
+      "lg": 0,
+      "pill": 9999
+    },
+    "shadow": {
+      "sm": "rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.12) 0px 4px 20px 0px",
+      "md": "rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.12) 0px 4px 20px 0px",
+      "lg": "rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.12) 0px 4px 20px 0px"
+    },
+    "spacing": {
+      "base": 4,
+      "steps": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        24,
+        26
+      ]
+    },
+    "container": 1100,
+    "breakpoints": [
+      640,
+      900
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "chip",
+    "tile": "squircle",
+    "wordmarkFont": "Inter"
+  },
+  "voice": {
+    "personality": [
+      "sharp",
+      "minimal",
+      "assured"
+    ],
+    "voice": {
+      "summary": "Synapse speaks in terse, engineer-friendly lines that put speed and confidence first. It states what is automated and how fast.",
+      "dos": [
+        "Name what is automated: tests, builds, deploys",
+        "Quote time saved in minutes",
+        "Keep sentences under fifteen words"
+      ],
+      "donts": [
+        "Do not use vague innovation talk",
+        "Avoid long feature lists",
+        "Never hide behind buzzwords"
+      ]
+    },
+    "taglines": [
+      "Where innovation meets execution",
+      "Test in minutes, deploy with confidence",
+      "Ship every release faster",
+      "Automated testing, calm deploys",
+      "From idea to release, quickly"
+    ],
+    "boilerplate": "Synapse automates testing and deployment so engineering teams can test ideas in minutes and ship every release faster and with confidence.",
+    "microcopy": {
+      "primaryCta": "Get Started for Free",
+      "secondaryCta": "See how it works",
+      "success": "Pipeline connected.",
+      "error": "Could not connect your repository. Try again.",
+      "empty": "No deployments yet."
+    }
+  }
+}

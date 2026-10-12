@@ -1,0 +1,183 @@
+{
+  "name": "Whirlwork",
+  "descriptor": "Pure-CSS loading animations for interfaces",
+  "listing": {
+    "key": "o:loader-lab",
+    "title": "Loader Lab",
+    "category": "Loaders"
+  },
+  "colors": {
+    "background": "#0f1115",
+    "surface": "#171a21",
+    "text": "#7d8394",
+    "textMuted": "#e8eaf0",
+    "primary": "#5eead4",
+    "secondary": "#818cf8",
+    "border": "#232733",
+    "onPrimary": "#0b0b0f",
+    "accentOnTile": "#2e6962"
+  },
+  "colorInventory": [
+    {
+      "hex": "#0f1115",
+      "share": 98.8
+    },
+    {
+      "hex": "#5eead4",
+      "share": 0.4
+    },
+    {
+      "hex": "#262b38",
+      "share": 0.3
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.2
+    },
+    {
+      "hex": "#7d8394",
+      "share": 0.1
+    },
+    {
+      "hex": "#e8eaf0",
+      "share": 0.1
+    },
+    {
+      "hex": "#343a4b",
+      "share": 0.0
+    },
+    {
+      "hex": "#818cf8",
+      "share": 0.0
+    },
+    {
+      "hex": "#9aa1b5",
+      "share": 0.0
+    },
+    {
+      "hex": "#2e6962",
+      "share": 0.0
+    }
+  ],
+  "typography": {
+    "heading": "Inter Tight",
+    "body": "Inter Tight",
+    "mono": null,
+    "scale": [
+      {
+        "role": "Display / H1",
+        "family": "Inter Tight",
+        "stack": "'Inter Tight', system-ui, sans-serif",
+        "sizePx": 56,
+        "weight": "700",
+        "lineHeight": "58.8px",
+        "letterSpacing": "-1.68px",
+        "textTransform": "none"
+      },
+      {
+        "role": "Body",
+        "family": "Inter Tight",
+        "stack": "'Inter Tight', system-ui, sans-serif",
+        "sizePx": 16,
+        "weight": "500",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Button",
+        "family": "Inter Tight",
+        "stack": "'Inter Tight', system-ui, sans-serif",
+        "sizePx": 14,
+        "weight": "600",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      },
+      {
+        "role": "Caption / eyebrow",
+        "family": "Geist Mono",
+        "stack": "'Geist Mono', ui-monospace, Menlo, monospace",
+        "sizePx": 12,
+        "weight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "0.96px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Geist+Mono:wght@400&display=swap",
+    "headingWeight": 700
+  },
+  "tokens": {
+    "radius": {
+      "sm": 10,
+      "md": 18,
+      "lg": 18,
+      "pill": 9999
+    },
+    "shadow": {},
+    "spacing": {
+      "base": 4,
+      "steps": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        12,
+        16,
+        18,
+        20
+      ]
+    },
+    "container": 1200,
+    "breakpoints": [
+      700,
+      1000
+    ],
+    "motion": {
+      "duration": 200,
+      "easing": "ease"
+    }
+  },
+  "logo": {
+    "motif": "orbit",
+    "tile": "circle",
+    "wordmarkFont": "Inter Bold (stand-in for Inter Tight)"
+  },
+  "voice": {
+    "personality": [
+      "technical",
+      "playful",
+      "tidy"
+    ],
+    "voice": {
+      "summary": "Sounds like a workshop notebook: short captions, exact numbers, and a bit of love for small moving parts. It names each animation by what it does.",
+      "dos": [
+        "Caption each animation in one or two words",
+        "State speeds and durations in numbers",
+        "Use mono-style, lowercase labels"
+      ],
+      "donts": [
+        "No hype about performance",
+        "No emoji",
+        "No claims without a working demo"
+      ]
+    },
+    "taglines": [
+      "Twelve loaders, zero images",
+      "Tweak the speed, freeze them all",
+      "Spin, pulse, wait well",
+      "Loading, done with taste",
+      "Little animations, plainly built"
+    ],
+    "boilerplate": "Whirlwork is a small lab of twelve pure-CSS loading animations, each labelled, adjustable in speed and easy to pause.",
+    "microcopy": {
+      "primaryCta": "Pause all",
+      "secondaryCta": "Copy CSS",
+      "success": "Speed updated",
+      "error": "Could not copy, select the text instead",
+      "empty": "No loaders match that filter"
+    }
+  }
+}
